@@ -33,7 +33,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN2cv3dnn14dnn4_v202405213Net4Impl18setHalideSchedulerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 376
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
   ret void
 }
@@ -50,7 +50,7 @@ define hidden void @_ZN2cv3dnn16getCanonicalSizeERKNS_7MatSizeEPiS4_S4_S4_(ptr n
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !alias.scope !7
   %9 = sext i32 %8 to i64
   %.idx = shl nsw i64 %9, 2
-  %10 = getelementptr inbounds i8, ptr %6, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit, label %11
 
@@ -65,9 +65,9 @@ define hidden void @_ZN2cv3dnn16getCanonicalSizeERKNS_7MatSizeEPiS4_S4_S4_(ptr n
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i: ; preds = %11
   %13 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #14
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %13, ptr nonnull align 4 %.val, i64 %.idx, i1 false)
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %13, ptr %6, align 8
-  %15 = getelementptr inbounds i8, ptr %13, i64 %.idx
+  %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   store ptr %15, ptr %14, align 8
   store ptr %15, ptr %10, align 8
   br label %_ZN2cv3dnn14dnn4_v20240521L5shapeERKNS_7MatSizeE.exit
@@ -106,7 +106,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %17, %18
 define hidden void @_ZN2cv3dnn16getCanonicalSizeERKSt6vectorIiSaIiEEPiS6_S6_S6_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %0, ptr nocapture noundef writeonly %1, ptr nocapture noundef writeonly %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %0, align 8
   %11 = ptrtoint ptr %9 to i64
@@ -152,18 +152,18 @@ define hidden void @_ZN2cv3dnn16getCanonicalSizeERKSt6vectorIiSaIiEEPiS6_S6_S6_(
   %26 = load i32, ptr %10, align 4
   store i32 %26, ptr %4, align 4
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %3, align 4
   br i1 %25, label %30, label %37
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 12
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4
   store i32 %33, ptr %1, align 4
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4
   br label %38
 

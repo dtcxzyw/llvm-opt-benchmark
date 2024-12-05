@@ -105,7 +105,7 @@ define void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$clos
   br i1 %4, label %10, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 3, ptr %9, align 8
   tail call void @"_ZN4core3ptr39drop_in_place$LT$proc_macro2..Ident$GT$17h88725f6f205abb91E"(ptr align 8 %2)
   br label %11

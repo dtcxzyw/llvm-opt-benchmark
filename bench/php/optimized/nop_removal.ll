@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture noundef readnone %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 84
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
   %6 = shl nuw nsw i64 %5, 2
@@ -26,11 +26,11 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 
 12:                                               ; preds = %8, %10
   %13 = phi ptr [ %11, %10 ], [ %9, %8 ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 88
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %3, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds %struct._zend_op, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw %struct._zend_op, ptr %15, i64 %17
   %.not130 = icmp eq i32 %16, 0
   br i1 %.not130, label %.loopexit, label %.lr.ph
 
@@ -39,19 +39,19 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   %.0108122 = phi i32 [ %.1109, %55 ], [ 0, %12 ]
   %.0111121 = phi i32 [ %.1112, %55 ], [ 0, %12 ]
   %.0113120 = phi i32 [ %56, %55 ], [ 0, %12 ]
-  %19 = getelementptr inbounds i8, ptr %.0107123, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %.0107123, i64 28
   %20 = load i8, ptr %19, align 4
   %21 = icmp eq i8 %20, 42
   br i1 %21, label %22, label %40
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds i8, ptr %.0107123, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.0107123, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds i8, ptr %.0107123, i64 %25
   %27 = load ptr, ptr %14, align 8
   %28 = zext i32 %.0113120 to i64
-  %29 = getelementptr inbounds %struct._zend_op, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw %struct._zend_op, ptr %27, i64 %28
   %30 = icmp ugt ptr %26, %29
   br i1 %30, label %.preheader119, label %.thread
 
@@ -70,13 +70,13 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 .thread134:                                       ; preds = %34
   store i8 0, ptr %19, align 4
   %36 = add i32 %.0113120, 1
-  %37 = getelementptr inbounds i32, ptr %13, i64 %28
+  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %28
   store i32 %.0111121, ptr %37, align 4
   br label %44
 
 .thread:                                          ; preds = %34, %22
   %38 = add i32 %.0113120, 1
-  %39 = getelementptr inbounds i32, ptr %13, i64 %28
+  %39 = getelementptr inbounds nuw i32, ptr %13, i64 %28
   store i32 %.0111121, ptr %39, align 4
   br label %47
 
@@ -84,7 +84,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   %.pre = zext i32 %.0113120 to i64
   %41 = icmp eq i8 %20, 0
   %42 = add i32 %.0113120, 1
-  %43 = getelementptr inbounds i32, ptr %13, i64 %.pre
+  %43 = getelementptr inbounds nuw i32, ptr %13, i64 %.pre
   store i32 %.0111121, ptr %43, align 4
   br i1 %41, label %44, label %47
 
@@ -101,7 +101,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
 49:                                               ; preds = %47
   %50 = load ptr, ptr %14, align 8
   %51 = zext i32 %.0108122 to i64
-  %52 = getelementptr inbounds %struct._zend_op, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw %struct._zend_op, ptr %50, i64 %51
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %.0107123, i64 32, i1 false)
   tail call void @zend_optimizer_migrate_jump(ptr noundef %0, ptr noundef %52, ptr noundef nonnull %.0107123) #5
   br label %53
@@ -114,7 +114,7 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   %56 = phi i32 [ %45, %44 ], [ %48, %53 ]
   %.1112 = phi i32 [ %46, %44 ], [ %.0111121, %53 ]
   %.1109 = phi i32 [ %.0108122, %44 ], [ %54, %53 ]
-  %57 = getelementptr inbounds i8, ptr %.0107123, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %.0107123, i64 32
   %58 = icmp ult ptr %57, %18
   br i1 %58, label %.lr.ph, label %._crit_edge
 
@@ -126,62 +126,62 @@ define hidden void @zend_optimizer_nop_removal(ptr noundef %0, ptr nocapture nou
   store i32 %.1109, ptr %3, align 4
   %61 = load ptr, ptr %14, align 8
   %62 = zext i32 %.1109 to i64
-  %63 = getelementptr inbounds %struct._zend_op, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw %struct._zend_op, ptr %61, i64 %62
   %.not131 = icmp eq i32 %.1109, 0
   br i1 %.not131, label %.preheader, label %.lr.ph127
 
 .preheader:                                       ; preds = %.lr.ph127, %60
-  %64 = getelementptr inbounds i8, ptr %0, i64 132
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %65 = load i32, ptr %64, align 4
   %66 = icmp sgt i32 %65, 0
   br i1 %66, label %.lr.ph129, label %.loopexit
 
 .lr.ph129:                                        ; preds = %.preheader
-  %67 = getelementptr inbounds i8, ptr %0, i64 144
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 144
   br label %70
 
 .lr.ph127:                                        ; preds = %60, %.lr.ph127
   %.1125 = phi ptr [ %68, %.lr.ph127 ], [ %61, %60 ]
   call void @zend_optimizer_shift_jump(ptr noundef %0, ptr noundef %.1125, ptr noundef %13) #5
-  %68 = getelementptr inbounds i8, ptr %.1125, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %.1125, i64 32
   %69 = icmp ult ptr %68, %63
   br i1 %69, label %.lr.ph127, label %.preheader
 
 70:                                               ; preds = %.lr.ph129, %100
   %indvars.iv = phi i64 [ 0, %.lr.ph129 ], [ %indvars.iv.next, %100 ]
   %71 = load ptr, ptr %67, align 8
-  %72 = getelementptr inbounds %struct._zend_try_catch_element, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %71, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %13, i64 %74
+  %75 = getelementptr inbounds nuw i32, ptr %13, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = sub i32 %73, %76
   store i32 %77, ptr %72, align 4
   %78 = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds %struct._zend_try_catch_element, ptr %78, i64 %indvars.iv, i32 1
+  %79 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %78, i64 %indvars.iv, i32 1
   %80 = load i32, ptr %79, align 4
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds i32, ptr %13, i64 %81
+  %82 = getelementptr inbounds nuw i32, ptr %13, i64 %81
   %83 = load i32, ptr %82, align 4
   %84 = sub i32 %80, %83
   store i32 %84, ptr %79, align 4
   %85 = load ptr, ptr %67, align 8
-  %86 = getelementptr inbounds %struct._zend_try_catch_element, ptr %85, i64 %indvars.iv, i32 2
+  %86 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %85, i64 %indvars.iv, i32 2
   %87 = load i32, ptr %86, align 4
   %.not117 = icmp eq i32 %87, 0
   br i1 %.not117, label %100, label %88
 
 88:                                               ; preds = %70
   %89 = zext i32 %87 to i64
-  %90 = getelementptr inbounds i32, ptr %13, i64 %89
+  %90 = getelementptr inbounds nuw i32, ptr %13, i64 %89
   %91 = load i32, ptr %90, align 4
   %92 = sub i32 %87, %91
   store i32 %92, ptr %86, align 4
   %93 = load ptr, ptr %67, align 8
-  %94 = getelementptr inbounds %struct._zend_try_catch_element, ptr %93, i64 %indvars.iv, i32 3
+  %94 = getelementptr inbounds nuw %struct._zend_try_catch_element, ptr %93, i64 %indvars.iv, i32 3
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds i32, ptr %13, i64 %96
+  %97 = getelementptr inbounds nuw i32, ptr %13, i64 %96
   %98 = load i32, ptr %97, align 4
   %99 = sub i32 %95, %98
   store i32 %99, ptr %94, align 4

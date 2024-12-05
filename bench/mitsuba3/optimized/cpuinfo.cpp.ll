@@ -27,12 +27,12 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1) #6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %1, i8 0, i64 152, i1 false)
   store i8 2, ptr %1, align 8, !tbaa !3
-  %4 = getelementptr inbounds i8, ptr %1, i64 120
-  %5 = getelementptr inbounds i8, ptr %1, i64 2
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 2
   store i8 1, ptr %5, align 2, !tbaa !14
-  %6 = getelementptr inbounds i8, ptr %1, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i32 1, ptr %6, align 8, !tbaa !15
-  %7 = getelementptr inbounds i8, ptr %1, i64 128
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %8 = tail call { i32, i32, i32, i32 } asm sideeffect "mov %rbx, %rdi\0Acpuid\0Axchg %rdi, %rbx\0A", "={ax},={di},={cx},={dx},{ax},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0, i32 0) #6, !srcloc !16
   %9 = extractvalue { i32, i32, i32, i32 } %8, 0
   %10 = extractvalue { i32, i32, i32, i32 } %8, 1
@@ -74,8 +74,8 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 
 30:                                               ; preds = %29, %25, %21, %17, %13
   %31 = phi i64 [ 4, %29 ], [ 0, %13 ], [ 1, %17 ], [ 2, %21 ], [ 3, %25 ]
-  %32 = getelementptr inbounds i8, ptr %1, i64 36
-  %33 = getelementptr inbounds [5 x %struct.Vendor], ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  %33 = getelementptr inbounds nuw [5 x %struct.Vendor], ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 0, i64 %31
   %34 = load i64, ptr %33, align 4
   store i64 %34, ptr %32, align 4
   %35 = icmp eq i32 %9, 0
@@ -114,11 +114,11 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %57 = and i32 %56, 255
   %58 = add nuw nsw i32 %57, 15
   %59 = select i1 %46, i32 %58, i32 %45
-  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %55, ptr %60, align 8, !tbaa !17
-  %61 = getelementptr inbounds i8, ptr %1, i64 4
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %59, ptr %61, align 4, !tbaa !18
-  %62 = getelementptr inbounds i8, ptr %1, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %63 = lshr i32 %39, 16
   %64 = insertelement <4 x i32> poison, i32 %39, i64 0
   %65 = insertelement <4 x i32> %64, i32 %38, i64 1
@@ -128,7 +128,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   store <4 x i32> %68, ptr %62, align 4, !tbaa !19
   %69 = lshr i32 %39, 5
   %70 = and i32 %69, 2040
-  %71 = getelementptr inbounds i8, ptr %1, i64 28
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 28
   store i32 %70, ptr %71, align 4, !tbaa !20
   %72 = and i32 %40, 1
   %73 = zext nneg i32 %72 to i64
@@ -165,7 +165,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %104 = lshr i32 %40, 26
   %105 = and i32 %104, 1
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds i8, ptr %1, i64 136
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i64 %106, ptr %107, align 8, !tbaa !21
   %108 = extractelement <4 x i32> %81, i64 1
   %109 = and i32 %108, 2097152
@@ -594,7 +594,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 489:                                              ; preds = %482, %465, %461, %181, %30
   %490 = phi i64 [ 0, %30 ], [ %462, %482 ], [ %462, %465 ], [ %462, %461 ], [ %182, %181 ]
   %491 = phi i64 [ 16, %30 ], [ %488, %482 ], [ %spec.select10, %465 ], [ %463, %461 ], [ %149, %181 ]
-  %492 = getelementptr inbounds i8, ptr %1, i64 52
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 52
   br label %493
 
 493:                                              ; preds = %612, %489
@@ -708,13 +708,13 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   br label %612
 
 583:                                              ; preds = %493, %493, %493
-  %584 = getelementptr inbounds i8, ptr %500, i64 4
+  %584 = getelementptr inbounds nuw i8, ptr %500, i64 4
   store i32 %502, ptr %500, align 4, !tbaa !19
-  %585 = getelementptr inbounds i8, ptr %500, i64 8
+  %585 = getelementptr inbounds nuw i8, ptr %500, i64 8
   store i32 %503, ptr %584, align 4, !tbaa !19
-  %586 = getelementptr inbounds i8, ptr %500, i64 12
+  %586 = getelementptr inbounds nuw i8, ptr %500, i64 12
   store i32 %504, ptr %585, align 4, !tbaa !19
-  %587 = getelementptr inbounds i8, ptr %500, i64 16
+  %587 = getelementptr inbounds nuw i8, ptr %500, i64 16
   store i32 %505, ptr %586, align 4, !tbaa !19
   %588 = icmp eq i32 %499, -2147483644
   %589 = select i1 %588, i32 -2147483641, i32 %499
@@ -779,7 +779,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   br i1 %629, label %635, label %630
 
 630:                                              ; preds = %628
-  %631 = getelementptr inbounds i8, ptr %624, i64 1
+  %631 = getelementptr inbounds nuw i8, ptr %624, i64 1
   %632 = load i8, ptr %631, align 1, !tbaa !26
   switch i8 %632, label %633 [
     i8 32, label %635
@@ -787,14 +787,14 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   ]
 
 633:                                              ; preds = %630, %623
-  %634 = getelementptr inbounds i8, ptr %625, i64 1
+  %634 = getelementptr inbounds nuw i8, ptr %625, i64 1
   store i8 %627, ptr %625, align 1, !tbaa !26
   br label %635
 
 635:                                              ; preds = %633, %630, %630, %628
   %636 = phi ptr [ %625, %628 ], [ %625, %630 ], [ %634, %633 ], [ %625, %630 ]
   %637 = phi i8 [ 64, %628 ], [ %626, %630 ], [ %627, %633 ], [ %626, %630 ]
-  %638 = getelementptr inbounds i8, ptr %624, i64 1
+  %638 = getelementptr inbounds nuw i8, ptr %624, i64 1
   br label %623, !llvm.loop !27
 
 639:                                              ; preds = %623
@@ -802,7 +802,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
   %640 = tail call i64 @sysconf(i32 noundef 84) #6
   %641 = tail call i64 @llvm.smax.i64(i64 %640, i64 1)
   %642 = trunc i64 %641 to i32
-  %643 = getelementptr inbounds i8, ptr %1, i64 32
+  %643 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 %642, ptr %643, align 8, !tbaa !28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE, ptr noundef nonnull align 8 dereferenceable(152) %1, i64 152, i1 false), !tbaa.struct !29
   store i1 true, ptr @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE, align 4

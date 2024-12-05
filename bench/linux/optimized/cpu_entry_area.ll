@@ -252,18 +252,18 @@ define internal fastcc void @setup_cpu_entry_area(i32 noundef range(i32 0, 64) %
   %9 = inttoptr i64 %8 to ptr
   %10 = tail call i64 @per_cpu_ptr_to_phys(ptr noundef %9) #4
   tail call void @cea_set_pte(ptr noundef %2, i64 noundef %10, i64 %4)
-  %11 = getelementptr inbounds i8, ptr %2, i64 4096
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 4096
   %12 = load i64, ptr %6, align 8
   %13 = add i64 %12, ptrtoint (ptr @entry_stack_storage to i64)
   %14 = inttoptr i64 %13 to ptr
   %15 = load i64, ptr @__default_kernel_pte_mask, align 8
   %16 = and i64 %15, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %11, ptr noundef %14, i32 noundef 1, i64 %16) #5
-  %17 = getelementptr inbounds i8, ptr %2, i64 8192
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %11, ptr noundef %14, i32 noundef 1, i64 %16) #5
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8192
   %18 = load i64, ptr %6, align 8
   %19 = add i64 %18, ptrtoint (ptr @cpu_tss_rw to i64)
   %20 = inttoptr i64 %19 to ptr
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %17, ptr noundef %20, i32 noundef 5, i64 %4) #5
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %17, ptr noundef %20, i32 noundef 5, i64 %4) #5
   tail call fastcc void @percpu_setup_exception_stacks(i32 noundef %0) #5
   tail call fastcc void @percpu_setup_debug_store(i32 noundef %0) #5
   ret void
@@ -300,29 +300,29 @@ define internal fastcc void @percpu_setup_exception_stacks(i32 noundef range(i32
   %5 = add i64 %4, ptrtoint (ptr @exception_stacks to i64)
   %6 = inttoptr i64 %5 to ptr
   %7 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %8 = getelementptr inbounds i8, ptr %7, i64 28672
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 28672
   %9 = add i64 %4, ptrtoint (ptr @cea_exception_stacks to i64)
   %10 = inttoptr i64 %9 to ptr
   store ptr %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 32768
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32768
   %12 = load i64, ptr @__default_kernel_pte_mask, align 8
   %13 = and i64 %12, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %11, ptr noundef %6, i32 noundef 2, i64 %13) #5
-  %14 = getelementptr inbounds i8, ptr %7, i64 45056
-  %15 = getelementptr inbounds i8, ptr %6, i64 8192
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %11, ptr noundef %6, i32 noundef 2, i64 %13) #5
+  %14 = getelementptr inbounds nuw i8, ptr %7, i64 45056
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 8192
   %16 = load i64, ptr @__default_kernel_pte_mask, align 8
   %17 = and i64 %16, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %14, ptr noundef %15, i32 noundef 2, i64 %17) #5
-  %18 = getelementptr inbounds i8, ptr %7, i64 57344
-  %19 = getelementptr inbounds i8, ptr %6, i64 16384
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 2, i64 %17) #5
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 57344
+  %19 = getelementptr inbounds nuw i8, ptr %6, i64 16384
   %20 = load i64, ptr @__default_kernel_pte_mask, align 8
   %21 = and i64 %20, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %18, ptr noundef %19, i32 noundef 2, i64 %21) #5
-  %22 = getelementptr inbounds i8, ptr %7, i64 69632
-  %23 = getelementptr inbounds i8, ptr %6, i64 24576
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %18, ptr noundef nonnull %19, i32 noundef 2, i64 %21) #5
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 69632
+  %23 = getelementptr inbounds nuw i8, ptr %6, i64 24576
   %24 = load i64, ptr @__default_kernel_pte_mask, align 8
   %25 = and i64 %24, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %22, ptr noundef %23, i32 noundef 2, i64 %25) #5
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %22, ptr noundef nonnull %23, i32 noundef 2, i64 %25) #5
   ret void
 }
 
@@ -334,7 +334,7 @@ define internal fastcc void @percpu_setup_debug_store(i32 noundef range(i32 0, 6
 
 4:                                                ; preds = %1
   %5 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %6 = getelementptr inbounds i8, ptr %5, i64 106496
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 106496
   %7 = zext nneg i32 %0 to i64
   %8 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %7
   %9 = load i64, ptr %8, align 8
@@ -342,9 +342,9 @@ define internal fastcc void @percpu_setup_debug_store(i32 noundef range(i32 0, 6
   %11 = inttoptr i64 %10 to ptr
   %12 = load i64, ptr @__default_kernel_pte_mask, align 8
   %13 = and i64 %12, -9223372036854775453
-  tail call fastcc void @cea_map_percpu_pages(ptr noundef %6, ptr noundef %11, i32 noundef 1, i64 %13) #5
+  tail call fastcc void @cea_map_percpu_pages(ptr noundef nonnull %6, ptr noundef %11, i32 noundef 1, i64 %13) #5
   %14 = tail call ptr @get_cpu_entry_area(i32 noundef %0)
-  %15 = getelementptr inbounds i8, ptr %14, i64 110592
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 110592
   br label %16
 
 16:                                               ; preds = %16, %4

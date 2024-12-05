@@ -118,49 +118,49 @@ define noundef ptr @lv_font_get_bitmap_fmt_txt(ptr nocapture noundef readonly %0
 
 47:                                               ; preds = %.lr.ph178
   %.lobit = ashr i8 %46, 7
-  %48 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %48 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %.lobit, ptr %48, align 1, !tbaa !15
   br label %71
 
 49:                                               ; preds = %.lr.ph178
   %50 = shl i8 %46, 1
   %sext142 = ashr i8 %50, 7
-  %51 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %51 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext142, ptr %51, align 1, !tbaa !15
   br label %71
 
 52:                                               ; preds = %.lr.ph178
   %53 = shl i8 %46, 2
   %sext140 = ashr i8 %53, 7
-  %54 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %54 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext140, ptr %54, align 1, !tbaa !15
   br label %71
 
 55:                                               ; preds = %.lr.ph178
   %56 = shl i8 %46, 3
   %sext138 = ashr i8 %56, 7
-  %57 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %57 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext138, ptr %57, align 1, !tbaa !15
   br label %71
 
 58:                                               ; preds = %.lr.ph178
   %59 = shl i8 %46, 4
   %sext136 = ashr i8 %59, 7
-  %60 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %60 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext136, ptr %60, align 1, !tbaa !15
   br label %71
 
 61:                                               ; preds = %.lr.ph178
   %62 = shl i8 %46, 5
   %sext134 = ashr i8 %62, 7
-  %63 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %63 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext134, ptr %63, align 1, !tbaa !15
   br label %71
 
 64:                                               ; preds = %.lr.ph178
   %65 = shl i8 %46, 6
   %sext132 = ashr i8 %65, 7
-  %66 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %66 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext132, ptr %66, align 1, !tbaa !15
   br label %71
 
@@ -173,7 +173,7 @@ default.unreachable:                              ; preds = %.lr.ph167
 67:                                               ; preds = %.lr.ph178
   %68 = and i8 %46, 1
   %sext = sub nsw i8 0, %68
-  %69 = getelementptr inbounds i8, ptr %.0116183, i64 %indvars.iv200
+  %69 = getelementptr inbounds nuw i8, ptr %.0116183, i64 %indvars.iv200
   store i8 %sext, ptr %69, align 1, !tbaa !15
   %70 = getelementptr inbounds nuw i8, ptr %.1120175, i64 1
   br label %71
@@ -228,9 +228,9 @@ default.unreachable:                              ; preds = %.lr.ph167
 86:                                               ; preds = %.lr.ph167
   %87 = lshr i8 %85, 6
   %88 = zext nneg i8 %87 to i64
-  %89 = getelementptr inbounds [4 x i8], ptr @opa2_table, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %88
   %90 = load i8, ptr %89, align 1, !tbaa !15
-  %91 = getelementptr inbounds i8, ptr %.1117172, i64 %indvars.iv197
+  %91 = getelementptr inbounds nuw i8, ptr %.1117172, i64 %indvars.iv197
   store i8 %90, ptr %91, align 1, !tbaa !15
   br label %113
 
@@ -238,9 +238,9 @@ default.unreachable:                              ; preds = %.lr.ph167
   %93 = lshr i8 %85, 4
   %94 = and i8 %93, 3
   %95 = zext nneg i8 %94 to i64
-  %96 = getelementptr inbounds [4 x i8], ptr @opa2_table, i64 0, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %95
   %97 = load i8, ptr %96, align 1, !tbaa !15
-  %98 = getelementptr inbounds i8, ptr %.1117172, i64 %indvars.iv197
+  %98 = getelementptr inbounds nuw i8, ptr %.1117172, i64 %indvars.iv197
   store i8 %97, ptr %98, align 1, !tbaa !15
   br label %113
 
@@ -248,18 +248,18 @@ default.unreachable:                              ; preds = %.lr.ph167
   %100 = lshr i8 %85, 2
   %101 = and i8 %100, 3
   %102 = zext nneg i8 %101 to i64
-  %103 = getelementptr inbounds [4 x i8], ptr @opa2_table, i64 0, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %102
   %104 = load i8, ptr %103, align 1, !tbaa !15
-  %105 = getelementptr inbounds i8, ptr %.1117172, i64 %indvars.iv197
+  %105 = getelementptr inbounds nuw i8, ptr %.1117172, i64 %indvars.iv197
   store i8 %104, ptr %105, align 1, !tbaa !15
   br label %113
 
 106:                                              ; preds = %.lr.ph167
   %107 = and i8 %85, 3
   %108 = zext nneg i8 %107 to i64
-  %109 = getelementptr inbounds [4 x i8], ptr @opa2_table, i64 0, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr @opa2_table, i64 0, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !15
-  %111 = getelementptr inbounds i8, ptr %.1117172, i64 %indvars.iv197
+  %111 = getelementptr inbounds nuw i8, ptr %.1117172, i64 %indvars.iv197
   store i8 %110, ptr %111, align 1, !tbaa !15
   %112 = getelementptr inbounds nuw i8, ptr %.4123164, i64 1
   br label %113
@@ -311,9 +311,9 @@ default.unreachable:                              ; preds = %.lr.ph167
   %.8.idx = zext nneg i32 %126 to i64
   %.8 = getelementptr inbounds nuw i8, ptr %.7156, i64 %.8.idx
   %.pn = zext nneg i8 %.pn.in to i64
-  %.sink.in = getelementptr inbounds [16 x i8], ptr @opa4_table, i64 0, i64 %.pn
+  %.sink.in = getelementptr inbounds nuw [16 x i8], ptr @opa4_table, i64 0, i64 %.pn
   %.sink = load i8, ptr %.sink.in, align 1, !tbaa !15
-  %130 = getelementptr inbounds i8, ptr %.2118161, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw i8, ptr %.2118161, i64 %indvars.iv
   store i8 %.sink, ptr %130, align 1, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %131 = add nuw nsw i32 %126, 1
@@ -477,7 +477,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr nocapture noundef r
   %82 = add nuw nsw i64 %74, 4294967295
   %83 = add nuw nsw i64 %82, %81
   %84 = and i64 %83, 4294967295
-  %85 = getelementptr inbounds i8, ptr %76, i64 %84
+  %85 = getelementptr inbounds nuw i8, ptr %76, i64 %84
   %86 = load i8, ptr %85, align 1, !tbaa !15
   br label %get_kern_value.exit
 
@@ -722,7 +722,7 @@ define internal i32 @kern_pair_8_compare(ptr nocapture noundef readonly %0, ptr 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !34
-  %11 = getelementptr inbounds i8, ptr %1, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = zext i8 %12 to i32
   %14 = sub i32 %10, %13
@@ -748,7 +748,7 @@ define internal i32 @kern_pair_16_compare(ptr nocapture noundef readonly %0, ptr
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !34
-  %11 = getelementptr inbounds i8, ptr %1, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %12 = load i16, ptr %11, align 2, !tbaa !58
   %13 = zext i16 %12 to i32
   %14 = sub i32 %10, %13

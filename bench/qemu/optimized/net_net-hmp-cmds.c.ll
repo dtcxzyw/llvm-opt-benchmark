@@ -30,7 +30,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %for.inc
   %nc.017 = phi ptr [ %nc.0, %for.inc ], [ %nc.015, %entry ]
-  %peer1 = getelementptr inbounds i8, ptr %nc.017, i64 32
+  %peer1 = getelementptr inbounds nuw i8, ptr %nc.017, i64 32
   %0 = load ptr, ptr %peer1, align 8
   %1 = load ptr, ptr %nc.017, align 8
   %2 = load i32, ptr %1, align 8
@@ -56,7 +56,7 @@ if.then9:                                         ; preds = %if.end6
   br label %for.inc
 
 for.inc:                                          ; preds = %if.end, %if.end6, %if.then9, %for.body
-  %next = getelementptr inbounds i8, ptr %nc.017, i64 16
+  %next = getelementptr inbounds nuw i8, ptr %nc.017, i64 16
   %nc.0 = load ptr, ptr %next, align 8
   %tobool.not = icmp eq ptr %nc.0, null
   br i1 %tobool.not, label %for.end, label %for.body, !llvm.loop !5
@@ -101,17 +101,17 @@ entry:
   %call1 = tail call ptr @qdict_get_try_str(ptr noundef %qdict, ptr noundef nonnull @.str.4) #4
   %call2 = tail call ptr @migrate_announce_params() #4
   %call3 = tail call ptr @qapi_clone(ptr noundef %call2, ptr noundef nonnull @visit_type_AnnounceParameters) #4
-  %interfaces = getelementptr inbounds i8, ptr %call3, i64 40
+  %interfaces = getelementptr inbounds nuw i8, ptr %call3, i64 40
   %0 = load ptr, ptr %interfaces, align 8
   tail call void @qapi_free_strList(ptr noundef %0) #4
   %call4 = tail call ptr @hmp_split_at_comma(ptr noundef %call) #4
   store ptr %call4, ptr %interfaces, align 8
   %cmp = icmp ne ptr %call4, null
-  %has_interfaces = getelementptr inbounds i8, ptr %call3, i64 32
+  %has_interfaces = getelementptr inbounds nuw i8, ptr %call3, i64 32
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %has_interfaces, align 8
   %call7 = tail call noalias ptr @g_strdup(ptr noundef %call1) #4
-  %id8 = getelementptr inbounds i8, ptr %call3, i64 48
+  %id8 = getelementptr inbounds nuw i8, ptr %call3, i64 48
   store ptr %call7, ptr %id8, align 8
   tail call void @qmp_announce_self(ptr noundef %call3, ptr noundef null) #4
   tail call void @qapi_free_AnnounceParameters(ptr noundef %call3) #4
@@ -151,7 +151,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %.not.i, label %entry.tail.i, label %is_help_option.exit
 
 entry.tail.i:                                     ; preds = %land.lhs.true
-  %1 = getelementptr inbounds i8, ptr %call, i64 1
+  %1 = getelementptr inbounds nuw i8, ptr %call, i64 1
   %2 = load i8, ptr %1, align 1
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %if.then, label %is_help_option.exit
@@ -275,7 +275,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %name = getelementptr inbounds i8, ptr %1, i64 56
+  %name = getelementptr inbounds nuw i8, ptr %1, i64 56
   %2 = load ptr, ptr %name, align 8
   call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %2) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -317,13 +317,13 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %arrayidx = getelementptr [1024 x ptr], ptr %ncs, i64 0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
-  %is_netdev = getelementptr inbounds i8, ptr %1, i64 352
+  %is_netdev = getelementptr inbounds nuw i8, ptr %1, i64 352
   %2 = load i8, ptr %is_netdev, align 8
   %tobool = trunc i8 %2 to i1
   br i1 %tobool, label %if.then6, label %for.inc
 
 if.then6:                                         ; preds = %for.body
-  %name = getelementptr inbounds i8, ptr %1, i64 56
+  %name = getelementptr inbounds nuw i8, ptr %1, i64 56
   %3 = load ptr, ptr %name, align 8
   call void @readline_add_completion_of(ptr noundef %rs, ptr noundef %str, ptr noundef %3) #4
   br label %for.inc

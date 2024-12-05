@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define void @Java_java_lang_ClassLoader_registerNatives(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 1720
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 1720
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 %5(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @methods, i32 noundef 1) #4
   ret void
@@ -49,11 +49,11 @@ define ptr @Java_java_lang_ClassLoader_defineClass1(ptr noundef %0, ptr nocaptur
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 1600
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 1600
   %25 = load ptr, ptr %24, align 8
   tail call void %25(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull %19) #4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 120
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 120
   %28 = load ptr, ptr %27, align 8
   %29 = tail call ptr %28(ptr noundef nonnull %0) #4
   %.not = icmp eq ptr %29, null
@@ -65,11 +65,11 @@ define ptr @Java_java_lang_ClassLoader_defineClass1(ptr noundef %0, ptr nocaptur
 
 31:                                               ; preds = %30
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 1344
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 1344
   %34 = load ptr, ptr %33, align 8
   %35 = tail call i32 %34(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1312
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1312
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 %38(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
   %.not.i = icmp slt i32 %35, 128
@@ -89,7 +89,7 @@ getUTF.exit.thread:                               ; preds = %40
 45:                                               ; preds = %40, %31
   %.018.i = phi ptr [ %43, %40 ], [ %10, %31 ]
   %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 1768
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 1768
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %39, ptr noundef nonnull %.018.i) #4
   call void @fixClassname(ptr noundef nonnull %.018.i) #4
@@ -102,11 +102,11 @@ getUTF.exit.thread:                               ; preds = %40
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr %0, align 8
-  %52 = getelementptr inbounds i8, ptr %51, i64 1344
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1344
   %53 = load ptr, ptr %52, align 8
   %54 = call i32 %53(ptr noundef nonnull %0, ptr noundef nonnull %8) #4
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 1312
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 1312
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef nonnull %0, ptr noundef nonnull %8) #4
   %.not.i56 = icmp slt i32 %54, 1024
@@ -126,7 +126,7 @@ getUTF.exit59.thread:                             ; preds = %59
 getUTF.exit59:                                    ; preds = %50, %59
   %.018.i57 = phi ptr [ %62, %59 ], [ %11, %50 ]
   %64 = load ptr, ptr %0, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 1768
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 1768
   %66 = load ptr, ptr %65, align 8
   call void %66(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %58, ptr noundef nonnull %.018.i57) #4
   br label %67
@@ -185,7 +185,7 @@ define ptr @Java_java_lang_ClassLoader_defineClass2(ptr noundef %0, ptr nocaptur
   %10 = alloca [128 x i8], align 16
   %11 = alloca [1024 x i8], align 16
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %12, i64 1840
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 1840
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr %14(ptr noundef nonnull %0, ptr noundef %4) #4
   %16 = icmp eq ptr %15, null
@@ -203,11 +203,11 @@ define ptr @Java_java_lang_ClassLoader_defineClass2(ptr noundef %0, ptr nocaptur
 
 21:                                               ; preds = %18
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 1344
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 1344
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 %24(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
   %26 = load ptr, ptr %0, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 1312
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1312
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %0, ptr noundef nonnull %3) #4
   %.not.i = icmp slt i32 %25, 128
@@ -227,7 +227,7 @@ getUTF.exit.thread:                               ; preds = %30
 35:                                               ; preds = %30, %21
   %.018.i = phi ptr [ %33, %30 ], [ %10, %21 ]
   %36 = load ptr, ptr %0, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 1768
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1768
   %38 = load ptr, ptr %37, align 8
   call void %38(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 0, i32 noundef %29, ptr noundef nonnull %.018.i) #4
   call void @fixClassname(ptr noundef nonnull %.018.i) #4
@@ -240,11 +240,11 @@ getUTF.exit.thread:                               ; preds = %30
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 1344
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 1344
   %43 = load ptr, ptr %42, align 8
   %44 = call i32 %43(ptr noundef nonnull %0, ptr noundef nonnull %8) #4
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 1312
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 1312
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 %47(ptr noundef nonnull %0, ptr noundef nonnull %8) #4
   %.not.i45 = icmp slt i32 %44, 1024
@@ -264,7 +264,7 @@ getUTF.exit48.thread:                             ; preds = %49
 getUTF.exit48:                                    ; preds = %40, %49
   %.018.i46 = phi ptr [ %52, %49 ], [ %11, %40 ]
   %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 1768
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 1768
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull %0, ptr noundef nonnull %8, i32 noundef 0, i32 noundef %48, ptr noundef nonnull %.018.i46) #4
   br label %57
@@ -327,11 +327,11 @@ define ptr @Java_java_lang_ClassLoader_defineClass0(ptr noundef %0, ptr nocaptur
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 1600
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 1600
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef nonnull %5, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %21) #4
   %28 = load ptr, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 120
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr %30(ptr noundef nonnull %0) #4
   %.not = icmp eq ptr %31, null
@@ -343,11 +343,11 @@ define ptr @Java_java_lang_ClassLoader_defineClass0(ptr noundef %0, ptr nocaptur
 
 33:                                               ; preds = %32
   %34 = load ptr, ptr %0, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 1344
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1344
   %36 = load ptr, ptr %35, align 8
   %37 = tail call i32 %36(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 1312
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1312
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i32 %40(ptr noundef nonnull %0, ptr noundef nonnull %4) #4
   %.not.i = icmp slt i32 %37, 128
@@ -367,7 +367,7 @@ getUTF.exit.thread:                               ; preds = %42
 47:                                               ; preds = %42, %33
   %.018.i = phi ptr [ %45, %42 ], [ %13, %33 ]
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %48, i64 1768
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 1768
   %50 = load ptr, ptr %49, align 8
   call void %50(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef 0, i32 noundef %41, ptr noundef nonnull %.018.i) #4
   call void @fixClassname(ptr noundef nonnull %.018.i) #4
@@ -405,11 +405,11 @@ define ptr @Java_java_lang_ClassLoader_findBootstrapClass(ptr noundef %0, ptr no
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 1344
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 1344
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 1312
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 1312
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef nonnull %0, ptr noundef nonnull %2) #4
   %.not.i = icmp slt i32 %10, 128
@@ -429,7 +429,7 @@ getUTF.exit.thread:                               ; preds = %15
 20:                                               ; preds = %15, %6
   %.018.i = phi ptr [ %18, %15 ], [ %4, %6 ]
   %21 = load ptr, ptr %0, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 1768
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 1768
   %23 = load ptr, ptr %22, align 8
   call void %23(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 0, i32 noundef %14, ptr noundef nonnull %.018.i) #4
   call void @fixClassname(ptr noundef nonnull %.018.i) #4

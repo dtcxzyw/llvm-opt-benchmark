@@ -186,7 +186,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef %0, ptr noundef %1, i64 nound
   %24 = mul i32 %23, 1540483477
   %25 = mul i32 %.03744.i, 1540483477
   %26 = xor i32 %24, %25
-  %27 = getelementptr inbounds i8, ptr %.03645.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %28 = add i32 %.046.i, -4
   %29 = icmp ugt i32 %28, 3
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
@@ -199,7 +199,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %30, label %.thread.i, label %36
 
 .thread.i:                                        ; preds = %._crit_edge.i
-  %31 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 2
+  %31 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
   %32 = load i8, ptr %31, align 1, !tbaa !30
   %33 = sext i8 %32 to i32
   %34 = shl nsw i32 %33, 16
@@ -212,7 +212,7 @@ define range(i32 0, 6) i32 @lv_lru_set(ptr noundef %0, ptr noundef %1, i64 nound
 
 .thread40.i:                                      ; preds = %36, %.thread.i
   %.139.i = phi i32 [ %35, %.thread.i ], [ %.037.lcssa.i, %36 ]
-  %38 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
   %39 = load i8, ptr %38, align 1, !tbaa !30
   %40 = sext i8 %39 to i32
   %41 = shl nsw i32 %40, 8
@@ -626,7 +626,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 nound
   %16 = mul i32 %15, 1540483477
   %17 = mul i32 %.03744.i, 1540483477
   %18 = xor i32 %16, %17
-  %19 = getelementptr inbounds i8, ptr %.03645.i, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %20 = add i32 %.046.i, -4
   %21 = icmp ugt i32 %20, 3
   br i1 %21, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
@@ -639,7 +639,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 nound
   br i1 %22, label %.thread.i, label %28
 
 .thread.i:                                        ; preds = %._crit_edge.i
-  %23 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 2
+  %23 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
   %24 = load i8, ptr %23, align 1, !tbaa !30
   %25 = sext i8 %24 to i32
   %26 = shl nsw i32 %25, 16
@@ -652,7 +652,7 @@ define range(i32 0, 3) i32 @lv_lru_get(ptr noundef %0, ptr noundef %1, i64 nound
 
 .thread40.i:                                      ; preds = %28, %.thread.i
   %.139.i = phi i32 [ %27, %.thread.i ], [ %.037.lcssa.i, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
   %31 = load i8, ptr %30, align 1, !tbaa !30
   %32 = sext i8 %31 to i32
   %33 = shl nsw i32 %32, 8
@@ -760,7 +760,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef %0, ptr noundef %1, i64 no
   %15 = mul i32 %14, 1540483477
   %16 = mul i32 %.03744.i, 1540483477
   %17 = xor i32 %15, %16
-  %18 = getelementptr inbounds i8, ptr %.03645.i, i64 4
+  %18 = getelementptr inbounds nuw i8, ptr %.03645.i, i64 4
   %19 = add i32 %.046.i, -4
   %20 = icmp ugt i32 %19, 3
   br i1 %20, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !29
@@ -773,7 +773,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef %0, ptr noundef %1, i64 no
   br i1 %21, label %.thread.i, label %27
 
 .thread.i:                                        ; preds = %._crit_edge.i
-  %22 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 2
+  %22 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 2
   %23 = load i8, ptr %22, align 1, !tbaa !30
   %24 = sext i8 %23 to i32
   %25 = shl nsw i32 %24, 16
@@ -786,7 +786,7 @@ define range(i32 0, 3) i32 @lv_lru_remove(ptr noundef %0, ptr noundef %1, i64 no
 
 .thread40.i:                                      ; preds = %27, %.thread.i
   %.139.i = phi i32 [ %26, %.thread.i ], [ %.037.lcssa.i, %27 ]
-  %29 = getelementptr inbounds i8, ptr %.036.lcssa.i, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i, i64 1
   %30 = load i8, ptr %29, align 1, !tbaa !30
   %31 = sext i8 %30 to i32
   %32 = shl nsw i32 %31, 8

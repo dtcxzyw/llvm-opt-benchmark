@@ -423,7 +423,7 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %18, label %366, label %19
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %1, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void @col_set_str(ptr noundef %21, i32 noundef 34, ptr noundef nonnull @.str.87) #7
   %22 = load ptr, ptr %20, align 8
@@ -433,7 +433,7 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   %25 = load i32, ptr @ett_rtpproxy, align 4
   %26 = tail call ptr @proto_item_add_subtree(ptr noundef %24, i32 noundef %25) #7
   %27 = load i32, ptr @hf_rtpproxy_cookie, align 4
-  %28 = getelementptr inbounds i8, ptr %1, i64 408
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %29 = load ptr, ptr %28, align 8
   %30 = call ptr @proto_tree_add_item_ret_string(ptr noundef %26, i32 noundef %27, ptr noundef %0, i32 noundef 0, i32 noundef %17, i32 noundef 0, ptr noundef %29, ptr noundef nonnull %7) #7
   %31 = add nuw i32 %17, 1
@@ -641,7 +641,7 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not389, label %151, label %145
 
 145:                                              ; preds = %135
-  %146 = getelementptr inbounds i8, ptr %89, i64 24
+  %146 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %147 = load ptr, ptr %146, align 8
   %.not390 = icmp eq ptr %147, null
   br i1 %.not390, label %148, label %151
@@ -825,7 +825,7 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not382, label %proto_item_set_generated.exit, label %255
 
 255:                                              ; preds = %246
-  %256 = getelementptr inbounds i8, ptr %248, i64 24
+  %256 = getelementptr inbounds nuw i8, ptr %248, i64 24
   %257 = load ptr, ptr %256, align 8
   %.not383 = icmp eq ptr %257, null
   br i1 %.not383, label %proto_item_set_generated.exit, label %258
@@ -837,13 +837,13 @@ define internal i32 @dissect_rtpproxy(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.i, label %proto_item_set_generated.exit, label %261
 
 261:                                              ; preds = %258
-  %262 = getelementptr inbounds i8, ptr %260, i64 32
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 32
   %263 = load ptr, ptr %262, align 8
   %.not5.i = icmp eq ptr %263, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %264
 
 264:                                              ; preds = %261
-  %265 = getelementptr inbounds i8, ptr %263, i64 28
+  %265 = getelementptr inbounds nuw i8, ptr %263, i64 28
   %266 = load i32, ptr %265, align 4
   %267 = or i32 %266, 2
   store i32 %267, ptr %265, align 4
@@ -933,11 +933,11 @@ proto_item_set_generated.exit:                    ; preds = %264, %261, %258, %2
 
 319:                                              ; preds = %317
   store i32 2, ptr %8, align 8
-  %320 = getelementptr inbounds i8, ptr %8, i64 4
+  %320 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 4, ptr %320, align 4
   %321 = load ptr, ptr %28, align 8
   %322 = call noalias ptr @wmem_memdup(ptr noundef %321, ptr noundef nonnull %9, i64 noundef 4) #7
-  %323 = getelementptr inbounds i8, ptr %8, i64 8
+  %323 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %322, ptr %323, align 8
   %324 = load i32, ptr @hf_rtpproxy_ipv4, align 4
   %325 = load i32, ptr %9, align 16
@@ -955,11 +955,11 @@ proto_item_set_generated.exit:                    ; preds = %264, %261, %258, %2
 
 331:                                              ; preds = %329
   store i32 3, ptr %8, align 8
-  %332 = getelementptr inbounds i8, ptr %8, i64 4
+  %332 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 16, ptr %332, align 4
   %333 = load ptr, ptr %28, align 8
   %334 = call noalias ptr @wmem_memdup(ptr noundef %333, ptr noundef nonnull %9, i64 noundef 16) #7
-  %335 = getelementptr inbounds i8, ptr %8, i64 8
+  %335 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %334, ptr %335, align 8
   %336 = load i32, ptr @hf_rtpproxy_ipv6, align 4
   %337 = call ptr @proto_tree_add_ipv6(ptr noundef %254, i32 noundef %336, ptr noundef %0, i32 noundef %305, i32 noundef %.0367, ptr noundef nonnull %9) #7
@@ -983,8 +983,8 @@ proto_item_set_generated.exit:                    ; preds = %264, %261, %258, %2
   br i1 %or.cond10, label %347, label %351
 
 347:                                              ; preds = %344
-  %348 = getelementptr inbounds i8, ptr %8, i64 4
-  %349 = getelementptr inbounds i8, ptr %1, i64 20
+  %348 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %349 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %350 = load i32, ptr %349, align 4
   call void @rtp_add_address(ptr noundef nonnull %1, i32 noundef 3, ptr noundef nonnull %8, i32 noundef %301, i32 noundef 0, ptr noundef nonnull @.str.87, i32 noundef %350, i32 noundef 0, ptr noundef null) #7
   %.pre = load i32, ptr %348, align 4
@@ -1000,7 +1000,7 @@ proto_item_set_generated.exit:                    ; preds = %264, %261, %258, %2
 
 356:                                              ; preds = %351
   %357 = add nuw nsw i32 %301, 1
-  %358 = getelementptr inbounds i8, ptr %1, i64 20
+  %358 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %359 = load i32, ptr %358, align 4
   call void @rtcp_add_address(ptr noundef nonnull %1, ptr noundef nonnull %8, i32 noundef %357, i32 noundef 0, ptr noundef nonnull @.str.87, i32 noundef %359) #7
   br label %360
@@ -1128,9 +1128,9 @@ declare signext i8 @g_ascii_tolower(i8 noundef signext) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr nocapture noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.nstime_t, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 80
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 50
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 50
   %11 = load i16, ptr %10, align 2
   %12 = and i16 %11, 8
   %.not = icmp eq i16 %12, 0
@@ -1143,11 +1143,11 @@ define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr
 14:                                               ; preds = %13
   %15 = tail call ptr @wmem_file_scope() #7
   %16 = tail call noalias ptr @wmem_alloc0(ptr noundef %15, i64 noundef 32) #7
-  %17 = getelementptr inbounds i8, ptr %2, i64 20
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %18 = load i32, ptr %17, align 4
   store i32 %18, ptr %16, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 8
-  %20 = getelementptr inbounds i8, ptr %2, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, i64 16, i1 false)
   %21 = load ptr, ptr %4, align 8
   tail call void @wmem_tree_insert_string(ptr noundef %21, ptr noundef %5, ptr noundef nonnull %16, i32 noundef 0) #7
@@ -1160,9 +1160,9 @@ define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr
   br i1 %.not39, label %68, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %2, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i8, ptr %24, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %27, ptr %28, align 4
   br label %68
 
@@ -1177,7 +1177,7 @@ define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr
   br i1 %.not41, label %36, label %33
 
 33:                                               ; preds = %32
-  %34 = getelementptr inbounds i8, ptr %31, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %35 = load i32, ptr %34, align 4
   %.not43 = icmp eq i32 %35, 0
   br i1 %.not43, label %68, label %38
@@ -1197,13 +1197,13 @@ define internal fastcc ptr @rtpproxy_add_tid(i32 noundef range(i32 0, 2) %0, ptr
   br i1 %.not.i, label %proto_item_set_generated.exit, label %44
 
 44:                                               ; preds = %38
-  %45 = getelementptr inbounds i8, ptr %43, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %46 = load ptr, ptr %45, align 8
   %.not5.i = icmp eq ptr %46, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i8, ptr %46, i64 28
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 28
   %49 = load i32, ptr %48, align 4
   %50 = or i32 %49, 2
   store i32 %50, ptr %48, align 4
@@ -1213,8 +1213,8 @@ proto_item_set_generated.exit:                    ; preds = %38, %44, %47
   br i1 %.not41, label %51, label %68
 
 51:                                               ; preds = %proto_item_set_generated.exit
-  %52 = getelementptr inbounds i8, ptr %2, i64 24
-  %53 = getelementptr inbounds i8, ptr %31, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
   call void @nstime_delta(ptr noundef nonnull %7, ptr noundef nonnull %52, ptr noundef nonnull %53) #7
   %54 = load i32, ptr @hf_rtpproxy_response_time, align 4
   %55 = call ptr @proto_tree_add_time(ptr noundef %3, i32 noundef %54, ptr noundef %1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #7
@@ -1222,13 +1222,13 @@ proto_item_set_generated.exit:                    ; preds = %38, %44, %47
   br i1 %.not.i44, label %proto_item_set_generated.exit46, label %56
 
 56:                                               ; preds = %51
-  %57 = getelementptr inbounds i8, ptr %55, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %58 = load ptr, ptr %57, align 8
   %.not5.i45 = icmp eq ptr %58, null
   br i1 %.not5.i45, label %proto_item_set_generated.exit46, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds i8, ptr %58, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %58, i64 28
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, 2
   store i32 %62, ptr %60, align 4
@@ -1266,7 +1266,7 @@ declare void @col_append_fstr(ptr noundef, i32 noundef, ptr noundef, ...) local_
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @rtpproxy_add_parameter(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca [4 x i32], align 16
-  %7 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @tvb_get_string_enc(ptr noundef %8, ptr noundef %0, i32 noundef %3, i32 noundef %4, i32 noundef 0) #7
   %.not177 = icmp eq i32 %4, 0
@@ -1527,9 +1527,9 @@ define internal fastcc noundef i32 @rtpproxy_add_tag(ptr noundef %0, ptr nocaptu
   %9 = tail call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %3, i32 noundef %., i8 noundef zeroext 59) #7
   %10 = icmp eq i32 %9, -1
   %11 = load i32, ptr @hf_rtpproxy_tag, align 4
-  %12 = getelementptr inbounds i8, ptr %1, i64 408
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br i1 %10, label %15, label %31
 
 15:                                               ; preds = %5
@@ -1547,13 +1547,13 @@ define internal fastcc noundef i32 @rtpproxy_add_tag(ptr noundef %0, ptr nocaptu
   br i1 %.not.i, label %proto_item_set_generated.exit, label %24
 
 24:                                               ; preds = %15
-  %25 = getelementptr inbounds i8, ptr %23, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %26 = load ptr, ptr %25, align 8
   %.not5.i = icmp eq ptr %26, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %29, 2
   store i32 %30, ptr %28, align 4
@@ -1574,13 +1574,13 @@ define internal fastcc noundef i32 @rtpproxy_add_tag(ptr noundef %0, ptr nocaptu
   br i1 %.not.i45, label %proto_item_set_generated.exit47, label %38
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %33, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %40 = load ptr, ptr %39, align 8
   %.not5.i46 = icmp eq ptr %40, null
   br i1 %.not5.i46, label %proto_item_set_generated.exit47, label %41
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %40, i64 28
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 28
   %43 = load i32, ptr %42, align 4
   %44 = or i32 %43, 2
   store i32 %44, ptr %42, align 4
@@ -1623,7 +1623,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
   br i1 %.not81, label %10, label %.preheader, !llvm.loop !8
 
 10:                                               ; preds = %.preheader
-  %11 = getelementptr inbounds i8, ptr %1, i64 408
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %12 = load ptr, ptr %11, align 8
   %13 = sub i32 %.0, %3
   %14 = tail call ptr @tvb_get_string_enc(ptr noundef %12, ptr noundef %0, i32 noundef %3, i32 noundef %13, i32 noundef 0) #7
@@ -1661,7 +1661,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
 30:                                               ; preds = %24, %28, %17, %20
   %31 = load i32, ptr @hf_rtpproxy_notify_port, align 4
   %32 = sub i32 %4, %8
-  %33 = getelementptr inbounds i8, ptr %1, i64 408
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %34 = load ptr, ptr %33, align 8
   %35 = call ptr @tvb_get_string_enc(ptr noundef %34, ptr noundef %0, i32 noundef %8, i32 noundef %32, i32 noundef 0) #7
   %36 = call i64 @g_ascii_strtoull(ptr noundef %35, ptr noundef null, i32 noundef 10) #7
@@ -1672,7 +1672,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
 
 40:                                               ; preds = %5
   %41 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %2, ptr noundef nonnull @ei_rtpproxy_notify_no_ip) #7
-  %42 = getelementptr inbounds i8, ptr %1, i64 208
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %43 = load i32, ptr %42, align 8
   switch i32 %43, label %.thread [
     i32 2, label %44
@@ -1680,7 +1680,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
   ]
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %1, i64 216
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %46 = load ptr, ptr %45, align 8
   %.0.copyload = load i32, ptr %46, align 1
   %47 = load i32, ptr @hf_rtpproxy_notify_ipv4, align 4
@@ -1689,7 +1689,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
 
 49:                                               ; preds = %40
   %50 = load i32, ptr @hf_rtpproxy_notify_ipv6, align 4
-  %51 = getelementptr inbounds i8, ptr %1, i64 216
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %52 = load ptr, ptr %51, align 8
   %53 = tail call ptr @proto_tree_add_ipv6(ptr noundef %2, i32 noundef %50, ptr noundef %0, i32 noundef %3, i32 noundef 0, ptr noundef %52) #7
   br label %54
@@ -1700,13 +1700,13 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
   br i1 %.not80, label %.thread, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds i8, ptr %.075, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %.075, i64 32
   %57 = load ptr, ptr %56, align 8
   %.not5.i = icmp eq ptr %57, null
   br i1 %.not5.i, label %proto_item_set_generated.exit, label %58
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds i8, ptr %57, i64 28
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 28
   %60 = load i32, ptr %59, align 4
   %61 = or i32 %60, 2
   store i32 %61, ptr %59, align 4
@@ -1715,7 +1715,7 @@ define internal fastcc void @rtpproxy_add_notify_addr(ptr noundef %0, ptr nounde
 proto_item_set_generated.exit:                    ; preds = %55, %58
   %62 = load i32, ptr @hf_rtpproxy_notify_port, align 4
   %63 = sub i32 %4, %3
-  %64 = getelementptr inbounds i8, ptr %1, i64 408
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %65 = load ptr, ptr %64, align 8
   %66 = tail call ptr @tvb_get_string_enc(ptr noundef %65, ptr noundef %0, i32 noundef %3, i32 noundef %63, i32 noundef 0) #7
   %67 = tail call i64 @g_ascii_strtoull(ptr noundef %66, ptr noundef null, i32 noundef 10) #7

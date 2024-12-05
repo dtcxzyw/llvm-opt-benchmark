@@ -2841,7 +2841,7 @@ s7comm_get_szl_id_index_description_text.exit.thread: ; preds = %.s7comm_get_szl
   %.pre-phi = phi i32 [ %.pre, %.s7comm_get_szl_id_index_description_text.exit.thread_crit_edge ], [ %48, %50 ], [ %48, %s7comm_get_szl_id_index_description_text.exit ]
   %51 = zext i16 %26 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %51, i32 noundef %.pre-phi) #4
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %53 = load ptr, ptr %52, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %53, i32 noundef 25, ptr noundef nonnull @.str.27, i32 noundef %51, i32 noundef %.pre-phi) #4
   br label %.loopexit
@@ -2937,7 +2937,7 @@ s7comm_get_szl_id_index_description_text.exit219.thread: ; preds = %.s7comm_get_
   %.pre-phi234 = phi i32 [ %.pre233, %.s7comm_get_szl_id_index_description_text.exit219.thread_crit_edge ], [ %79, %81 ], [ %79, %s7comm_get_szl_id_index_description_text.exit219 ]
   %82 = zext i16 %57 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.26, i32 noundef %82, i32 noundef %.pre-phi234) #4
-  %83 = getelementptr inbounds i8, ptr %1, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %84 = load ptr, ptr %83, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.27, i32 noundef %82, i32 noundef %.pre-phi234) #4
   %85 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %65) #4
@@ -2979,7 +2979,7 @@ s7comm_get_szl_id_index_description_text.exit219.thread: ; preds = %.s7comm_get_
   %110 = tail call i32 @llvm.fshl.i32(i32 %109, i32 %109, i32 24)
   %111 = icmp ult i32 %110, 8
   %112 = zext nneg i32 %110 to i64
-  %switch.gep = getelementptr inbounds [8 x ptr], ptr @switch.table.s7comm_decode_ud_cpu_szl_subfunc, i64 0, i64 %112
+  %switch.gep = getelementptr inbounds nuw [8 x ptr], ptr @switch.table.s7comm_decode_ud_cpu_szl_subfunc, i64 0, i64 %112
   br label %113
 
 113:                                              ; preds = %.lr.ph, %.thread
@@ -4293,7 +4293,7 @@ s7comm_decode_szl_id_0x94_idx_xxxx.exit:          ; preds = %.loopexit.i, %674
 
 793:                                              ; preds = %54
   %794 = zext i8 %4 to i32
-  %795 = getelementptr inbounds i8, ptr %1, i64 8
+  %795 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %796 = load ptr, ptr %795, align 8
   %797 = tail call ptr @val_to_str(i32 noundef %794, ptr noundef nonnull @s7comm_item_return_valuenames, ptr noundef nonnull @.str.30) #4
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %796, i32 noundef 25, ptr noundef nonnull @.str.29, ptr noundef %797) #4

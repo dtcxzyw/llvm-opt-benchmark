@@ -151,13 +151,13 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %buffer.coerce1
   store ptr %this, ptr %populator, align 8
-  %buf.i = getelementptr inbounds i8, ptr %populator, i64 8
-  %end.i = getelementptr inbounds i8, ptr %populator, i64 24
+  %buf.i = getelementptr inbounds nuw i8, ptr %populator, i64 8
+  %end.i = getelementptr inbounds nuw i8, ptr %populator, i64 24
   store ptr %add.ptr.i, ptr %end.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 128
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 128
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   store ptr %buffer.coerce0, ptr %this, align 8
-  %h.i = getelementptr inbounds i8, ptr %populator, i64 16
+  %h.i = getelementptr inbounds nuw i8, ptr %populator, i64 16
   store ptr %buffer.coerce0, ptr %h.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator)
   br label %return
@@ -180,18 +180,18 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not, label %return, label %_ZN4llvh11raw_ostreamlsEPKc.exit
 
 _ZN4llvh11raw_ostreamlsEPKc.exit:                 ; preds = %if.then
-  %BufferMode.i.i = getelementptr inbounds i8, ptr %errs, i64 32
+  %BufferMode.i.i = getelementptr inbounds nuw i8, ptr %errs, i64 32
   store i32 1, ptr %BufferMode.i.i, align 8
-  %OutBufStart.i.i = getelementptr inbounds i8, ptr %errs, i64 8
+  %OutBufStart.i.i = getelementptr inbounds nuw i8, ptr %errs, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %errs, align 8
-  %OS.i = getelementptr inbounds i8, ptr %errs, i64 40
+  %OS.i = getelementptr inbounds nuw i8, ptr %errs, i64 40
   store ptr %errorMessage, ptr %OS.i, align 8
   %call3.i.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %errs, ptr noundef nonnull @.str, i64 noundef 62) #19
   %call3 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %call3.i.i, i64 noundef 128) #19
-  %OutBufEnd.i5.i18 = getelementptr inbounds i8, ptr %call3, i64 16
+  %OutBufEnd.i5.i18 = getelementptr inbounds nuw i8, ptr %call3, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5.i18, align 8
-  %OutBufCur.i6.i19 = getelementptr inbounds i8, ptr %call3, i64 24
+  %OutBufCur.i6.i19 = getelementptr inbounds nuw i8, ptr %call3, i64 24
   %1 = load ptr, ptr %OutBufCur.i6.i19, align 8
   %sub.ptr.lhs.cast.i7.i20 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8.i21 = ptrtoint ptr %1 to i64
@@ -206,16 +206,16 @@ if.then.i.i29:                                    ; preds = %_ZN4llvh11raw_ostre
 if.then4.i.i26:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %1, ptr noundef nonnull align 1 dereferenceable(15) @.str.1, i64 15, i1 false)
   %2 = load ptr, ptr %OutBufCur.i6.i19, align 8
-  %add.ptr.i.i27 = getelementptr inbounds i8, ptr %2, i64 15
+  %add.ptr.i.i27 = getelementptr inbounds nuw i8, ptr %2, i64 15
   store ptr %add.ptr.i.i27, ptr %OutBufCur.i6.i19, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit31
 
 _ZN4llvh11raw_ostreamlsEPKc.exit31:               ; preds = %if.then.i.i29, %if.then4.i.i26
   %phi.call.i28 = phi ptr [ %call3.i.i30, %if.then.i.i29 ], [ %call3, %if.then4.i.i26 ]
   %call6 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %phi.call.i28, i64 noundef %aref.coerce1) #19
-  %OutBufEnd.i5.i34 = getelementptr inbounds i8, ptr %call6, i64 16
+  %OutBufEnd.i5.i34 = getelementptr inbounds nuw i8, ptr %call6, i64 16
   %3 = load ptr, ptr %OutBufEnd.i5.i34, align 8
-  %OutBufCur.i6.i35 = getelementptr inbounds i8, ptr %call6, i64 24
+  %OutBufCur.i6.i35 = getelementptr inbounds nuw i8, ptr %call6, i64 24
   %4 = load ptr, ptr %OutBufCur.i6.i35, align 8
   %sub.ptr.lhs.cast.i7.i36 = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i8.i37 = ptrtoint ptr %4 to i64
@@ -230,7 +230,7 @@ if.then.i.i45:                                    ; preds = %_ZN4llvh11raw_ostre
 if.then4.i.i42:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.2, i64 6, i1 false)
   %5 = load ptr, ptr %OutBufCur.i6.i35, align 8
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %5, i64 6
+  %add.ptr.i.i43 = getelementptr inbounds nuw i8, ptr %5, i64 6
   store ptr %add.ptr.i.i43, ptr %OutBufCur.i6.i35, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit47
 
@@ -269,7 +269,7 @@ if.then25:                                        ; preds = %if.then23
   br label %return
 
 if.end28:                                         ; preds = %if.end18
-  %version = getelementptr inbounds i8, ptr %aref.coerce0, i64 8
+  %version = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 8
   %8 = load i32, ptr %version, align 1
   %cmp29.not = icmp eq i32 %8, 96
   br i1 %cmp29.not, label %if.end40, label %if.then30
@@ -279,18 +279,18 @@ if.then30:                                        ; preds = %if.end28
   br i1 %tobool31.not, label %return, label %_ZN4llvh11raw_ostreamlsEPKc.exit65
 
 _ZN4llvh11raw_ostreamlsEPKc.exit65:               ; preds = %if.then30
-  %BufferMode.i.i48 = getelementptr inbounds i8, ptr %errs33, i64 32
+  %BufferMode.i.i48 = getelementptr inbounds nuw i8, ptr %errs33, i64 32
   store i32 1, ptr %BufferMode.i.i48, align 8
-  %OutBufStart.i.i49 = getelementptr inbounds i8, ptr %errs33, i64 8
+  %OutBufStart.i.i49 = getelementptr inbounds nuw i8, ptr %errs33, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i49, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %errs33, align 8
-  %OS.i50 = getelementptr inbounds i8, ptr %errs33, i64 40
+  %OS.i50 = getelementptr inbounds nuw i8, ptr %errs33, i64 40
   store ptr %errorMessage, ptr %OS.i50, align 8
   %call3.i.i64 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %errs33, ptr noundef nonnull @.str.5, i64 noundef 33) #19
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %call3.i.i64, i64 noundef 96) #19
-  %OutBufEnd.i5.i67 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %OutBufEnd.i5.i67 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   %9 = load ptr, ptr %OutBufEnd.i5.i67, align 8
-  %OutBufCur.i6.i68 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %OutBufCur.i6.i68 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %10 = load ptr, ptr %OutBufCur.i6.i68, align 8
   %sub.ptr.lhs.cast.i7.i69 = ptrtoint ptr %9 to i64
   %sub.ptr.rhs.cast.i8.i70 = ptrtoint ptr %10 to i64
@@ -305,7 +305,7 @@ if.then.i.i78:                                    ; preds = %_ZN4llvh11raw_ostre
 if.then4.i.i75:                                   ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit65
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %10, ptr noundef nonnull align 1 dereferenceable(9) @.str.6, i64 9, i1 false)
   %11 = load ptr, ptr %OutBufCur.i6.i68, align 8
-  %add.ptr.i.i76 = getelementptr inbounds i8, ptr %11, i64 9
+  %add.ptr.i.i76 = getelementptr inbounds nuw i8, ptr %11, i64 9
   store ptr %add.ptr.i.i76, ptr %OutBufCur.i6.i68, align 8
   br label %_ZN4llvh11raw_ostreamlsEPKc.exit80
 
@@ -318,7 +318,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit80:               ; preds = %if.then.i.i78, %if.
   br label %return
 
 if.end40:                                         ; preds = %if.end28
-  %functionCount = getelementptr inbounds i8, ptr %aref.coerce0, i64 40
+  %functionCount = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 40
   %13 = load i32, ptr %functionCount, align 1
   %cmp41 = icmp eq i32 %13, 0
   br i1 %cmp41, label %if.then42, label %if.end47
@@ -332,7 +332,7 @@ if.then44:                                        ; preds = %if.then42
   br label %return
 
 if.end47:                                         ; preds = %if.end40
-  %fileLength = getelementptr inbounds i8, ptr %aref.coerce0, i64 32
+  %fileLength = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
   %14 = load i32, ptr %fileLength, align 1
   %conv = zext i32 %14 to i64
   %cmp49 = icmp ult i64 %aref.coerce1, %conv
@@ -343,12 +343,12 @@ if.then50:                                        ; preds = %if.end47
   br i1 %tobool51.not, label %return, label %if.then52
 
 if.then52:                                        ; preds = %if.then50
-  %BufferMode.i.i83 = getelementptr inbounds i8, ptr %errs53, i64 32
+  %BufferMode.i.i83 = getelementptr inbounds nuw i8, ptr %errs53, i64 32
   store i32 1, ptr %BufferMode.i.i83, align 8
-  %OutBufStart.i.i84 = getelementptr inbounds i8, ptr %errs53, i64 8
+  %OutBufStart.i.i84 = getelementptr inbounds nuw i8, ptr %errs53, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i84, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 16), ptr %errs53, align 8
-  %OS.i85 = getelementptr inbounds i8, ptr %errs53, i64 40
+  %OS.i85 = getelementptr inbounds nuw i8, ptr %errs53, i64 40
   store ptr %errorMessage, ptr %OS.i85, align 8
   %call54 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %errs53, ptr noundef nonnull @.str.8)
   %15 = load i32, ptr %fileLength, align 1
@@ -371,19 +371,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %visitor) local_unnamed_addr #0 comdat {
 entry:
-  %buf.i = getelementptr inbounds i8, ptr %visitor, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   %0 = load ptr, ptr %buf.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %sub.i.i.i = add i64 %1, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
   %2 = inttoptr i64 %and.i.i.i to ptr
   store ptr %2, ptr %buf.i, align 8
-  %h.i = getelementptr inbounds i8, ptr %visitor, i64 16
+  %h.i = getelementptr inbounds nuw i8, ptr %visitor, i64 16
   %3 = load ptr, ptr %h.i, align 8
-  %functionCount.i = getelementptr inbounds i8, ptr %3, i64 40
+  %functionCount.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load i32, ptr %functionCount.i, align 1
   %conv.i = zext i32 %4 to i64
-  %end.i = getelementptr inbounds i8, ptr %visitor, i64 24
+  %end.i = getelementptr inbounds nuw i8, ptr %visitor, i64 24
   %5 = load ptr, ptr %end.i, align 8
   %cmp.i.i = icmp ult ptr %5, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
@@ -401,12 +401,12 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit: ; preds = %lor.rhs.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 4
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %mul.i.i
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   %6 = load ptr, ptr %visitor, align 8
-  %functionHeaders.i = getelementptr inbounds i8, ptr %6, i64 8
+  %functionHeaders.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %functionHeaders.i, align 8
-  %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i, align 8
   %7 = load ptr, ptr %buf.i, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -415,7 +415,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %9 = inttoptr i64 %and.i.i.i17 to ptr
   store ptr %9, ptr %buf.i, align 8
   %10 = load ptr, ptr %h.i, align 8
-  %stringKindCount.i = getelementptr inbounds i8, ptr %10, i64 44
+  %stringKindCount.i = getelementptr inbounds nuw i8, ptr %10, i64 44
   %11 = load i32, ptr %stringKindCount.i, align 1
   %conv.i19 = zext i32 %11 to i64
   %12 = load ptr, ptr %end.i, align 8
@@ -435,12 +435,12 @@ if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit: ; preds = %lor.rhs.i.i22
   %mul.i.i27 = shl nuw nsw i64 %conv.i19, 2
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %9, i64 %mul.i.i27
+  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %9, i64 %mul.i.i27
   store ptr %add.ptr.i.i28, ptr %buf.i, align 8
   %13 = load ptr, ptr %visitor, align 8
-  %stringKinds.i = getelementptr inbounds i8, ptr %13, i64 40
+  %stringKinds.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %9, ptr %stringKinds.i, align 8
-  %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 48
+  %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %conv.i19, ptr %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i, align 8
   %14 = load ptr, ptr %buf.i, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -449,7 +449,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %16 = inttoptr i64 %and.i.i.i32 to ptr
   store ptr %16, ptr %buf.i, align 8
   %17 = load ptr, ptr %h.i, align 8
-  %identifierCount.i = getelementptr inbounds i8, ptr %17, i64 48
+  %identifierCount.i = getelementptr inbounds nuw i8, ptr %17, i64 48
   %18 = load i32, ptr %identifierCount.i, align 1
   %conv.i34 = zext i32 %18 to i64
   %19 = load ptr, ptr %end.i, align 8
@@ -469,12 +469,12 @@ if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit: ; preds = %lor.rhs.i.i37
   %mul.i.i42 = shl nuw nsw i64 %conv.i34, 2
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %16, i64 %mul.i.i42
+  %add.ptr.i.i43 = getelementptr inbounds nuw i8, ptr %16, i64 %mul.i.i42
   store ptr %add.ptr.i.i43, ptr %buf.i, align 8
   %20 = load ptr, ptr %visitor, align 8
-  %identifierHashes.i = getelementptr inbounds i8, ptr %20, i64 56
+  %identifierHashes.i = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %16, ptr %identifierHashes.i, align 8
-  %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 64
+  %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %conv.i34, ptr %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i, align 8
   %21 = load ptr, ptr %buf.i, align 8
   %22 = ptrtoint ptr %21 to i64
@@ -483,7 +483,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %23 = inttoptr i64 %and.i.i.i47 to ptr
   store ptr %23, ptr %buf.i, align 8
   %24 = load ptr, ptr %h.i, align 8
-  %stringCount.i = getelementptr inbounds i8, ptr %24, i64 52
+  %stringCount.i = getelementptr inbounds nuw i8, ptr %24, i64 52
   %25 = load i32, ptr %stringCount.i, align 1
   %conv.i49 = zext i32 %25 to i64
   %26 = load ptr, ptr %end.i, align 8
@@ -503,12 +503,12 @@ if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit: ; preds = %lor.rhs.i.i52
   %mul.i.i57 = shl nuw nsw i64 %conv.i49, 2
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %23, i64 %mul.i.i57
+  %add.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %23, i64 %mul.i.i57
   store ptr %add.ptr.i.i58, ptr %buf.i, align 8
   %27 = load ptr, ptr %visitor, align 8
-  %stringTableEntries.i = getelementptr inbounds i8, ptr %27, i64 24
+  %stringTableEntries.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %23, ptr %stringTableEntries.i, align 8
-  %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 32
+  %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %conv.i49, ptr %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i, align 8
   %28 = load ptr, ptr %buf.i, align 8
   %29 = ptrtoint ptr %28 to i64
@@ -517,7 +517,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %30 = inttoptr i64 %and.i.i.i62 to ptr
   store ptr %30, ptr %buf.i, align 8
   %31 = load ptr, ptr %h.i, align 8
-  %overflowStringCount.i = getelementptr inbounds i8, ptr %31, i64 56
+  %overflowStringCount.i = getelementptr inbounds nuw i8, ptr %31, i64 56
   %32 = load i32, ptr %overflowStringCount.i, align 1
   %conv.i64 = zext i32 %32 to i64
   %33 = load ptr, ptr %end.i, align 8
@@ -537,12 +537,12 @@ if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit: ; preds = %lor.rhs.i.i67
   %mul.i.i72 = shl nuw nsw i64 %conv.i64, 3
-  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %30, i64 %mul.i.i72
+  %add.ptr.i.i73 = getelementptr inbounds nuw i8, ptr %30, i64 %mul.i.i72
   store ptr %add.ptr.i.i73, ptr %buf.i, align 8
   %34 = load ptr, ptr %visitor, align 8
-  %stringTableOverflowEntries.i = getelementptr inbounds i8, ptr %34, i64 72
+  %stringTableOverflowEntries.i = getelementptr inbounds nuw i8, ptr %34, i64 72
   store ptr %30, ptr %stringTableOverflowEntries.i, align 8
-  %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 80
+  %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 80
   store i64 %conv.i64, ptr %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i, align 8
   %35 = load ptr, ptr %buf.i, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -551,7 +551,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %37 = inttoptr i64 %and.i.i.i77 to ptr
   store ptr %37, ptr %buf.i, align 8
   %38 = load ptr, ptr %h.i, align 8
-  %stringStorageSize.i = getelementptr inbounds i8, ptr %38, i64 60
+  %stringStorageSize.i = getelementptr inbounds nuw i8, ptr %38, i64 60
   %39 = load i32, ptr %stringStorageSize.i, align 1
   %conv.i79 = zext i32 %39 to i64
   %40 = load ptr, ptr %end.i, align 8
@@ -567,12 +567,12 @@ if.then.i.i86:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
-  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %37, i64 %conv.i79
+  %add.ptr.i.i85 = getelementptr inbounds nuw i8, ptr %37, i64 %conv.i79
   store ptr %add.ptr.i.i85, ptr %buf.i, align 8
   %41 = load ptr, ptr %visitor, align 8
-  %stringStorage.i = getelementptr inbounds i8, ptr %41, i64 88
+  %stringStorage.i = getelementptr inbounds nuw i8, ptr %41, i64 88
   store ptr %37, ptr %stringStorage.i, align 8
-  %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 96
+  %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i64 %conv.i79, ptr %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i, align 8
   %42 = load ptr, ptr %buf.i, align 8
   %43 = ptrtoint ptr %42 to i64
@@ -581,7 +581,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %44 = inttoptr i64 %and.i.i.i89 to ptr
   store ptr %44, ptr %buf.i, align 8
   %45 = load ptr, ptr %h.i, align 8
-  %arrayBufferSize.i = getelementptr inbounds i8, ptr %45, i64 80
+  %arrayBufferSize.i = getelementptr inbounds nuw i8, ptr %45, i64 80
   %46 = load i32, ptr %arrayBufferSize.i, align 1
   %conv.i91 = zext i32 %46 to i64
   %47 = load ptr, ptr %end.i, align 8
@@ -597,12 +597,12 @@ if.then.i.i99:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %44, i64 %conv.i91
+  %add.ptr.i.i98 = getelementptr inbounds nuw i8, ptr %44, i64 %conv.i91
   store ptr %add.ptr.i.i98, ptr %buf.i, align 8
   %48 = load ptr, ptr %visitor, align 8
-  %arrayBuffer.i = getelementptr inbounds i8, ptr %48, i64 104
+  %arrayBuffer.i = getelementptr inbounds nuw i8, ptr %48, i64 104
   store ptr %44, ptr %arrayBuffer.i, align 8
-  %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 112
+  %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 112
   store i64 %conv.i91, ptr %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i, align 8
   %49 = load ptr, ptr %buf.i, align 8
   %50 = ptrtoint ptr %49 to i64
@@ -611,7 +611,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %51 = inttoptr i64 %and.i.i.i102 to ptr
   store ptr %51, ptr %buf.i, align 8
   %52 = load ptr, ptr %h.i, align 8
-  %objKeyBufferSize.i = getelementptr inbounds i8, ptr %52, i64 84
+  %objKeyBufferSize.i = getelementptr inbounds nuw i8, ptr %52, i64 84
   %53 = load i32, ptr %objKeyBufferSize.i, align 1
   %conv.i104 = zext i32 %53 to i64
   %54 = load ptr, ptr %end.i, align 8
@@ -627,12 +627,12 @@ if.then.i.i112:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit
-  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %51, i64 %conv.i104
+  %add.ptr.i.i111 = getelementptr inbounds nuw i8, ptr %51, i64 %conv.i104
   store ptr %add.ptr.i.i111, ptr %buf.i, align 8
   %55 = load ptr, ptr %visitor, align 8
-  %objKeyBuffer.i = getelementptr inbounds i8, ptr %55, i64 120
+  %objKeyBuffer.i = getelementptr inbounds nuw i8, ptr %55, i64 120
   store ptr %51, ptr %objKeyBuffer.i, align 8
-  %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %55, i64 128
+  %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 128
   store i64 %conv.i104, ptr %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i, align 8
   %56 = load ptr, ptr %buf.i, align 8
   %57 = ptrtoint ptr %56 to i64
@@ -641,7 +641,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %58 = inttoptr i64 %and.i.i.i115 to ptr
   store ptr %58, ptr %buf.i, align 8
   %59 = load ptr, ptr %h.i, align 8
-  %objValueBufferSize.i = getelementptr inbounds i8, ptr %59, i64 88
+  %objValueBufferSize.i = getelementptr inbounds nuw i8, ptr %59, i64 88
   %60 = load i32, ptr %objValueBufferSize.i, align 1
   %conv.i117 = zext i32 %60 to i64
   %61 = load ptr, ptr %end.i, align 8
@@ -657,12 +657,12 @@ if.then.i.i125:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit
-  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %58, i64 %conv.i117
+  %add.ptr.i.i124 = getelementptr inbounds nuw i8, ptr %58, i64 %conv.i117
   store ptr %add.ptr.i.i124, ptr %buf.i, align 8
   %62 = load ptr, ptr %visitor, align 8
-  %objValueBuffer.i = getelementptr inbounds i8, ptr %62, i64 136
+  %objValueBuffer.i = getelementptr inbounds nuw i8, ptr %62, i64 136
   store ptr %58, ptr %objValueBuffer.i, align 8
-  %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 144
+  %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 144
   store i64 %conv.i117, ptr %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i, align 8
   %63 = load ptr, ptr %buf.i, align 8
   %64 = ptrtoint ptr %63 to i64
@@ -671,7 +671,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %65 = inttoptr i64 %and.i.i.i128 to ptr
   store ptr %65, ptr %buf.i, align 8
   %66 = load ptr, ptr %h.i, align 8
-  %bigIntCount.i = getelementptr inbounds i8, ptr %66, i64 64
+  %bigIntCount.i = getelementptr inbounds nuw i8, ptr %66, i64 64
   %67 = load i32, ptr %bigIntCount.i, align 1
   %conv.i130 = zext i32 %67 to i64
   %68 = load ptr, ptr %end.i, align 8
@@ -691,12 +691,12 @@ if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit: ; preds = %lor.rhs.i.i133
   %mul.i.i138 = shl nuw nsw i64 %conv.i130, 3
-  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %65, i64 %mul.i.i138
+  %add.ptr.i.i139 = getelementptr inbounds nuw i8, ptr %65, i64 %mul.i.i138
   store ptr %add.ptr.i.i139, ptr %buf.i, align 8
   %69 = load ptr, ptr %visitor, align 8
-  %bigIntTable.i = getelementptr inbounds i8, ptr %69, i64 152
+  %bigIntTable.i = getelementptr inbounds nuw i8, ptr %69, i64 152
   store ptr %65, ptr %bigIntTable.i, align 8
-  %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 160
+  %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 160
   store i64 %conv.i130, ptr %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i, align 8
   %70 = load ptr, ptr %buf.i, align 8
   %71 = ptrtoint ptr %70 to i64
@@ -705,7 +705,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %72 = inttoptr i64 %and.i.i.i143 to ptr
   store ptr %72, ptr %buf.i, align 8
   %73 = load ptr, ptr %h.i, align 8
-  %bigIntStorageSize.i = getelementptr inbounds i8, ptr %73, i64 68
+  %bigIntStorageSize.i = getelementptr inbounds nuw i8, ptr %73, i64 68
   %74 = load i32, ptr %bigIntStorageSize.i, align 1
   %conv.i145 = zext i32 %74 to i64
   %75 = load ptr, ptr %end.i, align 8
@@ -721,12 +721,12 @@ if.then.i.i153:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
-  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %72, i64 %conv.i145
+  %add.ptr.i.i152 = getelementptr inbounds nuw i8, ptr %72, i64 %conv.i145
   store ptr %add.ptr.i.i152, ptr %buf.i, align 8
   %76 = load ptr, ptr %visitor, align 8
-  %bigIntStorage.i = getelementptr inbounds i8, ptr %76, i64 168
+  %bigIntStorage.i = getelementptr inbounds nuw i8, ptr %76, i64 168
   store ptr %72, ptr %bigIntStorage.i, align 8
-  %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds i8, ptr %76, i64 176
+  %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 176
   store i64 %conv.i145, ptr %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i, align 8
   %77 = load ptr, ptr %buf.i, align 8
   %78 = ptrtoint ptr %77 to i64
@@ -735,7 +735,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %79 = inttoptr i64 %and.i.i.i156 to ptr
   store ptr %79, ptr %buf.i, align 8
   %80 = load ptr, ptr %h.i, align 8
-  %regExpCount.i = getelementptr inbounds i8, ptr %80, i64 72
+  %regExpCount.i = getelementptr inbounds nuw i8, ptr %80, i64 72
   %81 = load i32, ptr %regExpCount.i, align 1
   %conv.i158 = zext i32 %81 to i64
   %82 = load ptr, ptr %end.i, align 8
@@ -755,12 +755,12 @@ if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit: ; preds = %lor.rhs.i.i161
   %mul.i.i166 = shl nuw nsw i64 %conv.i158, 3
-  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %79, i64 %mul.i.i166
+  %add.ptr.i.i167 = getelementptr inbounds nuw i8, ptr %79, i64 %mul.i.i166
   store ptr %add.ptr.i.i167, ptr %buf.i, align 8
   %83 = load ptr, ptr %visitor, align 8
-  %regExpTable.i = getelementptr inbounds i8, ptr %83, i64 184
+  %regExpTable.i = getelementptr inbounds nuw i8, ptr %83, i64 184
   store ptr %79, ptr %regExpTable.i, align 8
-  %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds i8, ptr %83, i64 192
+  %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %83, i64 192
   store i64 %conv.i158, ptr %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i, align 8
   %84 = load ptr, ptr %buf.i, align 8
   %85 = ptrtoint ptr %84 to i64
@@ -769,7 +769,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %86 = inttoptr i64 %and.i.i.i171 to ptr
   store ptr %86, ptr %buf.i, align 8
   %87 = load ptr, ptr %h.i, align 8
-  %regExpStorageSize.i = getelementptr inbounds i8, ptr %87, i64 76
+  %regExpStorageSize.i = getelementptr inbounds nuw i8, ptr %87, i64 76
   %88 = load i32, ptr %regExpStorageSize.i, align 1
   %conv.i173 = zext i32 %88 to i64
   %89 = load ptr, ptr %end.i, align 8
@@ -785,12 +785,12 @@ if.then.i.i181:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
-  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %86, i64 %conv.i173
+  %add.ptr.i.i180 = getelementptr inbounds nuw i8, ptr %86, i64 %conv.i173
   store ptr %add.ptr.i.i180, ptr %buf.i, align 8
   %90 = load ptr, ptr %visitor, align 8
-  %regExpStorage.i = getelementptr inbounds i8, ptr %90, i64 200
+  %regExpStorage.i = getelementptr inbounds nuw i8, ptr %90, i64 200
   store ptr %86, ptr %regExpStorage.i, align 8
-  %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 208
+  %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 208
   store i64 %conv.i173, ptr %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i, align 8
   %91 = load ptr, ptr %buf.i, align 8
   %92 = ptrtoint ptr %91 to i64
@@ -799,11 +799,11 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %93 = inttoptr i64 %and.i.i.i184 to ptr
   store ptr %93, ptr %buf.i, align 8
   %94 = load ptr, ptr %h.i, align 8
-  %options.i = getelementptr inbounds i8, ptr %94, i64 108
+  %options.i = getelementptr inbounds nuw i8, ptr %94, i64 108
   %bf.load.i = load i8, ptr %options.i, align 1
   %95 = and i8 %bf.load.i, 2
   %bf.cast.not.i = icmp eq i8 %95, 0
-  %cjsModuleCount7.i = getelementptr inbounds i8, ptr %94, i64 96
+  %cjsModuleCount7.i = getelementptr inbounds nuw i8, ptr %94, i64 96
   %96 = load i32, ptr %cjsModuleCount7.i, align 1
   %conv8.i = zext i32 %96 to i64
   %97 = load ptr, ptr %end.i, align 8
@@ -842,12 +842,12 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
   %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
+  %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds i8, ptr %98, i64 %.sink16.i
+  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 %.sink14.i
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink14.i
   store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
   %99 = load ptr, ptr %buf.i, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -856,7 +856,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   %101 = inttoptr i64 %and.i.i.i194 to ptr
   store ptr %101, ptr %buf.i, align 8
   %102 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds i8, ptr %102, i64 100
+  %functionSourceCount.i = getelementptr inbounds nuw i8, ptr %102, i64 100
   %103 = load i32, ptr %functionSourceCount.i, align 1
   %conv.i196 = zext i32 %103 to i64
   %104 = load ptr, ptr %end.i, align 8
@@ -876,12 +876,12 @@ if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i199
   %mul.i.i204 = shl nuw nsw i64 %conv.i196, 3
-  %add.ptr.i.i205 = getelementptr inbounds i8, ptr %101, i64 %mul.i.i204
+  %add.ptr.i.i205 = getelementptr inbounds nuw i8, ptr %101, i64 %mul.i.i204
   store ptr %add.ptr.i.i205, ptr %buf.i, align 8
   %105 = load ptr, ptr %visitor, align 8
-  %functionSourceTable.i = getelementptr inbounds i8, ptr %105, i64 248
+  %functionSourceTable.i = getelementptr inbounds nuw i8, ptr %105, i64 248
   store ptr %101, ptr %functionSourceTable.i, align 8
-  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %105, i64 256
+  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 256
   store i64 %conv.i196, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void
 }
@@ -896,13 +896,13 @@ entry:
 if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %buffer.coerce1
   store ptr %this, ptr %populator, align 8
-  %buf.i = getelementptr inbounds i8, ptr %populator, i64 8
-  %end.i = getelementptr inbounds i8, ptr %populator, i64 24
+  %buf.i = getelementptr inbounds nuw i8, ptr %populator, i64 8
+  %end.i = getelementptr inbounds nuw i8, ptr %populator, i64 24
   store ptr %add.ptr.i, ptr %end.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %buffer.coerce0, i64 128
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 128
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   store ptr %buffer.coerce0, ptr %this, align 8
-  %h.i = getelementptr inbounds i8, ptr %populator, i64 16
+  %h.i = getelementptr inbounds nuw i8, ptr %populator, i64 16
   store ptr %buffer.coerce0, ptr %h.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator)
   br label %return
@@ -914,19 +914,19 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %visitor) local_unnamed_addr #0 comdat {
 entry:
-  %buf.i = getelementptr inbounds i8, ptr %visitor, i64 8
+  %buf.i = getelementptr inbounds nuw i8, ptr %visitor, i64 8
   %0 = load ptr, ptr %buf.i, align 8
   %1 = ptrtoint ptr %0 to i64
   %sub.i.i.i = add i64 %1, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
   %2 = inttoptr i64 %and.i.i.i to ptr
   store ptr %2, ptr %buf.i, align 8
-  %h.i = getelementptr inbounds i8, ptr %visitor, i64 16
+  %h.i = getelementptr inbounds nuw i8, ptr %visitor, i64 16
   %3 = load ptr, ptr %h.i, align 8
-  %functionCount.i = getelementptr inbounds i8, ptr %3, i64 40
+  %functionCount.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %4 = load i32, ptr %functionCount.i, align 1
   %conv.i = zext i32 %4 to i64
-  %end.i = getelementptr inbounds i8, ptr %visitor, i64 24
+  %end.i = getelementptr inbounds nuw i8, ptr %visitor, i64 24
   %5 = load ptr, ptr %end.i, align 8
   %cmp.i.i = icmp ult ptr %5, %2
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
@@ -944,12 +944,12 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %entry
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitFunctionHeadersEv.exit: ; preds = %lor.rhs.i.i
   %mul.i.i = shl nuw nsw i64 %conv.i, 4
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %mul.i.i
   store ptr %add.ptr.i.i, ptr %buf.i, align 8
   %6 = load ptr, ptr %visitor, align 8
-  %functionHeaders.i = getelementptr inbounds i8, ptr %6, i64 8
+  %functionHeaders.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %functionHeaders.i, align 8
-  %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds i8, ptr %6, i64 16
+  %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %conv.i, ptr %ref.tmp.sroa.2.0.functionHeaders.sroa_idx.i, align 8
   %7 = load ptr, ptr %buf.i, align 8
   %8 = ptrtoint ptr %7 to i64
@@ -958,7 +958,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %9 = inttoptr i64 %and.i.i.i17 to ptr
   store ptr %9, ptr %buf.i, align 8
   %10 = load ptr, ptr %h.i, align 8
-  %stringKindCount.i = getelementptr inbounds i8, ptr %10, i64 44
+  %stringKindCount.i = getelementptr inbounds nuw i8, ptr %10, i64 44
   %11 = load i32, ptr %stringKindCount.i, align 1
   %conv.i19 = zext i32 %11 to i64
   %12 = load ptr, ptr %end.i, align 8
@@ -978,12 +978,12 @@ if.then.i.i29:                                    ; preds = %lor.rhs.i.i22, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitStringKindsEv.exit: ; preds = %lor.rhs.i.i22
   %mul.i.i27 = shl nuw nsw i64 %conv.i19, 2
-  %add.ptr.i.i28 = getelementptr inbounds i8, ptr %9, i64 %mul.i.i27
+  %add.ptr.i.i28 = getelementptr inbounds nuw i8, ptr %9, i64 %mul.i.i27
   store ptr %add.ptr.i.i28, ptr %buf.i, align 8
   %13 = load ptr, ptr %visitor, align 8
-  %stringKinds.i = getelementptr inbounds i8, ptr %13, i64 40
+  %stringKinds.i = getelementptr inbounds nuw i8, ptr %13, i64 40
   store ptr %9, ptr %stringKinds.i, align 8
-  %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds i8, ptr %13, i64 48
+  %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i = getelementptr inbounds nuw i8, ptr %13, i64 48
   store i64 %conv.i19, ptr %ref.tmp.sroa.2.0.stringKinds.sroa_idx.i, align 8
   %14 = load ptr, ptr %buf.i, align 8
   %15 = ptrtoint ptr %14 to i64
@@ -992,7 +992,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %16 = inttoptr i64 %and.i.i.i32 to ptr
   store ptr %16, ptr %buf.i, align 8
   %17 = load ptr, ptr %h.i, align 8
-  %identifierCount.i = getelementptr inbounds i8, ptr %17, i64 48
+  %identifierCount.i = getelementptr inbounds nuw i8, ptr %17, i64 48
   %18 = load i32, ptr %identifierCount.i, align 1
   %conv.i34 = zext i32 %18 to i64
   %19 = load ptr, ptr %end.i, align 8
@@ -1012,12 +1012,12 @@ if.then.i.i44:                                    ; preds = %lor.rhs.i.i37, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitIdentifierHashesEv.exit: ; preds = %lor.rhs.i.i37
   %mul.i.i42 = shl nuw nsw i64 %conv.i34, 2
-  %add.ptr.i.i43 = getelementptr inbounds i8, ptr %16, i64 %mul.i.i42
+  %add.ptr.i.i43 = getelementptr inbounds nuw i8, ptr %16, i64 %mul.i.i42
   store ptr %add.ptr.i.i43, ptr %buf.i, align 8
   %20 = load ptr, ptr %visitor, align 8
-  %identifierHashes.i = getelementptr inbounds i8, ptr %20, i64 56
+  %identifierHashes.i = getelementptr inbounds nuw i8, ptr %20, i64 56
   store ptr %16, ptr %identifierHashes.i, align 8
-  %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 64
+  %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 64
   store i64 %conv.i34, ptr %ref.tmp.sroa.2.0.identifierHashes.sroa_idx.i, align 8
   %21 = load ptr, ptr %buf.i, align 8
   %22 = ptrtoint ptr %21 to i64
@@ -1026,7 +1026,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %23 = inttoptr i64 %and.i.i.i47 to ptr
   store ptr %23, ptr %buf.i, align 8
   %24 = load ptr, ptr %h.i, align 8
-  %stringCount.i = getelementptr inbounds i8, ptr %24, i64 52
+  %stringCount.i = getelementptr inbounds nuw i8, ptr %24, i64 52
   %25 = load i32, ptr %stringCount.i, align 1
   %conv.i49 = zext i32 %25 to i64
   %26 = load ptr, ptr %end.i, align 8
@@ -1046,12 +1046,12 @@ if.then.i.i59:                                    ; preds = %lor.rhs.i.i52, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator21visitSmallStringTableEv.exit: ; preds = %lor.rhs.i.i52
   %mul.i.i57 = shl nuw nsw i64 %conv.i49, 2
-  %add.ptr.i.i58 = getelementptr inbounds i8, ptr %23, i64 %mul.i.i57
+  %add.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %23, i64 %mul.i.i57
   store ptr %add.ptr.i.i58, ptr %buf.i, align 8
   %27 = load ptr, ptr %visitor, align 8
-  %stringTableEntries.i = getelementptr inbounds i8, ptr %27, i64 24
+  %stringTableEntries.i = getelementptr inbounds nuw i8, ptr %27, i64 24
   store ptr %23, ptr %stringTableEntries.i, align 8
-  %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds i8, ptr %27, i64 32
+  %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 32
   store i64 %conv.i49, ptr %ref.tmp.sroa.2.0.stringTableEntries.sroa_idx.i, align 8
   %28 = load ptr, ptr %buf.i, align 8
   %29 = ptrtoint ptr %28 to i64
@@ -1060,7 +1060,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %30 = inttoptr i64 %and.i.i.i62 to ptr
   store ptr %30, ptr %buf.i, align 8
   %31 = load ptr, ptr %h.i, align 8
-  %overflowStringCount.i = getelementptr inbounds i8, ptr %31, i64 56
+  %overflowStringCount.i = getelementptr inbounds nuw i8, ptr %31, i64 56
   %32 = load i32, ptr %overflowStringCount.i, align 1
   %conv.i64 = zext i32 %32 to i64
   %33 = load ptr, ptr %end.i, align 8
@@ -1080,12 +1080,12 @@ if.then.i.i74:                                    ; preds = %lor.rhs.i.i67, %_ZZ
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit: ; preds = %lor.rhs.i.i67
   %mul.i.i72 = shl nuw nsw i64 %conv.i64, 3
-  %add.ptr.i.i73 = getelementptr inbounds i8, ptr %30, i64 %mul.i.i72
+  %add.ptr.i.i73 = getelementptr inbounds nuw i8, ptr %30, i64 %mul.i.i72
   store ptr %add.ptr.i.i73, ptr %buf.i, align 8
   %34 = load ptr, ptr %visitor, align 8
-  %stringTableOverflowEntries.i = getelementptr inbounds i8, ptr %34, i64 72
+  %stringTableOverflowEntries.i = getelementptr inbounds nuw i8, ptr %34, i64 72
   store ptr %30, ptr %stringTableOverflowEntries.i, align 8
-  %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds i8, ptr %34, i64 80
+  %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i = getelementptr inbounds nuw i8, ptr %34, i64 80
   store i64 %conv.i64, ptr %ref.tmp.sroa.2.0.stringTableOverflowEntries.sroa_idx.i, align 8
   %35 = load ptr, ptr %buf.i, align 8
   %36 = ptrtoint ptr %35 to i64
@@ -1094,7 +1094,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %37 = inttoptr i64 %and.i.i.i77 to ptr
   store ptr %37, ptr %buf.i, align 8
   %38 = load ptr, ptr %h.i, align 8
-  %stringStorageSize.i = getelementptr inbounds i8, ptr %38, i64 60
+  %stringStorageSize.i = getelementptr inbounds nuw i8, ptr %38, i64 60
   %39 = load i32, ptr %stringStorageSize.i, align 1
   %conv.i79 = zext i32 %39 to i64
   %40 = load ptr, ptr %end.i, align 8
@@ -1110,12 +1110,12 @@ if.then.i.i86:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitOverflowStringTableEv.exit
-  %add.ptr.i.i85 = getelementptr inbounds i8, ptr %37, i64 %conv.i79
+  %add.ptr.i.i85 = getelementptr inbounds nuw i8, ptr %37, i64 %conv.i79
   store ptr %add.ptr.i.i85, ptr %buf.i, align 8
   %41 = load ptr, ptr %visitor, align 8
-  %stringStorage.i = getelementptr inbounds i8, ptr %41, i64 88
+  %stringStorage.i = getelementptr inbounds nuw i8, ptr %41, i64 88
   store ptr %37, ptr %stringStorage.i, align 8
-  %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds i8, ptr %41, i64 96
+  %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %41, i64 96
   store i64 %conv.i79, ptr %ref.tmp.sroa.2.0.stringStorage.sroa_idx.i, align 8
   %42 = load ptr, ptr %buf.i, align 8
   %43 = ptrtoint ptr %42 to i64
@@ -1124,7 +1124,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %44 = inttoptr i64 %and.i.i.i89 to ptr
   store ptr %44, ptr %buf.i, align 8
   %45 = load ptr, ptr %h.i, align 8
-  %arrayBufferSize.i = getelementptr inbounds i8, ptr %45, i64 80
+  %arrayBufferSize.i = getelementptr inbounds nuw i8, ptr %45, i64 80
   %46 = load i32, ptr %arrayBufferSize.i, align 1
   %conv.i91 = zext i32 %46 to i64
   %47 = load ptr, ptr %end.i, align 8
@@ -1140,12 +1140,12 @@ if.then.i.i99:                                    ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitStringStorageEv.exit
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %44, i64 %conv.i91
+  %add.ptr.i.i98 = getelementptr inbounds nuw i8, ptr %44, i64 %conv.i91
   store ptr %add.ptr.i.i98, ptr %buf.i, align 8
   %48 = load ptr, ptr %visitor, align 8
-  %arrayBuffer.i = getelementptr inbounds i8, ptr %48, i64 104
+  %arrayBuffer.i = getelementptr inbounds nuw i8, ptr %48, i64 104
   store ptr %44, ptr %arrayBuffer.i, align 8
-  %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 112
+  %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 112
   store i64 %conv.i91, ptr %ref.tmp.sroa.2.0.arrayBuffer.sroa_idx.i, align 8
   %49 = load ptr, ptr %buf.i, align 8
   %50 = ptrtoint ptr %49 to i64
@@ -1154,7 +1154,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %51 = inttoptr i64 %and.i.i.i102 to ptr
   store ptr %51, ptr %buf.i, align 8
   %52 = load ptr, ptr %h.i, align 8
-  %objKeyBufferSize.i = getelementptr inbounds i8, ptr %52, i64 84
+  %objKeyBufferSize.i = getelementptr inbounds nuw i8, ptr %52, i64 84
   %53 = load i32, ptr %objKeyBufferSize.i, align 1
   %conv.i104 = zext i32 %53 to i64
   %54 = load ptr, ptr %end.i, align 8
@@ -1170,12 +1170,12 @@ if.then.i.i112:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitArrayBufferEv.exit
-  %add.ptr.i.i111 = getelementptr inbounds i8, ptr %51, i64 %conv.i104
+  %add.ptr.i.i111 = getelementptr inbounds nuw i8, ptr %51, i64 %conv.i104
   store ptr %add.ptr.i.i111, ptr %buf.i, align 8
   %55 = load ptr, ptr %visitor, align 8
-  %objKeyBuffer.i = getelementptr inbounds i8, ptr %55, i64 120
+  %objKeyBuffer.i = getelementptr inbounds nuw i8, ptr %55, i64 120
   store ptr %51, ptr %objKeyBuffer.i, align 8
-  %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %55, i64 128
+  %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %55, i64 128
   store i64 %conv.i104, ptr %ref.tmp.sroa.2.0.objKeyBuffer.sroa_idx.i, align 8
   %56 = load ptr, ptr %buf.i, align 8
   %57 = ptrtoint ptr %56 to i64
@@ -1184,7 +1184,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %58 = inttoptr i64 %and.i.i.i115 to ptr
   store ptr %58, ptr %buf.i, align 8
   %59 = load ptr, ptr %h.i, align 8
-  %objValueBufferSize.i = getelementptr inbounds i8, ptr %59, i64 88
+  %objValueBufferSize.i = getelementptr inbounds nuw i8, ptr %59, i64 88
   %60 = load i32, ptr %objValueBufferSize.i, align 1
   %conv.i117 = zext i32 %60 to i64
   %61 = load ptr, ptr %end.i, align 8
@@ -1200,12 +1200,12 @@ if.then.i.i125:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator22visitObjectValueBufferEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator20visitObjectKeyBufferEv.exit
-  %add.ptr.i.i124 = getelementptr inbounds i8, ptr %58, i64 %conv.i117
+  %add.ptr.i.i124 = getelementptr inbounds nuw i8, ptr %58, i64 %conv.i117
   store ptr %add.ptr.i.i124, ptr %buf.i, align 8
   %62 = load ptr, ptr %visitor, align 8
-  %objValueBuffer.i = getelementptr inbounds i8, ptr %62, i64 136
+  %objValueBuffer.i = getelementptr inbounds nuw i8, ptr %62, i64 136
   store ptr %58, ptr %objValueBuffer.i, align 8
-  %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds i8, ptr %62, i64 144
+  %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i = getelementptr inbounds nuw i8, ptr %62, i64 144
   store i64 %conv.i117, ptr %ref.tmp.sroa.2.0.objValueBuffer.sroa_idx.i, align 8
   %63 = load ptr, ptr %buf.i, align 8
   %64 = ptrtoint ptr %63 to i64
@@ -1214,7 +1214,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %65 = inttoptr i64 %and.i.i.i128 to ptr
   store ptr %65, ptr %buf.i, align 8
   %66 = load ptr, ptr %h.i, align 8
-  %bigIntCount.i = getelementptr inbounds i8, ptr %66, i64 64
+  %bigIntCount.i = getelementptr inbounds nuw i8, ptr %66, i64 64
   %67 = load i32, ptr %bigIntCount.i, align 1
   %conv.i130 = zext i32 %67 to i64
   %68 = load ptr, ptr %end.i, align 8
@@ -1234,12 +1234,12 @@ if.then.i.i140:                                   ; preds = %lor.rhs.i.i133, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit: ; preds = %lor.rhs.i.i133
   %mul.i.i138 = shl nuw nsw i64 %conv.i130, 3
-  %add.ptr.i.i139 = getelementptr inbounds i8, ptr %65, i64 %mul.i.i138
+  %add.ptr.i.i139 = getelementptr inbounds nuw i8, ptr %65, i64 %mul.i.i138
   store ptr %add.ptr.i.i139, ptr %buf.i, align 8
   %69 = load ptr, ptr %visitor, align 8
-  %bigIntTable.i = getelementptr inbounds i8, ptr %69, i64 152
+  %bigIntTable.i = getelementptr inbounds nuw i8, ptr %69, i64 152
   store ptr %65, ptr %bigIntTable.i, align 8
-  %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds i8, ptr %69, i64 160
+  %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %69, i64 160
   store i64 %conv.i130, ptr %ref.tmp.sroa.2.0.bigIntTable.sroa_idx.i, align 8
   %70 = load ptr, ptr %buf.i, align 8
   %71 = ptrtoint ptr %70 to i64
@@ -1248,7 +1248,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %72 = inttoptr i64 %and.i.i.i143 to ptr
   store ptr %72, ptr %buf.i, align 8
   %73 = load ptr, ptr %h.i, align 8
-  %bigIntStorageSize.i = getelementptr inbounds i8, ptr %73, i64 68
+  %bigIntStorageSize.i = getelementptr inbounds nuw i8, ptr %73, i64 68
   %74 = load i32, ptr %bigIntStorageSize.i, align 1
   %conv.i145 = zext i32 %74 to i64
   %75 = load ptr, ptr %end.i, align 8
@@ -1264,12 +1264,12 @@ if.then.i.i153:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitBigIntStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitBigIntTableEv.exit
-  %add.ptr.i.i152 = getelementptr inbounds i8, ptr %72, i64 %conv.i145
+  %add.ptr.i.i152 = getelementptr inbounds nuw i8, ptr %72, i64 %conv.i145
   store ptr %add.ptr.i.i152, ptr %buf.i, align 8
   %76 = load ptr, ptr %visitor, align 8
-  %bigIntStorage.i = getelementptr inbounds i8, ptr %76, i64 168
+  %bigIntStorage.i = getelementptr inbounds nuw i8, ptr %76, i64 168
   store ptr %72, ptr %bigIntStorage.i, align 8
-  %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds i8, ptr %76, i64 176
+  %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %76, i64 176
   store i64 %conv.i145, ptr %ref.tmp.sroa.2.0.bigIntStorage.sroa_idx.i, align 8
   %77 = load ptr, ptr %buf.i, align 8
   %78 = ptrtoint ptr %77 to i64
@@ -1278,7 +1278,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %79 = inttoptr i64 %and.i.i.i156 to ptr
   store ptr %79, ptr %buf.i, align 8
   %80 = load ptr, ptr %h.i, align 8
-  %regExpCount.i = getelementptr inbounds i8, ptr %80, i64 72
+  %regExpCount.i = getelementptr inbounds nuw i8, ptr %80, i64 72
   %81 = load i32, ptr %regExpCount.i, align 1
   %conv.i158 = zext i32 %81 to i64
   %82 = load ptr, ptr %end.i, align 8
@@ -1298,12 +1298,12 @@ if.then.i.i168:                                   ; preds = %lor.rhs.i.i161, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit: ; preds = %lor.rhs.i.i161
   %mul.i.i166 = shl nuw nsw i64 %conv.i158, 3
-  %add.ptr.i.i167 = getelementptr inbounds i8, ptr %79, i64 %mul.i.i166
+  %add.ptr.i.i167 = getelementptr inbounds nuw i8, ptr %79, i64 %mul.i.i166
   store ptr %add.ptr.i.i167, ptr %buf.i, align 8
   %83 = load ptr, ptr %visitor, align 8
-  %regExpTable.i = getelementptr inbounds i8, ptr %83, i64 184
+  %regExpTable.i = getelementptr inbounds nuw i8, ptr %83, i64 184
   store ptr %79, ptr %regExpTable.i, align 8
-  %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds i8, ptr %83, i64 192
+  %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %83, i64 192
   store i64 %conv.i158, ptr %ref.tmp.sroa.2.0.regExpTable.sroa_idx.i, align 8
   %84 = load ptr, ptr %buf.i, align 8
   %85 = ptrtoint ptr %84 to i64
@@ -1312,7 +1312,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %86 = inttoptr i64 %and.i.i.i171 to ptr
   store ptr %86, ptr %buf.i, align 8
   %87 = load ptr, ptr %h.i, align 8
-  %regExpStorageSize.i = getelementptr inbounds i8, ptr %87, i64 76
+  %regExpStorageSize.i = getelementptr inbounds nuw i8, ptr %87, i64 76
   %88 = load i32, ptr %regExpStorageSize.i, align 1
   %conv.i173 = zext i32 %88 to i64
   %89 = load ptr, ptr %end.i, align 8
@@ -1328,12 +1328,12 @@ if.then.i.i181:                                   ; preds = %_ZZN6hermes3hbc18By
   unreachable
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit: ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator16visitRegExpTableEv.exit
-  %add.ptr.i.i180 = getelementptr inbounds i8, ptr %86, i64 %conv.i173
+  %add.ptr.i.i180 = getelementptr inbounds nuw i8, ptr %86, i64 %conv.i173
   store ptr %add.ptr.i.i180, ptr %buf.i, align 8
   %90 = load ptr, ptr %visitor, align 8
-  %regExpStorage.i = getelementptr inbounds i8, ptr %90, i64 200
+  %regExpStorage.i = getelementptr inbounds nuw i8, ptr %90, i64 200
   store ptr %86, ptr %regExpStorage.i, align 8
-  %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds i8, ptr %90, i64 208
+  %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i = getelementptr inbounds nuw i8, ptr %90, i64 208
   store i64 %conv.i173, ptr %ref.tmp.sroa.2.0.regExpStorage.sroa_idx.i, align 8
   %91 = load ptr, ptr %buf.i, align 8
   %92 = ptrtoint ptr %91 to i64
@@ -1342,11 +1342,11 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %93 = inttoptr i64 %and.i.i.i184 to ptr
   store ptr %93, ptr %buf.i, align 8
   %94 = load ptr, ptr %h.i, align 8
-  %options.i = getelementptr inbounds i8, ptr %94, i64 108
+  %options.i = getelementptr inbounds nuw i8, ptr %94, i64 108
   %bf.load.i = load i8, ptr %options.i, align 1
   %95 = and i8 %bf.load.i, 2
   %bf.cast.not.i = icmp eq i8 %95, 0
-  %cjsModuleCount7.i = getelementptr inbounds i8, ptr %94, i64 96
+  %cjsModuleCount7.i = getelementptr inbounds nuw i8, ptr %94, i64 96
   %96 = load i32, ptr %cjsModuleCount7.i, align 1
   %conv8.i = zext i32 %96 to i64
   %97 = load ptr, ptr %end.i, align 8
@@ -1385,12 +1385,12 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
   %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
+  %add.ptr.i9.i = getelementptr inbounds nuw i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
   %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds i8, ptr %98, i64 %.sink16.i
+  %cjsModuleTable.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink16.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 %.sink14.i
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sink14.i
   store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
   %99 = load ptr, ptr %buf.i, align 8
   %100 = ptrtoint ptr %99 to i64
@@ -1399,7 +1399,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   %101 = inttoptr i64 %and.i.i.i194 to ptr
   store ptr %101, ptr %buf.i, align 8
   %102 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds i8, ptr %102, i64 100
+  %functionSourceCount.i = getelementptr inbounds nuw i8, ptr %102, i64 100
   %103 = load i32, ptr %functionSourceCount.i, align 1
   %conv.i196 = zext i32 %103 to i64
   %104 = load ptr, ptr %end.i, align 8
@@ -1419,12 +1419,12 @@ if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_Z
 
 _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i199
   %mul.i.i204 = shl nuw nsw i64 %conv.i196, 3
-  %add.ptr.i.i205 = getelementptr inbounds i8, ptr %101, i64 %mul.i.i204
+  %add.ptr.i.i205 = getelementptr inbounds nuw i8, ptr %101, i64 %mul.i.i204
   store ptr %add.ptr.i.i205, ptr %buf.i, align 8
   %105 = load ptr, ptr %visitor, align 8
-  %functionSourceTable.i = getelementptr inbounds i8, ptr %105, i64 248
+  %functionSourceTable.i = getelementptr inbounds nuw i8, ptr %105, i64 248
   store ptr %101, ptr %functionSourceTable.i, align 8
-  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %105, i64 256
+  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds nuw i8, ptr %105, i64 256
   store i64 %conv.i196, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void
 }
@@ -1433,7 +1433,7 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
 define hidden noundef i32 @_ZNK6hermes3hbc14BCProviderBase21findCatchTargetOffsetEjj(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %functionID, i32 noundef %exceptionOffset) local_unnamed_addr #0 align 2 {
 entry:
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call { ptr, i64 } %0(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %functionID) #19
   %1 = extractvalue { ptr, i64 } %call, 0
@@ -1448,19 +1448,19 @@ for.body.preheader:                               ; preds = %entry
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::HBCExceptionHandlerInfo", ptr %1, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::HBCExceptionHandlerInfo", ptr %1, i64 %indvars.iv
   %4 = load i32, ptr %arrayidx.i, align 1
   %cmp5.not = icmp ugt i32 %4, %exceptionOffset
   br i1 %cmp5.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %end = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %end = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %5 = load i32, ptr %end, align 1
   %cmp8 = icmp ult i32 %exceptionOffset, %5
   br i1 %cmp8, label %if.then, label %for.inc
 
 if.then:                                          ; preds = %land.lhs.true
-  %target = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %target = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %6 = load i32, ptr %target, align 1
   br label %return
 
@@ -1484,7 +1484,7 @@ for.body:                                         ; preds = %entry, %_ZNK6hermes
   %i.06 = phi i32 [ %inc, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ 0, %entry ]
   %virtualOffset.05 = phi i32 [ %add, %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit ], [ 0, %entry ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %i.06) #19
   %1 = ptrtoint ptr %call to i64
@@ -1493,7 +1493,7 @@ for.body:                                         ; preds = %entry, %_ZNK6hermes
   br i1 %tobool.i.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body
-  %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %call, i64 7
+  %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %call, i64 7
   %2 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
@@ -1523,7 +1523,7 @@ entry:
   %fileName = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"struct.hermes::SourceMapTextLocation", align 8
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 56
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 56
   %0 = load ptr, ptr %vfn, align 8
   %call = tail call noundef ptr %0(ptr noundef nonnull align 8 dereferenceable(280) %this, i32 noundef %funcId) #19
   %cmp.not = icmp eq ptr %call, null
@@ -1535,7 +1535,7 @@ land.lhs.true:                                    ; preds = %entry
   br i1 %cmp2.not, label %if.end11, label %if.then
 
 if.then:                                          ; preds = %land.lhs.true
-  %debugInfo_.i = getelementptr inbounds i8, ptr %this, i64 240
+  %debugInfo_.i = getelementptr inbounds nuw i8, ptr %this, i64 240
   %2 = load ptr, ptr %debugInfo_.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.then.i, label %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit
@@ -1552,28 +1552,28 @@ _ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit: ; preds = %if.then, %if.th
   %4 = phi i32 [ %.pre, %if.then.i ], [ %1, %if.then ]
   %5 = phi ptr [ %.pre.i, %if.then.i ], [ %2, %if.then ]
   call void @_ZNK6hermes3hbc9DebugInfo21getLocationForAddressEjj(ptr nonnull sret(%"class.hermes::OptValue") align 4 %locOpt, ptr noundef nonnull align 8 dereferenceable(136) %5, i32 noundef %4, i32 noundef %offsetInFunction) #19
-  %hasValue_.i = getelementptr inbounds i8, ptr %locOpt, i64 32
+  %hasValue_.i = getelementptr inbounds nuw i8, ptr %locOpt, i64 32
   %6 = load i8, ptr %hasValue_.i, align 4
   %tobool.i = trunc i8 %6 to i1
   br i1 %tobool.i, label %if.then6, label %if.end11
 
 if.then6:                                         ; preds = %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit
-  %loc.sroa.1.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 4
+  %loc.sroa.1.0.call7.sroa_idx = getelementptr inbounds nuw i8, ptr %locOpt, i64 4
   %loc.sroa.1.0.copyload = load i32, ptr %loc.sroa.1.0.call7.sroa_idx, align 4
-  %loc.sroa.21.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 12
+  %loc.sroa.21.0.call7.sroa_idx = getelementptr inbounds nuw i8, ptr %locOpt, i64 12
   %loc.sroa.21.0.copyload = load i32, ptr %loc.sroa.21.0.call7.sroa_idx, align 4
-  %loc.sroa.3.0.call7.sroa_idx = getelementptr inbounds i8, ptr %locOpt, i64 16
+  %loc.sroa.3.0.call7.sroa_idx = getelementptr inbounds nuw i8, ptr %locOpt, i64 16
   %loc.sroa.3.0.copyload = load i32, ptr %loc.sroa.3.0.call7.sroa_idx, align 4
   call void @_ZNK6hermes3hbc9DebugInfo15getFilenameByIDB5cxx11Ej(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %fileName, ptr noundef nonnull align 8 dereferenceable(136) %5, i32 noundef %loc.sroa.1.0.copyload)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(32) %fileName) #19
-  %line = getelementptr inbounds i8, ptr %ref.tmp, i64 32
+  %line = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 32
   store i32 %loc.sroa.21.0.copyload, ptr %line, align 8
-  %column = getelementptr inbounds i8, ptr %ref.tmp, i64 36
+  %column = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 36
   store i32 %loc.sroa.3.0.copyload, ptr %column, align 4
-  %hasVal.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 1, ptr %hasVal.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #19
-  %line.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
+  %line.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 32
   %7 = load i64, ptr %line, align 8
   store i64 %7, ptr %line.i.i.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp) #19
@@ -1581,7 +1581,7 @@ if.then6:                                         ; preds = %_ZNK6hermes3hbc14BC
   br label %return
 
 if.end11:                                         ; preds = %_ZNK6hermes3hbc14BCProviderBase12getDebugInfoEv.exit, %land.lhs.true, %entry
-  %hasVal.i.i5 = getelementptr inbounds i8, ptr %agg.result, i64 40
+  %hasVal.i.i5 = getelementptr inbounds nuw i8, ptr %agg.result, i64 40
   store i8 0, ptr %hasVal.i.i5, align 8
   br label %return
 
@@ -1599,10 +1599,10 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %utf8Storage) #19
   %conv = zext i32 %id to i64
   %0 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds %"class.hermes::StringTableEntry", ptr %0, i64 %conv
-  %filenameStorage_ = getelementptr inbounds i8, ptr %this, i64 24
+  %add.ptr.i = getelementptr inbounds nuw %"class.hermes::StringTableEntry", ptr %0, i64 %conv
+  %filenameStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %filenameStorage_, align 8
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %1 to i64
@@ -1639,14 +1639,14 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv(ptr noundef nonnull align 8 dereferenceable(376) %this) local_unnamed_addr #0 align 2 {
 entry:
-  %warmupThread_ = getelementptr inbounds i8, ptr %this, i64 336
-  %hasVal.i = getelementptr inbounds i8, ptr %this, i64 344
+  %warmupThread_ = getelementptr inbounds nuw i8, ptr %this, i64 336
+  %hasVal.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %hasVal.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %warmupAbortFlag_ = getelementptr inbounds i8, ptr %this, i64 352
+  %warmupAbortFlag_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   store atomic i8 1, ptr %warmupAbortFlag_ release, align 8
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %warmupThread_) #19
   %1 = load i8, ptr %hasVal.i, align 8
@@ -1677,16 +1677,16 @@ define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer11startWarmupEh(ptr noun
 entry:
   %agg.tmp.i = alloca %"class.std::unique_ptr.48", align 8
   %ref.tmp = alloca %"class.std::thread", align 8
-  %warmupThread_ = getelementptr inbounds i8, ptr %this, i64 336
-  %hasVal.i = getelementptr inbounds i8, ptr %this, i64 344
+  %warmupThread_ = getelementptr inbounds nuw i8, ptr %this, i64 336
+  %hasVal.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %hasVal.i, align 8
   %tobool.i = trunc i8 %0 to i1
   br i1 %tobool.i, label %if.end19, label %if.then
 
 if.then:                                          ; preds = %entry
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %buffer_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %cmp = icmp ult i8 %percent, 100
   br i1 %cmp, label %if.then5, label %if.end
@@ -1705,20 +1705,20 @@ if.end:                                           ; preds = %if.then5, %if.then
   br i1 %cmp9.not, label %if.end19, label %if.then10
 
 if.then10:                                        ; preds = %if.end
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load ptr, ptr %data_.i, align 8
-  %warmupAbortFlag_ = getelementptr inbounds i8, ptr %this, i64 352
+  %warmupAbortFlag_ = getelementptr inbounds nuw i8, ptr %this, i64 352
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   store i64 0, ptr %ref.tmp, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #21
   store ptr getelementptr inbounds (i8, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKhjPSt6atomicIbEES4_jS7_EEEEEE, i64 16), ptr %call.i, align 8
-  %_M_func.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
+  %_M_func.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   store ptr %warmupAbortFlag_, ptr %_M_func.i.i, align 8
-  %4 = getelementptr inbounds i8, ptr %call.i, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %call.i, i64 16
   store i32 %storemerge, ptr %4, align 4
-  %5 = getelementptr inbounds i8, ptr %call.i, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store ptr %3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %call.i, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %call.i, i64 32
   store ptr @_ZN6hermes3hbcL6warmupEPKhjPSt6atomicIbE, ptr %6, align 8
   store ptr %call.i, ptr %agg.tmp.i, align 8
   call void @_ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr noundef nonnull %agg.tmp.i, ptr noundef null) #19
@@ -1728,7 +1728,7 @@ if.then10:                                        ; preds = %if.end
 
 _ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i.i: ; preds = %if.then10
   %vtable.i.i.i = load ptr, ptr %7, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 8
+  %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
   %8 = load ptr, ptr %vfn.i.i.i, align 8
   call void %8(ptr noundef nonnull align 8 dereferenceable(8) %7) #19
   br label %_ZNSt6threadC2IRFvPKhjPSt6atomicIbEEJS2_RjS5_EvEEOT_DpOT0_.exit
@@ -1776,7 +1776,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %i.09 = phi i32 [ %add5, %for.inc ], [ 0, %entry ]
   %nextAbortCheckPoint.08 = phi i32 [ %nextAbortCheckPoint.1, %for.inc ], [ %mul, %entry ]
   %idxprom = zext i32 %i.09 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %idxprom
   %0 = load volatile i8, ptr %arrayidx, align 1
   %cmp1.not = icmp ult i32 %i.09, %nextAbortCheckPoint.08
   br i1 %cmp1.not, label %for.inc, label %if.then
@@ -1803,11 +1803,11 @@ for.end:                                          ; preds = %for.inc, %if.then, 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer7madviseENS_8oscompat7MAdviceE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, i32 noundef %advice) unnamed_addr #0 align 2 {
 entry:
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load ptr, ptr %buffer_, align 8
-  %data_.i = getelementptr inbounds i8, ptr %0, i64 8
+  %data_.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %data_.i, align 8
-  %size_.i = getelementptr inbounds i8, ptr %0, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %call7 = tail call noundef zeroext i1 @_ZN6hermes8oscompat10vm_madviseEPvmNS0_7MAdviceE(ptr noundef %1, i64 noundef %2, i32 noundef %advice) #19
   ret void
@@ -1818,13 +1818,13 @@ declare noundef zeroext i1 @_ZN6hermes8oscompat10vm_madviseEPvmNS0_7MAdviceE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer27adviseStringTableSequentialEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #0 align 2 {
 entry:
-  %stringKinds_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stringKinds_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %stringKinds_, align 8
-  %stringStorage_ = getelementptr inbounds i8, ptr %this, i64 56
+  %stringStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %1 = load ptr, ptr %stringStorage_, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %1 to i64
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 1
   %2 = ptrtoint ptr %add.ptr.i to i64
   %add.i.i = add i64 %call.i, -1
   %sub.i.i = add i64 %add.i.i, %2
@@ -1840,20 +1840,20 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer23adviseStringTableRandomEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #0 align 2 {
 entry:
-  %stringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 304
+  %stringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load ptr, ptr %stringTableEntries_, align 8
-  %overflowStringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 312
+  %overflowStringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
-  %Length.i1 = getelementptr inbounds i8, ptr %this, i64 320
+  %Length.i1 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load i64, ptr %Length.i1, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i to i64
-  %stringStorage_ = getelementptr inbounds i8, ptr %this, i64 56
+  %stringStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %3 = load ptr, ptr %stringStorage_, align 8
-  %Length.i2 = getelementptr inbounds i8, ptr %this, i64 64
+  %Length.i2 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load i64, ptr %Length.i2, align 8
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
-  %add.ptr.i3 = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %5 = ptrtoint ptr %add.ptr.i3 to i64
   %add.i.i = add i64 %5, -1
   %sub.i.i = add i64 %add.i.i, %call.i
@@ -1863,7 +1863,7 @@ entry:
   %6 = inttoptr i64 %sub.i to ptr
   %add.i = sub i64 %sub.ptr.lhs.cast, %sub.i
   %call.i4 = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %3, i64 1
+  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %7 = ptrtoint ptr %add.ptr.i5 to i64
   %add.i.i6 = add i64 %7, -1
   %sub.i.i7 = add i64 %add.i.i6, %call.i4
@@ -1882,16 +1882,16 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer19willNeedStringTableEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #0 align 2 {
 entry:
-  %stringKinds_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stringKinds_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %stringKinds_, align 8
-  %overflowStringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 312
+  %overflowStringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
-  %Length.i1 = getelementptr inbounds i8, ptr %this, i64 320
+  %Length.i1 = getelementptr inbounds nuw i8, ptr %this, i64 320
   %2 = load i64, ptr %Length.i1, align 8
   %add.ptr.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %2
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr.i to i64
   %call.i = tail call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
-  %add.ptr.i2 = getelementptr inbounds i8, ptr %0, i64 1
+  %add.ptr.i2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = ptrtoint ptr %add.ptr.i2 to i64
   %add.i.i = add i64 %3, -1
   %sub.i.i = add i64 %add.i.i, %call.i
@@ -1918,36 +1918,36 @@ entry:
   %populator.i = alloca %struct.BytecodeFileFieldsPopulator, align 8
   %fields = alloca %"struct.hermes::hbc::BytecodeFileFields", align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
-  %options_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %options_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i8 0, ptr %options_.i, align 8
-  %functionCount_.i = getelementptr inbounds i8, ptr %this, i64 12
-  %cjsModuleTable_.i = getelementptr inbounds i8, ptr %this, i64 192
-  %errstr_.i = getelementptr inbounds i8, ptr %this, i64 248
+  %functionCount_.i = getelementptr inbounds nuw i8, ptr %this, i64 12
+  %cjsModuleTable_.i = getelementptr inbounds nuw i8, ptr %this, i64 192
+  %errstr_.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(172) %functionCount_.i, i8 0, i64 172, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %cjsModuleTable_.i, i8 0, i64 56, i1 false)
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_.i) #19
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc20BCProviderFromBufferE, i64 16), ptr %this, align 8
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %0 = load i64, ptr %buffer, align 8
   store i64 %0, ptr %buffer_, align 8
   store ptr null, ptr %buffer, align 8
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %buffer_, align 8
-  %data_.i = getelementptr inbounds i8, ptr %1, i64 8
+  %data_.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %2 = load ptr, ptr %data_.i, align 8
   store ptr %2, ptr %bufferPtr_, align 8
-  %functionHeaders_ = getelementptr inbounds i8, ptr %this, i64 296
-  %hasVal.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %functionHeaders_ = getelementptr inbounds nuw i8, ptr %this, i64 296
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   store i8 0, ptr %hasVal.i.i, align 8
-  %tracker_ = getelementptr inbounds i8, ptr %this, i64 360
+  %tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   store ptr null, ptr %tracker_, align 8
-  %end_ = getelementptr inbounds i8, ptr %this, i64 368
-  %size_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %end_ = getelementptr inbounds nuw i8, ptr %this, i64 368
+  %size_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %functionHeaders_, i8 0, i64 36, i1 false)
   %3 = load i64, ptr %size_.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %2, i64 %3
   store ptr %add.ptr, ptr %end_, align 8
-  %4 = getelementptr inbounds i8, ptr %fields, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %4, i8 0, i64 256, i1 false)
   %5 = load i64, ptr %size_.i, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %populator.i)
@@ -1959,88 +1959,88 @@ _ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEE
   br label %return
 
 if.end:                                           ; preds = %entry
-  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 328
-  %overflowStringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 312
-  %stringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 304
+  %debugInfoOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 328
+  %overflowStringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 312
+  %stringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %5
   store ptr %fields, ptr %populator.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %populator.i, i64 8
-  %end.i.i = getelementptr inbounds i8, ptr %populator.i, i64 24
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 8
+  %end.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 24
   store ptr %add.ptr.i.i, ptr %end.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 128
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 128
   store ptr %add.ptr.i.i.i, ptr %buf.i.i, align 8
   store ptr %2, ptr %fields, align 8
-  %h.i.i = getelementptr inbounds i8, ptr %populator.i, i64 16
+  %h.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 16
   store ptr %2, ptr %h.i.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
   %6 = load ptr, ptr %fields, align 8
-  %options = getelementptr inbounds i8, ptr %6, i64 108
+  %options = getelementptr inbounds nuw i8, ptr %6, i64 108
   %7 = load i8, ptr %options, align 1
   store i8 %7, ptr %options_.i, align 8
-  %functionCount = getelementptr inbounds i8, ptr %6, i64 40
+  %functionCount = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i32, ptr %functionCount, align 1
   store i32 %8, ptr %functionCount_.i, align 4
-  %globalCodeIndex = getelementptr inbounds i8, ptr %6, i64 36
+  %globalCodeIndex = getelementptr inbounds nuw i8, ptr %6, i64 36
   %9 = load i32, ptr %globalCodeIndex, align 1
-  %globalFunctionIndex_ = getelementptr inbounds i8, ptr %this, i64 16
+  %globalFunctionIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i32 %9, ptr %globalFunctionIndex_, align 8
-  %debugInfoOffset = getelementptr inbounds i8, ptr %6, i64 104
+  %debugInfoOffset = getelementptr inbounds nuw i8, ptr %6, i64 104
   %10 = load i32, ptr %debugInfoOffset, align 1
   store i32 %10, ptr %debugInfoOffset_, align 8
-  %functionHeaders = getelementptr inbounds i8, ptr %fields, i64 8
+  %functionHeaders = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %11 = load ptr, ptr %functionHeaders, align 8
   store ptr %11, ptr %functionHeaders_, align 8
-  %stringKinds = getelementptr inbounds i8, ptr %fields, i64 40
-  %stringKinds_ = getelementptr inbounds i8, ptr %this, i64 24
+  %stringKinds = getelementptr inbounds nuw i8, ptr %fields, i64 40
+  %stringKinds_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stringKinds_, ptr noundef nonnull align 8 dereferenceable(16) %stringKinds, i64 16, i1 false)
-  %identifierHashes = getelementptr inbounds i8, ptr %fields, i64 56
-  %identifierHashes_ = getelementptr inbounds i8, ptr %this, i64 40
+  %identifierHashes = getelementptr inbounds nuw i8, ptr %fields, i64 56
+  %identifierHashes_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %identifierHashes_, ptr noundef nonnull align 8 dereferenceable(16) %identifierHashes, i64 16, i1 false)
-  %stringCount = getelementptr inbounds i8, ptr %6, i64 52
+  %stringCount = getelementptr inbounds nuw i8, ptr %6, i64 52
   %12 = load i32, ptr %stringCount, align 1
-  %stringCount_ = getelementptr inbounds i8, ptr %this, i64 20
+  %stringCount_ = getelementptr inbounds nuw i8, ptr %this, i64 20
   store i32 %12, ptr %stringCount_, align 4
-  %stringTableEntries = getelementptr inbounds i8, ptr %fields, i64 24
+  %stringTableEntries = getelementptr inbounds nuw i8, ptr %fields, i64 24
   %13 = load ptr, ptr %stringTableEntries, align 8
   store ptr %13, ptr %stringTableEntries_, align 8
-  %stringTableOverflowEntries = getelementptr inbounds i8, ptr %fields, i64 72
+  %stringTableOverflowEntries = getelementptr inbounds nuw i8, ptr %fields, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %overflowStringTableEntries_, ptr noundef nonnull align 8 dereferenceable(16) %stringTableOverflowEntries, i64 16, i1 false)
-  %stringStorage = getelementptr inbounds i8, ptr %fields, i64 88
-  %stringStorage_ = getelementptr inbounds i8, ptr %this, i64 56
+  %stringStorage = getelementptr inbounds nuw i8, ptr %fields, i64 88
+  %stringStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stringStorage_, ptr noundef nonnull align 8 dereferenceable(16) %stringStorage, i64 16, i1 false)
-  %arrayBuffer = getelementptr inbounds i8, ptr %fields, i64 104
-  %arrayBuffer_ = getelementptr inbounds i8, ptr %this, i64 72
+  %arrayBuffer = getelementptr inbounds nuw i8, ptr %fields, i64 104
+  %arrayBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayBuffer_, ptr noundef nonnull align 8 dereferenceable(16) %arrayBuffer, i64 16, i1 false)
-  %objKeyBuffer = getelementptr inbounds i8, ptr %fields, i64 120
-  %objKeyBuffer_ = getelementptr inbounds i8, ptr %this, i64 88
+  %objKeyBuffer = getelementptr inbounds nuw i8, ptr %fields, i64 120
+  %objKeyBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %objKeyBuffer_, ptr noundef nonnull align 8 dereferenceable(16) %objKeyBuffer, i64 16, i1 false)
-  %objValueBuffer = getelementptr inbounds i8, ptr %fields, i64 136
-  %objValueBuffer_ = getelementptr inbounds i8, ptr %this, i64 104
+  %objValueBuffer = getelementptr inbounds nuw i8, ptr %fields, i64 136
+  %objValueBuffer_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %objValueBuffer_, ptr noundef nonnull align 8 dereferenceable(16) %objValueBuffer, i64 16, i1 false)
-  %bigIntTable = getelementptr inbounds i8, ptr %fields, i64 152
-  %bigIntTable_ = getelementptr inbounds i8, ptr %this, i64 120
+  %bigIntTable = getelementptr inbounds nuw i8, ptr %fields, i64 152
+  %bigIntTable_ = getelementptr inbounds nuw i8, ptr %this, i64 120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bigIntTable_, ptr noundef nonnull align 8 dereferenceable(16) %bigIntTable, i64 16, i1 false)
-  %bigIntStorage = getelementptr inbounds i8, ptr %fields, i64 168
-  %bigIntStorage_ = getelementptr inbounds i8, ptr %this, i64 136
+  %bigIntStorage = getelementptr inbounds nuw i8, ptr %fields, i64 168
+  %bigIntStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bigIntStorage_, ptr noundef nonnull align 8 dereferenceable(16) %bigIntStorage, i64 16, i1 false)
-  %regExpTable = getelementptr inbounds i8, ptr %fields, i64 184
-  %regExpTable_ = getelementptr inbounds i8, ptr %this, i64 152
+  %regExpTable = getelementptr inbounds nuw i8, ptr %fields, i64 184
+  %regExpTable_ = getelementptr inbounds nuw i8, ptr %this, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %regExpTable_, ptr noundef nonnull align 8 dereferenceable(16) %regExpTable, i64 16, i1 false)
-  %regExpStorage = getelementptr inbounds i8, ptr %fields, i64 200
-  %regExpStorage_ = getelementptr inbounds i8, ptr %this, i64 168
+  %regExpStorage = getelementptr inbounds nuw i8, ptr %fields, i64 200
+  %regExpStorage_ = getelementptr inbounds nuw i8, ptr %this, i64 168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %regExpStorage_, ptr noundef nonnull align 8 dereferenceable(16) %regExpStorage, i64 16, i1 false)
-  %segmentID = getelementptr inbounds i8, ptr %6, i64 92
+  %segmentID = getelementptr inbounds nuw i8, ptr %6, i64 92
   %14 = load i32, ptr %segmentID, align 1
-  %segmentID_ = getelementptr inbounds i8, ptr %this, i64 184
+  %segmentID_ = getelementptr inbounds nuw i8, ptr %this, i64 184
   store i32 %14, ptr %segmentID_, align 8
-  %cjsModuleTable = getelementptr inbounds i8, ptr %fields, i64 216
+  %cjsModuleTable = getelementptr inbounds nuw i8, ptr %fields, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cjsModuleTable_.i, ptr noundef nonnull align 8 dereferenceable(16) %cjsModuleTable, i64 16, i1 false)
-  %cjsModuleTableStatic = getelementptr inbounds i8, ptr %fields, i64 232
-  %cjsModuleTableStatic_ = getelementptr inbounds i8, ptr %this, i64 208
+  %cjsModuleTableStatic = getelementptr inbounds nuw i8, ptr %fields, i64 232
+  %cjsModuleTableStatic_ = getelementptr inbounds nuw i8, ptr %this, i64 208
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cjsModuleTableStatic_, ptr noundef nonnull align 8 dereferenceable(16) %cjsModuleTableStatic, i64 16, i1 false)
-  %functionSourceTable = getelementptr inbounds i8, ptr %fields, i64 248
-  %functionSourceTable_ = getelementptr inbounds i8, ptr %this, i64 224
+  %functionSourceTable = getelementptr inbounds nuw i8, ptr %fields, i64 248
+  %functionSourceTable_ = getelementptr inbounds nuw i8, ptr %this, i64 224
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTable_, ptr noundef nonnull align 8 dereferenceable(16) %functionSourceTable, i64 16, i1 false)
   br label %return
 
@@ -2054,16 +2054,16 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden { ptr, i64 } @_ZNK6hermes3hbc20BCProviderFromBuffer11getEpilogueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #6 align 2 {
 entry:
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %buffer_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %size_.i, align 8
-  %fileLength.i = getelementptr inbounds i8, ptr %0, i64 32
+  %fileLength.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %fileLength.i, align 1
   %idx.ext.i = zext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext.i
   %gepdiff.i = sub nsw i64 %2, %idx.ext.i
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %add.ptr.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %gepdiff.i, 1
@@ -2073,10 +2073,10 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @_ZN6hermes3hbc20BCProviderFromBuffer23getEpilogueFromBytecodeEN4llvh8ArrayRefIhEE(ptr %buffer.coerce0, i64 %buffer.coerce1) local_unnamed_addr #7 align 2 {
 entry:
-  %fileLength = getelementptr inbounds i8, ptr %buffer.coerce0, i64 32
+  %fileLength = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 32
   %0 = load i32, ptr %fileLength, align 1
   %idx.ext = zext i32 %0 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %buffer.coerce0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 %idx.ext
   %gepdiff = sub nsw i64 %buffer.coerce1, %idx.ext
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %add.ptr, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %gepdiff, 1
@@ -2086,9 +2086,9 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZNK6hermes3hbc20BCProviderFromBuffer13getSourceHashEv(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 initializes((0, 20)) %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this) unnamed_addr #8 align 2 {
 entry:
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
-  %sourceHash.i = getelementptr inbounds i8, ptr %0, i64 12
+  %sourceHash.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %agg.result, ptr noundef nonnull readonly align 1 dereferenceable(20) %sourceHash.i, i64 20, i1 false)
   ret void
 }
@@ -2096,7 +2096,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer25getSourceHashFromBytecodeEN4llvh8ArrayRefIhEE(ptr noalias nocapture writeonly sret(%"struct.std::array") align 1 initializes((0, 20)) %agg.result, ptr nocapture readonly %buffer.coerce0, i64 %buffer.coerce1) local_unnamed_addr #9 align 2 {
 entry:
-  %sourceHash = getelementptr inbounds i8, ptr %buffer.coerce0, i64 12
+  %sourceHash = getelementptr inbounds nuw i8, ptr %buffer.coerce0, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %agg.result, ptr noundef nonnull align 1 dereferenceable(20) %sourceHash, i64 20, i1 false)
   ret void
 }
@@ -2105,16 +2105,16 @@ entry:
 define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer15createDebugInfoEv(ptr nocapture noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #0 align 2 {
 entry:
   %files = alloca %"class.llvh::SmallVector", align 8
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
-  %debugInfoOffset_ = getelementptr inbounds i8, ptr %this, i64 328
+  %debugInfoOffset_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   %1 = load i32, ptr %debugInfoOffset_, align 8
   %idx.ext = zext i32 %1 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 28
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 28
   %2 = load i32, ptr %add.ptr, align 1
   %conv = zext i32 %2 to i64
-  %end_ = getelementptr inbounds i8, ptr %this, i64 368
+  %end_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %3 = load ptr, ptr %end_, align 8
   %cmp.i = icmp ugt ptr %add.ptr.i, %3
   br i1 %cmp.i, label %if.then.i, label %lor.rhs.i
@@ -2133,8 +2133,8 @@ if.then.i:                                        ; preds = %lor.rhs.i, %entry
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS_16StringTableEntryEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit: ; preds = %lor.rhs.i
   %mul.i = shl nuw nsw i64 %conv, 3
-  %add.ptr.i8 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.i
-  %filenameStorageSize = getelementptr inbounds i8, ptr %add.ptr, i64 4
+  %add.ptr.i8 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %mul.i
+  %filenameStorageSize = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
   %4 = load i32, ptr %filenameStorageSize, align 1
   %conv3 = zext i32 %4 to i64
   %cmp.i9 = icmp ugt ptr %add.ptr.i8, %3
@@ -2149,14 +2149,14 @@ if.then.i17:                                      ; preds = %_ZN6hermes3hbc12_GL
   unreachable
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit: ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS_16StringTableEntryEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit
-  %add.ptr.i14 = getelementptr inbounds i8, ptr %add.ptr.i8, i64 %conv3
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %files, i64 16
+  %add.ptr.i14 = getelementptr inbounds nuw i8, ptr %add.ptr.i8, i64 %conv3
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %files, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %files, align 8
-  %Size.i.i.i.i.i = getelementptr inbounds i8, ptr %files, i64 8
+  %Size.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %files, i64 8
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i = getelementptr inbounds i8, ptr %files, i64 12
+  %Capacity2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %files, i64 12
   store i32 1, ptr %Capacity2.i.i.i.i.i, align 4
-  %fileRegionCount = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %fileRegionCount = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %5 = load i32, ptr %fileRegionCount, align 1
   %cmp52.not = icmp eq i32 %5, 0
   br i1 %cmp52.not, label %for.end, label %for.body
@@ -2165,7 +2165,7 @@ for.body:                                         ; preds = %_ZN6hermes3hbc12_GL
   %6 = phi i32 [ %add.i, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
   %i.054 = phi i32 [ %inc, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ 0, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
   %buf.053 = phi ptr [ %add.ptr.i18, %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit ], [ %add.ptr.i14, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefIhEEN4llvh8ArrayRefIT_EERPKhmS8_.exit ]
-  %add.ptr.i18 = getelementptr inbounds i8, ptr %buf.053, i64 12
+  %add.ptr.i18 = getelementptr inbounds nuw i8, ptr %buf.053, i64 12
   %7 = load i32, ptr %Capacity2.i.i.i.i.i, align 4
   %cmp.not.i = icmp ult i32 %6, %7
   br i1 %cmp.not.i, label %_ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backERKS3_.exit, label %if.then.i19
@@ -2179,7 +2179,7 @@ _ZN4llvh23SmallVectorTemplateBaseIN6hermes3hbc15DebugFileRegionELb1EE9push_backE
   %8 = phi i32 [ %.pre.i, %if.then.i19 ], [ %6, %for.body ]
   %9 = load ptr, ptr %files, align 8
   %conv.i3.i = zext i32 %8 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.hermes::hbc::DebugFileRegion", ptr %9, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"struct.hermes::hbc::DebugFileRegion", ptr %9, i64 %conv.i3.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %add.ptr.i.i, ptr noundef nonnull align 1 dereferenceable(12) %buf.053, i64 12, i1 false)
   %10 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %10, 1
@@ -2203,45 +2203,45 @@ if.then.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %for.end
 
 _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i.i.i.i, %for.end
   %ref.tmp.sroa.0.0 = phi ptr [ null, %for.end ], [ %call5.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i ]
-  %add.ptr.i.i.sink.i = getelementptr inbounds i8, ptr %ref.tmp.sroa.0.0, i64 %mul.i
+  %add.ptr.i.i.sink.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.0.0, i64 %mul.i
   %cmp.not.i.i.i.i22 = icmp eq i32 %4, 0
   br i1 %cmp.not.i.i.i.i22, label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit, label %if.then.i.i.i.i.i.i.i.i.i.i.i23
 
 if.then.i.i.i.i.i.i.i.i.i.i.i23:                  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i
   %call5.i.i.i.i.i.i24 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %conv3) #21, !noalias !15
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i24, i64 %conv3
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i24, i64 %conv3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call5.i.i.i.i.i.i24, ptr nonnull align 1 %add.ptr.i8, i64 %conv3, i1 false), !noalias !15
   br label %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
 
 _ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit:  ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23
   %ref.tmp8.sroa.0.0 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %call5.i.i.i.i.i.i24, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
   %add.ptr.i.i.sink.i25 = phi ptr [ null, %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i.i.i ], [ %add.ptr.i.i.i, %if.then.i.i.i.i.i.i.i.i.i.i.i23 ]
-  %scopeDescDataOffset = getelementptr inbounds i8, ptr %add.ptr, i64 12
+  %scopeDescDataOffset = getelementptr inbounds nuw i8, ptr %add.ptr, i64 12
   %13 = load i32, ptr %scopeDescDataOffset, align 1
-  %textifiedCalleeOffset = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %textifiedCalleeOffset = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %14 = load i32, ptr %textifiedCalleeOffset, align 1
-  %stringTableOffset = getelementptr inbounds i8, ptr %add.ptr, i64 20
+  %stringTableOffset = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
   %15 = load i32, ptr %stringTableOffset, align 1
-  %debugDataSize = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %debugDataSize = getelementptr inbounds nuw i8, ptr %add.ptr, i64 24
   %16 = load i32, ptr %debugDataSize, align 1
   %conv10 = zext i32 %16 to i64
   store ptr %ref.tmp.sroa.0.0, ptr %call7, align 8
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 8
+  %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 8
   store ptr %add.ptr.i.i.sink.i, ptr %_M_finish.i.i.i.i.i, align 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 16
+  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 16
   store ptr %add.ptr.i.i.sink.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %filenameStorage_.i = getelementptr inbounds i8, ptr %call7, i64 24
+  %filenameStorage_.i = getelementptr inbounds nuw i8, ptr %call7, i64 24
   store ptr %ref.tmp8.sroa.0.0, ptr %filenameStorage_.i, align 8
-  %_M_finish.i.i.i.i1.i = getelementptr inbounds i8, ptr %call7, i64 32
+  %_M_finish.i.i.i.i1.i = getelementptr inbounds nuw i8, ptr %call7, i64 32
   store ptr %add.ptr.i.i.sink.i25, ptr %_M_finish.i.i.i.i1.i, align 8
-  %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds i8, ptr %call7, i64 40
+  %_M_end_of_storage.i.i.i.i3.i = getelementptr inbounds nuw i8, ptr %call7, i64 40
   store ptr %add.ptr.i.i.sink.i25, ptr %_M_end_of_storage.i.i.i.i3.i, align 8
-  %files_.i = getelementptr inbounds i8, ptr %call7, i64 48
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 64
+  %files_.i = getelementptr inbounds nuw i8, ptr %call7, i64 48
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 64
   store ptr %add.ptr.i.i.i.i.i.i, ptr %files_.i, align 8
-  %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 56
+  %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 56
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
-  %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 60
+  %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call7, i64 60
   store i32 1, ptr %Capacity2.i.i.i.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %12, 0
   %.pre56 = load ptr, ptr %files, align 8
@@ -2294,19 +2294,19 @@ _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split: ; preds = 
 
 _ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit: ; preds = %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit
   %19 = phi ptr [ %.pre56, %_ZNK4llvh8ArrayRefIhEcvSt6vectorIhSaIhEEEv.exit ], [ %.ph, %_ZNSt6vectorIN6hermes16StringTableEntryESaIS1_EED2Ev.exit.sink.split ]
-  %scopeDescDataOffset_.i = getelementptr inbounds i8, ptr %call7, i64 80
+  %scopeDescDataOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 80
   store i32 %13, ptr %scopeDescDataOffset_.i, align 8
-  %textifiedCalleeOffset_.i = getelementptr inbounds i8, ptr %call7, i64 84
+  %textifiedCalleeOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 84
   store i32 %14, ptr %textifiedCalleeOffset_.i, align 4
-  %stringTableOffset_.i = getelementptr inbounds i8, ptr %call7, i64 88
+  %stringTableOffset_.i = getelementptr inbounds nuw i8, ptr %call7, i64 88
   store i32 %15, ptr %stringTableOffset_.i, align 8
-  %data_.i = getelementptr inbounds i8, ptr %call7, i64 96
-  %ref_.i.i28 = getelementptr inbounds i8, ptr %call7, i64 120
+  %data_.i = getelementptr inbounds nuw i8, ptr %call7, i64 96
+  %ref_.i.i28 = getelementptr inbounds nuw i8, ptr %call7, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store ptr %buf.0.lcssa, ptr %ref_.i.i28, align 8
-  %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx = getelementptr inbounds i8, ptr %call7, i64 128
+  %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx = getelementptr inbounds nuw i8, ptr %call7, i64 128
   store i64 %conv10, ptr %ref.tmp9.sroa.8.24.ref_.i.i28.sroa_idx, align 8
-  %debugInfo_ = getelementptr inbounds i8, ptr %this, i64 240
+  %debugInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   store ptr %call7, ptr %debugInfo_, align 8
   %cmp.i.i.i = icmp eq ptr %19, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit, label %if.then.i.i34
@@ -2325,13 +2325,13 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj(ptr noalias nocapture writeonly sret(%"struct.std::pair") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(376) %this, i32 noundef %functionID) local_unnamed_addr #0 align 2 {
 entry:
-  %functionHeaders_ = getelementptr inbounds i8, ptr %this, i64 296
+  %functionHeaders_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_, align 8
   %idxprom = zext i32 %functionID to i64
-  %arrayidx = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_, align 8
-  %flags = getelementptr inbounds i8, ptr %arrayidx, i64 15
+  %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %2 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %2, 0
@@ -2345,15 +2345,15 @@ if.then:                                          ; preds = %entry
   %3 = trunc i120 %bf.load3 to i64
   %bf.cast4.i = and i64 %3, 33554431
   %or.i = or i64 %shl.i, %bf.cast4.i
-  %add.ptr = getelementptr inbounds i8, ptr %1, i64 %or.i
-  %add.ptr2 = getelementptr inbounds i8, ptr %add.ptr, i64 31
+  %add.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %or.i
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 31
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %bf.lshr4 = lshr i120 %bf.load3, 64
   %4 = trunc nuw nsw i120 %bf.lshr4 to i64
   %bf.cast6 = and i64 %4, 33554431
-  %add.ptr8 = getelementptr inbounds i8, ptr %1, i64 %bf.cast6
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %1, i64 %bf.cast6
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
@@ -2367,10 +2367,10 @@ if.then14:                                        ; preds = %if.end
   %sub.i.i = add i64 %6, 3
   %and.i.i = and i64 %sub.i.i, -4
   %7 = inttoptr i64 %and.i.i to ptr
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 4
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %8 = load i32, ptr %7, align 4
   %conv = zext i32 %8 to i64
-  %end_ = getelementptr inbounds i8, ptr %this, i64 368
+  %end_ = getelementptr inbounds nuw i8, ptr %this, i64 368
   %9 = load ptr, ptr %end_, align 8
   %cmp.i = icmp ugt ptr %add.ptr.i, %9
   br i1 %cmp.i, label %if.then.i, label %lor.rhs.i
@@ -2389,7 +2389,7 @@ if.then.i:                                        ; preds = %lor.rhs.i, %if.then
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit: ; preds = %lor.rhs.i
   %mul.i = mul nuw nsw i64 %conv, 12
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %add.ptr.i, i64 %mul.i
+  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 %mul.i
   br label %if.end17
 
 if.end17:                                         ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit, %if.end
@@ -2404,9 +2404,9 @@ if.end17:                                         ; preds = %_ZN6hermes3hbc12_GL
   %12 = inttoptr i64 %and.i.i7 to ptr
   %debugOffsets.0 = select i1 %bf.cast22.not, ptr null, ptr %12
   store ptr %exceptionTable.sroa.0.0, ptr %agg.result, align 8
-  %exceptionTable.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %exceptionTable.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i64 %exceptionTable.sroa.4.0, ptr %exceptionTable.sroa.4.0.agg.result.sroa_idx, align 8
-  %second.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %second.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %debugOffsets.0, ptr %second.i, align 8
   ret void
 }
@@ -2430,20 +2430,20 @@ _ZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEE
 if.end:                                           ; preds = %entry
   %add.ptr.i.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 %aref.coerce1
   store ptr %fields, ptr %populator.i, align 8
-  %buf.i.i = getelementptr inbounds i8, ptr %populator.i, i64 8
-  %end.i.i = getelementptr inbounds i8, ptr %populator.i, i64 24
+  %buf.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 8
+  %end.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 24
   store ptr %add.ptr.i.i, ptr %end.i.i, align 8
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 128
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 128
   store ptr %add.ptr.i.i.i, ptr %buf.i.i, align 8
   store ptr %aref.coerce0, ptr %fields, align 8
-  %h.i.i = getelementptr inbounds i8, ptr %populator.i, i64 16
+  %h.i.i = getelementptr inbounds nuw i8, ptr %populator.i, i64 16
   store ptr %aref.coerce0, ptr %h.i.i, align 8
   call void @_ZN6hermes3hbc28visitBytecodeSegmentsInOrderIZNS0_18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEE27BytecodeFileFieldsPopulatorEEvRT_(ptr noundef nonnull align 8 dereferenceable(32) %populator.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %populator.i)
   %0 = load ptr, ptr %fields, align 8
-  %stringCount1 = getelementptr inbounds i8, ptr %0, i64 52
+  %stringCount1 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %1 = load i32, ptr %stringCount1, align 1
-  %stringTableEntries2 = getelementptr inbounds i8, ptr %fields, i64 24
+  %stringTableEntries2 = getelementptr inbounds nuw i8, ptr %fields, i64 24
   %2 = load ptr, ptr %stringTableEntries2, align 8
   %conv = zext i32 %1 to i64
   %mul = shl nuw nsw i64 %conv, 2
@@ -2455,13 +2455,13 @@ if.end:                                           ; preds = %entry
   %add.ptr.i = getelementptr inbounds i8, ptr %2, i64 %idx.neg.i
   %add.i = add i64 %and.i, %mul
   call void @_ZN6hermes8oscompat11vm_prefetchEPvm(ptr noundef %add.ptr.i, i64 noundef %add.i) #19
-  %globalCodeIndex = getelementptr inbounds i8, ptr %0, i64 36
+  %globalCodeIndex = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %globalCodeIndex, align 1
-  %functionHeaders4 = getelementptr inbounds i8, ptr %fields, i64 8
+  %functionHeaders4 = getelementptr inbounds nuw i8, ptr %fields, i64 8
   %5 = load ptr, ptr %functionHeaders4, align 8
   %idxprom = zext i32 %4 to i64
-  %arrayidx = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %5, i64 %idxprom
-  %flags = getelementptr inbounds i8, ptr %arrayidx, i64 15
+  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %5, i64 %idxprom
+  %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %6 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %6, 0
@@ -2475,8 +2475,8 @@ cond.true:                                        ; preds = %if.end
   %7 = trunc i120 %bf.load.i to i64
   %bf.cast4.i = and i64 %7, 33554431
   %or.i = or i64 %shl.i, %bf.cast4.i
-  %add.ptr = getelementptr inbounds i8, ptr %aref.coerce0, i64 %or.i
-  %add.ptr.i5 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %or.i
+  %add.ptr.i5 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end, %cond.true
@@ -2490,7 +2490,7 @@ if.then.i10:                                      ; preds = %cond.end
   %add.ptr.i.i6 = getelementptr inbounds i8, ptr %global.sroa.0.0, i64 -1
   %9 = load i32, ptr %add.ptr.i.i6, align 1
   %idx.ext10 = zext i32 %9 to i64
-  %bytecodeSizeInBytes.i = getelementptr inbounds i8, ptr %global.sroa.0.0, i64 7
+  %bytecodeSizeInBytes.i = getelementptr inbounds nuw i8, ptr %global.sroa.0.0, i64 7
   %10 = load i32, ptr %bytecodeSizeInBytes.i, align 1
   br label %_ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit
 
@@ -2506,7 +2506,7 @@ if.else.i12:                                      ; preds = %cond.end
 _ZNK6hermes3hbc21RuntimeFunctionHeader19bytecodeSizeInBytesEv.exit: ; preds = %if.then.i10, %if.else.i12
   %idx.ext10.pn = phi i64 [ %idx.ext10, %if.then.i10 ], [ %bf.cast.i, %if.else.i12 ]
   %retval.0.i11 = phi i32 [ %10, %if.then.i10 ], [ %bf.cast.i14, %if.else.i12 ]
-  %add.ptr1126 = getelementptr inbounds i8, ptr %aref.coerce0, i64 %idx.ext10.pn
+  %add.ptr1126 = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext10.pn
   %conv13 = zext i32 %retval.0.i11 to i64
   %call.i15 = call noundef i64 @_ZN6hermes8oscompat9page_sizeEv() #19
   %13 = ptrtoint ptr %add.ptr1126 to i64
@@ -2538,10 +2538,10 @@ define hidden noundef zeroext i1 @_ZN6hermes3hbc20BCProviderFromBuffer19bytecode
 entry:
   %actual.i = alloca %"struct.std::array", align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %actual.i)
-  %fileLength.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 32
+  %fileLength.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
   %0 = load i32, ptr %fileLength.i, align 1
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr2.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %aref.coerce0 to i64
@@ -2558,10 +2558,10 @@ define hidden void @_ZN6hermes3hbc20BCProviderFromBuffer18updateBytecodeHashEN4l
 entry:
   %actual.i = alloca %"struct.std::array", align 1
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %actual.i)
-  %fileLength.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 32
+  %fileLength.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 32
   %0 = load i32, ptr %fileLength.i, align 1
   %idx.ext.i = zext i32 %0 to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %aref.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %aref.coerce0, i64 %idx.ext.i
   %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 -20
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr2.i to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %aref.coerce0 to i64
@@ -2575,23 +2575,23 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i64 @_ZNK6hermes3hbc20BCProviderFromBuffer19getStringTableEntryEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %index) unnamed_addr #0 comdat align 2 {
 entry:
-  %stringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 304
+  %stringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 304
   %0 = load ptr, ptr %stringTableEntries_, align 8
   %idxprom = zext i32 %index to i64
-  %arrayidx = getelementptr inbounds %"struct.hermes::hbc::SmallStringTableEntry", ptr %0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallStringTableEntry", ptr %0, i64 %idxprom
   %bf.load.i = load i32, ptr %arrayidx, align 1
   %cmp.i = icmp ugt i32 %bf.load.i, -16777217
   br i1 %cmp.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %overflowStringTableEntries_ = getelementptr inbounds i8, ptr %this, i64 312
+  %overflowStringTableEntries_ = getelementptr inbounds nuw i8, ptr %this, i64 312
   %bf.lshr = lshr i32 %bf.load.i, 1
   %bf.clear = and i32 %bf.lshr, 8388607
   %conv = zext nneg i32 %bf.clear to i64
   %1 = load ptr, ptr %overflowStringTableEntries_, align 8
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::OverflowStringTableEntry", ptr %1, i64 %conv
   %overflow.sroa.0.0.copyload = load i32, ptr %arrayidx.i, align 1
-  %overflow.sroa.2.0.call2.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %overflow.sroa.2.0.call2.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 4
   %overflow.sroa.2.0.copyload = load i32, ptr %overflow.sroa.2.0.call2.sroa_idx, align 1
   br label %return
 
@@ -2616,18 +2616,18 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden ptr @_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
-  %functionHeaders_ = getelementptr inbounds i8, ptr %this, i64 296
+  %functionHeaders_ = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_, align 8
   %idxprom = zext i32 %functionID to i64
-  %arrayidx = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
-  %flags = getelementptr inbounds i8, ptr %arrayidx, i64 15
+  %arrayidx = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom
+  %flags = getelementptr inbounds nuw i8, ptr %arrayidx, i64 15
   %bf.load = load i8, ptr %flags, align 1
   %1 = and i8 %bf.load, 32
   %bf.cast.not = icmp eq i8 %1, 0
   br i1 %bf.cast.not, label %return, label %if.then
 
 if.then:                                          ; preds = %entry
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %2 = load ptr, ptr %bufferPtr_, align 8
   %bf.load.i = load i120, ptr %arrayidx, align 1
   %sh.diff.i = lshr i120 %bf.load.i, 48
@@ -2636,8 +2636,8 @@ if.then:                                          ; preds = %entry
   %3 = trunc i120 %bf.load.i to i64
   %bf.cast4.i = and i64 %3, 33554431
   %or.i = or i64 %shl.i, %bf.cast4.i
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %or.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %or.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   br label %return
 
 return:                                           ; preds = %entry, %if.then
@@ -2648,13 +2648,13 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6hermes3hbc20BCProviderFromBuffer11getBytecodeEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
-  %functionHeaders_.i = getelementptr inbounds i8, ptr %this, i64 296
+  %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %1 = load ptr, ptr %functionHeaders_.i, align 8
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %1, i64 %idxprom.i
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 15
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %1, i64 %idxprom.i
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1
   %2 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %2, 0
@@ -2668,8 +2668,8 @@ if.then.i:                                        ; preds = %entry
   %3 = trunc i120 %bf.load.i.i to i64
   %bf.cast4.i.i = and i64 %3, 33554431
   %or.i.i = or i64 %shl.i.i, %bf.cast4.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %0, i64 %or.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %or.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   br label %_ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit
 
 _ZNK6hermes3hbc20BCProviderFromBuffer17getFunctionHeaderEj.exit: ; preds = %entry, %if.then.i
@@ -2693,20 +2693,20 @@ if.else.i:                                        ; preds = %_ZNK6hermes3hbc20BC
 _ZNK6hermes3hbc21RuntimeFunctionHeader6offsetEv.exit: ; preds = %if.then.i1, %if.else.i
   %retval.0.i = phi i32 [ %5, %if.then.i1 ], [ %bf.cast.i, %if.else.i ]
   %idx.ext = zext i32 %retval.0.i to i64
-  %add.ptr = getelementptr inbounds i8, ptr %0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %idx.ext
   ret ptr %add.ptr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK6hermes3hbc20BCProviderFromBuffer17getExceptionTableEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
-  %functionHeaders_.i = getelementptr inbounds i8, ptr %this, i64 296
+  %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !18
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
-  %bufferPtr_.i = getelementptr inbounds i8, ptr %this, i64 288
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
+  %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !18
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 15
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !18
   %2 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %2, 0
@@ -2720,15 +2720,15 @@ if.then.i:                                        ; preds = %entry
   %3 = trunc i120 %bf.load3.i to i64
   %bf.cast4.i.i = and i64 %3, 33554431
   %or.i.i = or i64 %shl.i.i, %bf.cast4.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %or.i.i
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 31
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %or.i.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 31
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
   %bf.lshr4.i = lshr i120 %bf.load3.i, 64
   %4 = trunc nuw nsw i120 %bf.lshr4.i to i64
   %bf.cast6.i = and i64 %4, 33554431
-  %add.ptr8.i = getelementptr inbounds i8, ptr %1, i64 %bf.cast6.i
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %1, i64 %bf.cast6.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -2742,8 +2742,8 @@ if.then14.i:                                      ; preds = %if.end.i
   %sub.i.i.i = add i64 %6, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
   %7 = inttoptr i64 %and.i.i.i to ptr
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 368
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %8 = load ptr, ptr %end_.i, align 8, !noalias !18
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %8
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
@@ -2773,13 +2773,13 @@ _ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNK6hermes3hbc20BCProviderFromBuffer15getDebugOffsetsEj(ptr noundef nonnull align 8 dereferenceable(376) %this, i32 noundef %functionID) unnamed_addr #0 comdat align 2 {
 entry:
-  %functionHeaders_.i = getelementptr inbounds i8, ptr %this, i64 296
+  %functionHeaders_.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %functionHeaders_.i, align 8, !noalias !21
   %idxprom.i = zext i32 %functionID to i64
-  %arrayidx.i = getelementptr inbounds %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
-  %bufferPtr_.i = getelementptr inbounds i8, ptr %this, i64 288
+  %arrayidx.i = getelementptr inbounds nuw %"struct.hermes::hbc::SmallFuncHeader", ptr %0, i64 %idxprom.i
+  %bufferPtr_.i = getelementptr inbounds nuw i8, ptr %this, i64 288
   %1 = load ptr, ptr %bufferPtr_.i, align 8, !noalias !21
-  %flags.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 15
+  %flags.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 15
   %bf.load.i = load i8, ptr %flags.i, align 1, !noalias !21
   %2 = and i8 %bf.load.i, 32
   %bf.cast.not.i = icmp eq i8 %2, 0
@@ -2793,15 +2793,15 @@ if.then.i:                                        ; preds = %entry
   %3 = trunc i120 %bf.load3.i to i64
   %bf.cast4.i.i = and i64 %3, 33554431
   %or.i.i = or i64 %shl.i.i, %bf.cast4.i.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %1, i64 %or.i.i
-  %add.ptr2.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 31
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %1, i64 %or.i.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 31
   br label %if.end.i
 
 if.else.i:                                        ; preds = %entry
   %bf.lshr4.i = lshr i120 %bf.load3.i, 64
   %4 = trunc nuw nsw i120 %bf.lshr4.i to i64
   %bf.cast6.i = and i64 %4, 33554431
-  %add.ptr8.i = getelementptr inbounds i8, ptr %1, i64 %bf.cast6.i
+  %add.ptr8.i = getelementptr inbounds nuw i8, ptr %1, i64 %bf.cast6.i
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.else.i, %if.then.i
@@ -2815,10 +2815,10 @@ if.then14.i:                                      ; preds = %if.end.i
   %sub.i.i.i = add i64 %6, 3
   %and.i.i.i = and i64 %sub.i.i.i, -4
   %7 = inttoptr i64 %and.i.i.i to ptr
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %7, i64 4
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 4
   %8 = load i32, ptr %7, align 4, !noalias !21
   %conv.i = zext i32 %8 to i64
-  %end_.i = getelementptr inbounds i8, ptr %this, i64 368
+  %end_.i = getelementptr inbounds nuw i8, ptr %this, i64 368
   %9 = load ptr, ptr %end_.i, align 8, !noalias !21
   %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %9
   br i1 %cmp.i.i, label %if.then.i.i, label %lor.rhs.i.i
@@ -2837,7 +2837,7 @@ if.then.i.i:                                      ; preds = %lor.rhs.i.i, %if.th
 
 _ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit.i: ; preds = %lor.rhs.i.i
   %mul.i.i = mul nuw nsw i64 %conv.i, 12
-  %add.ptr.i5.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 %mul.i.i
+  %add.ptr.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 %mul.i.i
   br label %_ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit
 
 _ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit: ; preds = %if.end.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefINS0_23HBCExceptionHandlerInfoEEEN4llvh8ArrayRefIT_EERPKhmS9_.exit.i
@@ -2855,14 +2855,14 @@ _ZNK6hermes3hbc20BCProviderFromBuffer32getExceptionTableAndDebugOffsetsEj.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc20BCProviderFromBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %warmupThread_.i = getelementptr inbounds i8, ptr %this, i64 336
-  %hasVal.i.i = getelementptr inbounds i8, ptr %this, i64 344
+  %warmupThread_.i = getelementptr inbounds nuw i8, ptr %this, i64 336
+  %hasVal.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344
   %0 = load i8, ptr %hasVal.i.i, align 8
   %tobool.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i, label %if.then.i, label %_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv.exit
 
 if.then.i:                                        ; preds = %entry
-  %warmupAbortFlag_.i = getelementptr inbounds i8, ptr %this, i64 352
+  %warmupAbortFlag_.i = getelementptr inbounds nuw i8, ptr %this, i64 352
   store atomic i8 1, ptr %warmupAbortFlag_.i release, align 8
   tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %warmupThread_.i) #19
   %1 = load i8, ptr %hasVal.i.i, align 8
@@ -2883,13 +2883,13 @@ _ZNSt6threadD2Ev.exit.i.i.i:                      ; preds = %if.then.i.i.i
   br label %_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv.exit
 
 _ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv.exit: ; preds = %entry, %if.then.i, %_ZNSt6threadD2Ev.exit.i.i.i
-  %debugInfo_ = getelementptr inbounds i8, ptr %this, i64 240
+  %debugInfo_ = getelementptr inbounds nuw i8, ptr %this, i64 240
   %2 = load ptr, ptr %debugInfo_, align 8
   %isnull = icmp eq ptr %2, null
   br i1 %isnull, label %delete.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv.exit
-  %data_.i = getelementptr inbounds i8, ptr %2, i64 96
+  %data_.i = getelementptr inbounds nuw i8, ptr %2, i64 96
   %3 = load ptr, ptr %data_.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i, label %if.then.i.i.i.i.i
@@ -2899,9 +2899,9 @@ if.then.i.i.i.i.i:                                ; preds = %delete.notnull
   br label %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i
 
 _ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i:       ; preds = %if.then.i.i.i.i.i, %delete.notnull
-  %files_.i = getelementptr inbounds i8, ptr %2, i64 48
+  %files_.i = getelementptr inbounds nuw i8, ptr %2, i64 48
   %4 = load ptr, ptr %files_.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 64
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 64
   %cmp.i.i.i.i = icmp eq ptr %4, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i, label %if.then.i.i.i1
 
@@ -2910,7 +2910,7 @@ if.then.i.i.i1:                                   ; preds = %_ZN6hermes3hbc12Str
   br label %_ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i
 
 _ZN4llvh11SmallVectorIN6hermes3hbc15DebugFileRegionELj1EED2Ev.exit.i: ; preds = %if.then.i.i.i1, %_ZN6hermes3hbc12StreamVectorIhED2Ev.exit.i
-  %filenameStorage_.i = getelementptr inbounds i8, ptr %2, i64 24
+  %filenameStorage_.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %filenameStorage_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %5, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %if.then.i.i.i.i2
@@ -2933,7 +2933,7 @@ _ZN6hermes3hbc9DebugInfoD2Ev.exit:                ; preds = %_ZNSt6vectorIhSaIhE
   br label %delete.end
 
 delete.end:                                       ; preds = %_ZN6hermes3hbc9DebugInfoD2Ev.exit, %_ZN6hermes3hbc20BCProviderFromBuffer10stopWarmupEv.exit
-  %tracker_ = getelementptr inbounds i8, ptr %this, i64 360
+  %tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %7 = load ptr, ptr %tracker_, align 8
   %cmp.not.i = icmp eq ptr %7, null
   br i1 %cmp.not.i, label %_ZNSt10unique_ptrIVN6hermes17PageAccessTrackerESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIVN6hermes17PageAccessTrackerEEclEPS2_.exit.i
@@ -2962,14 +2962,14 @@ _ZNSt6threadD2Ev.exit.i.i.i8:                     ; preds = %if.then.i.i.i4
   br label %_ZN4llvh8OptionalISt6threadED2Ev.exit
 
 _ZN4llvh8OptionalISt6threadED2Ev.exit:            ; preds = %_ZNSt10unique_ptrIVN6hermes17PageAccessTrackerESt14default_deleteIS2_EED2Ev.exit, %_ZNSt6threadD2Ev.exit.i.i.i8
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %9 = load ptr, ptr %buffer_, align 8
   %cmp.not.i9 = icmp eq ptr %9, null
   br i1 %cmp.not.i9, label %_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit
   %vtable.i.i = load ptr, ptr %9, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 8
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 8
   %10 = load ptr, ptr %vfn.i.i, align 8
   tail call void %10(ptr noundef nonnull align 8 dereferenceable(24) %9) #19
   br label %_ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit
@@ -2977,7 +2977,7 @@ _ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i: ; preds = %_ZN4llvh8Opt
 _ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit, %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i
   store ptr null, ptr %buffer_, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
-  %errstr_.i = getelementptr inbounds i8, ptr %this, i64 248
+  %errstr_.i = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_.i) #19
   ret void
 }
@@ -3005,7 +3005,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZN6hermes3hbc20BCProviderFromBuffer20getPageAccessTrackerEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %tracker_ = getelementptr inbounds i8, ptr %this, i64 360
+  %tracker_ = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %tracker_, align 8
   ret ptr %0
 }
@@ -3013,11 +3013,11 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i64 } @_ZNK6hermes3hbc20BCProviderFromBuffer12getRawBufferEv(ptr noundef nonnull align 8 dereferenceable(376) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %bufferPtr_ = getelementptr inbounds i8, ptr %this, i64 288
+  %bufferPtr_ = getelementptr inbounds nuw i8, ptr %this, i64 288
   %0 = load ptr, ptr %bufferPtr_, align 8
-  %buffer_ = getelementptr inbounds i8, ptr %this, i64 280
+  %buffer_ = getelementptr inbounds nuw i8, ptr %this, i64 280
   %1 = load ptr, ptr %buffer_, align 8
-  %size_.i = getelementptr inbounds i8, ptr %1, i64 16
+  %size_.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %2 = load i64, ptr %size_.i, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %2, 1
@@ -3032,9 +3032,9 @@ entry:
 
 cond.true.i.split:                                ; preds = %entry
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Str) #23
-  %OutBufEnd.i5 = getelementptr inbounds i8, ptr %this, i64 16
+  %OutBufEnd.i5 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %OutBufEnd.i5, align 8
-  %OutBufCur.i6 = getelementptr inbounds i8, ptr %this, i64 24
+  %OutBufCur.i6 = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load ptr, ptr %OutBufCur.i6, align 8
   %sub.ptr.lhs.cast.i7 = ptrtoint ptr %0 to i64
   %sub.ptr.rhs.cast.i8 = ptrtoint ptr %1 to i64
@@ -3111,7 +3111,7 @@ entry:
 define linkonce_odr hidden void @_ZN6hermes3hbc14BCProviderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 comdat align 2 {
 entry:
   store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 16), ptr %this, align 8
-  %errstr_ = getelementptr inbounds i8, ptr %this, i64 248
+  %errstr_ = getelementptr inbounds nuw i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_) #19
   ret void
 }
@@ -3204,10 +3204,10 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPKhjPSt6atomicIbEES4_jS7_EEEEE6_M_runEv(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  %_M_func = getelementptr inbounds i8, ptr %this, i64 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %add.ptr.i.i.i1.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %add.ptr.i.i.i2.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %_M_func = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %add.ptr.i.i.i1.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %add.ptr.i.i.i2.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
   %1 = load ptr, ptr %add.ptr.i.i.i1.i.i, align 8
   %2 = load i32, ptr %add.ptr.i.i.i2.i.i, align 8

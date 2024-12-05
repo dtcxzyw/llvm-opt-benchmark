@@ -571,7 +571,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals32check_jvmci_flags_are_consi
   %280 = load ptr, ptr @JVMCILibDumpJNIConfig, align 8
   call void @_ZN10fileStreamC1EPKc(ptr noundef nonnull align 8 dereferenceable(65) %279, ptr noundef %280) #5
   store ptr %279, ptr @_ZN12JVMCIGlobals16_jni_config_fileE, align 8
-  %281 = getelementptr inbounds i8, ptr %279, i64 56
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 56
   %282 = load ptr, ptr %281, align 8
   %.not5 = icmp eq ptr %282, null
   br i1 %.not5, label %283, label %291
@@ -606,7 +606,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals25enable_jvmci_product_modeE1
 
 4:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds [20 x ptr], ptr @__const._ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb.JVMCIFlags, i64 0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [20 x ptr], ptr @__const._ZN12JVMCIGlobals25enable_jvmci_product_modeE13JVMFlagOriginb.JVMCIFlags, i64 0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #6
   %8 = tail call noundef ptr @_ZN7JVMFlag9find_flagEPKcmbb(ptr noundef %6, i64 noundef %7, i1 noundef zeroext true, i1 noundef zeroext true) #5
@@ -627,7 +627,7 @@ define hidden noundef zeroext i1 @_ZN12JVMCIGlobals25enable_jvmci_product_modeE1
   br i1 %13, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %12, i64 20
   %16 = load i32, ptr %15, align 4
   %.not.i.i.i = icmp eq i32 %16, 0
   br i1 %.not.i.i.i, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread
@@ -646,7 +646,7 @@ _ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit: ; preds = %14
   br i1 %21, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread, label %22
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds i8, ptr %20, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %24 = load i32, ptr %23, align 4
   %.not.i.i.i16 = icmp eq i32 %24, 0
   br i1 %.not.i.i.i16, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit18, label %_ZN13JVMFlagAccess8set_boolEP7JVMFlagPb13JVMFlagOrigin.exit.thread

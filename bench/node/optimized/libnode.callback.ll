@@ -136,13 +136,13 @@ _ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit: ; preds = %entry, %_ZN4no
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %handle_scope.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %asyncContext.i)
   store double %async_context.coerce0, ptr %asyncContext.i, align 8
-  %10 = getelementptr inbounds i8, ptr %asyncContext.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %asyncContext.i, i64 8
   store double %async_context.coerce1, ptr %10, align 8
   %call.i1 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   call void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %call.i1, ptr noundef %retval.0.i, ptr %object.coerce, ptr noundef nonnull align 8 dereferenceable(16) %asyncContext.i, i32 noundef 0)
   store ptr %call.i1, ptr %this, align 8
-  %try_catch_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %isolate_.i.i = getelementptr inbounds i8, ptr %retval.0.i, i64 88
+  %try_catch_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %isolate_.i.i = getelementptr inbounds nuw i8, ptr %retval.0.i, i64 88
   %11 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v88TryCatchC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_.i, ptr noundef %11) #13
   call void @_ZN2v88TryCatch10SetVerboseEb(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_.i, i1 noundef zeroext true) #13
@@ -158,13 +158,13 @@ define dso_local void @_ZN4node13CallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS
 entry:
   %asyncContext = alloca %"struct.node::async_context", align 8
   store double %asyncContext.coerce0, ptr %asyncContext, align 8
-  %0 = getelementptr inbounds i8, ptr %asyncContext, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %asyncContext, i64 8
   store double %asyncContext.coerce1, ptr %0, align 8
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
   call void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %call, ptr noundef %env, ptr %object.coerce, ptr noundef nonnull align 8 dereferenceable(16) %asyncContext, i32 noundef 0)
   store ptr %call, ptr %this, align 8
-  %try_catch_ = getelementptr inbounds i8, ptr %this, i64 8
-  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
+  %try_catch_ = getelementptr inbounds nuw i8, ptr %this, i64 8
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
   %1 = load ptr, ptr %isolate_.i, align 8
   tail call void @_ZN2v88TryCatchC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_, ptr noundef %1) #13
   tail call void @_ZN2v88TryCatch10SetVerboseEb(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_, i1 noundef zeroext true) #13
@@ -181,13 +181,13 @@ declare void @_ZN2v88TryCatch10SetVerboseEb(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node13CallbackScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 align 2 {
 entry:
-  %try_catch_ = getelementptr inbounds i8, ptr %this, i64 8
+  %try_catch_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch_) #13
   br i1 %call, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
   %0 = load ptr, ptr %this, align 8
-  %failed_.i = getelementptr inbounds i8, ptr %0, i64 34
+  %failed_.i = getelementptr inbounds nuw i8, ptr %0, i64 34
   store i8 1, ptr %failed_.i, align 2
   br label %if.end
 
@@ -199,7 +199,7 @@ if.end:                                           ; preds = %if.then, %entry
 delete.notnull:                                   ; preds = %if.end
   tail call void @_ZN4node21InternalCallbackScope5CloseEv(ptr noundef nonnull align 8 dereferenceable(37) %1)
   %2 = load ptr, ptr %1, align 8
-  %async_callback_scope_depth_.i.i = getelementptr inbounds i8, ptr %2, i64 1408
+  %async_callback_scope_depth_.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1408
   %3 = load i64, ptr %async_callback_scope_depth_.i.i, align 8
   %dec.i.i = add i64 %3, -1
   store i64 %dec.i.i, ptr %async_callback_scope_depth_.i.i, align 8
@@ -223,19 +223,19 @@ declare void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41
 define dso_local void @_ZN4node21InternalCallbackScopeC2EPNS_9AsyncWrapEi(ptr nocapture noundef nonnull align 8 dereferenceable(37) initializes((0, 37)) %this, ptr nocapture noundef readonly %async_wrap, i32 noundef %flags) unnamed_addr #3 align 2 {
 entry:
   %ref.tmp = alloca %"struct.node::async_context", align 8
-  %realm_.i = getelementptr inbounds i8, ptr %async_wrap, i64 16
+  %realm_.i = getelementptr inbounds nuw i8, ptr %async_wrap, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i = getelementptr inbounds i8, ptr %0, i64 176
+  %env_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 176
   %1 = load ptr, ptr %env_.i.i, align 8
-  %isolate_.i.i = getelementptr inbounds i8, ptr %1, i64 88
+  %isolate_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 88
   %2 = load ptr, ptr %isolate_.i.i, align 8
-  %persistent_handle_.i = getelementptr inbounds i8, ptr %async_wrap, i64 8
+  %persistent_handle_.i = getelementptr inbounds nuw i8, ptr %async_wrap, i64 8
   %3 = load ptr, ptr %persistent_handle_.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i.i, label %_ZNK4node10BaseObject6objectEv.exit, label %if.end.i.i.i
 
 if.end.i.i.i:                                     ; preds = %entry
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 11
+  %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 11
   %4 = load i8, ptr %add.ptr.i.i.i, align 1
   %5 = and i8 %4, 3
   %cmp.i.i.i = icmp eq i8 %5, 2
@@ -248,11 +248,11 @@ _ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS
 
 _ZNK4node10BaseObject6objectEv.exit:              ; preds = %entry, %if.end.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i
   %retval.sroa.0.0.i.i = phi ptr [ %call.i.i.i.i, %_ZN4node17PersistentToLocal4WeakIN2v86ObjectEEENS2_5LocalIT_EEPNS2_7IsolateERKNS2_14PersistentBaseIS5_EE.exit.i.i ], [ null, %entry ], [ %3, %if.end.i.i.i ]
-  %async_id_.i = getelementptr inbounds i8, ptr %async_wrap, i64 40
+  %async_id_.i = getelementptr inbounds nuw i8, ptr %async_wrap, i64 40
   %7 = load double, ptr %async_id_.i, align 8
   store double %7, ptr %ref.tmp, align 8
-  %trigger_async_id = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %trigger_async_id_.i = getelementptr inbounds i8, ptr %async_wrap, i64 48
+  %trigger_async_id = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
+  %trigger_async_id_.i = getelementptr inbounds nuw i8, ptr %async_wrap, i64 48
   %8 = load double, ptr %trigger_async_id_.i, align 8
   store double %8, ptr %trigger_async_id, align 8
   call void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %this, ptr noundef nonnull %1, ptr %retval.sroa.0.0.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %flags)
@@ -265,23 +265,23 @@ entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   store ptr %env, ptr %this, align 8
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %async_context_, ptr noundef nonnull align 8 dereferenceable(16) %asyncContext, i64 16, i1 false)
-  %object_ = getelementptr inbounds i8, ptr %this, i64 24
+  %object_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %object.coerce, ptr %object_, align 8
-  %skip_hooks_ = getelementptr inbounds i8, ptr %this, i64 32
+  %skip_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = trunc i32 %flags to i8
   %frombool = and i8 %0, 1
   store i8 %frombool, ptr %skip_hooks_, align 8
-  %skip_task_queues_ = getelementptr inbounds i8, ptr %this, i64 33
+  %skip_task_queues_ = getelementptr inbounds nuw i8, ptr %this, i64 33
   %1 = lshr i8 %0, 1
   %frombool6 = and i8 %1, 1
   store i8 %frombool6, ptr %skip_task_queues_, align 1
-  %failed_ = getelementptr inbounds i8, ptr %this, i64 34
+  %failed_ = getelementptr inbounds nuw i8, ptr %this, i64 34
   store i8 0, ptr %failed_, align 2
-  %pushed_ids_ = getelementptr inbounds i8, ptr %this, i64 35
+  %pushed_ids_ = getelementptr inbounds nuw i8, ptr %this, i64 35
   store i8 0, ptr %pushed_ids_, align 1
-  %closed_ = getelementptr inbounds i8, ptr %this, i64 36
+  %closed_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   store i8 0, ptr %closed_, align 4
   %cmp.not = icmp eq ptr %env, null
   br i1 %cmp.not, label %do.body9, label %do.end10
@@ -292,17 +292,17 @@ do.body9:                                         ; preds = %entry
   unreachable
 
 do.end10:                                         ; preds = %entry
-  %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %env, i64 1408
+  %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %env, i64 1408
   %2 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %inc.i = add i64 %2, 1
   store i64 %inc.i, ptr %async_callback_scope_depth_.i, align 8
-  %can_call_into_js_.i = getelementptr inbounds i8, ptr %env, i64 873
+  %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %env, i64 873
   %3 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
   %tobool.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %if.then11
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %do.end10
-  %is_stopping_.i.i = getelementptr inbounds i8, ptr %env, i64 872
+  %is_stopping_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 872
   %4 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
   %tobool.i.i.i.i = trunc i8 %4 to i1
   br i1 %tobool.i.i.i.i, label %if.then11, label %if.end13
@@ -312,14 +312,14 @@ if.then11:                                        ; preds = %do.end10, %_ZNK4nod
   br label %return
 
 if.end13:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit
-  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
   %5 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %5) #13
   %call15 = call ptr @_ZN2v87Isolate17GetCurrentContextEv(ptr noundef nonnull align 1 dereferenceable(1) %5) #13
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %6 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %6, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %7 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %7(ptr noundef nonnull align 8 dereferenceable(872) %6) #13
   %cmp.i12.i = icmp eq ptr %call2.i, null
@@ -392,9 +392,9 @@ do.body34:                                        ; preds = %_ZN4node11Environme
 
 if.end39:                                         ; preds = %if.then.i, %_ZN4node11Environment10GetCurrentEPN2v87IsolateE.exit, %_ZN2v88internal12HandleHelper12EqualHandlesINS_5LocalINS_7ContextEEES5_EEbRKT_RKT0_.exit
   call void @_ZN2v87Isolate7SetIdleEb(ptr noundef nonnull align 1 dereferenceable(1) %5, i1 noundef zeroext false) #13
-  %async_hooks_.i = getelementptr inbounds i8, ptr %env, i64 880
+  %async_hooks_.i = getelementptr inbounds nuw i8, ptr %env, i64 880
   %20 = load double, ptr %async_context_, align 8
-  %trigger_async_id = getelementptr inbounds i8, ptr %this, i64 16
+  %trigger_async_id = getelementptr inbounds nuw i8, ptr %this, i64 16
   %21 = load double, ptr %trigger_async_id, align 8
   call void @_ZN4node10AsyncHooks18push_async_contextEddN2v85LocalINS1_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %20, double noundef %21, ptr %object.coerce) #13
   store i8 1, ptr %pushed_ids_, align 1
@@ -442,7 +442,7 @@ define dso_local void @_ZN4node21InternalCallbackScopeD2Ev(ptr nocapture noundef
 entry:
   tail call void @_ZN4node21InternalCallbackScope5CloseEv(ptr noundef nonnull align 8 dereferenceable(37) %this)
   %0 = load ptr, ptr %this, align 8
-  %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %0, i64 1408
+  %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %1 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %dec.i = add i64 %1, -1
   store i64 %dec.i, ptr %async_callback_scope_depth_.i, align 8
@@ -453,7 +453,7 @@ entry:
 define dso_local void @_ZN4node21InternalCallbackScope5CloseEv(ptr nocapture noundef nonnull align 8 dereferenceable(37) %this) local_unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
-  %closed_ = getelementptr inbounds i8, ptr %this, i64 36
+  %closed_ = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i8, ptr %closed_, align 4
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %cleanup.cont, label %if.end
@@ -461,43 +461,43 @@ entry:
 if.end:                                           ; preds = %entry
   store i8 1, ptr %closed_, align 4
   %1 = load ptr, ptr %this, align 8
-  %is_stopping_.i.i = getelementptr inbounds i8, ptr %1, i64 872
+  %is_stopping_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 872
   %2 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
   %tobool.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i, label %"_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit"
 
 if.then.i:                                        ; preds = %if.end
-  %failed_.i.i = getelementptr inbounds i8, ptr %this, i64 34
+  %failed_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 34
   store i8 1, ptr %failed_.i.i, align 2
   %3 = load ptr, ptr %this, align 8
-  %async_hooks_.i.i = getelementptr inbounds i8, ptr %3, i64 880
+  %async_hooks_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 880
   tail call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i) #13
   br label %"_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit"
 
 "_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit": ; preds = %if.end, %if.then.i
   %4 = load ptr, ptr %this, align 8
-  %is_stopping_.i = getelementptr inbounds i8, ptr %4, i64 872
+  %is_stopping_.i = getelementptr inbounds nuw i8, ptr %4, i64 872
   %5 = load atomic i8, ptr %is_stopping_.i seq_cst, align 1
   %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %cleanup.cont, label %if.end4
 
 if.end4:                                          ; preds = %"_ZZN4node21InternalCallbackScope5CloseEvENK3$_0clEv.exit"
   %6 = load ptr, ptr %this, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %6, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %6, i64 88
   %7 = load ptr, ptr %isolate_.i, align 8
-  %failed_ = getelementptr inbounds i8, ptr %this, i64 34
+  %failed_ = getelementptr inbounds nuw i8, ptr %this, i64 34
   %8 = load i8, ptr %failed_, align 2
   %tobool7 = trunc i8 %8 to i1
   br i1 %tobool7, label %if.end14, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end4
-  %async_context_ = getelementptr inbounds i8, ptr %this, i64 8
+  %async_context_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %9 = load double, ptr %async_context_, align 8
   %cmp = fcmp une double %9, 0.000000e+00
   br i1 %cmp, label %land.lhs.true8, label %if.end14
 
 land.lhs.true8:                                   ; preds = %land.lhs.true
-  %skip_hooks_ = getelementptr inbounds i8, ptr %this, i64 32
+  %skip_hooks_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %10 = load i8, ptr %skip_hooks_, align 8
   %tobool9 = trunc i8 %10 to i1
   br i1 %tobool9, label %if.end14, label %if.then10
@@ -507,15 +507,15 @@ if.then10:                                        ; preds = %land.lhs.true8
   br label %if.end14
 
 if.end14:                                         ; preds = %if.then10, %land.lhs.true8, %land.lhs.true, %if.end4
-  %pushed_ids_ = getelementptr inbounds i8, ptr %this, i64 35
+  %pushed_ids_ = getelementptr inbounds nuw i8, ptr %this, i64 35
   %11 = load i8, ptr %pushed_ids_, align 1
   %tobool15 = trunc i8 %11 to i1
   br i1 %tobool15, label %if.then16, label %if.end22
 
 if.then16:                                        ; preds = %if.end14
   %12 = load ptr, ptr %this, align 8
-  %async_hooks_.i = getelementptr inbounds i8, ptr %12, i64 880
-  %async_context_19 = getelementptr inbounds i8, ptr %this, i64 8
+  %async_hooks_.i = getelementptr inbounds nuw i8, ptr %12, i64 880
+  %async_context_19 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %13 = load double, ptr %async_context_19, align 8
   %call21 = tail call noundef zeroext i1 @_ZN4node10AsyncHooks17pop_async_contextEd(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i, double noundef %13) #13
   br label %if.end22
@@ -527,38 +527,38 @@ if.end22:                                         ; preds = %if.then16, %if.end1
 
 if.end26:                                         ; preds = %if.end22
   %15 = load ptr, ptr %this, align 8
-  %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %15, i64 1408
+  %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %15, i64 1408
   %16 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %cmp29 = icmp ugt i64 %16, 1
   br i1 %cmp29, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end26
-  %skip_task_queues_ = getelementptr inbounds i8, ptr %this, i64 33
+  %skip_task_queues_ = getelementptr inbounds nuw i8, ptr %this, i64 33
   %17 = load i8, ptr %skip_task_queues_, align 1
   %tobool30 = trunc i8 %17 to i1
   br i1 %tobool30, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %if.end32
 
 if.end32:                                         ; preds = %lor.lhs.false
-  %can_call_into_js_.i = getelementptr inbounds i8, ptr %15, i64 873
+  %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %15, i64 873
   %18 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
   %tobool.i.i.i6 = trunc i8 %18 to i1
   br i1 %tobool.i.i.i6, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit"
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %if.end32
-  %is_stopping_.i.i7 = getelementptr inbounds i8, ptr %15, i64 872
+  %is_stopping_.i.i7 = getelementptr inbounds nuw i8, ptr %15, i64 872
   %19 = load atomic i8, ptr %is_stopping_.i.i7 seq_cst, align 1
   %tobool.i.i.i.i8 = trunc i8 %19 to i1
   br i1 %tobool.i.i.i.i8, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_1ED2Ev.exit", label %if.end38
 
 if.end38:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit
   %20 = load ptr, ptr %this, align 8
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %20, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %20, i64 2728
   %21 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %21, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %22 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %22(ptr noundef nonnull align 8 dereferenceable(872) %21) #13
-  %buffer_.i.i.i = getelementptr inbounds i8, ptr %15, i64 1288
+  %buffer_.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 1288
   %23 = load ptr, ptr %buffer_.i.i.i, align 8
   %24 = load i8, ptr %23, align 1
   %cmp.i10 = icmp eq i8 %24, 1
@@ -567,11 +567,11 @@ if.end38:                                         ; preds = %_ZNK4node11Environm
 if.then45:                                        ; preds = %if.end38
   %call47 = tail call noundef ptr @_ZN2v87Context17GetMicrotaskQueueEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #13
   %vtable = load ptr, ptr %call47, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 48
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 48
   %25 = load ptr, ptr %vfn, align 8
   tail call void %25(ptr noundef nonnull align 8 dereferenceable(8) %call47, ptr noundef %7) #13
   %26 = load ptr, ptr %this, align 8
-  %is_stopping_.i.i11 = getelementptr inbounds i8, ptr %26, i64 872
+  %is_stopping_.i.i11 = getelementptr inbounds nuw i8, ptr %26, i64 872
   %27 = load atomic i8, ptr %is_stopping_.i.i11 seq_cst, align 1
   %tobool.i.i.i.i12 = trunc i8 %27 to i1
   br i1 %tobool.i.i.i.i12, label %if.then.i13, label %if.end48
@@ -579,21 +579,21 @@ if.then45:                                        ; preds = %if.end38
 if.then.i13:                                      ; preds = %if.then45
   store i8 1, ptr %failed_, align 2
   %28 = load ptr, ptr %this, align 8
-  %async_hooks_.i.i15 = getelementptr inbounds i8, ptr %28, i64 880
+  %async_hooks_.i.i15 = getelementptr inbounds nuw i8, ptr %28, i64 880
   tail call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i15) #13
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then.i13, %if.then45, %if.end38
   %29 = load ptr, ptr %this, align 8
-  %buffer_.i.i = getelementptr inbounds i8, ptr %29, i64 976
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %29, i64 976
   %30 = load ptr, ptr %buffer_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %30, i64 20
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %30, i64 20
   %31 = load i32, ptr %arrayidx.i.i, align 4
   %tobool54.not = icmp eq i32 %31, 0
   br i1 %tobool54.not, label %if.end80, label %do.body
 
 do.body:                                          ; preds = %if.end48
-  %buffer_.i.i.i18 = getelementptr inbounds i8, ptr %29, i64 1032
+  %buffer_.i.i.i18 = getelementptr inbounds nuw i8, ptr %29, i64 1032
   %32 = load ptr, ptr %buffer_.i.i.i18, align 8
   %33 = load double, ptr %32, align 8
   %cmp58 = fcmp une double %33, 0.000000e+00
@@ -605,7 +605,7 @@ do.body62:                                        ; preds = %do.body
   unreachable
 
 do.body66:                                        ; preds = %do.body
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %32, i64 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load double, ptr %arrayidx.i.i.i, align 8
   %cmp69 = fcmp une double %34, 0.000000e+00
   br i1 %cmp69, label %do.body74, label %if.end80
@@ -622,7 +622,7 @@ if.end80:                                         ; preds = %do.body66, %if.end4
   br i1 %cmp.i21, label %if.end85, label %land.lhs.true82
 
 land.lhs.true82:                                  ; preds = %if.end80
-  %arrayidx.i.i.i23 = getelementptr inbounds i8, ptr %35, i64 1
+  %arrayidx.i.i.i23 = getelementptr inbounds nuw i8, ptr %35, i64 1
   %37 = load i8, ptr %arrayidx.i.i.i23, align 1
   %cmp.i24 = icmp eq i8 %37, 1
   br i1 %cmp.i24, label %if.end85, label %"_ZN4node16OnScopeLeaveImplIZNS_21InternalCallbackScope5CloseEvE3$_2ED2Ev.exit"
@@ -630,30 +630,30 @@ land.lhs.true82:                                  ; preds = %if.end80
 if.end85:                                         ; preds = %land.lhs.true82, %if.end80
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %7) #13
   %38 = load ptr, ptr %this, align 8
-  %principal_realm_.i = getelementptr inbounds i8, ptr %38, i64 2728
+  %principal_realm_.i = getelementptr inbounds nuw i8, ptr %38, i64 2728
   %39 = load ptr, ptr %principal_realm_.i, align 8
   %vtable.i25 = load ptr, ptr %39, align 8
-  %vfn.i26 = getelementptr inbounds i8, ptr %vtable.i25, i64 712
+  %vfn.i26 = getelementptr inbounds nuw i8, ptr %vtable.i25, i64 712
   %40 = load ptr, ptr %vfn.i26, align 8
   %call2.i27 = call ptr %40(ptr noundef nonnull align 8 dereferenceable(872) %39) #13
   %41 = load ptr, ptr %this, align 8
-  %can_call_into_js_.i28 = getelementptr inbounds i8, ptr %41, i64 873
+  %can_call_into_js_.i28 = getelementptr inbounds nuw i8, ptr %41, i64 873
   %42 = load atomic i8, ptr %can_call_into_js_.i28 seq_cst, align 1
   %tobool.i.i.i29 = trunc i8 %42 to i1
   br i1 %tobool.i.i.i29, label %_ZNK4node11Environment16can_call_into_jsEv.exit34, label %cleanup
 
 _ZNK4node11Environment16can_call_into_jsEv.exit34: ; preds = %if.end85
-  %is_stopping_.i.i31 = getelementptr inbounds i8, ptr %41, i64 872
+  %is_stopping_.i.i31 = getelementptr inbounds nuw i8, ptr %41, i64 872
   %43 = load atomic i8, ptr %is_stopping_.i.i31 seq_cst, align 1
   %tobool.i.i.i.i32 = trunc i8 %43 to i1
   br i1 %tobool.i.i.i.i32, label %cleanup, label %if.end94
 
 if.end94:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit34
   %44 = load ptr, ptr %this, align 8
-  %principal_realm_.i35 = getelementptr inbounds i8, ptr %44, i64 2728
+  %principal_realm_.i35 = getelementptr inbounds nuw i8, ptr %44, i64 2728
   %45 = load ptr, ptr %principal_realm_.i35, align 8
   %vtable.i36 = load ptr, ptr %45, align 8
-  %vfn.i37 = getelementptr inbounds i8, ptr %vtable.i36, i64 904
+  %vfn.i37 = getelementptr inbounds nuw i8, ptr %vtable.i36, i64 904
   %46 = load ptr, ptr %vfn.i37, align 8
   %call2.i38 = call ptr %46(ptr noundef nonnull align 8 dereferenceable(872) %45) #13
   %cmp.i = icmp eq ptr %call2.i38, null
@@ -675,7 +675,7 @@ if.then132:                                       ; preds = %do.end112
 
 if.end134:                                        ; preds = %if.then132, %do.end112
   %47 = load ptr, ptr %this, align 8
-  %is_stopping_.i.i39 = getelementptr inbounds i8, ptr %47, i64 872
+  %is_stopping_.i.i39 = getelementptr inbounds nuw i8, ptr %47, i64 872
   %48 = load atomic i8, ptr %is_stopping_.i.i39 seq_cst, align 1
   %tobool.i.i.i.i40 = trunc i8 %48 to i1
   br i1 %tobool.i.i.i.i40, label %if.then.i41, label %cleanup
@@ -683,7 +683,7 @@ if.end134:                                        ; preds = %if.then132, %do.end
 if.then.i41:                                      ; preds = %if.end134
   store i8 1, ptr %failed_, align 2
   %49 = load ptr, ptr %this, align 8
-  %async_hooks_.i.i43 = getelementptr inbounds i8, ptr %49, i64 880
+  %async_hooks_.i.i43 = getelementptr inbounds nuw i8, ptr %49, i64 880
   call void @_ZN4node10AsyncHooks20clear_async_id_stackEv(ptr noundef nonnull align 8 dereferenceable(248) %async_hooks_.i.i43) #13
   br label %cleanup
 
@@ -720,7 +720,7 @@ entry:
   %scope = alloca %"class.node::InternalCallbackScope", align 8
   %args = alloca %"class.node::MaybeStackBuffer", align 8
   store double %asyncContext.coerce0, ptr %asyncContext, align 8
-  %0 = getelementptr inbounds i8, ptr %asyncContext, i64 8
+  %0 = getelementptr inbounds nuw i8, ptr %asyncContext, i64 8
   store double %asyncContext.coerce1, ptr %0, align 8
   %cmp.i124 = icmp eq ptr %recv.coerce, null
   br i1 %cmp.i124, label %do.body12, label %do.end13
@@ -731,24 +731,24 @@ do.body12:                                        ; preds = %entry
   unreachable
 
 do.end13:                                         ; preds = %entry
-  %principal_realm_.i = getelementptr inbounds i8, ptr %env, i64 2728
+  %principal_realm_.i = getelementptr inbounds nuw i8, ptr %env, i64 2728
   %1 = load ptr, ptr %principal_realm_.i, align 8
   %vtable.i = load ptr, ptr %1, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 104
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 104
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %1) #13
   %cmp.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i, label %if.end30, label %if.then20
 
 if.then20:                                        ; preds = %do.end13
-  %buffer_.i.i = getelementptr inbounds i8, ptr %env, i64 976
+  %buffer_.i.i = getelementptr inbounds nuw i8, ptr %env, i64 976
   %3 = load ptr, ptr %buffer_.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %3, i64 4
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %4 = load i32, ptr %arrayidx.i.i, align 4
-  %arrayidx.i.i20 = getelementptr inbounds i8, ptr %3, i64 8
+  %arrayidx.i.i20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %arrayidx.i.i20, align 4
   %add = add i32 %5, %4
-  %arrayidx.i.i25 = getelementptr inbounds i8, ptr %3, i64 32
+  %arrayidx.i.i25 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %6 = load i32, ptr %arrayidx.i.i25, align 4
   %add29 = sub i32 0, %6
   %cmp = icmp ne i32 %add, %add29
@@ -758,7 +758,7 @@ if.end30:                                         ; preds = %if.then20, %do.end1
   %use_async_hooks_trampoline.0 = phi i1 [ false, %do.end13 ], [ %cmp, %if.then20 ]
   %flags.0 = phi i32 [ 0, %do.end13 ], [ 1, %if.then20 ]
   call void @_ZN4node21InternalCallbackScopeC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEERKNS_13async_contextEi(ptr noundef nonnull align 8 dereferenceable(37) %scope, ptr noundef nonnull %env, ptr %resource.coerce, ptr noundef nonnull align 8 dereferenceable(16) %asyncContext, i32 noundef %flags.0)
-  %failed_.i = getelementptr inbounds i8, ptr %scope, i64 34
+  %failed_.i = getelementptr inbounds nuw i8, ptr %scope, i64 34
   %7 = load i8, ptr %failed_.i, align 2
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %cleanup, label %if.end36
@@ -766,7 +766,7 @@ if.end30:                                         ; preds = %if.then20, %do.end1
 if.end36:                                         ; preds = %if.end30
   %8 = load ptr, ptr %principal_realm_.i, align 8
   %vtable.i26 = load ptr, ptr %8, align 8
-  %vfn.i27 = getelementptr inbounds i8, ptr %vtable.i26, i64 64
+  %vfn.i27 = getelementptr inbounds nuw i8, ptr %vtable.i26, i64 64
   %9 = load ptr, ptr %vfn.i27, align 8
   %call2.i28 = tail call ptr %9(ptr noundef nonnull align 8 dereferenceable(872) %8) #13
   br i1 %use_async_hooks_trampoline.0, label %if.then41, label %if.else
@@ -775,10 +775,10 @@ if.then41:                                        ; preds = %if.end36
   %add42 = add nsw i32 %argc, 3
   %conv = sext i32 %add42 to i64
   store i64 0, ptr %args, align 8
-  %capacity_.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %buf_st_.ptr.i.i = getelementptr inbounds i8, ptr %args, i64 24
+  %capacity_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 8
+  %buf_st_.ptr.i.i = getelementptr inbounds nuw i8, ptr %args, i64 24
   store i64 16, ptr %capacity_.i.i, align 8
-  %buf_.i.i = getelementptr inbounds i8, ptr %args, i64 16
+  %buf_.i.i = getelementptr inbounds nuw i8, ptr %args, i64 16
   store ptr %buf_st_.ptr.i.i, ptr %buf_.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %buf_st_.ptr.i.i, i8 0, i64 128, i1 false)
   %cmp.i.i29 = icmp ugt i32 %add42, 16
@@ -799,7 +799,7 @@ if.then14.i.i:                                    ; preds = %land.lhs.true.i.i
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEC2Em.exit: ; preds = %if.then41, %land.lhs.true.i.i, %if.then14.i.i
   store i64 %conv, ptr %args, align 8
-  %isolate_.i = getelementptr inbounds i8, ptr %env, i64 88
+  %isolate_.i = getelementptr inbounds nuw i8, ptr %env, i64 88
   %11 = load ptr, ptr %isolate_.i, align 8
   %call46 = call ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef %11, double noundef %asyncContext.coerce0) #13
   %12 = load i64, ptr %args, align 8
@@ -825,7 +825,7 @@ do.body4.i31:                                     ; preds = %_ZN4node16MaybeStac
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit33: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit
   %15 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %15, i64 8
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %resource.coerce, ptr %arrayidx.i, align 8
   %cmp.not.i34.not = icmp eq i64 %14, 2
   br i1 %cmp.not.i34.not, label %do.body4.i35, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38
@@ -837,7 +837,7 @@ do.body4.i35:                                     ; preds = %_ZN4node16MaybeStac
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit38: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit33
   %16 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i37 = getelementptr inbounds i8, ptr %16, i64 16
+  %arrayidx.i37 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %callback.coerce, ptr %arrayidx.i37, align 8
   %cmp6653 = icmp sgt i32 %argc, 0
   br i1 %cmp6653, label %for.body.preheader, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit48
@@ -859,9 +859,9 @@ do.body4.i40:                                     ; preds = %for.body
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit43: ; preds = %for.body
-  %arrayidx = getelementptr inbounds %"class.v8::Local.261", ptr %argv, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %"class.v8::Local.261", ptr %argv, i64 %indvars.iv
   %19 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i42 = getelementptr inbounds %"class.v8::Local.261", ptr %19, i64 %17
+  %arrayidx.i42 = getelementptr inbounds nuw %"class.v8::Local.261", ptr %19, i64 %17
   %20 = load i64, ptr %arrayidx, align 8
   store i64 %20, ptr %arrayidx.i42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -917,7 +917,7 @@ cleanup:                                          ; preds = %if.end114, %if.end3
   %retval.sroa.0.0 = phi ptr [ null, %if.then113 ], [ null, %if.end30 ], [ %.ret.sroa.0.0, %if.end114 ]
   call void @_ZN4node21InternalCallbackScope5CloseEv(ptr noundef nonnull align 8 dereferenceable(37) %scope)
   %26 = load ptr, ptr %scope, align 8
-  %async_callback_scope_depth_.i.i = getelementptr inbounds i8, ptr %26, i64 1408
+  %async_callback_scope_depth_.i.i = getelementptr inbounds nuw i8, ptr %26, i64 1408
   %27 = load i64, ptr %async_callback_scope_depth_.i.i, align 8
   %dec.i.i = add i64 %27, -1
   store i64 %dec.i.i, ptr %async_callback_scope_depth_.i.i, align 8
@@ -988,13 +988,13 @@ do.body21:                                        ; preds = %if.end.i.i, %_ZN4no
   unreachable
 
 do.end22:                                         ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
-  %can_call_into_js_.i = getelementptr inbounds i8, ptr %9, i64 873
+  %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %9, i64 873
   %10 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
   %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %return
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %do.end22
-  %is_stopping_.i.i = getelementptr inbounds i8, ptr %9, i64 872
+  %is_stopping_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
   %tobool.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i.i, label %return, label %if.end29
@@ -1073,10 +1073,10 @@ do.body21:                                        ; preds = %if.end.i.i, %_ZN4no
   unreachable
 
 do.end22:                                         ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %9, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2728
   %10 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %10, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %11 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %11(ptr noundef nonnull align 8 dereferenceable(872) %10) #13
   tail call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #13
@@ -1085,7 +1085,7 @@ do.end22:                                         ; preds = %_ZN2v810MaybeLocalI
   br i1 %cmp.i.i, label %land.lhs.true, label %cleanup
 
 land.lhs.true:                                    ; preds = %do.end22
-  %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %9, i64 1408
+  %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %9, i64 1408
   %12 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %cmp51 = icmp eq i64 %12, 0
   br i1 %cmp51, label %if.then52, label %cleanup
@@ -1145,26 +1145,26 @@ do.body21:                                        ; preds = %if.end.i.i, %_ZN4no
   unreachable
 
 do.end22:                                         ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit
-  %can_call_into_js_.i = getelementptr inbounds i8, ptr %9, i64 873
+  %can_call_into_js_.i = getelementptr inbounds nuw i8, ptr %9, i64 873
   %10 = load atomic i8, ptr %can_call_into_js_.i seq_cst, align 1
   %tobool.i.i.i = trunc i8 %10 to i1
   br i1 %tobool.i.i.i, label %_ZNK4node11Environment16can_call_into_jsEv.exit, label %return
 
 _ZNK4node11Environment16can_call_into_jsEv.exit:  ; preds = %do.end22
-  %is_stopping_.i.i = getelementptr inbounds i8, ptr %9, i64 872
+  %is_stopping_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 872
   %11 = load atomic i8, ptr %is_stopping_.i.i seq_cst, align 1
   %tobool.i.i.i.i = trunc i8 %11 to i1
   br i1 %tobool.i.i.i.i, label %return, label %if.end29
 
 if.end29:                                         ; preds = %_ZNK4node11Environment16can_call_into_jsEv.exit
-  %principal_realm_.i.i = getelementptr inbounds i8, ptr %9, i64 2728
+  %principal_realm_.i.i = getelementptr inbounds nuw i8, ptr %9, i64 2728
   %12 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %12, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 64
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %13 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call ptr %13(ptr noundef nonnull align 8 dereferenceable(872) %12) #13
   tail call void @_ZN2v87Context5EnterEv(ptr noundef nonnull align 1 dereferenceable(1) %call2.i) #13
-  %async_callback_scope_depth_.i = getelementptr inbounds i8, ptr %9, i64 1408
+  %async_callback_scope_depth_.i = getelementptr inbounds nuw i8, ptr %9, i64 1408
   %14 = load i64, ptr %async_callback_scope_depth_.i, align 8
   %tobool.not = icmp eq i64 %14, 0
   br i1 %tobool.not, label %if.end58, label %if.then39
@@ -1176,7 +1176,7 @@ if.then39:                                        ; preds = %if.end29
 if.end58:                                         ; preds = %if.end29
   %15 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i14 = load ptr, ptr %15, align 8
-  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 712
+  %vfn.i15 = getelementptr inbounds nuw i8, ptr %vtable.i14, i64 712
   %16 = load ptr, ptr %vfn.i15, align 8
   %call2.i16 = tail call ptr %16(ptr noundef nonnull align 8 dereferenceable(872) %15) #13
   %call76 = tail call ptr @_ZN4node20InternalMakeCallbackEPNS_11EnvironmentEN2v85LocalINS2_6ObjectEEES5_NS3_INS2_8FunctionEEEiPNS3_INS2_5ValueEEENS_13async_contextE(ptr noundef nonnull %9, ptr %call2.i16, ptr %recv.coerce, ptr nonnull %callback.coerce, i32 noundef %argc, ptr noundef %argv, double 0.000000e+00, double 0.000000e+00)

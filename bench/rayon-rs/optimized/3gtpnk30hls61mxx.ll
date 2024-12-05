@@ -11,11 +11,11 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !4
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !noalias !4
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
@@ -25,7 +25,7 @@ define void @"_ZN86_$LT$rayon..str..CharsProducer$u20$as$u20$rayon..iter..plumbi
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !4
   store ptr %1, ptr %4, align 8, !noalias !4
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !4
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
@@ -69,9 +69,9 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
   store ptr %1, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %25, align 8
   br label %32
 
@@ -79,11 +79,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %28, ptr %31, align 8
   br label %32
 
@@ -96,14 +96,14 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
   %3 = alloca { ptr, ptr }, align 8
   %4 = alloca { ptr, ptr }, align 8
   %5 = load ptr, ptr %1, align 8, !nonnull !14, !align !15, !noundef !14
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i64, ptr %6, align 8, !noundef !14
   %8 = lshr i64 %7, 1
-  %9 = getelementptr inbounds i8, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 %8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !16
   %10 = getelementptr inbounds i8, ptr %5, i64 %7
   store ptr %9, ptr %4, align 8, !noalias !16
-  %11 = getelementptr inbounds i8, ptr %4, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %10, ptr %11, align 8, !noalias !16
   %12 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %12, 0
@@ -113,7 +113,7 @@ define void @"_ZN92_$LT$rayon..str..CharIndicesProducer$u20$as$u20$rayon..iter..
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !16
   store ptr %5, ptr %3, align 8, !noalias !16
-  %14 = getelementptr inbounds i8, ptr %3, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %9, ptr %14, align 8, !noalias !16
   %15 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %8)
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %15, 0
@@ -157,26 +157,26 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %13, %16
 
 25:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %26 = getelementptr inbounds i8, ptr %0, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr null, ptr %26, align 8
   br label %34
 
 27:                                               ; preds = %19, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i"
   %28 = getelementptr inbounds i8, ptr %5, i64 %.0.i
   %29 = sub i64 %7, %.0.i
-  %30 = getelementptr inbounds i8, ptr %1, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i64, ptr %30, align 8, !noundef !14
   %32 = add i64 %31, %.0.i
   store ptr %5, ptr %0, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %31, ptr %.sroa.5.0..sroa_idx, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %28, ptr %33, align 8
-  %.sroa.47.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
+  %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %29, ptr %.sroa.47.0..sroa_idx, align 8
-  %.sroa.58.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 40
+  %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %32, ptr %.sroa.58.0..sroa_idx, align 8
   br label %34
 
@@ -189,11 +189,11 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !26
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !26
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !noalias !26
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
@@ -203,7 +203,7 @@ define void @"_ZN86_$LT$rayon..str..BytesProducer$u20$as$u20$rayon..iter..plumbi
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !26
   store ptr %1, ptr %4, align 8, !noalias !26
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !26
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
@@ -247,9 +247,9 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
   store ptr %1, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %25, align 8
   br label %32
 
@@ -257,11 +257,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %28, ptr %31, align 8
   br label %32
 
@@ -274,11 +274,11 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
   %4 = alloca { ptr, ptr }, align 8
   %5 = alloca { ptr, ptr }, align 8
   %6 = lshr i64 %2, 1
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !36
   %8 = getelementptr inbounds i8, ptr %1, i64 %2
   store ptr %7, ptr %5, align 8, !noalias !36
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8, !noalias !36
   %10 = call { i64, i64 } @_ZN4core4iter6traits8iterator8Iterator8try_fold17h7a42dc962973a0ceE.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, i64 noundef 0)
   %.fca.0.extract14.i = extractvalue { i64, i64 } %10, 0
@@ -288,7 +288,7 @@ define void @"_ZN92_$LT$rayon..str..EncodeUtf16Producer$u20$as$u20$rayon..iter..
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !36
   store ptr %1, ptr %4, align 8, !noalias !36
-  %12 = getelementptr inbounds i8, ptr %4, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %7, ptr %12, align 8, !noalias !36
   %13 = call { i64, i64 } @_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17hffee515816229eb7E.llvm.3106828156525833471(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, i64 noundef %6)
   %.fca.0.extract.i.i = extractvalue { i64, i64 } %13, 0
@@ -332,9 +332,9 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
 
 23:                                               ; preds = %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit, %_ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit.thread
   store ptr %1, ptr %0, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr null, ptr %25, align 8
   br label %32
 
@@ -342,11 +342,11 @@ _ZN5rayon3str18find_char_midpoint17h6911442dcb4bfac0E.exit: ; preds = %11, %14
   %27 = getelementptr inbounds i8, ptr %1, i64 %.0.i
   %28 = sub i64 %2, %.0.i
   store ptr %1, ptr %0, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.0.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %0, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %28, ptr %31, align 8
   br label %32
 

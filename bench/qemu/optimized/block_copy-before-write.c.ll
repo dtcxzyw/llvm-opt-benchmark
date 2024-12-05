@@ -45,9 +45,9 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local ptr @bdrv_cbw_append(ptr noundef %source, ptr noundef %target, ptr noundef %filter_node_name, ptr nocapture noundef writeonly %bcs, ptr noundef %errp) local_unnamed_addr #0 {
 entry:
-  %total_sectors = getelementptr inbounds i8, ptr %source, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %source, i64 16888
   %0 = load i64, ptr %total_sectors, align 8
-  %total_sectors1 = getelementptr inbounds i8, ptr %target, i64 16888
+  %total_sectors1 = getelementptr inbounds nuw i8, ptr %target, i64 16888
   %1 = load i64, ptr %total_sectors1, align 8
   %cmp = icmp eq i64 %0, %1
   br i1 %cmp, label %do.body, label %if.else
@@ -84,7 +84,7 @@ if.end7:                                          ; preds = %if.then6, %do.end
   br i1 %tobool11.not, label %return, label %if.end13
 
 if.end13:                                         ; preds = %if.end7
-  %opaque = getelementptr inbounds i8, ptr %call10, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %call10, i64 24
   %2 = load ptr, ptr %opaque, align 8
   %3 = load ptr, ptr %2, align 8
   store ptr %3, ptr %bcs, align 8
@@ -149,7 +149,7 @@ declare void @bdrv_register(ptr noundef) local_unnamed_addr #2
 define internal range(i32 -2147483648, 1) i32 @cbw_open(ptr noundef %bs, ptr noundef %options, i32 %flags, ptr noundef %errp) #0 {
 entry:
   %opts.i = alloca ptr, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %opts.i)
   store ptr null, ptr %opts.i, align 8
@@ -194,7 +194,7 @@ if.end2:                                          ; preds = %if.end
 
 if.end6:                                          ; preds = %if.end2
   %call7 = call ptr @bdrv_open_child(ptr noundef null, ptr noundef %options, ptr noundef nonnull @.str.7, ptr noundef nonnull %bs, ptr noundef nonnull @child_of_bds, i32 noundef 1, i1 noundef zeroext false, ptr noundef %errp) #7
-  %target = getelementptr inbounds i8, ptr %0, i64 8
+  %target = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %call7, ptr %target, align 8
   %tobool9.not = icmp eq ptr %call7, null
   br i1 %tobool9.not, label %if.then.i.i51, label %if.end11
@@ -203,14 +203,14 @@ if.end11:                                         ; preds = %if.end6
   call void @bdrv_graph_rdlock_main_loop() #7
   %call13 = call ptr @bdrv_get_aio_context(ptr noundef nonnull %bs) #7
   call void @aio_context_acquire(ptr noundef %call13) #7
-  %bitmap14 = getelementptr inbounds i8, ptr %2, i64 64
+  %bitmap14 = getelementptr inbounds nuw i8, ptr %2, i64 64
   %4 = load ptr, ptr %bitmap14, align 8
   %tobool15.not = icmp eq ptr %4, null
   br i1 %tobool15.not, label %if.end23, label %if.then16
 
 if.then16:                                        ; preds = %if.end11
   %5 = load ptr, ptr %4, align 8
-  %name = getelementptr inbounds i8, ptr %4, i64 8
+  %name = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %name, align 8
   %call19 = call ptr @block_dirty_bitmap_lookup(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %errp) #7
   %tobool20.not = icmp eq ptr %call19, null
@@ -218,55 +218,55 @@ if.then16:                                        ; preds = %if.end11
 
 if.end23:                                         ; preds = %if.then16, %if.end11
   %bitmap.0 = phi ptr [ %call19, %if.then16 ], [ null, %if.end11 ]
-  %has_on_cbw_error = getelementptr inbounds i8, ptr %2, i64 72
+  %has_on_cbw_error = getelementptr inbounds nuw i8, ptr %2, i64 72
   %7 = load i8, ptr %has_on_cbw_error, align 8
   %tobool24 = trunc i8 %7 to i1
   br i1 %tobool24, label %cond.true, label %cond.end
 
 cond.true:                                        ; preds = %if.end23
-  %on_cbw_error = getelementptr inbounds i8, ptr %2, i64 76
+  %on_cbw_error = getelementptr inbounds nuw i8, ptr %2, i64 76
   %8 = load i32, ptr %on_cbw_error, align 4
   br label %cond.end
 
 cond.end:                                         ; preds = %if.end23, %cond.true
   %cond = phi i32 [ %8, %cond.true ], [ 0, %if.end23 ]
-  %on_cbw_error25 = getelementptr inbounds i8, ptr %0, i64 16
+  %on_cbw_error25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %cond, ptr %on_cbw_error25, align 8
-  %has_cbw_timeout = getelementptr inbounds i8, ptr %2, i64 80
+  %has_cbw_timeout = getelementptr inbounds nuw i8, ptr %2, i64 80
   %9 = load i8, ptr %has_cbw_timeout, align 8
   %tobool26 = trunc i8 %9 to i1
   br i1 %tobool26, label %cond.true27, label %cond.end29
 
 cond.true27:                                      ; preds = %cond.end
-  %cbw_timeout = getelementptr inbounds i8, ptr %2, i64 84
+  %cbw_timeout = getelementptr inbounds nuw i8, ptr %2, i64 84
   %10 = load i32, ptr %cbw_timeout, align 4
   %mul = mul i32 %10, 1000000000
   br label %cond.end29
 
 cond.end29:                                       ; preds = %cond.end, %cond.true27
   %cond30 = phi i32 [ %mul, %cond.true27 ], [ 0, %cond.end ]
-  %cbw_timeout_ns = getelementptr inbounds i8, ptr %0, i64 20
+  %cbw_timeout_ns = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %cond30, ptr %cbw_timeout_ns, align 4
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %11 = load ptr, ptr %file, align 8
   %12 = load ptr, ptr %11, align 8
-  %total_sectors = getelementptr inbounds i8, ptr %12, i64 16888
+  %total_sectors = getelementptr inbounds nuw i8, ptr %12, i64 16888
   %13 = load i64, ptr %total_sectors, align 8
-  %total_sectors33 = getelementptr inbounds i8, ptr %bs, i64 16888
+  %total_sectors33 = getelementptr inbounds nuw i8, ptr %bs, i64 16888
   store i64 %13, ptr %total_sectors33, align 8
   %14 = load ptr, ptr %11, align 8
-  %supported_write_flags = getelementptr inbounds i8, ptr %14, i64 16588
+  %supported_write_flags = getelementptr inbounds nuw i8, ptr %14, i64 16588
   %15 = load i32, ptr %supported_write_flags, align 4
   %and = and i32 %15, 16
   %or = or disjoint i32 %and, 64
-  %supported_write_flags36 = getelementptr inbounds i8, ptr %bs, i64 16588
+  %supported_write_flags36 = getelementptr inbounds nuw i8, ptr %bs, i64 16588
   store i32 %or, ptr %supported_write_flags36, align 4
   %16 = load ptr, ptr %11, align 8
-  %supported_zero_flags = getelementptr inbounds i8, ptr %16, i64 16592
+  %supported_zero_flags = getelementptr inbounds nuw i8, ptr %16, i64 16592
   %17 = load i32, ptr %supported_zero_flags, align 8
   %and39 = and i32 %17, 276
   %or40 = or disjoint i32 %and39, 64
-  %supported_zero_flags41 = getelementptr inbounds i8, ptr %bs, i64 16592
+  %supported_zero_flags41 = getelementptr inbounds nuw i8, ptr %bs, i64 16592
   store i32 %or40, ptr %supported_zero_flags41, align 8
   %18 = load ptr, ptr %target, align 8
   %call44 = call ptr @block_copy_state_new(ptr noundef nonnull %11, ptr noundef %18, ptr noundef %bitmap.0, ptr noundef %errp) #7
@@ -282,7 +282,7 @@ if.end48:                                         ; preds = %cond.end29
   %call50 = call i64 @block_copy_cluster_size(ptr noundef nonnull %call44) #7
   %conv51 = trunc i64 %call50 to i32
   %call52 = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %conv51, ptr noundef null, ptr noundef %errp) #7
-  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
+  %done_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %call52, ptr %done_bitmap, align 8
   %tobool54.not = icmp eq ptr %call52, null
   br i1 %tobool54.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end56
@@ -290,7 +290,7 @@ if.end48:                                         ; preds = %cond.end29
 if.end56:                                         ; preds = %if.end48
   call void @bdrv_disable_dirty_bitmap(ptr noundef nonnull %call52) #7
   %call59 = call ptr @bdrv_create_dirty_bitmap(ptr noundef nonnull %bs, i32 noundef %conv51, ptr noundef null, ptr noundef %errp) #7
-  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
+  %access_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %call59, ptr %access_bitmap, align 8
   %tobool61.not = icmp eq ptr %call59, null
   br i1 %tobool61.not, label %glib_autoptr_cleanup_GraphLockableMainloop.exit, label %if.end63
@@ -301,9 +301,9 @@ if.end63:                                         ; preds = %if.end56
   %20 = load ptr, ptr %0, align 8
   %call67 = call ptr @block_copy_dirty_bitmap(ptr noundef %20) #7
   call void @bdrv_dirty_bitmap_merge_internal(ptr noundef %19, ptr noundef %call67, ptr noundef null, i1 noundef zeroext true) #7
-  %lock = getelementptr inbounds i8, ptr %0, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @qemu_co_mutex_init(ptr noundef nonnull %lock) #7
-  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
+  %frozen_read_reqs = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr null, ptr %frozen_read_reqs, align 8
   br label %glib_autoptr_cleanup_GraphLockableMainloop.exit
 
@@ -326,12 +326,12 @@ glib_autoptr_cleanup_BlockdevOptions.exit:        ; preds = %cbw_parse_options.e
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_close(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
+  %access_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %access_bitmap, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %1) #7
-  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
+  %done_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 80
   %2 = load ptr, ptr %done_bitmap, align 8
   tail call void @bdrv_release_dirty_bitmap(ptr noundef %2) #7
   %3 = load ptr, ptr %0, align 8
@@ -343,11 +343,11 @@ entry:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_refresh_filename(ptr noundef %bs) #0 {
 entry:
-  %exact_filename = getelementptr inbounds i8, ptr %bs, i64 12368
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %exact_filename = getelementptr inbounds nuw i8, ptr %bs, i64 12368
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %1 = load ptr, ptr %0, align 8
-  %filename = getelementptr inbounds i8, ptr %1, i64 49
+  %filename = getelementptr inbounds nuw i8, ptr %1, i64 49
   tail call void @pstrcpy(ptr noundef nonnull %exact_filename, i32 noundef 4096, ptr noundef nonnull %filename) #7
   ret void
 }
@@ -366,7 +366,7 @@ if.then:                                          ; preds = %entry
 
 if.else:                                          ; preds = %entry
   tail call void @bdrv_default_perms(ptr noundef %bs, ptr noundef %c, i32 noundef %role, ptr noundef %reopen_queue, i64 noundef %perm, i64 noundef %shared, ptr noundef %nperm, ptr noundef %nshared) #7
-  %parents = getelementptr inbounds i8, ptr %bs, i64 16848
+  %parents = getelementptr inbounds nuw i8, ptr %bs, i64 16848
   %0 = load ptr, ptr %parents, align 8
   %cmp = icmp eq ptr %0, null
   br i1 %cmp, label %if.end7, label %if.then1
@@ -395,7 +395,7 @@ if.end7:                                          ; preds = %if.else, %if.end, %
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_preadv(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call = tail call i32 @bdrv_co_preadv(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #7
   ret i32 %call
@@ -409,7 +409,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwritev(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, ptr noundef %qiov, i32 noundef %flags) #7
   br label %return
@@ -427,7 +427,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pwrite_zeroes(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #7
   br label %return
@@ -445,7 +445,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %call1 = tail call i32 @bdrv_co_pdiscard(ptr noundef %0, i64 noundef %offset, i64 noundef %bytes) #7
   br label %return
@@ -464,7 +464,7 @@ entry:
   br i1 %tobool.not9, label %return, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
-  %opaque.i = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque.i = getelementptr inbounds nuw i8, ptr %bs, i64 24
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end4
@@ -485,7 +485,7 @@ if.end:                                           ; preds = %while.body
   br i1 %cmp.i, label %land.lhs.true.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
 
 land.lhs.true.i:                                  ; preds = %if.end
-  %bytes.i = getelementptr inbounds i8, ptr %call, i64 8
+  %bytes.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %4 = load i64, ptr %bytes.i, align 8
   %cmp1.i = icmp eq i64 %4, -1
   br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
@@ -495,7 +495,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %cbw_snapshot_read_unlock.exit
 
 glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %land.lhs.true.i, %if.end
-  %lock.i = getelementptr inbounds i8, ptr %2, i64 24
+  %lock.i = getelementptr inbounds nuw i8, ptr %2, i64 24
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #7
   call void @reqlist_remove_req(ptr noundef nonnull %call) #7
   call void @g_free(ptr noundef nonnull %call) #7
@@ -524,7 +524,7 @@ define internal i32 @cbw_co_snapshot_block_status(ptr nocapture noundef readonly
 entry:
   %cur_bytes = alloca i64, align 8
   %child = alloca ptr, align 8
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = call ptr @cbw_snapshot_read_lock(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef nonnull %cur_bytes, ptr noundef nonnull %child)
   %tobool.not = icmp eq ptr %call, null
@@ -535,7 +535,7 @@ if.end:                                           ; preds = %entry
   %2 = load ptr, ptr %1, align 8
   %3 = load i64, ptr %cur_bytes, align 8
   %call2 = call i32 @bdrv_co_block_status(ptr noundef %2, i64 noundef %offset, i64 noundef %3, ptr noundef %pnum, ptr noundef %map, ptr noundef %file) #7
-  %target = getelementptr inbounds i8, ptr %0, i64 8
+  %target = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %target, align 8
   %cmp = icmp eq ptr %1, %4
   %and = and i32 %call2, 16
@@ -554,7 +554,7 @@ if.end7:                                          ; preds = %if.end
   br i1 %cmp.i, label %land.lhs.true.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
 
 land.lhs.true.i:                                  ; preds = %if.end7
-  %bytes.i = getelementptr inbounds i8, ptr %call, i64 8
+  %bytes.i = getelementptr inbounds nuw i8, ptr %call, i64 8
   %7 = load i64, ptr %bytes.i, align 8
   %cmp1.i = icmp eq i64 %7, -1
   br i1 %cmp1.i, label %if.then.i, label %glib_autoptr_cleanup_QemuLockable.exit.i
@@ -564,7 +564,7 @@ if.then.i:                                        ; preds = %land.lhs.true.i
   br label %return
 
 glib_autoptr_cleanup_QemuLockable.exit.i:         ; preds = %land.lhs.true.i, %if.end7
-  %lock.i = getelementptr inbounds i8, ptr %5, i64 24
+  %lock.i = getelementptr inbounds nuw i8, ptr %5, i64 24
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock.i) #7
   call void @reqlist_remove_req(ptr noundef nonnull %call) #7
   call void @g_free(ptr noundef nonnull %call) #7
@@ -579,17 +579,17 @@ return:                                           ; preds = %glib_autoptr_cleanu
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_pdiscard_snapshot(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes) #0 {
 qemu_lockable_auto_unlock.exit.us:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
-  %lock = getelementptr inbounds i8, ptr %0, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
+  %access_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 72
   %1 = load ptr, ptr %access_bitmap, align 8
   tail call void @bdrv_reset_dirty_bitmap(ptr noundef %1, i64 noundef %offset, i64 noundef %bytes) #7
   tail call void @qemu_co_mutex_unlock(ptr noundef nonnull %lock) #7
   %2 = load ptr, ptr %0, align 8
   tail call void @block_copy_reset(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #7
-  %target = getelementptr inbounds i8, ptr %0, i64 8
+  %target = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %target, align 8
   %call2 = tail call i32 @bdrv_co_pdiscard(ptr noundef %3, i64 noundef %offset, i64 noundef %bytes) #7
   ret i32 %call2
@@ -598,7 +598,7 @@ qemu_lockable_auto_unlock.exit.us:
 ; Function Attrs: nounwind sspstrong uwtable
 define internal i32 @cbw_co_flush(ptr nocapture noundef readonly %bs) #0 {
 entry:
-  %file = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   %0 = load ptr, ptr %file, align 8
   %tobool.not = icmp eq ptr %0, null
   br i1 %tobool.not, label %return, label %if.end
@@ -670,7 +670,7 @@ declare i32 @bdrv_co_preadv(ptr noundef, i64 noundef, i64 noundef, ptr noundef, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal range(i32 -2147483648, 1) i32 @cbw_do_copy_before_write(ptr noundef %bs, i64 noundef %offset, i64 noundef %bytes, i32 noundef %flags) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load ptr, ptr %0, align 8
   %call = tail call i64 @block_copy_cluster_size(ptr noundef %1) #7
@@ -680,7 +680,7 @@ entry:
   br i1 %tobool.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %snapshot_error = getelementptr inbounds i8, ptr %0, i64 96
+  %snapshot_error = getelementptr inbounds nuw i8, ptr %0, i64 96
   %2 = load i32, ptr %snapshot_error, align 8
   %tobool1.not = icmp eq i32 %2, 0
   br i1 %tobool1.not, label %if.end3, label %return
@@ -696,7 +696,7 @@ if.end3:                                          ; preds = %if.end
   %5 = load ptr, ptr %0, align 8
   %6 = add i64 %mul, %4
   %sub8 = sub i64 %sub, %6
-  %cbw_timeout_ns = getelementptr inbounds i8, ptr %0, i64 20
+  %cbw_timeout_ns = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %cbw_timeout_ns, align 4
   %conv = zext i32 %7 to i64
   %call9 = tail call i32 @block_copy(ptr noundef %5, i64 noundef %mul, i64 noundef %sub8, i1 noundef zeroext true, i64 noundef %conv, ptr noundef nonnull @block_copy_cb, ptr noundef nonnull %bs) #7
@@ -704,16 +704,16 @@ if.end3:                                          ; preds = %if.end
   br i1 %cmp, label %land.lhs.true, label %for.body.us33
 
 land.lhs.true:                                    ; preds = %if.end3
-  %on_cbw_error = getelementptr inbounds i8, ptr %0, i64 16
+  %on_cbw_error = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i32, ptr %on_cbw_error, align 8
   %cmp11 = icmp eq i32 %8, 0
   br i1 %cmp11, label %return, label %for.body.us.us
 
 for.body.us.us:                                   ; preds = %land.lhs.true
-  %lock39 = getelementptr inbounds i8, ptr %0, i64 24
+  %lock39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock39) #7
-  %on_cbw_error2141 = getelementptr inbounds i8, ptr %0, i64 16
-  %frozen_read_reqs42 = getelementptr inbounds i8, ptr %0, i64 88
+  %on_cbw_error2141 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %frozen_read_reqs42 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %9 = load i32, ptr %on_cbw_error2141, align 8
   %cmp22.us.us = icmp eq i32 %9, 1
   br i1 %cmp22.us.us, label %if.end25.us.us, label %if.else
@@ -732,10 +732,10 @@ qemu_lockable_auto_unlock.exit.us.us:             ; preds = %if.then28.us.us, %i
   br label %return.sink.split
 
 for.body.us33:                                    ; preds = %if.end3
-  %lock = getelementptr inbounds i8, ptr %0, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
-  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
+  %done_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %frozen_read_reqs = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %done_bitmap, align 8
   tail call void @bdrv_set_dirty_bitmap(ptr noundef %11, i64 noundef %mul, i64 noundef %sub8) #7
   tail call void @reqlist_wait_all(ptr noundef nonnull %frozen_read_reqs, i64 noundef %mul, i64 noundef %sub8, ptr noundef nonnull %lock) #7
@@ -785,12 +785,12 @@ declare i32 @bdrv_co_pdiscard(ptr noundef, i64 noundef, i64 noundef) #2
 ; Function Attrs: nounwind sspstrong uwtable
 define internal noundef ptr @cbw_snapshot_read_lock(ptr nocapture noundef readonly %bs, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum, ptr nocapture noundef writeonly %file) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %call = tail call noalias dereferenceable_or_null(48) ptr @g_malloc_n(i64 noundef 1, i64 noundef 48) #8
-  %lock = getelementptr inbounds i8, ptr %0, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
-  %snapshot_error = getelementptr inbounds i8, ptr %0, i64 96
+  %snapshot_error = getelementptr inbounds nuw i8, ptr %0, i64 96
   %1 = load i32, ptr %snapshot_error, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %if.end, label %if.then
@@ -800,7 +800,7 @@ if.then:                                          ; preds = %entry
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end:                                           ; preds = %entry
-  %access_bitmap = getelementptr inbounds i8, ptr %0, i64 72
+  %access_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 72
   %2 = load ptr, ptr %access_bitmap, align 8
   %call5 = tail call i64 @bdrv_dirty_bitmap_next_zero(ptr noundef %2, i64 noundef %offset, i64 noundef %bytes) #7
   %cmp.not = icmp eq i64 %call5, -1
@@ -811,22 +811,22 @@ if.then6:                                         ; preds = %if.end
   br label %glib_autoptr_cleanup_QemuLockable.exit
 
 if.end7:                                          ; preds = %if.end
-  %done_bitmap = getelementptr inbounds i8, ptr %0, i64 80
+  %done_bitmap = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %done_bitmap, align 8
   %call8 = tail call zeroext i1 @bdrv_dirty_bitmap_status(ptr noundef %3, i64 noundef %offset, i64 noundef %bytes, ptr noundef %pnum) #7
   br i1 %call8, label %if.then10, label %if.else
 
 if.then10:                                        ; preds = %if.end7
-  %.compoundliteral11.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %call, i64 16
+  %.compoundliteral11.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call, i8 -1, i64 16, i1 false)
-  %target = getelementptr inbounds i8, ptr %0, i64 8
+  %target = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.compoundliteral11.sroa.3.0..sroa_idx, i8 0, i64 32, i1 false)
   br label %if.end15
 
 if.else:                                          ; preds = %if.end7
-  %frozen_read_reqs = getelementptr inbounds i8, ptr %0, i64 88
+  %frozen_read_reqs = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @reqlist_init_req(ptr noundef nonnull %frozen_read_reqs, ptr noundef %call, i64 noundef %offset, i64 noundef %bytes) #7
-  %file14 = getelementptr inbounds i8, ptr %bs, i64 16840
+  %file14 = getelementptr inbounds nuw i8, ptr %bs, i64 16840
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then10
@@ -846,14 +846,14 @@ declare i32 @bdrv_co_preadv_part(ptr noundef, i64 noundef, i64 noundef, ptr noun
 ; Function Attrs: nounwind sspstrong uwtable
 define internal void @cbw_snapshot_read_unlock(ptr nocapture noundef readonly %bs, ptr noundef %req) #0 {
 entry:
-  %opaque = getelementptr inbounds i8, ptr %bs, i64 24
+  %opaque = getelementptr inbounds nuw i8, ptr %bs, i64 24
   %0 = load ptr, ptr %opaque, align 8
   %1 = load i64, ptr %req, align 8
   %cmp = icmp eq i64 %1, -1
   br i1 %cmp, label %land.lhs.true, label %glib_autoptr_cleanup_QemuLockable.exit
 
 land.lhs.true:                                    ; preds = %entry
-  %bytes = getelementptr inbounds i8, ptr %req, i64 8
+  %bytes = getelementptr inbounds nuw i8, ptr %req, i64 8
   %2 = load i64, ptr %bytes, align 8
   %cmp1 = icmp eq i64 %2, -1
   br i1 %cmp1, label %if.then, label %glib_autoptr_cleanup_QemuLockable.exit
@@ -863,7 +863,7 @@ if.then:                                          ; preds = %land.lhs.true
   br label %return
 
 glib_autoptr_cleanup_QemuLockable.exit:           ; preds = %land.lhs.true, %entry
-  %lock = getelementptr inbounds i8, ptr %0, i64 24
+  %lock = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #7
   tail call void @reqlist_remove_req(ptr noundef nonnull %req) #7
   tail call void @g_free(ptr noundef nonnull %req) #7

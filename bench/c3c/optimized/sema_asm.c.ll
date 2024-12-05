@@ -76,7 +76,7 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 7:                                                ; preds = %3, %3
   tail call void @init_asm() #4
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @asm_instr_by_name(ptr noundef %9) #4
   %.not37 = icmp eq ptr %10, null
@@ -88,9 +88,9 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   br label %sema_add_clobbers.exit
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %2, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %10, i64 80
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %17 = load i32, ptr %16, align 8
   %.not38 = icmp eq ptr %15, null
   br i1 %.not38, label %21, label %18
@@ -106,7 +106,7 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
   br i1 %.not39, label %.preheader, label %24
 
 .preheader:                                       ; preds = %21
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = zext i32 %17 to i64
   br label %29
 
@@ -125,24 +125,24 @@ define dso_local noundef zeroext i1 @sema_analyse_asm(ptr noundef %0, ptr nounde
 
 30:                                               ; preds = %29
   %31 = add nsw i64 %indvars.iv, -1
-  %32 = getelementptr inbounds [6 x %struct.AsmArgType], ptr %22, i64 0, i64 %31
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [6 x %struct.AsmArgType], ptr %22, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
   %34 = load ptr, ptr %33, align 8
   %.sroa.0.0.copyload = load i64, ptr %32, align 4
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %32, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %35 = tail call fastcc zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef %10, i64 %.sroa.0.0.copyload, i32 %.sroa.2.0.copyload, ptr noundef %34)
   br i1 %35, label %29, label %sema_add_clobbers.exit, !llvm.loop !7
 
 36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %10, i64 88
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 88
   br label %38
 
 38:                                               ; preds = %38, %36
   %indvars.iv.i = phi i64 [ 0, %36 ], [ %indvars.iv.next.i, %38 ]
-  %39 = getelementptr inbounds [4 x i64], ptr %37, i64 0, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i64], ptr %37, i64 0, i64 %indvars.iv.i
   %40 = load i64, ptr %39, align 8
-  %41 = getelementptr inbounds [4 x i64], ptr %1, i64 0, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %indvars.iv.i
   %42 = load i64, ptr %41, align 8
   %43 = or i64 %42, %40
   store i64 %43, ptr %41, align 8
@@ -163,7 +163,7 @@ declare ptr @asm_instr_by_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 %3, i32 %4, ptr noundef %5) unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i8
   switch i8 %9, label %489 [
@@ -177,7 +177,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   ]
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %5, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = tail call ptr @asm_reg_by_name(ptr noundef %12) #4
   store ptr %13, ptr %11, align 8
@@ -185,13 +185,13 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.not.i, label %14, label %17
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load i64, ptr %15, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %16, ptr noundef nonnull @.str.9) #4
   br label %sema_check_asm_arg_reg.exit
 
 17:                                               ; preds = %10
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load i32, ptr %18, align 8
   switch i32 %19, label %36 [
     i32 0, label %20
@@ -203,21 +203,21 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
 20:                                               ; preds = %17
   %21 = lshr i64 %3, 48
   %22 = trunc nuw nsw i64 %21 to i32
-  %23 = getelementptr inbounds i8, ptr %13, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %24 = load i32, ptr %23, align 4
   %25 = and i32 %24, %22
   br label %37
 
 26:                                               ; preds = %17
   %27 = and i32 %4, 65535
-  %28 = getelementptr inbounds i8, ptr %13, i64 12
+  %28 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %29 = load i32, ptr %28, align 4
   %30 = and i32 %27, %29
   br label %37
 
 31:                                               ; preds = %17, %17
   %32 = lshr i32 %4, 16
-  %33 = getelementptr inbounds i8, ptr %13, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %34 = load i32, ptr %33, align 4
   %35 = and i32 %34, %32
   br label %37
@@ -232,7 +232,7 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.0.not.i, label %38, label %42
 
 38:                                               ; preds = %37
-  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %40 = load ptr, ptr %13, align 8
   %41 = load i64, ptr %39, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %41, ptr noundef nonnull @.str.10, ptr noundef %40) #4
@@ -243,14 +243,14 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %43, label %44, label %sema_check_asm_arg_reg.exit
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %13, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 63
   %48 = lshr i32 %46, 6
   %49 = zext nneg i32 %47 to i64
   %50 = shl nuw i64 1, %49
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds [4 x i64], ptr %1, i64 0, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i64], ptr %1, i64 0, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = or i64 %50, %53
   store i64 %54, ptr %52, align 8
@@ -262,18 +262,18 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.not.i41, label %57, label %60
 
 57:                                               ; preds = %55
-  %58 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %59 = load i64, ptr %58, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %59, ptr noundef nonnull @.str.11) #4
   br label %sema_check_asm_arg_reg.exit
 
 60:                                               ; preds = %55
-  %61 = getelementptr inbounds i8, ptr %5, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %62 = load i32, ptr %61, align 8
   %63 = load ptr, ptr @expr_arena, align 8
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds %struct.Expr_, ptr %63, i64 %64
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %65 = getelementptr inbounds nuw %struct.Expr_, ptr %63, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load i64, ptr %66, align 8
   %68 = trunc i64 %67 to i8
   switch i8 %68, label %97 [
@@ -287,9 +287,9 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %70, label %71, label %sema_check_asm_arg_reg.exit
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %65, i64 32
+  %72 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 12
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load i32, ptr %74, align 4
   %76 = and i32 %75, 16
   %.not84.i = icmp eq i32 %76, 0
@@ -325,9 +325,9 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %88, label %89, label %sema_check_asm_arg_reg.exit
 
 89:                                               ; preds = %87
-  %90 = getelementptr inbounds i8, ptr %65, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds i8, ptr %91, i64 72
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 72
   %93 = load ptr, ptr %92, align 8
   %94 = tail call i32 @type_size(ptr noundef %93) #4
   %95 = shl i32 %94, 3
@@ -338,25 +338,25 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   unreachable
 
 97:                                               ; preds = %60
-  %98 = getelementptr inbounds i8, ptr %5, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %99 = load i64, ptr %98, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %99, ptr noundef nonnull @.str.12) #4
   br label %sema_check_asm_arg_reg.exit
 
 100:                                              ; preds = %89, %85, %83, %81, %79, %77, %71
   %.082.i = phi i32 [ %95, %89 ], [ 128, %71 ], [ 80, %77 ], [ 64, %79 ], [ 32, %81 ], [ 16, %83 ], [ %..i, %85 ]
-  %101 = getelementptr inbounds i8, ptr %5, i64 36
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %102 = load i32, ptr %101, align 4
   %.not.i66 = icmp eq i32 %102, 0
   %103 = load ptr, ptr @expr_arena, align 8
   %104 = zext i32 %102 to i64
-  %105 = getelementptr inbounds %struct.Expr_, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw %struct.Expr_, ptr %103, i64 %104
   %.not90.i67 = icmp eq ptr %103, null
   %.not90.i = select i1 %.not.i66, i1 true, i1 %.not90.i67
   br i1 %.not90.i, label %sema_check_asm_arg_reg.exit, label %106
 
 106:                                              ; preds = %100
-  %107 = getelementptr inbounds i8, ptr %105, i64 24
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %108 = load i64, ptr %107, align 8
   %109 = trunc i64 %108 to i8
   switch i8 %109, label %137 [
@@ -369,9 +369,9 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %111, label %112, label %sema_check_asm_arg_reg.exit
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %65, i64 32
+  %113 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds i8, ptr %114, i64 12
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 12
   %116 = load i32, ptr %115, align 4
   %117 = and i32 %116, 16
   %.not91.i = icmp eq i32 %117, 0
@@ -407,16 +407,16 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %129, label %130, label %sema_check_asm_arg_reg.exit
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds i8, ptr %105, i64 32
+  %131 = getelementptr inbounds nuw i8, ptr %105, i64 32
   %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds i8, ptr %132, i64 72
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 72
   %134 = load ptr, ptr %133, align 8
   %135 = tail call i32 @type_size(ptr noundef %134) #4
   %136 = shl i32 %135, 3
   br label %140
 
 137:                                              ; preds = %106
-  %138 = getelementptr inbounds i8, ptr %5, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %139 = load i64, ptr %138, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %139, ptr noundef nonnull @.str.12) #4
   br label %sema_check_asm_arg_reg.exit
@@ -427,36 +427,36 @@ define internal fastcc noundef zeroext i1 @sema_check_asm_arg(ptr noundef %0, pt
   br i1 %.not97.i, label %sema_check_asm_arg_reg.exit, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds i8, ptr %105, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %143 = load i64, ptr %142, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %143, ptr noundef nonnull @.str.13) #4
   br label %sema_check_asm_arg_reg.exit
 
 144:                                              ; preds = %6
-  %145 = getelementptr inbounds i8, ptr %5, i64 32
+  %145 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %146 = load i32, ptr %145, align 8
   %147 = load ptr, ptr @expr_arena, align 8
   %148 = zext i32 %146 to i64
-  %149 = getelementptr inbounds %struct.Expr_, ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw %struct.Expr_, ptr %147, i64 %148
   %150 = tail call zeroext i1 @sema_analyse_expr(ptr noundef %0, ptr noundef %149) #4
   br i1 %150, label %151, label %sema_check_asm_arg_reg.exit
 
 151:                                              ; preds = %144
-  %152 = getelementptr inbounds i8, ptr %149, i64 16
+  %152 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %153 = load i16, ptr %152, align 8
   %154 = and i16 %153, 255
   %155 = icmp eq i16 %154, 14
   br i1 %155, label %156, label %.critedge.i
 
 156:                                              ; preds = %151
-  %157 = getelementptr inbounds i8, ptr %149, i64 24
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 24
   %158 = load i16, ptr %157, align 8
   %159 = and i16 %158, 255
   %160 = icmp eq i16 %159, 1
   br i1 %160, label %161, label %.critedge.i
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds i8, ptr %149, i64 48
+  %162 = getelementptr inbounds nuw i8, ptr %149, i64 48
   %163 = load i32, ptr %162, align 8
   %164 = add i32 %163, -3
   %165 = icmp ult i32 %164, 5
@@ -521,22 +521,22 @@ max_supported_imm_int.exit.i.i:                   ; preds = %.thread54.i.i.i, %.
   br i1 %.not.i.i, label %max_supported_imm_int.exit.thread.i.i, label %190
 
 max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_int.exit.i.i, %184, %174
-  %187 = getelementptr inbounds i8, ptr %5, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %188 = load ptr, ptr %2, align 8
   %189 = load i64, ptr %187, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %189, ptr noundef nonnull @.str.16, ptr noundef %188) #4
   br label %sema_check_asm_arg_reg.exit
 
 190:                                              ; preds = %max_supported_imm_int.exit.i.i
-  %191 = getelementptr inbounds i8, ptr %149, i64 32
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds i8, ptr %149, i64 40
+  %191 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %149, i64 40
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8
   %192 = load i32, ptr %.037.i.i.i, align 8
   %193 = tail call zeroext i1 @int_fits(ptr noundef nonnull byval(%struct.Int) align 8 %191, i32 noundef %192) #4
   br i1 %193, label %199, label %194
 
 194:                                              ; preds = %190
-  %195 = getelementptr inbounds i8, ptr %5, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %196 = load ptr, ptr %2, align 8
   %197 = tail call ptr @type_quoted_error_string(ptr noundef nonnull %.037.i.i.i) #4
   %198 = load i64, ptr %195, align 8
@@ -554,7 +554,7 @@ max_supported_imm_int.exit.thread.i.i:            ; preds = %max_supported_imm_i
 
 switch.lookup:                                    ; preds = %200
   %203 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @switch.table.sema_check_asm_arg, i64 0, i64 %203
+  %switch.gep = getelementptr inbounds nuw [3 x i64], ptr @switch.table.sema_check_asm_arg, i64 0, i64 %203
   %switch.load = load i64, ptr %switch.gep, align 8
   %204 = and i64 %switch.load, %.sroa.3.0.copyload.i
   br label %205
@@ -574,7 +574,7 @@ switch.lookup:                                    ; preds = %200
   br i1 %209, label %210, label %.preheader.i
 
 210:                                              ; preds = %.critedge.i
-  %211 = getelementptr inbounds i8, ptr %5, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %212 = load i64, ptr %211, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %212, ptr noundef nonnull @.str.14) #4
   br label %sema_check_asm_arg_reg.exit
@@ -582,7 +582,7 @@ switch.lookup:                                    ; preds = %200
 .preheader.i:                                     ; preds = %.critedge.i, %.preheader.i.backedge
   %.0.i63.in.i = phi ptr [ %.0.i63.in.i.be, %.preheader.i.backedge ], [ %149, %.critedge.i ]
   %.0.i63.i = load ptr, ptr %.0.i63.in.i, align 8
-  %213 = getelementptr inbounds i8, ptr %.0.i63.i, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.0.i63.i, i64 8
   %214 = load ptr, ptr %213, align 8
   %215 = load i32, ptr %214, align 8
   switch i32 %215, label %.thread.i [
@@ -593,15 +593,15 @@ switch.lookup:                                    ; preds = %200
   ]
 
 216:                                              ; preds = %.preheader.i
-  %217 = getelementptr inbounds i8, ptr %214, i64 56
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 56
   %218 = load ptr, ptr %217, align 8
-  %219 = getelementptr inbounds i8, ptr %218, i64 96
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 96
   %220 = load ptr, ptr %219, align 8
-  %221 = getelementptr inbounds i8, ptr %220, i64 8
+  %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   br label %.preheader.i.backedge
 
 222:                                              ; preds = %.preheader.i
-  %223 = getelementptr inbounds i8, ptr %214, i64 56
+  %223 = getelementptr inbounds nuw i8, ptr %214, i64 56
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %222, %216
@@ -614,7 +614,7 @@ switch.lookup:                                    ; preds = %200
 
 225:                                              ; preds = %.preheader.i
   %226 = load ptr, ptr @type_uptr, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8
   %.pr.i = load i32, ptr %228, align 8
   %229 = icmp eq i32 %.pr.i, 31
@@ -628,7 +628,7 @@ switch.lookup:                                    ; preds = %200
   br i1 %232, label %238, label %268
 
 .thread.thread.i:                                 ; preds = %225
-  %233 = getelementptr inbounds i8, ptr %228, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %234 = load ptr, ptr %233, align 8
   %235 = load i32, ptr %234, align 8
   %236 = add i32 %235, -3
@@ -691,7 +691,7 @@ sema_reg_int_suported_type.exit.i:                ; preds = %258, %255, %252, %2
   br i1 %261, label %267, label %262
 
 262:                                              ; preds = %sema_reg_int_suported_type.exit.i
-  %263 = getelementptr inbounds i8, ptr %5, i64 8
+  %263 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %264 = load ptr, ptr %149, align 8
   %265 = tail call ptr @type_quoted_error_string(ptr noundef %264) #4
   %266 = load i64, ptr %263, align 8
@@ -755,7 +755,7 @@ sema_reg_float_suported_type.exit.i:              ; preds = %286, %284, %282, %2
   br i1 %289, label %294, label %sema_reg_float_suported_type.exit.thread.i
 
 sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_suported_type.exit.i, %271
-  %290 = getelementptr inbounds i8, ptr %5, i64 8
+  %290 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %291 = load ptr, ptr %149, align 8
   %292 = tail call ptr @type_quoted_error_string(ptr noundef %291) #4
   %293 = load i64, ptr %290, align 8
@@ -772,9 +772,9 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   unreachable
 
 296:                                              ; preds = %6
-  %297 = getelementptr inbounds i8, ptr %5, i64 32
+  %297 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %298 = load ptr, ptr %297, align 8
-  %299 = getelementptr inbounds i8, ptr %5, i64 8
+  %299 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %300 = load i64, ptr %299, align 8
   %301 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %298, ptr noundef null, i64 %300) #4
   %.not.i42 = icmp eq ptr %301, null
@@ -782,7 +782,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 302:                                              ; preds = %296
   store ptr %301, ptr %297, align 8
-  %303 = getelementptr inbounds i8, ptr %301, i64 24
+  %303 = getelementptr inbounds nuw i8, ptr %301, i64 24
   %304 = load i64, ptr %303, align 8
   %305 = and i64 %304, 127
   %.not106.i = icmp eq i64 %305, 26
@@ -794,7 +794,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br label %sema_check_asm_arg_reg.exit
 
 308:                                              ; preds = %302
-  %309 = getelementptr inbounds i8, ptr %301, i64 72
+  %309 = getelementptr inbounds nuw i8, ptr %301, i64 72
   %310 = load ptr, ptr %309, align 8
   %.not107.i = icmp eq ptr %310, null
   br i1 %.not107.i, label %.critedge.i43, label %311
@@ -805,7 +805,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %313, label %314, label %318
 
 314:                                              ; preds = %311
-  %315 = getelementptr inbounds i8, ptr %310, i64 8
+  %315 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %316 = load ptr, ptr %315, align 8
   %317 = load i32, ptr %316, align 8
   br label %318
@@ -825,7 +825,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   %323 = and i64 %3, 2
   %324 = icmp eq i64 %323, 0
   %.not109.i = and i1 %324, %322
-  %325 = getelementptr inbounds i8, ptr %5, i64 40
+  %325 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %326 = load i8, ptr %325, align 8
   %327 = select i1 %322, i8 0, i8 4
   %328 = and i8 %326, -5
@@ -834,7 +834,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %.not109.i, label %338, label %330
 
 330:                                              ; preds = %.critedge.i43
-  %331 = getelementptr inbounds i8, ptr %301, i64 80
+  %331 = getelementptr inbounds nuw i8, ptr %301, i64 80
   %332 = load i32, ptr %331, align 8
   %333 = or i32 %332, 4096
   store i32 %333, ptr %331, align 8
@@ -855,7 +855,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %322, label %339, label %347
 
 339:                                              ; preds = %338
-  %340 = getelementptr inbounds i8, ptr %301, i64 80
+  %340 = getelementptr inbounds nuw i8, ptr %301, i64 80
   %341 = load i32, ptr %340, align 8
   %342 = or i32 %341, 65536
   store i32 %342, ptr %340, align 8
@@ -878,7 +878,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 349:                                              ; preds = %362, %347
   %.0.i.i = phi ptr [ %348, %347 ], [ %.1.i.i, %362 ]
-  %350 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %350 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   %351 = load ptr, ptr %350, align 8
   %352 = load i32, ptr %351, align 8
   switch i32 %352, label %.thread.i45 [
@@ -889,15 +889,15 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   ]
 
 353:                                              ; preds = %349
-  %354 = getelementptr inbounds i8, ptr %351, i64 56
+  %354 = getelementptr inbounds nuw i8, ptr %351, i64 56
   %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds i8, ptr %355, i64 96
+  %356 = getelementptr inbounds nuw i8, ptr %355, i64 96
   %357 = load ptr, ptr %356, align 8
-  %358 = getelementptr inbounds i8, ptr %357, i64 8
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
   br label %362
 
 359:                                              ; preds = %349
-  %360 = getelementptr inbounds i8, ptr %351, i64 56
+  %360 = getelementptr inbounds nuw i8, ptr %351, i64 56
   br label %362
 
 361:                                              ; preds = %349
@@ -911,7 +911,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
 
 363:                                              ; preds = %349
   %364 = load ptr, ptr @type_uptr, align 8
-  %365 = getelementptr inbounds i8, ptr %364, i64 8
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 8
   %366 = load ptr, ptr %365, align 8
   %.pr.i44 = load i32, ptr %366, align 8
   %367 = icmp eq i32 %.pr.i44, 31
@@ -925,7 +925,7 @@ sema_reg_float_suported_type.exit.thread.i:       ; preds = %sema_reg_float_supo
   br i1 %370, label %376, label %423
 
 .thread.thread.i62:                               ; preds = %363
-  %371 = getelementptr inbounds i8, ptr %366, i64 8
+  %371 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %372 = load ptr, ptr %371, align 8
   %373 = load i32, ptr %372, align 8
   %374 = add i32 %373, -3
@@ -1087,9 +1087,9 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br label %sema_check_asm_arg_reg.exit
 
 442:                                              ; preds = %6
-  %443 = getelementptr inbounds i8, ptr %5, i64 32
+  %443 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %444 = load ptr, ptr %443, align 8
-  %445 = getelementptr inbounds i8, ptr %5, i64 8
+  %445 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %446 = load i64, ptr %445, align 8
   %447 = tail call ptr @sema_resolve_symbol(ptr noundef %0, ptr noundef %444, ptr noundef null, i64 %446) #4
   %.not.i64 = icmp eq ptr %447, null
@@ -1097,14 +1097,14 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
 
 448:                                              ; preds = %442
   store ptr %447, ptr %443, align 8
-  %449 = getelementptr inbounds i8, ptr %447, i64 24
+  %449 = getelementptr inbounds nuw i8, ptr %447, i64 24
   %450 = load i64, ptr %449, align 8
   %451 = and i64 %450, 127
   %.not42.i = icmp eq i64 %451, 26
   br i1 %.not42.i, label %452, label %.sink.split.i
 
 452:                                              ; preds = %448
-  %453 = getelementptr inbounds i8, ptr %447, i64 72
+  %453 = getelementptr inbounds nuw i8, ptr %447, i64 72
   %454 = load ptr, ptr %453, align 8
   %.not43.i = icmp eq ptr %454, null
   br i1 %.not43.i, label %.critedge.i65, label %455
@@ -1115,7 +1115,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br i1 %457, label %458, label %462
 
 458:                                              ; preds = %455
-  %459 = getelementptr inbounds i8, ptr %454, i64 8
+  %459 = getelementptr inbounds nuw i8, ptr %454, i64 8
   %460 = load ptr, ptr %459, align 8
   %461 = load i32, ptr %460, align 8
   br label %462
@@ -1130,7 +1130,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   %465 = and i64 %3, 2
   %466 = icmp eq i64 %465, 0
   %.not45.i = and i1 %466, %464
-  %467 = getelementptr inbounds i8, ptr %5, i64 40
+  %467 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %468 = load i8, ptr %467, align 8
   %469 = select i1 %464, i8 0, i8 4
   %470 = and i8 %468, -5
@@ -1139,7 +1139,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br i1 %.not45.i, label %478, label %472
 
 472:                                              ; preds = %.critedge.i65
-  %473 = getelementptr inbounds i8, ptr %447, i64 80
+  %473 = getelementptr inbounds nuw i8, ptr %447, i64 80
   %474 = load i32, ptr %473, align 8
   %475 = or i32 %474, 4096
   store i32 %475, ptr %473, align 8
@@ -1155,7 +1155,7 @@ sema_reg_int_suported_type.exit.i49:              ; preds = %402, %399, %396, %3
   br i1 %464, label %479, label %485
 
 479:                                              ; preds = %478
-  %480 = getelementptr inbounds i8, ptr %447, i64 80
+  %480 = getelementptr inbounds nuw i8, ptr %447, i64 80
   %481 = load i32, ptr %480, align 8
   %482 = or i32 %481, 65536
   store i32 %482, ptr %480, align 8
@@ -1207,7 +1207,7 @@ declare ptr @type_quoted_error_string(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = trunc i64 %5 to i32
@@ -1216,7 +1216,7 @@ define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr nou
   br i1 %8, label %.loopexit56, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
   br i1 %.not.i, label %.loopexit56, label %12
@@ -1233,7 +1233,7 @@ define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %25, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %25 ]
-  %15 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   %17 = load i64, ptr %16, align 8
   %18 = trunc i64 %17 to i32
@@ -1242,7 +1242,7 @@ define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr nou
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds i8, ptr %16, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, %4
   br i1 %24, label %asm_reg_find_decl.exit, label %25
@@ -1253,11 +1253,11 @@ define internal fastcc void @asm_reg_add_input(ptr nocapture noundef %0, ptr nou
   br i1 %exitcond.not.i, label %.loopexit56, label %.lr.ph.i, !llvm.loop !10
 
 asm_reg_find_decl.exit:                           ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %1, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %27 = load i8, ptr %26, align 8
   %28 = or i8 %27, 1
   store i8 %28, ptr %26, align 8
-  %29 = getelementptr inbounds i8, ptr %16, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %30 = load i8, ptr %29, align 8
   %31 = or i8 %30, 1
   store i8 %31, ptr %29, align 8
@@ -1270,7 +1270,7 @@ asm_reg_find_decl.exit:                           ; preds = %21
   br label %93
 
 .loopexit56:                                      ; preds = %25, %2, %12, %9
-  %37 = getelementptr inbounds i8, ptr %0, i64 56
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8
   %.not.i39 = icmp eq ptr %38, null
   br i1 %.not.i39, label %.thread.i, label %39
@@ -1287,7 +1287,7 @@ asm_reg_find_decl.exit:                           ; preds = %21
 
 .lr.ph.i43:                                       ; preds = %52, %.lr.ph.preheader.i41
   %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.preheader.i41 ], [ %indvars.iv.next.i45, %52 ]
-  %42 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.i44
+  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i44
   %43 = load ptr, ptr %42, align 8
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
@@ -1296,7 +1296,7 @@ asm_reg_find_decl.exit:                           ; preds = %21
   br i1 %47, label %48, label %52
 
 48:                                               ; preds = %.lr.ph.i43
-  %49 = getelementptr inbounds i8, ptr %43, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %50 = load ptr, ptr %49, align 8
   %51 = icmp eq ptr %50, %4
   br i1 %51, label %asm_reg_find_decl.exit48, label %52
@@ -1334,7 +1334,7 @@ asm_reg_find_decl.exit48:                         ; preds = %48
 
 63:                                               ; preds = %.thread.i
   %64 = tail call ptr @calloc_arena(i64 noundef 72) #4
-  %65 = getelementptr inbounds i8, ptr %64, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   store i32 8, ptr %65, align 4
   br label %68
 
@@ -1352,13 +1352,13 @@ asm_reg_find_decl.exit48:                         ; preds = %48
   br i1 %71, label %72, label %asm_add_input.exit
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %.0.i.i, i64 4
+  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
   %74 = shl i32 %69, 1
   %75 = zext i32 %74 to i64
   %76 = shl nuw nsw i64 %75, 3
   %77 = or disjoint i64 %76, 8
   %78 = tail call ptr @calloc_arena(i64 noundef %77) #4
-  %79 = getelementptr inbounds i8, ptr %78, i64 4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 %74, ptr %79, align 4
   %80 = load i32, ptr %73, align 4
   %81 = zext i32 %80 to i64
@@ -1376,17 +1376,17 @@ asm_add_input.exit:                               ; preds = %68, %72
   %.1.i.i = phi ptr [ %78, %72 ], [ %.0.i.i, %68 ]
   %87 = add i32 %86, 1
   store i32 %87, ptr %.1.i.i, align 4
-  %88 = getelementptr inbounds i8, ptr %.1.i.i, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   store ptr %88, ptr %37, align 8
   %89 = load i32, ptr %.1.i.i, align 4
   %90 = add i32 %89, -1
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %88, i64 %91
   store ptr %1, ptr %92, align 8
   br label %93
 
 93:                                               ; preds = %asm_reg_find_decl.exit48, %asm_add_input.exit, %asm_reg_find_decl.exit
-  %94 = getelementptr inbounds i8, ptr %0, i64 48
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %95 = load ptr, ptr %94, align 8
   %.not38 = icmp eq ptr %95, null
   br i1 %.not38, label %._crit_edge, label %.thread53
@@ -1403,9 +1403,9 @@ asm_add_input.exit:                               ; preds = %68, %72
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.160.in = getelementptr inbounds ptr, ptr %95, i64 %indvars.iv
+  %.160.in = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
   %.160 = load ptr, ptr %.160.in, align 8
-  %98 = getelementptr inbounds i8, ptr %.160, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.160, i64 16
   %99 = load i8, ptr %98, align 8
   %100 = or i8 %99, 2
   store i8 %100, ptr %98, align 8
@@ -1479,9 +1479,9 @@ declare ptr @sema_resolve_symbol(ptr noundef, ptr noundef, ptr noundef, i64) loc
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @asm_reg_add_output(ptr nocapture noundef %0, ptr noundef %1) unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = load i64, ptr %1, align 8
   %.not.i = icmp eq ptr %6, null
@@ -1499,7 +1499,7 @@ define internal fastcc void @asm_reg_add_output(ptr nocapture noundef %0, ptr no
 
 .lr.ph.i:                                         ; preds = %21, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %21 ]
-  %11 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i64, ptr %12, align 8
   %14 = xor i64 %13, %7
@@ -1508,7 +1508,7 @@ define internal fastcc void @asm_reg_add_output(ptr nocapture noundef %0, ptr no
   br i1 %16, label %17, label %21
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr inbounds i8, ptr %12, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %asm_reg_find_decl.exit, label %21
@@ -1519,7 +1519,7 @@ define internal fastcc void @asm_reg_add_output(ptr nocapture noundef %0, ptr no
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !10
 
 asm_reg_find_decl.exit:                           ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %12, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %22, i64 16, i1 false)
   br label %asm_reg_find_decl.exit51.thread
 
@@ -1544,7 +1544,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
 
 30:                                               ; preds = %.thread54
   %31 = tail call ptr @calloc_arena(i64 noundef 72) #4
-  %32 = getelementptr inbounds i8, ptr %31, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   store i32 8, ptr %32, align 4
   br label %35
 
@@ -1562,13 +1562,13 @@ asm_reg_find_decl.exit:                           ; preds = %17
   br i1 %38, label %39, label %53
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds i8, ptr %.0.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
   %41 = shl i32 %36, 1
   %42 = zext i32 %41 to i64
   %43 = shl nuw nsw i64 %42, 3
   %44 = or disjoint i64 %43, 8
   %45 = tail call ptr @calloc_arena(i64 noundef %44) #4
-  %46 = getelementptr inbounds i8, ptr %45, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %41, ptr %46, align 4
   %47 = load i32, ptr %40, align 4
   %48 = zext i32 %47 to i64
@@ -1586,12 +1586,12 @@ asm_reg_find_decl.exit:                           ; preds = %17
   %.1.i = phi ptr [ %45, %39 ], [ %.0.i, %35 ]
   %55 = add i32 %54, 1
   store i32 %55, ptr %.1.i, align 4
-  %56 = getelementptr inbounds i8, ptr %.1.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   store ptr %56, ptr %5, align 8
   %57 = load i32, ptr %.1.i, align 4
   %58 = add i32 %57, -1
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
   store ptr %1, ptr %60, align 8
   %61 = load i64, ptr %1, align 8
   %62 = trunc i64 %61 to i32
@@ -1600,7 +1600,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
   br i1 %64, label %asm_reg_find_decl.exit51.thread, label %65
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds i8, ptr %0, i64 56
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %67 = load ptr, ptr %66, align 8
   %.not.i42 = icmp eq ptr %67, null
   br i1 %.not.i42, label %asm_reg_find_decl.exit51.thread, label %68
@@ -1617,7 +1617,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
 
 .lr.ph.i46:                                       ; preds = %81, %.lr.ph.preheader.i44
   %indvars.iv.i47 = phi i64 [ 0, %.lr.ph.preheader.i44 ], [ %indvars.iv.next.i48, %81 ]
-  %71 = getelementptr inbounds ptr, ptr %67, i64 %indvars.iv.i47
+  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i47
   %72 = load ptr, ptr %71, align 8
   %73 = load i64, ptr %72, align 8
   %74 = trunc i64 %73 to i32
@@ -1626,7 +1626,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
   br i1 %76, label %77, label %81
 
 77:                                               ; preds = %.lr.ph.i46
-  %78 = getelementptr inbounds i8, ptr %72, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, %4
   br i1 %80, label %asm_reg_find_decl.exit51, label %81
@@ -1637,7 +1637,7 @@ asm_reg_find_decl.exit:                           ; preds = %17
   br i1 %exitcond.not.i49, label %asm_reg_find_decl.exit51.thread, label %.lr.ph.i46, !llvm.loop !10
 
 asm_reg_find_decl.exit51:                         ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %72, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %83 = load i8, ptr %82, align 8
   %84 = or i8 %83, 1
   store i8 %84, ptr %82, align 8

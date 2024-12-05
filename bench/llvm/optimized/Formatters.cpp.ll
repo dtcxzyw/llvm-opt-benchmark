@@ -24,7 +24,7 @@ $_ZN4llvm8codeview6detail11GuidAdapterD0Ev = comdat any
 define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_9StringRefE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8codeview6detail11GuidAdapterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -36,7 +36,7 @@ define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_9StringRefE(pt
 define dso_local void @_ZN4llvm8codeview6detail11GuidAdapterC2ENS_8ArrayRefIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr %1, i64 %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
   store ptr getelementptr inbounds inrange(-16, 32) (i8, ptr @_ZTVN4llvm8codeview6detail11GuidAdapterE, i64 16), ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -65,7 +65,7 @@ define dso_local void @_ZN4llvm8codeview6detail11GuidAdapter6formatERNS_11raw_os
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 18:                                               ; preds = %4
-  %19 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 1
   store ptr %19, ptr %12, align 8
   store i8 123, ptr %13, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit
@@ -99,7 +99,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %16, %18
   br label %_ZN4llvm11raw_ostreamlsEc.exit9
 
 33:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
-  %34 = getelementptr inbounds i8, ptr %28, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
   store ptr %34, ptr %27, align 8
   store i8 45, ptr %28, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit9
@@ -134,7 +134,7 @@ _ZN4llvm11raw_ostreamlsEc.exit9:                  ; preds = %31, %33
   br label %_ZN4llvm11raw_ostreamlsEc.exit13
 
 49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit9
-  %50 = getelementptr inbounds i8, ptr %44, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %50, ptr %43, align 8
   store i8 45, ptr %44, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit13
@@ -169,7 +169,7 @@ _ZN4llvm11raw_ostreamlsEc.exit13:                 ; preds = %47, %49
   br label %_ZN4llvm11raw_ostreamlsEc.exit17
 
 65:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit13
-  %66 = getelementptr inbounds i8, ptr %60, i64 1
+  %66 = getelementptr inbounds nuw i8, ptr %60, i64 1
   store ptr %66, ptr %59, align 8
   store i8 45, ptr %60, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit17
@@ -205,7 +205,7 @@ _ZN4llvm11raw_ostreamlsEc.exit17:                 ; preds = %63, %65
   br label %_ZN4llvm11raw_ostreamlsEc.exit21
 
 82:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit17
-  %83 = getelementptr inbounds i8, ptr %77, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %77, i64 1
   store ptr %83, ptr %76, align 8
   store i8 45, ptr %77, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit21
@@ -240,7 +240,7 @@ _ZN4llvm11raw_ostreamlsEc.exit21:                 ; preds = %80, %82
   br label %_ZN4llvm11raw_ostreamlsEc.exit25
 
 98:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit21
-  %99 = getelementptr inbounds i8, ptr %93, i64 1
+  %99 = getelementptr inbounds nuw i8, ptr %93, i64 1
   store ptr %99, ptr %92, align 8
   store i8 125, ptr %93, align 1
   br label %_ZN4llvm11raw_ostreamlsEc.exit25

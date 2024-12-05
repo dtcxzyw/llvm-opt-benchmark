@@ -70,10 +70,10 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.075137 = phi i8 [ %.176, %42 ], [ 0, %15 ]
   %.077136 = phi i8 [ %.178, %42 ], [ 0, %15 ]
   %.084135 = phi double [ %.185, %42 ], [ 0.000000e+00, %15 ]
-  %18 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv143
+  %18 = getelementptr inbounds nuw [7 x double], ptr %6, i64 0, i64 %indvars.iv143
   %19 = load double, ptr %18, align 8
   %20 = call double @llvm.fabs.f64(double %19)
-  %21 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv143
+  %21 = getelementptr inbounds nuw [7 x double], ptr %7, i64 0, i64 %indvars.iv143
   %22 = load double, ptr %21, align 8
   %23 = call double @llvm.fabs.f64(double %22)
   %24 = fcmp ueq double %19, 0.000000e+00
@@ -116,10 +116,10 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.3133 = phi i8 [ %.4, %65 ], [ 0, %15 ]
   %.380132 = phi i8 [ %.481, %65 ], [ 0, %15 ]
   %.387131 = phi double [ %.488, %65 ], [ 0.000000e+00, %15 ]
-  %43 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv140
+  %43 = getelementptr inbounds nuw [7 x double], ptr %6, i64 0, i64 %indvars.iv140
   %44 = load double, ptr %43, align 8
   %45 = call double @llvm.fabs.f64(double %44)
-  %46 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv140
+  %46 = getelementptr inbounds nuw [7 x double], ptr %7, i64 0, i64 %indvars.iv140
   %47 = load double, ptr %46, align 8
   %48 = call double @llvm.fabs.f64(double %47)
   %49 = fcmp ueq double %44, 0.000000e+00
@@ -160,10 +160,10 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.5129 = phi i8 [ %.6, %90 ], [ 0, %15 ]
   %.582128 = phi i8 [ %.683, %90 ], [ 0, %15 ]
   %.589127 = phi double [ %.690, %90 ], [ 0.000000e+00, %15 ]
-  %66 = getelementptr inbounds [7 x double], ptr %6, i64 0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [7 x double], ptr %6, i64 0, i64 %indvars.iv
   %67 = load double, ptr %66, align 8
   %68 = call double @llvm.fabs.f64(double %67)
-  %69 = getelementptr inbounds [7 x double], ptr %7, i64 0, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [7 x double], ptr %7, i64 0, i64 %indvars.iv
   %70 = load double, ptr %69, align 8
   %71 = call double @llvm.fabs.f64(double %70)
   %72 = fcmp ueq double %67, 0.000000e+00
@@ -235,7 +235,7 @@ define noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef 
   %.286 = phi double [ %.185, %42 ], [ %.488, %65 ], [ %.690, %90 ]
   %.279 = phi i8 [ %.178, %42 ], [ %.481, %65 ], [ %.683, %90 ]
   %.2 = phi i8 [ %.176, %42 ], [ %.4, %65 ], [ %.6, %90 ]
-  %99 = getelementptr inbounds i8, ptr %5, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %100 = load i32, ptr %99, align 8
   %.not.i = icmp eq i32 %100, 0
   br i1 %.not.i, label %_ZN2cv5utils5trace7details6RegionD2Ev.exit, label %101
@@ -291,7 +291,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv5utils5trace7details6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %5, label %4
@@ -319,13 +319,13 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
   %8 = alloca %"class.cv::Mat", align 8
   %9 = alloca %"class.cv::_InputArray", align 8
   %10 = alloca %"class.cv::_InputArray", align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %11, ptr %5, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 136, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %13, ptr %6, align 8
-  %14 = getelementptr inbounds i8, ptr %6, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 136, ptr %14, align 8
   invoke void @_ZN2cv10cvarrToMatEPKvbbiPNS_10AutoBufferIdLm136EEE(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %7, ptr noundef %0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull %5)
           to label %15 unwind label %33
@@ -335,19 +335,19 @@ define noundef double @cvMatchShapes(ptr noundef %0, ptr noundef %1, i32 noundef
           to label %16 unwind label %35
 
 16:                                               ; preds = %15
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i32 0, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 20
   store i32 0, ptr %18, align 4
   store i32 16842752, ptr %9, align 8
-  %19 = getelementptr inbounds i8, ptr %9, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %7, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %10, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i32 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %10, i64 20
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 20
   store i32 0, ptr %21, align 4
   store i32 16842752, ptr %10, align 8
-  %22 = getelementptr inbounds i8, ptr %10, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %8, ptr %22, align 8
   %23 = invoke noundef double @_ZN2cv11matchShapesERKNS_11_InputArrayES2_id(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef %2, double poison)
           to label %24 unwind label %37

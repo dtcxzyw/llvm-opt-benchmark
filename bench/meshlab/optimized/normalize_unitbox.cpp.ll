@@ -56,19 +56,19 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %2 = alloca %"struct.Eigen::internal::assign_op", align 1
   %3 = alloca %"class.Eigen::CwiseBinaryOp", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noalias !8
   store ptr %0, ptr %3, align 8, !alias.scope !11
-  %6 = getelementptr inbounds i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %0, ptr %6, align 8, !alias.scope !11
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %5, ptr %7, align 8, !alias.scope !11
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS3_KNS_9ReplicateINS_16PartialReduxExprIS3_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(41) %3, ptr noundef nonnull align 1 dereferenceable(1) %2)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   %8 = load ptr, ptr %0, align 8
   %9 = load i64, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8
   %12 = mul nsw i64 %11, %9
   %13 = sdiv i64 %12, 4
@@ -85,9 +85,9 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   br i1 %19, label %20, label %36
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %22 = load <2 x double>, ptr %21, align 16
-  %invariant.gep.i.i.i.i = getelementptr inbounds i8, ptr %8, i64 48
+  %invariant.gep.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 48
   %23 = icmp samesign ugt i64 %12, 7
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
@@ -96,10 +96,10 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   %.054.in74.i.i.i.i = phi i64 [ %.05475.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %20 ]
   %storemerge73.i.i.i.i = phi <2 x double> [ %28, %.lr.ph.i.i.i.i ], [ %22, %20 ]
   %.17072.i.i.i.i = phi <2 x double> [ %26, %.lr.ph.i.i.i.i ], [ %18, %20 ]
-  %24 = getelementptr inbounds double, ptr %8, i64 %.05475.i.i.i.i
+  %24 = getelementptr inbounds nuw double, ptr %8, i64 %.05475.i.i.i.i
   %25 = load <2 x double>, ptr %24, align 16
   %26 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %.17072.i.i.i.i, <2 x double> %25) #13, !srcloc !14
-  %gep.i.i.i.i = getelementptr inbounds double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
+  %gep.i.i.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i.i.i, i64 %.054.in74.i.i.i.i
   %27 = load <2 x double>, ptr %gep.i.i.i.i, align 16
   %28 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %storemerge73.i.i.i.i, <2 x double> %27) #13, !srcloc !14
   %.054.i.i.i.i = add nuw nsw i64 %.05475.i.i.i.i, 4
@@ -114,7 +114,7 @@ define void @_Z17normalize_unitboxRN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEE(pt
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %._crit_edge.i.i.i.i
-  %33 = getelementptr inbounds double, ptr %8, i64 %14
+  %33 = getelementptr inbounds nuw double, ptr %8, i64 %14
   %34 = load <2 x double>, ptr %33, align 16
   %35 = call noundef <2 x double> asm "maxpd $1, $0", "=x,x,0,~{dirflag},~{fpsr},~{flags}"(<2 x double> %30, <2 x double> %34) #13, !srcloc !14
   br label %36
@@ -155,7 +155,7 @@ _ZNK5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE8maxCoeffEv.exit: ; 
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
   %.011.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph.i.i.i.i.i.i ], [ 0, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %49 = getelementptr inbounds double, ptr %8, i64 %.011.i.i.i.i.i.i
+  %49 = getelementptr inbounds nuw double, ptr %8, i64 %.011.i.i.i.i.i.i
   %50 = load <2 x double>, ptr %49, align 16
   %51 = fdiv <2 x double> %50, %48
   store <2 x double> %51, ptr %49, align 16
@@ -186,16 +186,16 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEEdVERKd.exit: ; preds 
 define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKS3_KNS_9ReplicateINS_16PartialReduxExprIS3_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #4 comdat personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.Eigen::internal::assign_op", align 1
   %5 = alloca %"struct.Eigen::internal::evaluator", align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %1, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
   store ptr %8, ptr %6, align 8
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %10, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %5, i64 24
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %12, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   invoke void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS_16PartialReduxExprINS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(25) %13, ptr noundef nonnull align 1 dereferenceable(1) %4)
@@ -214,20 +214,20 @@ common.resume:                                    ; preds = %65, %.body.i.i.i.i.
 
 _ZN5Eigen8internal9evaluatorINS_13CwiseBinaryOpINS0_20scalar_difference_opIddEEKNS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEKNS_9ReplicateINS_16PartialReduxExprIS6_NS0_15member_minCoeffIddEELi0EEELin1ELi1EEEEEEC2ERKSF_.exit: ; preds = %3
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  %16 = getelementptr inbounds i8, ptr %5, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %17 = load ptr, ptr %12, align 8
   store ptr %17, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %5, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %19 = load ptr, ptr %13, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i64, ptr %20, align 8
   store i64 %21, ptr %18, align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %0, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load i64, ptr %24, align 8
   %.not.i = icmp eq i64 %25, %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %27 = load i64, ptr %26, align 8
   %.not8.i = icmp eq i64 %27, %21
   %or.cond.i = select i1 %.not.i, i1 %.not8.i, i1 false
@@ -330,9 +330,9 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen8internal26call_dense_assignment_loopINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEENS_16PartialReduxExprINS2_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEENS0_9assign_opIddEEEEvRT_RKT0_RKT1_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(9) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %1, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
   %.not8.i = icmp eq i64 %8, %6
   br i1 %.not8.i, label %15, label %9
@@ -364,7 +364,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEE6resizeEll.exit.
   br i1 %18, label %.lr.ph.i.preheader, label %_ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEEENS3_INS_16PartialReduxExprINS4_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EEELi1ELi0EE3runERSF_.exit
 
 .lr.ph.i.preheader:                               ; preds = %15
-  %19 = getelementptr inbounds i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %_ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_16PartialReduxExprINS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i
@@ -459,7 +459,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 .lr.ph85.i.i.i.i.i.i.i.i:                         ; preds = %57, %.lr.ph85.i.i.i.i.i.i.i.i
   %.05383.i.i.i.i.i.i.i.i = phi i64 [ %66, %.lr.ph85.i.i.i.i.i.i.i.i ], [ 0, %57 ]
   %.07282.i.i.i.i.i.i.i.i = phi double [ %65, %.lr.ph85.i.i.i.i.i.i.i.i ], [ %59, %57 ]
-  %62 = getelementptr inbounds double, ptr %23, i64 %.05383.i.i.i.i.i.i.i.i
+  %62 = getelementptr inbounds nuw double, ptr %23, i64 %.05383.i.i.i.i.i.i.i.i
   %63 = load double, ptr %62, align 8
   %64 = fcmp olt double %63, %.07282.i.i.i.i.i.i.i.i
   %65 = select i1 %64, double %63, double %.07282.i.i.i.i.i.i.i.i
@@ -486,7 +486,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 .lr.ph94.i.i.i.i.i.i.i.i:                         ; preds = %73, %.lr.ph94.i.i.i.i.i.i.i.i
   %.092.i.i.i.i.i.i.i.i = phi i64 [ %80, %.lr.ph94.i.i.i.i.i.i.i.i ], [ 1, %73 ]
   %.391.i.i.i.i.i.i.i.i = phi double [ %79, %.lr.ph94.i.i.i.i.i.i.i.i ], [ %74, %73 ]
-  %76 = getelementptr inbounds double, ptr %23, i64 %.092.i.i.i.i.i.i.i.i
+  %76 = getelementptr inbounds nuw double, ptr %23, i64 %.092.i.i.i.i.i.i.i.i
   %77 = load double, ptr %76, align 8
   %78 = fcmp olt double %77, %.391.i.i.i.i.i.i.i.i
   %79 = select i1 %78, double %77, double %.391.i.i.i.i.i.i.i.i
@@ -496,7 +496,7 @@ _ZN5Eigen8internalL21first_default_alignedINS_5BlockIKNS_6MatrixIdLin1ELin1ELi0E
 
 _ZN5Eigen8internal31generic_dense_assignment_kernelINS0_9evaluatorINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEEEENS2_INS_16PartialReduxExprINS3_IdLin1ELin1ELi0ELin1ELin1EEENS0_15member_minCoeffIddEELi0EEEEENS0_9assign_opIddEELi0EE11assignCoeffEl.exit.i: ; preds = %.lr.ph89.i.i.i.i.i.i.i.i, %.lr.ph94.i.i.i.i.i.i.i.i, %73, %.preheader.i.i.i.i.i.i.i.i
   %.2.i.i.i.i.i.i.i.i = phi double [ %74, %73 ], [ %.072.lcssa.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i ], [ %79, %.lr.ph94.i.i.i.i.i.i.i.i ], [ %70, %.lr.ph89.i.i.i.i.i.i.i.i ]
-  %81 = getelementptr inbounds double, ptr %17, i64 %.010.i
+  %81 = getelementptr inbounds nuw double, ptr %17, i64 %.010.i
   store double %.2.i.i.i.i.i.i.i.i, ptr %81, align 8
   %82 = add nuw nsw i64 %.010.i, 1
   %exitcond.not.i = icmp eq i64 %82, %16
@@ -508,7 +508,7 @@ _ZN5Eigen8internal21dense_assignment_loopINS0_31generic_dense_assignment_kernelI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
   %.not = icmp eq i64 %1, %6
   br i1 %.not, label %20, label %7
@@ -567,9 +567,9 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 comdat align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = mul nsw i64 %8, %6
   %.not = icmp eq i64 %1, %9

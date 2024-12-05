@@ -94,10 +94,10 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
-  store ptr null, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 8), align 8
+  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 8), align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 16), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 20), align 4
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 16), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 20), align 4
   %1 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i.i.i = icmp eq i32 %1, 0
   br i1 %.not.i.i.i.i, label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit, label %2
@@ -107,11 +107,11 @@ define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov
   br label %_ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %0, %2
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 24), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 32), align 8
-  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 40), align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 48), i8 0, i64 20, i1 false)
-  store i32 1, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 68), align 4
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 24), align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 32), align 8
+  store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 40), align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 48), i8 0, i64 20, i1 false)
+  store i32 1, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 68), align 4
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E)
   ret void
 }
@@ -211,12 +211,12 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21InitAsDefaultInstanc
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) initializes((0, 72)) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %5, align 4
   %6 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i = icmp eq i32 %6, 0
@@ -227,31 +227,31 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5
   br label %8
 
 8:                                                ; preds = %7, %2
-  %9 = getelementptr inbounds i8, ptr %0, i64 24
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 48
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %12, i8 0, i64 20, i1 false)
-  %13 = getelementptr inbounds i8, ptr %0, i64 68
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %13, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 32)) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
-  %5 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
   store i32 %6, ptr %4, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = and i64 %10, 1
@@ -261,10 +261,10 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef n
 12:                                               ; preds = %2
   %13 = and i64 %10, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %16, i8 0, i64 40, i1 false)
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #16
   %18 = ptrtoint ptr %16 to i64
   %19 = or i64 %18, 1
@@ -275,7 +275,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef n
   br label %22
 
 22:                                               ; preds = %12, %2
-  %23 = getelementptr inbounds i8, ptr %0, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %23, align 8
   %24 = load i32, ptr %5, align 8
   %25 = and i32 %24, 1
@@ -283,7 +283,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef n
   br i1 %.not37, label %36, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds i8, ptr %1, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = load ptr, ptr %3, align 8
   %30 = ptrtoint ptr %29 to i64
@@ -303,7 +303,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %32, %26
   br label %36
 
 36:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit, %22
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %37, align 8
   %38 = load i32, ptr %5, align 8
   %39 = and i32 %38, 2
@@ -311,7 +311,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %32, %26
   br i1 %.not38, label %50, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %1, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %3, align 8
   %44 = ptrtoint ptr %43 to i64
@@ -331,7 +331,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit29: ; preds = %46, %40
   br label %50
 
 50:                                               ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit29, %36
-  %51 = getelementptr inbounds i8, ptr %0, i64 40
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %51, align 8
   %52 = load i32, ptr %5, align 8
   %53 = and i32 %52, 4
@@ -339,7 +339,7 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit29: ; preds = %46, %40
   br i1 %.not39, label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit36, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %1, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = load ptr, ptr %3, align 8
   %58 = ptrtoint ptr %57 to i64
@@ -359,8 +359,8 @@ _ZNK6google8protobuf11MessageLite8GetArenaEv.exit34: ; preds = %60, %54
   br label %_ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit36
 
 _ZN6google8protobuf8internal14ArenaStringPtr7SetLiteEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE.exit36: ; preds = %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit34, %50
-  %64 = getelementptr inbounds i8, ptr %0, i64 48
-  %65 = getelementptr inbounds i8, ptr %1, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %65, i64 24, i1 false)
   ret void
 }
@@ -374,7 +374,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD2Ev(ptr noundef nonnu
           to label %2 unwind label %14
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 1
@@ -389,7 +389,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD2Ev(ptr noundef nonnu
   br i1 %11, label %12, label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   tail call void @_ZdlPv(ptr noundef nonnull %9) #18
   br label %_ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit
@@ -407,7 +407,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINSt7__cxx1112basic_stringI
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %0) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %4 = icmp eq ptr %3, null
@@ -420,7 +420,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11PhoneNumber10SharedD
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %1, %5
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not.i1 = icmp eq ptr %7, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %8 = icmp eq ptr %7, null
@@ -433,7 +433,7 @@ _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basi
   br label %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3
 
 _ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit3: ; preds = %_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %9
-  %10 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %.not.i4 = icmp eq ptr %11, @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E
   %12 = icmp eq ptr %11, null
@@ -467,7 +467,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD0Ev(ptr noundef nonnu
           to label %2 unwind label %14
 
 2:                                                ; preds = %1
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = ptrtoint ptr %4 to i64
   %6 = and i64 %5, 1
@@ -482,7 +482,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberD0Ev(ptr noundef nonnu
   br i1 %11, label %12, label %_ZN4i18n12phonenumbers11PhoneNumberD2Ev.exit
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   tail call void @_ZdlPv(ptr noundef nonnull %9) #18
   br label %_ZN4i18n12phonenumbers11PhoneNumberD2Ev.exit
@@ -509,7 +509,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9ArenaDtorEPv(ptr noca
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZNK4i18n12phonenumbers11PhoneNumber13SetCachedSizeEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %1, ptr %3 monotonic, align 4
   ret void
 }
@@ -530,7 +530,7 @@ _ZN6google8protobuf8internal7InitSCCEPNS1_11SCCInfoBaseE.exit: ; preds = %0, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 7
   %.not = icmp eq i32 %4, 0
@@ -542,7 +542,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture
   br i1 %.not11, label %10, label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   br label %10
@@ -553,7 +553,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture
   br i1 %.not12, label %15, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %14) #16
   br label %15
@@ -564,7 +564,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture
   br i1 %.not13, label %20, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %19 = load ptr, ptr %18, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #16
   br label %20
@@ -575,15 +575,15 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture
   br i1 %.not14, label %25, label %22
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %23, i8 0, i64 20, i1 false)
-  %24 = getelementptr inbounds i8, ptr %0, i64 68
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %24, align 4
   br label %25
 
 25:                                               ; preds = %22, %20
   store i32 0, ptr %2, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
@@ -593,7 +593,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber5ClearEv(ptr nocapture
 _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit: ; preds = %25
   %30 = and i64 %28, -2
   %31 = inttoptr i64 %30 to ptr
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #16
   br label %33
 
@@ -607,19 +607,19 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZN4i18n12phonenumbers11PhoneNumber14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit:
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 92
-  %5 = getelementptr inbounds i8, ptr %2, i64 8
-  %6 = getelementptr inbounds i8, ptr %2, i64 28
-  %7 = getelementptr inbounds i8, ptr %0, i64 68
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
-  %9 = getelementptr inbounds i8, ptr %0, i64 40
-  %10 = getelementptr inbounds i8, ptr %0, i64 64
-  %11 = getelementptr inbounds i8, ptr %0, i64 32
-  %12 = getelementptr inbounds i8, ptr %0, i64 60
-  %13 = getelementptr inbounds i8, ptr %0, i64 24
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 92
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 60
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
@@ -652,7 +652,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89: ; preds = %.
   %31 = load i8, ptr %.292, align 1
   %32 = zext i8 %31 to i32
   %33 = icmp sgt i8 %31, -1
-  %34 = getelementptr inbounds i8, ptr %.292, i64 1
+  %34 = getelementptr inbounds nuw i8, ptr %.292, i64 1
   br i1 %33, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread, label %35
 
 35:                                               ; preds = %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89
@@ -665,7 +665,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread89: ; preds = %.
   br i1 %41, label %42, label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds i8, ptr %.292, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %.292, i64 2
   br label %_ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread
 
 _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %35
@@ -699,7 +699,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %52 = or i32 %.sroa.0.0, 16
   %53 = load i8, ptr %.0.i3097, align 1
   %.not.i.i = icmp sgt i8 %53, -1
-  %54 = getelementptr inbounds i8, ptr %.0.i3097, i64 1
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 1
   %55 = zext i8 %53 to i32
   br i1 %.not.i.i, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread, label %56
 
@@ -713,7 +713,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   br i1 %.not16.i.i, label %62, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit
 
 62:                                               ; preds = %56
-  %63 = getelementptr inbounds i8, ptr %.0.i3097, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 2
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit.thread: ; preds = %51, %62
@@ -740,7 +740,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %56
   %72 = or i32 %.sroa.0.0, 8
   %73 = load i8, ptr %.0.i3097, align 1
   %.not.i.i33 = icmp sgt i8 %73, -1
-  %74 = getelementptr inbounds i8, ptr %.0.i3097, i64 1
+  %74 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 1
   br i1 %.not.i.i33, label %75, label %77
 
 75:                                               ; preds = %71
@@ -759,7 +759,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit: ; preds = %56
 
 84:                                               ; preds = %77
   %85 = zext nneg i32 %83 to i64
-  %86 = getelementptr inbounds i8, ptr %.0.i3097, i64 2
+  %86 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 2
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit37.thread: ; preds = %75, %84
@@ -813,7 +813,7 @@ _ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit: 
   %109 = or i32 %.sroa.0.0, 32
   %110 = load i8, ptr %.0.i3097, align 1
   %.not.i.i40 = icmp sgt i8 %110, -1
-  %111 = getelementptr inbounds i8, ptr %.0.i3097, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 1
   br i1 %.not.i.i40, label %112, label %114
 
 112:                                              ; preds = %108
@@ -832,7 +832,7 @@ _ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_extensionB5cxx11Ev.exit: 
 
 121:                                              ; preds = %114
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds i8, ptr %.0.i3097, i64 2
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 2
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit44.thread: ; preds = %112, %121
@@ -889,7 +889,7 @@ _ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit: 
 149:                                              ; preds = %146
   %150 = load i8, ptr %.0.i3097, align 1
   %.not.i.i47 = icmp sgt i8 %150, -1
-  %151 = getelementptr inbounds i8, ptr %.0.i3097, i64 1
+  %151 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 1
   br i1 %.not.i.i47, label %152, label %154
 
 152:                                              ; preds = %149
@@ -908,7 +908,7 @@ _ZN4i18n12phonenumbers11PhoneNumber27_internal_mutable_raw_inputB5cxx11Ev.exit: 
 
 161:                                              ; preds = %154
   %162 = zext nneg i32 %160 to i64
-  %163 = getelementptr inbounds i8, ptr %.0.i3097, i64 2
+  %163 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 2
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit51: ; preds = %154
@@ -947,7 +947,7 @@ _ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi.exit: ; preds = 
 174:                                              ; preds = %_ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi.exit
   %175 = and i64 %172, -2
   %176 = inttoptr i64 %175 to ptr
-  %177 = getelementptr inbounds i8, ptr %176, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   br label %_ZN4i18n12phonenumbers11PhoneNumber22mutable_unknown_fieldsB5cxx11Ev.exit
 
 178:                                              ; preds = %_ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi.exit
@@ -959,7 +959,7 @@ _ZN4i18n12phonenumbers37PhoneNumber_CountryCodeSource_IsValidEi.exit: ; preds = 
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 182:                                              ; preds = %178
-  %183 = getelementptr inbounds i8, ptr %171, i64 112
+  %183 = getelementptr inbounds nuw i8, ptr %171, i64 112
   %184 = load ptr, ptr %183, align 8
   %.not.i.i.i = icmp eq ptr %184, null
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %185
@@ -975,7 +975,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %185, %
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %180
   %.sink.i.i = phi ptr [ %186, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %181, %180 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %187 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %187 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %187) #16
   %188 = ptrtoint ptr %.sink.i.i to i64
   %189 = or i64 %188, 1
@@ -1026,7 +1026,7 @@ _ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrie
   %210 = or i32 %.sroa.0.0, 128
   %211 = load i8, ptr %.0.i3097, align 1
   %.not.i.i57 = icmp sgt i8 %211, -1
-  %212 = getelementptr inbounds i8, ptr %.0.i3097, i64 1
+  %212 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 1
   %213 = zext i8 %211 to i32
   br i1 %.not.i.i57, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61.thread, label %214
 
@@ -1040,7 +1040,7 @@ _ZN4i18n12phonenumbers11PhoneNumber49_internal_mutable_preferred_domestic_carrie
   br i1 %.not16.i.i58, label %220, label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61
 
 220:                                              ; preds = %214
-  %221 = getelementptr inbounds i8, ptr %.0.i3097, i64 2
+  %221 = getelementptr inbounds nuw i8, ptr %.0.i3097, i64 2
   br label %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61.thread
 
 _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61.thread: ; preds = %209, %220
@@ -1072,7 +1072,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61: ; preds = %214
 
 230:                                              ; preds = %226
   %231 = add i32 %.08596, -1
-  %232 = getelementptr inbounds i8, ptr %2, i64 80
+  %232 = getelementptr inbounds nuw i8, ptr %2, i64 80
   store i32 %231, ptr %232, align 8
   br label %_ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread
 
@@ -1086,7 +1086,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61: ; preds = %214
 237:                                              ; preds = %233
   %238 = and i64 %235, -2
   %239 = inttoptr i64 %238 to ptr
-  %240 = getelementptr inbounds i8, ptr %239, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   br label %254
 
 241:                                              ; preds = %233
@@ -1098,7 +1098,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit61: ; preds = %214
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 245:                                              ; preds = %241
-  %246 = getelementptr inbounds i8, ptr %234, i64 112
+  %246 = getelementptr inbounds nuw i8, ptr %234, i64 112
   %247 = load ptr, ptr %246, align 8
   %.not.i.i63 = icmp eq ptr %247, null
   br i1 %.not.i.i63, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %248
@@ -1114,7 +1114,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %248, %24
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %243, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink.i = phi ptr [ %249, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %244, %243 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
-  %250 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %250 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %250) #16
   %251 = ptrtoint ptr %.sink.i to i64
   %252 = or i64 %251, 1
@@ -1146,7 +1146,7 @@ declare noundef ptr @_ZN6google8protobuf8internal17UnknownFieldParseEjPNSt7__cxx
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 16
   %.not = icmp eq i32 %6, 0
@@ -1163,17 +1163,17 @@ define dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber18_InternalSer
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, %9
   %.0.i = phi ptr [ %10, %9 ], [ %1, %7 ]
-  %11 = getelementptr inbounds i8, ptr %0, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %12 = load i32, ptr %11, align 8
   store i8 8, ptr %.0.i, align 1
-  %13 = getelementptr inbounds i8, ptr %.0.i, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
   %14 = icmp ult i32 %12, 128
   %15 = trunc i32 %12 to i8
   br i1 %14, label %16, label %18
 
 16:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
   store i8 %15, ptr %13, align 1
-  %17 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
 
 18:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit
@@ -1186,13 +1186,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
 
 23:                                               ; preds = %18
   %24 = trunc nuw nsw i64 %21 to i8
-  %25 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %25 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   store i8 %24, ptr %25, align 1
-  %26 = getelementptr inbounds i8, ptr %.0.i, i64 3
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 3
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
 
 27:                                               ; preds = %18
-  %28 = getelementptr inbounds i8, ptr %.0.i, i64 2
+  %28 = getelementptr inbounds nuw i8, ptr %.0.i, i64 2
   br label %29
 
 29:                                               ; preds = %29, %27
@@ -1202,13 +1202,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %7, 
   %31 = or i8 %30, -128
   store i8 %31, ptr %.023.i.i, align 1
   %32 = lshr i64 %.022.i.i, 7
-  %33 = getelementptr inbounds i8, ptr %.023.i.i, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 1
   %34 = icmp samesign ugt i64 %.022.i.i, 16383
   br i1 %34, label %29, label %35, !llvm.loop !8
 
 35:                                               ; preds = %29
   %36 = trunc nuw nsw i64 %32 to i8
-  %37 = getelementptr inbounds i8, ptr %.023.i.i, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.023.i.i, i64 2
   store i8 %36, ptr %33, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit
 
@@ -1229,17 +1229,17 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115: ; preds = %39, %41
   %.0.i114 = phi ptr [ %42, %41 ], [ %.0101, %39 ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 48
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %44 = load i64, ptr %43, align 8
   store i8 16, ptr %.0.i114, align 1
-  %45 = getelementptr inbounds i8, ptr %.0.i114, i64 1
+  %45 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 1
   %46 = icmp ult i64 %44, 128
   %47 = trunc i64 %44 to i8
   br i1 %46, label %48, label %50
 
 48:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115
   store i8 %47, ptr %45, align 1
-  %49 = getelementptr inbounds i8, ptr %.0.i114, i64 2
+  %49 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
 
 50:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115
@@ -1251,13 +1251,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115: ; preds = %
 
 54:                                               ; preds = %50
   %55 = trunc nuw nsw i64 %52 to i8
-  %56 = getelementptr inbounds i8, ptr %.0.i114, i64 2
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 2
   store i8 %55, ptr %56, align 1
-  %57 = getelementptr inbounds i8, ptr %.0.i114, i64 3
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 3
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds i8, ptr %.0.i114, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i114, i64 2
   br label %60
 
 60:                                               ; preds = %60, %58
@@ -1267,13 +1267,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit115: ; preds = %
   %62 = or i8 %61, -128
   store i8 %62, ptr %.023.i, align 1
   %63 = lshr i64 %.022.i, 7
-  %64 = getelementptr inbounds i8, ptr %.023.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.023.i, i64 1
   %65 = icmp samesign ugt i64 %.022.i, 16383
   br i1 %65, label %60, label %66, !llvm.loop !8
 
 66:                                               ; preds = %60
   %67 = trunc nuw nsw i64 %63 to i8
-  %68 = getelementptr inbounds i8, ptr %.023.i, i64 2
+  %68 = getelementptr inbounds nuw i8, ptr %.023.i, i64 2
   store i8 %67, ptr %64, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
 
@@ -1284,7 +1284,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; pred
   br i1 %.not104, label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit, label %70
 
 70:                                               ; preds = %_ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit
-  %71 = getelementptr inbounds i8, ptr %0, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8
   %73 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #16
   %74 = icmp sgt i64 %73, 127
@@ -1305,9 +1305,9 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit: ; pred
 
 .thread.i:                                        ; preds = %75
   store i8 26, ptr %.1, align 1
-  %82 = getelementptr inbounds i8, ptr %.1, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %83 = trunc i64 %73 to i8
-  %84 = getelementptr inbounds i8, ptr %.1, i64 2
+  %84 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   store i8 %83, ptr %82, align 1
   %85 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %72) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %84, ptr align 1 %85, i64 %73, i1 false)
@@ -1331,13 +1331,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121: ; preds = %88, %90
   %.0.i120 = phi ptr [ %91, %90 ], [ %.2, %88 ]
-  %92 = getelementptr inbounds i8, ptr %0, i64 60
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %93 = load i8, ptr %92, align 4
   store i8 32, ptr %.0.i120, align 1
-  %94 = getelementptr inbounds i8, ptr %.0.i120, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i120, i64 1
   %95 = and i8 %93, 1
   store i8 %95, ptr %94, align 1
-  %96 = getelementptr inbounds i8, ptr %.0.i120, i64 2
+  %96 = getelementptr inbounds nuw i8, ptr %.0.i120, i64 2
   br label %97
 
 97:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit
@@ -1347,7 +1347,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121: ; preds = %
   br i1 %.not106, label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit131, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %0, i64 32
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %101) #16
   %103 = icmp sgt i64 %102, 127
@@ -1368,9 +1368,9 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit121: ; preds = %
 
 .thread.i127:                                     ; preds = %104
   store i8 42, ptr %.3, align 1
-  %111 = getelementptr inbounds i8, ptr %.3, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %112 = trunc i64 %102 to i8
-  %113 = getelementptr inbounds i8, ptr %.3, i64 2
+  %113 = getelementptr inbounds nuw i8, ptr %.3, i64 2
   store i8 %112, ptr %111, align 1
   %114 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %101) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %113, ptr align 1 %114, i64 %102, i1 false)
@@ -1394,17 +1394,17 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134: ; preds = %117, %119
   %.0.i133 = phi ptr [ %120, %119 ], [ %.4, %117 ]
-  %121 = getelementptr inbounds i8, ptr %0, i64 64
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %122 = load i32, ptr %121, align 8
   store i8 48, ptr %.0.i133, align 1
-  %123 = getelementptr inbounds i8, ptr %.0.i133, i64 1
+  %123 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 1
   %124 = icmp ult i32 %122, 128
   %125 = trunc i32 %122 to i8
   br i1 %124, label %126, label %128
 
 126:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134
   store i8 %125, ptr %123, align 1
-  %127 = getelementptr inbounds i8, ptr %.0.i133, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit139
 
 128:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134
@@ -1417,13 +1417,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134: ; preds = %
 
 133:                                              ; preds = %128
   %134 = trunc nuw nsw i64 %131 to i8
-  %135 = getelementptr inbounds i8, ptr %.0.i133, i64 2
+  %135 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 2
   store i8 %134, ptr %135, align 1
-  %136 = getelementptr inbounds i8, ptr %.0.i133, i64 3
+  %136 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 3
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit139
 
 137:                                              ; preds = %128
-  %138 = getelementptr inbounds i8, ptr %.0.i133, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 2
   br label %139
 
 139:                                              ; preds = %139, %137
@@ -1433,13 +1433,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134: ; preds = %
   %141 = or i8 %140, -128
   store i8 %141, ptr %.023.i.i136, align 1
   %142 = lshr i64 %.022.i.i137, 7
-  %143 = getelementptr inbounds i8, ptr %.023.i.i136, i64 1
+  %143 = getelementptr inbounds nuw i8, ptr %.023.i.i136, i64 1
   %144 = icmp samesign ugt i64 %.022.i.i137, 16383
   br i1 %144, label %139, label %145, !llvm.loop !8
 
 145:                                              ; preds = %139
   %146 = trunc nuw nsw i64 %142 to i8
-  %147 = getelementptr inbounds i8, ptr %.023.i.i136, i64 2
+  %147 = getelementptr inbounds nuw i8, ptr %.023.i.i136, i64 2
   store i8 %146, ptr %143, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit139
 
@@ -1450,7 +1450,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
   br i1 %.not108, label %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit145, label %149
 
 149:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit139
-  %150 = getelementptr inbounds i8, ptr %0, i64 40
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %151 = load ptr, ptr %150, align 8
   %152 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %151) #16
   %153 = icmp sgt i64 %152, 127
@@ -1471,9 +1471,9 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 
 .thread.i141:                                     ; preds = %154
   store i8 58, ptr %.5, align 1
-  %161 = getelementptr inbounds i8, ptr %.5, i64 1
+  %161 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   %162 = trunc i64 %152 to i8
-  %163 = getelementptr inbounds i8, ptr %.5, i64 2
+  %163 = getelementptr inbounds nuw i8, ptr %.5, i64 2
   store i8 %162, ptr %161, align 1
   %164 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %151) #16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %163, ptr align 1 %164, i64 %152, i1 false)
@@ -1497,17 +1497,17 @@ _ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cx
 
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148: ; preds = %167, %169
   %.0.i147 = phi ptr [ %170, %169 ], [ %.6, %167 ]
-  %171 = getelementptr inbounds i8, ptr %0, i64 68
+  %171 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %172 = load i32, ptr %171, align 4
   store i8 64, ptr %.0.i147, align 1
-  %173 = getelementptr inbounds i8, ptr %.0.i147, i64 1
+  %173 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 1
   %174 = icmp ult i32 %172, 128
   %175 = trunc i32 %172 to i8
   br i1 %174, label %176, label %178
 
 176:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148
   store i8 %175, ptr %173, align 1
-  %177 = getelementptr inbounds i8, ptr %.0.i147, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 2
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit153
 
 178:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148
@@ -1520,13 +1520,13 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148: ; preds = %
 
 183:                                              ; preds = %178
   %184 = trunc nuw nsw i64 %181 to i8
-  %185 = getelementptr inbounds i8, ptr %.0.i147, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 2
   store i8 %184, ptr %185, align 1
-  %186 = getelementptr inbounds i8, ptr %.0.i147, i64 3
+  %186 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 3
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit153
 
 187:                                              ; preds = %178
-  %188 = getelementptr inbounds i8, ptr %.0.i147, i64 2
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i147, i64 2
   br label %189
 
 189:                                              ; preds = %189, %187
@@ -1536,19 +1536,19 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit148: ; preds = %
   %191 = or i8 %190, -128
   store i8 %191, ptr %.023.i.i150, align 1
   %192 = lshr i64 %.022.i.i151, 7
-  %193 = getelementptr inbounds i8, ptr %.023.i.i150, i64 1
+  %193 = getelementptr inbounds nuw i8, ptr %.023.i.i150, i64 1
   %194 = icmp samesign ugt i64 %.022.i.i151, 16383
   br i1 %194, label %189, label %195, !llvm.loop !8
 
 195:                                              ; preds = %189
   %196 = trunc nuw nsw i64 %192 to i8
-  %197 = getelementptr inbounds i8, ptr %.023.i.i150, i64 2
+  %197 = getelementptr inbounds nuw i8, ptr %.023.i.i150, i64 2
   store i8 %196, ptr %193, align 1
   br label %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit153
 
 _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit153: ; preds = %195, %183, %176, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit145
   %.7 = phi ptr [ %.6, %_ZN6google8protobuf2io19EpsCopyOutputStream23WriteStringMaybeAliasedEjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPh.exit145 ], [ %177, %176 ], [ %186, %183 ], [ %197, %195 ]
-  %198 = getelementptr inbounds i8, ptr %0, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %199 = load ptr, ptr %198, align 8
   %200 = ptrtoint ptr %199 to i64
   %201 = and i64 %200, 1
@@ -1558,7 +1558,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 202:                                              ; preds = %_ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.exit153
   %203 = and i64 %200, -2
   %204 = inttoptr i64 %203 to ptr
-  %205 = getelementptr inbounds i8, ptr %204, i64 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %205) #16
   %207 = load ptr, ptr %198, align 8
   %208 = ptrtoint ptr %207 to i64
@@ -1569,7 +1569,7 @@ _ZN6google8protobuf2io17CodedOutputStream32WriteVarint32SignExtendedToArrayEiPh.
 210:                                              ; preds = %202
   %211 = and i64 %208, -2
   %212 = inttoptr i64 %211 to ptr
-  %213 = getelementptr inbounds i8, ptr %212, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
   br label %215
 
 214:                                              ; preds = %202
@@ -1611,14 +1611,14 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4size
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i64 0, 23) i64 @_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %15, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8
   %8 = or i64 %7, 1
   %9 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %8, i1 true)
@@ -1636,7 +1636,7 @@ define dso_local noundef range(i64 0, 23) i64 @_ZNK4i18n12phonenumbers11PhoneNum
   br i1 %.not3, label %30, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load i32, ptr %18, align 8
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %21
@@ -1664,14 +1664,14 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %17, %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber12ByteSizeLongEv(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 24
   %5 = icmp eq i32 %4, 24
   br i1 %5, label %6, label %28
 
 6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i64, ptr %7, align 8
   %9 = or i64 %8, 1
   %10 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %9, i1 true)
@@ -1679,7 +1679,7 @@ define dso_local noundef i64 @_ZNK4i18n12phonenumbers11PhoneNumber12ByteSizeLong
   %12 = mul nuw nsw i64 %11, 9
   %13 = add nuw nsw i64 %12, 73
   %14 = lshr i64 %13, 6
-  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load i32, ptr %15, align 8
   %17 = icmp slt i32 %16, 0
   br i1 %17, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit, label %18
@@ -1706,7 +1706,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %6, %18
   br i1 %.not.i, label %40, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 48
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %32 = load i64, ptr %31, align 8
   %33 = or i64 %32, 1
   %34 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %33, i1 true)
@@ -1724,7 +1724,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit: ; preds = %6, %18
   br i1 %.not3.i, label %_ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit, label %42
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds i8, ptr %0, i64 56
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %44 = load i32, ptr %43, align 8
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit.i, label %46
@@ -1757,7 +1757,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   br i1 %.not33, label %73, label %58
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds i8, ptr %0, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %60) #16
   %62 = trunc i64 %61 to i32
@@ -1780,7 +1780,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   br i1 %.not34, label %90, label %75
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds i8, ptr %0, i64 32
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %77) #16
   %79 = trunc i64 %78 to i32
@@ -1803,7 +1803,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   br i1 %.not35, label %107, label %92
 
 92:                                               ; preds = %90
-  %93 = getelementptr inbounds i8, ptr %0, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %94 = load ptr, ptr %93, align 8
   %95 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %94) #16
   %96 = trunc i64 %95 to i32
@@ -1835,7 +1835,7 @@ _ZNK4i18n12phonenumbers11PhoneNumber30RequiredFieldsByteSizeFallbackEv.exit: ; p
   br i1 %.not38, label %127, label %114
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds i8, ptr %0, i64 64
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %116 = load i32, ptr %115, align 8
   %117 = icmp slt i32 %116, 0
   br i1 %117, label %_ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit, label %118
@@ -1863,7 +1863,7 @@ _ZN6google8protobuf8internal14WireFormatLite8EnumSizeEi.exit: ; preds = %114, %1
   br i1 %.not39, label %142, label %129
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds i8, ptr %0, i64 68
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %131 = load i32, ptr %130, align 4
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43, label %133
@@ -1886,7 +1886,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43: ; preds = %129,
 
 142:                                              ; preds = %127, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43, %107
   %.4 = phi i64 [ %141, %_ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43 ], [ %.6, %127 ], [ %.1, %107 ]
-  %143 = getelementptr inbounds i8, ptr %0, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = load ptr, ptr %143, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = and i64 %145, 1
@@ -1896,7 +1896,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43: ; preds = %129,
 147:                                              ; preds = %142
   %148 = and i64 %145, -2
   %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds i8, ptr %149, i64 8
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %150) #16
   %152 = add i64 %151, %.4
   br label %153
@@ -1904,7 +1904,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit43: ; preds = %129,
 153:                                              ; preds = %147, %142
   %.7 = phi i64 [ %152, %147 ], [ %.4, %142 ]
   %154 = trunc i64 %.7 to i32
-  %155 = getelementptr inbounds i8, ptr %0, i64 20
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store atomic i32 %154, ptr %155 monotonic, align 4
   ret i64 %.7
 }
@@ -1917,8 +1917,8 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21CheckTypeAndMergeFro
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1
@@ -1928,7 +1928,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr n
 8:                                                ; preds = %2
   %9 = and i64 %6, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %3, align 8
   %13 = ptrtoint ptr %12 to i64
   %14 = and i64 %13, 1
@@ -1938,7 +1938,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr n
 15:                                               ; preds = %8
   %16 = and i64 %13, -2
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit
 
 19:                                               ; preds = %8
@@ -1950,7 +1950,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber9MergeFromERKS1_(ptr n
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %12, i64 112
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %25 = load ptr, ptr %24, align 8
   %.not.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %26
@@ -1966,7 +1966,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %26, %2
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %21
   %.sink.i.i = phi ptr [ %27, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %22, %21 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %28 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %28) #16
   %29 = ptrtoint ptr %.sink.i.i to i64
   %30 = or i64 %29, 1
@@ -1981,7 +1981,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_s
   br label %33
 
 33:                                               ; preds = %_ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvRKT_.exit, %2
-  %34 = getelementptr inbounds i8, ptr %1, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = and i32 %35, 255
   %.not34 = icmp eq i32 %36, 0
@@ -1993,9 +1993,9 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_s
   br i1 %.not35, label %53, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %1, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = or i32 %43, 1
   store i32 %44, ptr %42, align 8
@@ -2013,7 +2013,7 @@ _ZN6google8protobuf8internal16InternalMetadata11DoMergeFromINSt7__cxx1112basic_s
 
 _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %39, %48
   %.0.i.i = phi ptr [ %51, %48 ], [ %45, %39 ]
-  %52 = getelementptr inbounds i8, ptr %0, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %52, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef %.0.i.i)
   br label %53
 
@@ -2023,9 +2023,9 @@ _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basi
   br i1 %.not36, label %69, label %55
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %1, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = or i32 %59, 2
   store i32 %60, ptr %58, align 8
@@ -2043,7 +2043,7 @@ _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_extensionERKNSt7__cxx1112basi
 
 _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %55, %64
   %.0.i.i44 = phi ptr [ %67, %64 ], [ %61, %55 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef %.0.i.i44)
   br label %69
 
@@ -2053,9 +2053,9 @@ _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basi
   br i1 %.not37, label %85, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds i8, ptr %1, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %0, i64 16
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load i32, ptr %74, align 8
   %76 = or i32 %75, 4
   store i32 %76, ptr %74, align 8
@@ -2073,7 +2073,7 @@ _ZN4i18n12phonenumbers11PhoneNumber23_internal_set_raw_inputERKNSt7__cxx1112basi
 
 _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_codeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %71, %80
   %.0.i.i46 = phi ptr [ %83, %80 ], [ %77, %71 ]
-  %84 = getelementptr inbounds i8, ptr %0, i64 40
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr3SetEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS9_PNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %84, ptr noundef nonnull @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr noundef nonnull align 8 dereferenceable(32) %73, ptr noundef %.0.i.i46)
   br label %85
 
@@ -2083,9 +2083,9 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
   br i1 %.not38, label %91, label %87
 
 87:                                               ; preds = %85
-  %88 = getelementptr inbounds i8, ptr %1, i64 48
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %89 = load i64, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 48
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %89, ptr %90, align 8
   br label %91
 
@@ -2095,9 +2095,9 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
   br i1 %.not39, label %97, label %93
 
 93:                                               ; preds = %91
-  %94 = getelementptr inbounds i8, ptr %1, i64 56
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %95 = load i32, ptr %94, align 8
-  %96 = getelementptr inbounds i8, ptr %0, i64 56
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 %95, ptr %96, align 8
   br label %97
 
@@ -2107,9 +2107,9 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
   br i1 %.not40, label %104, label %99
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds i8, ptr %1, i64 60
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %101 = load i8, ptr %100, align 4
-  %102 = getelementptr inbounds i8, ptr %0, i64 60
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %103 = and i8 %101, 1
   store i8 %103, ptr %102, align 4
   br label %104
@@ -2120,9 +2120,9 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
   br i1 %.not41, label %110, label %106
 
 106:                                              ; preds = %104
-  %107 = getelementptr inbounds i8, ptr %1, i64 64
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %108 = load i32, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 64
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i32 %108, ptr %109, align 8
   br label %110
 
@@ -2132,14 +2132,14 @@ _ZN4i18n12phonenumbers11PhoneNumber45_internal_set_preferred_domestic_carrier_co
   br i1 %.not42, label %116, label %112
 
 112:                                              ; preds = %110
-  %113 = getelementptr inbounds i8, ptr %1, i64 68
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %114 = load i32, ptr %113, align 4
-  %115 = getelementptr inbounds i8, ptr %0, i64 68
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 %114, ptr %115, align 4
   br label %116
 
 116:                                              ; preds = %112, %110
-  %117 = getelementptr inbounds i8, ptr %0, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %118 = load i32, ptr %117, align 8
   %119 = or i32 %118, %35
   store i32 %119, ptr %117, align 8
@@ -2155,7 +2155,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
   br i1 %3, label %36, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = and i32 %6, 7
   %.not.i = icmp eq i32 %7, 0
@@ -2167,7 +2167,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
   br i1 %.not11.i, label %13, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   br label %13
@@ -2178,7 +2178,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
   br i1 %.not12.i, label %18, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %17) #16
   br label %18
@@ -2189,7 +2189,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
   br i1 %.not13.i, label %23, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds i8, ptr %0, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load ptr, ptr %21, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %22) #16
   br label %23
@@ -2200,15 +2200,15 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
   br i1 %.not14.i, label %28, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, i8 0, i64 20, i1 false)
-  %27 = getelementptr inbounds i8, ptr %0, i64 68
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 68
   store i32 1, ptr %27, align 4
   br label %28
 
 28:                                               ; preds = %25, %23
   store i32 0, ptr %5, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = ptrtoint ptr %30 to i64
   %32 = and i64 %31, 1
@@ -2218,7 +2218,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber8CopyFromERKS1_(ptr no
 _ZN6google8protobuf8internal16InternalMetadata7DoClearINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvv.exit.i: ; preds = %28
   %33 = and i64 %31, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %35) #16
   br label %_ZN4i18n12phonenumbers11PhoneNumber5ClearEv.exit
 
@@ -2232,7 +2232,7 @@ _ZN4i18n12phonenumbers11PhoneNumber5ClearEv.exit: ; preds = %28, %_ZN6google8pro
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber13IsInitializedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) unnamed_addr #12 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 24
   %.not = icmp eq i32 %4, 24
@@ -2241,8 +2241,8 @@ define dso_local noundef zeroext i1 @_ZNK4i18n12phonenumbers11PhoneNumber13IsIni
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber12InternalSwapEPS1_(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef %1) local_unnamed_addr #3 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
-  %4 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %3, align 8
   %6 = ptrtoint ptr %5 to i64
   %7 = and i64 %6, 1
@@ -2262,7 +2262,7 @@ thread-pre-split:                                 ; preds = %2
 12:                                               ; preds = %thread-pre-split
   %13 = and i64 %9, -2
   %14 = inttoptr i64 %13 to ptr
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %29
 
 16:                                               ; preds = %thread-pre-split
@@ -2274,7 +2274,7 @@ thread-pre-split:                                 ; preds = %2
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %8, i64 112
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %22 = load ptr, ptr %21, align 8
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %23
@@ -2290,7 +2290,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %23, %20
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit: ; preds = %18, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %.sink.i = phi ptr [ %24, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ], [ %19, %18 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i, i8 0, i64 40, i1 false)
-  %25 = getelementptr inbounds i8, ptr %.sink.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %25) #16
   %26 = ptrtoint ptr %.sink.i to i64
   %27 = or i64 %26, 1
@@ -2312,7 +2312,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
 32:                                               ; preds = %29
   %33 = and i64 %.pre-phi41, -2
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
 
 36:                                               ; preds = %29
@@ -2324,7 +2324,7 @@ _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7
   br label %_ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %30, i64 112
+  %41 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %42 = load ptr, ptr %41, align 8
   %.not.i.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, label %43
@@ -2340,7 +2340,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %43, %4
 _ZN6google8protobuf8internal16InternalMetadata27mutable_unknown_fields_slowINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPT_v.exit.i: ; preds = %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i, %38
   %.sink.i.i = phi ptr [ %44, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %39, %38 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sink.i.i, i8 0, i64 40, i1 false)
-  %45 = getelementptr inbounds i8, ptr %.sink.i.i, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %45) #16
   %46 = ptrtoint ptr %.sink.i.i to i64
   %47 = or i64 %46, 1
@@ -2355,43 +2355,43 @@ _ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringI
   br label %_ZNK6google8protobuf11MessageLite8GetArenaEv.exit
 
 _ZNK6google8protobuf11MessageLite8GetArenaEv.exit: ; preds = %2, %_ZN6google8protobuf8internal16InternalMetadata6DoSwapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_.exit
-  %49 = getelementptr inbounds i8, ptr %0, i64 16
-  %50 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %51 = load i32, ptr %49, align 8
   %52 = load i32, ptr %50, align 4
   store i32 %52, ptr %49, align 8
   store i32 %51, ptr %50, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = getelementptr inbounds i8, ptr %1, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %55 = load ptr, ptr %53, align 8
   %56 = load ptr, ptr %54, align 8
   store ptr %56, ptr %53, align 8
   store ptr %55, ptr %54, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 32
-  %58 = getelementptr inbounds i8, ptr %1, i64 32
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %59 = load ptr, ptr %57, align 8
   %60 = load ptr, ptr %58, align 8
   store ptr %60, ptr %57, align 8
   store ptr %59, ptr %58, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 40
-  %62 = getelementptr inbounds i8, ptr %0, i64 40
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %61, align 8
   store ptr %64, ptr %62, align 8
   store ptr %63, ptr %61, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 48
-  %66 = getelementptr inbounds i8, ptr %1, i64 48
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %.0.copyload.i.i = load i128, ptr %65, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %65, ptr noundef nonnull align 1 dereferenceable(16) %66, i64 16, i1 false)
   store i128 %.0.copyload.i.i, ptr %66, align 1
-  %67 = getelementptr inbounds i8, ptr %0, i64 64
-  %68 = getelementptr inbounds i8, ptr %1, i64 64
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %.0.copyload.i.i.i = load i32, ptr %67, align 8
   %69 = load i32, ptr %68, align 1
   store i32 %69, ptr %67, align 8
   store i32 %.0.copyload.i.i.i, ptr %68, align 1
-  %70 = getelementptr inbounds i8, ptr %0, i64 68
-  %71 = getelementptr inbounds i8, ptr %1, i64 68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %72 = load i32, ptr %70, align 4
   %73 = load i32, ptr %71, align 4
   store i32 %73, ptr %70, align 4
@@ -2448,12 +2448,12 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 
 3:                                                ; preds = %1
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %4, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 0, ptr %7, align 4
   %8 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i.i.i = icmp eq i32 %8, 0
@@ -2470,7 +2470,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, label %15
@@ -2481,12 +2481,12 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
 
 _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %12, %15
   %16 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 72)
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %0, ptr %17, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 0, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 0, ptr %19, align 4
   %20 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i.i.i14 = icmp eq i32 %20, 0
@@ -2498,15 +2498,15 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %12, %15
 
 _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %21, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit, %3, %9
   %.sink19 = phi ptr [ %4, %9 ], [ %4, %3 ], [ %16, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ], [ %16, %21 ]
-  %22 = getelementptr inbounds i8, ptr %.sink19, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sink19, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %.sink19, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.sink19, i64 32
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %.sink19, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.sink19, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %.sink19, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %.sink19, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %25, i8 0, i64 20, i1 false)
-  %26 = getelementptr inbounds i8, ptr %.sink19, i64 68
+  %26 = getelementptr inbounds nuw i8, ptr %.sink19, i64 68
   store i32 1, ptr %26, align 4
   ret ptr %.sink19
 }
@@ -2514,12 +2514,12 @@ _ZN4i18n12phonenumbers11PhoneNumberC2Ev.exit:     ; preds = %21, %_ZNK6google8pr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3NewEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #17
-  %3 = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
   store ptr getelementptr inbounds (i8, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 16), ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %2, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 0, ptr %5, align 4
   %6 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
   %.not.i.i.i.i.i = icmp eq i32 %6, 0
@@ -2536,15 +2536,15 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3
   resume { ptr, i32 } %9
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN4i18n12phonenumbers11PhoneNumberEJEEEPT_PS1_DpOT0_.exit: ; preds = %1, %7
-  %10 = getelementptr inbounds i8, ptr %2, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 48
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %13, i8 0, i64 20, i1 false)
-  %14 = getelementptr inbounds i8, ptr %2, i64 68
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 68
   store i32 1, ptr %14, align 4
   ret ptr %2
 }
@@ -2559,7 +2559,7 @@ declare void @_ZNK6google8protobuf11MessageLite25InitializationErrorStringB5cxx1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef i32 @_ZNK4i18n12phonenumbers11PhoneNumber13GetCachedSizeEv(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 20
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load atomic i32, ptr %2 monotonic, align 4
   ret i32 %3
 }
@@ -2599,7 +2599,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf8internal14ArenaStringPtr
   resume { ptr, i32 } %12
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i8, ptr %3, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %15 = load ptr, ptr %14, align 8
   %.not.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %16
@@ -2681,7 +2681,7 @@ define linkonce_odr dso_local noundef ptr @_ZN6google8protobuf8internal14ArenaSt
   resume { ptr, i32 } %11
 
 12:                                               ; preds = %6
-  %13 = getelementptr inbounds i8, ptr %2, i64 112
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 112
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i, label %15
@@ -2816,7 +2816,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal21arena_destruct_objectINS1_16InternalMetadata9ContainerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvPv(ptr noundef %0) #6 comdat {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   ret void
 }
@@ -2831,7 +2831,7 @@ define internal void @_GLOBAL__sub_I_phonenumber.pb.cc() #15 section ".text.star
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #16
   store ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, align 16
-  store i64 20, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 8), align 8
+  store i64 20, ptr getelementptr inbounds nuw (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 8), align 8
   store i32 20, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 16), align 16
   store ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL35PhoneNumber_CountryCodeSource_namesE, i64 20), ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 24), align 8
   store i64 29, ptr getelementptr inbounds (i8, ptr @_ZN4i18n12phonenumbersL37PhoneNumber_CountryCodeSource_entriesE, i64 32), align 16

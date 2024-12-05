@@ -25,8 +25,8 @@ define void @timer_initialize() local_unnamed_addr #0 {
   %.pre = phi ptr [ null, %0 ], [ %..pre, %1 ]
   %2 = phi ptr [ null, %0 ], [ %3, %1 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %3 = getelementptr inbounds [8 x %struct.posix_timer_s], ptr @g_prealloctimers, i64 0, i64 %indvars.iv
-  %4 = getelementptr inbounds i8, ptr %3, i64 12
+  %3 = getelementptr inbounds nuw [8 x %struct.posix_timer_s], ptr @g_prealloctimers, i64 0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i8 1, ptr %4, align 4
   store ptr null, ptr %3, align 8
   %.not = icmp eq ptr %.pre, null
@@ -58,7 +58,7 @@ define void @timer_deleteall(i32 noundef %0) local_unnamed_addr #1 {
 .lr.ph:                                           ; preds = %1, %11
   %.07 = phi ptr [ %5, %11 ], [ %4, %1 ]
   %5 = load ptr, ptr %.07, align 8
-  %6 = getelementptr inbounds i8, ptr %.07, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %.07, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %9, label %11

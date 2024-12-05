@@ -41,7 +41,7 @@ define hidden void @InterpolateRow_C(ptr nocapture noundef writeonly %0, ptr noc
 
 13:                                               ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1
   %16 = zext i8 %15 to i16
   %17 = getelementptr i8, ptr %7, i64 %indvars.iv.i
@@ -51,7 +51,7 @@ define hidden void @InterpolateRow_C(ptr nocapture noundef writeonly %0, ptr noc
   %21 = add nuw nsw i16 %20, %19
   %22 = lshr i16 %21, 1
   %23 = trunc nuw i16 %22 to i8
-  %24 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   store i8 %23, ptr %24, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -73,9 +73,9 @@ define hidden void @InterpolateRow_C(ptr nocapture noundef writeonly %0, ptr noc
   %33 = lshr i32 %32, 8
   %34 = trunc i32 %33 to i8
   store i8 %34, ptr %.02429, align 1
-  %35 = getelementptr inbounds i8, ptr %.02528, i64 1
-  %36 = getelementptr inbounds i8, ptr %.02330, i64 1
-  %37 = getelementptr inbounds i8, ptr %.02429, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.02528, i64 1
+  %36 = getelementptr inbounds nuw i8, ptr %.02330, i64 1
+  %37 = getelementptr inbounds nuw i8, ptr %.02429, i64 1
   %38 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %38, %3
   br i1 %exitcond.not, label %HalfRow_C.exit, label %.lr.ph, !llvm.loop !6
@@ -113,7 +113,7 @@ define hidden void @InterpolateRow_16_C(ptr nocapture noundef writeonly %0, ptr 
 
 14:                                               ; preds = %14, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
-  %15 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv.i
   %16 = load i16, ptr %15, align 2
   %17 = zext i16 %16 to i32
   %18 = getelementptr i16, ptr %7, i64 %indvars.iv.i
@@ -123,7 +123,7 @@ define hidden void @InterpolateRow_16_C(ptr nocapture noundef writeonly %0, ptr 
   %22 = add nuw nsw i32 %21, %20
   %23 = lshr i32 %22, 1
   %24 = trunc nuw i32 %23 to i16
-  %25 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.i
   store i16 %24, ptr %25, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -145,9 +145,9 @@ define hidden void @InterpolateRow_16_C(ptr nocapture noundef writeonly %0, ptr 
   %34 = lshr i32 %33, 8
   %35 = trunc i32 %34 to i16
   store i16 %35, ptr %.02429, align 2
-  %36 = getelementptr inbounds i8, ptr %.02528, i64 2
-  %37 = getelementptr inbounds i8, ptr %.02330, i64 2
-  %38 = getelementptr inbounds i8, ptr %.02429, i64 2
+  %36 = getelementptr inbounds nuw i8, ptr %.02528, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.02330, i64 2
+  %38 = getelementptr inbounds nuw i8, ptr %.02429, i64 2
   %39 = add nuw nsw i32 %.031, 1
   %exitcond.not = icmp eq i32 %39, %3
   br i1 %exitcond.not, label %HalfRow_16_C.exit, label %.lr.ph, !llvm.loop !8

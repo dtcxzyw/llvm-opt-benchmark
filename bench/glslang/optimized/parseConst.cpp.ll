@@ -62,23 +62,23 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
   br i1 %4, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %2, i64 184
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %7 = load i32, ptr %6, align 8
   %.not = icmp eq i32 %7, 174
   br i1 %.not, label %10, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %0, i64 101
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 101
   store i8 1, ptr %9, align 1
   br label %116
 
 10:                                               ; preds = %5, %3
   %11 = load ptr, ptr %2, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 400
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr %13(ptr noundef nonnull align 8 dereferenceable(364) %2) #5
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %15, align 8
   %19 = ptrtoint ptr %17 to i64
@@ -89,92 +89,92 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
 
 23:                                               ; preds = %10
   %24 = load ptr, ptr %2, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 400
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 400
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef nonnull align 8 dereferenceable(32) ptr %26(ptr noundef nonnull align 8 dereferenceable(364) %2) #5
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr %33(ptr noundef nonnull align 8 dereferenceable(32) %30) #5
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %37 = load ptr, ptr %36, align 8
   %38 = tail call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(32) %34) #5
   %.not18 = icmp eq ptr %38, null
   br i1 %.not18, label %.thread, label %39
 
 39:                                               ; preds = %23
-  %40 = getelementptr inbounds i8, ptr %0, i64 100
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 1, ptr %40, align 4
-  %41 = getelementptr inbounds i8, ptr %2, i64 184
+  %41 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %42 = load i32, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %0, i64 96
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %42, ptr %43, align 8
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds i8, ptr %44, i64 240
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 240
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef nonnull align 8 dereferenceable(152) ptr %46(ptr noundef nonnull align 8 dereferenceable(184) %2) #5
   %48 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %47)
-  %49 = getelementptr inbounds i8, ptr %0, i64 104
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 %48, ptr %49, align 8
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds i8, ptr %50, i64 240
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 240
   %52 = load ptr, ptr %51, align 8
   %53 = tail call noundef nonnull align 8 dereferenceable(152) ptr %52(ptr noundef nonnull align 8 dereferenceable(184) %2) #5
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 224
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 224
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i1 %56(ptr noundef nonnull align 8 dereferenceable(152) %53) #5
   br i1 %57, label %58, label %.thread
 
 58:                                               ; preds = %39
-  %59 = getelementptr inbounds i8, ptr %0, i64 108
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 1, ptr %59, align 4
   %60 = load ptr, ptr %2, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 240
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 240
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef nonnull align 8 dereferenceable(152) ptr %62(ptr noundef nonnull align 8 dereferenceable(184) %2) #5
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 104
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 104
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef i32 %66(ptr noundef nonnull align 8 dereferenceable(152) %63) #5
-  %68 = getelementptr inbounds i8, ptr %0, i64 112
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %67, ptr %68, align 8
   %69 = load ptr, ptr %2, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 240
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 240
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef nonnull align 8 dereferenceable(152) ptr %71(ptr noundef nonnull align 8 dereferenceable(184) %2) #5
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 112
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 112
   %75 = load ptr, ptr %74, align 8
   %76 = tail call noundef i32 %75(ptr noundef nonnull align 8 dereferenceable(152) %72) #5
-  %77 = getelementptr inbounds i8, ptr %0, i64 116
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %76, ptr %77, align 4
   br label %.thread
 
 .thread:                                          ; preds = %10, %39, %58, %23
   %78 = phi i1 [ true, %39 ], [ true, %58 ], [ false, %23 ], [ false, %10 ]
   %79 = load ptr, ptr %2, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 400
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 400
   %81 = load ptr, ptr %80, align 8
   %82 = tail call noundef nonnull align 8 dereferenceable(32) ptr %81(ptr noundef nonnull align 8 dereferenceable(364) %2) #5
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
   %85 = load ptr, ptr %2, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 400
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 400
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef nonnull align 8 dereferenceable(32) ptr %87(ptr noundef nonnull align 8 dereferenceable(364) %2) #5
-  %89 = getelementptr inbounds i8, ptr %88, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %.not1920 = icmp eq ptr %84, %90
   br i1 %.not1920, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread
-  %91 = getelementptr inbounds i8, ptr %2, i64 184
-  %92 = getelementptr inbounds i8, ptr %0, i64 56
+  %91 = getelementptr inbounds nuw i8, ptr %2, i64 184
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %93
 
 93:                                               ; preds = %.lr.ph, %97
@@ -190,15 +190,15 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
 97:                                               ; preds = %96, %93
   %98 = load ptr, ptr %.sroa.015.021, align 8
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load ptr, ptr %100, align 8
   tail call void %101(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull %0) #5
-  %102 = getelementptr inbounds i8, ptr %.sroa.015.021, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.015.021, i64 8
   %103 = load ptr, ptr %2, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 400
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 400
   %105 = load ptr, ptr %104, align 8
   %106 = tail call noundef nonnull align 8 dereferenceable(32) ptr %105(ptr noundef nonnull align 8 dereferenceable(364) %2) #5
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %108 = load ptr, ptr %107, align 8
   %.not19 = icmp eq ptr %102, %108
   br i1 %.not19, label %._crit_edge, label %93, !llvm.loop !4
@@ -207,17 +207,17 @@ define noundef zeroext i1 @_ZN7glslang15TConstTraverser14visitAggregateENS_6TVis
   br i1 %78, label %109, label %116
 
 109:                                              ; preds = %._crit_edge
-  %110 = getelementptr inbounds i8, ptr %0, i64 100
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i8 0, ptr %110, align 4
-  %111 = getelementptr inbounds i8, ptr %0, i64 96
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 0, ptr %111, align 8
-  %112 = getelementptr inbounds i8, ptr %0, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i32 0, ptr %112, align 8
-  %113 = getelementptr inbounds i8, ptr %0, i64 108
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 108
   store i8 0, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %0, i64 112
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 0, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %0, i64 116
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 0, ptr %115, align 4
   br label %116
 
@@ -230,7 +230,7 @@ declare noundef zeroext i1 @_ZNK7glslang15TIntermOperator13isConstructorEv(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 56
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(152) %0) #5
   %6 = icmp eq i32 %5, 15
@@ -238,18 +238,18 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(152) %0) #5
   %12 = icmp eq i32 %11, 16
   br i1 %12, label %13, label %27
 
 13:                                               ; preds = %7, %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 104
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %15, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %19 = load ptr, ptr %18, align 8
   %.not910 = icmp eq ptr %17, %19
   br i1 %.not910, label %.loopexit, label %.lr.ph
@@ -260,15 +260,15 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
   %20 = load ptr, ptr %.sroa.06.011, align 8
   %21 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %20)
   %22 = add i32 %21, %.012
-  %23 = getelementptr inbounds i8, ptr %.sroa.06.011, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 32
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not9 = icmp eq ptr %23, %26
   br i1 %.not9, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 27:                                               ; preds = %7
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
   %30 = lshr i32 %29, 12
   %31 = and i32 %30, 15
@@ -288,20 +288,20 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
 
 .loopexit:                                        ; preds = %.lr.ph, %13, %32, %36
   %.1 = phi i32 [ %35, %32 ], [ %38, %36 ], [ 0, %13 ], [ %22, %.lr.ph ]
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load ptr, ptr %39, align 8
   %.not5 = icmp eq ptr %40, null
   br i1 %.not5, label %59, label %41
 
 41:                                               ; preds = %.loopexit
-  %42 = getelementptr inbounds i8, ptr %40, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %_ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit, label %.split.i
 
 .split.i:                                         ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %47 = load ptr, ptr %46, align 8
   %48 = load ptr, ptr %45, align 8
   %49 = ptrtoint ptr %47 to i64
@@ -319,7 +319,7 @@ define linkonce_odr noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr 
 _ZNK7glslang17TSmallArrayVector4sizeEv.exit.i:    ; preds = %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
   %.058.i = phi i32 [ 1, %.lr.ph.i ], [ %57, %_ZNK7glslang17TSmallArrayVector4sizeEv.exit.i ]
-  %55 = getelementptr inbounds %"struct.glslang::TArraySize", ptr %48, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw %"struct.glslang::TArraySize", ptr %48, i64 %indvars.iv.i
   %56 = load i32, ptr %55, align 8
   %57 = mul i32 %56, %.058.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -338,25 +338,25 @@ _ZNK7glslang11TArraySizes17getCumulativeSizeEv.exit: ; preds = %_ZNK7glslang17TS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConstantUnionE(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 72
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 88
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %6)
-  %8 = getelementptr inbounds i8, ptr %0, i64 56
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load i32, ptr %8, align 8
   %.not = icmp slt i32 %9, %7
   br i1 %.not, label %10, label %.loopexit
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 100
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %12 = load i8, ptr %11, align 4
   %13 = trunc i8 %12 to i1
   br i1 %13, label %37, label %14
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %1, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 240
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 240
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef nonnull align 8 dereferenceable(152) ptr %17(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %19 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %18)
@@ -367,8 +367,8 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %or.cond91, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %14
-  %22 = getelementptr inbounds i8, ptr %1, i64 192
-  %23 = getelementptr inbounds i8, ptr %4, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %23 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %24 = zext nneg i32 %19 to i64
   br label %25
 
@@ -376,9 +376,9 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %26 = phi i32 [ %21, %.lr.ph ], [ %35, %25 ]
   %27 = load ptr, ptr %22, align 8
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %29, i64 %indvars.iv
   %31 = sext i32 %26 to i64
   %32 = load ptr, ptr %23, align 8
   %33 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %32, i64 %31
@@ -393,17 +393,17 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %or.cond, label %25, label %.loopexit, !llvm.loop !8
 
 37:                                               ; preds = %10
-  %38 = getelementptr inbounds i8, ptr %0, i64 104
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %39 = load i32, ptr %38, align 8
   %40 = add nsw i32 %39, %9
-  %41 = getelementptr inbounds i8, ptr %0, i64 108
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %42 = load i8, ptr %41, align 4
   %43 = trunc i8 %42 to i1
   %44 = load ptr, ptr %1, align 8
   br i1 %43, label %65, label %45
 
 45:                                               ; preds = %37
-  %46 = getelementptr inbounds i8, ptr %44, i64 240
+  %46 = getelementptr inbounds nuw i8, ptr %44, i64 240
   %47 = load ptr, ptr %46, align 8
   %48 = tail call noundef nonnull align 8 dereferenceable(152) ptr %47(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %49 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %48)
@@ -413,8 +413,8 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %or.cond7493, label %.lr.ph96, label %.loopexit
 
 .lr.ph96:                                         ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %1, i64 192
-  %52 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %53 = icmp sgt i32 %49, 1
   %54 = zext i1 %53 to i64
   %55 = sext i32 %50 to i64
@@ -425,9 +425,9 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %indvars.iv119 = phi i64 [ %55, %.lr.ph96 ], [ %indvars.iv.next120, %56 ]
   %indvars.iv117 = phi i64 [ 0, %.lr.ph96 ], [ %indvars.iv.next118, %56 ]
   %57 = load ptr, ptr %51, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %59, i64 %indvars.iv117
+  %60 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %59, i64 %indvars.iv117
   %61 = load ptr, ptr %52, align 8
   %62 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %61, i64 %indvars.iv119
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %62, ptr noundef nonnull align 8 dereferenceable(12) %60, i64 12, i1 false)
@@ -440,21 +440,21 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %exitcond.not, label %.loopexit, label %56, !llvm.loop !9
 
 65:                                               ; preds = %37
-  %66 = getelementptr inbounds i8, ptr %44, i64 328
+  %66 = getelementptr inbounds nuw i8, ptr %44, i64 328
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   br i1 %68, label %.preheader83, label %139
 
 .preheader83:                                     ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %0, i64 112
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %70 = load i32, ptr %69, align 8
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %.preheader83
-  %72 = getelementptr inbounds i8, ptr %0, i64 116
-  %73 = getelementptr inbounds i8, ptr %4, i64 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 192
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %73 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %75 = load i32, ptr %72, align 4
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.preheader, label %.loopexit
@@ -474,11 +474,11 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %83 = add i32 %82, %.065105
   %84 = add i32 %83, %81
   %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 240
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 240
   %87 = load ptr, ptr %86, align 8
   %88 = tail call noundef nonnull align 8 dereferenceable(152) ptr %87(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 112
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %91 = load ptr, ptr %90, align 8
   %92 = tail call noundef i32 %91(ptr noundef nonnull align 8 dereferenceable(152) %88) #5
   %93 = icmp slt i32 %.065105, %92
@@ -486,11 +486,11 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 
 94:                                               ; preds = %.lr.ph107
   %95 = load ptr, ptr %1, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 240
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 240
   %97 = load ptr, ptr %96, align 8
   %98 = tail call noundef nonnull align 8 dereferenceable(152) ptr %97(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 104
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 104
   %101 = load ptr, ptr %100, align 8
   %102 = tail call noundef i32 %101(ptr noundef nonnull align 8 dereferenceable(152) %98) #5
   %103 = icmp slt i32 %.066109, %102
@@ -498,18 +498,18 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 
 104:                                              ; preds = %94
   %105 = load ptr, ptr %1, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 240
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 240
   %107 = load ptr, ptr %106, align 8
   %108 = tail call noundef nonnull align 8 dereferenceable(152) ptr %107(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr inbounds i8, ptr %109, i64 112
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 112
   %111 = load ptr, ptr %110, align 8
   %112 = tail call noundef i32 %111(ptr noundef nonnull align 8 dereferenceable(152) %108) #5
   %113 = mul nsw i32 %112, %.066109
   %114 = add nsw i32 %113, %.065105
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %74, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8
   %119 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %118, i64 %115
   %120 = sext i32 %84 to i64
@@ -523,7 +523,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %125 = sext i32 %84 to i64
   %126 = load ptr, ptr %73, align 8
   %127 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %126, i64 %125
-  %128 = getelementptr inbounds i8, ptr %127, i64 8
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   br i1 %124, label %129, label %130
 
 129:                                              ; preds = %123
@@ -555,7 +555,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 
 139:                                              ; preds = %65
   %140 = load ptr, ptr %1, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 240
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 240
   %142 = load ptr, ptr %141, align 8
   %143 = tail call noundef nonnull align 8 dereferenceable(152) ptr %142(ptr noundef nonnull align 8 dereferenceable(184) %1) #5
   %144 = tail call noundef i32 @_ZNK7glslang5TType20computeNumComponentsEv(ptr noundef nonnull align 8 dereferenceable(152) %143)
@@ -563,15 +563,15 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %145, label %.preheader85, label %182
 
 .preheader85:                                     ; preds = %139
-  %146 = getelementptr inbounds i8, ptr %0, i64 112
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %147 = load i32, ptr %146, align 8
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %.preheader84.lr.ph, label %.loopexit
 
 .preheader84.lr.ph:                               ; preds = %.preheader85
-  %149 = getelementptr inbounds i8, ptr %0, i64 116
-  %150 = getelementptr inbounds i8, ptr %4, i64 8
-  %151 = getelementptr inbounds i8, ptr %1, i64 192
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %150 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %152 = load i32, ptr %149, align 4
   %153 = icmp sgt i32 %152, 0
   br i1 %153, label %.preheader84, label %.loopexit
@@ -590,7 +590,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
 
 158:                                              ; preds = %.lr.ph103
   %159 = load ptr, ptr %151, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 8
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 8
   %161 = load ptr, ptr %160, align 8
   %162 = load i32, ptr %8, align 8
   %163 = sext i32 %162 to i64
@@ -605,7 +605,7 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %169 = load ptr, ptr %150, align 8
   %170 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %169, i64 %168
   store double 0.000000e+00, ptr %170, align 8
-  %171 = getelementptr inbounds i8, ptr %170, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   store i32 2, ptr %171, align 8
   br label %172
 
@@ -636,8 +636,8 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   br i1 %or.cond7598, label %.lr.ph101, label %.loopexit
 
 .lr.ph101:                                        ; preds = %182
-  %184 = getelementptr inbounds i8, ptr %1, i64 192
-  %185 = getelementptr inbounds i8, ptr %4, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %185 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %186 = sext i32 %183 to i64
   %187 = sub i32 %invariant.smin97, %183
   %wide.trip.count131 = zext i32 %187 to i64
@@ -647,9 +647,9 @@ define void @_ZN7glslang15TConstTraverser18visitConstantUnionEPNS_20TIntermConst
   %indvars.iv126 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next127, %188 ]
   %indvars.iv124 = phi i64 [ %186, %.lr.ph101 ], [ %indvars.iv.next125, %188 ]
   %189 = load ptr, ptr %184, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = load ptr, ptr %190, align 8
-  %192 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %191, i64 %indvars.iv126
+  %192 = getelementptr inbounds nuw %"class.glslang::TConstUnion", ptr %191, i64 %indvars.iv126
   %193 = load ptr, ptr %185, align 8
   %194 = getelementptr inbounds %"class.glslang::TConstUnion", ptr %193, i64 %indvars.iv124
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %194, ptr noundef nonnull align 8 dereferenceable(12) %192, i64 12, i1 false)
@@ -681,42 +681,42 @@ define noundef zeroext i1 @_ZN7glslang13TIntermediate14parseConstTreeEP11TInterm
 
 9:                                                ; preds = %6
   %10 = zext i1 %5 to i8
-  %11 = getelementptr inbounds i8, ptr %7, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i8 1, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %7, i64 9
-  %13 = getelementptr inbounds i8, ptr %7, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 9
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %12, i8 0, i64 11, i1 false)
   %14 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #5
   store ptr %14, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %7, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
   store ptr getelementptr inbounds inrange(-16, 88) (i8, ptr @_ZTVN7glslang15TConstTraverserE, i64 16), ptr %7, align 8
-  %16 = getelementptr inbounds i8, ptr %7, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store ptr getelementptr inbounds inrange(-16, 16) (i8, ptr @_ZTVN7glslang16TConstUnionArrayE, i64 16), ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %7, i64 72
-  %18 = getelementptr inbounds i8, ptr %2, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %7, i64 72
+  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %17, align 8
-  %20 = getelementptr inbounds i8, ptr %7, i64 88
+  %20 = getelementptr inbounds nuw i8, ptr %7, i64 88
   store ptr %4, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %7, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %7, i64 96
   store i32 %3, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %7, i64 100
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 100
   store i8 %10, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %7, i64 101
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 101
   store i8 0, ptr %23, align 1
-  %24 = getelementptr inbounds i8, ptr %7, i64 108
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 108
   store i8 0, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %7, i64 112
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 112
   store i32 0, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %7, i64 116
+  %26 = getelementptr inbounds nuw i8, ptr %7, i64 116
   store i32 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %7, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store i32 0, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %7, i64 80
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 80
   store i32 0, ptr %28, align 8
   %29 = load ptr, ptr %1, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
   call void %31(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %7) #5
   %32 = load i8, ptr %23, align 1

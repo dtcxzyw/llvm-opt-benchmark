@@ -38,10 +38,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 256, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -94,7 +94,7 @@ if.then4:                                         ; preds = %if.end2
   br label %return
 
 if.end5:                                          ; preds = %if.end2
-  %pad1.i = getelementptr inbounds i8, ptr %vctx, i64 108
+  %pad1.i = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %bf.load.i = load i8, ptr %pad1.i, align 4
   %bf.clear.i = and i8 %bf.load.i, 1
   %cmp.i = icmp eq ptr %in, null
@@ -146,14 +146,14 @@ if.then26.i:                                      ; preds = %if.end17.thread.i
   br label %aes_wrap_cipher_internal.exit
 
 if.end32.i:                                       ; preds = %if.end17.thread.i, %if.end17.i
-  %wrapfn.i = getelementptr inbounds i8, ptr %vctx, i64 440
+  %wrapfn.i = getelementptr inbounds nuw i8, ptr %vctx, i64 440
   %2 = load ptr, ptr %wrapfn.i, align 8
-  %ks.i = getelementptr inbounds i8, ptr %vctx, i64 192
+  %ks.i = getelementptr inbounds nuw i8, ptr %vctx, i64 192
   %3 = and i8 %bf.load.i, 4
   %tobool37.not.i = icmp eq i8 %3, 0
-  %iv.i = getelementptr inbounds i8, ptr %vctx, i64 32
+  %iv.i = getelementptr inbounds nuw i8, ptr %vctx, i64 32
   %cond.i = select i1 %tobool37.not.i, ptr null, ptr %iv.i
-  %block.i = getelementptr inbounds i8, ptr %vctx, i64 48
+  %block.i = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   %4 = load ptr, ptr %block.i, align 8
   %call.i = tail call i64 %2(ptr noundef nonnull %ks.i, ptr noundef %cond.i, ptr noundef nonnull %out, ptr noundef nonnull %in, i64 noundef range(i64 1, 0) %inl, ptr noundef %4) #3
   %tobool38.not.i = icmp eq i64 %call.i, 0
@@ -234,19 +234,19 @@ if.end:                                           ; preds = %entry
   br i1 %cmp1.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %tlsmac = getelementptr inbounds i8, ptr %call, i64 120
+  %tlsmac = getelementptr inbounds nuw i8, ptr %call, i64 120
   %0 = load ptr, ptr %tlsmac, align 8
   %cmp2.not = icmp eq ptr %0, null
   br i1 %cmp2.not, label %return, label %land.lhs.true3
 
 land.lhs.true3:                                   ; preds = %land.lhs.true
-  %alloced = getelementptr inbounds i8, ptr %call, i64 128
+  %alloced = getelementptr inbounds nuw i8, ptr %call, i64 128
   %1 = load i32, ptr %alloced, align 8
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %return, label %if.then5
 
 if.then5:                                         ; preds = %land.lhs.true3
-  %tlsmacsize = getelementptr inbounds i8, ptr %call, i64 136
+  %tlsmacsize = getelementptr inbounds nuw i8, ptr %call, i64 136
   %2 = load i64, ptr %tlsmacsize, align 8
   %call9 = tail call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %0, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 80) #3
   store ptr %call9, ptr %tlsmac, align 8
@@ -292,7 +292,7 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %return.sink.split, label %if.end5
 
 if.end5:                                          ; preds = %if.then2
-  %keylen6 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen6 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %0 = load i64, ptr %keylen6, align 8
   %1 = load i64, ptr %keylen, align 8
   %cmp7.not = icmp eq i64 %0, %1
@@ -329,10 +329,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 192, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -366,10 +366,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 128, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -403,10 +403,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 256, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -440,10 +440,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 192, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -477,10 +477,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 128, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 2, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -514,10 +514,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 256, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -551,10 +551,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 192, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -588,10 +588,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 128, i64 noundef 64, i64 noundef 64, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -625,10 +625,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 256, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -662,10 +662,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 192, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -699,10 +699,10 @@ if.end.i:                                         ; preds = %entry
 
 if.then2.i:                                       ; preds = %if.end.i
   tail call void @ossl_cipher_generic_initkey(ptr noundef nonnull %call1.i, i64 noundef 128, i64 noundef 64, i64 noundef 32, i32 noundef 65538, i64 noundef 514, ptr noundef null, ptr noundef null) #3
-  %ivlen.i = getelementptr inbounds i8, ptr %call1.i, i64 80
+  %ivlen.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 80
   %0 = load i64, ptr %ivlen.i, align 8
   %cmp3.i = icmp eq i64 %0, 4
-  %pad.i = getelementptr inbounds i8, ptr %call1.i, i64 108
+  %pad.i = getelementptr inbounds nuw i8, ptr %call1.i, i64 108
   %1 = zext i1 %cmp3.i to i8
   %bf.load.i = load i8, ptr %pad.i, align 4
   %bf.clear.i = and i8 %bf.load.i, -2
@@ -737,7 +737,7 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %enc1 = getelementptr inbounds i8, ptr %vctx, i64 108
+  %enc1 = getelementptr inbounds nuw i8, ptr %vctx, i64 108
   %0 = trunc nuw nsw i32 %enc to i8
   %bf.load = load i8, ptr %enc1, align 4
   %bf.shl = shl nuw nsw i8 %0, 1
@@ -750,7 +750,7 @@ if.end:                                           ; preds = %entry
   %cond8 = select i1 %tobool7.not, ptr @CRYPTO_128_unwrap, ptr @CRYPTO_128_wrap
   %cond = select i1 %tobool7.not, ptr @CRYPTO_128_unwrap_pad, ptr @CRYPTO_128_wrap_pad
   %cond.sink = select i1 %tobool4.not, ptr %cond8, ptr %cond
-  %1 = getelementptr inbounds i8, ptr %vctx, i64 440
+  %1 = getelementptr inbounds nuw i8, ptr %vctx, i64 440
   store ptr %cond.sink, ptr %1, align 8
   %cmp.not = icmp eq ptr %iv, null
   br i1 %cmp.not, label %if.end16, label %if.then11
@@ -765,7 +765,7 @@ if.end16:                                         ; preds = %if.then11, %if.end
   br i1 %cmp17.not, label %if.end51, label %if.then18
 
 if.then18:                                        ; preds = %if.end16
-  %keylen19 = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen19 = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %2 = load i64, ptr %keylen19, align 8
   %cmp20.not = icmp eq i64 %keylen, %2
   br i1 %cmp20.not, label %if.end22, label %if.then21
@@ -799,8 +799,8 @@ if.end40:                                         ; preds = %if.else33, %if.then
   %tobool41.not = icmp eq i32 %use_forward_transform.0, 0
   %keylen.tr = trunc i64 %keylen to i32
   %conv46 = shl i32 %keylen.tr, 3
-  %ks47 = getelementptr inbounds i8, ptr %vctx, i64 192
-  %block49 = getelementptr inbounds i8, ptr %vctx, i64 48
+  %ks47 = getelementptr inbounds nuw i8, ptr %vctx, i64 192
+  %block49 = getelementptr inbounds nuw i8, ptr %vctx, i64 48
   br i1 %tobool41.not, label %if.else44, label %if.then42
 
 if.then42:                                        ; preds = %if.end40
@@ -833,7 +833,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i, label %return.sink.split.i, label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i
-  %keylen6.i = getelementptr inbounds i8, ptr %vctx, i64 72
+  %keylen6.i = getelementptr inbounds nuw i8, ptr %vctx, i64 72
   %5 = load i64, ptr %keylen6.i, align 8
   %6 = load i64, ptr %keylen.i, align 8
   %cmp7.not.i = icmp eq i64 %5, %6

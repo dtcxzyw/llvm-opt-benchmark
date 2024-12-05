@@ -477,7 +477,7 @@ declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unn
 
 ; Function Attrs: nounwind uwtable
 define internal i32 @dissect_AllJoyn_name_server(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture readnone %3) #0 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   tail call void @col_set_str(ptr noundef %6, i32 noundef 34, ptr noundef nonnull @.str.254) #5
   %7 = load ptr, ptr %5, align 8
@@ -925,7 +925,7 @@ define internal i32 @dissect_AllJoyn_ardp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %or.cond, label %19, label %protocol_is_ardp.exit.thread
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds i8, ptr %1, i64 336
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 0, ptr %20, align 8
   %21 = load i32, ptr @proto_AllJoyn_ardp, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
@@ -942,14 +942,14 @@ define internal i32 @dissect_AllJoyn_ardp(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %19
-  %33 = getelementptr inbounds i8, ptr %1, i64 328
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %34 = load i16, ptr %33, align 8
   %.not.i.i = icmp eq i16 %34, 0
   br i1 %.not.i.i, label %ardp_parse_header.exit, label %ardp_parse_header.exit.thread
 
 ardp_parse_header.exit.thread:                    ; preds = %32
   %35 = sub i32 8, %25
-  %36 = getelementptr inbounds i8, ptr %1, i64 332
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %36, align 4
   store i32 %35, ptr %20, align 8
   br label %protocol_is_ardp.exit.thread
@@ -964,7 +964,7 @@ ardp_parse_header.exit.thread:                    ; preds = %32
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %37
-  %45 = getelementptr inbounds i8, ptr %1, i64 328
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %46 = load i16, ptr %45, align 8
   %.not.i135.i = icmp eq i16 %46, 0
   br i1 %.not.i135.i, label %ardp_parse_header.exit, label %ardp_parse_header.exit.thread159
@@ -1050,13 +1050,13 @@ ardp_parse_header.exit:                           ; preds = %32, %44, %76, %101,
 
 ardp_parse_header.exit.thread159:                 ; preds = %44
   %104 = sub nsw i32 %42, %25
-  %105 = getelementptr inbounds i8, ptr %1, i64 332
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 332
   store i32 0, ptr %105, align 4
   store i32 %104, ptr %20, align 8
   br label %protocol_is_ardp.exit.thread
 
 .thread:                                          ; preds = %ardp_parse_header.exit
-  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %107 = load ptr, ptr %106, align 8
   tail call void @col_set_str(ptr noundef %107, i32 noundef 34, ptr noundef nonnull @.str.259) #5
   %108 = zext i16 %.sroa.71.1.ph to i32
@@ -1225,7 +1225,7 @@ define internal fastcc range(i32 0, 2) i32 @protocol_is_alljoyn_message(ptr noun
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %8 ]
   %12 = getelementptr [7 x %struct._sasl_cmd], ptr @sasl_commands, i64 0, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 16
-  %14 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
   %17 = tail call i32 @tvb_strneql(ptr noundef %0, i32 noundef %1, ptr noundef %13, i64 noundef %16) #5
@@ -1262,10 +1262,10 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   %7 = alloca ptr, align 8
   %8 = alloca i8, align 1
   %.not.not = icmp eq i32 %3, 0
-  %9 = getelementptr inbounds i8, ptr %1, i64 336
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 336
   store i32 0, ptr %9, align 8
   %10 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   tail call void @col_clear(ptr noundef %12, i32 noundef 25) #5
   %13 = load ptr, ptr %11, align 8
@@ -1280,8 +1280,8 @@ define internal fastcc i32 @dissect_AllJoyn_message(ptr noundef %0, ptr noundef 
   br i1 %20, label %.lr.ph, label %handle_message_sasl.exit._crit_edge
 
 .lr.ph:                                           ; preds = %4
-  %21 = getelementptr inbounds i8, ptr %1, i64 328
-  %22 = getelementptr inbounds i8, ptr %1, i64 332
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 332
   br label %23
 
 23:                                               ; preds = %.lr.ph, %handle_message_header_body.exit
@@ -1315,7 +1315,7 @@ handle_message_connect.exit:                      ; preds = %24, %27
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %32 ], [ 0, %handle_message_connect.exit ]
   %33 = getelementptr [7 x %struct._sasl_cmd], ptr @sasl_commands, i64 0, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 16
-  %35 = getelementptr inbounds i8, ptr %33, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = zext i32 %36 to i64
   %38 = call i32 @tvb_strneql(ptr noundef %0, i32 noundef %.0.i, ptr noundef %34, i64 noundef %37) #5
@@ -1773,7 +1773,7 @@ define internal fastcc i32 @parse_arg(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %29, %25
-  %33 = getelementptr inbounds i8, ptr %1, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.281) #5
   %35 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
@@ -1827,7 +1827,7 @@ get_uint32.exit:                                  ; preds = %53, %55
   br i1 %or.cond441, label %63, label %68
 
 63:                                               ; preds = %get_uint32.exit
-  %64 = getelementptr inbounds i8, ptr %1, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %65 = load ptr, ptr %64, align 8
   %66 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %60) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %65, i32 noundef 25, ptr noundef nonnull @parse_arg.bad_array_format, i32 noundef %57, i32 noundef %66) #5
@@ -1882,7 +1882,7 @@ get_uint32.exit:                                  ; preds = %53, %55
   br i1 %.not438, label %491, label %87
 
 87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %1, i64 408
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %89 = load ptr, ptr %88, align 8
   %90 = load i8, ptr %37, align 1
   %91 = call ptr @format_char(ptr noundef %89, i8 noundef signext %90) #5
@@ -1957,7 +1957,7 @@ add_padding_item.exit444:                         ; preds = %110, %116, %119, %1
 
 134:                                              ; preds = %128
   %135 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4) #5
-  %136 = getelementptr inbounds i8, ptr %1, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %137 = load ptr, ptr %136, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %137, i32 noundef 25, ptr noundef nonnull @.str.283, i32 noundef %130, i32 noundef %135) #5
   %138 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
@@ -1969,7 +1969,7 @@ add_padding_item.exit444:                         ; preds = %110, %116, %119, %1
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %5, i32 noundef %141, ptr noundef %0, i32 noundef %4, i32 noundef 1, i32 noundef %3) #5
   %143 = add i32 %4, 1
   %144 = load i32, ptr @hf_alljoyn_mess_body_signature, align 4
-  %145 = getelementptr inbounds i8, ptr %1, i64 408
+  %145 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %146 = load ptr, ptr %145, align 8
   %147 = tail call ptr @proto_tree_add_item_ret_string(ptr noundef %5, i32 noundef %144, ptr noundef %0, i32 noundef %143, i32 noundef %140, i32 noundef 0, ptr noundef %146, ptr noundef nonnull %9) #5
   %148 = trunc i32 %140 to i8
@@ -1978,7 +1978,7 @@ add_padding_item.exit444:                         ; preds = %110, %116, %119, %1
   br i1 %149, label %150, label %154
 
 150:                                              ; preds = %139
-  %151 = getelementptr inbounds i8, ptr %1, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %152 = load ptr, ptr %151, align 8
   %153 = load ptr, ptr %9, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %152, i32 noundef 25, ptr noundef nonnull @.str.284, ptr noundef %153) #5
@@ -2100,7 +2100,7 @@ get_uint32.exit448:                               ; preds = %212, %214
   br i1 %221, label %222, label %228
 
 222:                                              ; preds = %218, %get_uint32.exit448
-  %223 = getelementptr inbounds i8, ptr %1, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %224 = load ptr, ptr %223, align 8
   %225 = add i32 %4, 4
   %226 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %225) #5
@@ -2194,7 +2194,7 @@ get_uint32.exit451:                               ; preds = %271, %273
   br i1 %279, label %280, label %285
 
 280:                                              ; preds = %277, %get_uint32.exit451
-  %281 = getelementptr inbounds i8, ptr %1, i64 8
+  %281 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %282 = load ptr, ptr %281, align 8
   %283 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %257) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %282, i32 noundef 25, ptr noundef nonnull @.str.286, i32 noundef %275, i32 noundef %283) #5
@@ -2205,14 +2205,14 @@ get_uint32.exit451:                               ; preds = %271, %273
   %286 = add nuw i32 %275, 1
   %287 = add i32 %257, 4
   %288 = load i32, ptr @hf_alljoyn_string_data, align 4
-  %289 = getelementptr inbounds i8, ptr %1, i64 408
+  %289 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %290 = load ptr, ptr %289, align 8
   %291 = call ptr @proto_tree_add_item_ret_string(ptr noundef %5, i32 noundef %288, ptr noundef %0, i32 noundef %287, i32 noundef %286, i32 noundef 2, ptr noundef %290, ptr noundef nonnull %15) #5
   %292 = icmp eq i8 %8, 3
   br i1 %292, label %293, label %297
 
 293:                                              ; preds = %285
-  %294 = getelementptr inbounds i8, ptr %1, i64 8
+  %294 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %295 = load ptr, ptr %294, align 8
   %296 = load ptr, ptr %15, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %295, i32 noundef 25, ptr noundef nonnull @.str.287, ptr noundef %296) #5
@@ -2292,7 +2292,7 @@ add_padding_item.exit453:                         ; preds = %317, %323, %326, %3
 
 get_uint32.exit454:                               ; preds = %334, %336
   %338 = phi i32 [ %335, %334 ], [ %337, %336 ]
-  %339 = getelementptr inbounds i8, ptr %1, i64 8
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %340 = load ptr, ptr %339, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %340, i32 noundef 25, ptr noundef nonnull @parse_arg.format, i32 noundef %338) #5
   %.not437 = icmp eq ptr %2, null
@@ -2323,7 +2323,7 @@ get_uint32.exit454:                               ; preds = %334, %336
 
 354:                                              ; preds = %349
   %355 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %4) #5
-  %356 = getelementptr inbounds i8, ptr %1, i64 8
+  %356 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %357 = load ptr, ptr %356, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %357, i32 noundef 25, ptr noundef nonnull @.str.288, i32 noundef %351, i32 noundef %355) #5
   %358 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
@@ -2342,7 +2342,7 @@ get_uint32.exit454:                               ; preds = %334, %336
   %368 = load i32, ptr @ett_alljoyn_mess_body_parameters, align 4
   %369 = tail call ptr @proto_item_add_subtree(ptr noundef %362, i32 noundef %368) #5
   %370 = load i32, ptr @hf_alljoyn_mess_body_signature, align 4
-  %371 = getelementptr inbounds i8, ptr %1, i64 408
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %372 = load ptr, ptr %371, align 8
   %373 = call ptr @proto_tree_add_item_ret_string(ptr noundef %369, i32 noundef %370, ptr noundef %0, i32 noundef %367, i32 noundef %360, i32 noundef 0, ptr noundef %372, ptr noundef nonnull %16) #5
   %374 = add i32 %367, %360
@@ -2448,7 +2448,7 @@ add_padding_item.exit455:                         ; preds = %403, %409, %412, %4
   br i1 %431, label %432, label %437
 
 432:                                              ; preds = %429, %426
-  %433 = getelementptr inbounds i8, ptr %1, i64 8
+  %433 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %434 = load ptr, ptr %433, align 8
   %435 = tail call ptr @val_to_str_const(i32 noundef %19, ptr noundef nonnull @header_type_vals, ptr noundef nonnull @.str.292) #5
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %434, i32 noundef 25, ptr noundef nonnull @.str.291, ptr noundef %435) #5

@@ -15,8 +15,8 @@ define noundef ptr @strcat(ptr noundef returned %0, ptr nocapture noundef readon
   %6 = phi i8 [ %9, %.lr.ph ], [ %5, %2 ]
   %.011 = phi ptr [ %8, %.lr.ph ], [ %4, %2 ]
   %.0810 = phi ptr [ %7, %.lr.ph ], [ %1, %2 ]
-  %7 = getelementptr inbounds i8, ptr %.0810, i64 1
-  %8 = getelementptr inbounds i8, ptr %.011, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.0810, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   store i8 %6, ptr %.011, align 1
   %9 = load i8, ptr %7, align 1
   %.not = icmp eq i8 %9, 0

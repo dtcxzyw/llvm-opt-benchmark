@@ -81,8 +81,8 @@ if.end:                                           ; preds = %lor.lhs.false
   br i1 %cmp, label %if.then3, label %if.end4
 
 if.then3:                                         ; preds = %if.end
-  %siphash = getelementptr inbounds i8, ptr %vmacctx, i64 8
-  %sipcopy = getelementptr inbounds i8, ptr %vmacctx, i64 72
+  %siphash = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
+  %sipcopy = getelementptr inbounds nuw i8, ptr %vmacctx, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %siphash, ptr noundef nonnull align 8 dereferenceable(64) %sipcopy, i64 64, i1 false)
   br label %return
 
@@ -91,7 +91,7 @@ if.end4:                                          ; preds = %if.end
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %if.end4
-  %siphash.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = getelementptr i8, ptr %vmacctx, i64 136
   %ctx.val.i = load i32, ptr %0, align 8
   %cmp.not.i.i = icmp eq i32 %ctx.val.i, 0
@@ -105,7 +105,7 @@ if.end.i:                                         ; preds = %if.end4
   br i1 %tobool.not.i, label %return, label %if.then3.i
 
 if.then3.i:                                       ; preds = %if.end.i
-  %sipcopy.i = getelementptr inbounds i8, ptr %vmacctx, i64 72
+  %sipcopy.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 72
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sipcopy.i, ptr noundef nonnull align 8 dereferenceable(64) %siphash.i, i64 64, i1 false)
   br label %return
 
@@ -121,7 +121,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %siphash = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   tail call void @SipHash_Update(ptr noundef nonnull %siphash, ptr noundef %data, i64 noundef %datalen) #4
   br label %return
 
@@ -132,7 +132,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind uwtable
 define internal i32 @siphash_final(ptr noundef %vmacctx, ptr noundef %out, ptr nocapture noundef writeonly %outl, i64 noundef %outsize) #0 {
 entry:
-  %siphash.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %call.i = tail call i64 @SipHash_hash_size(ptr noundef nonnull %siphash.i) #4
   %call1 = tail call i32 @ossl_prov_is_running() #4
   %tobool.not = icmp eq i32 %call1, 0
@@ -164,7 +164,7 @@ entry:
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %siphash.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %call.i = tail call i64 @SipHash_hash_size(ptr noundef nonnull %siphash.i) #4
   %call2 = tail call i32 @OSSL_PARAM_set_size_t(ptr noundef nonnull %call, i64 noundef %call.i) #4
   %tobool.not = icmp eq i32 %call2, 0
@@ -230,14 +230,14 @@ if.then2:                                         ; preds = %if.end
   br i1 %tobool.not, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then2
-  %siphash = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %0 = load i64, ptr %size, align 8
   %call4 = call i32 @SipHash_set_hash_size(ptr noundef nonnull %siphash, i64 noundef %0) #4
   %tobool5.not = icmp eq i32 %call4, 0
   br i1 %tobool5.not, label %return, label %lor.lhs.false6
 
 lor.lhs.false6:                                   ; preds = %lor.lhs.false
-  %sipcopy = getelementptr inbounds i8, ptr %vmacctx, i64 72
+  %sipcopy = getelementptr inbounds nuw i8, ptr %vmacctx, i64 72
   %1 = load i64, ptr %size, align 8
   %call7 = call i32 @SipHash_set_hash_size(ptr noundef nonnull %sipcopy, i64 noundef %1) #4
   %tobool8.not = icmp eq i32 %call7, 0
@@ -249,7 +249,7 @@ if.end11:                                         ; preds = %lor.lhs.false6, %if
   br i1 %cmp13.not, label %if.end17, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end11
-  %crounds = getelementptr inbounds i8, ptr %vmacctx, i64 136
+  %crounds = getelementptr inbounds nuw i8, ptr %vmacctx, i64 136
   %call14 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call12, ptr noundef nonnull %crounds) #4
   %tobool15.not = icmp eq i32 %call14, 0
   br i1 %tobool15.not, label %return, label %if.end17
@@ -260,7 +260,7 @@ if.end17:                                         ; preds = %land.lhs.true, %if.
   br i1 %cmp19.not, label %if.end24, label %land.lhs.true20
 
 land.lhs.true20:                                  ; preds = %if.end17
-  %drounds = getelementptr inbounds i8, ptr %vmacctx, i64 140
+  %drounds = getelementptr inbounds nuw i8, ptr %vmacctx, i64 140
   %call21 = call i32 @OSSL_PARAM_get_uint(ptr noundef nonnull %call18, ptr noundef nonnull %drounds) #4
   %tobool22.not = icmp eq i32 %call21, 0
   br i1 %tobool22.not, label %return, label %if.end24
@@ -271,21 +271,21 @@ if.end24:                                         ; preds = %land.lhs.true20, %i
   br i1 %cmp26.not, label %return, label %if.then27
 
 if.then27:                                        ; preds = %if.end24
-  %data_type = getelementptr inbounds i8, ptr %call25, i64 8
+  %data_type = getelementptr inbounds nuw i8, ptr %call25, i64 8
   %2 = load i32, ptr %data_type, align 8
   %cmp28.not = icmp eq i32 %2, 5
   br i1 %cmp28.not, label %lor.lhs.false29, label %return
 
 lor.lhs.false29:                                  ; preds = %if.then27
-  %data_size = getelementptr inbounds i8, ptr %call25, i64 24
+  %data_size = getelementptr inbounds nuw i8, ptr %call25, i64 24
   %3 = load i64, ptr %data_size, align 8
   %cmp.not.i = icmp eq i64 %3, 16
   br i1 %cmp.not.i, label %if.end.i, label %return
 
 if.end.i:                                         ; preds = %lor.lhs.false29
-  %data = getelementptr inbounds i8, ptr %call25, i64 16
+  %data = getelementptr inbounds nuw i8, ptr %call25, i64 16
   %4 = load ptr, ptr %data, align 8
-  %siphash.i = getelementptr inbounds i8, ptr %vmacctx, i64 8
+  %siphash.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 8
   %5 = getelementptr i8, ptr %vmacctx, i64 136
   %ctx.val.i = load i32, ptr %5, align 8
   %cmp.not.i.i = icmp eq i32 %ctx.val.i, 0
@@ -299,7 +299,7 @@ if.end.i:                                         ; preds = %lor.lhs.false29
   br i1 %tobool.not.i, label %return, label %siphash_setkey.exit
 
 siphash_setkey.exit:                              ; preds = %if.end.i
-  %sipcopy.i = getelementptr inbounds i8, ptr %vmacctx, i64 72
+  %sipcopy.i = getelementptr inbounds nuw i8, ptr %vmacctx, i64 72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %sipcopy.i, ptr noundef nonnull align 8 dereferenceable(64) %siphash.i, i64 64, i1 false)
   br label %return
 

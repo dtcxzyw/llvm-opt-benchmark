@@ -1092,21 +1092,21 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -2147483648, 2) i32 @greek_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28)) %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %5, align 4
   store i32 %6, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %6, ptr %7, align 8
   %8 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_0, i32 noundef 46) #2
   %.not123.i = icmp eq i32 %8, 0
   br i1 %.not123.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   br label %10
 
 10:                                               ; preds = %91, %.lr.ph.i
@@ -1288,7 +1288,7 @@ define hidden range(i32 -2147483648, 2) i32 @greek_UTF_8_stem(ptr noundef initia
   br i1 %96, label %r_steps1.exit, label %97
 
 97:                                               ; preds = %.loopexit
-  %98 = getelementptr inbounds i8, ptr %0, i64 40
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load ptr, ptr %98, align 8
   store i32 1, ptr %99, align 4
   %100 = load i32, ptr %5, align 4
@@ -1300,7 +1300,7 @@ define hidden range(i32 -2147483648, 2) i32 @greek_UTF_8_stem(ptr noundef initia
 
 103:                                              ; preds = %97
   %104 = load i32, ptr %2, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 20
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %104, ptr %105, align 4
   switch i32 %102, label %139 [
     i32 1, label %106
@@ -1388,7 +1388,7 @@ r_step1.exit:                                     ; preds = %139, %97
 
 144:                                              ; preds = %r_step1.exit
   %145 = load i32, ptr %2, align 8
-  %146 = getelementptr inbounds i8, ptr %0, i64 20
+  %146 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %145, ptr %146, align 4
   %147 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %148 = icmp slt i32 %147, 0
@@ -1437,7 +1437,7 @@ r_step1.exit:                                     ; preds = %139, %97
 
 168:                                              ; preds = %164
   %169 = load i32, ptr %2, align 8
-  %170 = getelementptr inbounds i8, ptr %0, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %169, ptr %170, align 4
   %171 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %172 = icmp slt i32 %171, 0
@@ -1475,7 +1475,7 @@ r_step1.exit:                                     ; preds = %139, %97
 
 188:                                              ; preds = %184
   %189 = load i32, ptr %2, align 8
-  %190 = getelementptr inbounds i8, ptr %0, i64 20
+  %190 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %189, ptr %190, align 4
   %191 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %192 = icmp slt i32 %191, 0
@@ -1545,7 +1545,7 @@ r_steps3.exit:                                    ; preds = %202, %213, %214, %2
 
 223:                                              ; preds = %r_steps3.exit
   %224 = load i32, ptr %2, align 8
-  %225 = getelementptr inbounds i8, ptr %0, i64 20
+  %225 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %224, ptr %225, align 4
   %226 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %227 = icmp slt i32 %226, 0
@@ -1607,7 +1607,7 @@ r_steps3.exit:                                    ; preds = %202, %213, %214, %2
 
 257:                                              ; preds = %253
   %258 = load i32, ptr %2, align 8
-  %259 = getelementptr inbounds i8, ptr %0, i64 20
+  %259 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %258, ptr %259, align 4
   %260 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %261 = icmp slt i32 %260, 0
@@ -1656,7 +1656,7 @@ r_steps3.exit:                                    ; preds = %202, %213, %214, %2
 
 281:                                              ; preds = %277
   %282 = load i32, ptr %2, align 8
-  %283 = getelementptr inbounds i8, ptr %0, i64 20
+  %283 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %282, ptr %283, align 4
   %284 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %285 = icmp slt i32 %284, 0
@@ -2015,12 +2015,12 @@ r_steps1.exit:                                    ; preds = %13, %16, %19, %22, 
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_steps7(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %41
@@ -2043,14 +2043,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps7(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %41, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -2095,9 +2095,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps7(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_steps8(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_18, i32 noundef 8) #2
   %.not = icmp eq i32 %5, 0
@@ -2105,17 +2105,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps8(ptr noundef initi
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %38, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %2, align 8
   %.neg = sub i32 %16, %15
@@ -2127,7 +2127,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps8(ptr noundef initi
 
 18:                                               ; preds = %11
   %19 = load i32, ptr %2, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %19, %21
   br i1 %22, label %30, label %23
@@ -2173,12 +2173,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps8(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_steps9(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %54
@@ -2208,17 +2208,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps9(ptr noundef initi
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %2, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %25 = icmp slt i32 %24, 0
   br i1 %25, label %54, label %26
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %28 = load ptr, ptr %27, align 8
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %2, align 8
   %.neg = sub i32 %31, %30
@@ -2279,9 +2279,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps9(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_steps10(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_23, i32 noundef 4) #2
   %.not = icmp eq i32 %5, 0
@@ -2289,14 +2289,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps10(ptr noundef init
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %24, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
@@ -2308,7 +2308,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps10(ptr noundef init
 
 16:                                               ; preds = %11
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
   %20 = icmp sgt i32 %17, %19
   br i1 %20, label %24, label %21
@@ -2326,12 +2326,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_steps10(ptr noundef init
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step2a(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %31
@@ -2354,14 +2354,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2a(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %31, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %23 = load i32, ptr %22, align 4
   %24 = load i32, ptr %2, align 8
   %25 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_25, i32 noundef 10) #2
@@ -2386,12 +2386,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2a(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step2b(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %36
@@ -2414,7 +2414,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2b(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
@@ -2458,12 +2458,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2b(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step2c(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %27
@@ -2486,7 +2486,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2c(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
@@ -2513,12 +2513,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2c(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step2d(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -5
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %33
@@ -2541,14 +2541,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2d(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -2577,9 +2577,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step2d(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step3(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_32, i32 noundef 3) #2
   %.not = icmp eq i32 %5, 0
@@ -2587,14 +2587,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step3(ptr noundef initia
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %19, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
@@ -2617,9 +2617,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step3(ptr noundef initia
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step4(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_33, i32 noundef 4) #2
   %.not = icmp eq i32 %5, 0
@@ -2627,17 +2627,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step4(ptr noundef initia
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %35, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %2, align 8
   store i32 %16, ptr %4, align 8
@@ -2672,7 +2672,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step4(ptr noundef initia
 
 27:                                               ; preds = %24
   %28 = load i32, ptr %2, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = icmp sgt i32 %28, %30
   br i1 %31, label %35, label %32
@@ -2690,9 +2690,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step4(ptr noundef initia
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
   %6 = tail call i32 @eq_s_b(ptr noundef %0, i32 noundef 10, ptr noundef nonnull @s_72) #2
@@ -2701,7 +2701,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) u
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %8, %10
   br i1 %11, label %15, label %12
@@ -2715,10 +2715,10 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) u
   %16 = load i32, ptr %2, align 4
   %17 = add i32 %16, %.neg
   store i32 %17, ptr %4, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %17, ptr %18, align 8
   %19 = add i32 %17, -9
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8
   %.not52 = icmp sgt i32 %19, %21
   br i1 %.not52, label %22, label %38
@@ -2739,14 +2739,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) u
 
 30:                                               ; preds = %28
   %31 = load i32, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4
   %33 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %59, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   store i32 0, ptr %37, align 4
   br label %38
@@ -2762,14 +2762,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) u
 
 42:                                               ; preds = %38
   %43 = load i32, ptr %4, align 8
-  %44 = getelementptr inbounds i8, ptr %0, i64 20
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %43, ptr %44, align 4
   %45 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %46 = icmp slt i32 %45, 0
   br i1 %46, label %59, label %47
 
 47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %0, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = load ptr, ptr %48, align 8
   store i32 0, ptr %49, align 4
   %50 = load i32, ptr %4, align 8
@@ -2798,15 +2798,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5a(ptr noundef %0) u
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5b(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = add i32 %5, -9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not = icmp sgt i32 %7, %9
   br i1 %.not, label %10, label %44
@@ -2827,14 +2827,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5b(ptr noundef initi
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %19, ptr %20, align 4
   %21 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %75, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   store i32 0, ptr %25, align 4
   %26 = load i32, ptr %4, align 8
@@ -2883,14 +2883,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5b(ptr noundef initi
 
 48:                                               ; preds = %44
   %49 = load i32, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %49, ptr %50, align 4
   %51 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %52 = icmp slt i32 %51, 0
   br i1 %52, label %75, label %53
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i8, ptr %0, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %55 = load ptr, ptr %54, align 8
   store i32 0, ptr %55, align 4
   %56 = load i32, ptr %2, align 4
@@ -2944,15 +2944,15 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5b(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5c(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = add i32 %5, -9
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %.not = icmp sgt i32 %7, %9
   br i1 %.not, label %10, label %26
@@ -2973,14 +2973,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5c(ptr noundef initi
 
 18:                                               ; preds = %16
   %19 = load i32, ptr %4, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %19, ptr %20, align 4
   %21 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %65, label %23
 
 23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %25 = load ptr, ptr %24, align 8
   store i32 0, ptr %25, align 4
   br label %26
@@ -2996,14 +2996,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5c(ptr noundef initi
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %4, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %31, ptr %32, align 4
   %33 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %34 = icmp slt i32 %33, 0
   br i1 %34, label %65, label %35
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i8, ptr %0, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
   store i32 0, ptr %37, align 4
   %38 = load i32, ptr %2, align 4
@@ -3068,12 +3068,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5c(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5d(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -9
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %43
@@ -3094,17 +3094,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5d(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %43, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %0, i64 12
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4
   %26 = load i32, ptr %2, align 8
   %.neg = sub i32 %26, %25
@@ -3150,12 +3150,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5d(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5e(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -11
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %33
@@ -3176,14 +3176,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5e(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -3212,12 +3212,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5e(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5f(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = tail call i32 @eq_s_b(ptr noundef %0, i32 noundef 10, ptr noundef nonnull @s_90) #2
   %.not = icmp eq i32 %7, 0
@@ -3225,21 +3225,21 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5f(ptr noundef initi
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %11 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %56, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   store i32 0, ptr %15, align 4
   %16 = load i32, ptr %4, align 8
   store i32 %16, ptr %6, align 8
   store i32 %16, ptr %10, align 4
   %17 = add i32 %16, -1
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i32, ptr %18, align 8
   %.not55 = icmp sgt i32 %17, %19
   br i1 %.not55, label %20, label %34
@@ -3281,14 +3281,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5f(ptr noundef initi
 
 38:                                               ; preds = %34
   %39 = load i32, ptr %4, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %39, ptr %40, align 4
   %41 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %42 = icmp slt i32 %41, 0
   br i1 %42, label %56, label %43
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds i8, ptr %0, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %45 = load ptr, ptr %44, align 8
   store i32 0, ptr %45, align 4
   %46 = load i32, ptr %4, align 8
@@ -3300,7 +3300,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5f(ptr noundef initi
 
 48:                                               ; preds = %43
   %49 = load i32, ptr %4, align 8
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load i32, ptr %50, align 8
   %52 = icmp sgt i32 %49, %51
   br i1 %52, label %56, label %53
@@ -3318,12 +3318,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5f(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5g(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_47, i32 noundef 3) #2
   %.not = icmp eq i32 %7, 0
@@ -3331,14 +3331,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5g(ptr noundef initi
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %11 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %55, label %13
 
 13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %15 = load ptr, ptr %14, align 8
   store i32 0, ptr %15, align 4
   br label %16
@@ -3354,14 +3354,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5g(ptr noundef initi
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %4, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %21, ptr %22, align 4
   %23 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %55, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %27 = load ptr, ptr %26, align 8
   store i32 0, ptr %27, align 4
   %28 = load i32, ptr %2, align 4
@@ -3385,7 +3385,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5g(ptr noundef initi
   store i32 %36, ptr %6, align 8
   store i32 %36, ptr %22, align 4
   %37 = add i32 %36, -1
-  %38 = getelementptr inbounds i8, ptr %0, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = load i32, ptr %38, align 8
   %.not58 = icmp sgt i32 %37, %39
   br i1 %.not58, label %40, label %55
@@ -3424,9 +3424,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5g(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5h(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_53, i32 noundef 3) #2
   %.not = icmp eq i32 %5, 0
@@ -3434,17 +3434,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5h(ptr noundef initi
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %34, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %2, align 8
   store i32 %16, ptr %4, align 8
@@ -3471,7 +3471,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5h(ptr noundef initi
 
 25:                                               ; preds = %21
   %26 = load i32, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %26, %28
   br i1 %29, label %34, label %30
@@ -3491,9 +3491,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5h(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5j(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_57, i32 noundef 3) #2
   %.not = icmp eq i32 %5, 0
@@ -3501,21 +3501,21 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5j(ptr noundef initi
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %32, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
   %14 = load i32, ptr %2, align 8
   store i32 %14, ptr %4, align 8
   store i32 %14, ptr %8, align 4
   %15 = add i32 %14, -1
-  %16 = getelementptr inbounds i8, ptr %0, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load i32, ptr %16, align 8
   %.not26 = icmp sgt i32 %15, %17
   br i1 %.not26, label %18, label %32
@@ -3552,9 +3552,9 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5j(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5i(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_56, i32 noundef 3) #2
   %.not = icmp eq i32 %5, 0
@@ -3562,17 +3562,17 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5i(ptr noundef initi
 
 6:                                                ; preds = %1
   %7 = load i32, ptr %2, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %7, ptr %8, align 4
   %9 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %41, label %11
 
 11:                                               ; preds = %6
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8
   store i32 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 12
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = load i32, ptr %2, align 8
   store i32 %16, ptr %4, align 8
@@ -3616,7 +3616,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5i(ptr noundef initi
 
 32:                                               ; preds = %28
   %33 = load i32, ptr %2, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp sgt i32 %33, %35
   br i1 %36, label %41, label %37
@@ -3636,12 +3636,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5i(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5k(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %33
@@ -3662,14 +3662,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5k(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -3698,12 +3698,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5k(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5l(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %33
@@ -3724,14 +3724,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5l(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -3760,12 +3760,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5l(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step5m(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %33
@@ -3786,14 +3786,14 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5m(ptr noundef initi
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %33, label %21
 
 21:                                               ; preds = %16
-  %22 = getelementptr inbounds i8, ptr %0, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8
   store i32 0, ptr %23, align 4
   %24 = load i32, ptr %2, align 8
@@ -3822,12 +3822,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step5m(ptr noundef initi
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step6(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 12
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
   %.neg = sub i32 %5, %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %5, ptr %6, align 8
   %7 = tail call i32 @find_among_b(ptr noundef %0, ptr noundef nonnull @a_65, i32 noundef 3) #2
   %.not = icmp eq i32 %7, 0
@@ -3835,7 +3835,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step6(ptr noundef initia
 
 8:                                                ; preds = %1
   %9 = load i32, ptr %4, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %9, ptr %10, align 4
   %11 = tail call i32 @slice_from_s(ptr noundef nonnull %0, i32 noundef 4, ptr noundef nonnull @s_106) #2
   %12 = icmp slt i32 %11, 0
@@ -3845,7 +3845,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step6(ptr noundef initia
   %14 = load i32, ptr %2, align 4
   %15 = add i32 %14, %.neg
   store i32 %15, ptr %4, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
   %.not24 = icmp eq i32 %18, 0
@@ -3859,7 +3859,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step6(ptr noundef initia
 
 21:                                               ; preds = %19
   %22 = load i32, ptr %4, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %22, ptr %23, align 4
   %24 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %25 = icmp slt i32 %24, 0
@@ -3873,12 +3873,12 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step6(ptr noundef initia
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 2) i32 @r_step7(ptr noundef initializes((24, 28)) %0) unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %3, ptr %4, align 8
   %5 = add i32 %3, -7
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %.not = icmp sgt i32 %5, %7
   br i1 %.not, label %8, label %21
@@ -3901,7 +3901,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_step7(ptr noundef initia
 
 16:                                               ; preds = %14
   %17 = load i32, ptr %2, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 20
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %17, ptr %18, align 4
   %19 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %20 = icmp slt i32 %19, 0

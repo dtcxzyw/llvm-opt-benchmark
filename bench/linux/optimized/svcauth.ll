@@ -40,10 +40,10 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_auth_domain_
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11328
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11328
   store i32 0, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 496
-  %4 = tail call ptr @xdr_inline_decode(ptr noundef %3, i64 noundef 4) #9
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 496
+  %4 = tail call ptr @xdr_inline_decode(ptr noundef nonnull %3, i64 noundef 4) #9
   %5 = icmp eq ptr %4, null
   br i1 %5, label %.thread, label %6, !prof !5
 
@@ -62,7 +62,7 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
   br i1 %14, label %.thread5, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @try_module_get(ptr noundef %17) #9
   br i1 %18, label %19, label %.thread5
@@ -77,15 +77,15 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
 
 19:                                               ; preds = %15
   tail call void @__rcu_read_unlock() #9
-  %20 = getelementptr inbounds i8, ptr %0, i64 11332
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 11332
   store i32 0, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %0, i64 360
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 360
   store ptr null, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 376
-  tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  %23 = getelementptr inbounds i8, ptr %0, i64 344
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 376
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 344
   store ptr %13, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %13, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call i32 %25(ptr noundef %0) #9
   br label %.thread
@@ -97,11 +97,11 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @svc_set_client(ptr noundef initializes((11368, 11376)) %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 11368
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 11368
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 344
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 48
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 %6(ptr noundef %0) #9
   ret i32 %7
@@ -109,17 +109,17 @@ define dso_local i32 @svc_set_client(ptr noundef initializes((11368, 11376)) %0)
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @svc_authorise(ptr noundef %0) local_unnamed_addr #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
   store ptr null, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %11, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %0) #9
-  %9 = getelementptr inbounds i8, ptr %3, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @module_put(ptr noundef %10) #9
   br label %11
@@ -166,15 +166,15 @@ define dso_local void @svc_auth_unregister(i32 noundef %0) #1 align 16 {
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @svc_auth_flavor(ptr noundef %0) #0 align 16 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 344
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %3, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %9 = load i32, ptr %8, align 8
   br label %12
 
@@ -193,24 +193,24 @@ define dso_local void @auth_domain_put(ptr noundef %0) #0 align 16 {
   br i1 %2, label %3, label %16
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8
   store volatile ptr %5, ptr %7, align 8
   %8 = icmp eq ptr %5, null
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %5, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store volatile ptr %7, ptr %10, align 8
   br label %11
 
 11:                                               ; preds = %9, %3
   store volatile ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef %0) #9
   tail call void @_raw_spin_unlock(ptr noundef nonnull @auth_domain_lock) #9
@@ -236,7 +236,7 @@ define dso_local ptr @auth_domain_lookup(ptr noundef %0, ptr noundef %1) #0 alig
 
 .preheader:                                       ; preds = %2, %26
   %12 = phi ptr [ %30, %26 ], [ %9, %2 ]
-  %13 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 @strcmp(ptr noundef %14, ptr noundef %0) #9
   %16 = icmp eq i32 %15, 0
@@ -259,7 +259,7 @@ define dso_local ptr @auth_domain_lookup(ptr noundef %0, ptr noundef %1) #0 alig
   br label %39
 
 26:                                               ; preds = %.preheader
-  %27 = getelementptr inbounds i8, ptr %12, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   %30 = getelementptr i8, ptr %28, i64 -8
@@ -272,16 +272,16 @@ define dso_local ptr @auth_domain_lookup(ptr noundef %0, ptr noundef %1) #0 alig
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %.loopexit
-  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %7, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %1, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store volatile ptr %6, ptr %36, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !12
   store volatile ptr %35, ptr %6, align 8
   br i1 %8, label %39, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store volatile ptr %35, ptr %38, align 8
   br label %39
 
@@ -310,7 +310,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
 
 .preheader4:                                      ; preds = %1, %35
   %11 = phi ptr [ %39, %35 ], [ %8, %1 ]
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 @strcmp(ptr noundef %13, ptr noundef %0) #9
   %15 = icmp eq i32 %14, 0
@@ -353,7 +353,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
   br label %.loopexit
 
 35:                                               ; preds = %.preheader4
-  %36 = getelementptr inbounds i8, ptr %11, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   %39 = getelementptr i8, ptr %37, i64 -8
@@ -383,10 +383,10 @@ define dso_local void @auth_domain_cleanup() local_unnamed_addr #0 align 16 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %9 = phi ptr [ %16, %.preheader ], [ %6, %1 ]
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str, ptr noundef %11) #11
-  %13 = getelementptr inbounds i8, ptr %9, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   %16 = getelementptr i8, ptr %14, i64 -8

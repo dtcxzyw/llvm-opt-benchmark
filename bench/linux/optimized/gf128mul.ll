@@ -36,7 +36,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_gf128mul_4k_
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
 define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly initializes((0, 16)) %0, ptr nocapture noundef readonly %1) #0 align 16 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = load i64, ptr %1, align 8
   %6 = lshr i64 %4, 56
@@ -44,7 +44,7 @@ define dso_local void @gf128mul_x8_ble(ptr nocapture noundef writeonly initializ
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i64
   %10 = tail call i64 @llvm.fshl.i64(i64 %4, i64 %5, i64 8)
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %10, ptr %11, align 8
   %12 = shl i64 %5, 8
   %13 = xor i64 %12, %9
@@ -77,7 +77,7 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
   %11 = getelementptr i8, ptr %10, i64 32
   %12 = load i64, ptr %10, align 32
   %13 = call i64 @llvm.bswap.i64(i64 %12)
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %15 = load i64, ptr %14, align 8
   %16 = call i64 @llvm.bswap.i64(i64 %15)
   %17 = and i64 %16, 1
@@ -97,7 +97,7 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
 
 28:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %30
 
 30:                                               ; preds = %116, %28
@@ -114,7 +114,7 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
   %41 = load i64, ptr %40, align 16
   %42 = xor i64 %41, %33
   store i64 %42, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %44 = load i64, ptr %43, align 8
   %45 = xor i64 %44, %32
   store i64 %45, ptr %29, align 8
@@ -197,7 +197,7 @@ define dso_local void @gf128mul_lle(ptr nocapture noundef %0, ptr nocapture noun
   %110 = load i64, ptr %109, align 16
   %111 = xor i64 %110, %102
   store i64 %111, ptr %0, align 8
-  %112 = getelementptr inbounds i8, ptr %109, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
   %113 = load i64, ptr %112, align 8
   %114 = xor i64 %113, %105
   store i64 %114, ptr %29, align 8
@@ -263,11 +263,11 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @gf128mul_bbe(ptr nocapture noundef %0, ptr nocapture noundef readonly %1) #5 align 16 {
   %3 = alloca [8 x %struct.be128], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %3) #11
-  %4 = getelementptr inbounds i8, ptr %3, i64 16
-  call void @llvm.memset.p0.i64(ptr noundef align 16 dereferenceable(112) %4, i8 0, i64 112, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %4, i8 0, i64 112, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %3, ptr noundef align 8 dereferenceable(16) %0, i64 16, i1 false)
   %.pre = load i64, ptr %3, align 16
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %3, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.pre1 = load i64, ptr %.phi.trans.insert, align 8
   br label %5
 
@@ -287,40 +287,40 @@ define dso_local void @gf128mul_bbe(ptr nocapture noundef %0, ptr nocapture noun
   %17 = shl i64 %12, 1
   %18 = xor i64 %17, %14
   %19 = tail call i64 @llvm.bswap.i64(i64 %18)
-  %20 = getelementptr inbounds i8, ptr %10, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %19, ptr %20, align 8
   %21 = icmp eq i64 %9, 7
   br i1 %21, label %22, label %5, !llvm.loop !8
 
 22:                                               ; preds = %5
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  %23 = getelementptr inbounds i8, ptr %3, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %24 = load i64, ptr %23, align 16
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = getelementptr inbounds i8, ptr %3, i64 120
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %27 = load i64, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 96
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %29 = load i64, ptr %28, align 16
-  %30 = getelementptr inbounds i8, ptr %3, i64 104
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %3, i64 80
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %33 = load i64, ptr %32, align 16
-  %34 = getelementptr inbounds i8, ptr %3, i64 88
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %35 = load i64, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %3, i64 64
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %37 = load i64, ptr %36, align 16
-  %38 = getelementptr inbounds i8, ptr %3, i64 72
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %3, i64 48
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %41 = load i64, ptr %40, align 16
-  %42 = getelementptr inbounds i8, ptr %3, i64 56
+  %42 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %43 = load i64, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %3, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %45 = load i64, ptr %44, align 16
-  %46 = getelementptr inbounds i8, ptr %3, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %47 = load i64, ptr %46, align 8
   %48 = load i64, ptr %4, align 16
-  %49 = getelementptr inbounds i8, ptr %3, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %50 = load i64, ptr %49, align 8
   %51 = load i64, ptr %3, align 16
   %52 = load i64, ptr %.phi.trans.insert, align 8
@@ -529,7 +529,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
   %35 = shl i64 %30, 1
   %36 = xor i64 %35, %32
   %37 = tail call i64 @llvm.bswap.i64(i64 %36)
-  %38 = getelementptr inbounds i8, ptr %28, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %37, ptr %38, align 8
   %39 = icmp slt i32 %26, 65
   br i1 %39, label %22, label %.preheader2, !llvm.loop !11
@@ -548,7 +548,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
   %46 = zext nneg i32 %45 to i64
   %47 = sext i32 %45 to i64
   %48 = getelementptr [256 x %struct.be128], ptr %41, i64 0, i64 %46
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   br label %50
 
 50:                                               ; preds = %50, %44
@@ -561,10 +561,10 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
   %57 = xor i64 %56, %55
   store i64 %57, ptr %53, align 8
   %58 = load i64, ptr %49, align 8
-  %59 = getelementptr inbounds i8, ptr %54, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = xor i64 %60, %58
-  %62 = getelementptr inbounds i8, ptr %53, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %61, ptr %62, align 8
   %63 = add nuw nsw i64 %51, 1
   %64 = icmp eq i64 %63, %46
@@ -594,7 +594,7 @@ define dso_local noundef ptr @gf128mul_init_64k_bbe(ptr nocapture noundef readon
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(16) %76, ptr noundef align 8 dereferenceable(16) %77, i64 16, i1 false)
   %78 = load i64, ptr %76, align 8
   %79 = tail call i64 @llvm.bswap.i64(i64 %78)
-  %80 = getelementptr inbounds i8, ptr %76, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %81 = load i64, ptr %80, align 8
   %82 = tail call i64 @llvm.bswap.i64(i64 %81)
   %83 = lshr i64 %79, 56
@@ -646,7 +646,7 @@ define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture 
   %6 = zext i8 %5 to i64
   %7 = getelementptr [256 x %struct.be128], ptr %3, i64 0, i64 %6
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %10 = load i64, ptr %9, align 8
   br label %11
 
@@ -663,7 +663,7 @@ define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture 
   %21 = getelementptr [256 x %struct.be128], ptr %16, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = xor i64 %22, %14
-  %24 = getelementptr inbounds i8, ptr %21, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = xor i64 %25, %13
   %27 = add nuw nsw i64 %12, 1
@@ -672,7 +672,7 @@ define dso_local void @gf128mul_64k_bbe(ptr nocapture noundef %0, ptr nocapture 
 
 29:                                               ; preds = %11
   store i64 %23, ptr %0, align 8
-  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %26, ptr %30, align 8
   ret void
 }
@@ -698,7 +698,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
   %13 = getelementptr [256 x %struct.be128], ptr %3, i64 0, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = tail call i64 @llvm.bswap.i64(i64 %14)
-  %16 = getelementptr inbounds i8, ptr %13, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8
   %18 = tail call i64 @llvm.bswap.i64(i64 %17)
   %19 = and i64 %18, 1
@@ -706,7 +706,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
   %21 = select i1 %20, i64 0, i64 -2233785415175766016
   %22 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %18, i64 63)
   %23 = tail call i64 @llvm.bswap.i64(i64 %22)
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 %23, ptr %24, align 8
   %25 = lshr i64 %15, 1
   %26 = xor i64 %21, %25
@@ -720,7 +720,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
   %30 = phi i32 [ %51, %50 ], [ 2, %7 ]
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr [256 x %struct.be128], ptr %3, i64 0, i64 %31
-  %33 = getelementptr inbounds i8, ptr %32, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = sext i32 %30 to i64
   br label %35
 
@@ -734,10 +734,10 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_lle(ptr nocapture noundef
   %42 = xor i64 %41, %40
   store i64 %42, ptr %38, align 8
   %43 = load i64, ptr %33, align 8
-  %44 = getelementptr inbounds i8, ptr %39, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = xor i64 %45, %43
-  %47 = getelementptr inbounds i8, ptr %38, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i64 %46, ptr %47, align 8
   %48 = add nuw nsw i64 %36, 1
   %49 = icmp eq i64 %48, %31
@@ -784,7 +784,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef
   %20 = shl i64 %15, 1
   %21 = xor i64 %20, %17
   %22 = tail call i64 @llvm.bswap.i64(i64 %21)
-  %23 = getelementptr inbounds i8, ptr %13, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %22, ptr %23, align 8
   %24 = icmp slt i32 %11, 65
   br i1 %24, label %7, label %.preheader, !llvm.loop !20
@@ -793,7 +793,7 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef
   %25 = phi i32 [ %46, %45 ], [ 2, %7 ]
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr [256 x %struct.be128], ptr %3, i64 0, i64 %26
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = sext i32 %25 to i64
   br label %30
 
@@ -807,10 +807,10 @@ define dso_local noalias noundef ptr @gf128mul_init_4k_bbe(ptr nocapture noundef
   %37 = xor i64 %36, %35
   store i64 %37, ptr %33, align 8
   %38 = load i64, ptr %28, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = xor i64 %40, %38
-  %42 = getelementptr inbounds i8, ptr %33, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i64 %41, ptr %42, align 8
   %43 = add nuw nsw i64 %31, 1
   %44 = icmp eq i64 %43, %26
@@ -832,7 +832,7 @@ define dso_local void @gf128mul_4k_lle(ptr nocapture noundef %0, ptr nocapture n
   %5 = zext i8 %4 to i64
   %6 = getelementptr [256 x %struct.be128], ptr %1, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %6, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8
   br label %10
 
@@ -859,7 +859,7 @@ define dso_local void @gf128mul_4k_lle(ptr nocapture noundef %0, ptr nocapture n
   %30 = getelementptr [256 x %struct.be128], ptr %1, i64 0, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %26, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %34, %22
   %36 = icmp eq i64 %14, 0
@@ -867,7 +867,7 @@ define dso_local void @gf128mul_4k_lle(ptr nocapture noundef %0, ptr nocapture n
 
 37:                                               ; preds = %10
   store i64 %32, ptr %0, align 8
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %35, ptr %38, align 8
   ret void
 }
@@ -878,7 +878,7 @@ define dso_local void @gf128mul_4k_bbe(ptr nocapture noundef %0, ptr nocapture n
   %4 = zext i8 %3 to i64
   %5 = getelementptr [256 x %struct.be128], ptr %1, i64 0, i64 %4
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %5, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %8 = load i64, ptr %7, align 8
   br label %9
 
@@ -903,7 +903,7 @@ define dso_local void @gf128mul_4k_bbe(ptr nocapture noundef %0, ptr nocapture n
   %27 = getelementptr [256 x %struct.be128], ptr %1, i64 0, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = xor i64 %28, %20
-  %30 = getelementptr inbounds i8, ptr %27, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = xor i64 %31, %23
   %33 = add nuw nsw i64 %10, 1
@@ -912,7 +912,7 @@ define dso_local void @gf128mul_4k_bbe(ptr nocapture noundef %0, ptr nocapture n
 
 35:                                               ; preds = %9
   store i64 %29, ptr %0, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %32, ptr %36, align 8
   ret void
 }

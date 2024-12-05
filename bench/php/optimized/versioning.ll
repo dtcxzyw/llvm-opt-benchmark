@@ -39,9 +39,9 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
 
 5:                                                ; preds = %1
   %6 = load i8, ptr %0, align 1
-  %7 = getelementptr inbounds i8, ptr %3, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 1
   store i8 %6, ptr %3, align 1
-  %.057 = getelementptr inbounds i8, ptr %0, i64 1
+  %.057 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %.057, align 1
   %.not58 = icmp eq i8 %8, 0
   br i1 %.not58, label %._crit_edge, label %.lr.ph
@@ -64,7 +64,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not53, label %49, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %.04359, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.04359, i64 1
   store i8 46, ptr %.04359, align 1
   br label %49
 
@@ -110,7 +110,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not52, label %39, label %37
 
 37:                                               ; preds = %36
-  %38 = getelementptr inbounds i8, ptr %.04359, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.04359, i64 1
   store i8 46, ptr %.04359, align 1
   %.pre = load i8, ptr %.061, align 1
   br label %39
@@ -118,7 +118,7 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
 39:                                               ; preds = %37, %36
   %40 = phi i8 [ %.pre, %37 ], [ %9, %36 ]
   %.2 = phi ptr [ %38, %37 ], [ %.04359, %36 ]
-  %41 = getelementptr inbounds i8, ptr %.2, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i8 %40, ptr %.2, align 1
   br label %49
 
@@ -133,19 +133,19 @@ define dso_local noalias ptr @php_canonicalize_version(ptr nocapture noundef rea
   br i1 %.not51, label %49, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.04359, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.04359, i64 1
   store i8 46, ptr %.04359, align 1
   br label %49
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %.04359, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.04359, i64 1
   store i8 %9, ptr %.04359, align 1
   br label %49
 
 49:                                               ; preds = %39, %44, %45, %47, %12, %13
   %.1 = phi ptr [ %14, %13 ], [ %.04359, %12 ], [ %41, %39 ], [ %48, %47 ], [ %46, %45 ], [ %.04359, %44 ]
   %50 = load i8, ptr %.061, align 1
-  %.0 = getelementptr inbounds i8, ptr %.061, i64 1
+  %.0 = getelementptr inbounds nuw i8, ptr %.061, i64 1
   %51 = load i8, ptr %.0, align 1
   %.not = icmp eq i8 %51, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -287,12 +287,12 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br i1 %53, label %54, label %57
 
 54:                                               ; preds = %.preheader
-  %55 = getelementptr inbounds i8, ptr %.028.i, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.028.i, i64 8
   %56 = load i32, ptr %55, align 8
   br label %.critedge.i
 
 57:                                               ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %.028.i, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
   %59 = load ptr, ptr %58, align 8
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %.critedge.i, label %.preheader
@@ -310,12 +310,12 @@ define dso_local i32 @php_version_compare(ptr noundef %0, ptr noundef %1) local_
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %.129.i, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %.129.i, i64 8
   %67 = load i32, ptr %66, align 8
   br label %compare_special_version_forms.exit
 
 68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %.129.i, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %.129.i, i64 16
   %70 = load ptr, ptr %69, align 8
   %.not24.i = icmp eq ptr %70, null
   br i1 %.not24.i, label %compare_special_version_forms.exit, label %60
@@ -334,12 +334,12 @@ compare_special_version_forms.exit:               ; preds = %68, %65
   br i1 %75, label %76, label %79
 
 76:                                               ; preds = %.preheader124
-  %77 = getelementptr inbounds i8, ptr %.028.i89, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.028.i89, i64 8
   %78 = load i32, ptr %77, align 8
   br label %.critedge.i91
 
 79:                                               ; preds = %.preheader124
-  %80 = getelementptr inbounds i8, ptr %.028.i89, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.028.i89, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not.i90 = icmp eq ptr %81, null
   br i1 %.not.i90, label %.critedge.i91, label %.preheader124
@@ -357,12 +357,12 @@ compare_special_version_forms.exit:               ; preds = %68, %65
   br i1 %86, label %87, label %90
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds i8, ptr %.129.i93, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %.129.i93, i64 8
   %89 = load i32, ptr %88, align 8
   br label %compare_special_version_forms.exit96
 
 90:                                               ; preds = %82
-  %91 = getelementptr inbounds i8, ptr %.129.i93, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.129.i93, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not24.i94 = icmp eq ptr %92, null
   br i1 %.not24.i94, label %compare_special_version_forms.exit96, label %82
@@ -381,12 +381,12 @@ compare_special_version_forms.exit96:             ; preds = %90, %87
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %.preheader123
-  %99 = getelementptr inbounds i8, ptr %.028.i97, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.028.i97, i64 8
   %100 = load i32, ptr %99, align 8
   br label %.critedge.i99
 
 101:                                              ; preds = %.preheader123
-  %102 = getelementptr inbounds i8, ptr %.028.i97, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.028.i97, i64 16
   %103 = load ptr, ptr %102, align 8
   %.not.i98 = icmp eq ptr %103, null
   br i1 %.not.i98, label %.critedge.i99, label %.preheader123
@@ -404,12 +404,12 @@ compare_special_version_forms.exit96:             ; preds = %90, %87
   br i1 %108, label %109, label %112
 
 109:                                              ; preds = %104
-  %110 = getelementptr inbounds i8, ptr %.129.i101, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.129.i101, i64 8
   %111 = load i32, ptr %110, align 8
   br label %compare_special_version_forms.exit104
 
 112:                                              ; preds = %104
-  %113 = getelementptr inbounds i8, ptr %.129.i101, i64 16
+  %113 = getelementptr inbounds nuw i8, ptr %.129.i101, i64 16
   %114 = load ptr, ptr %113, align 8
   %.not24.i102 = icmp eq ptr %114, null
   br i1 %.not24.i102, label %compare_special_version_forms.exit104, label %104
@@ -425,9 +425,9 @@ compare_special_version_forms.exit104:            ; preds = %112, %109
   br i1 %.not84, label %.thread107, label %.critedge.thread118
 
 .thread107:                                       ; preds = %46, %116
-  %117 = getelementptr inbounds i8, ptr %28, i64 1
+  %117 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %spec.select = select i1 %.not76, ptr %.062140183, ptr %117
-  %118 = getelementptr inbounds i8, ptr %31, i64 1
+  %118 = getelementptr inbounds nuw i8, ptr %31, i64 1
   %.161 = select i1 %.not77, ptr %.060143182, ptr %118
   %119 = load i8, ptr %spec.select, align 1
   %.not75 = icmp eq i8 %119, 0
@@ -513,7 +513,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 44
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %7 = load i32, ptr %6, align 4
   %8 = and i32 %7, -2
   %or.cond.not = icmp eq i32 %8, 2
@@ -524,8 +524,8 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   br label %.thread325
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %0, i64 80
-  %12 = getelementptr inbounds i8, ptr %0, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %13 = load i8, ptr %12, align 8
   %14 = icmp eq i8 %13, 6
   br i1 %14, label %.thread301, label %16
@@ -542,9 +542,9 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 
 19:                                               ; preds = %.thread301, %16
   %.pn = phi ptr [ %15, %.thread301 ], [ %18, %16 ]
-  %20 = getelementptr inbounds i8, ptr %.pn, i64 24
-  %21 = getelementptr inbounds i8, ptr %0, i64 96
-  %22 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %23 = load i8, ptr %22, align 8
   %24 = icmp eq i8 %23, 6
   br i1 %24, label %.thread307, label %26
@@ -561,13 +561,13 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 
 29:                                               ; preds = %.thread307, %26
   %.pn358 = phi ptr [ %25, %.thread307 ], [ %28, %26 ]
-  %30 = getelementptr inbounds i8, ptr %.pn358, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %.pn358, i64 24
   %31 = icmp eq i32 %7, 2
   br i1 %31, label %.thread340, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds i8, ptr %0, i64 112
-  %34 = getelementptr inbounds i8, ptr %0, i64 120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %35 = load i8, ptr %34, align 8
   switch i8 %35, label %38 [
     i8 6, label %36
@@ -605,12 +605,12 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 42:                                               ; preds = %.thread340
   %43 = sext i32 %40 to i64
   store i64 %43, ptr %1, align 8
-  %44 = getelementptr inbounds i8, ptr %1, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 4, ptr %44, align 8
   br label %78
 
 45:                                               ; preds = %.thread340
-  %46 = getelementptr inbounds i8, ptr %41, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %47 = load i64, ptr %46, align 8
   switch i64 %47, label %.critedge26 [
     i64 1, label %48
@@ -618,7 +618,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   ]
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds i8, ptr %41, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %lhsc = load i8, ptr %49, align 1
   switch i8 %lhsc, label %.critedge26 [
     i8 60, label %52
@@ -627,7 +627,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
   ]
 
 50:                                               ; preds = %45
-  %51 = getelementptr inbounds i8, ptr %41, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %51, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
   %.not268 = icmp eq i32 %bcmp, 0
   br i1 %.not268, label %52, label %56
@@ -635,7 +635,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 52:                                               ; preds = %48, %50
   %53 = icmp eq i32 %40, -1
   %54 = select i1 %53, i32 3, i32 2
-  %55 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %54, ptr %55, align 8
   br label %78
 
@@ -652,7 +652,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 57:                                               ; preds = %.critedge4, %56
   %.not295 = icmp eq i32 %40, 1
   %58 = select i1 %.not295, i32 2, i32 3
-  %59 = getelementptr inbounds i8, ptr %1, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %58, ptr %59, align 8
   br label %78
 
@@ -664,7 +664,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 60:                                               ; preds = %48, %.critedge8
   %61 = icmp eq i32 %40, 1
   %62 = select i1 %61, i32 3, i32 2
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %62, ptr %63, align 8
   br label %78
 
@@ -681,7 +681,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 65:                                               ; preds = %.critedge12, %64
   %.not294 = icmp eq i32 %40, -1
   %66 = select i1 %.not294, i32 2, i32 3
-  %67 = getelementptr inbounds i8, ptr %1, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %66, ptr %67, align 8
   br label %78
 
@@ -698,7 +698,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 70:                                               ; preds = %48, %69, %68
   %71 = icmp eq i32 %40, 0
   %72 = select i1 %71, i32 3, i32 2
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %72, ptr %73, align 8
   br label %78
 
@@ -720,7 +720,7 @@ define hidden void @zif_version_compare(ptr noundef %0, ptr nocapture noundef wr
 75:                                               ; preds = %.critedge24, %74, %.critedge20
   %.not293 = icmp eq i32 %40, 0
   %76 = select i1 %.not293, i32 2, i32 3
-  %77 = getelementptr inbounds i8, ptr %1, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %76, ptr %77, align 8
   br label %78
 

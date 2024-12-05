@@ -23,7 +23,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i32 @Gia_IterTryImprove(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 448
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %6 = load ptr, ptr %5, align 8
   %7 = tail call ptr @Gia_ManDupAbsGates(ptr noundef %0, ptr noundef %6) #10
   %8 = tail call ptr @Gia_ManToAigSimple(ptr noundef %7) #10
@@ -63,7 +63,7 @@ define noalias noundef ptr @Gia_ManShrinkGla(ptr noundef %0, i32 noundef %1, i32
 16:                                               ; preds = %7
   %17 = load i64, ptr %13, align 8
   %.neg109 = mul i64 %17, -1000000
-  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %19 = load i64, ptr %18, align 8
   %.neg = sdiv i64 %19, -1000
   %.neg110 = add i64 %.neg, %.neg109
@@ -72,9 +72,9 @@ define noalias noundef ptr @Gia_ManShrinkGla(ptr noundef %0, i32 noundef %1, i32
 Abc_Clock.exit:                                   ; preds = %7, %16
   %.0.i.neg = phi i64 [ %.neg110, %16 ], [ 1, %7 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13)
-  %20 = getelementptr inbounds i8, ptr %0, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %.not.i = icmp eq i32 %23, 0
   br i1 %.not.i, label %Vec_IntDup.exit, label %24
@@ -88,7 +88,7 @@ Abc_Clock.exit:                                   ; preds = %7, %16
 Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %.pre-phi12.i = phi i64 [ %26, %24 ], [ 0, %Abc_Clock.exit ]
   %28 = phi ptr [ %27, %24 ], [ null, %Abc_Clock.exit ]
-  %29 = getelementptr inbounds i8, ptr %21, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %30 = load ptr, ptr %29, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %28, ptr align 4 %30, i64 %.pre-phi12.i, i1 false)
   %31 = icmp eq i32 %1, 0
@@ -111,16 +111,16 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
 
 39:                                               ; preds = %37, %32
   %.054 = phi i32 [ %36, %32 ], [ %38, %37 ]
-  %40 = getelementptr inbounds i8, ptr %0, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %41 = getelementptr i8, ptr %0, i64 32
   %42 = getelementptr i8, ptr %0, i64 72
   %43 = getelementptr i8, ptr %0, i64 16
   %44 = getelementptr i8, ptr %0, i64 64
-  %45 = getelementptr inbounds i8, ptr %11, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not.i97 = icmp eq i32 %.054, 0
   %46 = add nsw i32 %.054, 1
   %47 = select i1 %.not.i97, i32 10000000, i32 %46
-  %48 = getelementptr inbounds i8, ptr %9, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %49 = load i32, ptr %40, align 8
   %50 = icmp sgt i32 %49, 1
   br i1 %50, label %.split.preheader, label %.split121.us
@@ -144,7 +144,7 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %.156115 = phi i32 [ %.257, %191 ], [ %.055, %.split ]
   %.159114 = phi i32 [ %.260, %191 ], [ %.058, %.split ]
   %.val = load ptr, ptr %41, align 8
-  %56 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
   %57 = load i64, ptr %56, align 4
   %58 = and i64 %57, 1073741824
   %.not64 = icmp eq i64 %58, 0
@@ -157,7 +157,7 @@ Vec_IntDup.exit:                                  ; preds = %Abc_Clock.exit, %24
   %61 = ptrtoint ptr %56 to i64
   %62 = ptrtoint ptr %.val to i64
   %sext.i = shl nuw nsw i64 %indvars.iv, 2
-  %63 = getelementptr inbounds i8, ptr %.val73.val, i64 %sext.i
+  %63 = getelementptr inbounds nuw i8, ptr %.val73.val, i64 %sext.i
   %64 = load i32, ptr %63, align 4
   %.not65 = icmp eq i32 %64, 0
   br i1 %.not65, label %191, label %65
@@ -323,8 +323,8 @@ Abc_Clock.exit95:                                 ; preds = %Gia_ObjIsRo.exit.th
   %159 = sub i64 %61, %158
   %160 = sdiv exact i64 %159, 12
   %sext = shl i64 %160, 32
-  %161 = ashr exact i64 %sext, 32
-  %162 = getelementptr inbounds i32, ptr %28, i64 %161
+  %161 = ashr exact i64 %sext, 30
+  %162 = getelementptr inbounds i8, ptr %28, i64 %161
   store i32 0, ptr %162, align 4
   br label %163
 
@@ -358,7 +358,7 @@ Abc_Clock.exit100:                                ; preds = %163, %166
   br i1 %177, label %Vec_IntFreeP.exit, label %178
 
 178:                                              ; preds = %Abc_Clock.exit100
-  %179 = getelementptr inbounds i8, ptr %176, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %180 = load ptr, ptr %179, align 8
   %.not.i101 = icmp eq ptr %180, null
   br i1 %.not.i101, label %.thread.i, label %181
@@ -366,7 +366,7 @@ Abc_Clock.exit100:                                ; preds = %163, %166
 181:                                              ; preds = %178
   call void @free(ptr noundef nonnull %180) #10
   %182 = load ptr, ptr %20, align 8
-  %183 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store ptr null, ptr %183, align 8
   %.pre.i = load ptr, ptr %20, align 8
   %.not9.i = icmp eq ptr %.pre.i, null
@@ -379,7 +379,7 @@ Abc_Clock.exit100:                                ; preds = %163, %166
 
 Vec_IntFreeP.exit:                                ; preds = %Abc_Clock.exit100, %181, %.thread.i
   %185 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11
-  %186 = getelementptr inbounds i8, ptr %185, i64 4
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
   store i32 %23, ptr %186, align 4
   store i32 %23, ptr %185, align 8
   br i1 %.not.i, label %Vec_IntDup.exit104, label %187
@@ -391,7 +391,7 @@ Vec_IntFreeP.exit:                                ; preds = %Abc_Clock.exit100, 
 Vec_IntDup.exit104:                               ; preds = %Vec_IntFreeP.exit, %187
   %.pre-phi12.i103 = phi i64 [ %52, %187 ], [ 0, %Vec_IntFreeP.exit ]
   %189 = phi ptr [ %188, %187 ], [ null, %Vec_IntFreeP.exit ]
-  %190 = getelementptr inbounds i8, ptr %185, i64 8
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store ptr %189, ptr %190, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %189, ptr align 4 %28, i64 %.pre-phi12.i103, i1 false)
   store ptr %185, ptr %20, align 8
@@ -428,13 +428,13 @@ Vec_IntFree.exit:                                 ; preds = %.split121.us, %196
   %198 = sitofp i32 %.us-phi to double
   %199 = fmul double %198, 1.000000e+02
   %200 = load ptr, ptr %20, align 8
-  %201 = getelementptr inbounds i8, ptr %200, i64 4
+  %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %202 = load i32, ptr %201, align 4
   %203 = icmp sgt i32 %202, 0
   br i1 %203, label %.lr.ph.i, label %Vec_IntCountPositive.exit
 
 .lr.ph.i:                                         ; preds = %Vec_IntFree.exit
-  %204 = getelementptr inbounds i8, ptr %200, i64 8
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %205 = load ptr, ptr %204, align 8
   %wide.trip.count.i = zext nneg i32 %202 to i64
   br label %206
@@ -442,7 +442,7 @@ Vec_IntFree.exit:                                 ; preds = %.split121.us, %196
 206:                                              ; preds = %206, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %206 ]
   %.08.i = phi i32 [ 0, %.lr.ph.i ], [ %211, %206 ]
-  %207 = getelementptr inbounds i32, ptr %205, i64 %indvars.iv.i
+  %207 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv.i
   %208 = load i32, ptr %207, align 4
   %209 = icmp sgt i32 %208, 0
   %210 = zext i1 %209 to i32
@@ -467,7 +467,7 @@ Vec_IntCountPositive.exit:                        ; preds = %Vec_IntCountPositiv
 217:                                              ; preds = %Vec_IntCountPositive.exit
   %218 = load i64, ptr %8, align 8
   %219 = mul nsw i64 %218, 1000000
-  %220 = getelementptr inbounds i8, ptr %8, i64 8
+  %220 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %221 = load i64, ptr %220, align 8
   %222 = sdiv i64 %221, 1000
   %223 = add nsw i64 %222, %219

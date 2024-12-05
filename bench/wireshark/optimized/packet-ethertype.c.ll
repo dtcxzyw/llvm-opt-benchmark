@@ -186,10 +186,10 @@ define hidden void @proto_register_ethertype() local_unnamed_addr #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @eth_value(ptr noundef %0) #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 408
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr @proto_ethertype, align 4
-  %5 = getelementptr inbounds i8, ptr %0, i64 376
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %6 = load i8, ptr %5, align 8
   %7 = zext i8 %6 to i32
   %8 = tail call ptr @p_get_proto_data(ptr noundef %3, ptr noundef %0, i32 noundef %4, i32 noundef %7) #6
@@ -198,10 +198,10 @@ define internal ptr @eth_value(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal void @eth_prompt(ptr noundef %0, ptr nocapture noundef writeonly %1) #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 408
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_ethertype, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 376
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %7 = load i8, ptr %6, align 8
   %8 = zext i8 %7 to i32
   %9 = tail call ptr @p_get_proto_data(ptr noundef %4, ptr noundef %0, i32 noundef %5, i32 noundef %8) #6
@@ -237,7 +237,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %12, label %132, label %13
 
 13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %3, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %15 = load i32, ptr %14, align 4
   %16 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %15) #6
   %17 = load i32, ptr %14, align 4
@@ -247,7 +247,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %20, label %21, label %35
 
 21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %23, i32 noundef 34, ptr noundef nonnull @.str.146, i32 noundef 65522) #6
   %24 = load ptr, ptr %22, align 8
@@ -274,7 +274,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br label %35
 
 35:                                               ; preds = %21, %31, %13
-  %36 = getelementptr inbounds i8, ptr %3, i64 20
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 0
   br i1 %38, label %39, label %44
@@ -298,10 +298,10 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   %45 = load i32, ptr %14, align 4
   %46 = call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %45, i32 noundef %.089, i32 noundef %.088) #6
   store volatile ptr %46, ptr %5, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 408
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr @proto_ethertype, align 4
-  %50 = getelementptr inbounds i8, ptr %1, i64 376
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 376
   %51 = load i8, ptr %50, align 8
   %52 = zext i8 %51 to i32
   %53 = load i16, ptr %3, align 8
@@ -312,10 +312,10 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   store volatile ptr %56, ptr %7, align 8
   store volatile i32 0, ptr %9, align 4
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @dissect_ethertype.catch_spec, i64 noundef 1) #6
-  %57 = getelementptr inbounds i8, ptr %11, i64 48
+  %57 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %58 = call i32 @_setjmp(ptr noundef nonnull %57) #7
   %.not96 = icmp eq i32 %58, 0
-  %59 = getelementptr inbounds i8, ptr %11, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not96, ptr null, ptr %59
   store volatile ptr %.sink, ptr %8, align 8
   %.0..0..0..0. = load volatile i32, ptr %9, align 4
@@ -363,28 +363,28 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
 
 76:                                               ; preds = %75
   %.0..0..0..0.10 = load volatile ptr, ptr %8, align 8
-  %77 = getelementptr inbounds i8, ptr %.0..0..0..0.10, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.10, i64 8
   %78 = load volatile i64, ptr %77, align 8
   %79 = icmp eq i64 %78, 3
   br i1 %79, label %92, label %80
 
 80:                                               ; preds = %76
   %.0..0..0..0.11 = load volatile ptr, ptr %8, align 8
-  %81 = getelementptr inbounds i8, ptr %.0..0..0..0.11, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.11, i64 8
   %82 = load volatile i64, ptr %81, align 8
   %83 = icmp eq i64 %82, 2
   br i1 %83, label %92, label %84
 
 84:                                               ; preds = %80
   %.0..0..0..0.12 = load volatile ptr, ptr %8, align 8
-  %85 = getelementptr inbounds i8, ptr %.0..0..0..0.12, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.12, i64 8
   %86 = load volatile i64, ptr %85, align 8
   %87 = icmp eq i64 %86, 7
   br i1 %87, label %92, label %88
 
 88:                                               ; preds = %84
   %.0..0..0..0.13 = load volatile ptr, ptr %8, align 8
-  %89 = getelementptr inbounds i8, ptr %.0..0..0..0.13, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.13, i64 8
   %90 = load volatile i64, ptr %89, align 8
   %91 = icmp eq i64 %90, 9
   br i1 %91, label %92, label %98
@@ -395,10 +395,10 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   store volatile i32 %93, ptr %9, align 4
   %.0..0..0..0.53 = load volatile ptr, ptr %5, align 8
   %.0..0..0..0.14 = load volatile ptr, ptr %8, align 8
-  %94 = getelementptr inbounds i8, ptr %.0..0..0..0.14, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.14, i64 8
   %95 = load volatile i64, ptr %94, align 8
   %.0..0..0..0.15 = load volatile ptr, ptr %8, align 8
-  %96 = getelementptr inbounds i8, ptr %.0..0..0..0.15, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.0..0..0..0.15, i64 16
   %97 = load volatile ptr, ptr %96, align 8
   call void @show_exception(ptr noundef %.0..0..0..0.53, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %95, ptr noundef %97) #6
   store volatile i32 1, ptr %6, align 4
@@ -423,7 +423,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   unreachable
 
 102:                                              ; preds = %100, %98
-  %103 = getelementptr inbounds i8, ptr %11, i64 40
+  %103 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %104 = load volatile ptr, ptr %103, align 8
   call void @except_free(ptr noundef %104) #6
   %105 = call ptr @except_pop() #6
@@ -434,7 +434,7 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
 106:                                              ; preds = %102
   %.0..0..0..0.54 = load volatile ptr, ptr %5, align 8
   %107 = call i32 @call_data_dissector(ptr noundef %.0..0..0..0.54, ptr noundef nonnull %1, ptr noundef %2) #6
-  %108 = getelementptr inbounds i8, ptr %1, i64 8
+  %108 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = load i16, ptr %3, align 8
   %111 = zext i16 %110 to i32
@@ -451,9 +451,9 @@ define internal i32 @dissect_ethertype(ptr noundef %0, ptr noundef %1, ptr nound
   br label %117
 
 117:                                              ; preds = %106, %115, %102
-  %118 = getelementptr inbounds i8, ptr %3, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %3, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %121 = load i32, ptr %120, align 8
   %.0..0..0..0.55 = load volatile ptr, ptr %5, align 8
   %122 = load i32, ptr %14, align 4

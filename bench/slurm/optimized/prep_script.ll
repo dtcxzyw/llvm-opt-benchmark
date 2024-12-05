@@ -89,7 +89,7 @@ define void @prep_p_register_callbacks(ptr nocapture noundef readonly %0) local_
   br label %4
 
 4:                                                ; preds = %3, %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr @epilog_slurmctld_callback, align 8
   %.not2 = icmp eq ptr %6, null

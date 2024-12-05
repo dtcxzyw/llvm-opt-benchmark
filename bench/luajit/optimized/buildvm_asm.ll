@@ -53,21 +53,21 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nofree nounwind uwtable
 define dso_local void @emit_asm(ptr nocapture noundef readonly %ctx) local_unnamed_addr #0 {
 entry:
-  %fp = getelementptr inbounds i8, ptr %ctx, i64 16
+  %fp = getelementptr inbounds nuw i8, ptr %ctx, i64 16
   %0 = load ptr, ptr %fp, align 8
-  %dasm_arch = getelementptr inbounds i8, ptr %ctx, i64 144
+  %dasm_arch = getelementptr inbounds nuw i8, ptr %ctx, i64 144
   %1 = load ptr, ptr %dasm_arch, align 8
   %call = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str, ptr noundef %1)
   %2 = load ptr, ptr %fp, align 8
   %3 = tail call i64 @fwrite(ptr nonnull @.str.1, i64 7, i64 1, ptr %2)
-  %mode.i = getelementptr inbounds i8, ptr %ctx, i64 8
+  %mode.i = getelementptr inbounds nuw i8, ptr %ctx, i64 8
   %4 = load i32, ptr %mode.i, align 8
   %5 = icmp ult i32 %4, 3
   br i1 %5, label %switch.lookup, label %emit_asm_align.exit
 
 switch.lookup:                                    ; preds = %entry
   %6 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table.emit_asm, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table.emit_asm, i64 0, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   %7 = load ptr, ptr %fp, align 8
   %call3.i = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull %switch.load, i32 noundef 4)
@@ -76,7 +76,7 @@ switch.lookup:                                    ; preds = %entry
 
 emit_asm_align.exit:                              ; preds = %entry, %switch.lookup
   %8 = phi i32 [ %4, %entry ], [ %.pr, %switch.lookup ]
-  %beginsym = getelementptr inbounds i8, ptr %ctx, i64 112
+  %beginsym = getelementptr inbounds nuw i8, ptr %ctx, i64 112
   %9 = load ptr, ptr %beginsym, align 8
   switch i32 %8, label %emit_asm_label.exit [
     i32 0, label %sw.bb.i
@@ -112,28 +112,28 @@ if.then:                                          ; preds = %emit_asm_label.exit
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %emit_asm_label.exit
-  %nsym = getelementptr inbounds i8, ptr %ctx, i64 64
+  %nsym = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %17 = load i32, ptr %nsym, align 8
   %cmp5121 = icmp sgt i32 %17, 0
   br i1 %cmp5121, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %sym = getelementptr inbounds i8, ptr %ctx, i64 88
-  %nreloc = getelementptr inbounds i8, ptr %ctx, i64 68
-  %reloc = getelementptr inbounds i8, ptr %ctx, i64 152
-  %code = getelementptr inbounds i8, ptr %ctx, i64 40
-  %relocsym = getelementptr inbounds i8, ptr %ctx, i64 96
+  %sym = getelementptr inbounds nuw i8, ptr %ctx, i64 88
+  %nreloc = getelementptr inbounds nuw i8, ptr %ctx, i64 68
+  %reloc = getelementptr inbounds nuw i8, ptr %ctx, i64 152
+  %code = getelementptr inbounds nuw i8, ptr %ctx, i64 40
+  %relocsym = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %emit_asm_bytes.exit112
   %indvars.iv125 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next126, %emit_asm_bytes.exit112 ]
   %rel.0122 = phi i32 [ 0, %for.body.lr.ph ], [ %rel.1.lcssa, %emit_asm_bytes.exit112 ]
   %18 = load ptr, ptr %sym, align 8
-  %arrayidx = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv125
-  %ofs6 = getelementptr inbounds i8, ptr %arrayidx, i64 8
+  %arrayidx = getelementptr inbounds nuw %struct.BuildSym, ptr %18, i64 %indvars.iv125
+  %ofs6 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %19 = load i32, ptr %ofs6, align 8
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %ofs10 = getelementptr inbounds %struct.BuildSym, ptr %18, i64 %indvars.iv.next126, i32 1
+  %ofs10 = getelementptr inbounds nuw %struct.BuildSym, ptr %18, i64 %indvars.iv.next126, i32 1
   %20 = load i32, ptr %ofs10, align 8
   %21 = load ptr, ptr %arrayidx, align 8
   %22 = load i32, ptr %mode.i, align 8
@@ -182,7 +182,7 @@ land.rhs:                                         ; preds = %land.rhs.preheader,
 
 while.body:                                       ; preds = %land.rhs
   %sub23 = sub nsw i32 %30, %ofs.0116
-  %type = getelementptr inbounds i8, ptr %arrayidx16, i64 8
+  %type = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 8
   %31 = load i32, ptr %type, align 4
   %cmp24.not = icmp eq i32 %31, 0
   br i1 %cmp24.not, label %if.else, label %land.lhs.true
@@ -199,7 +199,7 @@ if.then29:                                        ; preds = %land.lhs.true, %lan
   %idx.ext = sext i32 %ofs.0116 to i64
   %add.ptr = getelementptr inbounds i8, ptr %33, i64 %idx.ext
   %34 = load ptr, ptr %relocsym, align 8
-  %sym30 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
+  %sym30 = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 4
   %35 = load i32, ptr %sym30, align 4
   %idxprom31 = sext i32 %35 to i64
   %arrayidx32 = getelementptr inbounds ptr, ptr %34, i64 %idxprom31
@@ -210,7 +210,7 @@ if.then29:                                        ; preds = %land.lhs.true, %lan
 
 if.end.i:                                         ; preds = %if.then29
   %idxprom.i = zext nneg i32 %dec.i to i64
-  %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %idxprom.i
   %37 = load i8, ptr %arrayidx.i, align 1
   switch i8 %37, label %if.else10.i [
     i8 -24, label %if.end41.i
@@ -241,7 +241,7 @@ land.lhs.true24.i:                                ; preds = %land.lhs.true.i
 if.then30.i:                                      ; preds = %land.lhs.true24.i
   %41 = and i8 %37, 127
   %idxprom35.i = zext nneg i8 %41 to i64
-  %arrayidx36.i = getelementptr inbounds [16 x ptr], ptr @jccnames, i64 0, i64 %idxprom35.i
+  %arrayidx36.i = getelementptr inbounds nuw [16 x ptr], ptr @jccnames, i64 0, i64 %idxprom35.i
   %42 = load ptr, ptr %arrayidx36.i, align 8
   %dec37.i = add nsw i32 %sub23, -2
   br label %if.end41.i
@@ -268,7 +268,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %and.i.i = and i32 %44, 15
   %cmp1.i.i = icmp eq i32 %and.i.i, 0
   %45 = load ptr, ptr %fp, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %indvars.iv.i.i
   %46 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %46 to i32
   br i1 %cmp1.i.i, label %if.end.thread.i.i, label %if.end.i.i
@@ -306,19 +306,19 @@ emit_asm_bytes.exit.i:                            ; preds = %if.then17.i.i, %for
   %49 = load i8, ptr %36, align 1
   %cmp43.i = icmp eq i8 %49, 95
   %idx.ext.i = zext i1 %cmp43.i to i64
-  %add.ptr.i = getelementptr inbounds i8, ptr %36, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %36, i64 %idx.ext.i
   %50 = load i8, ptr %add.ptr.i, align 1
   %.not.i = icmp eq i8 %50, 108
   br i1 %.not.i, label %sub_1.i, label %if.then46.i
 
 sub_1.i:                                          ; preds = %emit_asm_bytes.exit.i
-  %51 = getelementptr inbounds i8, ptr %add.ptr.i, i64 1
+  %51 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 1
   %52 = load i8, ptr %51, align 1
   %.not26.i = icmp eq i8 %52, 106
   br i1 %.not26.i, label %emit_asm_bytes.exit.tail.i, label %if.then46.i
 
 emit_asm_bytes.exit.tail.i:                       ; preds = %sub_1.i
-  %53 = getelementptr inbounds i8, ptr %add.ptr.i, i64 2
+  %53 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 2
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 95
   br i1 %55, label %if.end53.i, label %if.then46.i
@@ -354,7 +354,7 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %and.i = and i32 %59, 15
   %cmp1.i = icmp eq i32 %and.i, 0
   %60 = load ptr, ptr %fp, align 8
-  %arrayidx.i77 = getelementptr inbounds i8, ptr %add.ptr35, i64 %indvars.iv.i
+  %arrayidx.i77 = getelementptr inbounds nuw i8, ptr %add.ptr35, i64 %indvars.iv.i
   %61 = load i8, ptr %arrayidx.i77, align 1
   %conv.i = zext i8 %61 to i32
   br i1 %cmp1.i, label %if.end.thread.i, label %if.end.i78
@@ -391,7 +391,7 @@ if.then17.i:                                      ; preds = %for.end.i
 emit_asm_bytes.exit:                              ; preds = %for.end.i, %if.then17.i
   %64 = load i32, ptr %type, align 4
   %65 = load ptr, ptr %relocsym, align 8
-  %sym38 = getelementptr inbounds i8, ptr %arrayidx16, i64 4
+  %sym38 = getelementptr inbounds nuw i8, ptr %arrayidx16, i64 4
   %66 = load i32, ptr %sym38, align 4
   %idxprom39 = sext i32 %66 to i64
   %arrayidx40 = getelementptr inbounds ptr, ptr %65, i64 %idxprom39
@@ -469,7 +469,7 @@ for.body.i96:                                     ; preds = %for.inc.i105, %for.
   %and.i98 = and i32 %76, 15
   %cmp1.i99 = icmp eq i32 %and.i98, 0
   %77 = load ptr, ptr %fp, align 8
-  %arrayidx.i100 = getelementptr inbounds i8, ptr %add.ptr46, i64 %indvars.iv.i97
+  %arrayidx.i100 = getelementptr inbounds nuw i8, ptr %add.ptr46, i64 %indvars.iv.i97
   %78 = load i8, ptr %arrayidx.i100, align 1
   %conv.i101 = zext i8 %78 to i32
   br i1 %cmp1.i99, label %if.end.thread.i110, label %if.end.i102
@@ -530,7 +530,7 @@ sw.bb57:                                          ; preds = %for.end
 sw.epilog.sink.split:                             ; preds = %for.end, %sw.bb, %sw.bb57
   %.str.6.sink = phi ptr [ @.str.6, %sw.bb57 ], [ @.str.5, %sw.bb ], [ @.str.5, %for.end ]
   %87 = load ptr, ptr %fp, align 8
-  %dasm_ident59 = getelementptr inbounds i8, ptr %ctx, i64 136
+  %dasm_ident59 = getelementptr inbounds nuw i8, ptr %ctx, i64 136
   %88 = load ptr, ptr %dasm_ident59, align 8
   %call60 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %87, ptr noundef nonnull %.str.6.sink, ptr noundef %88)
   br label %sw.epilog

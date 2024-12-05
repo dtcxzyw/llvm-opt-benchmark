@@ -177,8 +177,8 @@ scanArgs.exit:                                    ; preds = %51, %53
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %scanArgs.exit
-  %58 = getelementptr inbounds i8, ptr %5, i64 4
-  %59 = getelementptr inbounds i8, ptr %5, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %60
 
 60:                                               ; preds = %.lr.ph, %129
@@ -255,7 +255,7 @@ scanArgs.exit:                                    ; preds = %51, %53
   %spec.select.i.i = call i32 @llvm.smax.i32(i32 %.051.i.i, i32 %80)
   %81 = getelementptr i8, ptr %.13050.i.i, i64 16
   %.130.val.i.i = load ptr, ptr %81, align 8
-  %82 = getelementptr inbounds i8, ptr %.130.val.i.i, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.130.val.i.i, i64 16
   store i32 0, ptr %82, align 8
   %83 = call ptr @agnxtnode(ptr noundef nonnull %61, ptr noundef nonnull %.13050.i.i) #13
   %.not40.i.i = icmp eq ptr %83, null
@@ -418,17 +418,17 @@ declare ptr @agfstnode(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @visit(ptr noundef %0, ptr noundef %1, ptr nocapture noundef nonnull %2, ptr nocapture noundef nonnull %3) unnamed_addr #7 {
   %5 = alloca [32 x i8], align 16
-  %6 = getelementptr inbounds i8, ptr %3, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %7 = load i32, ptr %6, align 4
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4
   %9 = getelementptr i8, ptr %0, i64 16
   %.val53 = load ptr, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %.val53, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %.val53, i64 16
   store i32 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %2, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %12, %14
   br i1 %15, label %16, label %._crit_edge.i.i.i.i
@@ -479,7 +479,7 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %37 = load i64, ptr %11, align 8
   %38 = add i64 %37, 1
   store i64 %38, ptr %11, align 8
-  %39 = getelementptr inbounds i8, ptr %0, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load ptr, ptr %39, align 8
   %41 = tail call ptr @agfstout(ptr noundef %40, ptr noundef nonnull %0) #13
   %.not60 = icmp eq ptr %41, null
@@ -493,7 +493,7 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %44 = icmp eq i32 %43, 2
   %.idx = select i1 %44, i64 0, i64 -64
   %45 = getelementptr inbounds i8, ptr %.04662, i64 %.idx
-  %46 = getelementptr inbounds i8, ptr %45, i64 56
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr i8, ptr %47, i64 16
   %.val52 = load ptr, ptr %48, align 8
@@ -553,9 +553,9 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %74 = call ptr @agnode(ptr noundef %1, ptr noundef nonnull %5, i32 noundef 1) #13
   %75 = getelementptr i8, ptr %72, i64 16
   %.val58 = load ptr, ptr %75, align 8
-  %76 = getelementptr inbounds i8, ptr %.val58, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.val58, i64 16
   store ptr %74, ptr %76, align 8
-  %77 = getelementptr inbounds i8, ptr %3, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %78
 
 78:                                               ; preds = %78, %67
@@ -569,10 +569,10 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %85 = call ptr @agsubnode(ptr noundef %72, ptr noundef %83, i32 noundef 1) #13
   %86 = getelementptr i8, ptr %83, i64 16
   %.val55 = load ptr, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %.val55, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.val55, i64 16
   store i32 -1, ptr %87, align 8
   %.val59 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds i8, ptr %.val59, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %.val59, i64 24
   store ptr %72, ptr %88, align 8
   %89 = load i32, ptr %77, align 4
   %90 = add nsw i32 %89, 1
@@ -599,7 +599,7 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %97 = icmp eq i32 %96, 2
   %98 = getelementptr inbounds i8, ptr %.02837.i, i64 -64
   %99 = select i1 %97, ptr %.02837.i, ptr %98
-  %100 = getelementptr inbounds i8, ptr %99, i64 56
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 56
   %101 = load ptr, ptr %100, align 8
   %102 = call ptr @agsubnode(ptr noundef %72, ptr noundef %101, i32 noundef 0) #13
   %.not32.i = icmp eq ptr %102, null
@@ -614,8 +614,8 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %107 = and i32 %106, 3
   %108 = icmp eq i32 %107, 3
   %.idx.i = select i1 %108, i64 0, i64 64
-  %109 = getelementptr inbounds i8, ptr %.02837.i, i64 %.idx.i
-  %110 = getelementptr inbounds i8, ptr %109, i64 56
+  %109 = getelementptr inbounds nuw i8, ptr %.02837.i, i64 %.idx.i
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 56
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 16
   %.val.i = load ptr, ptr %112, align 8
@@ -623,7 +623,7 @@ stack_push.exit:                                  ; preds = %._crit_edge.i.i.i.i
   %.val.val.i = load ptr, ptr %113, align 8
   %114 = icmp eq i32 %107, 2
   %115 = select i1 %114, ptr %.02837.i, ptr %98
-  %116 = getelementptr inbounds i8, ptr %115, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr i8, ptr %117, i64 16
   %.val33.i = load ptr, ptr %118, align 8
@@ -681,10 +681,10 @@ declare i32 @agnedges(ptr noundef) local_unnamed_addr #1
 define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr noundef %0, i32 noundef %1, ptr nocapture noundef nonnull %2) unnamed_addr #7 {
   %4 = getelementptr i8, ptr %0, i64 16
   %.val21 = load ptr, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %.val21, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %.val21, i64 16
   store i32 1, ptr %5, align 8
   %6 = add nsw i32 %1, 1
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @agfstedge(ptr noundef %8, ptr noundef %0) #13
   %.not22 = icmp eq ptr %9, null
@@ -696,7 +696,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr nounde
   %10 = load i32, ptr %2, align 4
   %11 = add nsw i32 %10, 1
   store i32 %11, ptr %2, align 4
-  %12 = getelementptr inbounds i8, ptr %.024, i64 56
+  %12 = getelementptr inbounds nuw i8, ptr %.024, i64 56
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %0
   br i1 %14, label %15, label %20
@@ -707,7 +707,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @label(ptr nounde
   %18 = icmp eq i32 %17, 3
   %.v = select i1 %18, i64 -64, i64 64
   %19 = getelementptr inbounds i8, ptr %.024, i64 %.v
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %19, i64 56
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %19, i64 56
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %20
 

@@ -299,8 +299,8 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %94 unwind label %.loopexit.split-lp
 
 94:                                               ; preds = %.noexc74
-  %95 = getelementptr inbounds i8, ptr %13, i64 8
-  %96 = getelementptr inbounds i8, ptr %13, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 0, ptr %96, align 8
   store i32 33619968, ptr %13, align 8
   store ptr @image, ptr %95, align 8
@@ -308,15 +308,15 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
           to label %97 unwind label %150
 
 97:                                               ; preds = %94
-  %98 = getelementptr inbounds i8, ptr %14, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i32 0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %14, i64 20
+  %99 = getelementptr inbounds nuw i8, ptr %14, i64 20
   store i32 0, ptr %99, align 4
   store i32 16842752, ptr %14, align 8
-  %100 = getelementptr inbounds i8, ptr %14, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr @image0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %15, i64 8
-  %102 = getelementptr inbounds i8, ptr %15, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %102, align 8
   store i32 33619968, ptr %15, align 8
   store ptr @gray, ptr %101, align 8
@@ -390,26 +390,26 @@ _ZNK2cv17CommandLineParser3getINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 120:                                              ; preds = %119
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %26) #8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %27) #8
-  %121 = getelementptr inbounds i8, ptr %30, i64 16
-  %122 = getelementptr inbounds i8, ptr %30, i64 20
-  %123 = getelementptr inbounds i8, ptr %30, i64 8
-  %124 = getelementptr inbounds i8, ptr %44, i64 8
-  %125 = getelementptr inbounds i8, ptr %44, i64 16
-  %126 = getelementptr inbounds i8, ptr %45, i64 16
-  %127 = getelementptr inbounds i8, ptr %45, i64 20
-  %128 = getelementptr inbounds i8, ptr %45, i64 8
-  %129 = getelementptr inbounds i8, ptr %46, i64 8
-  %130 = getelementptr inbounds i8, ptr %46, i64 16
-  %131 = getelementptr inbounds i8, ptr %43, i64 16
-  %132 = getelementptr inbounds i8, ptr %43, i64 20
-  %133 = getelementptr inbounds i8, ptr %43, i64 8
-  %134 = getelementptr inbounds i8, ptr %31, i64 16
-  %135 = getelementptr inbounds i8, ptr %31, i64 20
-  %136 = getelementptr inbounds i8, ptr %31, i64 8
-  %137 = getelementptr inbounds i8, ptr %32, i64 8
-  %138 = getelementptr inbounds i8, ptr %32, i64 16
-  %139 = getelementptr inbounds i8, ptr %34, i64 8
-  %140 = getelementptr inbounds i8, ptr %34, i64 16
+  %121 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  %123 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %124 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %125 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  %127 = getelementptr inbounds nuw i8, ptr %45, i64 20
+  %128 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %129 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %130 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %132 = getelementptr inbounds nuw i8, ptr %43, i64 20
+  %133 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %31, i64 20
+  %136 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %138 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %139 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %140 = getelementptr inbounds nuw i8, ptr %34, i64 16
   br label %141
 
 141:                                              ; preds = %.backedge, %120
@@ -969,15 +969,15 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br i1 %76, label %77, label %115
 
 77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %8, i64 16
+  %78 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store i32 0, ptr %78, align 8
-  %79 = getelementptr inbounds i8, ptr %8, i64 20
+  %79 = getelementptr inbounds nuw i8, ptr %8, i64 20
   store i32 0, ptr %79, align 4
   store i32 16842752, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %8, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @mask, ptr %80, align 8
-  %81 = getelementptr inbounds i8, ptr %9, i64 8
-  %82 = getelementptr inbounds i8, ptr %9, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 0, ptr %82, align 8
   store i32 33619968, ptr %9, align 8
   store ptr @mask, ptr %81, align 8
@@ -985,42 +985,42 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
           to label %84 unwind label %106
 
 84:                                               ; preds = %77
-  %85 = getelementptr inbounds i8, ptr %10, i64 8
-  %86 = getelementptr inbounds i8, ptr %10, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 0, ptr %86, align 8
   store i32 50397184, ptr %10, align 8
   store ptr %7, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %11, i64 8
-  %88 = getelementptr inbounds i8, ptr %11, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %88, align 8
   store i32 50397184, ptr %11, align 8
   store ptr @mask, ptr %87, align 8
   %.sroa.3.0.insert.ext54 = zext i32 %2 to i64
   %.sroa.0.0.insert.ext51 = zext i32 %1 to i64
   store double %.sroa.0.0, ptr %12, align 8
-  %.sroa.4.0..sroa_idx59 = getelementptr inbounds i8, ptr %12, i64 8
+  %.sroa.4.0..sroa_idx59 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx59, align 8
-  %.sroa.6.0..sroa_idx61 = getelementptr inbounds i8, ptr %12, i64 16
+  %.sroa.6.0..sroa_idx61 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx61, align 8
-  %.sroa.7.0..sroa_idx63 = getelementptr inbounds i8, ptr %12, i64 24
+  %.sroa.7.0..sroa_idx63 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx63, align 8
   %.sroa.3.0.insert.shift55 = shl nuw i64 %.sroa.3.0.insert.ext54, 32
   %.sroa.0.0.insert.insert53 = or disjoint i64 %.sroa.3.0.insert.shift55, %.sroa.0.0.insert.ext51
   %89 = sitofp i32 %29 to double
   store double %89, ptr %13, align 8
-  %90 = getelementptr inbounds i8, ptr %13, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store double %89, ptr %90, align 8
-  %91 = getelementptr inbounds i8, ptr %13, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store double %89, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %13, i64 24
+  %92 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store double 0.000000e+00, ptr %92, align 8
   %93 = sitofp i32 %31 to double
   store double %93, ptr %14, align 8
-  %94 = getelementptr inbounds i8, ptr %14, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store double %93, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %14, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store double %93, ptr %95, align 8
-  %96 = getelementptr inbounds i8, ptr %14, i64 24
+  %96 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store double 0.000000e+00, ptr %96, align 8
   %97 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayES2_NS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 %.sroa.0.0.insert.insert53, ptr noundef nonnull %12, ptr noundef nonnull %6, ptr noundef nonnull %13, ptr noundef nonnull %14, i32 noundef %38)
           to label %98 unwind label %108
@@ -1031,12 +1031,12 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
           to label %99 unwind label %110
 
 99:                                               ; preds = %98
-  %100 = getelementptr inbounds i8, ptr %17, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i32 0, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %17, i64 20
+  %101 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 0, ptr %101, align 4
   store i32 16842752, ptr %17, align 8
-  %102 = getelementptr inbounds i8, ptr %17, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @mask, ptr %102, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(24) %17)
           to label %103 unwind label %112
@@ -1078,37 +1078,37 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
   br label %145
 
 115:                                              ; preds = %74
-  %116 = getelementptr inbounds i8, ptr %18, i64 8
-  %117 = getelementptr inbounds i8, ptr %18, i64 16
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %117, align 8
   store i32 50397184, ptr %18, align 8
   store ptr %7, ptr %116, align 8
   %.sroa.3.0.insert.ext = zext i32 %2 to i64
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
   store double %.sroa.0.0, ptr %19, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 8
   store double %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 16
   store double %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
-  %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %19, i64 24
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store double 0.000000e+00, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
   %118 = sitofp i32 %29 to double
   store double %118, ptr %20, align 8
-  %119 = getelementptr inbounds i8, ptr %20, i64 8
+  %119 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store double %118, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %20, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %20, i64 16
   store double %118, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %20, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %20, i64 24
   store double 0.000000e+00, ptr %121, align 8
   %122 = sitofp i32 %31 to double
   store double %122, ptr %21, align 8
-  %123 = getelementptr inbounds i8, ptr %21, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store double %122, ptr %123, align 8
-  %124 = getelementptr inbounds i8, ptr %21, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store double %122, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %21, i64 24
+  %125 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store double 0.000000e+00, ptr %125, align 8
   %126 = invoke noundef i32 @_ZN2cv9floodFillERKNS_17_InputOutputArrayENS_6Point_IiEENS_7Scalar_IdEEPNS_5Rect_IiEES6_S6_i(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 %.sroa.0.0.insert.insert, ptr noundef nonnull %19, ptr noundef nonnull %6, ptr noundef nonnull %20, ptr noundef nonnull %21, i32 noundef %38)
           to label %129 unwind label %127
@@ -1125,12 +1125,12 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
           to label %130 unwind label %140
 
 130:                                              ; preds = %129
-  %131 = getelementptr inbounds i8, ptr %24, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %131, align 8
-  %132 = getelementptr inbounds i8, ptr %24, i64 20
+  %132 = getelementptr inbounds nuw i8, ptr %24, i64 20
   store i32 0, ptr %132, align 4
   store i32 16842752, ptr %24, align 8
-  %133 = getelementptr inbounds i8, ptr %24, i64 8
+  %133 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %7, ptr %133, align 8
   invoke void @_ZN2cv6imshowERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_11_InputArrayE(ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(24) %24)
           to label %134 unwind label %142

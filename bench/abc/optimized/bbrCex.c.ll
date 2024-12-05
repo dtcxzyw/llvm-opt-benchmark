@@ -27,7 +27,7 @@ define noundef ptr @Aig_ManVerifyUsingBddsCountExample(ptr noundef %0, ptr nound
 13:                                               ; preds = %8
   %14 = load i64, ptr %10, align 8
   %.neg207 = mul i64 %14, -1000000
-  %15 = getelementptr inbounds i8, ptr %10, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = load i64, ptr %15, align 8
   %.neg = sdiv i64 %16, -1000
   %.neg208 = add i64 %.neg, %.neg207
@@ -45,7 +45,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %20 = add nsw i32 %.val184, 1
   %21 = call ptr @Abc_CexAlloc(i32 noundef %.val, i32 noundef %.val173, i32 noundef %20) #10
   %.val185 = load i32, ptr %19, align 4
-  %22 = getelementptr inbounds i8, ptr %21, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 %.val185, ptr %22, align 4
   store i32 %5, ptr %21, align 4
   %.val167 = load i32, ptr %17, align 8
@@ -60,7 +60,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %.val169 = load i32, ptr %17, align 8
   %.val194 = load i32, ptr %18, align 4
   %28 = add nsw i32 %.val194, %.val169
-  %29 = getelementptr inbounds i8, ptr %1, i64 344
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 344
   %30 = load ptr, ptr %29, align 8
   %31 = call ptr @Bbr_bddImageStart(ptr noundef %1, ptr noundef %27, i32 noundef %.val169, ptr noundef %2, i32 noundef %28, ptr noundef %30, i32 noundef 100000000, i32 noundef %6) #10
   call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef %27) #10
@@ -76,7 +76,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   br label %166
 
 36:                                               ; preds = %Abc_Clock.exit
-  %37 = getelementptr inbounds i8, ptr %1, i64 136
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %38 = load i32, ptr %37, align 8
   %39 = sext i32 %38 to i64
   %40 = call noalias ptr @malloc(i64 noundef %39) #11
@@ -86,13 +86,13 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   br i1 %42, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %21, i64 20
+  %43 = getelementptr inbounds nuw i8, ptr %21, i64 20
   br label %44
 
 44:                                               ; preds = %.lr.ph, %58
   %.val175248 = phi i32 [ %.val175212, %.lr.ph ], [ %.val175, %58 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %45 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv
   %46 = load i8, ptr %45, align 1
   %47 = icmp eq i8 %46, 1
   br i1 %47, label %48, label %58
@@ -121,7 +121,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 .critedge:                                        ; preds = %58, %36
   %.val175.lcssa = phi i32 [ %.val175212, %36 ], [ %.val175, %58 ]
   %61 = sub nsw i32 %24, %.val175.lcssa
-  %62 = getelementptr inbounds i8, ptr %1, i64 40
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8
   call void @Cudd_Ref(ptr noundef %63) #10
   %.val170214 = load i32, ptr %17, align 8
@@ -164,11 +164,11 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 
 .lr.ph234:                                        ; preds = %.critedge2
   %84 = getelementptr i8, ptr %3, i64 8
-  %85 = getelementptr inbounds i8, ptr %21, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %21, i64 20
   %86 = zext nneg i32 %.val187 to i64
   %indvars.iv.next246260 = add nsw i64 %86, -1
   %.val201261 = load ptr, ptr %84, align 8
-  %87 = getelementptr inbounds ptr, ptr %.val201261, i64 %indvars.iv.next246260
+  %87 = getelementptr inbounds nuw ptr, ptr %.val201261, i64 %indvars.iv.next246260
   %88 = load ptr, ptr %87, align 8
   %89 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.0157.lcssa) #10
   %90 = icmp eq ptr %89, null
@@ -178,7 +178,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
   %.2159.lcssa = phi ptr [ %123, %122 ], [ %140, %.lr.ph228 ]
   %indvars.iv.next246 = add nsw i64 %indvars.iv.next246264, -1
   %.val201 = load ptr, ptr %84, align 8
-  %91 = getelementptr inbounds ptr, ptr %.val201, i64 %indvars.iv.next246
+  %91 = getelementptr inbounds nuw ptr, ptr %.val201, i64 %indvars.iv.next246
   %92 = load ptr, ptr %91, align 8
   %93 = call ptr @Bbr_bddImageCompute(ptr noundef nonnull %31, ptr noundef %.2159.lcssa) #10
   %94 = icmp eq ptr %93, null
@@ -223,7 +223,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 .lr.ph222:                                        ; preds = %.lr.ph265, %117
   %.val179250 = phi i32 [ %.val179, %117 ], [ %.val179220, %.lr.ph265 ]
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %117 ], [ 0, %.lr.ph265 ]
-  %104 = getelementptr inbounds i8, ptr %40, i64 %indvars.iv242
+  %104 = getelementptr inbounds nuw i8, ptr %40, i64 %indvars.iv242
   %105 = load i8, ptr %104, align 1
   %106 = icmp eq i8 %105, 1
   br i1 %106, label %107, label %117
@@ -330,7 +330,7 @@ Abc_Clock.exit:                                   ; preds = %8, %13
 156:                                              ; preds = %153
   %157 = load i64, ptr %9, align 8
   %158 = mul nsw i64 %157, 1000000
-  %159 = getelementptr inbounds i8, ptr %9, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %160 = load i64, ptr %159, align 8
   %161 = sdiv i64 %160, 1000
   %162 = add nsw i64 %161, %158

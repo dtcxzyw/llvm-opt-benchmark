@@ -296,7 +296,7 @@ define internal void @user_data_fields_udf_name_tostr_cb(ptr nocapture noundef r
 define internal void @user_data_fields_udf_desc_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #7
   store ptr %7, ptr %8, align 8
@@ -305,7 +305,7 @@ define internal void @user_data_fields_udf_desc_set_cb(ptr nocapture noundef %0,
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_data_fields_udf_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -335,7 +335,7 @@ declare zeroext i1 @uat_fld_chk_num_dec(ptr noundef, ptr noundef, i32 noundef, p
 define internal void @user_data_fields_udf_offset_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -343,7 +343,7 @@ define internal void @user_data_fields_udf_offset_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_data_fields_udf_offset_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.118, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -357,7 +357,7 @@ define internal void @user_data_fields_udf_offset_tostr_cb(ptr nocapture noundef
 define internal void @user_data_fields_udf_length_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 20
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %9 = tail call zeroext i1 @ws_strtou32(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -365,7 +365,7 @@ define internal void @user_data_fields_udf_length_set_cb(ptr noundef %0, ptr nou
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_data_fields_udf_length_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.118, i32 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -381,7 +381,7 @@ declare zeroext i1 @uat_fld_chk_num_hex64(ptr noundef, ptr noundef, i32 noundef,
 define internal void @user_data_fields_udf_mask_set_cb(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = tail call zeroext i1 @ws_hexstrtou64(ptr noundef %7, ptr noundef null, ptr noundef nonnull %8) #7
   tail call void @g_free(ptr noundef %7) #7
   ret void
@@ -389,7 +389,7 @@ define internal void @user_data_fields_udf_mask_set_cb(ptr noundef %0, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_data_fields_udf_mask_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8
   %8 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.119, i64 noundef %7) #7
   store ptr %8, ptr %1, align 8
@@ -403,7 +403,7 @@ define internal void @user_data_fields_udf_mask_tostr_cb(ptr nocapture noundef r
 define internal void @user_data_fields_udf_value_desc_set_cb(ptr nocapture noundef %0, ptr noundef %1, i32 noundef %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
   %6 = zext i32 %2 to i64
   %7 = tail call noalias ptr @g_strndup(ptr noundef %1, i64 noundef %6) #7
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   tail call void @g_free(ptr noundef %9) #7
   store ptr %7, ptr %8, align 8
@@ -412,7 +412,7 @@ define internal void @user_data_fields_udf_value_desc_set_cb(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define internal void @user_data_fields_udf_value_desc_tostr_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 8)) %1, ptr nocapture noundef writeonly initializes((0, 4)) %2, ptr nocapture readnone %3, ptr nocapture readnone %4) #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %13, label %8
@@ -486,27 +486,27 @@ define internal noundef ptr @user_data_fields_copy_cb(ptr noundef returned write
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4) #7
   store ptr %5, ptr %0, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7) #7
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %11, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %1, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %14, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %17, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %1, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @g_strdup(ptr noundef %20) #7
-  %22 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %21, ptr %22, align 8
   ret ptr %0
 }
@@ -514,14 +514,14 @@ define internal noundef ptr @user_data_fields_copy_cb(ptr noundef returned write
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @user_data_fields_update_cb(ptr nocapture noundef readonly %0, ptr nocapture noundef initializes((0, 8)) %1) #0 {
   store ptr null, ptr %1, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %0, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.136, ptr noundef %7, i32 noundef %9, i32 noundef 0) #7
   store ptr %10, ptr %1, align 8
@@ -533,14 +533,14 @@ define internal zeroext i1 @user_data_fields_update_cb(ptr nocapture noundef rea
 
 13:                                               ; preds = %11
   %14 = load ptr, ptr %0, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8
   %17 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.137, ptr noundef %14, i32 noundef %16, i32 noundef %4) #7
   store ptr %17, ptr %1, align 8
   br label %44
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i64, ptr %19, align 8
   %21 = icmp eq i64 %20, -1
   %22 = load ptr, ptr %0, align 8
@@ -598,10 +598,10 @@ define internal zeroext i1 @user_data_fields_update_cb(ptr nocapture noundef rea
 define internal void @user_data_fields_free_cb(ptr nocapture noundef readonly %0) #0 {
   %2 = load ptr, ptr %0, align 8
   tail call void @g_free(ptr noundef %2) #7
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   tail call void @g_free(ptr noundef %4) #7
-  %5 = getelementptr inbounds i8, ptr %0, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8
   tail call void @g_free(ptr noundef %6) #7
   ret void
@@ -708,13 +708,13 @@ deregister_user_data.exit:                        ; preds = %16, %18
   store i32 -1, ptr %42, align 4
   %43 = load ptr, ptr @user_data_fields, align 8
   %44 = getelementptr %struct._user_data_field_t, ptr %43, i64 %indvars.iv
-  %45 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load i64, ptr %45, align 8
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %52, label %48
 
 48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds i8, ptr %44, i64 20
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, -9
   %or.cond = icmp ult i32 %51, -8
@@ -744,7 +744,7 @@ deregister_user_data.exit:                        ; preds = %16, %18
   br label %90
 
 68:                                               ; preds = %48
-  %69 = getelementptr inbounds i8, ptr %44, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %70 = load ptr, ptr %69, align 8
   %71 = call noalias ptr @g_strdup(ptr noundef %70) #7
   %72 = load ptr, ptr @dynamic_hf, align 8
@@ -753,7 +753,7 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %74 = load ptr, ptr @user_data_fields, align 8
   %75 = getelementptr %struct._user_data_field_t, ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %75, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %78 = load ptr, ptr %77, align 8
   %79 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.142, ptr noundef %76, ptr noundef %78) #7
   %80 = load ptr, ptr @dynamic_hf, align 8
@@ -781,20 +781,20 @@ deregister_user_data.exit:                        ; preds = %16, %18
   %94 = load ptr, ptr @user_data_fields, align 8
   %95 = getelementptr %struct._user_data_field_t, ptr %94, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %95, align 1
-  %.sroa.445.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 16
+  %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 16
   %.sroa.445.0.copyload = load i32, ptr %.sroa.445.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 20
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 20
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %95, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %95, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 1
   %96 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.143, i32 noundef %.sroa.445.0.copyload, i32 noundef %.sroa.5.0.copyload, i64 noundef %.sroa.6.0.copyload, ptr noundef %.sroa.0.0.copyload) #7
   %97 = load ptr, ptr @user_data_fields_hash_hf, align 8
   %98 = call i32 @g_hash_table_insert(ptr noundef %97, ptr noundef %96, ptr noundef nonnull %33) #7
   %99 = load ptr, ptr @user_data_fields, align 8
   %100 = getelementptr %struct._user_data_field_t, ptr %99, i64 %indvars.iv
-  %101 = getelementptr inbounds i8, ptr %100, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
   %102 = load i32, ptr %101, align 8
-  %103 = getelementptr inbounds i8, ptr %100, i64 20
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 20
   %104 = load i32, ptr %103, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1)
   %105 = zext i32 %102 to i64
@@ -827,9 +827,9 @@ get_ett_for_user_data.exit:                       ; preds = %90
   %117 = call noalias ptr @wmem_alloc(ptr noundef %116, i64 noundef 8) #7
   %118 = load ptr, ptr @user_data_fields, align 8
   %119 = getelementptr %struct._user_data_field_t, ptr %118, i64 %indvars.iv
-  %120 = getelementptr inbounds i8, ptr %119, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load i32, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %119, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %119, i64 20
   %123 = load i32, ptr %122, align 4
   %124 = zext i32 %121 to i64
   %125 = shl nuw i64 %124, 32
@@ -929,7 +929,7 @@ define internal i32 @dissect_autosar_nm(ptr noundef %0, ptr nocapture noundef re
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   store i32 0, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %1, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @col_set_str(ptr noundef %8, i32 noundef 34, ptr noundef nonnull @.str.69) #7
   %9 = load ptr, ptr %7, align 8
@@ -964,7 +964,7 @@ define internal i32 @dissect_autosar_nm(ptr noundef %0, ptr nocapture noundef re
 
 switch.lookup:                                    ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_autosar_nm, i64 0, i64 %26
+  %switch.gep = getelementptr inbounds nuw [5 x ptr], ptr @switch.table.dissect_autosar_nm, i64 0, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load i32, ptr @hf_autosar_nm_control_bit_vector, align 4
   %28 = load i32, ptr @ett_autosar_nm_cbv, align 4
@@ -1045,11 +1045,11 @@ switch.lookup:                                    ; preds = %23
   %61 = load ptr, ptr @user_data_fields, align 8
   %62 = getelementptr %struct._user_data_field_t, ptr %61, i64 %indvars.iv
   %.sroa.0.0.copyload = load ptr, ptr %62, align 1
-  %.sroa.490.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 16
+  %.sroa.490.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 16
   %.sroa.490.0.copyload = load i32, ptr %.sroa.490.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 20
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 20
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %62, i64 24
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %62, i64 24
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 1
   %63 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.143, i32 noundef %.sroa.490.0.copyload, i32 noundef %.sroa.5.0.copyload, i64 noundef %.sroa.6.0.copyload, ptr noundef %.sroa.0.0.copyload) #7
   %64 = load ptr, ptr @user_data_fields_hash_hf, align 8
@@ -1064,9 +1064,9 @@ get_hf_for_user_data.exit:                        ; preds = %.lr.ph, %65
   %.0.i = phi ptr [ %66, %65 ], [ null, %.lr.ph ]
   %67 = load ptr, ptr @user_data_fields, align 8
   %68 = getelementptr %struct._user_data_field_t, ptr %67, i64 %indvars.iv
-  %69 = getelementptr inbounds i8, ptr %68, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load i32, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 20
+  %71 = getelementptr inbounds nuw i8, ptr %68, i64 20
   %72 = load i32, ptr %71, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   %73 = zext i32 %70 to i64

@@ -45,11 +45,11 @@ define range(i32 0, 2) i32 @grpc_compression_algorithm_parse(ptr noundef byval(%
 entry:
   %0 = load ptr, ptr %name, align 8
   %tobool.not.i = icmp eq ptr %0, null
-  %bytes.i = getelementptr inbounds i8, ptr %name, i64 16
+  %bytes.i = getelementptr inbounds nuw i8, ptr %name, i64 16
   %1 = load ptr, ptr %bytes.i, align 8
-  %bytes2.i = getelementptr inbounds i8, ptr %name, i64 9
+  %bytes2.i = getelementptr inbounds nuw i8, ptr %name, i64 9
   %cond.i = select i1 %tobool.not.i, ptr %bytes2.i, ptr %1
-  %data6.i = getelementptr inbounds i8, ptr %name, i64 8
+  %data6.i = getelementptr inbounds nuw i8, ptr %name, i64 8
   %2 = load i64, ptr %data6.i, align 8
   %conv.i = and i64 %2, 255
   %cond11.i = select i1 %tobool.not.i, i64 %conv.i, i64 %2
@@ -73,7 +73,7 @@ declare i64 @_ZN9grpc_core25ParseCompressionAlgorithmESt17basic_string_viewIcSt1
 ; Function Attrs: mustprogress uwtable
 define range(i32 0, 2) i32 @grpc_compression_algorithm_name(i32 noundef %algorithm, ptr noundef %name) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
-  %0 = load atomic i8, ptr getelementptr inbounds (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
+  %0 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @grpc_api_trace, i64 16) monotonic, align 8
   %tobool.i.i.i = trunc i8 %0 to i1
   br i1 %tobool.i.i.i, label %if.then, label %if.end
 
@@ -116,7 +116,7 @@ declare noundef i32 @_ZNK9grpc_core23CompressionAlgorithmSet28CompressionAlgorit
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @grpc_compression_options_init(ptr nocapture noundef writeonly initializes((0, 20)) %opts) local_unnamed_addr #5 {
 entry:
-  %0 = getelementptr inbounds i8, ptr %opts, i64 4
+  %0 = getelementptr inbounds nuw i8, ptr %opts, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %0, i8 0, i64 16, i1 false)
   store i32 7, ptr %opts, align 4
   ret void

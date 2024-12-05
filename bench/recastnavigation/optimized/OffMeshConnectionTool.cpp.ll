@@ -22,13 +22,13 @@ $_ZN21OffMeshConnectionTool4typeEv = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((0, 16), (28, 31)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 28
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 29
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 29
   store i8 1, ptr %4, align 1
-  %5 = getelementptr inbounds i8, ptr %0, i64 30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 0, ptr %5, align 2
   ret void
 }
@@ -36,15 +36,15 @@ define dso_local void @_ZN21OffMeshConnectionToolC2Ev(ptr nocapture noundef nonn
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21OffMeshConnectionToolD2Ev(ptr noundef nonnull align 8 dereferenceable(31) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %6 = load i8, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 %6, ptr %7, align 8
   br label %8
 
@@ -61,15 +61,15 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21OffMeshConnectionToolD0Ev(ptr noundef nonnull align 8 dereferenceable(31) initializes((0, 8)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds (i8, ptr @_ZTV21OffMeshConnectionTool, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_ZN21OffMeshConnectionToolD2Ev.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 30
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 30
   %6 = load i8, ptr %5, align 2
-  %7 = getelementptr inbounds i8, ptr %3, i64 40
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i8 %6, ptr %7, align 8
   br label %_ZN21OffMeshConnectionToolD2Ev.exit
 
@@ -84,16 +84,16 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr nocapture noundef nonnull align 8 dereferenceable(31) %0, ptr noundef %1) unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, %1
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
   store ptr %1, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 40
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i8, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 30
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 30
   store i8 %7, ptr %8, align 2
   %9 = and i8 %7, -2
   store i8 %9, ptr %6, align 8
@@ -105,14 +105,14 @@ define dso_local void @_ZN21OffMeshConnectionTool4initEP6Sample(ptr nocapture no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN21OffMeshConnectionTool5resetEv(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(31) initializes((28, 29)) %0) unnamed_addr #0 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 28
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i8 0, ptr %2, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21OffMeshConnectionTool10handleMenuEv(ptr nocapture noundef nonnull align 8 dereferenceable(31) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 29
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   %5 = xor i1 %4, true
@@ -145,14 +145,14 @@ declare noundef zeroext i1 @_Z10imguiCheckPKcbb(ptr noundef, i1 noundef zeroext,
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr noundef nonnull align 8 dereferenceable(31) %0, ptr nocapture readnone %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #5 align 2 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge.thread, label %7
 
 7:                                                ; preds = %4
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 112
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(200) %6)
   %.not27 = icmp eq ptr %11, null
@@ -162,8 +162,8 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   br i1 %3, label %13, label %49
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds i8, ptr %11, i64 128
-  %15 = getelementptr inbounds i8, ptr %11, i64 9344
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 128
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 9344
   %16 = load i32, ptr %15, align 8
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph, label %._crit_edge.thread
@@ -171,9 +171,9 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
 .lr.ph:                                           ; preds = %13
   %18 = shl nuw i32 %16, 1
   %19 = load float, ptr %2, align 4
-  %20 = getelementptr inbounds i8, ptr %2, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %21 = load float, ptr %20, align 4
-  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load float, ptr %22, align 4
   %smax = tail call i32 @llvm.smax.i32(i32 %18, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
@@ -183,14 +183,14 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.031 = phi float [ 0x47EFFFFFE0000000, %.lr.ph ], [ %.1, %24 ]
   %.02130 = phi i32 [ -1, %.lr.ph ], [ %.122, %24 ]
-  %.idx = mul i64 %indvars.iv, 12
-  %25 = getelementptr inbounds i8, ptr %14, i64 %.idx
+  %.idx = mul nuw i64 %indvars.iv, 12
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   %26 = load float, ptr %25, align 4
   %27 = fsub float %26, %19
-  %28 = getelementptr inbounds i8, ptr %25, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %29 = load float, ptr %28, align 4
   %30 = fsub float %29, %21
-  %31 = getelementptr inbounds i8, ptr %25, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %32 = load float, ptr %31, align 4
   %33 = fsub float %32, %23
   %34 = fmul float %30, %30
@@ -213,7 +213,7 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   %41 = tail call float @sqrtf(float noundef %.1) #11
   %42 = load ptr, ptr %5, align 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 144
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 144
   %45 = load ptr, ptr %44, align 8
   %46 = tail call noundef float %45(ptr noundef nonnull align 8 dereferenceable(200) %42)
   %47 = fcmp olt float %41, %46
@@ -224,22 +224,22 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
   br label %._crit_edge.thread
 
 49:                                               ; preds = %12
-  %50 = getelementptr inbounds i8, ptr %0, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %51 = load i8, ptr %50, align 4
   %52 = trunc i8 %51 to i1
-  %53 = getelementptr inbounds i8, ptr %0, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br i1 %52, label %62, label %54
 
 54:                                               ; preds = %49
   %55 = load float, ptr %2, align 4
   store float %55, ptr %53, align 8
-  %56 = getelementptr inbounds i8, ptr %2, i64 4
+  %56 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %57 = load float, ptr %56, align 4
-  %58 = getelementptr inbounds i8, ptr %0, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store float %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %2, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %60 = load float, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %0, i64 24
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store float %60, ptr %61, align 8
   store i8 1, ptr %50, align 4
   br label %._crit_edge.thread
@@ -247,10 +247,10 @@ define dso_local void @_ZN21OffMeshConnectionTool11handleClickEPKfS1_b(ptr nound
 62:                                               ; preds = %49
   %63 = load ptr, ptr %5, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 144
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef float %66(ptr noundef nonnull align 8 dereferenceable(200) %63)
-  %68 = getelementptr inbounds i8, ptr %0, i64 29
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 29
   %69 = load i8, ptr %68, align 1
   %70 = and i8 %69, 1
   tail call void @_ZN9InputGeom20addOffMeshConnectionEPKfS1_fhht(ptr noundef nonnull align 8 dereferenceable(50312) %11, ptr noundef nonnull %53, ptr noundef %2, float noundef %67, i8 noundef zeroext %70, i8 noundef zeroext 5, i16 noundef zeroext 8)
@@ -285,25 +285,25 @@ define dso_local void @_ZN21OffMeshConnectionTool12handleUpdateEf(ptr nocapture 
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(31) %0) unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 192
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 144
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef float %7(ptr noundef nonnull align 8 dereferenceable(200) %3)
-  %9 = getelementptr inbounds i8, ptr %0, i64 28
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i8, ptr %9, align 4
   %11 = trunc i8 %10 to i1
   br i1 %11, label %12, label %20
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load float, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load float, ptr %15, align 4
   %17 = fadd float %16, 0x3FB99999A0000000
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load float, ptr %18, align 8
   tail call void @_Z16duDebugDrawCrossP11duDebugDrawffffjf(ptr noundef nonnull %4, float noundef %14, float noundef %17, float noundef %19, float noundef %8, i32 noundef -2147483648, float noundef 2.000000e+00)
   br label %20
@@ -311,7 +311,7 @@ define dso_local void @_ZN21OffMeshConnectionTool12handleRenderEv(ptr nocapture 
 20:                                               ; preds = %12, %1
   %21 = load ptr, ptr %2, align 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 112
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef ptr %24(ptr noundef nonnull align 8 dereferenceable(200) %21)
   %.not = icmp eq ptr %25, null
@@ -334,19 +334,19 @@ define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(p
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i8, ptr %8, align 4
   %10 = trunc i8 %9 to i1
   br i1 %10, label %11, label %28
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load float, ptr %12, align 8
   %14 = fpext float %13 to double
-  %15 = getelementptr inbounds i8, ptr %0, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %16 = load float, ptr %15, align 4
   %17 = fpext float %16 to double
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load float, ptr %18, align 8
   %20 = fpext float %19 to double
   %21 = call i32 @gluProject(double noundef %14, double noundef %17, double noundef %20, ptr noundef %2, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -363,7 +363,7 @@ define dso_local void @_ZN21OffMeshConnectionTool19handleRenderOverlayEPdS0_Pi(p
   br label %28
 
 28:                                               ; preds = %22, %11, %4
-  %29 = getelementptr inbounds i8, ptr %3, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %30 = load i32, ptr %29, align 4
   %31 = load i8, ptr %8, align 4
   %32 = trunc i8 %31 to i1

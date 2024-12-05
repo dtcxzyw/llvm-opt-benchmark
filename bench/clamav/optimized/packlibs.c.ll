@@ -14,16 +14,16 @@ define range(i32 -1, 1) i32 @cli_unfsg(ptr noundef %0, ptr noundef %1, i32 nound
   br i1 %or.cond, label %doubledl.exit.thread, label %9
 
 9:                                                ; preds = %6
-  %10 = getelementptr inbounds i8, ptr %0, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = load i8, ptr %0, align 1
-  %12 = getelementptr inbounds i8, ptr %1, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %11, ptr %1, align 1
   %invariant.gep403 = getelementptr i8, ptr %0, i64 -1
   %13 = zext nneg i32 %2 to i64
   %gep404 = getelementptr i8, ptr %invariant.gep403, i64 %13
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds i8, ptr %1, i64 %14
-  %16 = getelementptr inbounds i8, ptr %0, i64 %13
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %13
   %17 = getelementptr inbounds i8, ptr %16, i64 -1
   %18 = ptrtoint ptr %1 to i64
   %19 = add i64 %14, %18
@@ -65,7 +65,7 @@ define range(i32 -1, 1) i32 @cli_unfsg(ptr noundef %0, ptr noundef %1, i32 nound
   %27 = load i8, ptr %.0294, align 1
   %28 = shl i8 %27, 1
   %29 = or disjoint i8 %28, 1
-  %30 = getelementptr inbounds i8, ptr %.0294, i64 1
+  %30 = getelementptr inbounds nuw i8, ptr %.0294, i64 1
   br label %doubledl.exit
 
 doubledl.exit:                                    ; preds = %21, %26
@@ -91,7 +91,7 @@ doubledl.exit:                                    ; preds = %21, %26
   %37 = load i8, ptr %.7300, align 1
   %38 = shl i8 %37, 1
   %39 = or disjoint i8 %38, 1
-  %40 = getelementptr inbounds i8, ptr %.7300, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.7300, i64 1
   br label %doubledl.exit216
 
 doubledl.exit216:                                 ; preds = %31, %36
@@ -117,7 +117,7 @@ doubledl.exit216:                                 ; preds = %31, %36
   %47 = load i8, ptr %.9, align 1
   %48 = shl i8 %47, 1
   %49 = or disjoint i8 %48, 1
-  %50 = getelementptr inbounds i8, ptr %.9, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   br label %doubledl.exit223
 
 doubledl.exit223:                                 ; preds = %41, %46
@@ -146,7 +146,7 @@ doubledl.exit223:                                 ; preds = %41, %46
   %56 = load i8, ptr %.1295401, align 1
   %57 = shl i8 %56, 1
   %58 = or disjoint i8 %57, 1
-  %59 = getelementptr inbounds i8, ptr %.1295401, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.1295401, i64 1
   br label %doubledl.exit230
 
 doubledl.exit230:                                 ; preds = %.preheader359, %55
@@ -170,7 +170,7 @@ doubledl.exit230:                                 ; preds = %.preheader359, %55
   br i1 %.not193, label %68, label %doubledl.exit.thread
 
 68:                                               ; preds = %67
-  %69 = getelementptr inbounds i8, ptr %.0135, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.0135, i64 1
   store i8 0, ptr %.0135, align 1
   br label %21
 
@@ -180,7 +180,7 @@ doubledl.exit230:                                 ; preds = %.preheader359, %55
 
 71:                                               ; preds = %70
   %72 = load i8, ptr %.11, align 1
-  %73 = getelementptr inbounds i8, ptr %.11, i64 1
+  %73 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   %.not189 = icmp ult i8 %72, 2
   br i1 %.not189, label %191, label %74
 
@@ -210,7 +210,7 @@ doubledl.exit230:                                 ; preds = %.preheader359, %55
   %84 = load i8, ptr %.3297, align 1
   %85 = shl i8 %84, 1
   %86 = or disjoint i8 %85, 1
-  %87 = getelementptr inbounds i8, ptr %.3297, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.3297, i64 1
   br label %doubledl.exit237
 
 doubledl.exit237:                                 ; preds = %.preheader357, %83
@@ -236,7 +236,7 @@ doubledl.exit237:                                 ; preds = %.preheader357, %83
   %97 = load i8, ptr %.15, align 1
   %98 = shl i8 %97, 1
   %99 = or disjoint i8 %98, 1
-  %100 = getelementptr inbounds i8, ptr %.15, i64 1
+  %100 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   br label %doubledl.exit244
 
 doubledl.exit244:                                 ; preds = %doubledl.exit237, %96
@@ -270,7 +270,7 @@ doubledl.exit244:                                 ; preds = %doubledl.exit237, %
   %108 = load i8, ptr %.4298, align 1
   %109 = shl i8 %108, 1
   %110 = or disjoint i8 %109, 1
-  %111 = getelementptr inbounds i8, ptr %.4298, i64 1
+  %111 = getelementptr inbounds nuw i8, ptr %.4298, i64 1
   br label %doubledl.exit251
 
 doubledl.exit251:                                 ; preds = %.preheader354, %107
@@ -296,7 +296,7 @@ doubledl.exit251:                                 ; preds = %.preheader354, %107
   %121 = load i8, ptr %.19, align 1
   %122 = shl i8 %121, 1
   %123 = or disjoint i8 %122, 1
-  %124 = getelementptr inbounds i8, ptr %.19, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   br label %doubledl.exit258
 
 doubledl.exit258:                                 ; preds = %doubledl.exit251, %120
@@ -316,7 +316,7 @@ doubledl.exit258:                                 ; preds = %doubledl.exit251, %
   %129 = shl i32 %102, 8
   %130 = add i32 %129, -256
   %131 = or disjoint i32 %130, %128
-  %132 = getelementptr inbounds i8, ptr %.17, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   br label %133
 
 133:                                              ; preds = %doubledl.exit272, %126
@@ -338,7 +338,7 @@ doubledl.exit258:                                 ; preds = %doubledl.exit251, %
   %139 = load i8, ptr %.5, align 1
   %140 = shl i8 %139, 1
   %141 = or disjoint i8 %140, 1
-  %142 = getelementptr inbounds i8, ptr %.5, i64 1
+  %142 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   br label %doubledl.exit265
 
 doubledl.exit265:                                 ; preds = %133, %138
@@ -364,7 +364,7 @@ doubledl.exit265:                                 ; preds = %133, %138
   %152 = load i8, ptr %.23, align 1
   %153 = shl i8 %152, 1
   %154 = or disjoint i8 %153, 1
-  %155 = getelementptr inbounds i8, ptr %.23, i64 1
+  %155 = getelementptr inbounds nuw i8, ptr %.23, i64 1
   br label %doubledl.exit272
 
 doubledl.exit272:                                 ; preds = %doubledl.exit265, %151
@@ -434,7 +434,7 @@ doubledl.exit272:                                 ; preds = %doubledl.exit265, %
   %180 = getelementptr inbounds i8, ptr %.1136419, i64 %172
   %181 = load i8, ptr %180, align 1
   store i8 %181, ptr %.1136419, align 1
-  %182 = getelementptr inbounds i8, ptr %.1136419, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.1136419, i64 1
   %.not200 = icmp eq i32 %179, 0
   br i1 %.not200, label %.outer.outer, label %.lr.ph
 
@@ -451,9 +451,9 @@ doubledl.exit272:                                 ; preds = %doubledl.exit265, %
   br i1 %or.cond209, label %187, label %doubledl.exit.thread
 
 187:                                              ; preds = %185
-  %188 = getelementptr inbounds i8, ptr %.7300, i64 1
+  %188 = getelementptr inbounds nuw i8, ptr %.7300, i64 1
   %189 = load i8, ptr %.7300, align 1
-  %190 = getelementptr inbounds i8, ptr %.0135, i64 1
+  %190 = getelementptr inbounds nuw i8, ptr %.0135, i64 1
   store i8 %189, ptr %.0135, align 1
   br label %.outer
 
@@ -480,9 +480,9 @@ doubledl.exit.thread:                             ; preds = %183, %185, %.loopex
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @unmew(ptr noundef %0, ptr noundef initializes((0, 1)) %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #1 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %8 = load i8, ptr %0, align 1
-  %9 = getelementptr inbounds i8, ptr %1, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 %8, ptr %1, align 1
   %invariant.gep489 = getelementptr i8, ptr %0, i64 -1
   %10 = zext i32 %2 to i64
@@ -532,7 +532,7 @@ define range(i32 -1, 1) i32 @unmew(ptr noundef %0, ptr noundef initializes((0, 1
   %25 = load i8, ptr %.0366, align 1
   %26 = shl i8 %25, 1
   %27 = or disjoint i8 %26, 1
-  %28 = getelementptr inbounds i8, ptr %.0366, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.0366, i64 1
   br label %doubledl.exit
 
 doubledl.exit:                                    ; preds = %19, %24
@@ -558,7 +558,7 @@ doubledl.exit:                                    ; preds = %19, %24
   %35 = load i8, ptr %.7372, align 1
   %36 = shl i8 %35, 1
   %37 = or disjoint i8 %36, 1
-  %38 = getelementptr inbounds i8, ptr %.7372, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.7372, i64 1
   br label %doubledl.exit287
 
 doubledl.exit287:                                 ; preds = %29, %34
@@ -584,7 +584,7 @@ doubledl.exit287:                                 ; preds = %29, %34
   %45 = load i8, ptr %.9, align 1
   %46 = shl i8 %45, 1
   %47 = or disjoint i8 %46, 1
-  %48 = getelementptr inbounds i8, ptr %.9, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %.9, i64 1
   br label %doubledl.exit294
 
 doubledl.exit294:                                 ; preds = %39, %44
@@ -613,7 +613,7 @@ doubledl.exit294:                                 ; preds = %39, %44
   %54 = load i8, ptr %.1367487, align 1
   %55 = shl i8 %54, 1
   %56 = or disjoint i8 %55, 1
-  %57 = getelementptr inbounds i8, ptr %.1367487, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.1367487, i64 1
   br label %doubledl.exit301
 
 doubledl.exit301:                                 ; preds = %.preheader435, %53
@@ -637,7 +637,7 @@ doubledl.exit301:                                 ; preds = %.preheader435, %53
   br i1 %.not253, label %66, label %doubledl.exit.thread
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds i8, ptr %.0189, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.0189, i64 1
   store i8 0, ptr %.0189, align 1
   br label %19
 
@@ -647,7 +647,7 @@ doubledl.exit301:                                 ; preds = %.preheader435, %53
 
 69:                                               ; preds = %68
   %70 = load i8, ptr %.11, align 1
-  %71 = getelementptr inbounds i8, ptr %.11, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.11, i64 1
   %.not251 = icmp ult i8 %70, 2
   br i1 %.not251, label %216, label %72
 
@@ -677,7 +677,7 @@ doubledl.exit301:                                 ; preds = %.preheader435, %53
   %82 = load i8, ptr %.3369, align 1
   %83 = shl i8 %82, 1
   %84 = or disjoint i8 %83, 1
-  %85 = getelementptr inbounds i8, ptr %.3369, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.3369, i64 1
   br label %doubledl.exit308
 
 doubledl.exit308:                                 ; preds = %.preheader433, %81
@@ -703,7 +703,7 @@ doubledl.exit308:                                 ; preds = %.preheader433, %81
   %95 = load i8, ptr %.15, align 1
   %96 = shl i8 %95, 1
   %97 = or disjoint i8 %96, 1
-  %98 = getelementptr inbounds i8, ptr %.15, i64 1
+  %98 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   br label %doubledl.exit315
 
 doubledl.exit315:                                 ; preds = %doubledl.exit308, %94
@@ -737,7 +737,7 @@ doubledl.exit315:                                 ; preds = %doubledl.exit308, %
   %106 = load i8, ptr %.4370, align 1
   %107 = shl i8 %106, 1
   %108 = or disjoint i8 %107, 1
-  %109 = getelementptr inbounds i8, ptr %.4370, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.4370, i64 1
   br label %doubledl.exit322
 
 doubledl.exit322:                                 ; preds = %.preheader430, %105
@@ -763,7 +763,7 @@ doubledl.exit322:                                 ; preds = %.preheader430, %105
   %119 = load i8, ptr %.19, align 1
   %120 = shl i8 %119, 1
   %121 = or disjoint i8 %120, 1
-  %122 = getelementptr inbounds i8, ptr %.19, i64 1
+  %122 = getelementptr inbounds nuw i8, ptr %.19, i64 1
   br label %doubledl.exit329
 
 doubledl.exit329:                                 ; preds = %doubledl.exit322, %118
@@ -783,7 +783,7 @@ doubledl.exit329:                                 ; preds = %doubledl.exit322, %
   %127 = shl i32 %100, 8
   %128 = add i32 %127, -256
   %129 = or disjoint i32 %128, %126
-  %130 = getelementptr inbounds i8, ptr %.17, i64 1
+  %130 = getelementptr inbounds nuw i8, ptr %.17, i64 1
   br label %131
 
 131:                                              ; preds = %doubledl.exit343, %124
@@ -805,7 +805,7 @@ doubledl.exit329:                                 ; preds = %doubledl.exit322, %
   %137 = load i8, ptr %.5, align 1
   %138 = shl i8 %137, 1
   %139 = or disjoint i8 %138, 1
-  %140 = getelementptr inbounds i8, ptr %.5, i64 1
+  %140 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   br label %doubledl.exit336
 
 doubledl.exit336:                                 ; preds = %131, %136
@@ -831,7 +831,7 @@ doubledl.exit336:                                 ; preds = %131, %136
   %150 = load i8, ptr %.23, align 1
   %151 = shl i8 %150, 1
   %152 = or disjoint i8 %151, 1
-  %153 = getelementptr inbounds i8, ptr %.23, i64 1
+  %153 = getelementptr inbounds nuw i8, ptr %.23, i64 1
   br label %doubledl.exit343
 
 doubledl.exit343:                                 ; preds = %doubledl.exit336, %149
@@ -951,7 +951,7 @@ split:                                            ; preds = %164, %182, %179
   %204 = getelementptr inbounds i8, ptr %.1190509, i64 %172
   %205 = load i8, ptr %204, align 1
   store i8 %205, ptr %.1190509, align 1
-  %206 = getelementptr inbounds i8, ptr %.1190509, i64 1
+  %206 = getelementptr inbounds nuw i8, ptr %.1190509, i64 1
   %.not265 = icmp eq i32 %203, 0
   br i1 %.not265, label %.outer.outer, label %.lr.ph
 
@@ -972,9 +972,9 @@ split:                                            ; preds = %164, %182, %179
   br label %doubledl.exit.thread
 
 212:                                              ; preds = %209
-  %213 = getelementptr inbounds i8, ptr %.7372, i64 1
+  %213 = getelementptr inbounds nuw i8, ptr %.7372, i64 1
   %214 = load i8, ptr %.7372, align 1
-  %215 = getelementptr inbounds i8, ptr %.0189, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr %.0189, i64 1
   store i8 %214, ptr %.0189, align 1
   br label %.outer
 

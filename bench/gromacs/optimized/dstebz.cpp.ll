@@ -234,7 +234,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %108 = getelementptr inbounds double, ptr %38, i64 %107
   %109 = load double, ptr %108, align 8
   %110 = fmul double %109, %109
-  %111 = getelementptr inbounds double, ptr %39, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv
   %112 = load double, ptr %111, align 8
   %113 = getelementptr inbounds double, ptr %39, i64 %107
   %114 = load double, ptr %113, align 8
@@ -300,10 +300,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.0612746 = phi double [ 0.000000e+00, %.lr.ph748.preheader ], [ %144, %.lr.ph748 ]
   %.0638745 = phi double [ %139, %.lr.ph748.preheader ], [ %150, %.lr.ph748 ]
   %.0640744 = phi double [ %139, %.lr.ph748.preheader ], [ %154, %.lr.ph748 ]
-  %142 = getelementptr inbounds double, ptr %34, i64 %indvars.iv864
+  %142 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv864
   %143 = load double, ptr %142, align 8
   %144 = tail call double @sqrt(double noundef %143) #4
-  %145 = getelementptr inbounds double, ptr %39, i64 %indvars.iv864
+  %145 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv864
   %146 = load double, ptr %145, align 8
   %147 = fadd double %.0612746, %146
   %148 = fadd double %144, %147
@@ -392,22 +392,22 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %211 = getelementptr i8, ptr %210, i64 48
   store double %177, ptr %211, align 8
   store i32 -1, ptr %16, align 4
-  %212 = getelementptr inbounds i8, ptr %16, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 -1, ptr %212, align 4
   %213 = load i32, ptr %2, align 4
   %214 = add nsw i32 %213, 1
-  %215 = getelementptr inbounds i8, ptr %16, i64 8
+  %215 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %214, ptr %215, align 4
   %216 = load i32, ptr %2, align 4
   %217 = add nsw i32 %216, 1
-  %218 = getelementptr inbounds i8, ptr %16, i64 12
+  %218 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %217, ptr %218, align 4
   %219 = load i32, ptr %5, align 4
   %220 = add nsw i32 %219, -1
-  %221 = getelementptr inbounds i8, ptr %16, i64 16
+  %221 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i32 %220, ptr %221, align 4
   %222 = load i32, ptr %6, align 4
-  %223 = getelementptr inbounds i8, ptr %16, i64 20
+  %223 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 %222, ptr %223, align 4
   %224 = load i32, ptr %2, align 4
   %225 = sext i32 %224 to i64
@@ -479,7 +479,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .lr.ph740:                                        ; preds = %.lr.ph740.preheader, %.lr.ph740
   %indvars.iv859 = phi i64 [ 2, %.lr.ph740.preheader ], [ %indvars.iv.next860, %.lr.ph740 ]
   %.0604738 = phi double [ %262, %.lr.ph740.preheader ], [ %275, %.lr.ph740 ]
-  %263 = getelementptr inbounds double, ptr %39, i64 %indvars.iv859
+  %263 = getelementptr inbounds nuw double, ptr %39, i64 %indvars.iv859
   %264 = load double, ptr %263, align 8
   %265 = tail call noundef double @llvm.fabs.f64(double %264)
   %266 = getelementptr double, ptr %38, i64 %indvars.iv859
@@ -537,7 +537,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1626791 = phi i32 [ 0, %.lr.ph796 ], [ %.4629, %454 ]
   %indvars885 = trunc i64 %indvars.iv883 to i32
   %289 = add i32 %.0611793, 1
-  %290 = getelementptr inbounds i32, ptr %35, i64 %indvars.iv883
+  %290 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv883
   %291 = load i32, ptr %290, align 4
   %292 = sub nsw i32 %291, %.0611793
   store i32 %292, ptr %25, align 4
@@ -766,7 +766,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %441 = getelementptr inbounds i32, ptr %33, i64 %434
   %442 = load i32, ptr %441, align 4
   %443 = add nsw i32 %442, %395
-  %444 = getelementptr inbounds i32, ptr %33, i64 %indvars.iv878
+  %444 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv878
   %445 = load i32, ptr %444, align 4
   %446 = add i32 %422, %445
   %.not698764 = icmp sgt i32 %446, %443
@@ -845,7 +845,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.1597805 = phi i32 [ %461, %.lr.ph807.preheader ], [ %.2598, %486 ]
   %.1600804 = phi i32 [ %459, %.lr.ph807.preheader ], [ %.2601, %486 ]
   %467 = phi i32 [ 0, %.lr.ph807.preheader ], [ %487, %486 ]
-  %468 = getelementptr inbounds double, ptr %37, i64 %indvars.iv888
+  %468 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv888
   %469 = load double, ptr %468, align 8
   %470 = fcmp ole double %469, %.1624
   %471 = icmp sgt i32 %.1600804, 0
@@ -871,7 +871,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %481 = sext i32 %480 to i64
   %482 = getelementptr inbounds double, ptr %37, i64 %481
   store double %469, ptr %482, align 8
-  %483 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv888
+  %483 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv888
   %484 = load i32, ptr %483, align 4
   %485 = getelementptr inbounds i32, ptr %36, i64 %481
   store i32 %484, ptr %485, align 4
@@ -919,13 +919,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv893 = phi i64 [ 1, %.lr.ph816.preheader ], [ %indvars.iv.next894, %504 ]
   %.1606814 = phi double [ %.0605821, %.lr.ph816.preheader ], [ %.2607, %504 ]
   %.0634813 = phi i32 [ 0, %.lr.ph816.preheader ], [ %.1635, %504 ]
-  %495 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv893
+  %495 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv893
   %496 = load i32, ptr %495, align 4
   %.not694 = icmp eq i32 %496, 0
   br i1 %.not694, label %504, label %497
 
 497:                                              ; preds = %.lr.ph816
-  %498 = getelementptr inbounds double, ptr %37, i64 %indvars.iv893
+  %498 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv893
   %499 = load double, ptr %498, align 8
   %500 = fcmp olt double %499, %.1606814
   %501 = icmp eq i32 %.0634813, 0
@@ -975,13 +975,13 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv899 = phi i64 [ 1, %.lr.ph827.preheader ], [ %indvars.iv.next900, %519 ]
   %.4825 = phi double [ %.3608832, %.lr.ph827.preheader ], [ %.5, %519 ]
   %.2636824 = phi i32 [ 0, %.lr.ph827.preheader ], [ %.3637, %519 ]
-  %510 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv899
+  %510 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv899
   %511 = load i32, ptr %510, align 4
   %.not692 = icmp eq i32 %511, 0
   br i1 %.not692, label %519, label %512
 
 512:                                              ; preds = %.lr.ph827
-  %513 = getelementptr inbounds double, ptr %37, i64 %indvars.iv899
+  %513 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv899
   %514 = load double, ptr %513, align 8
   %515 = fcmp ogt double %514, %.4825
   %516 = icmp eq i32 %.2636824, 0
@@ -1025,14 +1025,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .lr.ph837:                                        ; preds = %.lr.ph837.preheader, %536
   %indvars.iv905 = phi i64 [ 1, %.lr.ph837.preheader ], [ %indvars.iv.next906, %536 ]
   %525 = phi i32 [ 0, %.lr.ph837.preheader ], [ %537, %536 ]
-  %526 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv905
+  %526 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv905
   %527 = load i32, ptr %526, align 4
   %.not690 = icmp eq i32 %527, 0
   br i1 %.not690, label %536, label %528
 
 528:                                              ; preds = %.lr.ph837
   %529 = add nsw i32 %525, 1
-  %530 = getelementptr inbounds double, ptr %37, i64 %indvars.iv905
+  %530 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv905
   %531 = load double, ptr %530, align 8
   %532 = sext i32 %529 to i64
   %533 = getelementptr inbounds double, ptr %37, i64 %532
@@ -1080,7 +1080,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 .lr.ph851:                                        ; preds = %.lr.ph851.preheader, %._crit_edge845.thread
   %indvars.iv917 = phi i64 [ 1, %.lr.ph851.preheader ], [ %indvars.iv.next918, %._crit_edge845.thread ]
   %indvars.iv910 = phi i64 [ 2, %.lr.ph851.preheader ], [ %indvars.iv.next911, %._crit_edge845.thread ]
-  %548 = getelementptr inbounds double, ptr %37, i64 %indvars.iv917
+  %548 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv917
   %549 = load double, ptr %548, align 8
   %550 = load i32, ptr %10, align 4
   %indvars.iv.next918 = add nuw nsw i64 %indvars.iv917, 1
@@ -1097,7 +1097,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %indvars.iv912 = phi i64 [ %indvars.iv910, %.lr.ph844.preheader ], [ %indvars.iv.next913, %.lr.ph844 ]
   %.2614842 = phi double [ %549, %.lr.ph844.preheader ], [ %.3615, %.lr.ph844 ]
   %.0648841 = phi i32 [ 0, %.lr.ph844.preheader ], [ %.1649, %.lr.ph844 ]
-  %553 = getelementptr inbounds double, ptr %37, i64 %indvars.iv912
+  %553 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv912
   %554 = load double, ptr %553, align 8
   %555 = fcmp olt double %554, %.2614842
   %556 = trunc nuw nsw i64 %indvars.iv912 to i32
@@ -1117,7 +1117,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %560 = load i32, ptr %559, align 4
   %561 = getelementptr inbounds double, ptr %37, i64 %558
   store double %549, ptr %561, align 8
-  %562 = getelementptr inbounds i32, ptr %36, i64 %indvars.iv917
+  %562 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv917
   %563 = load i32, ptr %562, align 4
   store i32 %563, ptr %559, align 4
   store double %.3615, ptr %548, align 8

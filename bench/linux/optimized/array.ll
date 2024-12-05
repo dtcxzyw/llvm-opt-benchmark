@@ -95,7 +95,7 @@ define dso_local void @proc_task_name(ptr noundef %0, ptr noundef %1, i1 noundef
   %4 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !5
-  %5 = getelementptr inbounds i8, ptr %1, i64 44
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 32
   %8 = icmp eq i32 %7, 0
@@ -217,7 +217,7 @@ define dso_local noundef i32 @proc_pid_status(ptr noundef %0, ptr noundef %1, pt
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.2) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !5
-  %8 = getelementptr inbounds i8, ptr %3, i64 44
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = and i32 %9, 32
   %11 = icmp eq i32 %10, 0
@@ -246,13 +246,13 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #7
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
   tail call void @__rcu_read_lock() #7
-  %20 = getelementptr inbounds i8, ptr %3, i64 1416
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1416
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %proc_task_name.exit
-  %24 = getelementptr inbounds i8, ptr %3, i64 1328
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 1328
   %25 = load volatile ptr, ptr %24, align 16
   %26 = tail call i32 @__task_pid_nr_ns(ptr noundef %25, i32 noundef 1, ptr noundef %1) #7
   %27 = sext i32 %26 to i64
@@ -260,13 +260,13 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
 
 28:                                               ; preds = %23, %proc_task_name.exit
   %29 = phi i64 [ %27, %23 ], [ 0, %proc_task_name.exit ]
-  %30 = getelementptr inbounds i8, ptr %3, i64 48
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %31 = load i32, ptr %30, align 16
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.thread, label %33, !prof !9
 
 33:                                               ; preds = %28
-  %34 = getelementptr inbounds i8, ptr %3, i64 1336
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 1336
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.thread, label %37
@@ -280,27 +280,27 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   %40 = phi i64 [ %39, %37 ], [ 0, %33 ], [ 0, %28 ]
   %41 = tail call i32 @__task_pid_nr_ns(ptr noundef %3, i32 noundef 1, ptr noundef %1) #7
   %42 = tail call ptr @get_task_cred(ptr noundef %3) #7
-  %43 = getelementptr inbounds i8, ptr %3, i64 2056
-  tail call void @_raw_spin_lock(ptr noundef %43) #7
-  %44 = getelementptr inbounds i8, ptr %3, i64 1848
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 2056
+  tail call void @_raw_spin_lock(ptr noundef nonnull %43) #7
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 1848
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %.thread
-  %48 = getelementptr inbounds i8, ptr %45, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 12
   %49 = load i32, ptr %48, align 4
   br label %50
 
 50:                                               ; preds = %47, %.thread
   %51 = phi i32 [ %49, %47 ], [ -1, %.thread ]
-  %52 = getelementptr inbounds i8, ptr %3, i64 1856
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 1856
   %53 = load ptr, ptr %52, align 64
   %54 = icmp eq ptr %53, null
   br i1 %54, label %60, label %55
 
 55:                                               ; preds = %50
-  %56 = getelementptr inbounds i8, ptr %53, i64 32
+  %56 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %57 = load volatile ptr, ptr %56, align 32
   %58 = load i32, ptr %57, align 8
   %59 = zext i32 %58 to i64
@@ -308,7 +308,7 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
 
 60:                                               ; preds = %55, %50
   %61 = phi i64 [ %59, %55 ], [ 0, %50 ]
-  tail call void @_raw_spin_unlock(ptr noundef %43) #7
+  tail call void @_raw_spin_unlock(ptr noundef nonnull %43) #7
   tail call void @__rcu_read_unlock() #7
   %62 = icmp sgt i32 %51, -1
   br i1 %62, label %63, label %64
@@ -319,13 +319,13 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
 
 64:                                               ; preds = %63, %60
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.7) #7
-  %65 = getelementptr inbounds i8, ptr %3, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %66 = load volatile i32, ptr %65, align 8
   %67 = and i32 %66, 4096
   %68 = icmp eq i32 %67, 0
   %69 = and i32 %66, 1026
   %70 = icmp eq i32 %69, 1026
-  %71 = getelementptr inbounds i8, ptr %3, i64 1216
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   %72 = load i32, ptr %71, align 64
   %73 = or i32 %72, %66
   %74 = and i32 %73, 127
@@ -345,56 +345,56 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.10, i64 noundef %84) #7
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.11, i64 noundef %29) #7
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.12, i64 noundef %40) #7
-  %85 = getelementptr inbounds i8, ptr %42, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = icmp eq i32 %86, -1
   %88 = load i32, ptr @overflowuid, align 4
   %89 = select i1 %87, i32 %88, i32 %86
   %90 = zext i32 %89 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.13, i64 noundef %90) #7
-  %91 = getelementptr inbounds i8, ptr %42, i64 24
+  %91 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %92 = load i32, ptr %91, align 8
   %93 = icmp eq i32 %92, -1
   %94 = load i32, ptr @overflowuid, align 4
   %95 = select i1 %93, i32 %94, i32 %92
   %96 = zext i32 %95 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %96) #7
-  %97 = getelementptr inbounds i8, ptr %42, i64 16
+  %97 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %98 = load i32, ptr %97, align 8
   %99 = icmp eq i32 %98, -1
   %100 = load i32, ptr @overflowuid, align 4
   %101 = select i1 %99, i32 %100, i32 %98
   %102 = zext i32 %101 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %102) #7
-  %103 = getelementptr inbounds i8, ptr %42, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %42, i64 32
   %104 = load i32, ptr %103, align 8
   %105 = icmp eq i32 %104, -1
   %106 = load i32, ptr @overflowuid, align 4
   %107 = select i1 %105, i32 %106, i32 %104
   %108 = zext i32 %107 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %108) #7
-  %109 = getelementptr inbounds i8, ptr %42, i64 12
+  %109 = getelementptr inbounds nuw i8, ptr %42, i64 12
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, -1
   %112 = load i32, ptr @overflowgid, align 4
   %113 = select i1 %111, i32 %112, i32 %110
   %114 = zext i32 %113 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.15, i64 noundef %114) #7
-  %115 = getelementptr inbounds i8, ptr %42, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = icmp eq i32 %116, -1
   %118 = load i32, ptr @overflowgid, align 4
   %119 = select i1 %117, i32 %118, i32 %116
   %120 = zext i32 %119 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %120) #7
-  %121 = getelementptr inbounds i8, ptr %42, i64 20
+  %121 = getelementptr inbounds nuw i8, ptr %42, i64 20
   %122 = load i32, ptr %121, align 4
   %123 = icmp eq i32 %122, -1
   %124 = load i32, ptr @overflowgid, align 4
   %125 = select i1 %123, i32 %124, i32 %122
   %126 = zext i32 %125 to i64
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %126) #7
-  %127 = getelementptr inbounds i8, ptr %42, i64 36
+  %127 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, -1
   %130 = load i32, ptr @overflowgid, align 4
@@ -403,15 +403,15 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.14, i64 noundef %132) #7
   tail call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.16, i64 noundef %61) #7
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.17) #7
-  %133 = getelementptr inbounds i8, ptr %42, i64 160
+  %133 = getelementptr inbounds nuw i8, ptr %42, i64 160
   %134 = load ptr, ptr %133, align 8
-  %135 = getelementptr inbounds i8, ptr %134, i64 4
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
   %136 = load i32, ptr %135, align 4
   %137 = icmp sgt i32 %136, 0
   br i1 %137, label %138, label %.loopexit20
 
 138:                                              ; preds = %64
-  %139 = getelementptr inbounds i8, ptr %134, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %134, i64 8
   br label %140
 
 140:                                              ; preds = %140, %138
@@ -449,9 +449,9 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
 160:                                              ; preds = %159, %155, %.loopexit20
   tail call void @seq_putc(ptr noundef %0, i8 noundef zeroext 32) #7
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.18) #7
-  %161 = getelementptr inbounds i8, ptr %1, i64 64
+  %161 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %162 = load i32, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %2, i64 4
+  %163 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = icmp ugt i32 %162, %164
   br i1 %165, label %.loopexit19, label %.preheader18
@@ -561,9 +561,9 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
 
 224:                                              ; preds = %.loopexit
   tail call void @task_mem(ptr noundef %0, ptr noundef nonnull %7) #7
-  %225 = getelementptr inbounds i8, ptr %3, i64 1880
+  %225 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %226 = load ptr, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %226, i64 120
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 120
   %228 = load ptr, ptr %227, align 8
   %229 = icmp ne ptr %228, null
   %230 = zext i1 %229 to i64
@@ -582,15 +582,15 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   br i1 %233, label %282, label %234
 
 234:                                              ; preds = %231
-  %235 = getelementptr inbounds i8, ptr %3, i64 1936
+  %235 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %236 = load i64, ptr %235, align 16
-  %237 = getelementptr inbounds i8, ptr %3, i64 1880
+  %237 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 80
+  %239 = getelementptr inbounds nuw i8, ptr %238, i64 80
   %240 = load i64, ptr %239, align 8
-  %241 = getelementptr inbounds i8, ptr %3, i64 1896
+  %241 = getelementptr inbounds nuw i8, ptr %3, i64 1896
   %242 = load i64, ptr %241, align 8
-  %243 = getelementptr inbounds i8, ptr %3, i64 1888
+  %243 = getelementptr inbounds nuw i8, ptr %3, i64 1888
   %244 = load ptr, ptr %243, align 32
   br label %245
 
@@ -627,13 +627,13 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   br i1 %265, label %266, label %245, !llvm.loop !17
 
 266:                                              ; preds = %261
-  %267 = getelementptr inbounds i8, ptr %238, i64 8
+  %267 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %268 = load i32, ptr %267, align 8
   call void @__rcu_read_lock() #7
   call void @__rcu_read_lock() #7
-  %269 = getelementptr inbounds i8, ptr %3, i64 1776
+  %269 = getelementptr inbounds nuw i8, ptr %3, i64 1776
   %270 = load volatile ptr, ptr %269, align 16
-  %271 = getelementptr inbounds i8, ptr %270, i64 152
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 152
   %272 = load ptr, ptr %271, align 8
   call void @__rcu_read_unlock() #7
   %273 = getelementptr i8, ptr %272, i64 128
@@ -843,17 +843,17 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #7
   call void @__rcu_read_lock() #7
-  %436 = getelementptr inbounds i8, ptr %3, i64 1776
+  %436 = getelementptr inbounds nuw i8, ptr %3, i64 1776
   %437 = load volatile ptr, ptr %436, align 16
-  %438 = getelementptr inbounds i8, ptr %437, i64 48
+  %438 = getelementptr inbounds nuw i8, ptr %437, i64 48
   %439 = load i64, ptr %438, align 8
-  %440 = getelementptr inbounds i8, ptr %437, i64 56
+  %440 = getelementptr inbounds nuw i8, ptr %437, i64 56
   %441 = load i64, ptr %440, align 8
-  %442 = getelementptr inbounds i8, ptr %437, i64 64
+  %442 = getelementptr inbounds nuw i8, ptr %437, i64 64
   %443 = load i64, ptr %442, align 8
-  %444 = getelementptr inbounds i8, ptr %437, i64 72
+  %444 = getelementptr inbounds nuw i8, ptr %437, i64 72
   %445 = load i64, ptr %444, align 8
-  %446 = getelementptr inbounds i8, ptr %437, i64 80
+  %446 = getelementptr inbounds nuw i8, ptr %437, i64 80
   %447 = load i64, ptr %446, align 8
   call void @__rcu_read_unlock() #7
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.43) #7
@@ -871,15 +871,15 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.47) #7
   call void @seq_put_hex_ll(ptr noundef %0, ptr noundef null, i64 noundef %447, i32 noundef 16) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
-  %448 = getelementptr inbounds i8, ptr %3, i64 1256
+  %448 = getelementptr inbounds nuw i8, ptr %3, i64 1256
   %449 = load volatile i64, ptr %448, align 8
   %450 = and i64 %449, 1
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.48, i64 noundef %450) #7
-  %451 = getelementptr inbounds i8, ptr %3, i64 1992
+  %451 = getelementptr inbounds nuw i8, ptr %3, i64 1992
   %452 = load i32, ptr %451, align 8
   %453 = sext i32 %452 to i64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.49, i64 noundef %453) #7
-  %454 = getelementptr inbounds i8, ptr %3, i64 1996
+  %454 = getelementptr inbounds nuw i8, ptr %3, i64 1996
   %455 = load volatile i32, ptr %454, align 4
   %456 = sext i32 %455 to i64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.50, i64 noundef %456) #7
@@ -953,15 +953,15 @@ proc_task_name.exit:                              ; preds = %12, %16, %17
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull %475) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
   %476 = load i32, ptr @nr_cpu_ids, align 4
-  %477 = getelementptr inbounds i8, ptr %3, i64 992
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.67, i32 noundef %476, ptr noundef %477) #7
+  %477 = getelementptr inbounds nuw i8, ptr %3, i64 992
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.67, i32 noundef %476, ptr noundef nonnull %477) #7
   %478 = load i32, ptr @nr_cpu_ids, align 4
-  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.68, i32 noundef %478, ptr noundef %477) #7
+  call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.68, i32 noundef %478, ptr noundef nonnull %477) #7
   call void @cpuset_task_status_allowed(ptr noundef %0, ptr noundef %3) #7
-  %479 = getelementptr inbounds i8, ptr %3, i64 1584
+  %479 = getelementptr inbounds nuw i8, ptr %3, i64 1584
   %480 = load i64, ptr %479, align 16
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.69, i64 noundef %480) #7
-  %481 = getelementptr inbounds i8, ptr %3, i64 1592
+  %481 = getelementptr inbounds nuw i8, ptr %3, i64 1592
   %482 = load i64, ptr %481, align 8
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.70, i64 noundef %482) #7
   call void @seq_putc(ptr noundef %0, i8 noundef zeroext 10) #7
@@ -999,17 +999,17 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   store i64 0, ptr %8, align 8, !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #7
   store i64 0, ptr %9, align 8, !annotation !5
-  %10 = getelementptr inbounds i8, ptr %3, i64 1220
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 1220
   %11 = load i32, ptr %10, align 4
-  %12 = getelementptr inbounds i8, ptr %3, i64 1880
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1880
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %3, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %15 = load volatile i32, ptr %14, align 8
   %16 = and i32 %15, 4096
   %17 = icmp eq i32 %16, 0
   %18 = and i32 %15, 1026
   %19 = icmp eq i32 %18, 1026
-  %20 = getelementptr inbounds i8, ptr %3, i64 1216
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 1216
   %21 = load i32, ptr %20, align 64
   %22 = or i32 %21, %15
   %23 = and i32 %22, 127
@@ -1031,14 +1031,14 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %32, label %37, label %.critedge
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds i8, ptr %3, i64 44
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 516
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %.critedge, label %42
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds i8, ptr %3, i64 2688
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 2688
   %44 = load volatile i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %.thread, label %.preheader17
@@ -1046,7 +1046,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 .preheader17:                                     ; preds = %42, %51
   %46 = phi i32 [ %52, %51 ], [ %44, %42 ]
   %47 = add i32 %46, 1
-  %48 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %43, i32 %47, ptr elementtype(i32) %43, i32 %46) #7, !srcloc !18
+  %48 = tail call { i8, i32 } asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgl $3, $1\0A\09/* output condition code z*/\0A", "={@ccz},=*m,={ax},r,*m,2,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %43, i32 %47, ptr nonnull elementtype(i32) %43, i32 %46) #7, !srcloc !18
   %49 = extractvalue { i8, i32 } %48, 0
   %50 = icmp ult i8 %49, 2
   tail call void @llvm.assume(i1 %50)
@@ -1066,7 +1066,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %57, label %59, label %58, !prof !9
 
 58:                                               ; preds = %.thread
-  tail call void @refcount_warn_saturate(ptr noundef %43, i32 noundef 0) #7
+  tail call void @refcount_warn_saturate(ptr noundef nonnull %43, i32 noundef 0) #7
   br label %59
 
 59:                                               ; preds = %58, %.thread
@@ -1074,7 +1074,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %60, label %.critedge, label %61
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds i8, ptr %3, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %63 = load ptr, ptr %62, align 32
   %64 = icmp eq ptr %63, null
   br i1 %64, label %.critedge, label %65
@@ -1098,7 +1098,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %76, label %150, label %77
 
 77:                                               ; preds = %.critedge
-  %78 = getelementptr inbounds i8, ptr %13, i64 408
+  %78 = getelementptr inbounds nuw i8, ptr %13, i64 408
   %79 = load ptr, ptr %78, align 8
   %80 = icmp eq ptr %79, null
   br i1 %80, label %95, label %81
@@ -1124,9 +1124,9 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %96 = phi i64 [ %93, %81 ], [ 0, %77 ]
   %97 = phi i64 [ %94, %81 ], [ -1, %77 ]
   %98 = load ptr, ptr %12, align 8
-  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %101 = getelementptr inbounds i8, ptr %3, i64 1888
+  %101 = getelementptr inbounds nuw i8, ptr %3, i64 1888
   %102 = load ptr, ptr %101, align 32
   br label %103
 
@@ -1169,21 +1169,21 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %127, label %136, label %128
 
 128:                                              ; preds = %124
-  %129 = getelementptr inbounds i8, ptr %13, i64 116
+  %129 = getelementptr inbounds nuw i8, ptr %13, i64 116
   %130 = load i32, ptr %129, align 4
   %131 = and i32 %130, 5
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %136, label %133
 
 133:                                              ; preds = %128
-  %134 = getelementptr inbounds i8, ptr %13, i64 96
+  %134 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %135 = load i32, ptr %134, align 8
   br label %136
 
 136:                                              ; preds = %133, %128, %124
   %137 = phi i32 [ %135, %133 ], [ %11, %128 ], [ %11, %124 ]
   %138 = call i32 @__task_pid_nr_ns(ptr noundef %3, i32 noundef 3, ptr noundef %1) #7
-  %139 = getelementptr inbounds i8, ptr %3, i64 1328
+  %139 = getelementptr inbounds nuw i8, ptr %3, i64 1328
   %140 = load ptr, ptr %139, align 16
   %141 = call i32 @__task_pid_nr_ns(ptr noundef %140, i32 noundef 1, ptr noundef %1) #7
   %142 = call i32 @__task_pid_nr_ns(ptr noundef %3, i32 noundef 2, ptr noundef %1) #7
@@ -1217,13 +1217,13 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %164, label %172, label %.thread90
 
 .thread90:                                        ; preds = %161
-  %165 = getelementptr inbounds i8, ptr %13, i64 416
-  %166 = getelementptr inbounds i8, ptr %13, i64 420
-  %167 = getelementptr inbounds i8, ptr %13, i64 544
-  %168 = getelementptr inbounds i8, ptr %13, i64 552
-  %169 = getelementptr inbounds i8, ptr %13, i64 440
-  %170 = getelementptr inbounds i8, ptr %13, i64 448
-  %171 = getelementptr inbounds i8, ptr %13, i64 464
+  %165 = getelementptr inbounds nuw i8, ptr %13, i64 416
+  %166 = getelementptr inbounds nuw i8, ptr %13, i64 420
+  %167 = getelementptr inbounds nuw i8, ptr %13, i64 544
+  %168 = getelementptr inbounds nuw i8, ptr %13, i64 552
+  %169 = getelementptr inbounds nuw i8, ptr %13, i64 440
+  %170 = getelementptr inbounds nuw i8, ptr %13, i64 448
+  %171 = getelementptr inbounds nuw i8, ptr %13, i64 464
   br label %.split.preheader
 
 172:                                              ; preds = %161
@@ -1234,13 +1234,13 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 176:                                              ; preds = %172, %150
   %177 = phi i64 [ %175, %172 ], [ 0, %150 ]
-  %178 = getelementptr inbounds i8, ptr %13, i64 416
-  %179 = getelementptr inbounds i8, ptr %13, i64 420
-  %180 = getelementptr inbounds i8, ptr %13, i64 544
-  %181 = getelementptr inbounds i8, ptr %13, i64 552
-  %182 = getelementptr inbounds i8, ptr %13, i64 440
-  %183 = getelementptr inbounds i8, ptr %13, i64 448
-  %184 = getelementptr inbounds i8, ptr %13, i64 464
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 416
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 420
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 544
+  %181 = getelementptr inbounds nuw i8, ptr %13, i64 552
+  %182 = getelementptr inbounds nuw i8, ptr %13, i64 440
+  %183 = getelementptr inbounds nuw i8, ptr %13, i64 448
+  %184 = getelementptr inbounds nuw i8, ptr %13, i64 464
   %185 = icmp eq i32 %4, 0
   br i1 %185, label %.split.us, label %.split.preheader
 
@@ -1253,10 +1253,10 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %191 = phi ptr [ %166, %.thread90 ], [ %179, %176 ]
   %192 = phi ptr [ %165, %.thread90 ], [ %178, %176 ]
   %193 = phi i64 [ 0, %.thread90 ], [ %177, %176 ]
-  %194 = getelementptr inbounds i8, ptr %13, i64 528
-  %195 = getelementptr inbounds i8, ptr %13, i64 536
-  %196 = getelementptr inbounds i8, ptr %13, i64 456
-  %197 = getelementptr inbounds i8, ptr %13, i64 16
+  %194 = getelementptr inbounds nuw i8, ptr %13, i64 528
+  %195 = getelementptr inbounds nuw i8, ptr %13, i64 536
+  %196 = getelementptr inbounds nuw i8, ptr %13, i64 456
+  %197 = getelementptr inbounds nuw i8, ptr %13, i64 16
   br label %.split
 
 .split.us:                                        ; preds = %176, %222
@@ -1285,7 +1285,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 209:                                              ; preds = %.split.us
   %210 = or disjoint i32 %198, 1
-  %211 = call i64 @_raw_spin_lock_irqsave(ptr noundef %179) #7
+  %211 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %179) #7
   br label %212
 
 212:                                              ; preds = %209, %.loopexit16.us
@@ -1333,7 +1333,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 235:                                              ; preds = %.split
   %236 = or disjoint i32 %224, 1
-  %237 = call i64 @_raw_spin_lock_irqsave(ptr noundef %191) #7
+  %237 = call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %191) #7
   br label %238
 
 238:                                              ; preds = %235, %.loopexit16
@@ -1388,11 +1388,11 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 .critedge12.loopexit55:                           ; preds = %.loopexit
   %.pre = load i64, ptr %9, align 8
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %191, i64 noundef %.pre) #7
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %191, i64 noundef %.pre) #7
   br label %283
 
 .critedge12:                                      ; preds = %212
-  call void @_raw_spin_unlock_irqrestore(ptr noundef %179, i64 noundef %214) #7
+  call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %179, i64 noundef %214) #7
   br label %293
 
 .critedge11:                                      ; preds = %271, %222
@@ -1429,11 +1429,11 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %298 = phi i64 [ %215, %.critedge12 ], [ %278, %.critedge11 ]
   %299 = phi i64 [ %177, %.critedge12 ], [ %274, %.critedge11 ]
   call void @task_cputime_adjusted(ptr noundef %3, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
-  %300 = getelementptr inbounds i8, ptr %3, i64 1616
+  %300 = getelementptr inbounds nuw i8, ptr %3, i64 1616
   %301 = load i64, ptr %300, align 16
-  %302 = getelementptr inbounds i8, ptr %3, i64 1624
+  %302 = getelementptr inbounds nuw i8, ptr %3, i64 1624
   %303 = load i64, ptr %302, align 8
-  %304 = getelementptr inbounds i8, ptr %3, i64 1552
+  %304 = getelementptr inbounds nuw i8, ptr %3, i64 1552
   %305 = load i64, ptr %304, align 16
   br label %306
 
@@ -1448,18 +1448,18 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   %314 = phi i64 [ %290, %283 ], [ %303, %293 ]
   %315 = phi i64 [ %289, %283 ], [ %305, %293 ]
   %316 = call i32 @task_prio(ptr noundef %3) #7
-  %317 = getelementptr inbounds i8, ptr %3, i64 112
+  %317 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %318 = load i32, ptr %317, align 16
   %319 = add i32 %318, -120
-  %320 = getelementptr inbounds i8, ptr %3, i64 1608
+  %320 = getelementptr inbounds nuw i8, ptr %3, i64 1608
   %321 = load i64, ptr %320, align 8
   %322 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #9, !srcloc !27
   %323 = inttoptr i64 %322 to ptr
-  %324 = getelementptr inbounds i8, ptr %323, i64 1872
+  %324 = getelementptr inbounds nuw i8, ptr %323, i64 1872
   %325 = load ptr, ptr %324, align 16
-  %326 = getelementptr inbounds i8, ptr %325, i64 48
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 48
   %327 = load ptr, ptr %326, align 8
-  %328 = getelementptr inbounds i8, ptr %327, i64 56
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 56
   %329 = load i64, ptr %328, align 8
   %330 = icmp sgt i64 %329, 9223372035
   br i1 %330, label %338, label %331
@@ -1470,7 +1470,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
 
 333:                                              ; preds = %331
   %334 = mul nsw i64 %329, 1000000000
-  %335 = getelementptr inbounds i8, ptr %327, i64 64
+  %335 = getelementptr inbounds nuw i8, ptr %327, i64 64
   %336 = load i64, ptr %335, align 8
   %337 = add i64 %336, %334
   br label %338
@@ -1485,7 +1485,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   call void @seq_puts(ptr noundef %0, ptr noundef nonnull @.str.71) #7
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %6) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %6, i8 0, i64 64, i1 false), !annotation !5
-  %344 = getelementptr inbounds i8, ptr %3, i64 44
+  %344 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %345 = load i32, ptr %344, align 4
   %346 = and i32 %345, 32
   %347 = icmp eq i32 %346, 0
@@ -1574,10 +1574,10 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br label %386
 
 381:                                              ; preds = %367
-  %382 = getelementptr inbounds i8, ptr %33, i64 320
+  %382 = getelementptr inbounds nuw i8, ptr %33, i64 320
   %383 = load i64, ptr %382, align 64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %383) #7
-  %384 = getelementptr inbounds i8, ptr %33, i64 328
+  %384 = getelementptr inbounds nuw i8, ptr %33, i64 328
   %385 = load i64, ptr %384, align 8
   br label %386
 
@@ -1588,7 +1588,7 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %388, label %389, label %392
 
 389:                                              ; preds = %386
-  %390 = getelementptr inbounds i8, ptr %33, i64 368
+  %390 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %391 = load i64, ptr %390, align 16
   br label %392
 
@@ -1597,11 +1597,11 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %393) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %72) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %73) #7
-  %394 = getelementptr inbounds i8, ptr %3, i64 1936
+  %394 = getelementptr inbounds nuw i8, ptr %3, i64 1936
   %395 = load i64, ptr %394, align 16
   %396 = and i64 %395, 2147483647
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %396) #7
-  %397 = getelementptr inbounds i8, ptr %3, i64 1896
+  %397 = getelementptr inbounds nuw i8, ptr %3, i64 1896
   %398 = load i64, ptr %397, align 8
   %399 = and i64 %398, 2147483647
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %399) #7
@@ -1610,23 +1610,23 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %312) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef 0) #7
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef 0) #7
-  %400 = getelementptr inbounds i8, ptr %3, i64 1224
+  %400 = getelementptr inbounds nuw i8, ptr %3, i64 1224
   %401 = load i32, ptr %400, align 8
   %402 = sext i32 %401 to i64
   call void @seq_put_decimal_ll(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %402) #7
-  %403 = getelementptr inbounds i8, ptr %3, i64 20
+  %403 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %404 = load volatile i32, ptr %403, align 4
   %405 = zext i32 %404 to i64
   call void @seq_put_decimal_ll(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %405) #7
-  %406 = getelementptr inbounds i8, ptr %3, i64 120
+  %406 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %407 = load i32, ptr %406, align 8
   %408 = zext i32 %407 to i64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %408) #7
-  %409 = getelementptr inbounds i8, ptr %3, i64 964
+  %409 = getelementptr inbounds nuw i8, ptr %3, i64 964
   %410 = load i32, ptr %409, align 4
   %411 = zext i32 %410 to i64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %411) #7
-  %412 = getelementptr inbounds i8, ptr %3, i64 2544
+  %412 = getelementptr inbounds nuw i8, ptr %3, i64 2544
   %413 = load ptr, ptr %412, align 16
   %414 = icmp eq ptr %413, null
   br i1 %414, label %417, label %415
@@ -1646,25 +1646,25 @@ define internal fastcc void @do_task_stat(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %421, label %422, label %437
 
 422:                                              ; preds = %417
-  %423 = getelementptr inbounds i8, ptr %33, i64 336
+  %423 = getelementptr inbounds nuw i8, ptr %33, i64 336
   %424 = load i64, ptr %423, align 16
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %424) #7
-  %425 = getelementptr inbounds i8, ptr %33, i64 344
+  %425 = getelementptr inbounds nuw i8, ptr %33, i64 344
   %426 = load i64, ptr %425, align 8
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %426) #7
-  %427 = getelementptr inbounds i8, ptr %33, i64 352
+  %427 = getelementptr inbounds nuw i8, ptr %33, i64 352
   %428 = load i64, ptr %427, align 32
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %428) #7
-  %429 = getelementptr inbounds i8, ptr %33, i64 376
+  %429 = getelementptr inbounds nuw i8, ptr %33, i64 376
   %430 = load i64, ptr %429, align 8
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %430) #7
-  %431 = getelementptr inbounds i8, ptr %33, i64 384
+  %431 = getelementptr inbounds nuw i8, ptr %33, i64 384
   %432 = load i64, ptr %431, align 64
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %432) #7
-  %433 = getelementptr inbounds i8, ptr %33, i64 392
+  %433 = getelementptr inbounds nuw i8, ptr %33, i64 392
   %434 = load i64, ptr %433, align 8
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %434) #7
-  %435 = getelementptr inbounds i8, ptr %33, i64 400
+  %435 = getelementptr inbounds nuw i8, ptr %33, i64 400
   %436 = load i64, ptr %435, align 16
   call void @seq_put_decimal_ull(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %436) #7
   br label %438

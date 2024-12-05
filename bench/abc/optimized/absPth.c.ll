@@ -30,8 +30,8 @@ define range(i32 0, 2) i32 @Abs_CallBackToStop(i32 noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define noundef i32 @Pdr_ManSolve_test(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 148
-  %5 = getelementptr inbounds i8, ptr %1, i64 152
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 148
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.split.us, label %.split
@@ -69,13 +69,13 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #2
 define noalias noundef nonnull ptr @Abs_ProverThread(ptr nocapture noundef %0) #3 {
   %2 = alloca %struct.Pdr_Par_t_, align 8
   call void @Pdr_ManSetDefaultParams(ptr noundef nonnull %2) #11
-  %3 = getelementptr inbounds i8, ptr %2, i64 112
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 112
   store i32 1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 12
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 148
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 148
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 152
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 152
   store ptr @Abs_CallBackToStop, ptr %7, align 8
   %8 = load ptr, ptr %0, align 8
   %9 = call i32 @Pdr_ManSolve(ptr noundef %8, ptr noundef nonnull %2) #11
@@ -86,13 +86,13 @@ define noalias noundef nonnull ptr @Abs_ProverThread(ptr nocapture noundef %0) #
   %12 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mutex) #11
   store volatile i32 1, ptr @g_fAbstractionProved, align 4
   %13 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #11
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load i32, ptr %14, align 8
   %.not = icmp eq i32 %15, 0
   br i1 %.not, label %20, label %.sink.split
 
 .thread:                                          ; preds = %1
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load i32, ptr %16, align 8
   %.not18 = icmp eq i32 %17, 0
   br i1 %.not18, label %20, label %.thread19
@@ -174,7 +174,7 @@ declare void @pthread_exit(ptr noundef) local_unnamed_addr #6
 define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.Ssw_Pars_t_, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 448
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @Gia_ManDupAbsGates(ptr noundef %0, ptr noundef %7) #11
   tail call void @Gia_ManCleanValue(ptr noundef %0) #11
@@ -185,7 +185,7 @@ define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 10:                                               ; preds = %3
   call void @Ssw_ManSetDefaultParams(ptr noundef nonnull %4) #11
-  %11 = getelementptr inbounds i8, ptr %4, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 4, ptr %11, align 4
   %12 = call ptr @Ssw_SignalCorrespondence(ptr noundef %9, ptr noundef nonnull %4) #11
   call void @Aig_ManStop(ptr noundef %9) #11
@@ -198,13 +198,13 @@ define void @Gia_GlaProveAbsracted(ptr noundef %0, i32 noundef %1, i32 noundef %
   %15 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #11
   %16 = call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #14
   store ptr %.0, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store i32 %2, ptr %17, align 8
   %18 = call i32 @pthread_mutex_lock(ptr noundef nonnull @g_mutex) #11
   %19 = load volatile i32, ptr @g_nRunIds, align 4
   %20 = add nsw i32 %19, 1
   store volatile i32 %20, ptr @g_nRunIds, align 4
-  %21 = getelementptr inbounds i8, ptr %16, i64 12
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 12
   store i32 %20, ptr %21, align 4
   %22 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @g_mutex) #11
   %.not18 = icmp eq i32 %2, 0

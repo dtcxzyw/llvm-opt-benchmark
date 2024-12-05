@@ -25,17 +25,17 @@ define hidden noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr nocapt
   br i1 %4, label %12, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 40
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %7) #2
   br label %24
 
 12:                                               ; preds = %1
   %13 = zext nneg i8 %2 to i64
-  %14 = getelementptr inbounds [20 x i32], ptr @type2size, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [20 x i32], ptr @type2size, i64 0, i64 %13
   %15 = load i32, ptr %14, align 4
   switch i32 %15, label %24 [
     i32 1, label %16
@@ -43,13 +43,13 @@ define hidden noundef zeroext i1 @_ZNK10ciConstant15is_null_or_zeroEv(ptr nocapt
   ]
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, 0
   br label %24
 
 20:                                               ; preds = %12
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = icmp eq i64 %22, 0
   br label %24
@@ -71,16 +71,16 @@ define hidden noundef zeroext i1 @_ZNK10ciConstant9is_loadedEv(ptr nocapture nou
   br i1 %or.cond.i, label %5, label %_Z17is_reference_type9BasicTypeb.exit
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
   br i1 %.not.i, label %10, label %_Z17is_reference_type9BasicTypeb.exit
 
 10:                                               ; preds = %5
   %11 = load ptr, ptr %7, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 120
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(40) %7) #2
   br label %_Z17is_reference_type9BasicTypeb.exit
@@ -110,7 +110,7 @@ define hidden void @_ZN10ciConstant5printEv(ptr nocapture noundef nonnull readon
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr @tty, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %.not = icmp eq i32 %9, 0
   %10 = select i1 %.not, ptr @.str.12, ptr @.str.11
@@ -119,21 +119,21 @@ define hidden void @_ZN10ciConstant5printEv(ptr nocapture noundef nonnull readon
 
 11:                                               ; preds = %1, %1, %1, %1
   %12 = load ptr, ptr @tty, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.5, i32 noundef %14) #2
   br label %35
 
 15:                                               ; preds = %1
   %16 = load ptr, ptr @tty, align 8
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull @.str.6, i64 noundef %18) #2
   br label %35
 
 19:                                               ; preds = %1
   %20 = load ptr, ptr @tty, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load float, ptr %21, align 8
   %23 = fpext float %22 to double
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull @.str.7, double noundef %23) #2
@@ -141,7 +141,7 @@ define hidden void @_ZN10ciConstant5printEv(ptr nocapture noundef nonnull readon
 
 24:                                               ; preds = %1
   %25 = load ptr, ptr @tty, align 8
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load double, ptr %26, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %25, ptr noundef nonnull @.str.8, double noundef %27) #2
   br label %35
@@ -152,7 +152,7 @@ define hidden void @_ZN10ciConstant5printEv(ptr nocapture noundef nonnull readon
   br i1 %or.cond.i, label %30, label %_Z17is_reference_type9BasicTypeb.exit
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr @tty, align 8
   tail call void @_ZN8ciObject5printEP12outputStream(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef %33) #2

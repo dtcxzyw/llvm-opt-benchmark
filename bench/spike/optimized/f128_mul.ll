@@ -64,9 +64,9 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 33:                                               ; preds = %31
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %6, i64 noundef %10, i64 noundef %0) #3
   %.sroa.017.0.copyload = load i64, ptr %6, align 8
-  %.sroa.420.0..sroa_idx = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.420.sroa.0.0.copyload = load i64, ptr %.sroa.420.0..sroa_idx, align 8
-  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %6, i64 16
+  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.420.sroa.4.0.copyload = load i64, ptr %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx.sroa_idx, align 8
   br label %34
 
@@ -85,9 +85,9 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
 37:                                               ; preds = %35
   call void @softfloat_normSubnormalF128Sig(ptr dead_on_unwind nonnull writable sret(%struct.exp32_sig128) align 8 %7, i64 noundef %13, i64 noundef %2) #3
   %.sroa.017.0.copyload19 = load i64, ptr %7, align 8
-  %.sroa.420.0..sroa_idx21 = getelementptr inbounds i8, ptr %7, i64 8
+  %.sroa.420.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.sroa.420.sroa.0.0.copyload39 = load i64, ptr %.sroa.420.0..sroa_idx21, align 8
-  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx21.sroa_idx = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx21.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.420.sroa.4.0.copyload41 = load i64, ptr %.sroa.420.sroa.4.0..sroa.420.0..sroa_idx21.sroa_idx, align 8
   br label %38
 
@@ -101,15 +101,15 @@ define { i64, i64 } @f128_mul(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr
   %42 = call i64 @llvm.fshl.i64(i64 %.sroa.10.0, i64 %.sroa.026.0, i64 16)
   %43 = shl i64 %.sroa.026.0, 16
   call void @softfloat_mul128To256M(i64 noundef %41, i64 noundef %.sroa.057.0, i64 noundef %42, i64 noundef %43, ptr noundef nonnull %5) #3
-  %44 = getelementptr inbounds i8, ptr %5, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %45 = load i64, ptr %44, align 8
   %46 = load i64, ptr %5, align 16
   %47 = icmp ne i64 %46, 0
   %48 = zext i1 %47 to i64
   %49 = or i64 %45, %48
-  %50 = getelementptr inbounds i8, ptr %5, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %5, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %53 = load i64, ptr %52, align 16
   %54 = add i64 %53, %.sroa.057.0
   %55 = add i64 %51, %41

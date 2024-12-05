@@ -49,7 +49,7 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br i1 %.not95, label %67, label %29
 
 29:                                               ; preds = %21
-  %30 = getelementptr inbounds i8, ptr %25, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %31, -4
   %33 = getelementptr inbounds i8, ptr %25, i64 %32
@@ -69,23 +69,23 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   %40 = load i64, ptr %25, align 8
   %41 = sub i64 0, %40
   %42 = getelementptr inbounds i8, ptr %25, i64 %41
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   store ptr %44, ptr %47, align 8
   %.not97 = icmp eq ptr %44, null
   br i1 %.not97, label %51, label %48
 
 48:                                               ; preds = %39
   %49 = load ptr, ptr %45, align 8
-  %50 = getelementptr inbounds i8, ptr %44, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %49, ptr %50, align 8
   br label %51
 
 51:                                               ; preds = %48, %39
-  %52 = getelementptr inbounds i8, ptr %42, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, -4
   %55 = add i64 %54, %.078
@@ -94,15 +94,15 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
 56:                                               ; preds = %51, %29
   %.181 = phi ptr [ %42, %51 ], [ %25, %29 ]
   %.1 = phi i64 [ %55, %51 ], [ %.078, %29 ]
-  %57 = getelementptr inbounds i8, ptr %.181, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.181, i64 8
   store i64 %.1, ptr %57, align 8
   %58 = ptrtoint ptr %33 to i64
   %59 = sub i64 %58, %.079.in
   %60 = or i64 %59, 3
-  %61 = getelementptr inbounds i8, ptr %.079, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.079, i64 8
   store i64 %60, ptr %61, align 8
   store i64 %.1, ptr %.079, align 8
-  %62 = getelementptr inbounds i8, ptr %33, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %63 = load i64, ptr %62, align 8
   %64 = and i64 %63, -3
   store i64 %64, ptr %62, align 8
@@ -125,14 +125,14 @@ define noalias ptr @mm_memalign(ptr noundef %0, i64 noundef %1, i64 noundef %2) 
   br label %72
 
 72:                                               ; preds = %71, %67
-  %73 = getelementptr inbounds i8, ptr %.080, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %.080, i64 8
   %74 = load i64, ptr %73, align 8
   %75 = and i64 %74, -4
-  %76 = getelementptr inbounds i8, ptr %0, i64 56
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = load i64, ptr %76, align 8
   %78 = add i64 %77, %75
   store i64 %78, ptr %76, align 8
-  %79 = getelementptr inbounds i8, ptr %0, i64 48
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %80 = load i64, ptr %79, align 8
   %81 = icmp ugt i64 %78, %80
   br i1 %81, label %82, label %83

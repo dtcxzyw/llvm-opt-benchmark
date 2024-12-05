@@ -147,13 +147,13 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN2cv11JpegDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0)
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv11JpegDecoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 56
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str)
           to label %4 unwind label %7
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 272
-  %6 = getelementptr inbounds i8, ptr %0, i64 184
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i8 1, ptr %6, align 8
   ret void
@@ -174,20 +174,20 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16BaseImageDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16BaseImageDecoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 192
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN2cv10ExifReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %2) #22
-  %3 = getelementptr inbounds i8, ptr %0, i64 88
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #22
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11JpegDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %5, label %4
@@ -202,7 +202,7 @@ define hidden void @_ZN2cv11JpegDecoderD2Ev(ptr noundef nonnull align 8 derefere
   br label %5
 
 5:                                                ; preds = %.noexc, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %.not4.i = icmp eq ptr %7, null
   br i1 %.not4.i, label %10, label %8
@@ -213,20 +213,20 @@ define hidden void @_ZN2cv11JpegDecoderD2Ev(ptr noundef nonnull align 8 derefere
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %13, align 8
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv16BaseImageDecoderE, i64 16), ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 192
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 192
   tail call void @_ZN2cv10ExifReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(76) %14) #22
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #22
-  %16 = getelementptr inbounds i8, ptr %0, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #22
-  %17 = getelementptr inbounds i8, ptr %0, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   ret void
 
@@ -240,7 +240,7 @@ define hidden void @_ZN2cv11JpegDecoderD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv11JpegDecoder5closeEv(ptr nocapture noundef nonnull align 8 dereferenceable(288) initializes((8, 20)) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 280
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -252,7 +252,7 @@ define hidden void @_ZN2cv11JpegDecoder5closeEv(ptr nocapture noundef nonnull al
   br label %5
 
 5:                                                ; preds = %4, %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 272
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %7 = load ptr, ptr %6, align 8
   %.not4 = icmp eq ptr %7, null
   br i1 %.not4, label %10, label %8
@@ -263,11 +263,11 @@ define hidden void @_ZN2cv11JpegDecoder5closeEv(ptr nocapture noundef nonnull al
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %13, align 8
   ret void
 }
@@ -302,18 +302,18 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK2cv11JpegDecoder10newDecoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(304) ptr @_Znwm(i64 noundef 304) #25, !noalias !4
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !4
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !4
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !4
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN2cv16BaseImageDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(288) %6)
           to label %.noexc.i.i.i.i.i unwind label %10, !noalias !4
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 104) (i8, ptr @_ZTVN2cv11JpegDecoderE, i64 16), ptr %6, align 8, !noalias !4
-  %7 = getelementptr inbounds i8, ptr %3, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str)
           to label %_ZN2cv3PtrINS_11JpegDecoderEED2Ev.exit unwind label %.body.i.i.i.i.i.i, !noalias !4
 
@@ -334,12 +334,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
 _ZN2cv3PtrINS_11JpegDecoderEED2Ev.exit:           ; preds = %.noexc.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %3, i64 288
-  %13 = getelementptr inbounds i8, ptr %3, i64 200
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 288
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false), !noalias !4
   store i8 1, ptr %13, align 8, !noalias !4
   store ptr %6, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %14, align 8
   ret void
 }
@@ -348,7 +348,7 @@ _ZN2cv3PtrINS_11JpegDecoderEED2Ev.exit:           ; preds = %.noexc.i.i.i.i.i
 define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder10readHeaderEv(ptr noundef nonnull align 8 dereferenceable(288) initializes((8, 20)) %0) unnamed_addr #3 align 2 {
   %2 = alloca i8, align 1
   store volatile i8 0, ptr %2, align 1
-  %3 = getelementptr inbounds i8, ptr %0, i64 280
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %4 = load ptr, ptr %3, align 8
   %.not.i = icmp eq ptr %4, null
   br i1 %.not.i, label %6, label %5
@@ -360,7 +360,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder10readHeaderEv(ptr noundef 
   br label %6
 
 6:                                                ; preds = %5, %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 272
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %8 = load ptr, ptr %7, align 8
   %.not4.i = icmp eq ptr %8, null
   br i1 %.not4.i, label %_ZN2cv11JpegDecoder5closeEv.exit, label %9
@@ -371,59 +371,59 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder10readHeaderEv(ptr noundef 
   br label %_ZN2cv11JpegDecoder5closeEv.exit
 
 _ZN2cv11JpegDecoder5closeEv.exit:                 ; preds = %6, %9
-  %11 = getelementptr inbounds i8, ptr %0, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 0, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 -1, ptr %13, align 8
   %14 = call noalias noundef nonnull dereferenceable(1088) ptr @_Znwm(i64 noundef 1088) #25
   store ptr %14, ptr %3, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 656
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 656
   %16 = call ptr @jpeg_std_error(ptr noundef nonnull %15)
   store ptr %16, ptr %14, align 8
   store ptr @_ZN2cvL10error_exitEP18jpeg_common_struct, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 824
+  %17 = getelementptr inbounds nuw i8, ptr %14, i64 824
   %18 = call i32 @_setjmp(ptr noundef nonnull %17) #26
   %19 = icmp eq i32 %18, 0
   br i1 %19, label %20, label %75
 
 20:                                               ; preds = %_ZN2cv11JpegDecoder5closeEv.exit
   call void @jpeg_CreateDecompress(ptr noundef nonnull %14, i32 noundef 80, i64 noundef 656)
-  %21 = getelementptr inbounds i8, ptr %0, i64 88
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %22 = call noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %21)
   br i1 %22, label %53, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds i8, ptr %14, i64 1024
-  %25 = getelementptr inbounds i8, ptr %14, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %14, i64 1024
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 40
   store ptr %24, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %14, i64 1040
+  %26 = getelementptr inbounds nuw i8, ptr %14, i64 1040
   store ptr @_ZN2cvL4stubEP22jpeg_decompress_struct, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %14, i64 1048
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 1048
   store ptr @_ZN2cvL17fill_input_bufferEP22jpeg_decompress_struct, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %14, i64 1056
+  %28 = getelementptr inbounds nuw i8, ptr %14, i64 1056
   store ptr @_ZN2cvL15skip_input_dataEP22jpeg_decompress_structl, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %14, i64 1064
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 1064
   store ptr @jpeg_resync_to_restart, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %14, i64 1072
+  %30 = getelementptr inbounds nuw i8, ptr %14, i64 1072
   store ptr @_ZN2cvL4stubEP22jpeg_decompress_struct, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %14, i64 1032
+  %31 = getelementptr inbounds nuw i8, ptr %14, i64 1032
   store i64 0, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %14, i64 1080
+  %32 = getelementptr inbounds nuw i8, ptr %14, i64 1080
   store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %0, i64 104
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 160
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %36 = load ptr, ptr %35, align 8
   store ptr %34, ptr %24, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 100
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 100
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 96
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %40 = load i32, ptr %39, align 8
   %41 = mul nsw i32 %40, %38
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i8, ptr %0, i64 92
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %44 = load i32, ptr %43, align 4
   %45 = icmp sgt i32 %44, 0
   br i1 %45, label %46, label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -442,7 +442,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
   br label %58
 
 53:                                               ; preds = %20
-  %54 = getelementptr inbounds i8, ptr %0, i64 24
+  %54 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %55 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %54) #22
   %56 = call noalias ptr @fopen(ptr noundef %55, ptr noundef nonnull @.str.1)
   store ptr %56, ptr %7, align 8
@@ -454,7 +454,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
   br label %58
 
 58:                                               ; preds = %53, %57, %_ZNK2cv3Mat8elemSizeEv.exit
-  %59 = getelementptr inbounds i8, ptr %14, i64 40
+  %59 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %60 = load ptr, ptr %59, align 8
   %.not22 = icmp eq ptr %60, null
   br i1 %.not22, label %75, label %61
@@ -462,21 +462,21 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %23, %46
 61:                                               ; preds = %58
   call void @jpeg_save_markers(ptr noundef nonnull %14, i32 noundef 225, i32 noundef 65535)
   %62 = call i32 @jpeg_read_header(ptr noundef nonnull %14, i32 noundef 1)
-  %63 = getelementptr inbounds i8, ptr %14, i64 68
+  %63 = getelementptr inbounds nuw i8, ptr %14, i64 68
   store i32 1, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 20
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %65 = load i32, ptr %64, align 4
-  %66 = getelementptr inbounds i8, ptr %14, i64 72
+  %66 = getelementptr inbounds nuw i8, ptr %14, i64 72
   store i32 %65, ptr %66, align 8
   store i32 1, ptr %64, align 4
   call void @jpeg_calc_output_dimensions(ptr noundef nonnull %14)
-  %67 = getelementptr inbounds i8, ptr %14, i64 136
+  %67 = getelementptr inbounds nuw i8, ptr %14, i64 136
   %68 = load i32, ptr %67, align 8
   store i32 %68, ptr %12, align 8
-  %69 = getelementptr inbounds i8, ptr %14, i64 140
+  %69 = getelementptr inbounds nuw i8, ptr %14, i64 140
   %70 = load i32, ptr %69, align 4
   store i32 %70, ptr %11, align 4
-  %71 = getelementptr inbounds i8, ptr %14, i64 56
+  %71 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %72 = load i32, ptr %71, align 8
   %73 = icmp sgt i32 %72, 1
   %74 = select i1 %73, i32 16, i32 0
@@ -498,7 +498,7 @@ declare ptr @jpeg_std_error(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress noreturn nounwind uwtable
 define internal void @_ZN2cvL10error_exitEP18jpeg_common_struct(ptr nocapture noundef readonly %0) #10 {
   %2 = load ptr, ptr %0, align 8
-  %3 = getelementptr inbounds i8, ptr %2, i64 168
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 168
   tail call void @longjmp(ptr noundef nonnull %3, i32 noundef 1) #24
   unreachable
 }
@@ -532,31 +532,31 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   %5 = load i32, ptr %1, align 8
   %6 = and i32 %5, 4088
   %.not79 = icmp eq i32 %6, 0
-  %7 = getelementptr inbounds i8, ptr %0, i64 280
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %130, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %.not64 = icmp eq i32 %11, 0
   br i1 %.not64, label %130, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %0, i64 12
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %14 = load i32, ptr %13, align 4
   %.not65 = icmp eq i32 %14, 0
   br i1 %.not65, label %130, label %15
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %8, i64 824
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 824
   %17 = call i32 @_setjmp(ptr noundef nonnull %16) #26
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %130
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds i8, ptr %8, i64 56
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %21 = load i32, ptr %20, align 8
   %.not66 = icmp eq i32 %21, 4
   br i1 %.not79, label %33, label %22
@@ -565,26 +565,26 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %.not66, label %30, label %23
 
 23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %0, i64 185
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 185
   %25 = load i8, ptr %24, align 1
   %26 = trunc i8 %25 to i1
   %27 = select i1 %26, i32 6, i32 8
-  %28 = getelementptr inbounds i8, ptr %8, i64 64
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 %27, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %8, i64 144
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store i32 3, ptr %29, align 8
   br label %38
 
 30:                                               ; preds = %22
-  %31 = getelementptr inbounds i8, ptr %8, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i32 4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %8, i64 144
+  %32 = getelementptr inbounds nuw i8, ptr %8, i64 144
   store i32 4, ptr %32, align 8
   br label %38
 
 33:                                               ; preds = %19
-  %34 = getelementptr inbounds i8, ptr %8, i64 64
-  %35 = getelementptr inbounds i8, ptr %8, i64 144
+  %34 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 144
   br i1 %.not66, label %37, label %36
 
 36:                                               ; preds = %33
@@ -599,14 +599,14 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
 
 38:                                               ; preds = %36, %37, %23, %30
   %.058 = phi i1 [ true, %23 ], [ false, %30 ], [ true, %36 ], [ false, %37 ]
-  %39 = getelementptr inbounds i8, ptr %8, i64 400
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 400
   %.06183 = load ptr, ptr %39, align 8
   %.not91 = icmp eq ptr %.06183, null
   br i1 %.not91, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %.lr.ph
   %.06184 = phi ptr [ %.061, %.lr.ph ], [ %.06183, %38 ]
-  %40 = getelementptr inbounds i8, ptr %.06184, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.06184, i64 8
   %41 = load i8, ptr %40, align 8
   %42 = icmp eq i8 %41, -31
   %spec.select = select i1 %42, ptr %.06184, ptr null
@@ -620,17 +620,17 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %44, label %._crit_edge.thread, label %46
 
 46:                                               ; preds = %._crit_edge
-  %47 = getelementptr inbounds i8, ptr %spec.select, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
   %48 = load i32, ptr %47, align 8
   %49 = icmp ugt i32 %48, 6
   br i1 %49, label %50, label %._crit_edge.thread
 
 50:                                               ; preds = %46
   %51 = zext i32 %48 to i64
-  %52 = getelementptr inbounds i8, ptr %0, i64 192
-  %53 = getelementptr inbounds i8, ptr %spec.select, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %53 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 6
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 6
   %56 = add nsw i64 %51, -6
   %57 = call noundef zeroext i1 @_ZN2cv10ExifReader9parseExifEPhm(ptr noundef nonnull align 8 dereferenceable(76) %52, ptr noundef nonnull %55, i64 noundef %56)
   br label %._crit_edge.thread
@@ -645,8 +645,8 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %60, label %.lr.ph90, label %.loopexit
 
 .lr.ph90:                                         ; preds = %.preheader
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = getelementptr inbounds i8, ptr %1, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %67
 
 63:                                               ; preds = %67
@@ -669,9 +669,9 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %.not70, label %63, label %.loopexit80
 
 74:                                               ; preds = %._crit_edge.thread
-  %75 = getelementptr inbounds i8, ptr %8, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %76, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8
   %79 = load i32, ptr %10, align 8
   %80 = shl nsw i32 %79, 2
@@ -681,10 +681,10 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegDecoder8readDataERNS_3MatE(ptr nou
   br i1 %83, label %.lr.ph88, label %.loopexit
 
 .lr.ph88:                                         ; preds = %74
-  %84 = getelementptr inbounds i8, ptr %1, i64 16
-  %85 = getelementptr inbounds i8, ptr %1, i64 72
-  %86 = getelementptr inbounds i8, ptr %0, i64 185
-  %87 = getelementptr inbounds i8, ptr %8, i64 144
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 185
+  %87 = getelementptr inbounds nuw i8, ptr %8, i64 144
   br i1 %.not79, label %.lr.ph88.split.us, label %.lr.ph88.split
 
 .lr.ph88.split.us:                                ; preds = %.lr.ph88, %102
@@ -812,12 +812,12 @@ declare i32 @jpeg_finish_decompress(ptr noundef) local_unnamed_addr #0
 define hidden void @_ZN2cv11JpegEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN2cv16BaseImageEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0)
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11JpegEncoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.2)
           to label %4 unwind label %6
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 80
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i8 1, ptr %5, align 8
   ret void
 
@@ -833,11 +833,11 @@ declare void @_ZN2cv16BaseImageEncoderC2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2cv16BaseImageEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #4 comdat align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   ret void
 }
@@ -845,11 +845,11 @@ define linkonce_odr hidden void @_ZN2cv16BaseImageEncoderD2Ev(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11JpegEncoderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   ret void
 }
@@ -857,11 +857,11 @@ define hidden void @_ZN2cv11JpegEncoderD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN2cv11JpegEncoderD0Ev(ptr noundef nonnull align 8 dereferenceable(120) initializes((0, 8)) %0) unnamed_addr #4 align 2 {
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds i8, ptr %0, i64 88
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23
   ret void
@@ -870,18 +870,18 @@ define hidden void @_ZN2cv11JpegEncoderD0Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK2cv11JpegEncoder10newEncoderEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"struct.cv::Ptr.11") align 8 %0, ptr nocapture nonnull readnone align 8 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #25, !noalias !13
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 1, ptr %4, align 8, !noalias !13
-  %5 = getelementptr inbounds i8, ptr %3, i64 12
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !13
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %3, align 8, !noalias !13
-  %6 = getelementptr inbounds i8, ptr %3, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 16
   invoke void @_ZN2cv16BaseImageEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %6)
           to label %.noexc.i.i.i.i.i unwind label %10, !noalias !13
 
 .noexc.i.i.i.i.i:                                 ; preds = %2
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv11JpegEncoderE, i64 16), ptr %6, align 8, !noalias !13
-  %7 = getelementptr inbounds i8, ptr %3, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.2)
           to label %_ZN2cv3PtrINS_11JpegEncoderEED2Ev.exit unwind label %.body.i.i.i.i.i.i, !noalias !13
 
@@ -902,10 +902,10 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9
   resume { ptr, i32 } %eh.lpad-body.i.i.i.i.i
 
 _ZN2cv3PtrINS_11JpegEncoderEED2Ev.exit:           ; preds = %.noexc.i.i.i.i.i
-  %12 = getelementptr inbounds i8, ptr %3, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 96
   store i8 1, ptr %12, align 8, !noalias !13
   store ptr %6, ptr %0, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %3, ptr %13, align 8
   ret void
 }
@@ -923,19 +923,19 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca ptr, align 8
   %14 = alloca [200 x i8], align 16
-  %15 = getelementptr inbounds i8, ptr %0, i64 88
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %15) #22
   store volatile i8 0, ptr %4, align 1
-  %16 = getelementptr inbounds i8, ptr %1, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %17 = load i32, ptr %16, align 4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load i32, ptr %18, align 8
   %20 = call noalias noundef nonnull dereferenceable(4096) ptr @_Znwm(i64 noundef 4096) #25
   store ptr %20, ptr %5, align 8
-  %21 = getelementptr inbounds i8, ptr %20, i64 4096
-  %22 = getelementptr inbounds i8, ptr %5, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 4096
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %21, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(4096) %20, i8 0, i64 4096, i1 false)
   store ptr %21, ptr %23, align 8
   %24 = invoke ptr @jpeg_std_error(ptr noundef nonnull %7)
@@ -948,13 +948,13 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
           to label %26 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %0, i64 72
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %29, label %34
 
 29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 40
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #22
   %32 = call noalias ptr @fopen(ptr noundef %31, ptr noundef nonnull @.str.3)
   %.not146 = icmp eq ptr %32, null
@@ -981,17 +981,17 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
           to label %47 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 34:                                               ; preds = %26
-  %35 = getelementptr inbounds i8, ptr %8, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %8, i64 48
   store ptr %28, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %8, i64 40
   store ptr %5, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %6, i64 40
+  %37 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %8, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %8, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr @_ZN2cvL4stubEP20jpeg_compress_struct, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %8, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @_ZN2cvL19empty_output_bufferEP20jpeg_compress_struct, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %8, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr @_ZN2cvL16term_destinationEP20jpeg_compress_struct, ptr %40, align 8
   %41 = load ptr, ptr %5, align 8
   store ptr %41, ptr %8, align 8
@@ -999,21 +999,21 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   %43 = ptrtoint ptr %42 to i64
   %44 = ptrtoint ptr %41 to i64
   %45 = sub i64 %43, %44
-  %46 = getelementptr inbounds i8, ptr %8, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 %45, ptr %46, align 8
   br label %47
 
 47:                                               ; preds = %33, %34
   %.sroa.0.4 = phi ptr [ %32, %33 ], [ null, %34 ]
-  %48 = getelementptr inbounds i8, ptr %7, i64 168
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %49 = call i32 @_setjmp(ptr noundef nonnull %48) #26
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %205
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %6, i64 48
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store i32 %17, ptr %52, align 8
-  %53 = getelementptr inbounds i8, ptr %6, i64 52
+  %53 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 %19, ptr %53, align 4
   %54 = load i32, ptr %1, align 8
   %55 = lshr i32 %54, 3
@@ -1052,18 +1052,18 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
 66:                                               ; preds = %51, %59, %58
   %.sink282 = phi i32 [ 4, %59 ], [ 3, %58 ], [ 1, %51 ]
   %.sink = phi i32 [ 9, %59 ], [ 8, %58 ], [ 1, %51 ]
-  %67 = getelementptr inbounds i8, ptr %6, i64 56
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store i32 %.sink282, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %6, i64 60
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 60
   store i32 %.sink, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %2, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %2, align 8
   %.not279 = icmp eq ptr %70, %71
   br i1 %.not279, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
-  %72 = getelementptr inbounds i8, ptr %10, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %73
 
 73:                                               ; preds = %.lr.ph, %.thread200
@@ -1161,7 +1161,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br i1 %.not150, label %119, label %115
 
 115:                                              ; preds = %114
-  %116 = getelementptr inbounds i8, ptr %113, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
   %117 = load i32, ptr %116, align 8
   %118 = icmp slt i32 %117, 3
   br i1 %118, label %.thread200, label %119
@@ -1258,7 +1258,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
           to label %148 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 148:                                              ; preds = %._crit_edge
-  %149 = getelementptr inbounds i8, ptr %6, i64 316
+  %149 = getelementptr inbounds nuw i8, ptr %6, i64 316
   store i32 %.0132.lcssa, ptr %149, align 4
   invoke void @jpeg_set_quality(ptr noundef nonnull %6, i32 noundef %.0138.lcssa, i32 noundef 1)
           to label %150 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1274,7 +1274,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br i1 %.0134.lcssa, label %155, label %153
 
 153:                                              ; preds = %152
-  %154 = getelementptr inbounds i8, ptr %6, i64 296
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 296
   store i32 1, ptr %154, align 8
   br label %155
 
@@ -1286,20 +1286,20 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
 157:                                              ; preds = %155
   %158 = lshr i32 %.0125.lcssa, 16
   %159 = and i32 %158, 15
-  %160 = getelementptr inbounds i8, ptr %6, i64 104
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %161 = load ptr, ptr %160, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 12
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 %159, ptr %162, align 4
   %163 = lshr i32 %.0125.lcssa, 20
   %164 = and i32 %163, 15
   %165 = load ptr, ptr %160, align 8
-  %166 = getelementptr inbounds i8, ptr %165, i64 8
+  %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   store i32 %164, ptr %166, align 8
   %167 = load ptr, ptr %160, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 108
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 108
   store i32 1, ptr %168, align 4
   %169 = load ptr, ptr %160, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 104
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 104
   store i32 1, ptr %170, align 8
   br label %171
 
@@ -1314,30 +1314,30 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
           to label %176 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 176:                                              ; preds = %174
-  %177 = getelementptr inbounds i8, ptr %6, i64 144
+  %177 = getelementptr inbounds nuw i8, ptr %6, i64 144
   store i32 %175, ptr %177, align 8
   %178 = invoke i32 @jpeg_quality_scaling(i32 noundef %.0127.lcssa)
           to label %179 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 179:                                              ; preds = %176
-  %180 = getelementptr inbounds i8, ptr %6, i64 148
+  %180 = getelementptr inbounds nuw i8, ptr %6, i64 148
   store i32 %178, ptr %180, align 4
   %.not149 = icmp eq i32 %.0130.lcssa, %.0127.lcssa
   br i1 %.not149, label %191, label %181
 
 181:                                              ; preds = %179
-  %182 = getelementptr inbounds i8, ptr %6, i64 104
+  %182 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %183 = load ptr, ptr %182, align 8
-  %184 = getelementptr inbounds i8, ptr %183, i64 12
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 12
   store i32 1, ptr %184, align 4
   %185 = load ptr, ptr %182, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 8
+  %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   store i32 1, ptr %186, align 8
   %187 = load ptr, ptr %182, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 108
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 108
   store i32 1, ptr %188, align 4
   %189 = load ptr, ptr %182, align 8
-  %190 = getelementptr inbounds i8, ptr %189, i64 104
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 104
   store i32 1, ptr %190, align 8
   br label %191
 
@@ -1354,8 +1354,8 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br i1 %193, label %.lr.ph277, label %._crit_edge278
 
 .lr.ph277:                                        ; preds = %.preheader
-  %194 = getelementptr inbounds i8, ptr %1, i64 16
-  %195 = getelementptr inbounds i8, ptr %1, i64 72
+  %194 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %195 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %196
 
@@ -1390,7 +1390,7 @@ define hidden noundef zeroext i1 @_ZN2cv11JpegEncoder5writeERKNS_3MatERKSt6vecto
   br i1 %206, label %212, label %207
 
 207:                                              ; preds = %205
-  %208 = getelementptr inbounds i8, ptr %7, i64 24
+  %208 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %209 = load ptr, ptr %208, align 8
   invoke void %209(ptr noundef nonnull %6, ptr noundef nonnull %14)
           to label %210 unwind label %.loopexit.split-lp.loopexit.split-lp
@@ -1496,7 +1496,7 @@ declare void @jpeg_destroy_compress(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZNK2cv16BaseImageDecoder4typeEv(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #4 comdat align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   ret i32 %3
 }
@@ -1551,9 +1551,9 @@ define internal noundef i32 @_ZN2cvL17fill_input_bufferEP22jpeg_decompress_struc
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal void @_ZN2cvL15skip_input_dataEP22jpeg_decompress_structl(ptr nocapture noundef readonly %0, i64 noundef %1) #16 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 40
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
   %7 = icmp sgt i64 %1, %6
   %8 = sub i64 %6, %1
@@ -1564,7 +1564,7 @@ define internal void @_ZN2cvL15skip_input_dataEP22jpeg_decompress_structl(ptr no
   %.sink = select i1 %7, i64 0, i64 %8
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 %.sink18
-  %13 = getelementptr inbounds i8, ptr %4, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store i32 %.sink16, ptr %13, align 8
   store ptr %12, ptr %4, align 8
   store i64 %.sink, ptr %5, align 8
@@ -1580,19 +1580,19 @@ define internal void @_ZN2cvL4stubEP20jpeg_compress_struct(ptr nocapture readnon
 
 ; Function Attrs: mustprogress uwtable
 define internal noundef i32 @_ZN2cvL19empty_output_bufferEP20jpeg_compress_struct(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 48
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %13, align 8
   %17 = ptrtoint ptr %15 to i64
@@ -1609,32 +1609,32 @@ define internal noundef i32 @_ZN2cvL19empty_output_bufferEP20jpeg_compress_struc
   %26 = load ptr, ptr %12, align 8
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %3, align 8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %19, ptr %28, align 8
   ret i32 1
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN2cvL16term_destinationEP20jpeg_compress_struct(ptr nocapture noundef readonly %0) #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 40
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 40
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = ptrtoint ptr %7 to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = sub i64 %9, %10
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load i64, ptr %12, align 8
   %.not = icmp eq i64 %11, %13
   br i1 %.not, label %30, label %14
 
 14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %3, i64 48
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = load ptr, ptr %16, align 8
@@ -1657,7 +1657,7 @@ define internal void @_ZN2cvL16term_destinationEP20jpeg_compress_struct(ptr noca
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
   %6 = ptrtoint ptr %4 to i64
@@ -1668,7 +1668,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 
 10:                                               ; preds = %2
   %11 = sub nuw i64 %1, %8
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = ptrtoint ptr %13 to i64
   %15 = sub i64 %14, %6
@@ -1682,7 +1682,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIhSaIhEE6resizeEm(ptr noundef nonnu
 
 19:                                               ; preds = %10
   store i8 0, ptr %4, align 1
-  %20 = getelementptr inbounds i8, ptr %4, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %21 = add i64 %11, -1
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %23
@@ -1710,14 +1710,14 @@ _ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i:  ; preds = %25
   %28 = add nuw i64 %.sroa.speculated.i.i, %8
   %29 = tail call i64 @llvm.umin.i64(i64 %28, i64 9223372036854775807)
   %30 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %29) #25
-  %31 = getelementptr inbounds i8, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %8
   store i8 0, ptr %31, align 1
   %32 = add nsw i64 %11, -1
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i, label %34
 
 34:                                               ; preds = %_ZNKSt6vectorIhSaIhEE12_M_check_lenEmPKc.exit.i
-  %35 = getelementptr inbounds i8, ptr %31, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %35, i8 0, i64 %32, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit31.i
 
@@ -1741,7 +1741,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit34.i: ; preds = %37, %_ZNSt6v
   store ptr %30, ptr %0, align 8
   %38 = getelementptr inbounds i8, ptr %30, i64 %1
   store ptr %38, ptr %3, align 8
-  %39 = getelementptr inbounds i8, ptr %30, i64 %29
+  %39 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   store ptr %39, ptr %12, align 8
   br label %_ZNSt6vectorIhSaIhEE17_M_default_appendEm.exit
 
@@ -1784,7 +1784,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecode
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(304) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @_ZN2cv11JpegDecoderD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %2) #22
   ret void
 }
@@ -1798,12 +1798,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegDecoderESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(304) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9
@@ -1843,13 +1843,13 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncode
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 16
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds inrange(-16, 80) (i8, ptr @_ZTVN2cv16BaseImageEncoderE, i64 16), ptr %2, align 8
-  %3 = getelementptr inbounds i8, ptr %0, i64 104
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #22
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #22
-  %5 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
 }
@@ -1863,12 +1863,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN2cv11JpegEncoderESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) unnamed_addr #4 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
 
 5:                                                ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %1, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, @_ZTSSt19_Sp_make_shared_tag
   br i1 %8, label %_ZNKSt9type_infoeqERKS_.exit.thread, label %9

@@ -99,7 +99,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 define void @_ZN5boost4urls18params_encoded_refC2ERNS0_8url_baseE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.boost::urls::detail::query_ref", align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #12
-  %4 = getelementptr inbounds i8, ptr %1, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @_ZN5boost4urls6detail9query_refC1ERKNS1_8url_implE(ptr noundef nonnull align 8 dereferenceable(41) %3, ptr noundef nonnull align 8 dereferenceable(171) %4) #12
   call void @_ZN5boost4urls19params_encoded_baseC2ERKNS0_6detail9query_refE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(41) %3) #12
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #12
@@ -145,21 +145,21 @@ _ZNK5boost4urls6detail9query_ref8alias_ofERKS2_.exit: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 256
   call void @llvm.lifetime.start.p0(i64 360, ptr nonnull %5) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %19, ptr noundef nonnull align 8 dereferenceable(56) %8, i64 56, i1 false)
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 56
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 56
   %.sroa.4.0.copyload = load i64, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.55.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 64
-  %.sroa.59.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 320
+  %.sroa.55.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
+  %.sroa.59.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 320
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.59.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.55.0..sroa_idx, i64 40, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %20, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 56
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 56
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %7, i64 64
-  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 112
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 64
+  %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, i64 40, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %21, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false)
-  %.sroa.6.0..sroa_idx6.i.i.i = getelementptr inbounds i8, ptr %5, i64 216
+  %.sroa.6.0..sroa_idx6.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx6.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.6.0..sroa_idx, i64 40, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !3
@@ -174,11 +174,11 @@ _ZNK5boost4urls6detail9query_ref8alias_ofERKS2_.exit: ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 32, i1 false), !alias.scope !14
   store i8 %25, ptr %27, align 8, !tbaa !17, !alias.scope !14
   store ptr getelementptr inbounds inrange(-16, 40) (i8, ptr @_ZTVN5boost4urls6detail19params_encoded_iterINS0_19params_encoded_base8iteratorEEE, i64 16), ptr %5, align 8, !tbaa !20, !alias.scope !14
-  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 104
+  %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 104
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx.i.i.i, align 8, !alias.scope !14
-  %.sroa.5.0..sroa_idx3.i.i.i = getelementptr inbounds i8, ptr %5, i64 208
+  %.sroa.5.0..sroa_idx3.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 208
   store i64 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx3.i.i.i, align 8, !alias.scope !14
-  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %5, i64 312
+  %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 312
   store i64 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8, !alias.scope !14
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6) #12
   invoke void @_ZN5boost4urls8url_base11edit_paramsERKNS0_6detail16params_iter_implES5_ONS2_15any_params_iterE(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::detail::params_iter_impl") align 8 %6, ptr noundef nonnull align 8 dereferenceable(216) %23, ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(41) %5)
@@ -717,11 +717,11 @@ define void @_ZN5boost4urls18params_encoded_ref3setENS0_19params_encoded_base8it
   %11 = load i64, ptr %10, align 8, !tbaa !76
   %12 = add i64 %11, -1
   %.sroa.0.0.copyload.i.i = load ptr, ptr %3, align 8, !tbaa !82
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !83
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.sroa.0.0.copyload.i.i, ptr %13, align 8, !tbaa !82
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %7, i64 16
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !83
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %14, i8 0, i64 17, i1 false)
@@ -837,7 +837,7 @@ _ZN5boost4urls18params_encoded_ref6appendERKNS0_14param_pct_viewE.exit: ; preds 
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(104) %20, i64 104, i1 false)
   %.sroa.09.0.copyload = load ptr, ptr %3, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %11) #12, !noalias !97
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -851,7 +851,7 @@ _ZN5boost4urls18params_encoded_ref6appendERKNS0_14param_pct_viewE.exit: ; preds 
   %42 = add i64 %41, -1
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %.sroa.09.0.copyload, ptr %43, align 8, !tbaa !82, !noalias !97
-  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
+  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %.sroa.2.0.copyload, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !83, !noalias !97
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %44, i8 0, i64 17, i1 false), !noalias !97
@@ -1033,7 +1033,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   tail call void @_ZN5boost4urls6detail16params_iter_impl9incrementEv(ptr noundef nonnull align 8 dereferenceable(104) %13) #12, !noalias !111
   call void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::param_pct_view") align 8 %5, ptr noundef nonnull align 8 dereferenceable(104) %6) #12
   %.sroa.0.0.copyload.i.i = load ptr, ptr %5, align 8, !tbaa !82, !noalias !114
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !83, !noalias !114
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %15 = load i8, ptr %14, align 8, !tbaa !87, !range !117, !noalias !114, !noundef !118
@@ -1041,7 +1041,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
-  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.2.0.copyload.i5.i = load i64, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !tbaa !83, !noalias !114
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i3.i = load ptr, ptr %18, align 8, !tbaa !82, !noalias !114
@@ -1049,20 +1049,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN5boost4urls15pct_string_viewC1ENS_4core17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr %.sroa.0.0.copyload.i3.i, i64 %.sroa.2.0.copyload.i5.i)
   %.sroa.0.0.copyload.i3.i6.pre = load ptr, ptr %19, align 8, !tbaa !82, !noalias !119
-  %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.2.0.copyload.i5.i8.pre = load i64, ptr %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert, align 8, !tbaa !83, !noalias !119
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %15, ptr %20, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %.sroa.0.0.copyload.i.i321 = load ptr, ptr %4, align 8, !tbaa !82, !noalias !122
-  %.sroa.2.0..sroa_idx.i.i422 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i.i422 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i.i523 = load i64, ptr %.sroa.2.0..sroa_idx.i.i422, align 8, !tbaa !83, !noalias !122
   store ptr %.sroa.0.0.copyload.i.i321, ptr %3, align 8, !tbaa !82, !alias.scope !122
-  %.sroa.23.0..sroa_idx.i.i924 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.23.0..sroa_idx.i.i924 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.2.0.copyload.i.i523, ptr %.sroa.23.0..sroa_idx.i.i924, align 8, !tbaa !83, !alias.scope !122
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i3.i6.pre, ptr %21, align 8, !tbaa !82, !alias.scope !119
-  %.sroa.2.0..sroa_idx.i8.i10 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.2.0..sroa_idx.i8.i10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.sroa.2.0.copyload.i5.i8.pre, ptr %.sroa.2.0..sroa_idx.i8.i10, align 8, !tbaa !83, !alias.scope !119
   br label %_ZNK5boost4urls14param_pct_viewcvNS0_10param_viewEEv.exit11
 
@@ -1074,10 +1074,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   store i8 %15, ptr %24, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !119)
   %.sroa.0.0.copyload.i.i3 = load ptr, ptr %4, align 8, !tbaa !82, !noalias !119
-  %.sroa.2.0..sroa_idx.i.i4 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i.i5 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4, align 8, !tbaa !83, !noalias !119
   store ptr %.sroa.0.0.copyload.i.i3, ptr %3, align 8, !tbaa !82, !alias.scope !119
-  %.sroa.23.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.23.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.2.0.copyload.i.i5, ptr %.sroa.23.0..sroa_idx.i.i9, align 8, !tbaa !83, !alias.scope !119
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, i8 0, i64 16, i1 false), !alias.scope !119
@@ -1111,24 +1111,24 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail19params_encoded_iterINS0_
   call void @_ZNK5boost4urls6detail16params_iter_impl11dereferenceEv(ptr dead_on_unwind nonnull writable sret(%"struct.boost::urls::param_pct_view") align 8 %5, ptr noundef nonnull align 8 dereferenceable(104) %6) #12
   call void @llvm.experimental.noalias.scope.decl(metadata !129)
   %.sroa.0.0.copyload.i.i = load ptr, ptr %5, align 8, !tbaa !82, !noalias !129
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !83, !noalias !129
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.sroa.0.0.copyload.i3.i = load ptr, ptr %8, align 8, !tbaa !82, !noalias !129
-  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %5, i64 32
+  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.2.0.copyload.i5.i = load i64, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !tbaa !83, !noalias !129
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %10 = load i8, ptr %9, align 8, !tbaa !87, !range !117, !noalias !129, !noundef !118
   %11 = trunc nuw i8 %10 to i1
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8, !tbaa !82, !alias.scope !129
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !83, !alias.scope !129
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %11, label %13, label %14
 
 13:                                               ; preds = %3
   store ptr %.sroa.0.0.copyload.i3.i, ptr %12, align 8, !tbaa !82, !alias.scope !129
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i5.i, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !tbaa !83, !alias.scope !129
   br label %_ZNK5boost4urls14param_pct_viewcvNS0_10param_viewEEv.exit
 
@@ -1190,7 +1190,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr %11, ptr %5, align 8, !tbaa !27
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !82, !noalias !132
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !83, !noalias !132
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %13 = load i8, ptr %12, align 8, !tbaa !87, !range !117, !noalias !132, !noundef !118
@@ -1198,7 +1198,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   br i1 %14, label %15, label %20
 
 15:                                               ; preds = %10
-  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.2.0.copyload.i5.i = load i64, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !tbaa !83, !noalias !132
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i3.i = load ptr, ptr %16, align 8, !tbaa !82, !noalias !132
@@ -1206,20 +1206,20 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
   call void @_ZN5boost4urls15pct_string_viewC1ENS_4core17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(24) %17, ptr %.sroa.0.0.copyload.i3.i, i64 %.sroa.2.0.copyload.i5.i)
   %.sroa.0.0.copyload.i3.i6.pre = load ptr, ptr %17, align 8, !tbaa !82, !noalias !135
-  %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert = getelementptr inbounds i8, ptr %4, i64 32
+  %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.2.0.copyload.i5.i8.pre = load i64, ptr %.sroa.2.0..sroa_idx.i4.i7.phi.trans.insert, align 8, !tbaa !83, !noalias !135
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 48
   store i8 %13, ptr %18, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !138)
   %.sroa.0.0.copyload.i.i321 = load ptr, ptr %4, align 8, !tbaa !82, !noalias !138
-  %.sroa.2.0..sroa_idx.i.i422 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i.i422 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i.i523 = load i64, ptr %.sroa.2.0..sroa_idx.i.i422, align 8, !tbaa !83, !noalias !138
   store ptr %.sroa.0.0.copyload.i.i321, ptr %3, align 8, !tbaa !82, !alias.scope !138
-  %.sroa.23.0..sroa_idx.i.i924 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.23.0..sroa_idx.i.i924 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.2.0.copyload.i.i523, ptr %.sroa.23.0..sroa_idx.i.i924, align 8, !tbaa !83, !alias.scope !138
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %.sroa.0.0.copyload.i3.i6.pre, ptr %19, align 8, !tbaa !82, !alias.scope !135
-  %.sroa.2.0..sroa_idx.i8.i10 = getelementptr inbounds i8, ptr %3, i64 24
+  %.sroa.2.0..sroa_idx.i8.i10 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %.sroa.2.0.copyload.i5.i8.pre, ptr %.sroa.2.0..sroa_idx.i8.i10, align 8, !tbaa !83, !alias.scope !135
   br label %_ZNK5boost4urls14param_pct_viewcvNS0_10param_viewEEv.exit11
 
@@ -1231,10 +1231,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost4urls6detail19params_enc
   store i8 %13, ptr %22, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !135)
   %.sroa.0.0.copyload.i.i3 = load ptr, ptr %4, align 8, !tbaa !82, !noalias !135
-  %.sroa.2.0..sroa_idx.i.i4 = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.2.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.2.0.copyload.i.i5 = load i64, ptr %.sroa.2.0..sroa_idx.i.i4, align 8, !tbaa !83, !noalias !135
   store ptr %.sroa.0.0.copyload.i.i3, ptr %3, align 8, !tbaa !82, !alias.scope !135
-  %.sroa.23.0..sroa_idx.i.i9 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sroa.23.0..sroa_idx.i.i9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 %.sroa.2.0.copyload.i.i5, ptr %.sroa.23.0..sroa_idx.i.i9, align 8, !tbaa !83, !alias.scope !135
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false), !alias.scope !135
@@ -1262,24 +1262,24 @@ define linkonce_odr hidden void @_ZN5boost4urls6detail19params_encoded_iterIPKNS
   store ptr %7, ptr %5, align 8, !tbaa !27
   tail call void @llvm.experimental.noalias.scope.decl(metadata !140)
   %.sroa.0.0.copyload.i.i = load ptr, ptr %6, align 8, !tbaa !82, !noalias !140
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %6, i64 8
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !83, !noalias !140
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.sroa.0.0.copyload.i3.i = load ptr, ptr %8, align 8, !tbaa !82, !noalias !140
-  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds i8, ptr %6, i64 32
+  %.sroa.2.0..sroa_idx.i4.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.2.0.copyload.i5.i = load i64, ptr %.sroa.2.0..sroa_idx.i4.i, align 8, !tbaa !83, !noalias !140
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %10 = load i8, ptr %9, align 8, !tbaa !87, !range !117, !noalias !140, !noundef !118
   %11 = trunc nuw i8 %10 to i1
   store ptr %.sroa.0.0.copyload.i.i, ptr %4, align 8, !tbaa !82, !alias.scope !140
-  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %4, i64 8
+  %.sroa.23.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 %.sroa.2.0.copyload.i.i, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !83, !alias.scope !140
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   br i1 %11, label %13, label %14
 
 13:                                               ; preds = %3
   store ptr %.sroa.0.0.copyload.i3.i, ptr %12, align 8, !tbaa !82, !alias.scope !140
-  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds i8, ptr %4, i64 24
+  %.sroa.2.0..sroa_idx.i8.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i64 %.sroa.2.0.copyload.i5.i, ptr %.sroa.2.0..sroa_idx.i8.i, align 8, !tbaa !83, !alias.scope !140
   br label %_ZNK5boost4urls14param_pct_viewcvNS0_10param_viewEEv.exit
 

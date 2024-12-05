@@ -131,7 +131,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 define dso_local noundef nonnull ptr @_ZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindE(ptr nocapture noundef nonnull align 8 dereferenceable(712) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds [10 x ptr], ptr %3, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [10 x ptr], ptr %3, i64 0, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %_ZN4llvm9StringRefC2EPKc.exit, label %14
@@ -140,7 +140,7 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %2
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 17296
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %4
+  %10 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %4
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #10
   %13 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %9, ptr %11, i64 %12)
@@ -173,7 +173,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr %1, i64 %2) #10
   store ptr %17, ptr %8, align 8
@@ -181,8 +181,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   br i1 %.not23, label %18, label %46
 
 18:                                               ; preds = %13, %10
-  %19 = getelementptr inbounds i8, ptr %0, i64 24
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, 24
   store i64 %22, ptr %20, align 8
@@ -191,7 +191,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, 24
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i = icmp ugt i64 %27, %30
@@ -211,7 +211,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN5
   %36 = add i64 %35, 7
   %37 = and i64 %36, -8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %38, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang14IdentifierInfoEEEPT_m.exit
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIN5clang14IdentifierInfoEEEPT_m.exit: ; preds = %31, %.critedge.i.i.i.i
@@ -240,7 +240,7 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   %3 = alloca [2 x ptr], align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds [6 x %"class.clang::Selector"], ptr %4, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [6 x %"class.clang::Selector"], ptr %4, i64 0, i64 %5
   %.0.copyload.i.i.i = load i64, ptr %6, align 8
   %7 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %7, label %8, label %59
@@ -288,7 +288,7 @@ define dso_local i64 @_ZNK5clang5NSAPI19getNSStringSelectorENS0_18NSStringMethod
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %33, ptr nonnull @.str.13, i64 17)
   store ptr %34, ptr %3, align 16
-  %35 = getelementptr inbounds i8, ptr %3, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 17296
   %38 = load ptr, ptr %37, align 8
@@ -341,7 +341,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds [12 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [12 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
   %.0.copyload.i.i.i = load i64, ptr %9, align 8
   %10 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %10, label %11, label %125
@@ -404,7 +404,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %43 = load ptr, ptr %42, align 8
   %44 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %43, ptr nonnull @.str.19, i64 16)
   store ptr %44, ptr %3, align 16
-  %45 = getelementptr inbounds i8, ptr %3, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %46 = load ptr, ptr %0, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 17296
   %48 = load ptr, ptr %47, align 8
@@ -449,7 +449,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %78 = load ptr, ptr %77, align 8
   %79 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %78, ptr nonnull @.str.24, i64 20)
   store ptr %79, ptr %4, align 16
-  %80 = getelementptr inbounds i8, ptr %4, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %81 = load ptr, ptr %0, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 17296
   %83 = load ptr, ptr %82, align 8
@@ -476,7 +476,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %99 = load ptr, ptr %98, align 8
   %100 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %99, ptr nonnull @.str.27, i64 12)
   store ptr %100, ptr %5, align 16
-  %101 = getelementptr inbounds i8, ptr %5, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %102 = load ptr, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 17296
   %104 = load ptr, ptr %103, align 8
@@ -494,7 +494,7 @@ define dso_local i64 @_ZNK5clang5NSAPI18getNSArraySelectorENS0_17NSArrayMethodKi
   %113 = load ptr, ptr %112, align 8
   %114 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %113, ptr nonnull @.str.29, i64 9)
   store ptr %114, ptr %6, align 16
-  %115 = getelementptr inbounds i8, ptr %6, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %116 = load ptr, ptr %0, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 17296
   %118 = load ptr, ptr %117, align 8
@@ -550,7 +550,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %9 = alloca [2 x ptr], align 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %11 = zext i32 %1 to i64
-  %12 = getelementptr inbounds [13 x %"class.clang::Selector"], ptr %10, i64 0, i64 %11
+  %12 = getelementptr inbounds nuw [13 x %"class.clang::Selector"], ptr %10, i64 0, i64 %11
   %.0.copyload.i.i.i = load i64, ptr %12, align 8
   %13 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %13, label %14, label %161
@@ -596,7 +596,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %32 = load ptr, ptr %31, align 8
   %33 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %32, ptr nonnull @.str.33, i64 20)
   store ptr %33, ptr %3, align 16
-  %34 = getelementptr inbounds i8, ptr %3, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %35 = load ptr, ptr %0, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 17296
   %37 = load ptr, ptr %36, align 8
@@ -614,7 +614,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %46 = load ptr, ptr %45, align 8
   %47 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %46, ptr nonnull @.str.35, i64 21)
   store ptr %47, ptr %4, align 16
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %49 = load ptr, ptr %0, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 17296
   %51 = load ptr, ptr %50, align 8
@@ -632,13 +632,13 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %60, ptr nonnull @.str.35, i64 21)
   store ptr %61, ptr %5, align 16
-  %62 = getelementptr inbounds i8, ptr %5, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 17296
   %65 = load ptr, ptr %64, align 8
   %66 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %65, ptr nonnull @.str.36, i64 7)
   store ptr %66, ptr %62, align 8
-  %67 = getelementptr inbounds i8, ptr %5, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %68 = load ptr, ptr %0, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 17296
   %70 = load ptr, ptr %69, align 8
@@ -683,7 +683,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %100 = load ptr, ptr %99, align 8
   %101 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %100, ptr nonnull @.str.22, i64 15)
   store ptr %101, ptr %6, align 16
-  %102 = getelementptr inbounds i8, ptr %6, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %103 = load ptr, ptr %0, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 17296
   %105 = load ptr, ptr %104, align 8
@@ -710,7 +710,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %121 = load ptr, ptr %120, align 8
   %122 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %121, ptr nonnull @.str.29, i64 9)
   store ptr %122, ptr %7, align 16
-  %123 = getelementptr inbounds i8, ptr %7, i64 8
+  %123 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %124 = load ptr, ptr %0, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 17296
   %126 = load ptr, ptr %125, align 8
@@ -728,7 +728,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %135 = load ptr, ptr %134, align 8
   %136 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %135, ptr nonnull @.str.29, i64 9)
   store ptr %136, ptr %8, align 16
-  %137 = getelementptr inbounds i8, ptr %8, i64 8
+  %137 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %138 = load ptr, ptr %0, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 17296
   %140 = load ptr, ptr %139, align 8
@@ -746,7 +746,7 @@ define dso_local i64 @_ZNK5clang5NSAPI23getNSDictionarySelectorENS0_22NSDictiona
   %149 = load ptr, ptr %148, align 8
   %150 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %149, ptr nonnull @.str.42, i64 8)
   store ptr %150, ptr %9, align 16
-  %151 = getelementptr inbounds i8, ptr %9, i64 8
+  %151 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %152 = load ptr, ptr %0, align 8
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 17296
   %154 = load ptr, ptr %153, align 8
@@ -799,7 +799,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %6 = alloca [2 x ptr], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds [5 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
+  %9 = getelementptr inbounds nuw [5 x %"class.clang::Selector"], ptr %7, i64 0, i64 %8
   %.0.copyload.i.i.i = load i64, ptr %9, align 8
   %10 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %10, label %11, label %76
@@ -828,7 +828,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr nonnull @.str.27, i64 12)
   store ptr %23, ptr %3, align 16
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 17296
   %27 = load ptr, ptr %26, align 8
@@ -846,7 +846,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %36 = load ptr, ptr %35, align 8
   %37 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %36, ptr nonnull @.str.29, i64 9)
   store ptr %37, ptr %4, align 16
-  %38 = getelementptr inbounds i8, ptr %4, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %39 = load ptr, ptr %0, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 17296
   %41 = load ptr, ptr %40, align 8
@@ -864,7 +864,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %50 = load ptr, ptr %49, align 8
   %51 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %50, ptr nonnull @.str.29, i64 9)
   store ptr %51, ptr %5, align 16
-  %52 = getelementptr inbounds i8, ptr %5, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load ptr, ptr %0, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 17296
   %55 = load ptr, ptr %54, align 8
@@ -882,7 +882,7 @@ define dso_local i64 @_ZNK5clang5NSAPI16getNSSetSelectorENS0_15NSSetMethodKindE(
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %64, ptr nonnull @.str.24, i64 20)
   store ptr %65, ptr %6, align 16
-  %66 = getelementptr inbounds i8, ptr %6, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load ptr, ptr %0, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 17296
   %69 = load ptr, ptr %68, align 8
@@ -932,7 +932,7 @@ define dso_local range(i64 1, 0) i64 @_ZNK5clang5NSAPI26getNSNumberLiteralSelect
   %. = select i1 %2, i64 496, i64 376
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds %"class.clang::Selector", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw %"class.clang::Selector", ptr %4, i64 %5
   %.0.copyload.i.i.i = load i64, ptr %6, align 8
   %7 = icmp eq i64 %.0.copyload.i.i.i, 0
   br i1 %7, label %8, label %20
@@ -942,7 +942,7 @@ define dso_local range(i64 1, 0) i64 @_ZNK5clang5NSAPI26getNSNumberLiteralSelect
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17296
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr %_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName._ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %5
+  %12 = getelementptr inbounds nuw ptr, ptr %_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName._ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %5
   %13 = load ptr, ptr %12, align 8
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit, label %14
@@ -972,7 +972,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5NSAPI28getNSNumberLite
 
 5:                                                ; preds = %2, %37
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %37 ]
-  %6 = getelementptr inbounds %"class.clang::Selector", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw %"class.clang::Selector", ptr %3, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %6, align 8
   %7 = icmp eq i64 %.0.copyload.i.i.i.i.i, 0
   br i1 %7, label %8, label %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
@@ -981,7 +981,7 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK5clang5NSAPI28getNSNumberLite
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17296
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE17ClassSelectorName, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not.i.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i, label %14
@@ -1004,7 +1004,7 @@ _ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.e
   br i1 %20, label %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit.thread, label %21
 
 21:                                               ; preds = %_ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.exit.i
-  %22 = getelementptr inbounds %"class.clang::Selector", ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw %"class.clang::Selector", ptr %4, i64 %indvars.iv
   %.0.copyload.i.i.i.i3.i = load i64, ptr %22, align 8
   %23 = icmp eq i64 %.0.copyload.i.i.i.i3.i, 0
   br i1 %23, label %24, label %_ZNK5clang5NSAPI25isNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindENS_8SelectorE.exit
@@ -1013,7 +1013,7 @@ _ZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEb.e
   %25 = load ptr, ptr %0, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 17296
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr @_ZZNK5clang5NSAPI26getNSNumberLiteralSelectorENS0_25NSNumberLiteralMethodKindEbE20InstanceSelectorName, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %.not.i.i5.i = icmp eq ptr %29, null
   br i1 %.not.i.i5.i, label %_ZN4llvm9StringRefC2EPKc.exit.i6.i, label %30
@@ -1434,7 +1434,7 @@ define dso_local { ptr, i64 } @_ZNK5clang5NSAPI17GetNSIntegralKindENS_8QualTypeE
   %.0.i = select i1 %17, ptr %19, ptr null
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load i64, ptr %21, align 8
   %trunc = trunc i64 %23 to i32
   switch i32 %trunc, label %_ZN4llvm12StringSwitchINS_9StringRefES1_E4CaseENS_13StringLiteralES1_.exit88.thread [
@@ -1534,7 +1534,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang5NSAPI19isSubclassOfNSClassEPNS_1
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds [10 x ptr], ptr %5, i64 0, i64 %6
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr %5, i64 0, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %_ZN4llvm9StringRefC2EPKc.exit.i, label %_ZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindE.exit
@@ -1543,7 +1543,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %4
   %9 = load ptr, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 17296
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %6
+  %12 = getelementptr inbounds nuw [10 x ptr], ptr @_ZZNK5clang5NSAPI12getNSClassIdENS0_17NSClassIdKindKindEE9ClassName, i64 0, i64 %6
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %13) #10
   %15 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %11, ptr %13, i64 %14)
@@ -1646,7 +1646,7 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
   br i1 %6, label %7, label %_ZN4llvm11SmallVectorIPKN5clang14IdentifierInfoELj4EED2Ev.exit
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds i8, ptr %5, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull %8, i64 noundef 4) #10
   %9 = getelementptr inbounds %"class.llvm::StringRef", ptr %1, i64 %2
   %.not11 = icmp eq i64 %2, 0
@@ -1658,7 +1658,7 @@ define dso_local i64 @_ZNK5clang5NSAPI17getOrInitSelectorEN4llvm8ArrayRefINS1_9S
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 17296
   %12 = load ptr, ptr %11, align 8
   %.sroa.01.0.copyload = load ptr, ptr %.012, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.012, i64 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.012, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %13 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN5clang15IdentifierTable3getEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(128) %12, ptr %.sroa.01.0.copyload, i64 %.sroa.2.0.copyload)
   %14 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
@@ -1680,7 +1680,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang14IdentifierInfoELb1EE9push_backES4_.
   %22 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
   %23 = add i64 %22, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %23) #10
-  %24 = getelementptr inbounds i8, ptr %.012, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.012, i64 16
   %.not = icmp eq ptr %24, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
@@ -1739,7 +1739,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #10
   %7 = load ptr, ptr %0, align 8
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1757,7 +1757,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   ]
 
 .critedge.i.i.i:                                  ; preds = %.preheader.i.i, %.preheader.i.i
-  %12 = getelementptr inbounds i8, ptr %.sroa.031.0, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 8
   %.pre = load ptr, ptr %12, align 8
   br label %.preheader.i.i, !llvm.loop !13
 
@@ -1769,9 +1769,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   br label %17
 
 17:                                               ; preds = %5, %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = add i64 %2, 17
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load i64, ptr %20, align 8
   %22 = add i64 %21, %19
   store i64 %22, ptr %20, align 8
@@ -1780,7 +1780,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
   %25 = add i64 %24, 7
   %26 = and i64 %25, -8
   %27 = add i64 %26, %19
-  %28 = getelementptr inbounds i8, ptr %0, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = ptrtoint ptr %29 to i64
   %.not.i.i.i.i = icmp ugt i64 %27, %30
@@ -1800,7 +1800,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang14IdentifierI
 
 _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8AllocateEmm.exit.i.i: ; preds = %.critedge.i.i.i.i, %31
   %.0.i.i.i.i = phi ptr [ %33, %31 ], [ %34, %.critedge.i.i.i.i ]
-  %35 = getelementptr inbounds i8, ptr %.0.i.i.i.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
   %.not.i.i = icmp eq i64 %2, 0
   br i1 %.not.i.i, label %_ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit, label %36
 
@@ -1822,7 +1822,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
   %42 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #10
   %43 = load ptr, ptr %0, align 8
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEJDnEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -1835,7 +1835,7 @@ _ZN4llvm14StringMapEntryIPN5clang14IdentifierInfoEE6createINS_20BumpPtrAllocator
   ]
 
 .critedge.i.i.i26:                                ; preds = %.preheader.i.i24, %.preheader.i.i24
-  %47 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
   br label %.preheader.i.i24, !llvm.loop !13
 
 _ZN4llvm17StringMapIteratorIPN5clang14IdentifierInfoEEC2EPPNS_18StringMapEntryBaseEb.exit: ; preds = %.preheader.i.i24, %.preheader.i.i
@@ -1871,7 +1871,7 @@ define linkonce_odr hidden noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplIN
   br i1 %.not.i.i.i, label %16, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
 16:                                               ; preds = %10
-  %17 = getelementptr inbounds i8, ptr %0, i64 80
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull %17, i64 noundef %14, i64 noundef 16) #10
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit
 
@@ -1880,7 +1880,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %19 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #10
   %20 = getelementptr inbounds %"struct.std::pair.428", ptr %18, i64 %19
   store ptr %11, ptr %20, align 1
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %20, i64 8
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
   %21 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %12) #10
   %22 = add i64 %21, 1
@@ -1926,7 +1926,7 @@ define linkonce_odr hidden void @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAlloc
   br i1 %.not.i.i.i, label %12, label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %13, i64 noundef %10, i64 noundef 8) #10
   br label %_ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit
 
@@ -1940,7 +1940,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPvLb1EE9push_backES1_.exit: ; preds = %1, %12
   %19 = add i64 %18, 1
   tail call void @_ZN4llvm15SmallVectorBaseIjE8set_sizeEm(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %19) #10
   store ptr %8, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr %8, i64 %7
+  %20 = getelementptr inbounds nuw i8, ptr %8, i64 %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %20, ptr %21, align 8
   ret void

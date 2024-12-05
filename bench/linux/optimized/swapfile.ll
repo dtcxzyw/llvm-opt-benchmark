@@ -23,19 +23,19 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_iomap_swapfi
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, ptr nocapture noundef writeonly %2, ptr noundef %3) #0 align 16 {
   %5 = alloca %struct.iomap_iter, align 8
-  %6 = getelementptr inbounds i8, ptr %1, i64 216
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 216
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %5) #7
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %9, i8 0, i64 200, i1 false)
   store ptr %8, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 16
-  %11 = getelementptr inbounds i8, ptr %8, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -4096
   store i64 %13, ptr %10, align 8
-  %14 = getelementptr inbounds i8, ptr %5, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 4, ptr %14, align 8
   %15 = tail call i32 @vfs_fsync(ptr noundef %1, i32 noundef 1) #7
   %16 = icmp eq i32 %15, 0
@@ -47,19 +47,19 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   br i1 %19, label %20, label %.thread32
 
 20:                                               ; preds = %17
-  %21 = getelementptr inbounds i8, ptr %5, i64 40
-  %22 = getelementptr inbounds i8, ptr %5, i64 64
-  %23 = getelementptr inbounds i8, ptr %5, i64 66
-  %24 = getelementptr inbounds i8, ptr %5, i64 72
-  %25 = getelementptr inbounds i8, ptr %0, i64 168
-  %26 = getelementptr inbounds i8, ptr %0, i64 76
-  %27 = getelementptr inbounds i8, ptr %5, i64 48
-  %28 = getelementptr inbounds i8, ptr %5, i64 56
-  %29 = getelementptr inbounds i8, ptr %5, i64 144
-  %30 = getelementptr inbounds i8, ptr %5, i64 128
-  %31 = getelementptr inbounds i8, ptr %5, i64 136
-  %32 = getelementptr inbounds i8, ptr %5, i64 8
-  %33 = getelementptr inbounds i8, ptr %5, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 66
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 144
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 128
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %34
 
 34:                                               ; preds = %176, %20
@@ -362,9 +362,9 @@ define dso_local i32 @iomap_swapfile_activate(ptr noundef %0, ptr noundef %1, pt
   %225 = trunc i64 %219 to i32
   store i32 %225, ptr %26, align 4
   %226 = add i32 %225, -1
-  %227 = getelementptr inbounds i8, ptr %0, i64 120
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %226, ptr %227, align 8
-  %228 = getelementptr inbounds i8, ptr %0, i64 116
+  %228 = getelementptr inbounds nuw i8, ptr %0, i64 116
   store i32 %226, ptr %228, align 4
   br label %229
 

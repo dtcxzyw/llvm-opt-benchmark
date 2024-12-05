@@ -74,7 +74,7 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr nocapture noundef rea
   %..i = select i1 %3, i64 528, i64 16
   %spec.select.i = select i1 %3, i64 784, i64 272
   %.sink.i = select i1 %2, i64 %spec.select.i, i64 %..i
-  %6 = getelementptr inbounds i8, ptr %5, i64 %.sink.i
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.i
   %7 = load i8, ptr %1, align 1
   %.not12 = icmp eq i8 %7, 0
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -100,7 +100,7 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr nocapture noundef rea
 15:                                               ; preds = %12, %11, %.lr.ph
   %.06.i = phi i32 [ %9, %.lr.ph ], [ 32, %12 ], [ 32, %11 ]
   %16 = zext nneg i32 %.06.i to i64
-  %17 = getelementptr inbounds i16, ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2
   %19 = icmp eq i16 %18, -1
   br i1 %19, label %20, label %estimate_character_width_canonical.exit
@@ -119,7 +119,7 @@ estimate_character_width_canonical.exit:          ; preds = %15, %20, %21
   %.0.i = phi i16 [ %18, %15 ], [ 0, %21 ], [ 0, %20 ]
   %24 = zext i16 %.0.i to i32
   %25 = add i32 %.01113, %24
-  %26 = getelementptr inbounds i8, ptr %.014, i64 1
+  %26 = getelementptr inbounds nuw i8, ptr %.014, i64 1
   %27 = load i8, ptr %26, align 1
   %.not = icmp eq i8 %27, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
@@ -130,7 +130,7 @@ estimate_character_width_canonical.exit:          ; preds = %15, %20, %21
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %4
   %.011.lcssa = phi double [ 0.000000e+00, %4 ], [ %28, %._crit_edge.loopexit ]
-  %29 = getelementptr inbounds i8, ptr %5, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %30 = load double, ptr %29, align 8
   %31 = fdiv double %.011.lcssa, %30
   ret double %31
@@ -143,7 +143,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 3:                                                ; preds = %1, %font_in_list_permissive.exit
   %.0826 = phi i64 [ 0, %1 ], [ %63, %font_in_list_permissive.exit ]
-  %4 = getelementptr inbounds [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.0826
+  %4 = getelementptr inbounds nuw [11 x %struct.FontFamilyMetrics], ptr @all_font_metrics, i64 0, i64 %.0826
   %5 = load ptr, ptr %4, align 16
   %6 = load ptr, ptr %5, align 8
   %.not19.not.i = icmp eq ptr %6, null
@@ -290,12 +290,12 @@ font_in_list_permissive.exit:                     ; preds = %.loopexit.i, %.loop
 agxbsizeof.exit.i.i:                              ; preds = %font_in_list_permissive.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %2, ptr nonnull poison, ptr noundef %0)
-  %64 = getelementptr inbounds i8, ptr %2, i64 31
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 31
   %.val.i.i.i = load i8, ptr %64, align 1
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
-  %65 = getelementptr inbounds i8, ptr %2, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %66 = load i64, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %2, i64 16
+  %67 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %68 = load i64, ptr %67, align 8
   %69 = zext i8 %.val.i.i.i to i64
   %.0.i20.i.i = select i1 %.not.i.i.i, i64 %66, i64 %69
@@ -322,7 +322,7 @@ agxbputc.exit.i.thread:                           ; preds = %71
 
 agxbputc.exit.i:                                  ; preds = %71
   %75 = zext i8 %.val.i.pr.i to i64
-  %76 = getelementptr inbounds [31 x i8], ptr %2, i64 0, i64 %75
+  %76 = getelementptr inbounds nuw [31 x i8], ptr %2, i64 0, i64 %75
   store i8 0, ptr %76, align 1
   %77 = load i8, ptr %64, align 1
   %78 = add i8 %77, 1
@@ -390,9 +390,9 @@ agxbsizeof.exit.i:                                ; preds = %8
   br label %agxblen.exit.i
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load i64, ptr %15, align 8
   br label %agxblen.exit.i
 
@@ -416,11 +416,11 @@ agxblen.exit.i:                                   ; preds = %12, %agxbsizeof.exi
 
 22:                                               ; preds = %21
   %23 = zext i8 %.val.i.i.i to i64
-  %24 = getelementptr inbounds [31 x i8], ptr %0, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [31 x i8], ptr %0, i64 0, i64 %23
   br label %agxbnext.exit.i
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load i64, ptr %26, align 8
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds i8, ptr %28, i64 %27
@@ -445,7 +445,7 @@ agxbnext.exit.i:                                  ; preds = %25, %22
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %31 to i64
-  %39 = getelementptr inbounds i8, ptr %0, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load i64, ptr %39, align 8
   %41 = add i64 %40, %38
   store i64 %41, ptr %39, align 8
@@ -479,7 +479,7 @@ define internal fastcc void @agxbmore(ptr nocapture noundef nonnull %0, i64 noun
   br i1 %.not.i, label %agxbsizeof.exit, label %23
 
 agxbsizeof.exit:                                  ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %.fr = freeze i64 %5
   %6 = icmp eq i64 %.fr, 0
@@ -532,7 +532,7 @@ agxbsizeof.exit:                                  ; preds = %2
 gv_calloc.exit:                                   ; preds = %23
   %30 = zext i8 %.val.i to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 8 %0, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %30, ptr %31, align 8
   br label %gv_recalloc.exit
 
@@ -540,7 +540,7 @@ gv_recalloc.exit:                                 ; preds = %20, %18, %11, %gv_c
   %spec.select3641 = phi i64 [ %spec.select, %gv_calloc.exit ], [ 0, %11 ], [ %spec.select33, %18 ], [ %spec.select33, %20 ]
   %.0 = phi ptr [ %25, %gv_calloc.exit ], [ null, %11 ], [ %13, %18 ], [ %13, %20 ]
   store ptr %.0, ptr %0, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %spec.select3641, ptr %32, align 8
   store i8 -1, ptr %3, align 1
   ret void

@@ -86,18 +86,18 @@ $_ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE9expand_toEi 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14LayoutRawBlockC2ENS_4KindEi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 %1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 -1, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %0, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %2, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 -1, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 0, ptr %9, align 4
   ret void
 }
@@ -105,31 +105,31 @@ define hidden void @_ZN14LayoutRawBlockC2ENS_4KindEi(ptr nocapture noundef nonnu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14LayoutRawBlockC2EiNS_4KindEiib(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) initializes((0, 37)) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 align 2 {
   %7 = zext i1 %5 to i8
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 %2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %4, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %3, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 %7, ptr %13, align 4
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN14LayoutRawBlock3fitEii(ptr nocapture noundef nonnull readonly align 8 dereferenceable(37) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = srem i32 %5, %2
   %.not = icmp eq i32 %6, 0
   %7 = sub nsw i32 %2, %6
   %spec.select = select i1 %.not, i32 0, i32 %7
-  %8 = getelementptr inbounds i8, ptr %0, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = add nsw i32 %spec.select, %1
   %11 = icmp sge i32 %9, %10
@@ -138,10 +138,10 @@ define hidden noundef zeroext i1 @_ZN14LayoutRawBlock3fitEii(ptr nocapture nound
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10FieldGroupC2Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 32)) %0, i32 noundef %1) unnamed_addr #0 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   store i32 %1, ptr %3, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %4, align 4
   ret void
 }
@@ -149,23 +149,23 @@ define hidden void @_ZN10FieldGroupC2Ei(ptr nocapture noundef nonnull writeonly 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #2 align 2 {
   %4 = zext i8 %2 to i64
-  %5 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %4
+  %5 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %8 = getelementptr inbounds i8, ptr %7, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %7, i8 0, i64 16, i1 false)
   store i32 3, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %7, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %6, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %7, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 28
   store i32 %6, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %7, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %7, i64 32
   store i32 %1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %7, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %23
@@ -174,12 +174,12 @@ define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr nocaptu
   %18 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
   %19 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 16, i32 noundef 8) #14
   store i32 0, ptr %18, align 4
-  %20 = getelementptr inbounds i8, ptr %18, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 16, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %18, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %19, ptr %21, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %19, i8 0, i64 128, i1 false)
-  %22 = getelementptr inbounds i8, ptr %18, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 0, ptr %22, align 8
   store ptr %18, ptr %14, align 8
   br label %23
@@ -187,7 +187,7 @@ define hidden void @_ZN10FieldGroup19add_primitive_fieldEi9BasicType(ptr nocaptu
 23:                                               ; preds = %17, %3
   %24 = phi ptr [ %18, %17 ], [ %15, %3 ]
   %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %24, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
   br i1 %28, label %29, label %_ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -210,7 +210,7 @@ _ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERK
   %37 = phi i32 [ %.pre.i, %29 ], [ %25, %23 ]
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %24, align 8
-  %39 = getelementptr inbounds i8, ptr %24, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %37 to i64
   %42 = getelementptr inbounds ptr, ptr %40, i64 %41
@@ -220,22 +220,22 @@ _ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10FieldGroup13add_oop_fieldEi(ptr nocapture noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = load i32, ptr getelementptr inbounds (i8, ptr @_type2aelembytes, i64 48), align 16
+  %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_type2aelembytes, i64 48), align 16
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %5 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %4, i8 0, i64 16, i1 false)
   store i32 3, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %4, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 -1, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store i32 %3, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %4, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 28
   store i32 %3, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %4, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i32 %1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %4, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 36
   store i8 1, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %20
@@ -244,12 +244,12 @@ define hidden void @_ZN10FieldGroup13add_oop_fieldEi(ptr nocapture noundef nonnu
   %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
   %16 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 16, i32 noundef 8) #14
   store i32 0, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store i32 16, ptr %17, align 4
-  %18 = getelementptr inbounds i8, ptr %15, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %16, ptr %18, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %16, i8 0, i64 128, i1 false)
-  %19 = getelementptr inbounds i8, ptr %15, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i64 0, ptr %19, align 8
   store ptr %15, ptr %11, align 8
   br label %20
@@ -257,7 +257,7 @@ define hidden void @_ZN10FieldGroup13add_oop_fieldEi(ptr nocapture noundef nonnu
 20:                                               ; preds = %14, %2
   %21 = phi ptr [ %15, %14 ], [ %12, %2 ]
   %22 = load i32, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %22, %24
   br i1 %25, label %26, label %_ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -280,12 +280,12 @@ _ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERK
   %34 = phi i32 [ %.pre.i, %26 ], [ %22, %20 ]
   %35 = add nsw i32 %34, 1
   store i32 %35, ptr %21, align 8
-  %36 = getelementptr inbounds i8, ptr %21, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %34 to i64
   %39 = getelementptr inbounds ptr, ptr %37, i64 %38
   store ptr %4, ptr %39, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 28
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4
@@ -294,13 +294,13 @@ _ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE6appendERK
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden void @_ZN10FieldGroup12sort_by_sizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %0) local_unnamed_addr #3 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit, label %4
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
   br i1 %7, label %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit, label %8
@@ -318,10 +318,10 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %8, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN14LayoutRawBlock21compare_size_invertedEPPS_S1_(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
   %3 = load ptr, ptr %1, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = sub nsw i32 %5, %8
   ret i32 %9
@@ -330,9 +330,9 @@ define linkonce_odr hidden noundef i32 @_ZN14LayoutRawBlock21compare_size_invert
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN11FieldLayoutC2EP13GrowableArrayI9FieldInfoEP12ConstantPool(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(40) initializes((0, 40)) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   ret void
 }
@@ -340,23 +340,23 @@ define hidden void @_ZN11FieldLayoutC2EP13GrowableArrayI9FieldInfoEP12ConstantPo
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FieldLayout24initialize_static_layoutEv(ptr nocapture noundef nonnull align 8 dereferenceable(40) initializes((16, 40)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %3 = getelementptr inbounds i8, ptr %2, i64 20
+  %3 = getelementptr inbounds nuw i8, ptr %2, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %2, i8 0, i64 20, i1 false)
-  %4 = getelementptr inbounds i8, ptr %2, i64 24
+  %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 1, ptr %4, align 8
-  %5 = getelementptr inbounds i8, ptr %2, i64 28
+  %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   store i32 2147483647, ptr %5, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 32
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
   store i32 -1, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 36
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 36
   store i8 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %8, align 8
   store i32 0, ptr %3, align 4
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %9, ptr %11, align 8
   %12 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
   %13 = icmp sgt i32 %12, 0
@@ -365,7 +365,7 @@ define hidden void @_ZN11FieldLayout24initialize_static_layoutEv(ptr nocapture n
 .preheader:                                       ; preds = %1, %.preheader
   %.0.in.i = phi ptr [ %.0.i, %.preheader ], [ %11, %1 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %14 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %15 = load i32, ptr %14, align 8
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %_ZN11FieldLayout17first_empty_blockEv.exit, label %.preheader, !llvm.loop !6
@@ -373,32 +373,32 @@ define hidden void @_ZN11FieldLayout24initialize_static_layoutEv(ptr nocapture n
 _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %.preheader
   %16 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %17 = load i32, ptr @_ZN19InstanceMirrorKlass24_offset_of_static_fieldsE, align 4
-  %18 = getelementptr inbounds i8, ptr %16, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %16, i8 0, i64 16, i1 false)
   store i32 1, ptr %18, align 8
-  %19 = getelementptr inbounds i8, ptr %16, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %16, i64 20
   store i32 -1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %16, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i32 1, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %16, i64 28
+  %21 = getelementptr inbounds nuw i8, ptr %16, i64 28
   store i32 %17, ptr %21, align 4
-  %22 = getelementptr inbounds i8, ptr %16, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
   store i32 -1, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %16, i64 36
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 36
   store i8 0, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %24 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %25 = load i32, ptr %24, align 4
   store i32 %25, ptr %19, align 4
   %26 = add nsw i32 %25, %17
   store i32 %26, ptr %24, align 4
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %28 = load i32, ptr %27, align 4
   %29 = load i32, ptr %21, align 4
   %30 = sub nsw i32 %28, %29
   store i32 %30, ptr %27, align 4
-  %31 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %16, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %32, ptr %33, align 8
   store ptr %.0.i, ptr %16, align 8
   store ptr %16, ptr %31, align 8
@@ -421,7 +421,7 @@ _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %.preheader
 
 _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %36, %39
   %40 = phi ptr [ %37, %36 ], [ %16, %39 ]
-  %41 = getelementptr inbounds i8, ptr %40, i64 20
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   store i32 0, ptr %41, align 4
   br label %42
 
@@ -431,22 +431,22 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %36, %39
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned initializes((0, 16), (20, 24)) %2) local_unnamed_addr #4 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %5, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %2, i64 28
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %8 = load i32, ptr %7, align 4
   %9 = add nsw i32 %8, %5
   store i32 %9, ptr %4, align 4
-  %10 = getelementptr inbounds i8, ptr %1, i64 28
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4
   %12 = load i32, ptr %7, align 4
   %13 = sub nsw i32 %11, %12
   store i32 %13, ptr %10, align 4
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %2, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %15, ptr %16, align 8
   store ptr %1, ptr %2, align 8
   store ptr %2, ptr %14, align 8
@@ -459,7 +459,7 @@ define hidden noundef ptr @_ZN11FieldLayout6insertEP14LayoutRawBlockS1_(ptr noca
   br label %19
 
 19:                                               ; preds = %18, %3
-  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %1
   br i1 %22, label %23, label %24
@@ -479,30 +479,30 @@ define hidden void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKla
 
 4:                                                ; preds = %2
   %5 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %6 = getelementptr inbounds i8, ptr %5, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, i8 0, i64 20, i1 false)
-  %7 = getelementptr inbounds i8, ptr %5, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store i32 1, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %5, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %5, i64 28
   store i32 2147483647, ptr %8, align 4
-  %9 = getelementptr inbounds i8, ptr %5, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 -1, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %5, i64 36
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 36
   store i8 0, ptr %10, align 4
-  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %5, ptr %11, align 8
   store i32 0, ptr %6, align 4
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %12, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %12, ptr %14, align 8
   br label %15
 
 15:                                               ; preds = %15, %4
   %.0.in.i = phi ptr [ %14, %4 ], [ %.0.i, %15 ]
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %16 = getelementptr inbounds i8, ptr %.0.i, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %_ZN11FieldLayout17first_empty_blockEv.exit, label %15, !llvm.loop !6
@@ -512,32 +512,32 @@ _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %15
   %19 = load i8, ptr @UseCompressedClassPointers, align 1
   %20 = trunc i8 %19 to i1
   %spec.select.i = select i1 %20, i32 12, i32 16
-  %21 = getelementptr inbounds i8, ptr %18, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %18, i8 0, i64 16, i1 false)
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %18, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %18, i64 20
   store i32 -1, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %18, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store i32 1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %18, i64 28
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 28
   store i32 %spec.select.i, ptr %24, align 4
-  %25 = getelementptr inbounds i8, ptr %18, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %18, i64 32
   store i32 -1, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %18, i64 36
+  %26 = getelementptr inbounds nuw i8, ptr %18, i64 36
   store i8 0, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %.0.i, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %28 = load i32, ptr %27, align 4
   store i32 %28, ptr %22, align 4
   %29 = add nsw i32 %28, %spec.select.i
   store i32 %29, ptr %27, align 4
-  %30 = getelementptr inbounds i8, ptr %.0.i, i64 28
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = load i32, ptr %24, align 4
   %33 = sub nsw i32 %31, %32
   store i32 %33, ptr %30, align 4
-  %34 = getelementptr inbounds i8, ptr %.0.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %18, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %35, ptr %36, align 8
   store ptr %.0.i, ptr %18, align 8
   store ptr %18, ptr %34, align 8
@@ -561,22 +561,22 @@ _ZN11FieldLayout17first_empty_blockEv.exit:       ; preds = %15
 43:                                               ; preds = %2
   %44 = tail call noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1)
   tail call void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1)
-  %45 = getelementptr inbounds i8, ptr %1, i64 308
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %46 = load i16, ptr %45, align 2
   %47 = and i16 %46, 1024
   %.not7 = icmp ne i16 %47, 0
   %brmerge.not = and i1 %44, %.not7
-  %48 = getelementptr inbounds i8, ptr %0, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %brmerge.not, label %52, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %0, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8
   store ptr %51, ptr %48, align 8
   br label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
 
 52:                                               ; preds = %43
-  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %54 = load ptr, ptr %53, align 8
   store ptr %54, ptr %48, align 8
   br label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
@@ -591,35 +591,35 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %4 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 24, i32 noundef 0) #14
   %5 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 32, i32 noundef 8) #14
   store i32 0, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %4, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store i32 32, ptr %6, align 4
-  %7 = getelementptr inbounds i8, ptr %4, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %5, ptr %7, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %5, i8 0, i64 256, i1 false)
-  %8 = getelementptr inbounds i8, ptr %4, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i64 0, ptr %8, align 8
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %._crit_edge33, label %.lr.ph32
 
 .lr.ph32:                                         ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %3, i64 48
-  %10 = getelementptr inbounds i8, ptr %3, i64 52
-  %11 = getelementptr inbounds i8, ptr %3, i64 32
-  %12 = getelementptr inbounds i8, ptr %3, i64 62
-  %13 = getelementptr inbounds i8, ptr %3, i64 72
-  %14 = getelementptr inbounds i8, ptr %3, i64 68
-  %15 = getelementptr inbounds i8, ptr %3, i64 64
-  %16 = getelementptr inbounds i8, ptr %3, i64 8
-  %17 = getelementptr inbounds i8, ptr %3, i64 56
-  %18 = getelementptr inbounds i8, ptr %3, i64 120
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 62
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 68
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 120
   br label %19
 
 19:                                               ; preds = %.lr.ph32, %._crit_edge
   %.030 = phi ptr [ %1, %.lr.ph32 ], [ %27, %._crit_edge ]
   %.02029 = phi i1 [ false, %.lr.ph32 ], [ %.1.lcssa, %._crit_edge ]
-  %20 = getelementptr inbounds i8, ptr %.030, i64 448
+  %20 = getelementptr inbounds nuw i8, ptr %.030, i64 448
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %.030, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %.030, i64 224
   %23 = load ptr, ptr %22, align 8
   call void @_ZN15FieldStreamBaseC2EP5ArrayIhEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef %21, ptr noundef %23)
   %24 = load i32, ptr %9, align 8
@@ -631,7 +631,7 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %.1.lcssa = phi i1 [ %.02029, %19 ], [ %.2, %_ZN15FieldStreamBase4nextEv.exit ]
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #14
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #14
-  %26 = getelementptr inbounds i8, ptr %.030, i64 120
+  %26 = getelementptr inbounds nuw i8, ptr %.030, i64 120
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge33, label %19, !llvm.loop !8
@@ -644,12 +644,12 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
   %31 = and i32 %30, 2
   %.not.i.i = icmp eq i32 %31, 0
   %32 = zext i16 %29 to i64
-  %33 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %32
-  %34 = getelementptr inbounds i8, ptr %28, i64 72
-  %35 = getelementptr inbounds i64, ptr %34, i64 %32
+  %33 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %32
+  %34 = getelementptr inbounds nuw i8, ptr %28, i64 72
+  %35 = getelementptr inbounds nuw i64, ptr %34, i64 %32
   %.0.in.i.i = select i1 %.not.i.i, ptr %35, ptr %33
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
-  %36 = getelementptr inbounds i8, ptr %.0.i.i, i64 6
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 6
   %37 = load i8, ptr %36, align 1
   %38 = sext i8 %37 to i32
   %39 = call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %38) #14
@@ -660,22 +660,22 @@ define hidden noundef zeroext i1 @_ZN11FieldLayout18reconstruct_layoutEPK13Insta
 
 41:                                               ; preds = %.lr.ph
   %42 = zext i8 %39 to i64
-  %43 = getelementptr inbounds [20 x i32], ptr @_type2aelembytes, i64 0, i64 %42
+  %43 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %46 = load i32, ptr %9, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %45, i8 0, i64 16, i1 false)
   store i32 5, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 20
+  %48 = getelementptr inbounds nuw i8, ptr %45, i64 20
   store i32 -1, ptr %48, align 4
-  %49 = getelementptr inbounds i8, ptr %45, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store i32 %44, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 28
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 28
   store i32 %44, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %45, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 32
   store i32 %46, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %45, i64 36
+  %52 = getelementptr inbounds nuw i8, ptr %45, i64 36
   store i8 0, ptr %52, align 4
   %53 = load i32, ptr %15, align 8
   store i32 %53, ptr %48, align 4
@@ -745,9 +745,9 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i: ; preds = %75, %71, %67
 
 .lr.ph.i:                                         ; preds = %_ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i ]
-  %84 = getelementptr inbounds ptr, ptr %.0.i.i22, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw ptr, ptr %.0.i.i22, i64 %indvars.iv.i
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
   %87 = load ptr, ptr %86, align 8
   store ptr %87, ptr %84, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -763,7 +763,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit.i: ; preds = %75, %71, %67
 
 .lr.ph19.i:                                       ; preds = %.lr.ph19.i, %.lr.ph19.preheader.i
   %indvars.iv21.i = phi i64 [ %83, %.lr.ph19.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph19.i ]
-  %92 = getelementptr inbounds ptr, ptr %.0.i.i22, i64 %indvars.iv21.i
+  %92 = getelementptr inbounds nuw ptr, ptr %.0.i.i22, i64 %indvars.iv21.i
   store ptr null, ptr %92, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %93 = load i32, ptr %6, align 4
@@ -834,23 +834,23 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
   %118 = load i8, ptr @UseCompressedClassPointers, align 1
   %119 = trunc i8 %118 to i1
   %spec.select.i = select i1 %119, i32 12, i32 16
-  %120 = getelementptr inbounds i8, ptr %117, i64 16
+  %120 = getelementptr inbounds nuw i8, ptr %117, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %117, i8 0, i64 16, i1 false)
   store i32 1, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %117, i64 20
-  %122 = getelementptr inbounds i8, ptr %117, i64 24
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 20
+  %122 = getelementptr inbounds nuw i8, ptr %117, i64 24
   store i32 1, ptr %122, align 8
-  %123 = getelementptr inbounds i8, ptr %117, i64 28
+  %123 = getelementptr inbounds nuw i8, ptr %117, i64 28
   store i32 %spec.select.i, ptr %123, align 4
-  %124 = getelementptr inbounds i8, ptr %117, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %117, i64 32
   store i32 -1, ptr %124, align 8
-  %125 = getelementptr inbounds i8, ptr %117, i64 36
+  %125 = getelementptr inbounds nuw i8, ptr %117, i64 36
   store i8 0, ptr %125, align 4
-  %126 = getelementptr inbounds i8, ptr %0, i64 16
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %117, ptr %126, align 8
   store i32 0, ptr %121, align 4
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds i8, ptr %0, i64 32
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %127, ptr %128, align 8
   %129 = load i32, ptr %4, align 4
   %130 = icmp sgt i32 %129, 0
@@ -860,11 +860,11 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
   %131 = phi ptr [ %134, %.lr.ph36 ], [ %127, %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph36 ], [ 0, %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit ]
   %132 = load ptr, ptr %7, align 8
-  %133 = getelementptr inbounds ptr, ptr %132, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %indvars.iv
   %134 = load ptr, ptr %133, align 8
   store ptr %134, ptr %131, align 8
   %135 = load ptr, ptr %128, align 8
-  %136 = getelementptr inbounds i8, ptr %134, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store ptr %135, ptr %136, align 8
   store ptr %134, ptr %128, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -879,19 +879,19 @@ _ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit: ; preds = %._cr
 
 ._crit_edge37:                                    ; preds = %._crit_edge37.loopexit, %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit
   %140 = phi ptr [ %.pre41, %._crit_edge37.loopexit ], [ %127, %_ZN17GrowableArrayViewIP14LayoutRawBlockE4sortEPFiPS1_S3_E.exit ]
-  %141 = getelementptr inbounds i8, ptr %0, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %140, ptr %141, align 8
   ret i1 %.020.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef readonly %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %1, i64 308
+  %3 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %4 = load i16, ptr %3, align 2
   %5 = lshr i16 %4, 9
   %6 = and i16 %5, 2
   %7 = zext nneg i16 %6 to i32
-  %8 = getelementptr inbounds i8, ptr %0, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.041 = load ptr, ptr %8, align 8
   %9 = load ptr, ptr %.041, align 8
   %.not42 = icmp eq ptr %9, null
@@ -900,11 +900,11 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
 .lr.ph:                                           ; preds = %2, %34
   %10 = phi ptr [ %35, %34 ], [ %9, %2 ]
   %.043 = phi ptr [ %.0, %34 ], [ %.041, %2 ]
-  %11 = getelementptr inbounds i8, ptr %10, i64 20
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %12 = load i32, ptr %11, align 4
-  %13 = getelementptr inbounds i8, ptr %.043, i64 20
+  %13 = getelementptr inbounds nuw i8, ptr %.043, i64 20
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %.043, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %.043, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %14
   %18 = icmp sgt i32 %12, %17
@@ -913,18 +913,18 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
 19:                                               ; preds = %.lr.ph
   %20 = sub nsw i32 %12, %17
   %21 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %22 = getelementptr inbounds i8, ptr %21, i64 16
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %21, i8 0, i64 16, i1 false)
   store i32 %7, ptr %22, align 8
-  %23 = getelementptr inbounds i8, ptr %21, i64 20
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 20
   store i32 -1, ptr %23, align 4
-  %24 = getelementptr inbounds i8, ptr %21, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store i32 1, ptr %24, align 8
-  %25 = getelementptr inbounds i8, ptr %21, i64 28
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 28
   store i32 %20, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %21, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %21, i64 32
   store i32 -1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %21, i64 36
+  %27 = getelementptr inbounds nuw i8, ptr %21, i64 36
   store i8 0, ptr %27, align 4
   %28 = load i32, ptr %13, align 4
   %29 = load i32, ptr %15, align 4
@@ -932,10 +932,10 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
   store i32 %30, ptr %23, align 4
   %31 = load ptr, ptr %.043, align 8
   store ptr %31, ptr %21, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %21, ptr %32, align 8
   store ptr %21, ptr %.043, align 8
-  %33 = getelementptr inbounds i8, ptr %21, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %.043, ptr %33, align 8
   %.0.pre = load ptr, ptr %.043, align 8
   br label %34
@@ -963,67 +963,67 @@ define hidden void @_ZN11FieldLayout10fill_holesEPK13InstanceKlass(ptr nocapture
 41:                                               ; preds = %._crit_edge
   %42 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %43 = load i32, ptr @ContendedPaddingWidth, align 4
-  %44 = getelementptr inbounds i8, ptr %42, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %42, i8 0, i64 16, i1 false)
   store i32 2, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %42, i64 20
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 20
   store i32 -1, ptr %45, align 4
-  %46 = getelementptr inbounds i8, ptr %42, i64 24
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store i32 1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %42, i64 28
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 28
   store i32 %43, ptr %47, align 4
-  %48 = getelementptr inbounds i8, ptr %42, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %42, i64 32
   store i32 -1, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %42, i64 36
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 36
   store i8 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %.0.lcssa, i64 20
+  %50 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 20
   %51 = load i32, ptr %50, align 4
-  %52 = getelementptr inbounds i8, ptr %.0.lcssa, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.0.lcssa, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = add nsw i32 %53, %51
   store i32 %54, ptr %45, align 4
   store ptr %42, ptr %.0.lcssa, align 8
-  %55 = getelementptr inbounds i8, ptr %42, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %.0.lcssa, ptr %55, align 8
   br label %56
 
 56:                                               ; preds = %41, %._crit_edge
   %.1 = phi ptr [ %42, %41 ], [ %.0.lcssa, %._crit_edge ]
   %57 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %58 = getelementptr inbounds i8, ptr %57, i64 20
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %57, i8 0, i64 20, i1 false)
   store i32 -1, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %57, i64 24
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %57, i64 28
+  %60 = getelementptr inbounds nuw i8, ptr %57, i64 28
   store i32 2147483647, ptr %60, align 4
-  %61 = getelementptr inbounds i8, ptr %57, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 32
   store i32 -1, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %57, i64 36
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 36
   store i8 0, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %.1, i64 20
+  %63 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %64 = load i32, ptr %63, align 4
-  %65 = getelementptr inbounds i8, ptr %.1, i64 28
+  %65 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %66 = load i32, ptr %65, align 4
   %67 = add nsw i32 %66, %64
   store i32 %67, ptr %58, align 4
   store ptr %57, ptr %.1, align 8
-  %68 = getelementptr inbounds i8, ptr %57, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 8
   store ptr %.1, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %0, i64 32
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %57, ptr %69, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef ptr @_ZN11FieldLayout17first_field_blockEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #5 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %3
 
 3:                                                ; preds = %3, %1
   %.0.in = phi ptr [ %2, %1 ], [ %.0, %3 ]
   %.0 = load ptr, ptr %.0.in, align 8
-  %4 = getelementptr inbounds i8, ptr %.0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %5 = load i32, ptr %4, align 8
   %.off = add i32 %5, -2
   %switch = icmp ult i32 %.off, 4
@@ -1040,7 +1040,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 
 5:                                                ; preds = %3
   %6 = icmp eq ptr %2, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.030 = select i1 %6, ptr %8, ptr %2
   %9 = load i32, ptr %1, align 4
@@ -1048,8 +1048,8 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br i1 %10, label %.lr.ph53, label %.loopexit
 
 .lr.ph53:                                         ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %13
 
 13:                                               ; preds = %.lr.ph53, %47
@@ -1058,17 +1058,17 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   %.03449 = phi i32 [ 0, %.lr.ph53 ], [ %.135, %47 ]
   %.03648 = phi i1 [ false, %.lr.ph53 ], [ %.137, %47 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
   %18 = icmp eq ptr %.030, %17
   br i1 %18, label %47, label %19
 
 19:                                               ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %16, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %21 = load i32, ptr %20, align 4
   %22 = icmp ne i32 %21, %.03449
-  %23 = getelementptr inbounds i8, ptr %16, i64 24
+  %23 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %24 = load i32, ptr %23, align 8
   %25 = icmp ne i32 %24, %.03250
   %26 = select i1 %22, i1 true, i1 %25
@@ -1076,7 +1076,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br i1 %or.cond, label %._crit_edge54, label %47
 
 ._crit_edge54:                                    ; preds = %19
-  %.029.in43 = getelementptr inbounds i8, ptr %17, i64 8
+  %.029.in43 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.02944 = load ptr, ptr %.029.in43, align 8
   %.not45 = icmp eq ptr %.02944, %.030
   br i1 %.not45, label %._crit_edge, label %.lr.ph
@@ -1084,19 +1084,19 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 .lr.ph:                                           ; preds = %._crit_edge54, %45
   %.02947 = phi ptr [ %.029, %45 ], [ %.02944, %._crit_edge54 ]
   %.146 = phi ptr [ %.2, %45 ], [ null, %._crit_edge54 ]
-  %27 = getelementptr inbounds i8, ptr %.02947, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.02947, i64 16
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %45
 
 30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds i8, ptr %.02947, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %.02947, i64 20
   %32 = load i32, ptr %31, align 4
   %33 = srem i32 %32, %24
   %.not.i = icmp eq i32 %33, 0
   %34 = sub nsw i32 %24, %33
   %spec.select.i = select i1 %.not.i, i32 0, i32 %34
-  %35 = getelementptr inbounds i8, ptr %.02947, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %.02947, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %spec.select.i, %21
   %.not41 = icmp slt i32 %36, %37
@@ -1107,7 +1107,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %.146, i64 28
+  %41 = getelementptr inbounds nuw i8, ptr %.146, i64 28
   %42 = load i32, ptr %41, align 4
   %43 = icmp slt i32 %36, %42
   br i1 %43, label %44, label %45
@@ -1117,7 +1117,7 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 
 45:                                               ; preds = %40, %44, %30, %.lr.ph
   %.2 = phi ptr [ %.02947, %44 ], [ %.146, %40 ], [ %.146, %30 ], [ %.146, %.lr.ph ]
-  %.029.in = getelementptr inbounds i8, ptr %.02947, i64 8
+  %.029.in = getelementptr inbounds nuw i8, ptr %.02947, i64 8
   %.029 = load ptr, ptr %.029.in, align 8
   %.not = icmp eq ptr %.029, %.030
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !15
@@ -1146,9 +1146,9 @@ define hidden void @_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef returned initializes((0, 16), (20, 24)) %2) local_unnamed_addr #2 align 2 {
-  %4 = getelementptr inbounds i8, ptr %1, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %5 = load i32, ptr %4, align 4
-  %6 = getelementptr inbounds i8, ptr %2, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %7 = load i32, ptr %6, align 8
   %8 = srem i32 %5, %7
   %.not = icmp eq i32 %8, 0
@@ -1157,29 +1157,29 @@ define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBloc
 9:                                                ; preds = %3
   %10 = sub nsw i32 %7, %8
   %11 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %12 = getelementptr inbounds i8, ptr %11, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
   store i32 -1, ptr %12, align 4
-  %13 = getelementptr inbounds i8, ptr %11, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i32 1, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %11, i64 28
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 28
   store i32 %10, ptr %14, align 4
-  %15 = getelementptr inbounds i8, ptr %11, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %11, i64 32
   store i32 -1, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %11, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %11, i64 36
   store i8 0, ptr %16, align 4
   %17 = load i32, ptr %4, align 4
   store i32 %17, ptr %12, align 4
   %18 = add nsw i32 %17, %10
   store i32 %18, ptr %4, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %14, align 4
   %22 = sub nsw i32 %20, %21
   store i32 %22, ptr %19, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %11, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %24, ptr %25, align 8
   store ptr %1, ptr %11, align 8
   store ptr %11, ptr %23, align 8
@@ -1192,7 +1192,7 @@ define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBloc
   br label %28
 
 28:                                               ; preds = %27, %9
-  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
   br i1 %31, label %32, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
@@ -1203,20 +1203,20 @@ define hidden noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBloc
 
 _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %32, %28, %3
   %33 = load i32, ptr %4, align 4
-  %34 = getelementptr inbounds i8, ptr %2, i64 20
+  %34 = getelementptr inbounds nuw i8, ptr %2, i64 20
   store i32 %33, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %2, i64 28
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, %33
   store i32 %37, ptr %4, align 4
-  %38 = getelementptr inbounds i8, ptr %1, i64 28
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %35, align 4
   %41 = sub nsw i32 %39, %40
   store i32 %41, ptr %38, align 4
-  %42 = getelementptr inbounds i8, ptr %1, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %43, ptr %44, align 8
   store ptr %1, ptr %2, align 8
   store ptr %2, ptr %42, align 8
@@ -1229,7 +1229,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %32, %28, %3
   br label %47
 
 47:                                               ; preds = %46, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, %1
   br i1 %50, label %51, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16
@@ -1264,12 +1264,12 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16: ; preds = %47, %51
 .sink.split.i:                                    ; preds = %59, %57
   %.sink11.i = phi ptr [ %61, %59 ], [ %58, %57 ]
   %.sink.i = phi ptr [ %62, %59 ], [ null, %57 ]
-  %63 = getelementptr inbounds i8, ptr %.sink11.i, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
   store ptr %.sink.i, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %.sink.split.i, %57
-  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8
   %67 = icmp eq ptr %1, %66
   br i1 %67, label %68, label %_ZN11FieldLayout6removeEP14LayoutRawBlock.exit
@@ -1281,9 +1281,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16: ; preds = %47, %51
 
 _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %68, %64, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds i8, ptr %2, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %72 = load i32, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %70, i64 8
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %72 to i64
   %76 = load i32, ptr %34, align 4
@@ -1294,29 +1294,29 @@ _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %68, %64, %_ZN11Fiel
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef initializes((20, 24)) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 {
-  %5 = getelementptr inbounds i8, ptr %1, i64 20
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i32 %2, ptr %5, align 4
   %6 = icmp eq ptr %3, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.0 = select i1 %6, ptr %8, ptr %3
   %.not35 = icmp eq ptr %.0, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %91
   %.02536 = phi ptr [ %.0, %.lr.ph ], [ %92, %91 ]
-  %12 = getelementptr inbounds i8, ptr %.02536, i64 20
+  %12 = getelementptr inbounds nuw i8, ptr %.02536, i64 20
   %13 = load i32, ptr %12, align 4
   %.not27 = icmp sgt i32 %13, %2
   br i1 %.not27, label %20, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds i8, ptr %.02536, i64 28
+  %15 = getelementptr inbounds nuw i8, ptr %.02536, i64 28
   %16 = load i32, ptr %15, align 4
   %17 = add nsw i32 %16, %13
   %18 = icmp sgt i32 %17, %2
@@ -1329,36 +1329,36 @@ define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(
   br i1 %.old29, label %21, label %91
 
 21:                                               ; preds = %20, %14
-  %22 = getelementptr inbounds i8, ptr %.02536, i64 20
+  %22 = getelementptr inbounds nuw i8, ptr %.02536, i64 20
   %23 = icmp slt i32 %13, %2
   br i1 %23, label %24, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
 
 24:                                               ; preds = %21
   %25 = sub nsw i32 %2, %13
   %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %27 = getelementptr inbounds i8, ptr %26, i64 20
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %26, i8 0, i64 20, i1 false)
   store i32 -1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 24
   store i32 1, ptr %28, align 8
-  %29 = getelementptr inbounds i8, ptr %26, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 %25, ptr %29, align 4
-  %30 = getelementptr inbounds i8, ptr %26, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 32
   store i32 -1, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %26, i64 36
+  %31 = getelementptr inbounds nuw i8, ptr %26, i64 36
   store i8 0, ptr %31, align 4
   %32 = load i32, ptr %22, align 4
   store i32 %32, ptr %27, align 4
   %33 = add nsw i32 %32, %25
   store i32 %33, ptr %22, align 4
-  %34 = getelementptr inbounds i8, ptr %.02536, i64 28
+  %34 = getelementptr inbounds nuw i8, ptr %.02536, i64 28
   %35 = load i32, ptr %34, align 4
   %36 = load i32, ptr %29, align 4
   %37 = sub nsw i32 %35, %36
   store i32 %37, ptr %34, align 4
-  %38 = getelementptr inbounds i8, ptr %.02536, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02536, i64 8
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %26, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %39, ptr %40, align 8
   store ptr %.02536, ptr %26, align 8
   store ptr %26, ptr %38, align 8
@@ -1371,7 +1371,7 @@ define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(
   br label %43
 
 43:                                               ; preds = %42, %24
-  %44 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %.02536
   br i1 %46, label %47, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
@@ -1383,18 +1383,18 @@ define hidden void @_ZN11FieldLayout19add_field_at_offsetEP14LayoutRawBlockiS1_(
 _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %47, %43, %21
   %48 = load i32, ptr %22, align 4
   store i32 %48, ptr %5, align 4
-  %49 = getelementptr inbounds i8, ptr %1, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %50 = load i32, ptr %49, align 4
   %51 = add nsw i32 %50, %48
   store i32 %51, ptr %22, align 4
-  %52 = getelementptr inbounds i8, ptr %.02536, i64 28
+  %52 = getelementptr inbounds nuw i8, ptr %.02536, i64 28
   %53 = load i32, ptr %52, align 4
   %54 = load i32, ptr %49, align 4
   %55 = sub nsw i32 %53, %54
   store i32 %55, ptr %52, align 4
-  %56 = getelementptr inbounds i8, ptr %.02536, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.02536, i64 8
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store ptr %57, ptr %58, align 8
   store ptr %.02536, ptr %1, align 8
   store ptr %1, ptr %56, align 8
@@ -1407,7 +1407,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %47, %43, %21
   br label %61
 
 61:                                               ; preds = %60, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
-  %62 = getelementptr inbounds i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %.02536
   br i1 %64, label %65, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit31
@@ -1442,7 +1442,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit31: ; preds = %61, %65
 .sink.split.i:                                    ; preds = %73, %71
   %.sink11.i = phi ptr [ %75, %73 ], [ %72, %71 ]
   %.sink.i = phi ptr [ %76, %73 ], [ null, %71 ]
-  %77 = getelementptr inbounds i8, ptr %.sink11.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.sink11.i, i64 8
   store ptr %.sink.i, ptr %77, align 8
   br label %78
 
@@ -1458,9 +1458,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit31: ; preds = %61, %65
 
 _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %81, %78, %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit31
   %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds i8, ptr %1, i64 32
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %85 = load i32, ptr %84, align 8
-  %86 = getelementptr inbounds i8, ptr %83, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %87 = load ptr, ptr %86, align 8
   %88 = sext i32 %85 to i64
   %89 = load i32, ptr %5, align 4
@@ -1482,7 +1482,7 @@ _ZN11FieldLayout6removeEP14LayoutRawBlock.exit:   ; preds = %81, %78, %_ZN11Fiel
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0, ptr noundef readonly %1) local_unnamed_addr #4 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1
   br i1 %5, label %6, label %8
@@ -1494,7 +1494,7 @@ define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr nocapture noun
   br i1 %.not, label %14, label %.sink.split
 
 8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
   store ptr %11, ptr %10, align 8
@@ -1504,18 +1504,18 @@ define hidden void @_ZN11FieldLayout6removeEP14LayoutRawBlock(ptr nocapture noun
 .sink.split:                                      ; preds = %6, %8
   %.sink11 = phi ptr [ %11, %8 ], [ %7, %6 ]
   %.sink = phi ptr [ %12, %8 ], [ null, %6 ]
-  %13 = getelementptr inbounds i8, ptr %.sink11, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sink11, i64 8
   store ptr %.sink, ptr %13, align 8
   br label %14
 
 14:                                               ; preds = %.sink.split, %6
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %1, %16
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds i8, ptr %1, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8
   store ptr %20, ptr %15, align 8
   br label %21
@@ -1534,7 +1534,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 
 5:                                                ; preds = %3
   %6 = icmp eq ptr %2, null
-  %7 = getelementptr inbounds i8, ptr %0, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %.0 = select i1 %6, ptr %8, ptr %2
   %9 = load i32, ptr %1, align 4
@@ -1542,7 +1542,7 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   br i1 %10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8
   %wide.trip.count = zext nneg i32 %9 to i64
   br label %13
@@ -1550,9 +1550,9 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %.02533 = phi i32 [ 0, %.lr.ph ], [ %18, %13 ]
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 28
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = add nsw i32 %17, %.02533
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1561,36 +1561,36 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 
 ._crit_edge:                                      ; preds = %13, %5
   %.025.lcssa = phi i32 [ 0, %5 ], [ %18, %13 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %.0, %20
   br i1 %21, label %.loopexit31, label %22
 
 22:                                               ; preds = %._crit_edge
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   br label %27
 
 27:                                               ; preds = %.critedge, %22
   %.pn = phi ptr [ %20, %22 ], [ %.1, %.critedge ]
-  %.1.in = getelementptr inbounds i8, ptr %.pn, i64 8
+  %.1.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.1 = load ptr, ptr %.1.in, align 8
-  %28 = getelementptr inbounds i8, ptr %.1, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.1, i64 16
   %29 = load i32, ptr %28, align 8
   %.not = icmp eq i32 %29, 0
   br i1 %.not, label %30, label %.critedge
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %.1, i64 20
+  %32 = getelementptr inbounds nuw i8, ptr %.1, i64 20
   %33 = load i32, ptr %32, align 4
   %34 = srem i32 %33, %31
   %.not.i = icmp eq i32 %34, 0
   %35 = sub nsw i32 %31, %34
   %spec.select.i = select i1 %.not.i, i32 0, i32 %35
-  %36 = getelementptr inbounds i8, ptr %.1, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %.1, i64 28
   %37 = load i32, ptr %36, align 4
   %38 = add nsw i32 %spec.select.i, %.025.lcssa
   %.not30 = icmp slt i32 %37, %38
@@ -1605,13 +1605,13 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
   br i1 %10, label %.lr.ph36, label %.loopexit
 
 .lr.ph36:                                         ; preds = %.loopexit31
-  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %41
 
 41:                                               ; preds = %.lr.ph36, %41
   %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %41 ]
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv38
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv38
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %.026, ptr noundef %44)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
@@ -1627,10 +1627,10 @@ define hidden void @_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14Layou
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN14LayoutRawBlock14compare_offsetEPPS_S1_(ptr noundef %0, ptr noundef %1) #2 comdat align 2 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 20
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %5 = load i32, ptr %4, align 4
   %6 = load ptr, ptr %1, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4
   %9 = sub nsw i32 %5, %8
   ret i32 %9
@@ -1641,18 +1641,18 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %5 = alloca %class.AllFieldStream, align 8
   %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 800
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 800
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %9, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %0, i64 16
-  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.03863 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   %.not64 = icmp eq ptr %.03863, %20
@@ -1660,22 +1660,22 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
 
 .lr.ph66:                                         ; preds = %4
   %21 = icmp eq ptr %3, null
-  %22 = getelementptr inbounds i8, ptr %5, i64 48
-  %23 = getelementptr inbounds i8, ptr %5, i64 52
-  %24 = getelementptr inbounds i8, ptr %5, i64 64
-  %25 = getelementptr inbounds i8, ptr %5, i64 8
-  %26 = getelementptr inbounds i8, ptr %5, i64 56
-  %27 = getelementptr inbounds i8, ptr %5, i64 32
-  %28 = getelementptr inbounds i8, ptr %5, i64 60
-  %29 = getelementptr inbounds i8, ptr %5, i64 72
-  %30 = getelementptr inbounds i8, ptr %5, i64 62
-  %31 = getelementptr inbounds i8, ptr %5, i64 120
-  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  %24 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 60
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 62
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %33
 
 33:                                               ; preds = %.lr.ph66, %.loopexit58
   %.03865 = phi ptr [ %.03863, %.lr.ph66 ], [ %.038, %.loopexit58 ]
-  %34 = getelementptr inbounds i8, ptr %.03865, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.03865, i64 16
   %35 = load i32, ptr %34, align 8
   switch i32 %35, label %.loopexit58 [
     i32 3, label %38
@@ -1690,111 +1690,111 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   br i1 %21, label %.loopexit58, label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.preheader
-  %36 = getelementptr inbounds i8, ptr %.03865, i64 20
-  %37 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %36 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
+  %37 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   br label %113
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %0, align 8
-  %40 = getelementptr inbounds i8, ptr %.03865, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.03865, i64 32
   %41 = load i32, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %43 = load ptr, ptr %42, align 8
   %44 = sext i32 %41 to i64
   %45 = getelementptr inbounds %class.FieldInfo, ptr %43, i64 %44
-  %46 = getelementptr inbounds i8, ptr %.03865, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %32, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 4
+  %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i16, ptr %49, align 4
-  %51 = getelementptr inbounds i8, ptr %45, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 2
   %.not.i = icmp eq i32 %53, 0
   %54 = zext i16 %50 to i64
-  %55 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %54
-  %56 = getelementptr inbounds i8, ptr %48, i64 72
-  %57 = getelementptr inbounds i64, ptr %56, i64 %54
+  %55 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %54
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 72
+  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %54
   %.0.in.i = select i1 %.not.i, ptr %57, ptr %55
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %58 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i) #14
   %59 = load ptr, ptr %32, align 8
-  %60 = getelementptr inbounds i8, ptr %45, i64 6
+  %60 = getelementptr inbounds nuw i8, ptr %45, i64 6
   %61 = load i16, ptr %60, align 2
   %62 = load i32, ptr %51, align 4
   %63 = and i32 %62, 2
   %.not.i41 = icmp eq i32 %63, 0
   %64 = zext i16 %61 to i64
-  %65 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %64
-  %66 = getelementptr inbounds i8, ptr %59, i64 72
-  %67 = getelementptr inbounds i64, ptr %66, i64 %64
+  %65 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %59, i64 72
+  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %64
   %.0.in.i42 = select i1 %.not.i41, ptr %67, ptr %65
   %.0.i43 = load ptr, ptr %.0.in.i42, align 8
   %68 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i43) #14
-  %69 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %69 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   %70 = load i32, ptr %69, align 4
-  %71 = getelementptr inbounds i8, ptr %.03865, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %.03865, i64 24
   %72 = load i32, ptr %71, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i32 noundef %47, ptr noundef %58, ptr noundef %68, i32 noundef %70, i32 noundef %72, ptr noundef nonnull @.str.6) #14
   br label %.loopexit58
 
 73:                                               ; preds = %33
   %74 = load ptr, ptr %0, align 8
-  %75 = getelementptr inbounds i8, ptr %.03865, i64 32
+  %75 = getelementptr inbounds nuw i8, ptr %.03865, i64 32
   %76 = load i32, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %74, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %78 = load ptr, ptr %77, align 8
   %79 = sext i32 %76 to i64
   %80 = getelementptr inbounds %class.FieldInfo, ptr %78, i64 %79
-  %81 = getelementptr inbounds i8, ptr %.03865, i64 20
+  %81 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
   %82 = load i32, ptr %81, align 4
   %83 = load ptr, ptr %32, align 8
-  %84 = getelementptr inbounds i8, ptr %80, i64 4
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %85 = load i16, ptr %84, align 4
-  %86 = getelementptr inbounds i8, ptr %80, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %87 = load i32, ptr %86, align 4
   %88 = and i32 %87, 2
   %.not.i44 = icmp eq i32 %88, 0
   %89 = zext i16 %85 to i64
-  %90 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %89
-  %91 = getelementptr inbounds i8, ptr %83, i64 72
-  %92 = getelementptr inbounds i64, ptr %91, i64 %89
+  %90 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %89
+  %91 = getelementptr inbounds nuw i8, ptr %83, i64 72
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %89
   %.0.in.i45 = select i1 %.not.i44, ptr %92, ptr %90
   %.0.i46 = load ptr, ptr %.0.in.i45, align 8
   %93 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i46) #14
   %94 = load ptr, ptr %32, align 8
-  %95 = getelementptr inbounds i8, ptr %80, i64 6
+  %95 = getelementptr inbounds nuw i8, ptr %80, i64 6
   %96 = load i16, ptr %95, align 2
   %97 = load i32, ptr %86, align 4
   %98 = and i32 %97, 2
   %.not.i47 = icmp eq i32 %98, 0
   %99 = zext i16 %96 to i64
-  %100 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %99
-  %101 = getelementptr inbounds i8, ptr %94, i64 72
-  %102 = getelementptr inbounds i64, ptr %101, i64 %99
+  %100 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %99
+  %101 = getelementptr inbounds nuw i8, ptr %94, i64 72
+  %102 = getelementptr inbounds nuw i64, ptr %101, i64 %99
   %.0.in.i48 = select i1 %.not.i47, ptr %102, ptr %100
   %.0.i49 = load ptr, ptr %.0.in.i48, align 8
   %103 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i49) #14
-  %104 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %104 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   %105 = load i32, ptr %104, align 4
-  %106 = getelementptr inbounds i8, ptr %.03865, i64 24
+  %106 = getelementptr inbounds nuw i8, ptr %.03865, i64 24
   %107 = load i32, ptr %106, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.5, i32 noundef %82, ptr noundef %93, ptr noundef %103, i32 noundef %105, i32 noundef %107, ptr noundef nonnull @.str.7) #14
   br label %.loopexit58
 
 108:                                              ; preds = %33
-  %109 = getelementptr inbounds i8, ptr %.03865, i64 20
+  %109 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %111 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   %112 = load i32, ptr %111, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.8, i32 noundef %110, i32 noundef %112, ptr noundef nonnull @.str.9) #14
   br label %.loopexit58
 
 113:                                              ; preds = %.lr.ph62, %.loopexit
   %.061 = phi ptr [ %3, %.lr.ph62 ], [ %153, %.loopexit ]
-  %114 = getelementptr inbounds i8, ptr %.061, i64 448
+  %114 = getelementptr inbounds nuw i8, ptr %.061, i64 448
   %115 = load ptr, ptr %114, align 8
-  %116 = getelementptr inbounds i8, ptr %.061, i64 224
+  %116 = getelementptr inbounds nuw i8, ptr %.061, i64 224
   %117 = load ptr, ptr %116, align 8
   call void @_ZN15FieldStreamBaseC2EP5ArrayIhEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef %115, ptr noundef %117)
   %118 = load i32, ptr %22, align 8
@@ -1817,9 +1817,9 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %129 = and i32 %128, 2
   %.not.i.i = icmp eq i32 %129, 0
   %130 = zext i16 %127 to i64
-  %131 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %130
-  %132 = getelementptr inbounds i8, ptr %126, i64 72
-  %133 = getelementptr inbounds i64, ptr %132, i64 %130
+  %131 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %130
+  %132 = getelementptr inbounds nuw i8, ptr %126, i64 72
+  %133 = getelementptr inbounds nuw i64, ptr %132, i64 %130
   %.0.in.i.i = select i1 %.not.i.i, ptr %133, ptr %131
   %.0.i.i = load ptr, ptr %.0.in.i.i, align 8
   %134 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i) #14
@@ -1829,9 +1829,9 @@ define hidden void @_ZN11FieldLayout5printEP12outputStreambPK13InstanceKlass(ptr
   %138 = and i32 %137, 2
   %.not.i.i50 = icmp eq i32 %138, 0
   %139 = zext i16 %136 to i64
-  %140 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %139
-  %141 = getelementptr inbounds i8, ptr %135, i64 72
-  %142 = getelementptr inbounds i64, ptr %141, i64 %139
+  %140 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %139
+  %141 = getelementptr inbounds nuw i8, ptr %135, i64 72
+  %142 = getelementptr inbounds nuw i64, ptr %141, i64 %139
   %.0.in.i.i51 = select i1 %.not.i.i50, ptr %142, ptr %140
   %.0.i.i52 = load ptr, ptr %.0.in.i.i51, align 8
   %143 = call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %.0.i.i52) #14
@@ -1862,7 +1862,7 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %145, %147
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %31) #14
   call void @_ZN18constantPoolHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %27) #14
   %150 = load ptr, ptr %.061, align 8
-  %151 = getelementptr inbounds i8, ptr %150, i64 120
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 120
   %152 = load ptr, ptr %151, align 8
   %153 = call noundef ptr %152(ptr noundef nonnull align 8 dereferenceable(464) %.061) #14
   %154 = icmp eq ptr %153, null
@@ -1870,17 +1870,17 @@ _ZN15FieldStreamBase4nextEv.exit:                 ; preds = %145, %147
   br i1 %.not40, label %.loopexit58, label %113, !llvm.loop !22
 
 155:                                              ; preds = %33
-  %156 = getelementptr inbounds i8, ptr %.03865, i64 20
+  %156 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
   %157 = load i32, ptr %156, align 4
-  %158 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %158 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   %159 = load i32, ptr %158, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, i32 noundef %157, i32 noundef %159, ptr noundef nonnull @.str.12) #14
   br label %.loopexit58
 
 160:                                              ; preds = %33
-  %161 = getelementptr inbounds i8, ptr %.03865, i64 20
+  %161 = getelementptr inbounds nuw i8, ptr %.03865, i64 20
   %162 = load i32, ptr %161, align 4
-  %163 = getelementptr inbounds i8, ptr %.03865, i64 28
+  %163 = getelementptr inbounds nuw i8, ptr %.03865, i64 28
   %164 = load i32, ptr %163, align 4
   call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.11, i32 noundef %162, i32 noundef %164, ptr noundef nonnull @.str.13) #14
   br label %.loopexit58
@@ -1924,44 +1924,44 @@ declare noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dere
 define hidden void @_ZN18FieldLayoutBuilderC2EPK6SymbolPK13InstanceKlassP12ConstantPoolP13GrowableArrayI9FieldInfoEbP15FieldLayoutInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(106) initializes((0, 106)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5, ptr noundef %6) unnamed_addr #2 align 2 {
   %8 = zext i1 %5 to i8
   store ptr %1, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %3, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr null, ptr %13, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 48
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = tail call noundef ptr @_ZN30GrowableArrayResourceAllocator8allocateEii(i32 noundef 8, i32 noundef 8) #14
   store i32 0, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 52
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 52
   store i32 8, ptr %16, align 4
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %15, ptr %17, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %15, i8 0, i64 64, i1 false)
-  %18 = getelementptr inbounds i8, ptr %0, i64 64
-  %19 = getelementptr inbounds i8, ptr %0, i64 100
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %18, i8 0, i64 36, i1 false)
   store i32 -1, ptr %19, align 4
-  %20 = getelementptr inbounds i8, ptr %0, i64 104
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 0, ptr %20, align 8
-  %21 = getelementptr inbounds i8, ptr %0, i64 105
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 105
   store i8 %8, ptr %21, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef ptr @_ZN18FieldLayoutBuilder29get_or_create_contended_groupEi(ptr noundef nonnull align 8 dereferenceable(106) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 48
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %6 = getelementptr inbounds i8, ptr %0, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %9
@@ -1973,22 +1973,22 @@ define hidden noundef ptr @_ZN18FieldLayoutBuilder29get_or_create_contended_grou
 
 9:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, %1
   br i1 %14, label %.loopexit, label %8
 
 ._crit_edge:                                      ; preds = %8, %2
   %15 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %16 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, i8 0, i64 24, i1 false)
   store i32 %1, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 28
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 28
   store i32 0, ptr %17, align 4
   %18 = load i32, ptr %3, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 52
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %18, %20
   br i1 %21, label %22, label %_ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.exit
@@ -2011,7 +2011,7 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
   %30 = phi i32 [ %.pre.i, %22 ], [ %18, %._crit_edge ]
   %31 = add nsw i32 %30, 1
   store i32 %31, ptr %3, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 56
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %30 to i64
   %35 = getelementptr inbounds ptr, ptr %33, i64 %34
@@ -2026,27 +2026,27 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef nonnull align 8 dereferenceable(106) initializes((40, 48), (72, 96)) %0) local_unnamed_addr #2 align 2 {
   %2 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   store ptr %4, ptr %2, align 8
-  %7 = getelementptr inbounds i8, ptr %2, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %6, ptr %7, align 8
-  %8 = getelementptr inbounds i8, ptr %2, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
-  %9 = getelementptr inbounds i8, ptr %0, i64 80
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %2, ptr %9, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN11FieldLayout26initialize_instance_layoutEPK13InstanceKlass(ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %11)
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %19, label %12
 
 12:                                               ; preds = %1
-  %13 = getelementptr inbounds i8, ptr %11, i64 308
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 308
   %14 = load i16, ptr %13, align 2
-  %15 = getelementptr inbounds i8, ptr %0, i64 104
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %16 = trunc i16 %14 to i8
   %17 = lshr i8 %16, 1
   %18 = and i8 %17, 1
@@ -2058,64 +2058,64 @@ define hidden void @_ZN18FieldLayoutBuilder8prologueEv(ptr nocapture noundef non
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %5, align 8
   store ptr %21, ptr %20, align 8
-  %23 = getelementptr inbounds i8, ptr %20, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %22, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %20, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %24, i8 0, i64 24, i1 false)
-  %25 = getelementptr inbounds i8, ptr %0, i64 88
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %20, ptr %25, align 8
   tail call void @_ZN11FieldLayout24initialize_static_layoutEv(ptr noundef nonnull align 8 dereferenceable(40) %20)
   %26 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %27 = getelementptr inbounds i8, ptr %26, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %26, i8 0, i64 24, i1 false)
   store i32 -1, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %26, i64 28
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 28
   store i32 0, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %0, i64 72
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store ptr %26, ptr %29, align 8
   %30 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %31 = getelementptr inbounds i8, ptr %30, i64 24
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 24, i1 false)
   store i32 -1, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %30, i64 28
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 28
   store i32 0, ptr %32, align 4
-  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %30, ptr %33, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef nonnull align 8 dereferenceable(106) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 24
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load i32, ptr %3, align 4
   %.not3438 = icmp eq i32 %4, 0
   br i1 %.not3438, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %3, i64 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 72
-  %7 = getelementptr inbounds i8, ptr %0, i64 104
-  %8 = getelementptr inbounds i8, ptr %0, i64 48
-  %9 = getelementptr inbounds i8, ptr %0, i64 56
-  %10 = getelementptr inbounds i8, ptr %0, i64 52
-  %11 = getelementptr inbounds i8, ptr %0, i64 40
-  %12 = getelementptr inbounds i8, ptr %0, i64 16
-  %13 = getelementptr inbounds i8, ptr %0, i64 96
+  %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
   br label %14
 
 14:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %indvars45 = trunc i64 %indvars.iv to i32
   %15 = load ptr, ptr %5, align 8, !noalias !25
-  %16 = getelementptr inbounds %class.FieldInfo, ptr %15, i64 %indvars.iv
-  %.sroa.1.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 6
+  %16 = getelementptr inbounds nuw %class.FieldInfo, ptr %15, i64 %indvars.iv
+  %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 6
   %.sroa.1.0.copyload = load i16, ptr %.sroa.1.0..sroa_idx, align 2
-  %.sroa.222.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 12
+  %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 12
   %.sroa.222.0.copyload = load i32, ptr %.sroa.222.0..sroa_idx, align 4
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 16
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 16
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
-  %.sroa.523.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 24
+  %.sroa.523.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 24
   %.sroa.523.0.copyload = load i16, ptr %.sroa.523.0..sroa_idx, align 4
   %17 = and i32 %.sroa.222.0.copyload, 8
   %.not35 = icmp eq i32 %17, 0
@@ -2137,10 +2137,10 @@ define hidden void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef
 
 24:                                               ; preds = %22
   %25 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %26 = getelementptr inbounds i8, ptr %25, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %25, i8 0, i64 24, i1 false)
   store i32 1, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %25, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 28
   store i32 0, ptr %27, align 4
   %28 = load i32, ptr %8, align 8
   %29 = load i32, ptr %10, align 4
@@ -2189,19 +2189,19 @@ _ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE6appendERKS1_.
 
 50:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load i32, ptr %53, align 8
   %55 = icmp eq i32 %54, %45
   br i1 %55, label %_ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit, label %49
 
 ._crit_edge.i:                                    ; preds = %49, %44
   %56 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 32, i32 noundef 0) #14
-  %57 = getelementptr inbounds i8, ptr %56, i64 24
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, i8 0, i64 24, i1 false)
   store i32 %45, ptr %57, align 8
-  %58 = getelementptr inbounds i8, ptr %56, i64 28
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 28
   store i32 0, ptr %58, align 4
   %59 = load i32, ptr %8, align 8
   %60 = load i32, ptr %10, align 4
@@ -2242,12 +2242,12 @@ _ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit: ; preds = %50, %_
   %78 = and i32 %.sroa.3.0.copyload, 2
   %.not.i = icmp eq i32 %78, 0
   %79 = zext i16 %.sroa.1.0.copyload to i64
-  %80 = getelementptr inbounds [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %79
-  %81 = getelementptr inbounds i8, ptr %77, i64 72
-  %82 = getelementptr inbounds i64, ptr %81, i64 %79
+  %80 = getelementptr inbounds nuw [0 x ptr], ptr @_ZN6Symbol11_vm_symbolsE, i64 0, i64 %79
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 72
+  %82 = getelementptr inbounds nuw i64, ptr %81, i64 %79
   %.0.in.i = select i1 %.not.i, ptr %82, ptr %80
   %.0.i = load ptr, ptr %.0.in.i, align 8
-  %83 = getelementptr inbounds i8, ptr %.0.i, i64 6
+  %83 = getelementptr inbounds nuw i8, ptr %.0.i, i64 6
   %84 = load i8, ptr %83, align 1
   %85 = sext i8 %84 to i32
   %86 = tail call noundef zeroext i8 @_ZN9Signature10basic_typeEi(i32 noundef %85) #14
@@ -2298,15 +2298,15 @@ _ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit: ; preds = %50, %_
   br i1 %.not34, label %._crit_edge, label %14, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %96, %1
-  %100 = getelementptr inbounds i8, ptr %0, i64 40
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds i8, ptr %101, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8
   %.not.i15 = icmp eq ptr %103, null
   br i1 %.not.i15, label %_ZN10FieldGroup12sort_by_sizeEv.exit, label %104
 
 104:                                              ; preds = %._crit_edge
-  %105 = getelementptr inbounds i8, ptr %103, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %105, align 8
   %107 = icmp eq ptr %106, null
   br i1 %107, label %_ZN10FieldGroup12sort_by_sizeEv.exit, label %108
@@ -2318,15 +2318,15 @@ _ZN18FieldLayoutBuilder29get_or_create_contended_groupEi.exit: ; preds = %50, %_
   br label %_ZN10FieldGroup12sort_by_sizeEv.exit
 
 _ZN10FieldGroup12sort_by_sizeEv.exit:             ; preds = %._crit_edge, %104, %108
-  %111 = getelementptr inbounds i8, ptr %0, i64 72
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8
   %.not.i16 = icmp eq ptr %114, null
   br i1 %.not.i16, label %_ZN10FieldGroup12sort_by_sizeEv.exit17, label %115
 
 115:                                              ; preds = %_ZN10FieldGroup12sort_by_sizeEv.exit
-  %116 = getelementptr inbounds i8, ptr %114, i64 8
+  %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8
   %118 = icmp eq ptr %117, null
   br i1 %118, label %_ZN10FieldGroup12sort_by_sizeEv.exit17, label %119
@@ -2338,28 +2338,28 @@ _ZN10FieldGroup12sort_by_sizeEv.exit:             ; preds = %._crit_edge, %104, 
   br label %_ZN10FieldGroup12sort_by_sizeEv.exit17
 
 _ZN10FieldGroup12sort_by_sizeEv.exit17:           ; preds = %_ZN10FieldGroup12sort_by_sizeEv.exit, %115, %119
-  %122 = getelementptr inbounds i8, ptr %0, i64 48
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %123 = load i32, ptr %122, align 8
   %124 = icmp sgt i32 %123, 0
   br i1 %124, label %.lr.ph42, label %.loopexit
 
 .lr.ph42:                                         ; preds = %_ZN10FieldGroup12sort_by_sizeEv.exit17
-  %125 = getelementptr inbounds i8, ptr %0, i64 56
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %126
 
 126:                                              ; preds = %.lr.ph42, %_ZN10FieldGroup12sort_by_sizeEv.exit19
   %127 = phi i32 [ %123, %.lr.ph42 ], [ %140, %_ZN10FieldGroup12sort_by_sizeEv.exit19 ]
   %indvars.iv48 = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next49, %_ZN10FieldGroup12sort_by_sizeEv.exit19 ]
   %128 = load ptr, ptr %125, align 8
-  %129 = getelementptr inbounds ptr, ptr %128, i64 %indvars.iv48
+  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv48
   %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   %132 = load ptr, ptr %131, align 8
   %.not.i18 = icmp eq ptr %132, null
   br i1 %.not.i18, label %_ZN10FieldGroup12sort_by_sizeEv.exit19, label %133
 
 133:                                              ; preds = %126
-  %134 = getelementptr inbounds i8, ptr %132, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %135 = load ptr, ptr %134, align 8
   %136 = icmp eq ptr %135, null
   br i1 %136, label %_ZN10FieldGroup12sort_by_sizeEv.exit19, label %137
@@ -2391,34 +2391,34 @@ define hidden void @_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutR
 5:                                                ; preds = %2
   %6 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %7 = load i32, ptr @ContendedPaddingWidth, align 4
-  %8 = getelementptr inbounds i8, ptr %6, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %6, i8 0, i64 16, i1 false)
   store i32 2, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %6, i64 20
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 -1, ptr %9, align 4
-  %10 = getelementptr inbounds i8, ptr %6, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 1, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %6, i64 28
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 %7, ptr %11, align 4
-  %12 = getelementptr inbounds i8, ptr %6, i64 32
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 32
   store i32 -1, ptr %12, align 8
-  %13 = getelementptr inbounds i8, ptr %6, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i8 0, ptr %13, align 4
-  %14 = getelementptr inbounds i8, ptr %0, i64 80
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %1, i64 20
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %17 = load i32, ptr %16, align 4
   store i32 %17, ptr %9, align 4
   %18 = add nsw i32 %17, %7
   store i32 %18, ptr %16, align 4
-  %19 = getelementptr inbounds i8, ptr %1, i64 28
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %11, align 4
   %22 = sub nsw i32 %20, %21
   store i32 %22, ptr %19, align 4
-  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %24, ptr %25, align 8
   store ptr %1, ptr %6, align 8
   store ptr %6, ptr %23, align 8
@@ -2431,7 +2431,7 @@ define hidden void @_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutR
   br label %28
 
 28:                                               ; preds = %27, %5
-  %29 = getelementptr inbounds i8, ptr %15, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, %1
   br i1 %31, label %32, label %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit
@@ -2448,20 +2448,20 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit: ; preds = %32, %28, %2
 define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr noundef nonnull align 8 dereferenceable(106) initializes((40, 48), (72, 96)) %0) local_unnamed_addr #2 align 2 {
   tail call void @_ZN18FieldLayoutBuilder8prologueEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
   tail call void @_ZN18FieldLayoutBuilder21regular_field_sortingEv(ptr noundef nonnull align 8 dereferenceable(106) %0)
-  %2 = getelementptr inbounds i8, ptr %0, i64 105
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 105
   %3 = load i8, ptr %2, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 80
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %7, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %9, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr @ContendedPaddingWidth, align 4
   %15 = icmp sgt i32 %14, 0
@@ -2470,33 +2470,33 @@ define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr nounde
 16:                                               ; preds = %5
   %17 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %18 = load i32, ptr @ContendedPaddingWidth, align 4
-  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %17, i8 0, i64 16, i1 false)
   store i32 2, ptr %19, align 8
-  %20 = getelementptr inbounds i8, ptr %17, i64 20
+  %20 = getelementptr inbounds nuw i8, ptr %17, i64 20
   store i32 -1, ptr %20, align 4
-  %21 = getelementptr inbounds i8, ptr %17, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 1, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %17, i64 28
+  %22 = getelementptr inbounds nuw i8, ptr %17, i64 28
   store i32 %18, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %17, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 32
   store i32 -1, ptr %23, align 8
-  %24 = getelementptr inbounds i8, ptr %17, i64 36
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 36
   store i8 0, ptr %24, align 4
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds i8, ptr %13, i64 20
+  %26 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %27 = load i32, ptr %26, align 4
   store i32 %27, ptr %20, align 4
   %28 = add nsw i32 %27, %18
   store i32 %28, ptr %26, align 4
-  %29 = getelementptr inbounds i8, ptr %13, i64 28
+  %29 = getelementptr inbounds nuw i8, ptr %13, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = load i32, ptr %22, align 4
   %32 = sub nsw i32 %30, %31
   store i32 %32, ptr %29, align 4
-  %33 = getelementptr inbounds i8, ptr %13, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %17, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %34, ptr %35, align 8
   store ptr %13, ptr %17, align 8
   store ptr %17, ptr %33, align 8
@@ -2509,7 +2509,7 @@ define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr nounde
   br label %38
 
 38:                                               ; preds = %37, %16
-  %39 = getelementptr inbounds i8, ptr %25, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, %13
   br i1 %41, label %42, label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit
@@ -2519,25 +2519,25 @@ define hidden void @_ZN18FieldLayoutBuilder22compute_regular_layoutEv(ptr nounde
   br label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit
 
 _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; preds = %42, %38, %5, %1
-  %43 = getelementptr inbounds i8, ptr %0, i64 80
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds i8, ptr %0, i64 40
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit, label %50
 
 50:                                               ; preds = %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit
-  %51 = getelementptr inbounds i8, ptr %44, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %52 = load ptr, ptr %51, align 8
   %53 = load i32, ptr %48, align 4
   %54 = icmp sgt i32 %53, 0
   br i1 %54, label %.lr.ph53.i, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit
 
 .lr.ph53.i:                                       ; preds = %50
-  %55 = getelementptr inbounds i8, ptr %48, i64 8
-  %56 = getelementptr inbounds i8, ptr %44, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %44, i64 32
   br label %57
 
 57:                                               ; preds = %91, %.lr.ph53.i
@@ -2546,17 +2546,17 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   %.03449.i = phi i32 [ 0, %.lr.ph53.i ], [ %.135.i, %91 ]
   %.03648.i = phi i1 [ false, %.lr.ph53.i ], [ %.137.i, %91 ]
   %58 = load ptr, ptr %55, align 8
-  %59 = getelementptr inbounds ptr, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %56, align 8
   %62 = icmp eq ptr %52, %61
   br i1 %62, label %91, label %63
 
 63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %60, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %60, i64 28
   %65 = load i32, ptr %64, align 4
   %66 = icmp ne i32 %65, %.03449.i
-  %67 = getelementptr inbounds i8, ptr %60, i64 24
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %68 = load i32, ptr %67, align 8
   %69 = icmp ne i32 %68, %.03250.i
   %70 = select i1 %66, i1 true, i1 %69
@@ -2564,7 +2564,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   br i1 %or.cond.i, label %._crit_edge54.i, label %91
 
 ._crit_edge54.i:                                  ; preds = %63
-  %.029.in43.i = getelementptr inbounds i8, ptr %61, i64 8
+  %.029.in43.i = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.02944.i = load ptr, ptr %.029.in43.i, align 8
   %.not45.i = icmp eq ptr %.02944.i, %52
   br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i
@@ -2572,19 +2572,19 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
 .lr.ph.i:                                         ; preds = %._crit_edge54.i, %89
   %.02947.i = phi ptr [ %.029.i, %89 ], [ %.02944.i, %._crit_edge54.i ]
   %.146.i = phi ptr [ %.2.i, %89 ], [ null, %._crit_edge54.i ]
-  %71 = getelementptr inbounds i8, ptr %.02947.i, i64 16
+  %71 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 16
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %89
 
 74:                                               ; preds = %.lr.ph.i
-  %75 = getelementptr inbounds i8, ptr %.02947.i, i64 20
+  %75 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 20
   %76 = load i32, ptr %75, align 4
   %77 = srem i32 %76, %68
   %.not.i.i10 = icmp eq i32 %77, 0
   %78 = sub nsw i32 %68, %77
   %spec.select.i.i = select i1 %.not.i.i10, i32 0, i32 %78
-  %79 = getelementptr inbounds i8, ptr %.02947.i, i64 28
+  %79 = getelementptr inbounds nuw i8, ptr %.02947.i, i64 28
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %spec.select.i.i, %65
   %.not41.i = icmp slt i32 %80, %81
@@ -2595,7 +2595,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
   br i1 %83, label %88, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %.146.i, i64 28
+  %85 = getelementptr inbounds nuw i8, ptr %.146.i, i64 28
   %86 = load i32, ptr %85, align 4
   %87 = icmp slt i32 %80, %86
   br i1 %87, label %88, label %89
@@ -2605,7 +2605,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit: ; pred
 
 89:                                               ; preds = %88, %84, %74, %.lr.ph.i
   %.2.i = phi ptr [ %.02947.i, %88 ], [ %.146.i, %84 ], [ %.146.i, %74 ], [ %.146.i, %.lr.ph.i ]
-  %.029.in.i = getelementptr inbounds i8, ptr %.02947.i, i64 8
+  %.029.in.i = getelementptr inbounds nuw i8, ptr %.02947.i, i64 8
   %.029.i = load ptr, ptr %.029.in.i, align 8
   %.not.i = icmp eq ptr %.029.i, %52
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !15
@@ -2636,21 +2636,21 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit: ; pre
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit, %50
   %96 = phi ptr [ %.pre156, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit ], [ %46, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit ], [ %46, %50 ]
   %97 = phi ptr [ %.pre, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit ], [ %44, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit ], [ %44, %50 ]
-  %98 = getelementptr inbounds i8, ptr %96, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39, label %101
 
 101:                                              ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit
-  %102 = getelementptr inbounds i8, ptr %97, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %97, i64 24
   %103 = load ptr, ptr %102, align 8
   %104 = load i32, ptr %99, align 4
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph53.i11, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39
 
 .lr.ph53.i11:                                     ; preds = %101
-  %106 = getelementptr inbounds i8, ptr %99, i64 8
-  %107 = getelementptr inbounds i8, ptr %97, i64 32
+  %106 = getelementptr inbounds nuw i8, ptr %99, i64 8
+  %107 = getelementptr inbounds nuw i8, ptr %97, i64 32
   br label %108
 
 108:                                              ; preds = %142, %.lr.ph53.i11
@@ -2659,17 +2659,17 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   %.03449.i14 = phi i32 [ 0, %.lr.ph53.i11 ], [ %.135.i18, %142 ]
   %.03648.i15 = phi i1 [ false, %.lr.ph53.i11 ], [ %.137.i17, %142 ]
   %109 = load ptr, ptr %106, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %indvars.iv.i12
+  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i12
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %107, align 8
   %113 = icmp eq ptr %103, %112
   br i1 %113, label %142, label %114
 
 114:                                              ; preds = %108
-  %115 = getelementptr inbounds i8, ptr %111, i64 28
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = icmp ne i32 %116, %.03449.i14
-  %118 = getelementptr inbounds i8, ptr %111, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %111, i64 24
   %119 = load i32, ptr %118, align 8
   %120 = icmp ne i32 %119, %.03250.i13
   %121 = select i1 %117, i1 true, i1 %120
@@ -2677,7 +2677,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br i1 %or.cond.i16, label %._crit_edge54.i22, label %142
 
 ._crit_edge54.i22:                                ; preds = %114
-  %.029.in43.i23 = getelementptr inbounds i8, ptr %112, i64 8
+  %.029.in43.i23 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %.02944.i24 = load ptr, ptr %.029.in43.i23, align 8
   %.not45.i25 = icmp eq ptr %.02944.i24, %103
   br i1 %.not45.i25, label %._crit_edge.i33, label %.lr.ph.i26
@@ -2685,19 +2685,19 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
 .lr.ph.i26:                                       ; preds = %._crit_edge54.i22, %140
   %.02947.i27 = phi ptr [ %.029.i31, %140 ], [ %.02944.i24, %._crit_edge54.i22 ]
   %.146.i28 = phi ptr [ %.2.i29, %140 ], [ null, %._crit_edge54.i22 ]
-  %122 = getelementptr inbounds i8, ptr %.02947.i27, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.02947.i27, i64 16
   %123 = load i32, ptr %122, align 8
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %140
 
 125:                                              ; preds = %.lr.ph.i26
-  %126 = getelementptr inbounds i8, ptr %.02947.i27, i64 20
+  %126 = getelementptr inbounds nuw i8, ptr %.02947.i27, i64 20
   %127 = load i32, ptr %126, align 4
   %128 = srem i32 %127, %119
   %.not.i.i36 = icmp eq i32 %128, 0
   %129 = sub nsw i32 %119, %128
   %spec.select.i.i37 = select i1 %.not.i.i36, i32 0, i32 %129
-  %130 = getelementptr inbounds i8, ptr %.02947.i27, i64 28
+  %130 = getelementptr inbounds nuw i8, ptr %.02947.i27, i64 28
   %131 = load i32, ptr %130, align 4
   %132 = add nsw i32 %spec.select.i.i37, %116
   %.not41.i38 = icmp slt i32 %131, %132
@@ -2708,7 +2708,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br i1 %134, label %139, label %135
 
 135:                                              ; preds = %133
-  %136 = getelementptr inbounds i8, ptr %.146.i28, i64 28
+  %136 = getelementptr inbounds nuw i8, ptr %.146.i28, i64 28
   %137 = load i32, ptr %136, align 4
   %138 = icmp slt i32 %131, %137
   br i1 %138, label %139, label %140
@@ -2718,7 +2718,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
 
 140:                                              ; preds = %139, %135, %125, %.lr.ph.i26
   %.2.i29 = phi ptr [ %.02947.i27, %139 ], [ %.146.i28, %135 ], [ %.146.i28, %125 ], [ %.146.i28, %.lr.ph.i26 ]
-  %.029.in.i30 = getelementptr inbounds i8, ptr %.02947.i27, i64 8
+  %.029.in.i30 = getelementptr inbounds nuw i8, ptr %.02947.i27, i64 8
   %.029.i31 = load ptr, ptr %.029.in.i30, align 8
   %.not.i32 = icmp eq ptr %.029.i31, %103
   br i1 %.not.i32, label %._crit_edge.i33, label %.lr.ph.i26, !llvm.loop !15
@@ -2742,22 +2742,22 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN
   br i1 %146, label %108, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39, !llvm.loop !16
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %142, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit, %101
-  %147 = getelementptr inbounds i8, ptr %0, i64 48
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %148 = load i32, ptr %147, align 8
   %149 = icmp sgt i32 %148, 0
   br i1 %149, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39
-  %150 = getelementptr inbounds i8, ptr %0, i64 56
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %151
 
 151:                                              ; preds = %.lr.ph, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100 ]
   %152 = load ptr, ptr %150, align 8
-  %153 = getelementptr inbounds ptr, ptr %152, i64 %indvars.iv
+  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv
   %154 = load ptr, ptr %153, align 8
   %155 = load ptr, ptr %43, align 8
-  %156 = getelementptr inbounds i8, ptr %155, i64 32
+  %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load ptr, ptr %156, align 8
   %158 = load i32, ptr @ContendedPaddingWidth, align 4
   %159 = icmp sgt i32 %158, 0
@@ -2766,33 +2766,33 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %1
 160:                                              ; preds = %151
   %161 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %162 = load i32, ptr @ContendedPaddingWidth, align 4
-  %163 = getelementptr inbounds i8, ptr %161, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %161, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %161, i8 0, i64 16, i1 false)
   store i32 2, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %161, i64 20
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 20
   store i32 -1, ptr %164, align 4
-  %165 = getelementptr inbounds i8, ptr %161, i64 24
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 24
   store i32 1, ptr %165, align 8
-  %166 = getelementptr inbounds i8, ptr %161, i64 28
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 28
   store i32 %162, ptr %166, align 4
-  %167 = getelementptr inbounds i8, ptr %161, i64 32
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 32
   store i32 -1, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %161, i64 36
+  %168 = getelementptr inbounds nuw i8, ptr %161, i64 36
   store i8 0, ptr %168, align 4
   %169 = load ptr, ptr %43, align 8
-  %170 = getelementptr inbounds i8, ptr %157, i64 20
+  %170 = getelementptr inbounds nuw i8, ptr %157, i64 20
   %171 = load i32, ptr %170, align 4
   store i32 %171, ptr %164, align 4
   %172 = add nsw i32 %171, %162
   store i32 %172, ptr %170, align 4
-  %173 = getelementptr inbounds i8, ptr %157, i64 28
+  %173 = getelementptr inbounds nuw i8, ptr %157, i64 28
   %174 = load i32, ptr %173, align 4
   %175 = load i32, ptr %166, align 4
   %176 = sub nsw i32 %174, %175
   store i32 %176, ptr %173, align 4
-  %177 = getelementptr inbounds i8, ptr %157, i64 8
+  %177 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr inbounds i8, ptr %161, i64 8
+  %179 = getelementptr inbounds nuw i8, ptr %161, i64 8
   store ptr %178, ptr %179, align 8
   store ptr %157, ptr %161, align 8
   store ptr %161, ptr %177, align 8
@@ -2805,7 +2805,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %1
   br label %182
 
 182:                                              ; preds = %181, %160
-  %183 = getelementptr inbounds i8, ptr %169, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %184 = load ptr, ptr %183, align 8
   %185 = icmp eq ptr %184, %157
   br i1 %185, label %186, label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41
@@ -2816,14 +2816,14 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit39: ; preds = %1
 
 _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; preds = %151, %182, %186
   %187 = load ptr, ptr %43, align 8
-  %188 = getelementptr inbounds i8, ptr %154, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %189 = load ptr, ptr %188, align 8
   %190 = icmp eq ptr %189, null
   br i1 %190, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70, label %191
 
 191:                                              ; preds = %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41
   %192 = icmp eq ptr %157, null
-  %193 = getelementptr inbounds i8, ptr %187, i64 24
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 24
   %194 = load ptr, ptr %193, align 8
   %.030.i = select i1 %192, ptr %194, ptr %157
   %195 = load i32, ptr %189, align 4
@@ -2831,9 +2831,9 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br i1 %196, label %.lr.ph53.i42, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70
 
 .lr.ph53.i42:                                     ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %189, i64 8
-  %198 = getelementptr inbounds i8, ptr %187, i64 32
-  %199 = getelementptr inbounds i8, ptr %187, i64 16
+  %197 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %198 = getelementptr inbounds nuw i8, ptr %187, i64 32
+  %199 = getelementptr inbounds nuw i8, ptr %187, i64 16
   br label %200
 
 200:                                              ; preds = %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit, %.lr.ph53.i42
@@ -2842,22 +2842,22 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   %.03449.i45 = phi i32 [ 0, %.lr.ph53.i42 ], [ %.135.i49, %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit ]
   %.03648.i46 = phi i1 [ false, %.lr.ph53.i42 ], [ %.137.i48, %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit ]
   %201 = load ptr, ptr %197, align 8
-  %202 = getelementptr inbounds ptr, ptr %201, i64 %indvars.iv.i43
+  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %indvars.iv.i43
   %203 = load ptr, ptr %202, align 8
   %204 = load ptr, ptr %198, align 8
   %205 = icmp eq ptr %.030.i, %204
   br i1 %205, label %._crit_edge, label %206
 
 ._crit_edge:                                      ; preds = %200
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %203, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %203, i64 24
   %.pre157 = load i32, ptr %.phi.trans.insert, align 8
   br label %234
 
 206:                                              ; preds = %200
-  %207 = getelementptr inbounds i8, ptr %203, i64 28
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 28
   %208 = load i32, ptr %207, align 4
   %209 = icmp ne i32 %208, %.03449.i45
-  %210 = getelementptr inbounds i8, ptr %203, i64 24
+  %210 = getelementptr inbounds nuw i8, ptr %203, i64 24
   %211 = load i32, ptr %210, align 8
   %212 = icmp ne i32 %211, %.03250.i44
   %213 = select i1 %209, i1 true, i1 %212
@@ -2865,7 +2865,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br i1 %or.cond.i47, label %._crit_edge54.i53, label %234
 
 ._crit_edge54.i53:                                ; preds = %206
-  %.029.in43.i54 = getelementptr inbounds i8, ptr %204, i64 8
+  %.029.in43.i54 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.02944.i55 = load ptr, ptr %.029.in43.i54, align 8
   %.not45.i56 = icmp eq ptr %.02944.i55, %.030.i
   br i1 %.not45.i56, label %._crit_edge.i64, label %.lr.ph.i57
@@ -2873,19 +2873,19 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 .lr.ph.i57:                                       ; preds = %._crit_edge54.i53, %232
   %.02947.i58 = phi ptr [ %.029.i62, %232 ], [ %.02944.i55, %._crit_edge54.i53 ]
   %.146.i59 = phi ptr [ %.2.i60, %232 ], [ null, %._crit_edge54.i53 ]
-  %214 = getelementptr inbounds i8, ptr %.02947.i58, i64 16
+  %214 = getelementptr inbounds nuw i8, ptr %.02947.i58, i64 16
   %215 = load i32, ptr %214, align 8
   %216 = icmp eq i32 %215, 0
   br i1 %216, label %217, label %232
 
 217:                                              ; preds = %.lr.ph.i57
-  %218 = getelementptr inbounds i8, ptr %.02947.i58, i64 20
+  %218 = getelementptr inbounds nuw i8, ptr %.02947.i58, i64 20
   %219 = load i32, ptr %218, align 4
   %220 = srem i32 %219, %211
   %.not.i.i67 = icmp eq i32 %220, 0
   %221 = sub nsw i32 %211, %220
   %spec.select.i.i68 = select i1 %.not.i.i67, i32 0, i32 %221
-  %222 = getelementptr inbounds i8, ptr %.02947.i58, i64 28
+  %222 = getelementptr inbounds nuw i8, ptr %.02947.i58, i64 28
   %223 = load i32, ptr %222, align 4
   %224 = add nsw i32 %spec.select.i.i68, %208
   %.not41.i69 = icmp slt i32 %223, %224
@@ -2896,7 +2896,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   br i1 %226, label %231, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds i8, ptr %.146.i59, i64 28
+  %228 = getelementptr inbounds nuw i8, ptr %.146.i59, i64 28
   %229 = load i32, ptr %228, align 4
   %230 = icmp slt i32 %223, %229
   br i1 %230, label %231, label %232
@@ -2906,7 +2906,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 
 232:                                              ; preds = %231, %227, %217, %.lr.ph.i57
   %.2.i60 = phi ptr [ %.02947.i58, %231 ], [ %.146.i59, %227 ], [ %.146.i59, %217 ], [ %.146.i59, %.lr.ph.i57 ]
-  %.029.in.i61 = getelementptr inbounds i8, ptr %.02947.i58, i64 8
+  %.029.in.i61 = getelementptr inbounds nuw i8, ptr %.02947.i58, i64 8
   %.029.i62 = load ptr, ptr %.029.in.i61, align 8
   %.not.i63 = icmp eq ptr %.029.i62, %.030.i
   br i1 %.not.i63, label %._crit_edge.i64, label %.lr.ph.i57, !llvm.loop !15
@@ -2923,7 +2923,7 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
   %.135.i49 = phi i32 [ %.03449.i45, %._crit_edge ], [ %208, %._crit_edge.i64 ], [ %.03449.i45, %206 ]
   %.133.i50 = phi i32 [ %.03250.i44, %._crit_edge ], [ %211, %._crit_edge.i64 ], [ %.03250.i44, %206 ]
   %.0.i51 = phi ptr [ %204, %._crit_edge ], [ %spec.select40.i66, %._crit_edge.i64 ], [ %204, %206 ]
-  %236 = getelementptr inbounds i8, ptr %.0.i51, i64 20
+  %236 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 20
   %237 = load i32, ptr %236, align 4
   %238 = srem i32 %237, %235
   %.not.i141 = icmp eq i32 %238, 0
@@ -2932,29 +2932,29 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 239:                                              ; preds = %234
   %240 = sub nsw i32 %235, %238
   %241 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %242 = getelementptr inbounds i8, ptr %241, i64 20
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %241, i8 0, i64 20, i1 false)
   store i32 -1, ptr %242, align 4
-  %243 = getelementptr inbounds i8, ptr %241, i64 24
+  %243 = getelementptr inbounds nuw i8, ptr %241, i64 24
   store i32 1, ptr %243, align 8
-  %244 = getelementptr inbounds i8, ptr %241, i64 28
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 28
   store i32 %240, ptr %244, align 4
-  %245 = getelementptr inbounds i8, ptr %241, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 32
   store i32 -1, ptr %245, align 8
-  %246 = getelementptr inbounds i8, ptr %241, i64 36
+  %246 = getelementptr inbounds nuw i8, ptr %241, i64 36
   store i8 0, ptr %246, align 4
   %247 = load i32, ptr %236, align 4
   store i32 %247, ptr %242, align 4
   %248 = add nsw i32 %247, %240
   store i32 %248, ptr %236, align 4
-  %249 = getelementptr inbounds i8, ptr %.0.i51, i64 28
+  %249 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 28
   %250 = load i32, ptr %249, align 4
   %251 = load i32, ptr %244, align 4
   %252 = sub nsw i32 %250, %251
   store i32 %252, ptr %249, align 4
-  %253 = getelementptr inbounds i8, ptr %.0.i51, i64 8
+  %253 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
   %254 = load ptr, ptr %253, align 8
-  %255 = getelementptr inbounds i8, ptr %241, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %241, i64 8
   store ptr %254, ptr %255, align 8
   store ptr %.0.i51, ptr %241, align 8
   store ptr %241, ptr %253, align 8
@@ -2977,20 +2977,20 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41: ; pr
 
 _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i: ; preds = %261, %258, %234
   %262 = load i32, ptr %236, align 4
-  %263 = getelementptr inbounds i8, ptr %203, i64 20
+  %263 = getelementptr inbounds nuw i8, ptr %203, i64 20
   store i32 %262, ptr %263, align 4
-  %264 = getelementptr inbounds i8, ptr %203, i64 28
+  %264 = getelementptr inbounds nuw i8, ptr %203, i64 28
   %265 = load i32, ptr %264, align 4
   %266 = add nsw i32 %265, %262
   store i32 %266, ptr %236, align 4
-  %267 = getelementptr inbounds i8, ptr %.0.i51, i64 28
+  %267 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 28
   %268 = load i32, ptr %267, align 4
   %269 = load i32, ptr %264, align 4
   %270 = sub nsw i32 %268, %269
   store i32 %270, ptr %267, align 4
-  %271 = getelementptr inbounds i8, ptr %.0.i51, i64 8
+  %271 = getelementptr inbounds nuw i8, ptr %.0.i51, i64 8
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds i8, ptr %203, i64 8
+  %273 = getelementptr inbounds nuw i8, ptr %203, i64 8
   store ptr %272, ptr %273, align 8
   store ptr %.0.i51, ptr %203, align 8
   store ptr %203, ptr %271, align 8
@@ -3037,7 +3037,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i: ; preds = %279, %276
 .sink.split.i.i:                                  ; preds = %287, %285
   %.sink11.i.i = phi ptr [ %289, %287 ], [ %286, %285 ]
   %.sink.i.i = phi ptr [ %290, %287 ], [ null, %285 ]
-  %291 = getelementptr inbounds i8, ptr %.sink11.i.i, i64 8
+  %291 = getelementptr inbounds nuw i8, ptr %.sink11.i.i, i64 8
   store ptr %.sink.i.i, ptr %291, align 8
   br label %292
 
@@ -3053,9 +3053,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i: ; preds = %279, %276
 
 _ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit: ; preds = %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i, %292, %295
   %297 = load ptr, ptr %187, align 8
-  %298 = getelementptr inbounds i8, ptr %203, i64 32
+  %298 = getelementptr inbounds nuw i8, ptr %203, i64 32
   %299 = load i32, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %297, i64 8
+  %300 = getelementptr inbounds nuw i8, ptr %297, i64 8
   %301 = load ptr, ptr %300, align 8
   %302 = sext i32 %299 to i64
   %303 = load i32, ptr %263, align 4
@@ -3073,14 +3073,14 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit: ; p
 
 _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41, %191
   %308 = phi ptr [ %.pre158, %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70.loopexit ], [ %187, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit41 ], [ %187, %191 ]
-  %309 = getelementptr inbounds i8, ptr %154, i64 16
+  %309 = getelementptr inbounds nuw i8, ptr %154, i64 16
   %310 = load ptr, ptr %309, align 8
   %311 = icmp eq ptr %310, null
   br i1 %311, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100, label %312
 
 312:                                              ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70
   %313 = icmp eq ptr %157, null
-  %314 = getelementptr inbounds i8, ptr %308, i64 24
+  %314 = getelementptr inbounds nuw i8, ptr %308, i64 24
   %315 = load ptr, ptr %314, align 8
   %.030.i71 = select i1 %313, ptr %315, ptr %157
   %316 = load i32, ptr %310, align 4
@@ -3088,9 +3088,9 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br i1 %317, label %.lr.ph53.i72, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100
 
 .lr.ph53.i72:                                     ; preds = %312
-  %318 = getelementptr inbounds i8, ptr %310, i64 8
-  %319 = getelementptr inbounds i8, ptr %308, i64 32
-  %320 = getelementptr inbounds i8, ptr %308, i64 16
+  %318 = getelementptr inbounds nuw i8, ptr %310, i64 8
+  %319 = getelementptr inbounds nuw i8, ptr %308, i64 32
+  %320 = getelementptr inbounds nuw i8, ptr %308, i64 16
   br label %321
 
 321:                                              ; preds = %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152, %.lr.ph53.i72
@@ -3099,22 +3099,22 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   %.03449.i75 = phi i32 [ 0, %.lr.ph53.i72 ], [ %.135.i79, %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152 ]
   %.03648.i76 = phi i1 [ false, %.lr.ph53.i72 ], [ %.137.i78, %_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152 ]
   %322 = load ptr, ptr %318, align 8
-  %323 = getelementptr inbounds ptr, ptr %322, i64 %indvars.iv.i73
+  %323 = getelementptr inbounds nuw ptr, ptr %322, i64 %indvars.iv.i73
   %324 = load ptr, ptr %323, align 8
   %325 = load ptr, ptr %319, align 8
   %326 = icmp eq ptr %.030.i71, %325
   br i1 %326, label %._crit_edge159, label %327
 
 ._crit_edge159:                                   ; preds = %321
-  %.phi.trans.insert160 = getelementptr inbounds i8, ptr %324, i64 24
+  %.phi.trans.insert160 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %.pre161 = load i32, ptr %.phi.trans.insert160, align 8
   br label %355
 
 327:                                              ; preds = %321
-  %328 = getelementptr inbounds i8, ptr %324, i64 28
+  %328 = getelementptr inbounds nuw i8, ptr %324, i64 28
   %329 = load i32, ptr %328, align 4
   %330 = icmp ne i32 %329, %.03449.i75
-  %331 = getelementptr inbounds i8, ptr %324, i64 24
+  %331 = getelementptr inbounds nuw i8, ptr %324, i64 24
   %332 = load i32, ptr %331, align 8
   %333 = icmp ne i32 %332, %.03250.i74
   %334 = select i1 %330, i1 true, i1 %333
@@ -3122,7 +3122,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br i1 %or.cond.i77, label %._crit_edge54.i83, label %355
 
 ._crit_edge54.i83:                                ; preds = %327
-  %.029.in43.i84 = getelementptr inbounds i8, ptr %325, i64 8
+  %.029.in43.i84 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %.02944.i85 = load ptr, ptr %.029.in43.i84, align 8
   %.not45.i86 = icmp eq ptr %.02944.i85, %.030.i71
   br i1 %.not45.i86, label %._crit_edge.i94, label %.lr.ph.i87
@@ -3130,19 +3130,19 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 .lr.ph.i87:                                       ; preds = %._crit_edge54.i83, %353
   %.02947.i88 = phi ptr [ %.029.i92, %353 ], [ %.02944.i85, %._crit_edge54.i83 ]
   %.146.i89 = phi ptr [ %.2.i90, %353 ], [ null, %._crit_edge54.i83 ]
-  %335 = getelementptr inbounds i8, ptr %.02947.i88, i64 16
+  %335 = getelementptr inbounds nuw i8, ptr %.02947.i88, i64 16
   %336 = load i32, ptr %335, align 8
   %337 = icmp eq i32 %336, 0
   br i1 %337, label %338, label %353
 
 338:                                              ; preds = %.lr.ph.i87
-  %339 = getelementptr inbounds i8, ptr %.02947.i88, i64 20
+  %339 = getelementptr inbounds nuw i8, ptr %.02947.i88, i64 20
   %340 = load i32, ptr %339, align 4
   %341 = srem i32 %340, %332
   %.not.i.i97 = icmp eq i32 %341, 0
   %342 = sub nsw i32 %332, %341
   %spec.select.i.i98 = select i1 %.not.i.i97, i32 0, i32 %342
-  %343 = getelementptr inbounds i8, ptr %.02947.i88, i64 28
+  %343 = getelementptr inbounds nuw i8, ptr %.02947.i88, i64 28
   %344 = load i32, ptr %343, align 4
   %345 = add nsw i32 %spec.select.i.i98, %329
   %.not41.i99 = icmp slt i32 %344, %345
@@ -3153,7 +3153,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   br i1 %347, label %352, label %348
 
 348:                                              ; preds = %346
-  %349 = getelementptr inbounds i8, ptr %.146.i89, i64 28
+  %349 = getelementptr inbounds nuw i8, ptr %.146.i89, i64 28
   %350 = load i32, ptr %349, align 4
   %351 = icmp slt i32 %344, %350
   br i1 %351, label %352, label %353
@@ -3163,7 +3163,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 
 353:                                              ; preds = %352, %348, %338, %.lr.ph.i87
   %.2.i90 = phi ptr [ %.02947.i88, %352 ], [ %.146.i89, %348 ], [ %.146.i89, %338 ], [ %.146.i89, %.lr.ph.i87 ]
-  %.029.in.i91 = getelementptr inbounds i8, ptr %.02947.i88, i64 8
+  %.029.in.i91 = getelementptr inbounds nuw i8, ptr %.02947.i88, i64 8
   %.029.i92 = load ptr, ptr %.029.in.i91, align 8
   %.not.i93 = icmp eq ptr %.029.i92, %.030.i71
   br i1 %.not.i93, label %._crit_edge.i94, label %.lr.ph.i87, !llvm.loop !15
@@ -3180,7 +3180,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
   %.135.i79 = phi i32 [ %.03449.i75, %._crit_edge159 ], [ %329, %._crit_edge.i94 ], [ %.03449.i75, %327 ]
   %.133.i80 = phi i32 [ %.03250.i74, %._crit_edge159 ], [ %332, %._crit_edge.i94 ], [ %.03250.i74, %327 ]
   %.0.i81 = phi ptr [ %325, %._crit_edge159 ], [ %spec.select40.i96, %._crit_edge.i94 ], [ %325, %327 ]
-  %357 = getelementptr inbounds i8, ptr %.0.i81, i64 20
+  %357 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 20
   %358 = load i32, ptr %357, align 4
   %359 = srem i32 %358, %356
   %.not.i143 = icmp eq i32 %359, 0
@@ -3189,29 +3189,29 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 360:                                              ; preds = %355
   %361 = sub nsw i32 %356, %359
   %362 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
-  %363 = getelementptr inbounds i8, ptr %362, i64 20
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %362, i8 0, i64 20, i1 false)
   store i32 -1, ptr %363, align 4
-  %364 = getelementptr inbounds i8, ptr %362, i64 24
+  %364 = getelementptr inbounds nuw i8, ptr %362, i64 24
   store i32 1, ptr %364, align 8
-  %365 = getelementptr inbounds i8, ptr %362, i64 28
+  %365 = getelementptr inbounds nuw i8, ptr %362, i64 28
   store i32 %361, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %362, i64 32
+  %366 = getelementptr inbounds nuw i8, ptr %362, i64 32
   store i32 -1, ptr %366, align 8
-  %367 = getelementptr inbounds i8, ptr %362, i64 36
+  %367 = getelementptr inbounds nuw i8, ptr %362, i64 36
   store i8 0, ptr %367, align 4
   %368 = load i32, ptr %357, align 4
   store i32 %368, ptr %363, align 4
   %369 = add nsw i32 %368, %361
   store i32 %369, ptr %357, align 4
-  %370 = getelementptr inbounds i8, ptr %.0.i81, i64 28
+  %370 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 28
   %371 = load i32, ptr %370, align 4
   %372 = load i32, ptr %365, align 4
   %373 = sub nsw i32 %371, %372
   store i32 %373, ptr %370, align 4
-  %374 = getelementptr inbounds i8, ptr %.0.i81, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 8
   %375 = load ptr, ptr %374, align 8
-  %376 = getelementptr inbounds i8, ptr %362, i64 8
+  %376 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store ptr %375, ptr %376, align 8
   store ptr %.0.i81, ptr %362, align 8
   store ptr %362, ptr %374, align 8
@@ -3234,20 +3234,20 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit70: ; preds = %_
 
 _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit.i145: ; preds = %382, %379, %355
   %383 = load i32, ptr %357, align 4
-  %384 = getelementptr inbounds i8, ptr %324, i64 20
+  %384 = getelementptr inbounds nuw i8, ptr %324, i64 20
   store i32 %383, ptr %384, align 4
-  %385 = getelementptr inbounds i8, ptr %324, i64 28
+  %385 = getelementptr inbounds nuw i8, ptr %324, i64 28
   %386 = load i32, ptr %385, align 4
   %387 = add nsw i32 %386, %383
   store i32 %387, ptr %357, align 4
-  %388 = getelementptr inbounds i8, ptr %.0.i81, i64 28
+  %388 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 28
   %389 = load i32, ptr %388, align 4
   %390 = load i32, ptr %385, align 4
   %391 = sub nsw i32 %389, %390
   store i32 %391, ptr %388, align 4
-  %392 = getelementptr inbounds i8, ptr %.0.i81, i64 8
+  %392 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 8
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds i8, ptr %324, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %324, i64 8
   store ptr %393, ptr %394, align 8
   store ptr %.0.i81, ptr %324, align 8
   store ptr %324, ptr %392, align 8
@@ -3294,7 +3294,7 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147: ; preds = %400, %397
 .sink.split.i.i148:                               ; preds = %408, %406
   %.sink11.i.i149 = phi ptr [ %410, %408 ], [ %407, %406 ]
   %.sink.i.i150 = phi ptr [ %411, %408 ], [ null, %406 ]
-  %412 = getelementptr inbounds i8, ptr %.sink11.i.i149, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %.sink11.i.i149, i64 8
   store ptr %.sink.i.i150, ptr %412, align 8
   br label %413
 
@@ -3310,9 +3310,9 @@ _ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147: ; preds = %400, %397
 
 _ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_.exit152: ; preds = %_ZN11FieldLayout6insertEP14LayoutRawBlockS1_.exit16.i147, %413, %416
   %418 = load ptr, ptr %308, align 8
-  %419 = getelementptr inbounds i8, ptr %324, i64 32
+  %419 = getelementptr inbounds nuw i8, ptr %324, i64 32
   %420 = load i32, ptr %419, align 8
-  %421 = getelementptr inbounds i8, ptr %418, i64 8
+  %421 = getelementptr inbounds nuw i8, ptr %418, i64 8
   %422 = load ptr, ptr %421, align 8
   %423 = sext i32 %420 to i64
   %424 = load i32, ptr %384, align 4
@@ -3336,7 +3336,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %
 
 .critedge:                                        ; preds = %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100, %.loopexit
   %432 = load ptr, ptr %43, align 8
-  %433 = getelementptr inbounds i8, ptr %432, i64 32
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 32
   %434 = load ptr, ptr %433, align 8
   %435 = load i32, ptr @ContendedPaddingWidth, align 4
   %436 = icmp sgt i32 %435, 0
@@ -3345,33 +3345,33 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %
 437:                                              ; preds = %.critedge
   %438 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 40, i32 noundef 0) #14
   %439 = load i32, ptr @ContendedPaddingWidth, align 4
-  %440 = getelementptr inbounds i8, ptr %438, i64 16
+  %440 = getelementptr inbounds nuw i8, ptr %438, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(37) %438, i8 0, i64 16, i1 false)
   store i32 2, ptr %440, align 8
-  %441 = getelementptr inbounds i8, ptr %438, i64 20
+  %441 = getelementptr inbounds nuw i8, ptr %438, i64 20
   store i32 -1, ptr %441, align 4
-  %442 = getelementptr inbounds i8, ptr %438, i64 24
+  %442 = getelementptr inbounds nuw i8, ptr %438, i64 24
   store i32 1, ptr %442, align 8
-  %443 = getelementptr inbounds i8, ptr %438, i64 28
+  %443 = getelementptr inbounds nuw i8, ptr %438, i64 28
   store i32 %439, ptr %443, align 4
-  %444 = getelementptr inbounds i8, ptr %438, i64 32
+  %444 = getelementptr inbounds nuw i8, ptr %438, i64 32
   store i32 -1, ptr %444, align 8
-  %445 = getelementptr inbounds i8, ptr %438, i64 36
+  %445 = getelementptr inbounds nuw i8, ptr %438, i64 36
   store i8 0, ptr %445, align 4
   %446 = load ptr, ptr %43, align 8
-  %447 = getelementptr inbounds i8, ptr %434, i64 20
+  %447 = getelementptr inbounds nuw i8, ptr %434, i64 20
   %448 = load i32, ptr %447, align 4
   store i32 %448, ptr %441, align 4
   %449 = add nsw i32 %448, %439
   store i32 %449, ptr %447, align 4
-  %450 = getelementptr inbounds i8, ptr %434, i64 28
+  %450 = getelementptr inbounds nuw i8, ptr %434, i64 28
   %451 = load i32, ptr %450, align 4
   %452 = load i32, ptr %443, align 4
   %453 = sub nsw i32 %451, %452
   store i32 %453, ptr %450, align 4
-  %454 = getelementptr inbounds i8, ptr %434, i64 8
+  %454 = getelementptr inbounds nuw i8, ptr %434, i64 8
   %455 = load ptr, ptr %454, align 8
-  %456 = getelementptr inbounds i8, ptr %438, i64 8
+  %456 = getelementptr inbounds nuw i8, ptr %438, i64 8
   store ptr %455, ptr %456, align 8
   store ptr %434, ptr %438, align 8
   store ptr %438, ptr %454, align 8
@@ -3384,7 +3384,7 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %
   br label %459
 
 459:                                              ; preds = %458, %437
-  %460 = getelementptr inbounds i8, ptr %446, i64 16
+  %460 = getelementptr inbounds nuw i8, ptr %446, i64 16
   %461 = load ptr, ptr %460, align 8
   %462 = icmp eq ptr %461, %434
   br i1 %462, label %463, label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102
@@ -3394,24 +3394,24 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit100: ; preds = %
   br label %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102
 
 _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; preds = %463, %459, %.critedge, %.loopexit
-  %464 = getelementptr inbounds i8, ptr %0, i64 88
+  %464 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %465 = load ptr, ptr %464, align 8
-  %466 = getelementptr inbounds i8, ptr %0, i64 72
+  %466 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %467 = load ptr, ptr %466, align 8
-  %468 = getelementptr inbounds i8, ptr %467, i64 16
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 16
   %469 = load ptr, ptr %468, align 8
   %470 = icmp eq ptr %469, null
   br i1 %470, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit, label %471
 
 471:                                              ; preds = %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102
-  %472 = getelementptr inbounds i8, ptr %465, i64 24
+  %472 = getelementptr inbounds nuw i8, ptr %465, i64 24
   %473 = load ptr, ptr %472, align 8
   %474 = load i32, ptr %469, align 4
   %475 = icmp sgt i32 %474, 0
   br i1 %475, label %.lr.ph.i108, label %._crit_edge.i104
 
 .lr.ph.i108:                                      ; preds = %471
-  %476 = getelementptr inbounds i8, ptr %469, i64 8
+  %476 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %477 = load ptr, ptr %476, align 8
   %wide.trip.count.i = zext nneg i32 %474 to i64
   br label %478
@@ -3419,9 +3419,9 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
 478:                                              ; preds = %478, %.lr.ph.i108
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.i108 ], [ %indvars.iv.next.i110, %478 ]
   %.02533.i = phi i32 [ 0, %.lr.ph.i108 ], [ %483, %478 ]
-  %479 = getelementptr inbounds ptr, ptr %477, i64 %indvars.iv.i109
+  %479 = getelementptr inbounds nuw ptr, ptr %477, i64 %indvars.iv.i109
   %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds i8, ptr %480, i64 28
+  %481 = getelementptr inbounds nuw i8, ptr %480, i64 28
   %482 = load i32, ptr %481, align 4
   %483 = add nsw i32 %482, %.02533.i
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
@@ -3430,36 +3430,36 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
 
 ._crit_edge.i104:                                 ; preds = %478, %471
   %.025.lcssa.i = phi i32 [ 0, %471 ], [ %483, %478 ]
-  %484 = getelementptr inbounds i8, ptr %465, i64 32
+  %484 = getelementptr inbounds nuw i8, ptr %465, i64 32
   %485 = load ptr, ptr %484, align 8
   %486 = icmp eq ptr %473, %485
   br i1 %486, label %.loopexit31.i, label %487
 
 487:                                              ; preds = %._crit_edge.i104
-  %488 = getelementptr inbounds i8, ptr %469, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %469, i64 8
   %489 = load ptr, ptr %488, align 8
   %490 = load ptr, ptr %489, align 8
-  %491 = getelementptr inbounds i8, ptr %490, i64 24
+  %491 = getelementptr inbounds nuw i8, ptr %490, i64 24
   br label %492
 
 492:                                              ; preds = %.critedge.i, %487
   %.pn.i = phi ptr [ %485, %487 ], [ %.1.i, %.critedge.i ]
-  %.1.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 8
+  %.1.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %.1.i = load ptr, ptr %.1.in.i, align 8
-  %493 = getelementptr inbounds i8, ptr %.1.i, i64 16
+  %493 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %494 = load i32, ptr %493, align 8
   %.not.i105 = icmp eq i32 %494, 0
   br i1 %.not.i105, label %495, label %.critedge.i
 
 495:                                              ; preds = %492
   %496 = load i32, ptr %491, align 8
-  %497 = getelementptr inbounds i8, ptr %.1.i, i64 20
+  %497 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %498 = load i32, ptr %497, align 4
   %499 = srem i32 %498, %496
   %.not.i.i106 = icmp eq i32 %499, 0
   %500 = sub nsw i32 %496, %499
   %spec.select.i.i107 = select i1 %.not.i.i106, i32 0, i32 %500
-  %501 = getelementptr inbounds i8, ptr %.1.i, i64 28
+  %501 = getelementptr inbounds nuw i8, ptr %.1.i, i64 28
   %502 = load i32, ptr %501, align 4
   %503 = add nsw i32 %spec.select.i.i107, %.025.lcssa.i
   %.not30.i = icmp slt i32 %502, %503
@@ -3474,13 +3474,13 @@ _ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102: ; p
   br i1 %475, label %.lr.ph36.i, label %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit
 
 .lr.ph36.i:                                       ; preds = %.loopexit31.i
-  %505 = getelementptr inbounds i8, ptr %469, i64 8
+  %505 = getelementptr inbounds nuw i8, ptr %469, i64 8
   br label %506
 
 506:                                              ; preds = %506, %.lr.ph36.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph36.i ], [ %indvars.iv.next39.i, %506 ]
   %507 = load ptr, ptr %505, align 8
-  %508 = getelementptr inbounds ptr, ptr %507, i64 %indvars.iv38.i
+  %508 = getelementptr inbounds nuw ptr, ptr %507, i64 %indvars.iv38.i
   %509 = load ptr, ptr %508, align 8
   %510 = tail call noundef ptr @_ZN11FieldLayout18insert_field_blockEP14LayoutRawBlockS1_(ptr noundef nonnull align 8 dereferenceable(40) %465, ptr noundef %.026.i, ptr noundef %509)
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
@@ -3497,21 +3497,21 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.l
 _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: ; preds = %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102, %.loopexit31.i
   %514 = phi ptr [ %.pre163, %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit ], [ %467, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102 ], [ %467, %.loopexit31.i ]
   %515 = phi ptr [ %.pre162, %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit.loopexit ], [ %465, %_ZN18FieldLayoutBuilder24insert_contended_paddingEP14LayoutRawBlock.exit102 ], [ %465, %.loopexit31.i ]
-  %516 = getelementptr inbounds i8, ptr %514, i64 8
+  %516 = getelementptr inbounds nuw i8, ptr %514, i64 8
   %517 = load ptr, ptr %516, align 8
   %518 = icmp eq ptr %517, null
   br i1 %518, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140, label %519
 
 519:                                              ; preds = %_ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit
-  %520 = getelementptr inbounds i8, ptr %515, i64 24
+  %520 = getelementptr inbounds nuw i8, ptr %515, i64 24
   %521 = load ptr, ptr %520, align 8
   %522 = load i32, ptr %517, align 4
   %523 = icmp sgt i32 %522, 0
   br i1 %523, label %.lr.ph53.i112, label %_ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140
 
 .lr.ph53.i112:                                    ; preds = %519
-  %524 = getelementptr inbounds i8, ptr %517, i64 8
-  %525 = getelementptr inbounds i8, ptr %515, i64 32
+  %524 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %525 = getelementptr inbounds nuw i8, ptr %515, i64 32
   br label %526
 
 526:                                              ; preds = %560, %.lr.ph53.i112
@@ -3520,17 +3520,17 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   %.03449.i115 = phi i32 [ 0, %.lr.ph53.i112 ], [ %.135.i119, %560 ]
   %.03648.i116 = phi i1 [ false, %.lr.ph53.i112 ], [ %.137.i118, %560 ]
   %527 = load ptr, ptr %524, align 8
-  %528 = getelementptr inbounds ptr, ptr %527, i64 %indvars.iv.i113
+  %528 = getelementptr inbounds nuw ptr, ptr %527, i64 %indvars.iv.i113
   %529 = load ptr, ptr %528, align 8
   %530 = load ptr, ptr %525, align 8
   %531 = icmp eq ptr %521, %530
   br i1 %531, label %560, label %532
 
 532:                                              ; preds = %526
-  %533 = getelementptr inbounds i8, ptr %529, i64 28
+  %533 = getelementptr inbounds nuw i8, ptr %529, i64 28
   %534 = load i32, ptr %533, align 4
   %535 = icmp ne i32 %534, %.03449.i115
-  %536 = getelementptr inbounds i8, ptr %529, i64 24
+  %536 = getelementptr inbounds nuw i8, ptr %529, i64 24
   %537 = load i32, ptr %536, align 8
   %538 = icmp ne i32 %537, %.03250.i114
   %539 = select i1 %535, i1 true, i1 %538
@@ -3538,7 +3538,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   br i1 %or.cond.i117, label %._crit_edge54.i123, label %560
 
 ._crit_edge54.i123:                               ; preds = %532
-  %.029.in43.i124 = getelementptr inbounds i8, ptr %530, i64 8
+  %.029.in43.i124 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %.02944.i125 = load ptr, ptr %.029.in43.i124, align 8
   %.not45.i126 = icmp eq ptr %.02944.i125, %521
   br i1 %.not45.i126, label %._crit_edge.i134, label %.lr.ph.i127
@@ -3546,19 +3546,19 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
 .lr.ph.i127:                                      ; preds = %._crit_edge54.i123, %558
   %.02947.i128 = phi ptr [ %.029.i132, %558 ], [ %.02944.i125, %._crit_edge54.i123 ]
   %.146.i129 = phi ptr [ %.2.i130, %558 ], [ null, %._crit_edge54.i123 ]
-  %540 = getelementptr inbounds i8, ptr %.02947.i128, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %.02947.i128, i64 16
   %541 = load i32, ptr %540, align 8
   %542 = icmp eq i32 %541, 0
   br i1 %542, label %543, label %558
 
 543:                                              ; preds = %.lr.ph.i127
-  %544 = getelementptr inbounds i8, ptr %.02947.i128, i64 20
+  %544 = getelementptr inbounds nuw i8, ptr %.02947.i128, i64 20
   %545 = load i32, ptr %544, align 4
   %546 = srem i32 %545, %537
   %.not.i.i137 = icmp eq i32 %546, 0
   %547 = sub nsw i32 %537, %546
   %spec.select.i.i138 = select i1 %.not.i.i137, i32 0, i32 %547
-  %548 = getelementptr inbounds i8, ptr %.02947.i128, i64 28
+  %548 = getelementptr inbounds nuw i8, ptr %.02947.i128, i64 28
   %549 = load i32, ptr %548, align 4
   %550 = add nsw i32 %spec.select.i.i138, %534
   %.not41.i139 = icmp slt i32 %549, %550
@@ -3569,7 +3569,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
   br i1 %552, label %557, label %553
 
 553:                                              ; preds = %551
-  %554 = getelementptr inbounds i8, ptr %.146.i129, i64 28
+  %554 = getelementptr inbounds nuw i8, ptr %.146.i129, i64 28
   %555 = load i32, ptr %554, align 4
   %556 = icmp slt i32 %549, %555
   br i1 %556, label %557, label %558
@@ -3579,7 +3579,7 @@ _ZN11FieldLayout16add_contiguouslyEP13GrowableArrayIP14LayoutRawBlockES2_.exit: 
 
 558:                                              ; preds = %557, %553, %543, %.lr.ph.i127
   %.2.i130 = phi ptr [ %.02947.i128, %557 ], [ %.146.i129, %553 ], [ %.146.i129, %543 ], [ %.146.i129, %.lr.ph.i127 ]
-  %.029.in.i131 = getelementptr inbounds i8, ptr %.02947.i128, i64 8
+  %.029.in.i131 = getelementptr inbounds nuw i8, ptr %.02947.i128, i64 8
   %.029.i132 = load ptr, ptr %.029.in.i131, align 8
   %.not.i133 = icmp eq ptr %.029.i132, %521
   br i1 %.not.i133, label %._crit_edge.i134, label %.lr.ph.i127, !llvm.loop !15
@@ -3609,19 +3609,19 @@ _ZN11FieldLayout3addEP13GrowableArrayIP14LayoutRawBlockES2_.exit140: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(106) %0) local_unnamed_addr #2 align 2 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %3, i64 288
+  %6 = getelementptr inbounds nuw i8, ptr %3, i64 288
   %7 = load i32, ptr %6, align 8
   br label %8
 
 8:                                                ; preds = %1, %5
   %9 = phi i32 [ %7, %5 ], [ 0, %1 ]
-  %10 = getelementptr inbounds i8, ptr %0, i64 96
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %11 = load i32, ptr %10, align 8
   %12 = add nsw i32 %11, %9
   %13 = tail call noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFailEnumE(i64 noundef 16, i32 noundef 0) #14
@@ -3631,24 +3631,24 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
 
 15:                                               ; preds = %8
   %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds i8, ptr %16, i64 464
-  %18 = getelementptr inbounds i8, ptr %16, i64 160
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 464
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %19 = load i32, ptr %18, align 8
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i64, ptr %17, i64 %20
-  %22 = getelementptr inbounds i8, ptr %16, i64 292
+  %22 = getelementptr inbounds nuw i8, ptr %16, i64 292
   %23 = load i32, ptr %22, align 4
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i64, ptr %21, i64 %24
-  %26 = getelementptr inbounds i8, ptr %16, i64 288
+  %26 = getelementptr inbounds nuw i8, ptr %16, i64 288
   %27 = load i32, ptr %26, align 8
   tail call void @_ZN19OopMapBlocksBuilder27initialize_inherited_blocksEP11OopMapBlockj(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull %25, i32 noundef %27) #14
   br label %28
 
 28:                                               ; preds = %15, %8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds i8, ptr %30, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load ptr, ptr %31, align 8
   %.not = icmp eq ptr %32, null
   br i1 %.not, label %.loopexit25, label %.preheader24
@@ -3661,16 +3661,16 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
 .lr.ph:                                           ; preds = %.preheader24, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader24 ]
   %35 = phi ptr [ %44, %.lr.ph ], [ %32, %.preheader24 ]
-  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 20
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %41 = load i32, ptr %40, align 4
   tail call void @_ZN19OopMapBlocksBuilder3addEii(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %41, i32 noundef 1) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load ptr, ptr %29, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8
   %45 = load i32, ptr %44, align 4
   %46 = sext i32 %45 to i64
@@ -3678,33 +3678,33 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
   br i1 %47, label %.lr.ph, label %.loopexit25, !llvm.loop !31
 
 .loopexit25:                                      ; preds = %.lr.ph, %.preheader24, %28
-  %48 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %49 = load i32, ptr %48, align 8
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %.lr.ph28, label %.loopexit
 
 .lr.ph28:                                         ; preds = %.loopexit25
-  %51 = getelementptr inbounds i8, ptr %0, i64 56
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %52
 
 52:                                               ; preds = %.lr.ph28, %68
   %53 = phi i32 [ %49, %.lr.ph28 ], [ %69, %68 ]
   %indvars.iv31 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next32, %68 ]
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv31
+  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv31
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %56, i64 28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %60, label %68
 
 60:                                               ; preds = %52
-  %61 = getelementptr inbounds i8, ptr %56, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 20
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 20
   %67 = load i32, ptr %66, align 4
   tail call void @_ZN19OopMapBlocksBuilder3addEii(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %67, i32 noundef %58) #14
   %.pre = load i32, ptr %48, align 8
@@ -3719,19 +3719,19 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
 
 .loopexit:                                        ; preds = %68, %.loopexit25
   tail call void @_ZN19OopMapBlocksBuilder7compactEv(ptr noundef nonnull align 8 dereferenceable(16) %13) #14
-  %72 = getelementptr inbounds i8, ptr %0, i64 80
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %73, i64 32
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 32
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %75, i64 20
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, -1
   %79 = add i32 %77, 7
-  %80 = getelementptr inbounds i8, ptr %0, i64 88
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %83, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 20
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 7
   %87 = and i32 %86, -8
@@ -3742,7 +3742,7 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
   %92 = add i32 %78, %91
   %93 = sub i32 0, %91
   %94 = and i32 %92, %93
-  %95 = getelementptr inbounds i8, ptr %0, i64 32
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %96 = load ptr, ptr %95, align 8
   store ptr %13, ptr %96, align 8
   %97 = ashr i32 %79, 3
@@ -3752,10 +3752,10 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
   %101 = sub i32 0, %98
   %102 = and i32 %100, %101
   %103 = load ptr, ptr %95, align 8
-  %104 = getelementptr inbounds i8, ptr %103, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store i32 %102, ptr %104, align 8
   %105 = load ptr, ptr %95, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 16
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i32 %90, ptr %106, align 8
   %107 = load i8, ptr @UseCompressedClassPointers, align 1
   %108 = trunc i8 %107 to i1
@@ -3764,12 +3764,12 @@ define hidden void @_ZN18FieldLayoutBuilder8epilogueEv(ptr nocapture noundef non
   %110 = load i32, ptr @heapOopSize, align 4
   %111 = sdiv i32 %109, %110
   %112 = load ptr, ptr %95, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 12
   store i32 %111, ptr %113, align 4
-  %114 = getelementptr inbounds i8, ptr %0, i64 104
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %115 = load i8, ptr %114, align 8
   %116 = load ptr, ptr %95, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 20
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 20
   %118 = and i8 %115, 1
   store i8 %118, ptr %117, align 4
   ret void
@@ -3880,29 +3880,29 @@ declare noundef ptr @_Z23resource_allocate_bytesmN17AllocFailStrategy13AllocFail
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15FieldStreamBaseC2EP5ArrayIhEP12ConstantPool(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 comdat align 2 {
   store ptr %1, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = getelementptr inbounds i8, ptr %1, i64 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store ptr %5, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %6, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 20
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 0, ptr %7, align 4
-  %8 = getelementptr inbounds i8, ptr %0, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 0, ptr %8, align 8
-  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %11 = load ptr, ptr %10, align 8
   store ptr %2, ptr %9, align 8
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %12, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit, label %13
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds i8, ptr %11, i64 816
+  %14 = getelementptr inbounds nuw i8, ptr %11, i64 816
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %15, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %16, %18
   br i1 %19, label %20, label %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
@@ -3925,7 +3925,7 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %28 = phi i32 [ %.pre.i.i.i, %20 ], [ %16, %13 ]
   %29 = add nsw i32 %28, 1
   store i32 %29, ptr %15, align 8
-  %30 = getelementptr inbounds i8, ptr %15, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %28 to i64
   %33 = getelementptr inbounds ptr, ptr %31, i64 %32
@@ -3935,10 +3935,10 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
 
 _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   %34 = phi ptr [ %1, %3 ], [ %.pre, %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i ]
-  %35 = getelementptr inbounds i8, ptr %0, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %0, i64 52
-  %37 = getelementptr inbounds i8, ptr %34, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
   %40 = add nsw i32 %39, -1
@@ -3946,7 +3946,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26Grow
   br i1 %41, label %_ZN15FieldInfoReader9next_uintEv.exit.i, label %.preheader.i.i.i.i
 
 .preheader.i.i.i.i:                               ; preds = %_ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit
-  %42 = getelementptr inbounds i8, ptr %34, i64 5
+  %42 = getelementptr inbounds nuw i8, ptr %34, i64 5
   %43 = load i8, ptr %42, align 1
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 6
@@ -3961,7 +3961,7 @@ _ZN18constantPoolHandleC2EP6ThreadP12ConstantPool.exit: ; preds = %3, %_ZN26Grow
   %.02428.i.i.i.i = phi i32 [ %50, %.lr.ph.i.i.i.i ], [ 6, %.preheader.i.i.i.i ]
   %50 = add nuw nsw i32 %.02428.i.i.i.i, 6
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %51 = getelementptr inbounds i8, ptr %37, i64 %indvars.iv.next.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 %indvars.iv.next.i.i.i.i
   %52 = load i8, ptr %51, align 1
   %53 = zext i8 %52 to i32
   %54 = add nsw i32 %53, -1
@@ -4019,12 +4019,12 @@ _ZN15FieldInfoStream16num_total_fieldsEPK5ArrayIhE.exit: ; preds = %.lr.ph.i.i.i
   %.0.i.i.i9.i = phi i32 [ %64, %_ZN15FieldInfoReader9next_uintEv.exit.i ], [ %71, %.preheader.i.i.i1.i ], [ %79, %.lr.ph.i.i.i2.i ]
   %82 = add i32 %.0.i.i.i9.i, %.0.i.i.i.i
   store i32 %82, ptr %36, align 4
-  %83 = getelementptr inbounds i8, ptr %0, i64 56
-  %84 = getelementptr inbounds i8, ptr %0, i64 60
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 60
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %84, i8 0, i64 22, i1 false)
-  %85 = getelementptr inbounds i8, ptr %0, i64 92
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 92
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(22) %85, i8 0, i64 22, i1 false)
-  %86 = getelementptr inbounds i8, ptr %0, i64 120
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %87 = load ptr, ptr %4, align 8
   %88 = load i32, ptr %7, align 4
@@ -4112,9 +4112,9 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -4146,7 +4146,7 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP8MetadataE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -4165,9 +4165,9 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4177,14 +4177,14 @@ _ZN13GrowableArrayIP8MetadataE8allocateEv.exit:   ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !34
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP8MetadataE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -4220,13 +4220,13 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15FieldInfoReader15read_field_infoER9FieldInfo(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull align 4 dereferenceable(26) %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 16
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = add nsw i32 %4, 1
   store i32 %5, ptr %3, align 8
   store i32 %4, ptr %1, align 4
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 12
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4
   %9 = sext i32 %8 to i64
   %10 = getelementptr inbounds i8, ptr %6, i64 %9
@@ -4276,7 +4276,7 @@ _ZN15FieldInfoReader9next_uintEv.exit:            ; preds = %2, %.preheader.i.i.
   %storemerge.i.i.i = add nsw i32 %storemerge.in.i.i.i, 1
   store i32 %storemerge.i.i.i, ptr %7, align 4
   %36 = trunc i32 %.0.i.i.i to i16
-  %37 = getelementptr inbounds i8, ptr %1, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i16 %36, ptr %37, align 4
   %38 = load ptr, ptr %0, align 8
   %39 = load i32, ptr %7, align 4
@@ -4328,7 +4328,7 @@ _ZN15FieldInfoReader9next_uintEv.exit26:          ; preds = %_ZN15FieldInfoReade
   %storemerge.i.i.i25 = add nsw i32 %storemerge.in.i.i.i23, 1
   store i32 %storemerge.i.i.i25, ptr %7, align 4
   %67 = trunc i32 %.0.i.i.i24 to i16
-  %68 = getelementptr inbounds i8, ptr %1, i64 6
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 6
   store i16 %67, ptr %68, align 2
   %69 = load ptr, ptr %0, align 8
   %70 = load i32, ptr %7, align 4
@@ -4379,7 +4379,7 @@ _ZN15FieldInfoReader9next_uintEv.exit37:          ; preds = %_ZN15FieldInfoReade
   %.0.i.i.i35 = phi i32 [ %75, %_ZN15FieldInfoReader9next_uintEv.exit26 ], [ %84, %.preheader.i.i.i27 ], [ %94, %.loopexit.loopexit.i.i.i33 ]
   %storemerge.i.i.i36 = add nsw i32 %storemerge.in.i.i.i34, 1
   store i32 %storemerge.i.i.i36, ptr %7, align 4
-  %98 = getelementptr inbounds i8, ptr %1, i64 8
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %.0.i.i.i35, ptr %98, align 4
   %99 = load ptr, ptr %0, align 8
   %100 = load i32, ptr %7, align 4
@@ -4430,7 +4430,7 @@ _ZN15FieldInfoReader9next_uintEv.exit48:          ; preds = %_ZN15FieldInfoReade
   %.0.i.i.i46 = phi i32 [ %105, %_ZN15FieldInfoReader9next_uintEv.exit37 ], [ %114, %.preheader.i.i.i38 ], [ %124, %.loopexit.loopexit.i.i.i44 ]
   %storemerge.i.i.i47 = add nsw i32 %storemerge.in.i.i.i45, 1
   store i32 %storemerge.i.i.i47, ptr %7, align 4
-  %128 = getelementptr inbounds i8, ptr %1, i64 12
+  %128 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %.0.i.i.i46, ptr %128, align 4
   %129 = load ptr, ptr %0, align 8
   %130 = load i32, ptr %7, align 4
@@ -4481,7 +4481,7 @@ _ZN15FieldInfoReader9next_uintEv.exit59:          ; preds = %_ZN15FieldInfoReade
   %.0.i.i.i57 = phi i32 [ %135, %_ZN15FieldInfoReader9next_uintEv.exit48 ], [ %144, %.preheader.i.i.i49 ], [ %154, %.loopexit.loopexit.i.i.i55 ]
   %storemerge.i.i.i58 = add nsw i32 %storemerge.in.i.i.i56, 1
   store i32 %storemerge.i.i.i58, ptr %7, align 4
-  %158 = getelementptr inbounds i8, ptr %1, i64 16
+  %158 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store i32 %.0.i.i.i57, ptr %158, align 4
   %159 = and i32 %.0.i.i.i57, 1
   %.not = icmp eq i32 %159, 0
@@ -4538,13 +4538,13 @@ _ZN15FieldInfoReader9next_uintEv.exit70:          ; preds = %160, %.preheader.i.
   %storemerge.i.i.i69 = add nsw i32 %storemerge.in.i.i.i67, 1
   store i32 %storemerge.i.i.i69, ptr %7, align 4
   %190 = trunc i32 %.0.i.i.i68 to i16
-  %191 = getelementptr inbounds i8, ptr %1, i64 20
+  %191 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i16 %190, ptr %191, align 4
   %.pre = load i32, ptr %158, align 4
   br label %194
 
 192:                                              ; preds = %_ZN15FieldInfoReader9next_uintEv.exit59
-  %193 = getelementptr inbounds i8, ptr %1, i64 20
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 20
   store i16 0, ptr %193, align 4
   br label %194
 
@@ -4605,13 +4605,13 @@ _ZN15FieldInfoReader9next_uintEv.exit81:          ; preds = %197, %.preheader.i.
   %storemerge.i.i.i80 = add nsw i32 %storemerge.in.i.i.i78, 1
   store i32 %storemerge.i.i.i80, ptr %7, align 4
   %227 = trunc i32 %.0.i.i.i79 to i16
-  %228 = getelementptr inbounds i8, ptr %1, i64 22
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 22
   store i16 %227, ptr %228, align 2
   %.pre126 = load i32, ptr %158, align 4
   br label %231
 
 229:                                              ; preds = %194
-  %230 = getelementptr inbounds i8, ptr %1, i64 22
+  %230 = getelementptr inbounds nuw i8, ptr %1, i64 22
   store i16 0, ptr %230, align 2
   br label %231
 
@@ -4676,7 +4676,7 @@ _ZN15FieldInfoReader9next_uintEv.exit92:          ; preds = %234, %.preheader.i.
 
 265:                                              ; preds = %231, %_ZN15FieldInfoReader9next_uintEv.exit92
   %.sink = phi i16 [ %264, %_ZN15FieldInfoReader9next_uintEv.exit92 ], [ 0, %231 ]
-  %266 = getelementptr inbounds i8, ptr %1, i64 24
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store i16 %.sink, ptr %266, align 4
   ret void
 }
@@ -4694,9 +4694,9 @@ declare noundef i64 @_ZN4GCId12print_prefixEPcm(ptr noundef, i64 noundef) local_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP14LayoutRawBlock13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -4728,7 +4728,7 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -4747,9 +4747,9 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4759,14 +4759,14 @@ _ZN13GrowableArrayIP14LayoutRawBlockE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !9
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP14LayoutRawBlockE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4
@@ -4794,9 +4794,9 @@ declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr nocapture noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIP10FieldGroup13GrowableArrayIS1_EE9expand_toEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #2 comdat align 2 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 4
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %1, ptr %3, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8
   %6 = icmp eq i64 %5, 0
   br i1 %6, label %7, label %9
@@ -4828,7 +4828,7 @@ _ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %19, label %.lr.ph, label %.preheader16
 
 .lr.ph:                                           ; preds = %_ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %25
 
 .preheader16.loopexit:                            ; preds = %25
@@ -4847,9 +4847,9 @@ _ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4859,14 +4859,14 @@ _ZN13GrowableArrayIP10FieldGroupE8allocateEv.exit: ; preds = %7, %11, %15
   br i1 %32, label %25, label %.preheader16.loopexit, !llvm.loop !36
 
 .preheader:                                       ; preds = %.lr.ph19, %.preheader16
-  %33 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8
   %.not = icmp eq ptr %34, null
   br i1 %.not, label %_ZN13GrowableArrayIP10FieldGroupE10deallocateEPS1_.exit, label %39
 
 .lr.ph19:                                         ; preds = %.lr.ph19.preheader, %.lr.ph19
   %indvars.iv21 = phi i64 [ %24, %.lr.ph19.preheader ], [ %indvars.iv.next22, %.lr.ph19 ]
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %indvars.iv21
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv21
   store ptr null, ptr %35, align 8
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %36 = load i32, ptr %3, align 4

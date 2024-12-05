@@ -55,13 +55,13 @@ target triple = "x86_64-unknown-linux-gnu"
 define void @_ZN6icu_7512IteratedCharC2Ev(ptr nocapture noundef nonnull writeonly align 4 dereferenceable(14) initializes((0, 14)) %this) unnamed_addr #0 align 2 {
 entry:
   store i32 0, ptr %this, align 4
-  %index = getelementptr inbounds i8, ptr %this, i64 4
+  %index = getelementptr inbounds nuw i8, ptr %this, i64 4
   store i32 -1, ptr %index, align 4
-  %nextIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 0, ptr %nextIndex, align 4
-  %error = getelementptr inbounds i8, ptr %this, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i8 0, ptr %error, align 4
-  %done = getelementptr inbounds i8, ptr %this, i64 13
+  %done = getelementptr inbounds nuw i8, ptr %this, i64 13
   store i8 0, ptr %done, align 1
   ret void
 }
@@ -69,20 +69,20 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 -1, 256) i32 @_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE(ptr nocapture noundef nonnull align 4 dereferenceable(14) %this, ptr nocapture noundef readonly %det) local_unnamed_addr #1 align 2 {
 entry:
-  %nextIndex = getelementptr inbounds i8, ptr %this, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %nextIndex, align 4
-  %fRawLength = getelementptr inbounds i8, ptr %det, i64 48
+  %fRawLength = getelementptr inbounds nuw i8, ptr %det, i64 48
   %1 = load i32, ptr %fRawLength, align 8
   %cmp.not = icmp slt i32 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  %done = getelementptr inbounds i8, ptr %this, i64 13
+  %done = getelementptr inbounds nuw i8, ptr %this, i64 13
   store i8 1, ptr %done, align 1
   br label %return
 
 if.end:                                           ; preds = %entry
-  %fRawInput = getelementptr inbounds i8, ptr %det, i64 40
+  %fRawInput = getelementptr inbounds nuw i8, ptr %det, i64 40
   %2 = load ptr, ptr %fRawInput, align 8
   %inc = add nsw i32 %0, 1
   store i32 %inc, ptr %nextIndex, align 4
@@ -122,7 +122,7 @@ define noundef range(i32 0, 101) i32 @_ZNK6icu_7517CharsetRecog_mbcs10match_mbcs
 entry:
   %iter = alloca %"class.icu_75::IteratedChar", align 4
   call void @_ZN6icu_7512IteratedCharC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %iter)
-  %error = getelementptr inbounds i8, ptr %iter, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %iter, i64 12
   %cmp6.not = icmp eq ptr %commonChars, null
   %sub.i = add nsw i32 %commonCharsLen, -1
   br i1 %cmp6.not, label %while.cond.us, label %entry.split
@@ -132,7 +132,7 @@ while.cond.us:                                    ; preds = %entry, %if.end14.us
   %totalCharCount.0.us = phi i32 [ %inc.us, %if.end14.us ], [ 0, %entry ]
   %doubleByteCharCount.0.us = phi i32 [ %doubleByteCharCount.1.us, %if.end14.us ], [ 0, %entry ]
   %vtable.us = load ptr, ptr %this, align 8
-  %vfn.us = getelementptr inbounds i8, ptr %vtable.us, i64 40
+  %vfn.us = getelementptr inbounds nuw i8, ptr %vtable.us, i64 40
   %0 = load ptr, ptr %vfn.us, align 8
   %call.us = call noundef signext i8 %0(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %iter, ptr noundef %det)
   %tobool.not.us = icmp eq i8 %call.us, 0
@@ -173,7 +173,7 @@ while.cond.us38:                                  ; preds = %entry.split, %if.en
   %totalCharCount.0.us41 = phi i32 [ %inc.us48, %if.end14.us56 ], [ 0, %entry.split ]
   %doubleByteCharCount.0.us42 = phi i32 [ %doubleByteCharCount.1.us59, %if.end14.us56 ], [ 0, %entry.split ]
   %vtable.us43 = load ptr, ptr %this, align 8
-  %vfn.us44 = getelementptr inbounds i8, ptr %vtable.us43, i64 40
+  %vfn.us44 = getelementptr inbounds nuw i8, ptr %vtable.us43, i64 40
   %3 = load ptr, ptr %vfn.us44, align 8
   %call.us45 = call noundef signext i8 %3(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %iter, ptr noundef %det)
   %tobool.not.us46 = icmp eq i8 %call.us45, 0
@@ -211,7 +211,7 @@ while.cond:                                       ; preds = %entry.split, %if.en
   %totalCharCount.0 = phi i32 [ %inc, %if.end14 ], [ 0, %entry.split ]
   %doubleByteCharCount.0 = phi i32 [ %doubleByteCharCount.1, %if.end14 ], [ 0, %entry.split ]
   %vtable = load ptr, ptr %this, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 40
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 40
   %6 = load ptr, ptr %vfn, align 8
   %call = call noundef signext i8 %6(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull %iter, ptr noundef %det)
   %tobool.not = icmp eq i8 %call, 0
@@ -358,25 +358,25 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_sjis8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 8), (12, 13)) %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
-  %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
-  %index = getelementptr inbounds i8, ptr %it, i64 4
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 4
   store i32 %0, ptr %index, align 4
-  %error = getelementptr inbounds i8, ptr %it, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %it, i64 12
   store i8 0, ptr %error, align 4
-  %fRawLength.i = getelementptr inbounds i8, ptr %det, i64 48
+  %fRawLength.i = getelementptr inbounds nuw i8, ptr %det, i64 48
   %1 = load i32, ptr %fRawLength.i, align 8
   %cmp.not.i = icmp slt i32 %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %entry
-  %done.i = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i, align 1
   store i32 -1, ptr %it, align 4
   br label %return
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %entry
-  %fRawInput.i = getelementptr inbounds i8, ptr %det, i64 40
+  %fRawInput.i = getelementptr inbounds nuw i8, ptr %det, i64 40
   %2 = load ptr, ptr %fRawInput.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %nextIndex, align 4
@@ -397,7 +397,7 @@ if.end6:                                          ; preds = %_ZN6icu_7512Iterate
   br i1 %cmp.not.i24, label %if.then9, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit34
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit34: ; preds = %if.end6
-  %done.i26 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i26 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i26, align 1
   br label %if.end11
 
@@ -473,25 +473,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7516CharsetRecog_euc8nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 8), (12, 13)) %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
-  %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
-  %index = getelementptr inbounds i8, ptr %it, i64 4
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 4
   store i32 %0, ptr %index, align 4
-  %error = getelementptr inbounds i8, ptr %it, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %it, i64 12
   store i8 0, ptr %error, align 4
-  %fRawLength.i = getelementptr inbounds i8, ptr %det, i64 48
+  %fRawLength.i = getelementptr inbounds nuw i8, ptr %det, i64 48
   %1 = load i32, ptr %fRawLength.i, align 8
   %cmp.not.i = icmp slt i32 %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %entry
-  %done.i = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i, align 1
   store i32 -1, ptr %it, align 4
   br label %return
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %entry
-  %fRawInput.i = getelementptr inbounds i8, ptr %det, i64 40
+  %fRawInput.i = getelementptr inbounds nuw i8, ptr %det, i64 40
   %2 = load ptr, ptr %fRawInput.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %nextIndex, align 4
@@ -524,7 +524,7 @@ if.end10:                                         ; preds = %if.end4
   br i1 %or.cond, label %if.then13, label %if.end18
 
 if.end10.thread:                                  ; preds = %if.end4
-  %done.i29 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i29 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i29, align 1
   %8 = add nsw i8 %3, 95
   %or.cond58 = icmp ult i8 %8, 94
@@ -561,7 +561,7 @@ if.then27:                                        ; preds = %if.end18
   br i1 %cmp.not.i40, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit50, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit50.thread
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit50.thread: ; preds = %if.then27
-  %done.i42 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i42 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i42, align 1
   store i32 -1, ptr %it, align 4
   br label %if.then34
@@ -681,25 +681,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7517CharsetRecog_big58nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 8), (12, 13)) %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
-  %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
-  %index = getelementptr inbounds i8, ptr %it, i64 4
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 4
   store i32 %0, ptr %index, align 4
-  %error = getelementptr inbounds i8, ptr %it, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %it, i64 12
   store i8 0, ptr %error, align 4
-  %fRawLength.i = getelementptr inbounds i8, ptr %det, i64 48
+  %fRawLength.i = getelementptr inbounds nuw i8, ptr %det, i64 48
   %1 = load i32, ptr %fRawLength.i, align 8
   %cmp.not.i = icmp slt i32 %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %entry
-  %done.i = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i, align 1
   store i32 -1, ptr %it, align 4
   br label %return
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %entry
-  %fRawInput.i = getelementptr inbounds i8, ptr %det, i64 40
+  %fRawInput.i = getelementptr inbounds nuw i8, ptr %det, i64 40
   %2 = load ptr, ptr %fRawInput.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %nextIndex, align 4
@@ -717,7 +717,7 @@ if.end5:                                          ; preds = %_ZN6icu_7512Iterate
   br i1 %cmp.not.i20, label %if.end11, label %if.end11.thread
 
 if.end11.thread:                                  ; preds = %if.end5
-  %done.i22 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i22 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i22, align 1
   br label %if.then17
 
@@ -787,25 +787,25 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7521CharsetRecog_gb_180308nextCharEPNS_12IteratedCharEPNS_9InputTextE(ptr nocapture nonnull readnone align 8 %this, ptr nocapture noundef initializes((0, 8), (12, 13)) %it, ptr nocapture noundef readonly %det) unnamed_addr #1 align 2 {
 entry:
-  %nextIndex = getelementptr inbounds i8, ptr %it, i64 8
+  %nextIndex = getelementptr inbounds nuw i8, ptr %it, i64 8
   %0 = load i32, ptr %nextIndex, align 4
-  %index = getelementptr inbounds i8, ptr %it, i64 4
+  %index = getelementptr inbounds nuw i8, ptr %it, i64 4
   store i32 %0, ptr %index, align 4
-  %error = getelementptr inbounds i8, ptr %it, i64 12
+  %error = getelementptr inbounds nuw i8, ptr %it, i64 12
   store i8 0, ptr %error, align 4
-  %fRawLength.i = getelementptr inbounds i8, ptr %det, i64 48
+  %fRawLength.i = getelementptr inbounds nuw i8, ptr %det, i64 48
   %1 = load i32, ptr %fRawLength.i, align 8
   %cmp.not.i = icmp slt i32 %0, %1
   br i1 %cmp.not.i, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit.thread: ; preds = %entry
-  %done.i = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i, align 1
   store i32 -1, ptr %it, align 4
   br label %return
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit: ; preds = %entry
-  %fRawInput.i = getelementptr inbounds i8, ptr %det, i64 40
+  %fRawInput.i = getelementptr inbounds nuw i8, ptr %det, i64 40
   %2 = load ptr, ptr %fRawInput.i, align 8
   %inc.i = add nsw i32 %0, 1
   store i32 %inc.i, ptr %nextIndex, align 4
@@ -823,7 +823,7 @@ if.end4:                                          ; preds = %_ZN6icu_7512Iterate
   br i1 %cmp.not.i37, label %if.then7, label %_ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit47
 
 _ZN6icu_7512IteratedChar8nextByteEPNS_9InputTextE.exit47: ; preds = %if.end4
-  %done.i39 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i39 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i39, align 1
   br label %if.end10
 
@@ -898,7 +898,7 @@ if.then35:                                        ; preds = %_ZN6icu_7512Iterate
   br label %return
 
 if.end44.sink.split:                              ; preds = %if.then30, %if.then25
-  %done.i65 = getelementptr inbounds i8, ptr %it, i64 13
+  %done.i65 = getelementptr inbounds nuw i8, ptr %it, i64 13
   store i8 1, ptr %done.i65, align 1
   br label %if.end44
 

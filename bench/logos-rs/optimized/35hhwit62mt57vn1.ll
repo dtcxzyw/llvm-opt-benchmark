@@ -19,7 +19,7 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
   %7 = alloca [32 x i8], align 8
   %8 = alloca [24 x i8], align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  %9 = getelementptr inbounds i8, ptr %8, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i64, ptr %9, align 8
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %13
@@ -77,12 +77,12 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
           to label %26 unwind label %20
 
 26:                                               ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %8, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = load i64, ptr %9, align 8
   %30 = getelementptr inbounds { { ptr, i64, {}, {} }, i32, [1 x i32] }, ptr %28, i64 %29
   store ptr %28, ptr %3, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -126,9 +126,9 @@ define hidden void @_ZN13logos_codegen5error6Errors6render17he0dd74f8ab851cceE(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocapture writeonly sret([24 x i8]) align 8 initializes((0, 20)) %0, ptr %1, i64 %2, i32 %3) unnamed_addr #1 {
   store ptr %1, ptr %0, align 8
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %5, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %3, ptr %6, align 8
   ret void
 }
@@ -136,7 +136,7 @@ define void @_ZN13logos_codegen5error5Error4span17h5479e1ec8596d306E(ptr nocaptu
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN66_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h97c3524d2950e676E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4294967295
   %7 = tail call zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr align 1 %3, i64 %6, ptr align 8 %1)
@@ -146,7 +146,7 @@ define zeroext i1 @"_ZN66_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..
 ; Function Attrs: nonlazybind uwtable
 define zeroext i1 @"_ZN64_$LT$logos_codegen..error..Error$u20$as$u20$core..fmt..Debug$GT$3fmt17h791426befcfa15e2E"(ptr nocapture readonly align 8 %0, ptr align 8 %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, 4294967295
   %7 = tail call zeroext i1 @"_ZN42_$LT$str$u20$as$u20$core..fmt..Display$GT$3fmt17h8ddea2408f973884E"(ptr align 1 %3, i64 %6, ptr align 8 %1)
@@ -171,9 +171,9 @@ define { ptr, i64 } @"_ZN101_$LT$logos_codegen..error..Error$u20$as$u20$core..co
   br i1 %7, label %8, label %18
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds i8, ptr %2, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %2, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = shl nuw i64 %6, 32
   %14 = and i64 %10, 4294967295
@@ -215,9 +215,9 @@ define { ptr, i64 } @"_ZN96_$LT$logos_codegen..error..Error$u20$as$u20$core..con
   br i1 %3, label %4, label %14
 
 4:                                                ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = shl nuw i64 %2, 32
   %10 = and i64 %6, 4294967295
@@ -240,11 +240,11 @@ define void @"_ZN81_$LT$logos_codegen..error..SpannedError$u20$as$u20$quote..to_
   %7 = alloca [32 x i8], align 8
   %8 = alloca [32 x i8], align 8
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %11, 4294967295
   call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %7)
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load i32, ptr %13, align 8
   invoke void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %5)
           to label %18 unwind label %16

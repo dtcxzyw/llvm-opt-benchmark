@@ -64,7 +64,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  %st_mode = getelementptr inbounds i8, ptr %st, i64 24
+  %st_mode = getelementptr inbounds nuw i8, ptr %st, i64 24
   %2 = load i32, ptr %st_mode, align 8
   %and = and i32 %2, 61440
   %cmp5.not = icmp eq i32 %and, 49152
@@ -212,9 +212,9 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #5
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @ipc_client_send_command_to_connection(ptr nocapture noundef readonly %connection, ptr noundef %message, i64 noundef %message_len, ptr noundef initializes((8, 16)) %answer) local_unnamed_addr #0 {
 entry:
-  %len2.i = getelementptr inbounds i8, ptr %answer, i64 8
+  %len2.i = getelementptr inbounds nuw i8, ptr %answer, i64 8
   store i64 0, ptr %len2.i, align 8
-  %buf.i = getelementptr inbounds i8, ptr %answer, i64 16
+  %buf.i = getelementptr inbounds nuw i8, ptr %answer, i64 16
   %0 = load ptr, ptr %buf.i, align 8
   %cmp3.not.i = icmp eq ptr %0, @strbuf_slopbuf
   br i1 %cmp3.not.i, label %strbuf_setlen.exit, label %if.then4.i
@@ -341,7 +341,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %arrayidx = getelementptr inbounds i8, ptr %sv, i64 4
+  %arrayidx = getelementptr inbounds nuw i8, ptr %sv, i64 4
   %1 = load i32, ptr %arrayidx, align 4
   %call.i = call i32 (i32, i32, ...) @fcntl64(i32 noundef %1, i32 noundef 3, ptr noundef null) #12
   %cmp.i = icmp slt i32 %call.i, 0
@@ -372,7 +372,7 @@ if.end10:                                         ; preds = %set_socket_blocking
   store ptr null, ptr %server_socket.i.i, align 8
   store i64 50, ptr %uslg_opts.i.i, align 8
   %bf.clear.i.i = and i8 %ipc_opts.val.i, 1
-  %disallow_chdir.i.i = getelementptr inbounds i8, ptr %uslg_opts.i.i, i64 4
+  %disallow_chdir.i.i = getelementptr inbounds nuw i8, ptr %uslg_opts.i.i, i64 4
   store i8 %bf.clear.i.i, ptr %disallow_chdir.i.i, align 4
   %call.i.i = call i32 @unix_ss_create(ptr noundef %path, ptr noundef nonnull %uslg_opts.i.i, i64 noundef -1, ptr noundef nonnull %server_socket.i.i) #12
   %tobool.not.i.i = icmp eq i32 %call.i.i, 0
@@ -380,7 +380,7 @@ if.end10:                                         ; preds = %set_socket_blocking
 
 if.end.i.i:                                       ; preds = %if.end10
   %6 = load ptr, ptr %server_socket.i.i, align 8
-  %fd_socket.i.i = getelementptr inbounds i8, ptr %6, i64 152
+  %fd_socket.i.i = getelementptr inbounds nuw i8, ptr %6, i64 152
   %7 = load i32, ptr %fd_socket.i.i, align 8
   %call.i.i.i = call i32 (i32, i32, ...) @fcntl64(i32 noundef %7, i32 noundef 3, ptr noundef null) #12
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
@@ -428,52 +428,52 @@ if.then13:                                        ; preds = %setup_listener_sock
 if.end21:                                         ; preds = %setup_listener_socket.exit
   %call22 = call ptr @xcalloc(i64 noundef 1, i64 noundef 184) #12
   store i32 3, ptr %call22, align 8
-  %application_cb23 = getelementptr inbounds i8, ptr %call22, i64 8
+  %application_cb23 = getelementptr inbounds nuw i8, ptr %call22, i64 8
   store ptr %application_cb, ptr %application_cb23, align 8
-  %application_data24 = getelementptr inbounds i8, ptr %call22, i64 16
+  %application_data24 = getelementptr inbounds nuw i8, ptr %call22, i64 16
   store ptr %application_data, ptr %application_data24, align 8
-  %buf_path = getelementptr inbounds i8, ptr %call22, i64 24
+  %buf_path = getelementptr inbounds nuw i8, ptr %call22, i64 24
   call void @strbuf_init(ptr noundef nonnull %buf_path, i64 noundef 0) #12
   %call.i38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %path) #14
   call void @strbuf_add(ptr noundef nonnull %buf_path, ptr noundef %path, i64 noundef %call.i38) #12
   %spec.store.select = call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %work_available_mutex = getelementptr inbounds i8, ptr %call22, i64 64
+  %work_available_mutex = getelementptr inbounds nuw i8, ptr %call22, i64 64
   %call29 = call i32 @pthread_mutex_init(ptr noundef nonnull %work_available_mutex, ptr noundef null) #12
-  %work_available_cond = getelementptr inbounds i8, ptr %call22, i64 104
+  %work_available_cond = getelementptr inbounds nuw i8, ptr %call22, i64 104
   %call30 = call i32 @pthread_cond_init(ptr noundef nonnull %work_available_cond, ptr noundef null) #12
   %mul = mul nuw nsw i32 %spec.store.select, 100
-  %queue_size = getelementptr inbounds i8, ptr %call22, i64 160
+  %queue_size = getelementptr inbounds nuw i8, ptr %call22, i64 160
   store i32 %mul, ptr %queue_size, align 8
   %conv = zext nneg i32 %mul to i64
   %call32 = call ptr @xcalloc(i64 noundef %conv, i64 noundef 4) #12
-  %fifo_fds = getelementptr inbounds i8, ptr %call22, i64 152
+  %fifo_fds = getelementptr inbounds nuw i8, ptr %call22, i64 152
   store ptr %call32, ptr %fifo_fds, align 8
   %call33 = call ptr @xcalloc(i64 noundef 1, i64 noundef 40) #12
-  %accept_thread = getelementptr inbounds i8, ptr %call22, i64 48
+  %accept_thread = getelementptr inbounds nuw i8, ptr %call22, i64 48
   store ptr %call33, ptr %accept_thread, align 8
   store i32 2, ptr %call33, align 8
   %14 = load ptr, ptr %accept_thread, align 8
-  %server_data37 = getelementptr inbounds i8, ptr %14, i64 8
+  %server_data37 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %call22, ptr %server_data37, align 8
   %15 = load ptr, ptr %accept_thread, align 8
-  %server_socket39 = getelementptr inbounds i8, ptr %15, i64 16
+  %server_socket39 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %server_socket.0, ptr %server_socket39, align 8
   %16 = load i32, ptr %sv, align 4
   %17 = load ptr, ptr %accept_thread, align 8
-  %fd_send_shutdown = getelementptr inbounds i8, ptr %17, i64 24
+  %fd_send_shutdown = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i32 %16, ptr %fd_send_shutdown, align 8
   %18 = load i32, ptr %arrayidx, align 4
   %19 = load ptr, ptr %accept_thread, align 8
-  %fd_wait_shutdown = getelementptr inbounds i8, ptr %19, i64 28
+  %fd_wait_shutdown = getelementptr inbounds nuw i8, ptr %19, i64 28
   store i32 %18, ptr %fd_wait_shutdown, align 4
   %20 = load ptr, ptr %accept_thread, align 8
-  %pthread_id = getelementptr inbounds i8, ptr %20, i64 32
+  %pthread_id = getelementptr inbounds nuw i8, ptr %20, i64 32
   %call46 = call i32 @pthread_create(ptr noundef nonnull %pthread_id, ptr noundef null, ptr noundef nonnull @accept_thread_proc, ptr noundef %20) #12
   %tobool47.not = icmp eq i32 %call46, 0
   br i1 %tobool47.not, label %for.cond.preheader, label %if.then48
 
 for.cond.preheader:                               ; preds = %if.end21
-  %worker_thread_list = getelementptr inbounds i8, ptr %call22, i64 56
+  %worker_thread_list = getelementptr inbounds nuw i8, ptr %call22, i64 56
   br label %for.body
 
 if.then48:                                        ; preds = %if.end21
@@ -485,9 +485,9 @@ for.body:                                         ; preds = %for.cond.preheader,
   %k.042 = phi i32 [ 0, %for.cond.preheader ], [ %inc, %if.end65 ]
   %call53 = call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #12
   store i32 1, ptr %call53, align 8
-  %server_data55 = getelementptr inbounds i8, ptr %call53, i64 16
+  %server_data55 = getelementptr inbounds nuw i8, ptr %call53, i64 16
   store ptr %call22, ptr %server_data55, align 8
-  %pthread_id56 = getelementptr inbounds i8, ptr %call53, i64 24
+  %pthread_id56 = getelementptr inbounds nuw i8, ptr %call53, i64 24
   %call57 = call i32 @pthread_create(ptr noundef nonnull %pthread_id56, ptr noundef null, ptr noundef nonnull @worker_thread_proc, ptr noundef nonnull %call53) #12
   %tobool58.not = icmp eq i32 %call57, 0
   br i1 %tobool58.not, label %if.end65, label %if.then59
@@ -503,7 +503,7 @@ if.then62:                                        ; preds = %if.then59
 
 if.end65:                                         ; preds = %for.body
   %21 = load ptr, ptr %worker_thread_list, align 8
-  %next_thread = getelementptr inbounds i8, ptr %call53, i64 8
+  %next_thread = getelementptr inbounds nuw i8, ptr %call53, i64 8
   store ptr %21, ptr %next_thread, align 8
   store ptr %call53, ptr %worker_thread_list, align 8
   %inc = add nuw nsw i32 %k.042, 1
@@ -539,7 +539,7 @@ entry:
   %pollfd.i = alloca [2 x %struct.pollfd], align 16
   %new_set.i = alloca %struct.__sigset_t, align 8
   %old_set = alloca %struct.__sigset_t, align 8
-  %server_data1 = getelementptr inbounds i8, ptr %_accept_thread_data, i64 8
+  %server_data1 = getelementptr inbounds nuw i8, ptr %_accept_thread_data, i64 8
   %0 = load ptr, ptr %server_data1, align 8
   tail call void @trace2_thread_start_fl(ptr noundef nonnull @.str, i32 noundef 723, ptr noundef nonnull @.str.21) #12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %new_set.i)
@@ -548,20 +548,20 @@ entry:
   %call2.i = call i32 @sigemptyset(ptr noundef nonnull %old_set) #12
   %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %new_set.i, ptr noundef nonnull %old_set) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %new_set.i)
-  %fd_wait_shutdown.i = getelementptr inbounds i8, ptr %_accept_thread_data, i64 28
-  %events.i = getelementptr inbounds i8, ptr %pollfd.i, i64 4
-  %server_socket.i = getelementptr inbounds i8, ptr %_accept_thread_data, i64 16
-  %arrayidx2.i = getelementptr inbounds i8, ptr %pollfd.i, i64 8
-  %events5.i = getelementptr inbounds i8, ptr %pollfd.i, i64 12
-  %revents.i = getelementptr inbounds i8, ptr %pollfd.i, i64 6
-  %revents23.i = getelementptr inbounds i8, ptr %pollfd.i, i64 14
-  %work_available_mutex = getelementptr inbounds i8, ptr %0, i64 64
-  %shutdown_requested = getelementptr inbounds i8, ptr %0, i64 172
-  %back_pos.i = getelementptr inbounds i8, ptr %0, i64 164
-  %queue_size.i = getelementptr inbounds i8, ptr %0, i64 160
-  %front_pos.i = getelementptr inbounds i8, ptr %0, i64 168
-  %fifo_fds.i = getelementptr inbounds i8, ptr %0, i64 152
-  %work_available_cond = getelementptr inbounds i8, ptr %0, i64 104
+  %fd_wait_shutdown.i = getelementptr inbounds nuw i8, ptr %_accept_thread_data, i64 28
+  %events.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 4
+  %server_socket.i = getelementptr inbounds nuw i8, ptr %_accept_thread_data, i64 16
+  %arrayidx2.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 8
+  %events5.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 12
+  %revents.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 6
+  %revents23.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 14
+  %work_available_mutex = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %shutdown_requested = getelementptr inbounds nuw i8, ptr %0, i64 172
+  %back_pos.i = getelementptr inbounds nuw i8, ptr %0, i64 164
+  %queue_size.i = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %front_pos.i = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %fifo_fds.i = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %work_available_cond = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end12, %entry
@@ -573,7 +573,7 @@ for.cond.i:                                       ; preds = %for.cond.i.backedge
   store i32 %1, ptr %pollfd.i, align 16
   store i16 1, ptr %events.i, align 4
   %2 = load ptr, ptr %server_socket.i, align 8
-  %fd_socket.i = getelementptr inbounds i8, ptr %2, i64 152
+  %fd_socket.i = getelementptr inbounds nuw i8, ptr %2, i64 152
   %3 = load i32, ptr %fd_socket.i, align 8
   store i32 %3, ptr %arrayidx2.i, align 8
   store i16 1, ptr %events5.i, align 4
@@ -605,13 +605,13 @@ if.then14.i:                                      ; preds = %if.then11.i
 
 if.end.i:                                         ; preds = %if.then14.i
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 934, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null) #12
-  %work_available_mutex.i = getelementptr inbounds i8, ptr %6, i64 64
+  %work_available_mutex.i = getelementptr inbounds nuw i8, ptr %6, i64 64
   %call.i15 = call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex.i) #12
-  %shutdown_requested.i = getelementptr inbounds i8, ptr %6, i64 172
+  %shutdown_requested.i = getelementptr inbounds nuw i8, ptr %6, i64 172
   store i32 1, ptr %shutdown_requested.i, align 4
-  %accept_thread.i = getelementptr inbounds i8, ptr %6, i64 48
+  %accept_thread.i = getelementptr inbounds nuw i8, ptr %6, i64 48
   %7 = load ptr, ptr %accept_thread.i, align 8
-  %fd_send_shutdown.i = getelementptr inbounds i8, ptr %7, i64 24
+  %fd_send_shutdown.i = getelementptr inbounds nuw i8, ptr %7, i64 24
   %8 = load i32, ptr %fd_send_shutdown.i, align 8
   %call1.i16 = call i64 @write(i32 noundef %8, ptr noundef nonnull @.str.12, i64 noundef 1) #12
   %cmp.i17 = icmp slt i64 %call1.i16, 0
@@ -622,16 +622,16 @@ if.then2.i18:                                     ; preds = %if.end.i
   br label %if.end5.i
 
 if.end5.i:                                        ; preds = %if.then2.i18, %if.end.i
-  %fifo_fds.i.i = getelementptr inbounds i8, ptr %6, i64 152
-  %back_pos.i.i = getelementptr inbounds i8, ptr %6, i64 164
-  %front_pos.i.i = getelementptr inbounds i8, ptr %6, i64 168
+  %fifo_fds.i.i = getelementptr inbounds nuw i8, ptr %6, i64 152
+  %back_pos.i.i = getelementptr inbounds nuw i8, ptr %6, i64 164
+  %front_pos.i.i = getelementptr inbounds nuw i8, ptr %6, i64 168
   %9 = load i32, ptr %back_pos.i.i, align 4
   %10 = load i32, ptr %front_pos.i.i, align 8
   %cmp.i9.i = icmp eq i32 %9, %10
   br i1 %cmp.i9.i, label %while.end.i, label %fifo_dequeue.exit.lr.ph.i
 
 fifo_dequeue.exit.lr.ph.i:                        ; preds = %if.end5.i
-  %queue_size.i.i = getelementptr inbounds i8, ptr %6, i64 160
+  %queue_size.i.i = getelementptr inbounds nuw i8, ptr %6, i64 160
   br label %fifo_dequeue.exit.i
 
 fifo_dequeue.exit.i:                              ; preds = %while.body.i, %fifo_dequeue.exit.lr.ph.i
@@ -658,7 +658,7 @@ while.body.i:                                     ; preds = %fifo_dequeue.exit.i
   br i1 %cmp.i.i, label %while.end.i, label %fifo_dequeue.exit.i, !llvm.loop !8
 
 while.end.i:                                      ; preds = %while.body.i, %fifo_dequeue.exit.i, %if.end5.i
-  %work_available_cond.i = getelementptr inbounds i8, ptr %6, i64 104
+  %work_available_cond.i = getelementptr inbounds nuw i8, ptr %6, i64 104
   %call9.i = call i32 @pthread_cond_broadcast(ptr noundef nonnull %work_available_cond.i) #12
   %call11.i = call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex.i) #12
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 961, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null) #12
@@ -681,7 +681,7 @@ if.end21.i:                                       ; preds = %if.end17.i
 
 if.then27.i:                                      ; preds = %if.end21.i
   %22 = load ptr, ptr %server_socket.i, align 8
-  %fd_socket29.i = getelementptr inbounds i8, ptr %22, i64 152
+  %fd_socket29.i = getelementptr inbounds nuw i8, ptr %22, i64 152
   %23 = load i32, ptr %fd_socket29.i, align 8
   %call30.i = call i32 @accept(i32 noundef %23, ptr null, ptr noundef null) #12
   %cmp31.i = icmp sgt i32 %call30.i, -1
@@ -762,7 +762,7 @@ entry:
   %pollfd.i = alloca [1 x %struct.pollfd], align 4
   %new_set.i = alloca %struct.__sigset_t, align 8
   %old_set = alloca %struct.__sigset_t, align 8
-  %server_data1 = getelementptr inbounds i8, ptr %_worker_thread_data, i64 16
+  %server_data1 = getelementptr inbounds nuw i8, ptr %_worker_thread_data, i64 16
   %0 = load ptr, ptr %server_data1, align 8
   tail call void @trace2_thread_start_fl(ptr noundef nonnull @.str, i32 noundef 592, ptr noundef nonnull @.str.25) #12
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %new_set.i)
@@ -772,20 +772,20 @@ entry:
   %call3.i = call i32 @pthread_sigmask(i32 noundef 0, ptr noundef nonnull %new_set.i, ptr noundef nonnull %old_set) #12
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %new_set.i)
   %_worker_thread_data.val29 = load ptr, ptr %server_data1, align 8
-  %work_available_mutex.i30 = getelementptr inbounds i8, ptr %_worker_thread_data.val29, i64 64
+  %work_available_mutex.i30 = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val29, i64 64
   %call.i731 = call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex.i30) #12
-  %shutdown_requested.i33 = getelementptr inbounds i8, ptr %_worker_thread_data.val29, i64 172
+  %shutdown_requested.i33 = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val29, i64 172
   %1 = load i32, ptr %shutdown_requested.i33, align 4
   %tobool.not4.i34 = icmp eq i32 %1, 0
   br i1 %tobool.not4.i34, label %if.end.lr.ph.i.lr.ph, label %worker_thread__wait_for_connection.exit.thread
 
 if.end.lr.ph.i.lr.ph:                             ; preds = %entry
-  %events.i = getelementptr inbounds i8, ptr %pollfd.i, i64 4
-  %revents.i = getelementptr inbounds i8, ptr %pollfd.i, i64 6
-  %worker_thread_data1.i = getelementptr inbounds i8, ptr %reply_data.i, i64 8
-  %fd2.i = getelementptr inbounds i8, ptr %reply_data.i, i64 4
-  %buf6.i = getelementptr inbounds i8, ptr %buf.i, i64 16
-  %len.i = getelementptr inbounds i8, ptr %buf.i, i64 8
+  %events.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 4
+  %revents.i = getelementptr inbounds nuw i8, ptr %pollfd.i, i64 6
+  %worker_thread_data1.i = getelementptr inbounds nuw i8, ptr %reply_data.i, i64 8
+  %fd2.i = getelementptr inbounds nuw i8, ptr %reply_data.i, i64 4
+  %buf6.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 16
+  %len.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 8
   br label %if.end.lr.ph.i
 
 worker_thread__wait_for_connection.exit.thread:   ; preds = %for.cond.backedge, %entry
@@ -797,11 +797,11 @@ if.end.lr.ph.i:                                   ; preds = %if.end.lr.ph.i.lr.p
   %shutdown_requested.i38 = phi ptr [ %shutdown_requested.i33, %if.end.lr.ph.i.lr.ph ], [ %shutdown_requested.i, %for.cond.backedge ]
   %work_available_mutex.i36 = phi ptr [ %work_available_mutex.i30, %if.end.lr.ph.i.lr.ph ], [ %work_available_mutex.i, %for.cond.backedge ]
   %_worker_thread_data.val35 = phi ptr [ %_worker_thread_data.val29, %if.end.lr.ph.i.lr.ph ], [ %_worker_thread_data.val, %for.cond.backedge ]
-  %fifo_fds.i.i37 = getelementptr inbounds i8, ptr %_worker_thread_data.val35, i64 152
-  %back_pos.i.i = getelementptr inbounds i8, ptr %_worker_thread_data.val35, i64 164
-  %front_pos.i.i = getelementptr inbounds i8, ptr %_worker_thread_data.val35, i64 168
-  %queue_size.i.i = getelementptr inbounds i8, ptr %_worker_thread_data.val35, i64 160
-  %work_available_cond.i = getelementptr inbounds i8, ptr %_worker_thread_data.val35, i64 104
+  %fifo_fds.i.i37 = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val35, i64 152
+  %back_pos.i.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val35, i64 164
+  %front_pos.i.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val35, i64 168
+  %queue_size.i.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val35, i64 160
+  %work_available_cond.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val35, i64 104
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.end4.i, %if.end.lr.ph.i
@@ -845,8 +845,8 @@ if.end:                                           ; preds = %worker_thread__wait
   %fd.1.i24 = phi i32 [ %5, %worker_thread__wait_for_connection.exit.thread20 ], [ %retval.0.i3.i, %worker_thread__wait_for_connection.exit ]
   %_worker_thread_data.val6 = load ptr, ptr %server_data1, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pollfd.i)
-  %work_available_mutex.i8 = getelementptr inbounds i8, ptr %_worker_thread_data.val6, i64 64
-  %shutdown_requested.i9 = getelementptr inbounds i8, ptr %_worker_thread_data.val6, i64 172
+  %work_available_mutex.i8 = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val6, i64 64
+  %shutdown_requested.i9 = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val6, i64 172
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %if.end
@@ -902,9 +902,9 @@ if.end5:                                          ; preds = %if.end15.i
 
 if.then.i16:                                      ; preds = %if.end5
   %13 = load ptr, ptr %server_data1, align 8
-  %application_cb.i = getelementptr inbounds i8, ptr %13, i64 8
+  %application_cb.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load ptr, ptr %application_cb.i, align 8
-  %application_data.i = getelementptr inbounds i8, ptr %13, i64 16
+  %application_data.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %application_data.i, align 8
   %16 = load ptr, ptr %buf6.i, align 8
   %17 = load i64, ptr %len.i, align 8
@@ -925,9 +925,9 @@ worker_thread__do_io.exit:                        ; preds = %if.end5, %if.then.i
 
 for.cond.backedge:                                ; preds = %worker_thread__do_io.exit, %worker_thread__wait_for_io_start.exit
   %_worker_thread_data.val = load ptr, ptr %server_data1, align 8
-  %work_available_mutex.i = getelementptr inbounds i8, ptr %_worker_thread_data.val, i64 64
+  %work_available_mutex.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val, i64 64
   %call.i7 = call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex.i) #12
-  %shutdown_requested.i = getelementptr inbounds i8, ptr %_worker_thread_data.val, i64 172
+  %shutdown_requested.i = getelementptr inbounds nuw i8, ptr %_worker_thread_data.val, i64 172
   %20 = load i32, ptr %shutdown_requested.i, align 4
   %tobool.not4.i = icmp eq i32 %20, 0
   br i1 %tobool.not4.i, label %if.end.lr.ph.i, label %worker_thread__wait_for_connection.exit.thread
@@ -953,13 +953,13 @@ entry:
 
 if.end:                                           ; preds = %entry
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_enter_fl(ptr noundef nonnull @.str, i32 noundef 934, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null) #12
-  %work_available_mutex = getelementptr inbounds i8, ptr %server_data, i64 64
+  %work_available_mutex = getelementptr inbounds nuw i8, ptr %server_data, i64 64
   %call = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %work_available_mutex) #12
-  %shutdown_requested = getelementptr inbounds i8, ptr %server_data, i64 172
+  %shutdown_requested = getelementptr inbounds nuw i8, ptr %server_data, i64 172
   store i32 1, ptr %shutdown_requested, align 4
-  %accept_thread = getelementptr inbounds i8, ptr %server_data, i64 48
+  %accept_thread = getelementptr inbounds nuw i8, ptr %server_data, i64 48
   %0 = load ptr, ptr %accept_thread, align 8
-  %fd_send_shutdown = getelementptr inbounds i8, ptr %0, i64 24
+  %fd_send_shutdown = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1 = load i32, ptr %fd_send_shutdown, align 8
   %call1 = tail call i64 @write(i32 noundef %1, ptr noundef nonnull @.str.12, i64 noundef 1) #12
   %cmp = icmp slt i64 %call1, 0
@@ -970,16 +970,16 @@ if.then2:                                         ; preds = %if.end
   br label %if.end5
 
 if.end5:                                          ; preds = %if.then2, %if.end
-  %fifo_fds.i = getelementptr inbounds i8, ptr %server_data, i64 152
-  %back_pos.i = getelementptr inbounds i8, ptr %server_data, i64 164
-  %front_pos.i = getelementptr inbounds i8, ptr %server_data, i64 168
+  %fifo_fds.i = getelementptr inbounds nuw i8, ptr %server_data, i64 152
+  %back_pos.i = getelementptr inbounds nuw i8, ptr %server_data, i64 164
+  %front_pos.i = getelementptr inbounds nuw i8, ptr %server_data, i64 168
   %2 = load i32, ptr %back_pos.i, align 4
   %3 = load i32, ptr %front_pos.i, align 8
   %cmp.i9 = icmp eq i32 %2, %3
   br i1 %cmp.i9, label %while.end, label %fifo_dequeue.exit.lr.ph
 
 fifo_dequeue.exit.lr.ph:                          ; preds = %if.end5
-  %queue_size.i = getelementptr inbounds i8, ptr %server_data, i64 160
+  %queue_size.i = getelementptr inbounds nuw i8, ptr %server_data, i64 160
   br label %fifo_dequeue.exit
 
 fifo_dequeue.exit:                                ; preds = %fifo_dequeue.exit.lr.ph, %while.body
@@ -1006,7 +1006,7 @@ while.body:                                       ; preds = %fifo_dequeue.exit
   br i1 %cmp.i, label %while.end, label %fifo_dequeue.exit, !llvm.loop !8
 
 while.end:                                        ; preds = %fifo_dequeue.exit, %while.body, %if.end5
-  %work_available_cond = getelementptr inbounds i8, ptr %server_data, i64 104
+  %work_available_cond = getelementptr inbounds nuw i8, ptr %server_data, i64 104
   %call9 = tail call i32 @pthread_cond_broadcast(ptr noundef nonnull %work_available_cond) #12
   %call11 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %work_available_mutex) #12
   tail call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 961, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, ptr noundef null) #12
@@ -1033,34 +1033,34 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i32 @ipc_server_await(ptr nocapture noundef %server_data) local_unnamed_addr #0 {
 entry:
-  %accept_thread = getelementptr inbounds i8, ptr %server_data, i64 48
+  %accept_thread = getelementptr inbounds nuw i8, ptr %server_data, i64 48
   %0 = load ptr, ptr %accept_thread, align 8
-  %pthread_id = getelementptr inbounds i8, ptr %0, i64 32
+  %pthread_id = getelementptr inbounds nuw i8, ptr %0, i64 32
   %1 = load i64, ptr %pthread_id, align 8
   %call = tail call i32 @pthread_join(i64 noundef %1, ptr noundef null) #12
-  %shutdown_requested = getelementptr inbounds i8, ptr %server_data, i64 172
+  %shutdown_requested = getelementptr inbounds nuw i8, ptr %server_data, i64 172
   %2 = load i32, ptr %shutdown_requested, align 4
   %tobool.not = icmp eq i32 %2, 0
   br i1 %tobool.not, label %if.then, label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry
-  %worker_thread_list = getelementptr inbounds i8, ptr %server_data, i64 56
+  %worker_thread_list = getelementptr inbounds nuw i8, ptr %server_data, i64 56
   %3 = load ptr, ptr %worker_thread_list, align 8
   %tobool1.not9 = icmp eq ptr %3, null
   br i1 %tobool1.not9, label %while.end, label %while.body
 
 if.then:                                          ; preds = %entry
-  %buf = getelementptr inbounds i8, ptr %server_data, i64 40
+  %buf = getelementptr inbounds nuw i8, ptr %server_data, i64 40
   %4 = load ptr, ptr %buf, align 8
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 975, ptr noundef nonnull @.str.14, ptr noundef %4) #15
   unreachable
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %5 = phi ptr [ %8, %while.body ], [ %3, %while.cond.preheader ]
-  %pthread_id3 = getelementptr inbounds i8, ptr %5, i64 24
+  %pthread_id3 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %6 = load i64, ptr %pthread_id3, align 8
   %call4 = tail call i32 @pthread_join(i64 noundef %6, ptr noundef null) #12
-  %next_thread = getelementptr inbounds i8, ptr %5, i64 8
+  %next_thread = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %next_thread, align 8
   store ptr %7, ptr %worker_thread_list, align 8
   tail call void @free(ptr noundef nonnull %5) #12
@@ -1069,7 +1069,7 @@ while.body:                                       ; preds = %while.cond.preheade
   br i1 %tobool1.not, label %while.end, label %while.body, !llvm.loop !9
 
 while.end:                                        ; preds = %while.body, %while.cond.preheader
-  %is_stopped = getelementptr inbounds i8, ptr %server_data, i64 176
+  %is_stopped = getelementptr inbounds nuw i8, ptr %server_data, i64 176
   store i32 1, ptr %is_stopped, align 8
   ret i32 0
 }
@@ -1086,28 +1086,28 @@ entry:
   br i1 %tobool.not, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  %is_stopped = getelementptr inbounds i8, ptr %server_data, i64 176
+  %is_stopped = getelementptr inbounds nuw i8, ptr %server_data, i64 176
   %0 = load i32, ptr %is_stopped, align 8
   %tobool1.not = icmp eq i32 %0, 0
   br i1 %tobool1.not, label %if.then2, label %if.end3
 
 if.then2:                                         ; preds = %if.end
-  %buf = getelementptr inbounds i8, ptr %server_data, i64 40
+  %buf = getelementptr inbounds nuw i8, ptr %server_data, i64 40
   %1 = load ptr, ptr %buf, align 8
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 1001, ptr noundef nonnull @.str.15, ptr noundef %1) #15
   unreachable
 
 if.end3:                                          ; preds = %if.end
-  %accept_thread = getelementptr inbounds i8, ptr %server_data, i64 48
+  %accept_thread = getelementptr inbounds nuw i8, ptr %server_data, i64 48
   %2 = load ptr, ptr %accept_thread, align 8
   %tobool4.not = icmp eq ptr %2, null
   br i1 %tobool4.not, label %if.end15, label %if.then5
 
 if.then5:                                         ; preds = %if.end3
-  %server_socket = getelementptr inbounds i8, ptr %2, i64 16
+  %server_socket = getelementptr inbounds nuw i8, ptr %2, i64 16
   %3 = load ptr, ptr %server_socket, align 8
   tail call void @unix_ss_free(ptr noundef %3) #12
-  %fd_send_shutdown = getelementptr inbounds i8, ptr %2, i64 24
+  %fd_send_shutdown = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load i32, ptr %fd_send_shutdown, align 8
   %cmp.not = icmp eq i32 %4, -1
   br i1 %cmp.not, label %if.end8, label %if.then6
@@ -1117,7 +1117,7 @@ if.then6:                                         ; preds = %if.then5
   br label %if.end8
 
 if.end8:                                          ; preds = %if.then6, %if.then5
-  %fd_wait_shutdown = getelementptr inbounds i8, ptr %2, i64 28
+  %fd_wait_shutdown = getelementptr inbounds nuw i8, ptr %2, i64 28
   %5 = load i32, ptr %fd_wait_shutdown, align 4
   %cmp9.not = icmp eq i32 %5, -1
   br i1 %cmp9.not, label %if.end13, label %if.then10
@@ -1132,14 +1132,14 @@ if.end13:                                         ; preds = %if.then10, %if.end8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.end13, %if.end3
-  %worker_thread_list = getelementptr inbounds i8, ptr %server_data, i64 56
+  %worker_thread_list = getelementptr inbounds nuw i8, ptr %server_data, i64 56
   %7 = load ptr, ptr %worker_thread_list, align 8
   %tobool16.not22 = icmp eq ptr %7, null
   br i1 %tobool16.not22, label %while.end, label %while.body
 
 while.body:                                       ; preds = %if.end15, %while.body
   %8 = phi ptr [ %10, %while.body ], [ %7, %if.end15 ]
-  %next_thread = getelementptr inbounds i8, ptr %8, i64 8
+  %next_thread = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %next_thread, align 8
   store ptr %9, ptr %worker_thread_list, align 8
   tail call void @free(ptr noundef nonnull %8) #12
@@ -1148,13 +1148,13 @@ while.body:                                       ; preds = %if.end15, %while.bo
   br i1 %tobool16.not, label %while.end, label %while.body, !llvm.loop !10
 
 while.end:                                        ; preds = %while.body, %if.end15
-  %work_available_cond = getelementptr inbounds i8, ptr %server_data, i64 104
+  %work_available_cond = getelementptr inbounds nuw i8, ptr %server_data, i64 104
   %call19 = tail call i32 @pthread_cond_destroy(ptr noundef nonnull %work_available_cond) #12
-  %work_available_mutex = getelementptr inbounds i8, ptr %server_data, i64 64
+  %work_available_mutex = getelementptr inbounds nuw i8, ptr %server_data, i64 64
   %call20 = tail call i32 @pthread_mutex_destroy(ptr noundef nonnull %work_available_mutex) #12
-  %buf_path21 = getelementptr inbounds i8, ptr %server_data, i64 24
+  %buf_path21 = getelementptr inbounds nuw i8, ptr %server_data, i64 24
   tail call void @strbuf_release(ptr noundef nonnull %buf_path21) #12
-  %fifo_fds = getelementptr inbounds i8, ptr %server_data, i64 152
+  %fifo_fds = getelementptr inbounds nuw i8, ptr %server_data, i64 152
   %11 = load ptr, ptr %fifo_fds, align 8
   tail call void @free(ptr noundef %11) #12
   tail call void @free(ptr noundef nonnull %server_data) #12
@@ -1225,7 +1225,7 @@ if.then:                                          ; preds = %entry
   unreachable
 
 if.end:                                           ; preds = %entry
-  %fd = getelementptr inbounds i8, ptr %reply_data, i64 4
+  %fd = getelementptr inbounds nuw i8, ptr %reply_data, i64 4
   %1 = load i32, ptr %fd, align 4
   %call.i = tail call i32 @write_packetized_from_buf_no_flush_count(ptr noundef %response, i64 noundef %response_len, i32 noundef %1, ptr noundef null) #12
   ret i32 %call.i

@@ -23,7 +23,7 @@ define noalias noundef ptr @Abc_SclFindWireCaps(ptr nocapture noundef readonly %
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.083 = phi i32 [ 0, %.lr.ph ], [ %9, %6 ]
-  %7 = getelementptr inbounds i32, ptr %.val71, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw i32, ptr %.val71, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = tail call noundef i32 @llvm.smax.i32(i32 %.083, i32 %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -41,8 +41,8 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   %13 = sext i32 %spec.store.select.i.i to i64
   %14 = shl nsw i64 %13, 2
   %15 = tail call noalias ptr @malloc(i64 noundef %14) #12
-  %16 = getelementptr inbounds i8, ptr %12, i64 4
-  %17 = getelementptr inbounds i8, ptr %12, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  %17 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %15, ptr %17, align 8
   store i32 %11, ptr %16, align 4
   %18 = sext i32 %11 to i64
@@ -53,7 +53,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
 .lr.ph86:                                         ; preds = %Vec_FltStart.exit
   %20 = getelementptr i8, ptr %0, i64 24
   %21 = getelementptr i8, ptr %0, i64 40
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val72.pre = load ptr, ptr %20, align 8
   %.val73.pre = load ptr, ptr %21, align 8
   %.pre = load float, ptr %22, align 8
@@ -62,9 +62,9 @@ Vec_FltStart.exit:                                ; preds = %6, %2
 
 24:                                               ; preds = %.lr.ph86, %24
   %indvars.iv103 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next104, %24 ]
-  %25 = getelementptr inbounds i32, ptr %.val72.pre, i64 %indvars.iv103
+  %25 = getelementptr inbounds nuw i32, ptr %.val72.pre, i64 %indvars.iv103
   %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds float, ptr %.val73.pre, i64 %indvars.iv103
+  %27 = getelementptr inbounds nuw float, ptr %.val73.pre, i64 %indvars.iv103
   %28 = load float, ptr %27, align 4
   %29 = fmul float %28, %.pre
   %30 = sext i32 %26 to i64
@@ -75,7 +75,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   br i1 %32, label %24, label %.critedge2, !llvm.loop !6
 
 .critedge2:                                       ; preds = %24, %Vec_FltStart.exit
-  %33 = getelementptr inbounds i8, ptr %15, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %34 = load float, ptr %33, align 4
   %35 = fcmp oeq float %34, 0.000000e+00
   br i1 %35, label %.loopexit, label %.preheader
@@ -92,7 +92,7 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   %indvars.iv110 = phi i64 [ 2, %.lr.ph94.preheader ], [ %indvars.iv.next111, %.loopexit81 ]
   %.06293 = phi i32 [ 1, %.lr.ph94.preheader ], [ %.163, %.loopexit81 ]
   %.06791 = phi float [ %34, %.lr.ph94.preheader ], [ %.168, %.loopexit81 ]
-  %36 = getelementptr inbounds float, ptr %15, i64 %indvars.iv110
+  %36 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv110
   %37 = load float, ptr %36, align 4
   %38 = fcmp oeq float %37, 0.000000e+00
   br i1 %38, label %.loopexit81, label %39
@@ -132,9 +132,9 @@ Vec_FltStart.exit:                                ; preds = %6, %2
   %.067.lcssa = phi float [ %34, %.preheader ], [ %.168, %.loopexit81 ]
   %.2.lcssa = phi i32 [ 2, %.preheader ], [ %11, %.loopexit81 ]
   %.062.lcssa = phi i32 [ 1, %.preheader ], [ %.163, %.loopexit81 ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load float, ptr %53, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 12
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %56 = load float, ptr %55, align 4
   %57 = fmul float %54, %56
   %.198 = add nsw i32 %.062.lcssa, 1
@@ -190,7 +190,7 @@ define float @Abc_SclFindWireLoad(ptr noundef readonly %0, i32 noundef %1) local
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define void @Abc_SclAddWireLoad(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 56
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Abc_SclFindWireLoad.exit, label %7
@@ -219,14 +219,14 @@ Abc_SclFindWireLoad.exit:                         ; preds = %3, %7
   %19 = getelementptr i8, ptr %1, i64 16
   %.val12 = load i32, ptr %19, align 8
   %20 = zext i32 %.val12 to i64
-  %21 = getelementptr inbounds %struct.SC_Pair_, ptr %.val11, i64 %20
+  %21 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val11, i64 %20
   %22 = load float, ptr %21, align 4
   %23 = fadd float %17, %22
   store float %23, ptr %21, align 4
   %.val13 = load ptr, ptr %18, align 8
   %.val14 = load i32, ptr %19, align 8
   %24 = zext i32 %.val14 to i64
-  %25 = getelementptr inbounds %struct.SC_Pair_, ptr %.val13, i64 %24, i32 1
+  %25 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val13, i64 %24, i32 1
   %26 = load float, ptr %25, align 4
   %27 = fadd float %17, %26
   store float %27, ptr %25, align 4
@@ -235,9 +235,9 @@ Abc_SclFindWireLoad.exit:                         ; preds = %3, %7
 
 ; Function Attrs: nounwind uwtable
 define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 32
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   %.val161213 = load i32, ptr %6, align 4
@@ -262,7 +262,7 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
   %13 = phi ptr [ %5, %.lr.ph ], [ %29, %26 ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val165.val = load ptr, ptr %14, align 8
-  %15 = getelementptr inbounds ptr, ptr %.val165.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw ptr, ptr %.val165.val, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %26, label %18
@@ -279,8 +279,8 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
   %22 = getelementptr i8, ptr %16, i64 16
   %.val160 = load i32, ptr %22, align 8
   %23 = zext i32 %.val160 to i64
-  %24 = getelementptr inbounds %struct.SC_Pair_, ptr %.val159, i64 %23
-  %25 = getelementptr inbounds i8, ptr %24, i64 4
+  %24 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val159, i64 %23
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store float 0.000000e+00, ptr %25, align 4
   store float 0.000000e+00, ptr %24, align 4
   %.pre = load ptr, ptr %2, align 8
@@ -289,7 +289,7 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
 26:                                               ; preds = %11, %21, %18
   %27 = phi ptr [ %12, %11 ], [ %.pre, %21 ], [ %12, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %28 = getelementptr inbounds i8, ptr %27, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr i8, ptr %29, i64 4
   %.val161 = load i32, ptr %30, align 4
@@ -316,7 +316,7 @@ define void @Abc_SclComputeLoad(ptr nocapture noundef %0) local_unnamed_addr #4 
   %40 = phi ptr [ %29, %.lr.ph220 ], [ %94, %.critedge4 ]
   %41 = getelementptr i8, ptr %40, i64 8
   %.val166.val = load ptr, ptr %41, align 8
-  %42 = getelementptr inbounds ptr, ptr %.val166.val, i64 %indvars.iv258
+  %42 = getelementptr inbounds nuw ptr, ptr %.val166.val, i64 %indvars.iv258
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %.critedge4, label %45
@@ -376,7 +376,7 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
   %.val179.val = load ptr, ptr %69, align 8
   %70 = getelementptr i8, ptr %.val179.val, i64 8
   %.val179.val.val = load ptr, ptr %70, align 8
-  %71 = getelementptr inbounds i32, ptr %.val180, i64 %indvars.iv255
+  %71 = getelementptr inbounds nuw i32, ptr %.val180, i64 %indvars.iv255
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
   %74 = getelementptr inbounds ptr, ptr %.val179.val.val, i64 %73
@@ -385,18 +385,18 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
   %76 = getelementptr i8, ptr %75, i64 16
   %.val158 = load i32, ptr %76, align 8
   %77 = zext i32 %.val158 to i64
-  %78 = getelementptr inbounds %struct.SC_Pair_, ptr %.val157, i64 %77
+  %78 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val157, i64 %77
   %.val181 = load ptr, ptr %67, align 8
-  %79 = getelementptr inbounds ptr, ptr %.val181, i64 %indvars.iv255
+  %79 = getelementptr inbounds nuw ptr, ptr %.val181, i64 %indvars.iv255
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %80, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load float, ptr %81, align 8
   %83 = load float, ptr %78, align 4
   %84 = fadd float %82, %83
   store float %84, ptr %78, align 4
-  %85 = getelementptr inbounds i8, ptr %80, i64 20
+  %85 = getelementptr inbounds nuw i8, ptr %80, i64 20
   %86 = load float, ptr %85, align 4
-  %87 = getelementptr inbounds i8, ptr %78, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %88 = load float, ptr %87, align 4
   %89 = fadd float %86, %88
   store float %89, ptr %87, align 4
@@ -413,7 +413,7 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
 .critedge4:                                       ; preds = %.critedge4.loopexit, %Abc_SclObjCell.exit, %48, %45, %38
   %92 = phi ptr [ %.pre282, %.critedge4.loopexit ], [ %39, %Abc_SclObjCell.exit ], [ %39, %48 ], [ %39, %45 ], [ %39, %38 ]
   %indvars.iv.next259 = add nuw nsw i64 %indvars.iv258, 1
-  %93 = getelementptr inbounds i8, ptr %92, i64 32
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr i8, ptr %94, i64 4
   %.val162 = load i32, ptr %95, align 4
@@ -426,13 +426,13 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
   %.val182224 = phi ptr [ %.val182221, %.lr.ph225 ], [ %.val182, %.critedge2 ]
   %98 = getelementptr i8, ptr %.val182224, i64 8
   %.val183.val = load ptr, ptr %98, align 8
-  %99 = getelementptr inbounds ptr, ptr %.val183.val, i64 %indvars.iv261
+  %99 = getelementptr inbounds nuw ptr, ptr %.val183.val, i64 %indvars.iv261
   %100 = load ptr, ptr %99, align 8
   %.val155 = load ptr, ptr %37, align 8
   %101 = getelementptr i8, ptr %100, i64 16
   %.val156 = load i32, ptr %101, align 8
   %102 = zext i32 %.val156 to i64
-  %103 = getelementptr inbounds %struct.SC_Pair_, ptr %.val155, i64 %102
+  %103 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val155, i64 %102
   %.val184 = load ptr, ptr %100, align 8
   %104 = getelementptr i8, ptr %100, i64 32
   %.val185 = load ptr, ptr %104, align 8
@@ -447,14 +447,14 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
   %110 = getelementptr i8, ptr %109, i64 16
   %.val154 = load i32, ptr %110, align 8
   %111 = zext i32 %.val154 to i64
-  %112 = getelementptr inbounds %struct.SC_Pair_, ptr %.val155, i64 %111
+  %112 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val155, i64 %111
   %113 = load float, ptr %103, align 4
   %114 = load float, ptr %112, align 4
   %115 = fadd float %113, %114
   store float %115, ptr %112, align 4
-  %116 = getelementptr inbounds i8, ptr %103, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %103, i64 4
   %117 = load float, ptr %116, align 4
-  %118 = getelementptr inbounds i8, ptr %112, i64 4
+  %118 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %119 = load float, ptr %118, align 4
   %120 = fadd float %117, %119
   store float %120, ptr %118, align 4
@@ -470,13 +470,13 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
 
 .critedge6:                                       ; preds = %.critedge2, %.critedge2.preheader
   %.lcssa211 = phi ptr [ %33, %.critedge2.preheader ], [ %121, %.critedge2 ]
-  %126 = getelementptr inbounds i8, ptr %0, i64 48
+  %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %127 = load ptr, ptr %126, align 8
   %.not = icmp eq ptr %127, null
   br i1 %.not, label %.critedge10, label %128
 
 128:                                              ; preds = %.critedge6
-  %129 = getelementptr inbounds i8, ptr %0, i64 56
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %130 = load ptr, ptr %129, align 8
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %135
@@ -490,7 +490,7 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
 
 135:                                              ; preds = %132, %128
   %136 = phi ptr [ %.pre283, %132 ], [ %.lcssa211, %128 ]
-  %137 = getelementptr inbounds i8, ptr %136, i64 32
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr i8, ptr %138, i64 4
   %.val163226 = load i32, ptr %139, align 4
@@ -520,7 +520,7 @@ Abc_SclObjCell.exit:                              ; preds = %50, %58
   %149 = phi ptr [ %138, %.lr.ph228 ], [ %183, %180 ]
   %150 = getelementptr i8, ptr %149, i64 8
   %.val167.val = load ptr, ptr %150, align 8
-  %151 = getelementptr inbounds ptr, ptr %.val167.val, i64 %indvars.iv264
+  %151 = getelementptr inbounds nuw ptr, ptr %.val167.val, i64 %indvars.iv264
   %152 = load ptr, ptr %151, align 8
   %153 = icmp eq ptr %152, null
   br i1 %153, label %180, label %154
@@ -563,14 +563,14 @@ Abc_SclAddWireLoad.exit:                          ; preds = %159, %162
   %171 = getelementptr i8, ptr %152, i64 16
   %.val12.i = load i32, ptr %171, align 8
   %172 = zext i32 %.val12.i to i64
-  %173 = getelementptr inbounds %struct.SC_Pair_, ptr %.val11.i, i64 %172
+  %173 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val11.i, i64 %172
   %174 = load float, ptr %173, align 4
   %175 = fadd float %.0.i.i, %174
   store float %175, ptr %173, align 4
   %.val13.i = load ptr, ptr %141, align 8
   %.val14.i = load i32, ptr %171, align 8
   %176 = zext i32 %.val14.i to i64
-  %177 = getelementptr inbounds %struct.SC_Pair_, ptr %.val13.i, i64 %176, i32 1
+  %177 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val13.i, i64 %176, i32 1
   %178 = load float, ptr %177, align 4
   %179 = fadd float %.0.i.i, %178
   store float %179, ptr %177, align 4
@@ -580,7 +580,7 @@ Abc_SclAddWireLoad.exit:                          ; preds = %159, %162
 180:                                              ; preds = %Abc_SclAddWireLoad.exit, %157, %154, %147
   %181 = phi ptr [ %.pre284, %Abc_SclAddWireLoad.exit ], [ %148, %157 ], [ %148, %154 ], [ %148, %147 ]
   %indvars.iv.next265 = add nuw nsw i64 %indvars.iv264, 1
-  %182 = getelementptr inbounds i8, ptr %181, i64 32
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 32
   %183 = load ptr, ptr %182, align 8
   %184 = getelementptr i8, ptr %183, i64 4
   %.val163 = load i32, ptr %184, align 4
@@ -593,7 +593,7 @@ Abc_SclAddWireLoad.exit:                          ; preds = %159, %162
   %.val186232 = phi ptr [ %.val186229, %.lr.ph233 ], [ %.val186, %Abc_SclAddWireLoad.exit206 ]
   %188 = getelementptr i8, ptr %.val186232, i64 8
   %.val189.val = load ptr, ptr %188, align 8
-  %189 = getelementptr inbounds ptr, ptr %.val189.val, i64 %indvars.iv267
+  %189 = getelementptr inbounds nuw ptr, ptr %.val189.val, i64 %indvars.iv267
   %190 = load ptr, ptr %189, align 8
   %191 = load ptr, ptr %129, align 8
   %192 = icmp eq ptr %191, null
@@ -619,14 +619,14 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   %202 = getelementptr i8, ptr %190, i64 16
   %.val12.i203 = load i32, ptr %202, align 8
   %203 = zext i32 %.val12.i203 to i64
-  %204 = getelementptr inbounds %struct.SC_Pair_, ptr %.val11.i202, i64 %203
+  %204 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val11.i202, i64 %203
   %205 = load float, ptr %204, align 4
   %206 = fadd float %.0.i.i201, %205
   store float %206, ptr %204, align 4
   %.val13.i204 = load ptr, ptr %146, align 8
   %.val14.i205 = load i32, ptr %202, align 8
   %207 = zext i32 %.val14.i205 to i64
-  %208 = getelementptr inbounds %struct.SC_Pair_, ptr %.val13.i204, i64 %207, i32 1
+  %208 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val13.i204, i64 %207, i32 1
   %209 = load float, ptr %208, align 4
   %210 = fadd float %.0.i.i201, %209
   store float %210, ptr %208, align 4
@@ -642,7 +642,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
 
 .critedge10:                                      ; preds = %Abc_SclAddWireLoad.exit206, %.critedge8.preheader, %.critedge6
   %216 = phi ptr [ %142, %.critedge8.preheader ], [ %.lcssa211, %.critedge6 ], [ %211, %Abc_SclAddWireLoad.exit206 ]
-  %217 = getelementptr inbounds i8, ptr %0, i64 96
+  %217 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %218 = load ptr, ptr %217, align 8
   %.not140 = icmp eq ptr %218, null
   br i1 %.not140, label %.critedge12, label %.preheader
@@ -665,13 +665,13 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   %.val187237 = phi ptr [ %.val187234, %.lr.ph238 ], [ %.val187, %247 ]
   %225 = getelementptr i8, ptr %.val187237, i64 8
   %.val190.val = load ptr, ptr %225, align 8
-  %226 = getelementptr inbounds ptr, ptr %.val190.val, i64 %indvars.iv270
+  %226 = getelementptr inbounds nuw ptr, ptr %.val190.val, i64 %indvars.iv270
   %227 = load ptr, ptr %226, align 8
   %.val151 = load ptr, ptr %222, align 8
   %228 = getelementptr i8, ptr %227, i64 16
   %.val152 = load i32, ptr %228, align 8
   %229 = zext i32 %.val152 to i64
-  %230 = getelementptr inbounds %struct.SC_Pair_, ptr %.val151, i64 %229
+  %230 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val151, i64 %229
   %.val192 = load ptr, ptr %217, align 8
   %231 = getelementptr i8, ptr %227, i64 56
   %.val193 = load i32, ptr %231, align 8
@@ -689,7 +689,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   br i1 %239, label %244, label %240
 
 240:                                              ; preds = %237
-  %241 = getelementptr inbounds i8, ptr %230, i64 4
+  %241 = getelementptr inbounds nuw i8, ptr %230, i64 4
   %242 = load float, ptr %241, align 4
   %243 = fcmp ogt float %242, %235
   br i1 %243, label %244, label %247
@@ -713,7 +713,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
 
 .critedge12:                                      ; preds = %247, %.preheader, %.critedge10
   %253 = phi ptr [ %216, %.preheader ], [ %216, %.critedge10 ], [ %248, %247 ]
-  %254 = getelementptr inbounds i8, ptr %253, i64 32
+  %254 = getelementptr inbounds nuw i8, ptr %253, i64 32
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr i8, ptr %255, i64 4
   %.val164 = load i32, ptr %256, align 4
@@ -749,7 +749,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   %indvars.iv273 = phi i64 [ 0, %.lr.ph242 ], [ %indvars.iv.next274, %287 ]
   %.0128240 = phi i32 [ 0, %.lr.ph242 ], [ %.1129, %287 ]
   %.0131239 = phi double [ 0.000000e+00, %.lr.ph242 ], [ %.1132, %287 ]
-  %266 = getelementptr inbounds ptr, ptr %.val168.val, i64 %indvars.iv273
+  %266 = getelementptr inbounds nuw ptr, ptr %.val168.val, i64 %indvars.iv273
   %267 = load ptr, ptr %266, align 8
   %268 = icmp eq ptr %267, null
   br i1 %268, label %287, label %269
@@ -772,8 +772,8 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   %275 = getelementptr i8, ptr %267, i64 16
   %.val150 = load i32, ptr %275, align 8
   %276 = zext i32 %.val150 to i64
-  %277 = getelementptr inbounds %struct.SC_Pair_, ptr %.val149, i64 %276
-  %278 = getelementptr inbounds i8, ptr %277, i64 4
+  %277 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val149, i64 %276
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 4
   %279 = load float, ptr %278, align 4
   %280 = fpext float %279 to double
   %281 = load float, ptr %277, align 4
@@ -794,13 +794,13 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
 .critedge14:                                      ; preds = %.lr.ph249, %.critedge14
   %indvars.iv276 = phi i64 [ 0, %.lr.ph249 ], [ %indvars.iv.next277, %.critedge14 ]
   %.2133246 = phi double [ %.0131.lcssa, %.lr.ph249 ], [ %300, %.critedge14 ]
-  %288 = getelementptr inbounds ptr, ptr %.val191.val, i64 %indvars.iv276
+  %288 = getelementptr inbounds nuw ptr, ptr %.val191.val, i64 %indvars.iv276
   %289 = load ptr, ptr %288, align 8
   %290 = getelementptr i8, ptr %289, i64 16
   %.val148 = load i32, ptr %290, align 8
   %291 = zext i32 %.val148 to i64
-  %292 = getelementptr inbounds %struct.SC_Pair_, ptr %.val, i64 %291
-  %293 = getelementptr inbounds i8, ptr %292, i64 4
+  %292 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val, i64 %291
+  %293 = getelementptr inbounds nuw i8, ptr %292, i64 4
   %294 = load float, ptr %293, align 4
   %295 = fpext float %294 to double
   %296 = load float, ptr %292, align 4
@@ -822,7 +822,7 @@ Abc_SclAddWireLoad.exit206:                       ; preds = %187, %193
   %302 = sitofp i32 %.2130.lcssa to double
   %303 = fdiv double %.2133.lcssa, %302
   %304 = fptrunc double %303 to float
-  %305 = getelementptr inbounds i8, ptr %0, i64 164
+  %305 = getelementptr inbounds nuw i8, ptr %0, i64 164
   store float %304, ptr %305, align 4
   ret void
 }
@@ -857,7 +857,7 @@ define void @Abc_SclUpdateLoad(ptr nocapture noundef readonly %0, ptr nocapture 
   %.val18.val = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val18.val, i64 8
   %.val18.val.val = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds i32, ptr %.val19, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw i32, ptr %.val19, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4
   %16 = sext i32 %15 to i64
   %17 = getelementptr inbounds ptr, ptr %.val18.val.val, i64 %16
@@ -866,27 +866,27 @@ define void @Abc_SclUpdateLoad(ptr nocapture noundef readonly %0, ptr nocapture 
   %19 = getelementptr i8, ptr %18, i64 16
   %.val16 = load i32, ptr %19, align 8
   %20 = zext i32 %.val16 to i64
-  %21 = getelementptr inbounds %struct.SC_Pair_, ptr %.val, i64 %20
+  %21 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val, i64 %20
   %.val21 = load ptr, ptr %9, align 8
-  %22 = getelementptr inbounds ptr, ptr %.val21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw ptr, ptr %.val21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %.val20 = load ptr, ptr %10, align 8
-  %24 = getelementptr inbounds ptr, ptr %.val20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load float, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %23, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %29 = load float, ptr %28, align 8
   %30 = fsub float %27, %29
   %31 = load float, ptr %21, align 4
   %32 = fadd float %31, %30
   store float %32, ptr %21, align 4
-  %33 = getelementptr inbounds i8, ptr %25, i64 20
+  %33 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %34 = load float, ptr %33, align 4
-  %35 = getelementptr inbounds i8, ptr %23, i64 20
+  %35 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %36 = load float, ptr %35, align 4
   %37 = fsub float %34, %36
-  %38 = getelementptr inbounds i8, ptr %21, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %39 = load float, ptr %38, align 4
   %40 = fadd float %39, %37
   store float %40, ptr %38, align 4
@@ -933,15 +933,15 @@ Abc_SclObjCell.exit:
   %21 = getelementptr i8, ptr %1, i64 16
   %.val17 = load i32, ptr %21, align 8
   %22 = zext i32 %.val17 to i64
-  %23 = getelementptr inbounds %struct.SC_Pair_, ptr %.val16, i64 %22
-  %24 = getelementptr inbounds i8, ptr %19, i64 16
+  %23 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val16, i64 %22
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %25 = load float, ptr %24, align 8
   %26 = load float, ptr %23, align 4
   %27 = fsub float %26, %25
   store float %27, ptr %23, align 4
-  %28 = getelementptr inbounds i8, ptr %19, i64 20
+  %28 = getelementptr inbounds nuw i8, ptr %19, i64 20
   %29 = load float, ptr %28, align 4
-  %30 = getelementptr inbounds i8, ptr %23, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %31 = load float, ptr %30, align 4
   %32 = fsub float %31, %29
   store float %32, ptr %30, align 4
@@ -960,13 +960,13 @@ Abc_SclObjCell.exit:
   %39 = getelementptr i8, ptr %38, i64 16
   %.val15 = load i32, ptr %39, align 8
   %40 = zext i32 %.val15 to i64
-  %41 = getelementptr inbounds %struct.SC_Pair_, ptr %.val, i64 %40
+  %41 = getelementptr inbounds nuw %struct.SC_Pair_, ptr %.val, i64 %40
   %42 = load float, ptr %24, align 8
   %43 = load float, ptr %41, align 4
   %44 = fadd float %42, %43
   store float %44, ptr %41, align 4
   %45 = load float, ptr %28, align 4
-  %46 = getelementptr inbounds i8, ptr %41, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %41, i64 4
   %47 = load float, ptr %46, align 4
   %48 = fadd float %45, %47
   store float %48, ptr %46, align 4

@@ -43,26 +43,26 @@ define dso_local void @_ZN3net18QuicFlowControllerC2EPNS_14QuicConnectionEjNS_11
 entry:
   %frombool = zext i1 %should_auto_tune_receive_window to i8
   store ptr %connection, ptr %this, align 8
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %id, ptr %id_, align 8
-  %perspective_ = getelementptr inbounds i8, ptr %this, i64 12
+  %perspective_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   store i32 %perspective, ptr %perspective_, align 4
-  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   store i64 0, ptr %bytes_sent_, align 8
-  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   store i64 %send_window_offset, ptr %send_window_offset_, align 8
-  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
-  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
+  %bytes_consumed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
+  %receive_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytes_consumed_, i8 0, i64 16, i1 false)
   store i64 %receive_window_offset, ptr %receive_window_offset_, align 8
-  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   store i64 %receive_window_offset, ptr %receive_window_size_, align 8
-  %auto_tune_receive_window_ = getelementptr inbounds i8, ptr %this, i64 72
+  %auto_tune_receive_window_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   store i8 %frombool, ptr %auto_tune_receive_window_, align 8
-  %last_blocked_send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 80
+  %last_blocked_send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %cmp = icmp eq i32 %id, 0
   %cond = select i1 %cmp, i64 25165824, i64 16777216
-  %receive_window_size_limit_ = getelementptr inbounds i8, ptr %this, i64 64
+  %receive_window_size_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %last_blocked_send_window_offset_, i8 0, i64 16, i1 false)
   store i64 %cond, ptr %receive_window_size_limit_, align 8
   ret void
@@ -71,14 +71,14 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController16AddBytesConsumedEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %bytes_consumed) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bytes_consumed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load i64, ptr %bytes_consumed_, align 8
   %add = add i64 %0, %bytes_consumed
   store i64 %add, ptr %bytes_consumed_, align 8
-  %receive_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 48
+  %receive_window_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_.i, align 8
   %sub.i = sub i64 %1, %add
-  %receive_window_size_.i.i = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i64, ptr %receive_window_size_.i.i, align 8
   %div1.i.i = lshr i64 %2, 1
   %cmp.not.i = icmp ult i64 %sub.i, %div1.i.i
@@ -86,33 +86,33 @@ entry:
 
 if.end6.i:                                        ; preds = %entry
   %3 = load ptr, ptr %this, align 8
-  %clock_.i.i.i = getelementptr inbounds i8, ptr %3, i64 480
+  %clock_.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 480
   %4 = load ptr, ptr %clock_.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %4, align 8
-  %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 16
+  %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 16
   %5 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %prev_window_update_time_.i.i = getelementptr inbounds i8, ptr %this, i64 88
+  %prev_window_update_time_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %6 = load i64, ptr %prev_window_update_time_.i.i, align 8
   store i64 %call2.i.i, ptr %prev_window_update_time_.i.i, align 8
   %cmp.i.not.i.i = icmp eq i64 %6, 0
   br i1 %cmp.i.not.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end6.i
-  %auto_tune_receive_window_.i.i = getelementptr inbounds i8, ptr %this, i64 72
+  %auto_tune_receive_window_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i.i, align 8
   %tobool.i.i = trunc i8 %7 to i1
   br i1 %tobool.i.i, label %if.end6.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i
 
 if.end6.i.i:                                      ; preds = %if.end.i.i
   %8 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i.i = getelementptr inbounds i8, ptr %8, i64 3192
+  %sent_packet_manager_.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 3192
   %9 = load ptr, ptr %sent_packet_manager_.i.i.i, align 8
   %vtable9.i.i = load ptr, ptr %9, align 8
-  %vfn10.i.i = getelementptr inbounds i8, ptr %vtable9.i.i, i64 152
+  %vfn10.i.i = getelementptr inbounds nuw i8, ptr %vtable9.i.i, i64 152
   %10 = load ptr, ptr %vfn10.i.i, align 8
   %call11.i.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %call11.i.i, i64 40
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %call11.i.i, i64 40
   %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i.i, align 8
   %cmp.i1.i.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i.i, 0
   br i1 %cmp.i1.i.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i, label %if.end15.i.i
@@ -126,7 +126,7 @@ if.end15.i.i:                                     ; preds = %if.end6.i.i
 if.end26.i.i:                                     ; preds = %if.end15.i.i
   %11 = load i64, ptr %receive_window_size_.i.i, align 8
   %mul.i.i = shl i64 %11, 1
-  %receive_window_size_limit_.i.i = getelementptr inbounds i8, ptr %this, i64 64
+  %receive_window_size_limit_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load i64, ptr %receive_window_size_limit_.i.i, align 8
   %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 %mul.i.i)
   store i64 %13, ptr %receive_window_size_.i.i, align 8
@@ -139,10 +139,10 @@ _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit.i: ; preds = %if.
   %add.i = add i64 %15, %sub7.i
   store i64 %add.i, ptr %receive_window_offset_.i, align 8
   %16 = load ptr, ptr %this, align 8
-  %id_.i = getelementptr inbounds i8, ptr %this, i64 8
+  %id_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %17 = load i32, ptr %id_.i, align 8
   %vtable.i = load ptr, ptr %16, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 240
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 240
   %18 = load ptr, ptr %vfn.i, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef %17, i64 noundef %add.i)
   br label %_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit
@@ -154,12 +154,12 @@ _ZN3net18QuicFlowController21MaybeSendWindowUpdateEv.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController21MaybeSendWindowUpdateEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 if.end:
-  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
+  %receive_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load i64, ptr %receive_window_offset_, align 8
-  %bytes_consumed_ = getelementptr inbounds i8, ptr %this, i64 32
+  %bytes_consumed_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %1 = load i64, ptr %bytes_consumed_, align 8
   %sub = sub i64 %0, %1
-  %receive_window_size_.i = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_.i = getelementptr inbounds nuw i8, ptr %this, i64 56
   %2 = load i64, ptr %receive_window_size_.i, align 8
   %div1.i = lshr i64 %2, 1
   %cmp.not = icmp ult i64 %sub, %div1.i
@@ -167,33 +167,33 @@ if.end:
 
 if.end6:                                          ; preds = %if.end
   %3 = load ptr, ptr %this, align 8
-  %clock_.i.i = getelementptr inbounds i8, ptr %3, i64 480
+  %clock_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 480
   %4 = load ptr, ptr %clock_.i.i, align 8
   %vtable.i = load ptr, ptr %4, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
+  %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
   %5 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call i64 %5(ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %prev_window_update_time_.i = getelementptr inbounds i8, ptr %this, i64 88
+  %prev_window_update_time_.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %6 = load i64, ptr %prev_window_update_time_.i, align 8
   store i64 %call2.i, ptr %prev_window_update_time_.i, align 8
   %cmp.i.not.i = icmp eq i64 %6, 0
   br i1 %cmp.i.not.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end6
-  %auto_tune_receive_window_.i = getelementptr inbounds i8, ptr %this, i64 72
+  %auto_tune_receive_window_.i = getelementptr inbounds nuw i8, ptr %this, i64 72
   %7 = load i8, ptr %auto_tune_receive_window_.i, align 8
   %tobool.i = trunc i8 %7 to i1
   br i1 %tobool.i, label %if.end6.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit
 
 if.end6.i:                                        ; preds = %if.end.i
   %8 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i.i = getelementptr inbounds i8, ptr %8, i64 3192
+  %sent_packet_manager_.i.i = getelementptr inbounds nuw i8, ptr %8, i64 3192
   %9 = load ptr, ptr %sent_packet_manager_.i.i, align 8
   %vtable9.i = load ptr, ptr %9, align 8
-  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 152
+  %vfn10.i = getelementptr inbounds nuw i8, ptr %vtable9.i, i64 152
   %10 = load ptr, ptr %vfn10.i, align 8
   %call11.i = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call11.i, i64 40
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %call11.i, i64 40
   %retval.sroa.2.0.copyload.i.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i.i, align 8
   %cmp.i1.i = icmp eq i64 %retval.sroa.2.0.copyload.i.i, 0
   br i1 %cmp.i1.i, label %_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit, label %if.end15.i
@@ -207,7 +207,7 @@ if.end15.i:                                       ; preds = %if.end6.i
 if.end26.i:                                       ; preds = %if.end15.i
   %11 = load i64, ptr %receive_window_size_.i, align 8
   %mul.i = shl i64 %11, 1
-  %receive_window_size_limit_.i = getelementptr inbounds i8, ptr %this, i64 64
+  %receive_window_size_limit_.i = getelementptr inbounds nuw i8, ptr %this, i64 64
   %12 = load i64, ptr %receive_window_size_limit_.i, align 8
   %13 = tail call i64 @llvm.umin.i64(i64 %12, i64 %mul.i)
   store i64 %13, ptr %receive_window_size_.i, align 8
@@ -220,10 +220,10 @@ _ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv.exit: ; preds = %if.en
   %add = add i64 %15, %sub7
   store i64 %add, ptr %receive_window_offset_, align 8
   %16 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %17 = load i32, ptr %id_, align 8
   %vtable = load ptr, ptr %16, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 240
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 240
   %18 = load ptr, ptr %vfn, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(3372) %16, i32 noundef %17, i64 noundef %add)
   br label %return
@@ -235,7 +235,7 @@ return:                                           ; preds = %if.end, %_ZN3net18Q
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController27UpdateHighestReceivedOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_offset) local_unnamed_addr #2 align 2 {
 entry:
-  %highest_received_byte_offset_ = getelementptr inbounds i8, ptr %this, i64 40
+  %highest_received_byte_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
   %cmp.not = icmp ugt i64 %new_offset, %0
   br i1 %cmp.not, label %if.end, label %return
@@ -255,10 +255,10 @@ entry:
   %ref.tmp34 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp35 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp40 = alloca %"class.std::allocator", align 1
-  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_, align 8
   %add = add i64 %0, %bytes_sent
-  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_, align 8
   %cmp = icmp ugt i64 %add, %1
   br i1 %cmp, label %if.then, label %if.end
@@ -269,8 +269,8 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 71, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
-  %perspective_ = getelementptr inbounds i8, ptr %this, i64 12
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
+  %perspective_ = getelementptr inbounds nuw i8, ptr %this, i64 12
   %2 = load i32, ptr %perspective_, align 4
   %cmp4 = icmp eq i32 %2, 0
   %cond-lvalue = select i1 %cmp4, ptr @.str.1, ptr @.str.2
@@ -282,7 +282,7 @@ invoke.cont7:                                     ; preds = %cond.false
           to label %invoke.cont9 unwind label %lpad
 
 invoke.cont9:                                     ; preds = %invoke.cont7
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %3 = load i32, ptr %id_, align 8
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEj(ptr noundef nonnull align 8 dereferenceable(8) %call10, i32 noundef %3)
           to label %invoke.cont11 unwind label %lpad
@@ -357,7 +357,7 @@ if.end.i:                                         ; preds = %.noexc
 
 invoke.cont42:                                    ; preds = %if.end.i
   %vtable = load ptr, ptr %7, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 256
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 256
   %9 = load ptr, ptr %vfn, align 8
   invoke void %9(ptr noundef nonnull align 8 dereferenceable(3372) %7, i32 noundef 63, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp34, i32 noundef 1)
           to label %invoke.cont44 unwind label %lpad43
@@ -435,9 +435,9 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController20FlowControlViolationEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %highest_received_byte_offset_ = getelementptr inbounds i8, ptr %this, i64 40
+  %highest_received_byte_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i64, ptr %highest_received_byte_offset_, align 8
-  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
+  %receive_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_, align 8
   %cmp = icmp ugt i64 %0, %1
   ret i1 %cmp
@@ -447,33 +447,33 @@ entry:
 define dso_local void @_ZN3net18QuicFlowController26MaybeIncreaseMaxWindowSizeEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
-  %clock_.i = getelementptr inbounds i8, ptr %0, i64 480
+  %clock_.i = getelementptr inbounds nuw i8, ptr %0, i64 480
   %1 = load ptr, ptr %clock_.i, align 8
   %vtable = load ptr, ptr %1, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
   %2 = load ptr, ptr %vfn, align 8
   %call2 = tail call i64 %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
-  %prev_window_update_time_ = getelementptr inbounds i8, ptr %this, i64 88
+  %prev_window_update_time_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %3 = load i64, ptr %prev_window_update_time_, align 8
   store i64 %call2, ptr %prev_window_update_time_, align 8
   %cmp.i.not = icmp eq i64 %3, 0
   br i1 %cmp.i.not, label %if.end33, label %if.end
 
 if.end:                                           ; preds = %entry
-  %auto_tune_receive_window_ = getelementptr inbounds i8, ptr %this, i64 72
+  %auto_tune_receive_window_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %4 = load i8, ptr %auto_tune_receive_window_, align 8
   %tobool = trunc i8 %4 to i1
   br i1 %tobool, label %if.end6, label %if.end33
 
 if.end6:                                          ; preds = %if.end
   %5 = load ptr, ptr %this, align 8
-  %sent_packet_manager_.i = getelementptr inbounds i8, ptr %5, i64 3192
+  %sent_packet_manager_.i = getelementptr inbounds nuw i8, ptr %5, i64 3192
   %6 = load ptr, ptr %sent_packet_manager_.i, align 8
   %vtable9 = load ptr, ptr %6, align 8
-  %vfn10 = getelementptr inbounds i8, ptr %vtable9, i64 152
+  %vfn10 = getelementptr inbounds nuw i8, ptr %vtable9, i64 152
   %7 = load ptr, ptr %vfn10, align 8
   %call11 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %6)
-  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds i8, ptr %call11, i64 40
+  %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i = getelementptr inbounds nuw i8, ptr %call11, i64 40
   %retval.sroa.2.0.copyload.i = load i64, ptr %retval.sroa.2.0.smoothed_rtt_.sroa_idx.i, align 8
   %cmp.i1 = icmp eq i64 %retval.sroa.2.0.copyload.i, 0
   br i1 %cmp.i1, label %if.end33, label %if.end15
@@ -485,10 +485,10 @@ if.end15:                                         ; preds = %if.end6
   br i1 %cmp.i.i.not, label %if.end26, label %if.end33
 
 if.end26:                                         ; preds = %if.end15
-  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %8 = load i64, ptr %receive_window_size_, align 8
   %mul = shl i64 %8, 1
-  %receive_window_size_limit_ = getelementptr inbounds i8, ptr %this, i64 64
+  %receive_window_size_limit_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %9 = load i64, ptr %receive_window_size_limit_, align 8
   %10 = tail call i64 @llvm.umin.i64(i64 %9, i64 %mul)
   store i64 %10, ptr %receive_window_size_, align 8
@@ -501,7 +501,7 @@ if.end33:                                         ; preds = %if.end26, %if.end15
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i64 0, -9223372036854775808) i64 @_ZN3net18QuicFlowController21WindowUpdateThresholdEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8
   %div1 = lshr i64 %0, 1
   ret i64 %div1
@@ -510,25 +510,25 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFlowController16MaybeSendBlockedEv(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) local_unnamed_addr #1 align 2 {
 entry:
-  %bytes_sent_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
-  %send_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_.i, align 8
   %cmp.not = icmp ugt i64 %1, %0
   br i1 %cmp.not, label %if.end, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %entry
-  %last_blocked_send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 80
+  %last_blocked_send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %2 = load i64, ptr %last_blocked_send_window_offset_, align 8
   %cmp2 = icmp ult i64 %2, %1
   br i1 %cmp2, label %if.then, label %if.end
 
 if.then:                                          ; preds = %land.lhs.true
   %3 = load ptr, ptr %this, align 8
-  %id_ = getelementptr inbounds i8, ptr %this, i64 8
+  %id_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %4 = load i32, ptr %id_, align 8
   %vtable = load ptr, ptr %3, align 8
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 232
+  %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 232
   %5 = load ptr, ptr %vfn, align 8
   tail call void %5(ptr noundef nonnull align 8 dereferenceable(3372) %3, i32 noundef %4)
   %6 = load i64, ptr %send_window_offset_.i, align 8
@@ -542,9 +542,9 @@ if.end:                                           ; preds = %if.then, %land.lhs.
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef i64 @_ZNK3net18QuicFlowController14SendWindowSizeEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %bytes_sent_ = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_, align 8
-  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_, align 8
   %retval.0 = tail call i64 @llvm.usub.sat.i64(i64 %1, i64 %0)
   ret i64 %retval.0
@@ -553,13 +553,13 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local noundef zeroext i1 @_ZN3net18QuicFlowController22UpdateSendWindowOffsetEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %new_send_window_offset) local_unnamed_addr #2 align 2 {
 entry:
-  %send_window_offset_ = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i64, ptr %send_window_offset_, align 8
   %cmp.not = icmp ugt i64 %new_send_window_offset, %0
   br i1 %cmp.not, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  %bytes_sent_.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %1 = load i64, ptr %bytes_sent_.i.i, align 8
   %cmp.i = icmp ule i64 %0, %1
   store i64 %new_send_window_offset, ptr %send_window_offset_, align 8
@@ -573,9 +573,9 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK3net18QuicFlowController9IsBlockedEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %this) local_unnamed_addr #5 align 2 {
 entry:
-  %bytes_sent_.i = getelementptr inbounds i8, ptr %this, i64 16
+  %bytes_sent_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load i64, ptr %bytes_sent_.i, align 8
-  %send_window_offset_.i = getelementptr inbounds i8, ptr %this, i64 24
+  %send_window_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %1 = load i64, ptr %send_window_offset_.i, align 8
   %cmp = icmp ule i64 %1, %0
   ret i1 %cmp
@@ -585,9 +585,9 @@ entry:
 define dso_local void @_ZN3net18QuicFlowController23UpdateReceiveWindowSizeEm(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this, i64 noundef %size) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.logging::LogMessage", align 8
-  %receive_window_size_ = getelementptr inbounds i8, ptr %this, i64 56
+  %receive_window_size_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %receive_window_size_, align 8
-  %receive_window_offset_ = getelementptr inbounds i8, ptr %this, i64 48
+  %receive_window_offset_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %1 = load i64, ptr %receive_window_offset_, align 8
   %cmp.not = icmp eq i64 %0, %1
   br i1 %cmp.not, label %if.end, label %if.then
@@ -598,7 +598,7 @@ if.then:                                          ; preds = %entry
 
 cond.false:                                       ; preds = %if.then
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %ref.tmp2, ptr noundef nonnull @.str, i32 noundef 246, i32 noundef 2)
-  %stream_.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
+  %stream_.i = getelementptr inbounds nuw i8, ptr %ref.tmp2, i64 8
   %call5 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %stream_.i, ptr noundef nonnull @.str.8)
           to label %invoke.cont4 unwind label %lpad
 

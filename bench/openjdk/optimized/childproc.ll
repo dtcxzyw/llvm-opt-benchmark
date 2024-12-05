@@ -53,7 +53,7 @@ define hidden noundef i64 @readFully(i32 noundef %0, ptr nocapture noundef %1, i
   br i1 %11, label %.loopexit, label %12
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %.01520, i64 %7
+  %13 = getelementptr inbounds nuw i8, ptr %.01520, i64 %7
   br label %18
 
 14:                                               ; preds = %.lr.ph
@@ -100,7 +100,7 @@ define hidden noundef i64 @writeFully(i32 noundef %0, ptr nocapture noundef read
   br i1 %9, label %.loopexit, label %10
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i8, ptr %.013.ph, i64 %5
+  %11 = getelementptr inbounds nuw i8, ptr %.013.ph, i64 %5
   br label %.outer
 
 12:                                               ; preds = %4
@@ -133,13 +133,13 @@ define hidden void @initVectorFromBlock(ptr nocapture noundef writeonly %0, ptr 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
   %.012 = phi ptr [ %1, %.lr.ph.preheader ], [ %7, %9 ]
-  %5 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %.012, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %6, %.lr.ph
   %.1 = phi ptr [ %.012, %.lr.ph ], [ %7, %6 ]
-  %7 = getelementptr inbounds i8, ptr %.1, i64 1
+  %7 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %8 = load i8, ptr %.1, align 1
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %9, label %6, !llvm.loop !6
@@ -160,10 +160,10 @@ define hidden void @initVectorFromBlock(ptr nocapture noundef writeonly %0, ptr 
 define hidden noundef i32 @childProcess(ptr nocapture noundef readonly %0) local_unnamed_addr #7 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
-  %4 = getelementptr inbounds i8, ptr %0, i64 24
-  %5 = getelementptr inbounds i8, ptr %0, i64 28
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4
-  %7 = getelementptr inbounds i8, ptr %0, i64 92
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %writeFully.exit, label %9
@@ -188,7 +188,7 @@ define hidden noundef i32 @childProcess(ptr nocapture noundef readonly %0) local
   br i1 %15, label %writeFully.exit, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %.013.i.ph, i64 %11
+  %17 = getelementptr inbounds nuw i8, ptr %.013.i.ph, i64 %11
   br label %.outer
 
 18:                                               ; preds = %10
@@ -202,7 +202,7 @@ define hidden noundef i32 @childProcess(ptr nocapture noundef readonly %0) local
   br i1 %23, label %10, label %writeFully.exit.thread
 
 writeFully.exit:                                  ; preds = %13, %1
-  %24 = getelementptr inbounds i8, ptr %0, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, -1
   br i1 %26, label %closeSafely.exit.thread, label %closeSafely.exit
@@ -213,7 +213,7 @@ closeSafely.exit:                                 ; preds = %writeFully.exit
   br i1 %28, label %writeFully.exit.thread, label %closeSafely.exit.thread
 
 closeSafely.exit.thread:                          ; preds = %writeFully.exit, %closeSafely.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load i32, ptr %29, align 8
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %closeSafely.exit45.thread, label %closeSafely.exit45
@@ -224,7 +224,7 @@ closeSafely.exit45:                               ; preds = %closeSafely.exit.th
   br i1 %33, label %writeFully.exit.thread, label %closeSafely.exit45.thread
 
 closeSafely.exit45.thread:                        ; preds = %closeSafely.exit.thread, %closeSafely.exit45
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, -1
   br i1 %36, label %closeSafely.exit46.thread, label %closeSafely.exit46
@@ -235,7 +235,7 @@ closeSafely.exit46:                               ; preds = %closeSafely.exit45.
   br i1 %38, label %writeFully.exit.thread, label %closeSafely.exit46.thread
 
 closeSafely.exit46.thread:                        ; preds = %closeSafely.exit45.thread, %closeSafely.exit46
-  %39 = getelementptr inbounds i8, ptr %0, i64 32
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %40 = load i32, ptr %39, align 8
   %41 = icmp eq i32 %40, -1
   br i1 %41, label %closeSafely.exit47.thread, label %closeSafely.exit47
@@ -246,7 +246,7 @@ closeSafely.exit47:                               ; preds = %closeSafely.exit46.
   br i1 %43, label %writeFully.exit.thread, label %closeSafely.exit47.thread
 
 closeSafely.exit47.thread:                        ; preds = %closeSafely.exit46.thread, %closeSafely.exit47
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, -1
   br i1 %46, label %closeSafely.exit48.thread, label %closeSafely.exit48
@@ -272,7 +272,7 @@ closeSafely.exit49.thread:                        ; preds = %closeSafely.exit48.
   br i1 %.not39, label %54, label %57
 
 54:                                               ; preds = %closeSafely.exit49.thread
-  %55 = getelementptr inbounds i8, ptr %0, i64 40
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i32, ptr %55, align 8
   br label %57
 
@@ -283,13 +283,13 @@ closeSafely.exit49.thread:                        ; preds = %closeSafely.exit48.
   br i1 %60, label %writeFully.exit.thread, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds i8, ptr %0, i64 12
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %63 = load i32, ptr %62, align 4
   %.not40 = icmp eq i32 %63, -1
   br i1 %.not40, label %64, label %67
 
 64:                                               ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %0, i64 44
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %66 = load i32, ptr %65, align 4
   br label %67
 
@@ -300,10 +300,10 @@ closeSafely.exit49.thread:                        ; preds = %closeSafely.exit48.
   br i1 %70, label %writeFully.exit.thread, label %71
 
 71:                                               ; preds = %67
-  %72 = getelementptr inbounds i8, ptr %0, i64 88
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %73 = load i32, ptr %72, align 8
   %.not41 = icmp eq i32 %73, 0
-  %74 = getelementptr inbounds i8, ptr %0, i64 20
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %75 = load i32, ptr %74, align 4
   %.not42 = icmp eq i32 %75, -1
   br i1 %.not41, label %81, label %76
@@ -325,7 +325,7 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
   br i1 %.not42, label %82, label %85
 
 82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %0, i64 48
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %84 = load i32, ptr %83, align 8
   br label %85
 
@@ -369,7 +369,7 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %104, %95, %92
-  %106 = getelementptr inbounds i8, ptr %0, i64 80
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %107 = load ptr, ptr %106, align 8
   %.not43 = icmp eq ptr %107, null
   br i1 %.not43, label %111, label %108
@@ -385,12 +385,12 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
   br i1 %113, label %writeFully.exit.thread, label %114
 
 114:                                              ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %0, i64 52
+  %115 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %116 = load i32, ptr %115, align 4
-  %117 = getelementptr inbounds i8, ptr %0, i64 56
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %118 = load ptr, ptr %117, align 8
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 72
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %121 = load ptr, ptr %120, align 8
   tail call fastcc void @JDK_execvpe(i32 noundef %116, ptr noundef %119, ptr noundef nonnull %118, ptr noundef %121)
   br label %writeFully.exit.thread
@@ -469,7 +469,7 @@ define internal fastcc range(i32 0, 2) i32 @closeDescriptors() unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %17
   %6 = phi ptr [ %18, %17 ], [ %5, %.preheader ]
-  %7 = getelementptr inbounds i8, ptr %6, i64 19
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 19
   %8 = load i8, ptr %7, align 1
   %9 = add i8 %8, -58
   %10 = icmp ult i8 %9, -10
@@ -553,15 +553,15 @@ define internal fastcc void @JDK_execvpe(i32 noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph.i.i:                                       ; preds = %25, %.lr.ph.i.i
   %.021.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %2, %25 ]
-  %27 = getelementptr inbounds i8, ptr %.021.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %.pr.i.i = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i, label %execve_as_traditional_shell_script.exit.i, label %.lr.ph.i.i, !llvm.loop !12
 
 execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %.0.lcssa.i.i = phi ptr [ %2, %25 ], [ %27, %.lr.ph.i.i ]
-  %28 = getelementptr inbounds i8, ptr %2, i64 16
-  %29 = getelementptr inbounds i8, ptr %2, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = ptrtoint ptr %.0.lcssa.i.i to i64
   %31 = ptrtoint ptr %2 to i64
   %32 = sub i64 %30, %31
@@ -590,8 +590,8 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %sext39 = shl i64 %37, 32
   %41 = ashr exact i64 %sext39, 32
   %42 = icmp eq i32 %0, 3
-  %43 = getelementptr inbounds i8, ptr %2, i64 16
-  %44 = getelementptr inbounds i8, ptr %2, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = ptrtoint ptr %2 to i64
   %invariant.op67 = add i32 %38, 1
   br i1 %42, label %.lr.ph.split.us, label %.lr.ph.split
@@ -647,7 +647,7 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
 
 .lr.ph.i.i42.us:                                  ; preds = %68, %.lr.ph.i.i42.us
   %.021.i.i43.us = phi ptr [ %70, %.lr.ph.i.i42.us ], [ %2, %68 ]
-  %70 = getelementptr inbounds i8, ptr %.021.i.i43.us, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %.021.i.i43.us, i64 8
   %.pr.i.i44.us = load ptr, ptr %70, align 8
   %.not.i.i45.us = icmp eq ptr %.pr.i.i44.us, null
   br i1 %.not.i.i45.us, label %execve_as_traditional_shell_script.exit.i46.us.loopexit, label %.lr.ph.i.i42.us, !llvm.loop !12
@@ -690,7 +690,7 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
 
 77:                                               ; preds = %75, %74, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us, %execve_with_shell_fallback.exit48.us
   %.1.us = phi i32 [ %.03053.us, %75 ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ %.03053.us, %execve_with_shell_fallback.exit48.us ], [ 13, %74 ]
-  %78 = getelementptr inbounds i8, ptr %.03152.us, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.03152.us, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not35.us = icmp eq ptr %79, null
   br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
@@ -757,7 +757,7 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
 
 103:                                              ; preds = %102, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %execve_with_shell_fallback.exit48, %85
   %.1 = phi i32 [ %.03053, %85 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ %.03053, %execve_with_shell_fallback.exit48 ], [ 13, %102 ]
-  %104 = getelementptr inbounds i8, ptr %.03152, i64 8
+  %104 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not35 = icmp eq ptr %105, null
   br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13

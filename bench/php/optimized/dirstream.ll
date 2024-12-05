@@ -53,13 +53,13 @@ define internal noundef i64 @phar_dir_write(ptr nocapture readnone %0, ptr nocap
 define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly %1, i64 noundef %2) #1 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq i64 %2, 257
   br i1 %.not, label %8, label %22
 
 8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %7, i64 36
+  %9 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %10 = call i32 @zend_hash_get_current_key_ex(ptr noundef %7, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %9) #10
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %22, label %12
@@ -67,7 +67,7 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef read
 12:                                               ; preds = %8
   %13 = call i32 @zend_hash_move_forward_ex(ptr noundef %7, ptr noundef nonnull %9) #10
   %14 = load ptr, ptr %4, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = icmp ugt i64 %16, 255
   br i1 %17, label %22, label %18
@@ -76,9 +76,9 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef read
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(257) %1, i8 0, i64 257, i1 false)
   %19 = load i64, ptr %15, align 8
   %. = call i64 @llvm.umin.i64(i64 %19, i64 255)
-  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1, ptr nonnull align 8 %20, i64 %., i1 false)
-  %21 = getelementptr inbounds [256 x i8], ptr %1, i64 0, i64 %.
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %1, i64 0, i64 %.
   store i8 0, ptr %21, align 1
   br label %22
 
@@ -89,7 +89,7 @@ define internal range(i64 -1, 258) i64 @phar_dir_read(ptr nocapture noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @phar_dir_close(ptr nocapture noundef %0, i32 %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %6, label %5
@@ -111,7 +111,7 @@ define internal noundef i32 @phar_dir_flush(ptr nocapture readnone %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, ptr nocapture noundef %3) #1 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %.critedge, label %7
@@ -123,7 +123,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
   ]
 
 .thread:                                          ; preds = %7
-  %8 = getelementptr inbounds i8, ptr %6, i64 28
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 28
   %9 = load i32, ptr %8, align 4
   %10 = zext i32 %9 to i64
   %11 = add nsw i64 %1, %10
@@ -131,7 +131,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
 
 12:                                               ; preds = %7, %.thread
   %.01825 = phi i64 [ %11, %.thread ], [ %1, %7 ]
-  %13 = getelementptr inbounds i8, ptr %6, i64 36
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 36
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %6, ptr noundef nonnull %13) #10
   br label %14
 
@@ -141,7 +141,7 @@ define internal range(i32 -1, 1) i32 @phar_dir_seek(ptr nocapture noundef readon
   br i1 %15, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %16 = getelementptr inbounds i8, ptr %6, i64 36
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 36
   store i64 0, ptr %3, align 8
   %.not27 = icmp eq i64 %.01824, 0
   br i1 %.not27, label %.critedge, label %.lr.ph
@@ -180,7 +180,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
 14:                                               ; preds = %6
   %15 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %15, null
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %11, i64 24
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   %.not98 = icmp eq ptr %.pre, null
   br i1 %.not, label %20, label %16
@@ -189,7 +189,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not98, label %.thread, label %17
 
 17:                                               ; preds = %16
-  %18 = getelementptr inbounds i8, ptr %11, i64 40
+  %18 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not97 = icmp eq ptr %19, null
   br i1 %.not97, label %.thread114, label %25
@@ -198,13 +198,13 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %.not98, label %.thread, label %.thread114
 
 .thread114:                                       ; preds = %17, %20
-  %21 = getelementptr inbounds i8, ptr %11, i64 40
+  %21 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %22 = load ptr, ptr %21, align 8
   %.not99 = icmp eq ptr %22, null
   br i1 %.not99, label %23, label %.thread
 
 23:                                               ; preds = %.thread114
-  %24 = getelementptr inbounds i8, ptr %.pre, i64 24
+  %24 = getelementptr inbounds nuw i8, ptr %.pre, i64 24
   tail call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.2, ptr noundef %1, ptr noundef nonnull %24) #10
   tail call void @php_url_free(ptr noundef nonnull %11) #10
   br label %125
@@ -215,13 +215,13 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br label %125
 
 25:                                               ; preds = %17
-  %26 = getelementptr inbounds i8, ptr %15, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 4
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds i8, ptr %15, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %31 = tail call i32 @zend_binary_strcasecmp(ptr noundef nonnull %30, i64 noundef 4, ptr noundef nonnull @.str.4, i64 noundef 4) #10
   %.not100 = icmp eq i32 %31, 0
   br i1 %.not100, label %33, label %32
@@ -233,13 +233,13 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %.phi.trans.insert, align 8
-  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i64, ptr %35, align 8
   tail call void @phar_request_initialize() #10
   %37 = load ptr, ptr %18, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 25
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 25
   %39 = load ptr, ptr %.phi.trans.insert, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %41 = and i64 %36, 4294967295
   %42 = call i32 @phar_get_archive(ptr noundef nonnull %10, ptr noundef nonnull %40, i64 noundef %41, ptr noundef null, i64 noundef 0, ptr noundef nonnull %7) #10
   %43 = icmp eq i32 %42, -1
@@ -258,7 +258,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %.phi.trans.insert, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.7, ptr noundef nonnull %50) #10
   br label %51
 
@@ -279,17 +279,17 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %37, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %59 = call noalias ptr @_estrndup(ptr noundef nonnull %58, i64 noundef 1) #10
   %60 = load ptr, ptr %10, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 72
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 72
   %62 = call fastcc ptr @phar_make_dirstream(ptr noundef %59, ptr noundef nonnull %61)
   call void @php_url_free(ptr noundef nonnull %11) #10
   br label %125
 
 63:                                               ; preds = %54
   %64 = load ptr, ptr %10, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 80
+  %65 = getelementptr inbounds nuw i8, ptr %64, i64 80
   %66 = load i32, ptr %65, align 8
   %67 = and i32 %66, 8
   %68 = icmp eq i32 %67, 0
@@ -300,7 +300,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   br label %125
 
 70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %64, i64 72
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #11
   %73 = call ptr @zend_hash_str_find(ptr noundef nonnull %71, ptr noundef nonnull %38, i64 noundef %72) #10
   %.not102 = icmp eq ptr %73, null
@@ -308,7 +308,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
 
 74:                                               ; preds = %70
   %75 = load ptr, ptr %73, align 8, !nonnull !4, !noundef !4
-  %76 = getelementptr inbounds i8, ptr %75, i64 154
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 154
   %77 = load i16, ptr %76, align 2
   %78 = and i16 %77, 8
   %.not104 = icmp eq i16 %78, 0
@@ -325,7 +325,7 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
 
 82:                                               ; preds = %80
   call void @php_url_free(ptr noundef nonnull %11) #10
-  %83 = getelementptr inbounds i8, ptr %75, i64 120
+  %83 = getelementptr inbounds nuw i8, ptr %75, i64 120
   %84 = load ptr, ptr %83, align 8
   %85 = call ptr @_php_stream_opendir(ptr noundef %84, i32 noundef %3, ptr noundef %5) #10
   br label %125
@@ -334,43 +334,43 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   %87 = call noalias ptr @_estrdup(ptr noundef nonnull %38) #10
   call void @php_url_free(ptr noundef nonnull %11) #10
   %88 = load ptr, ptr %10, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 72
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = call fastcc ptr @phar_make_dirstream(ptr noundef %87, ptr noundef nonnull %89)
   br label %125
 
 .critedge:                                        ; preds = %70
   %91 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #11
   %92 = load ptr, ptr %10, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 72
-  %94 = getelementptr inbounds i8, ptr %92, i64 108
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 108
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %93, ptr noundef nonnull %94) #10
   br label %95
 
 95:                                               ; preds = %119, %.critedge
   %96 = load ptr, ptr %10, align 8
-  %97 = getelementptr inbounds i8, ptr %96, i64 72
-  %98 = getelementptr inbounds i8, ptr %96, i64 108
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 72
+  %98 = getelementptr inbounds nuw i8, ptr %96, i64 108
   %99 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef nonnull %97, ptr noundef nonnull %98) #10
   %100 = icmp eq i32 %99, 3
   br i1 %100, label %124, label %101
 
 101:                                              ; preds = %95
   %102 = load ptr, ptr %10, align 8
-  %103 = getelementptr inbounds i8, ptr %102, i64 72
-  %104 = getelementptr inbounds i8, ptr %102, i64 108
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 72
+  %104 = getelementptr inbounds nuw i8, ptr %102, i64 108
   %105 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %103, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %104) #10
   %.not107 = icmp eq i32 %105, 3
   br i1 %.not107, label %119, label %106
 
 106:                                              ; preds = %101
   %107 = load ptr, ptr %8, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 16
+  %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i64, ptr %108, align 8
   %110 = icmp ugt i64 %109, %91
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %106
-  %112 = getelementptr inbounds i8, ptr %107, i64 24
+  %112 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %bcmp = call i32 @bcmp(ptr nonnull %112, ptr nonnull %38, i64 %91)
   %113 = icmp eq i32 %bcmp, 0
   br i1 %113, label %114, label %119
@@ -379,14 +379,14 @@ define hidden ptr @phar_wrapper_open_dir(ptr noundef %0, ptr noundef %1, ptr nou
   %115 = call noalias ptr @_estrndup(ptr noundef nonnull %38, i64 noundef %91) #10
   call void @php_url_free(ptr noundef nonnull %11) #10
   %116 = load ptr, ptr %10, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 72
+  %117 = getelementptr inbounds nuw i8, ptr %116, i64 72
   %118 = call fastcc ptr @phar_make_dirstream(ptr noundef %115, ptr noundef nonnull %117)
   br label %125
 
 119:                                              ; preds = %106, %111, %101
   %120 = load ptr, ptr %10, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 72
-  %122 = getelementptr inbounds i8, ptr %120, i64 108
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 108
   %123 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %121, ptr noundef nonnull %122) #10
   %.not108 = icmp eq i32 %123, 0
   br i1 %.not108, label %95, label %124
@@ -431,7 +431,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %or.cond, label %11, label %15
 
 11:                                               ; preds = %2
-  %12 = getelementptr inbounds i8, ptr %1, i64 28
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %18, label %.thread
@@ -451,7 +451,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br label %107
 
 .thread:                                          ; preds = %11, %17, %15
-  %20 = getelementptr inbounds i8, ptr %1, i64 36
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 36
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %1, ptr noundef nonnull %20) #10
   %21 = tail call i32 @zend_hash_get_current_key_type_ex(ptr noundef %1, ptr noundef nonnull %20) #10
   %22 = icmp eq i32 %21, 3
@@ -459,7 +459,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 
 .lr.ph:                                           ; preds = %.thread
   %23 = xor i64 %6, -1
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.backedge
@@ -469,7 +469,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8
   %.not122 = icmp ugt i64 %31, %6
   br i1 %.not122, label %42, label %32
@@ -481,7 +481,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %or.cond137, label %38, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %29, i64 24
+  %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %37 = call i32 @strncmp(ptr noundef nonnull %36, ptr noundef nonnull %0, i64 noundef %6) #11
   %.not123 = icmp eq i32 %37, 0
   br i1 %.not123, label %38, label %42
@@ -506,7 +506,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %46, label %47, label %51
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %29, i64 24
+  %48 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %bcmp129 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %48, ptr noundef nonnull dereferenceable(5) @.str.24, i64 5)
   %.not130 = icmp eq i32 %bcmp129, 0
   br i1 %.not130, label %49, label %51
@@ -517,7 +517,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not131, label %.backedge, label %._crit_edge
 
 51:                                               ; preds = %47, %45
-  %52 = getelementptr inbounds i8, ptr %29, i64 24
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %53 = call ptr @memchr(ptr noundef nonnull %52, i32 noundef 47, i64 noundef %31) #11
   %.not132 = icmp eq ptr %53, null
   br i1 %.not132, label %.thread138, label %54
@@ -528,7 +528,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   %57 = sub i64 %55, %56
   %58 = call noalias ptr @_safe_emalloc(i64 noundef %57, i64 noundef 1, i64 noundef 1) #10
   %59 = load ptr, ptr %4, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = ptrtoint ptr %60 to i64
   %62 = sub i64 %55, %61
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %58, ptr nonnull align 8 %60, i64 %62, i1 false)
@@ -539,14 +539,14 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
 .thread138:                                       ; preds = %51
   %64 = call noalias ptr @_safe_emalloc(i64 noundef %31, i64 noundef 1, i64 noundef 1) #10
   %65 = load ptr, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr nonnull align 8 %66, i64 %31, i1 false)
   %67 = getelementptr inbounds i8, ptr %64, i64 %31
   store i8 0, ptr %67, align 1
   br label %95
 
 68:                                               ; preds = %42
-  %69 = getelementptr inbounds i8, ptr %29, i64 24
+  %69 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %bcmp145 = call i32 @bcmp(ptr nonnull %69, ptr nonnull %0, i64 %6)
   %.not124 = icmp eq i32 %bcmp145, 0
   br i1 %.not124, label %72, label %70
@@ -619,7 +619,7 @@ define internal fastcc ptr @phar_make_dirstream(ptr noundef %0, ptr noundef %1) 
   br i1 %.not134, label %.backedge, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.backedge, %25, %38, %49, %70, %75, %98, %.thread
-  %100 = getelementptr inbounds i8, ptr %7, i64 36
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 36
   %101 = call i32 @zend_hash_get_current_key_type_ex(ptr noundef %7, ptr noundef nonnull %100) #10
   %102 = icmp eq i32 %101, 3
   call void @_efree(ptr noundef nonnull %0) #10
@@ -691,7 +691,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   br i1 %.not148, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 324
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 324
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 128
   %.not149 = icmp eq i16 %32, 0
@@ -712,13 +712,13 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   br i1 %.not150, label %45, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not151 = icmp eq ptr %41, null
   br i1 %.not151, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %35, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %44 = load ptr, ptr %43, align 8
   %.not152 = icmp eq ptr %44, null
   br i1 %.not152, label %45, label %46
@@ -729,13 +729,13 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   br label %165
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %38, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 4
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %38, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %52 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %51, i64 noundef 4, ptr noundef nonnull @.str.4, i64 noundef 4) #10
   %.not153 = icmp eq i32 %52, 0
   br i1 %.not153, label %54, label %53
@@ -747,9 +747,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %59 = and i64 %57, 4294967295
   %60 = call i32 @phar_get_archive(ptr noundef nonnull %7, ptr noundef nonnull %58, i64 noundef %59, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8) #10
   %61 = icmp eq i32 %60, -1
@@ -757,9 +757,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 62:                                               ; preds = %54
   %63 = load ptr, ptr %43, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 25
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 25
   %65 = load ptr, ptr %40, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.13, ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %67) #10
   %68 = load ptr, ptr %8, align 8
@@ -770,8 +770,8 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 69:                                               ; preds = %54
   %70 = load ptr, ptr %7, align 8
   %71 = load ptr, ptr %43, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 25
-  %73 = getelementptr inbounds i8, ptr %71, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 25
+  %73 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %74 = load i64, ptr %73, align 8
   %75 = add i64 %74, -1
   %76 = call ptr @phar_get_entry_info_dir(ptr noundef %70, ptr noundef nonnull %72, i64 noundef %75, i8 noundef signext 2, ptr noundef nonnull %8, i32 noundef 1) #10
@@ -779,14 +779,14 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   br i1 %.not154, label %89, label %77
 
 77:                                               ; preds = %69
-  %78 = getelementptr inbounds i8, ptr %76, i64 154
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 154
   %79 = load i16, ptr %78, align 2
   %80 = and i16 %79, 32
   %.not163 = icmp eq i16 %80, 0
   br i1 %.not163, label %84, label %81
 
 81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %76, i64 56
+  %82 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %83 = load ptr, ptr %82, align 8
   call void @_efree(ptr noundef %83) #10
   call void @_efree(ptr noundef nonnull %76) #10
@@ -794,9 +794,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 84:                                               ; preds = %81, %77
   %85 = load ptr, ptr %43, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 25
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 25
   %87 = load ptr, ptr %40, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 24
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.14, ptr noundef nonnull %86, ptr noundef nonnull %88) #10
   call void @php_url_free(ptr noundef nonnull %35) #10
   br label %165
@@ -808,9 +808,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 91:                                               ; preds = %89
   %92 = load ptr, ptr %43, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 25
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 25
   %94 = load ptr, ptr %40, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 24
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.15, ptr noundef nonnull %93, ptr noundef nonnull %95, ptr noundef nonnull %90) #10
   %96 = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %96) #10
@@ -820,8 +820,8 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 97:                                               ; preds = %89
   %98 = load ptr, ptr %7, align 8
   %99 = load ptr, ptr %43, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 25
-  %101 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 25
+  %101 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %102 = load i64, ptr %101, align 8
   %103 = add i64 %102, -1
   %104 = call ptr @phar_get_entry_info_dir(ptr noundef %98, ptr noundef nonnull %100, i64 noundef %103, i8 noundef signext 0, ptr noundef nonnull %8, i32 noundef 1) #10
@@ -830,9 +830,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 105:                                              ; preds = %97
   %106 = load ptr, ptr %43, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 25
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 25
   %108 = load ptr, ptr %40, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 24
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.16, ptr noundef nonnull %107, ptr noundef nonnull %109) #10
   call void @php_url_free(ptr noundef nonnull %35) #10
   br label %165
@@ -844,9 +844,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 112:                                              ; preds = %110
   %113 = load ptr, ptr %43, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 25
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 25
   %115 = load ptr, ptr %40, align 8
-  %116 = getelementptr inbounds i8, ptr %115, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.15, ptr noundef nonnull %114, ptr noundef nonnull %116, ptr noundef nonnull %111) #10
   %117 = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %117) #10
@@ -855,21 +855,21 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
 
 118:                                              ; preds = %110
   %119 = load ptr, ptr %7, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 324
+  %120 = getelementptr inbounds nuw i8, ptr %119, i64 324
   %121 = load i16, ptr %120, align 4
   %122 = shl i16 %121, 2
   %spec.select = and i16 %122, 128
   %123 = load ptr, ptr %43, align 8
-  %124 = getelementptr inbounds i8, ptr %123, i64 25
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 25
   %125 = call noalias ptr @_estrdup(ptr noundef nonnull %124) #10
   %126 = load ptr, ptr %7, align 8
-  %127 = getelementptr inbounds i8, ptr %126, i64 324
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 324
   %128 = load i16, ptr %127, align 4
   %129 = and i16 %128, 64
   %.not159 = icmp eq i16 %129, 0
   %.sroa.16125.0 = select i1 %.not159, i8 0, i8 53
   %130 = load ptr, ptr %43, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 8
   %133 = trunc i64 %132 to i32
   %134 = add i32 %133, -1
@@ -877,17 +877,17 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   %135 = load ptr, ptr %7, align 8
   %.sroa.17126.1 = or disjoint i16 %spec.select, %129
   %136 = or disjoint i16 %.sroa.17126.1, 11
-  %137 = getelementptr inbounds i8, ptr %135, i64 72
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 72
   %138 = zext i32 %134 to i64
   store ptr null, ptr %6, align 8
-  %139 = getelementptr inbounds i8, ptr %6, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 13, ptr %139, align 8
   %140 = call ptr @zend_hash_str_add(ptr noundef nonnull %137, ptr noundef %125, i64 noundef %138, ptr noundef nonnull %6) #10
   %.not160 = icmp eq ptr %140, null
   br i1 %.not160, label %.critedge, label %141
 
 141:                                              ; preds = %118
-  %142 = getelementptr inbounds i8, ptr %135, i64 76
+  %142 = getelementptr inbounds nuw i8, ptr %135, i64 76
   %143 = load i32, ptr %142, align 4
   %144 = and i32 %143, 128
   %.not161 = icmp eq i32 %144, 0
@@ -914,31 +914,31 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   %153 = phi ptr [ %146, %145 ], [ %148, %147 ]
   store ptr %153, ptr %140, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %153, i8 0, i64 16, i1 false)
-  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 16
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 16
   store i32 511, ptr %.sroa.2.0..sroa_idx, align 1
-  %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 20
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 20
   store i32 511, ptr %.sroa.3.0..sroa_idx, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 24
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.4.0..sroa_idx, i8 0, i64 24, i1 false)
-  %.sroa.4115.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 48
+  %.sroa.4115.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 48
   store i32 %134, ptr %.sroa.4115.0..sroa_idx, align 1
-  %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 52
+  %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 52
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 1
-  %.sroa.8118.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 56
+  %.sroa.8118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 56
   store ptr %125, ptr %.sroa.8118.0..sroa_idx, align 1
-  %.sroa.15.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 64
+  %.sroa.15.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %.sroa.15.0..sroa_idx, i8 0, i64 64, i1 false)
-  %.sroa.15124.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 128
+  %.sroa.15124.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 128
   store ptr %135, ptr %.sroa.15124.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 136
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 136
   store ptr null, ptr %.sroa.16.0..sroa_idx, align 1
-  %.sroa.16125.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 144
+  %.sroa.16125.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 144
   store i8 %.sroa.16125.0, ptr %.sroa.16125.0..sroa_idx, align 1
-  %.sroa.17.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 145
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 145
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.17.0..sroa_idx, i8 0, i64 9, i1 false)
-  %.sroa.17126.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 154
+  %.sroa.17126.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 154
   store i16 %136, ptr %.sroa.17126.0..sroa_idx, align 1
-  %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %153, i64 156
+  %.sroa.27.0..sroa_idx = getelementptr inbounds nuw i8, ptr %153, i64 156
   store i32 0, ptr %.sroa.27.0..sroa_idx, align 1
   %154 = load ptr, ptr %7, align 8
   %155 = call i32 @phar_flush(ptr noundef %154, ptr noundef null, i64 noundef 0, i32 noundef 0, ptr noundef nonnull %8) #10
@@ -951,7 +951,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_mkdir(ptr noundef %0, ptr nounde
   %159 = load ptr, ptr %157, align 8
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %3, ptr noundef nonnull @.str.15, ptr noundef %125, ptr noundef %159, ptr noundef nonnull %156) #10
   %160 = load ptr, ptr %7, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 72
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 72
   %162 = call i32 @zend_hash_str_del(ptr noundef nonnull %161, ptr noundef %125, i64 noundef %138) #10
   %163 = load ptr, ptr %8, align 8
   call void @_efree(ptr noundef %163) #10
@@ -1025,7 +1025,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not102, label %33, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %28, i64 324
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 324
   %31 = load i16, ptr %30, align 4
   %32 = and i16 %31, 128
   %.not103 = icmp eq i16 %32, 0
@@ -1046,13 +1046,13 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not104, label %45, label %39
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %35, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %41 = load ptr, ptr %40, align 8
   %.not105 = icmp eq ptr %41, null
   br i1 %.not105, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %35, i64 40
+  %43 = getelementptr inbounds nuw i8, ptr %35, i64 40
   %44 = load ptr, ptr %43, align 8
   %.not106 = icmp eq ptr %44, null
   br i1 %.not106, label %45, label %46
@@ -1063,13 +1063,13 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br label %186
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %38, i64 16
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %48 = load i64, ptr %47, align 8
   %49 = icmp eq i64 %48, 4
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds i8, ptr %38, i64 24
+  %51 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %52 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %51, i64 noundef 4, ptr noundef nonnull @.str.4, i64 noundef 4) #10
   %.not107 = icmp eq i32 %52, 0
   br i1 %.not107, label %54, label %53
@@ -1081,9 +1081,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 54:                                               ; preds = %50
   %55 = load ptr, ptr %40, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %55, i64 24
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %59 = and i64 %57, 4294967295
   %60 = call i32 @phar_get_archive(ptr noundef nonnull %5, ptr noundef nonnull %58, i64 noundef %59, ptr noundef null, i64 noundef 0, ptr noundef nonnull %6) #10
   %61 = icmp eq i32 %60, -1
@@ -1091,9 +1091,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %61, label %63, label %69
 
 63:                                               ; preds = %54
-  %64 = getelementptr inbounds i8, ptr %62, i64 25
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 25
   %65 = load ptr, ptr %40, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
   %67 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @php_stream_wrapper_log_error(ptr noundef %0, i32 noundef %2, ptr noundef nonnull @.str.20, ptr noundef nonnull %64, ptr noundef nonnull %66, ptr noundef %67) #10
   %68 = load ptr, ptr %6, align 8
@@ -1102,11 +1102,11 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br label %186
 
 69:                                               ; preds = %54
-  %70 = getelementptr inbounds i8, ptr %62, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, 4294967295
   %73 = load ptr, ptr %5, align 8
-  %74 = getelementptr inbounds i8, ptr %62, i64 25
+  %74 = getelementptr inbounds nuw i8, ptr %62, i64 25
   %75 = and i64 %72, 4294967295
   %76 = call ptr @phar_get_entry_info_dir(ptr noundef %73, ptr noundef nonnull %74, i64 noundef %75, i8 noundef signext 2, ptr noundef nonnull %6, i32 noundef 1) #10
   %.not108 = icmp eq ptr %76, null
@@ -1116,9 +1116,9 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   %78 = load ptr, ptr %6, align 8
   %.not109 = icmp eq ptr %78, null
   %79 = load ptr, ptr %43, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i64 25
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 25
   %81 = load ptr, ptr %40, align 8
-  %82 = getelementptr inbounds i8, ptr %81, i64 24
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   br i1 %.not109, label %85, label %83
 
 83:                                               ; preds = %77
@@ -1136,7 +1136,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br label %186
 
 87:                                               ; preds = %69
-  %88 = getelementptr inbounds i8, ptr %76, i64 154
+  %88 = getelementptr inbounds nuw i8, ptr %76, i64 154
   %89 = load i16, ptr %88, align 2
   %90 = and i16 %89, 4
   %.not110 = icmp eq i16 %90, 0
@@ -1144,33 +1144,33 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %5, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 72
-  %94 = getelementptr inbounds i8, ptr %92, i64 108
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 108
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %93, ptr noundef nonnull %94) #10
   %95 = load ptr, ptr %5, align 8
-  %96 = getelementptr inbounds i8, ptr %95, i64 72
-  %97 = getelementptr inbounds i8, ptr %95, i64 108
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 72
+  %97 = getelementptr inbounds nuw i8, ptr %95, i64 108
   %98 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %96, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %97) #10
   %.not111118 = icmp eq i32 %98, 3
   br i1 %.not111118, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %91, %119
   %99 = load ptr, ptr %11, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i64, ptr %100, align 8
   %102 = icmp ugt i64 %101, %75
   br i1 %102, label %103, label %119
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr inbounds i8, ptr %99, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %105 = load ptr, ptr %43, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 25
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 25
   %bcmp114 = call i32 @bcmp(ptr nonnull %104, ptr nonnull %106, i64 %75)
   %107 = icmp eq i32 %bcmp114, 0
   br i1 %107, label %108, label %119
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds [1 x i8], ptr %104, i64 0, i64 %75
+  %109 = getelementptr inbounds nuw [1 x i8], ptr %104, i64 0, i64 %75
   %110 = load i8, ptr %109, align 1
   %111 = icmp eq i8 %110, 47
   br i1 %111, label %112, label %119
@@ -1183,7 +1183,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not115, label %118, label %115
 
 115:                                              ; preds = %112
-  %116 = getelementptr inbounds i8, ptr %76, i64 56
+  %116 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %117 = load ptr, ptr %116, align 8
   call void @_efree(ptr noundef %117) #10
   call void @_efree(ptr noundef nonnull %76) #10
@@ -1195,45 +1195,45 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 119:                                              ; preds = %.lr.ph, %103, %108
   %120 = load ptr, ptr %5, align 8
-  %121 = getelementptr inbounds i8, ptr %120, i64 72
-  %122 = getelementptr inbounds i8, ptr %120, i64 108
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 72
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 108
   %123 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %121, ptr noundef nonnull %122) #10
   %124 = load ptr, ptr %5, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 72
-  %126 = getelementptr inbounds i8, ptr %124, i64 108
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 72
+  %126 = getelementptr inbounds nuw i8, ptr %124, i64 108
   %127 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %125, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %126) #10
   %.not111 = icmp eq i32 %127, 3
   br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %119, %91
   %128 = load ptr, ptr %5, align 8
-  %129 = getelementptr inbounds i8, ptr %128, i64 128
-  %130 = getelementptr inbounds i8, ptr %128, i64 164
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 128
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 164
   call void @zend_hash_internal_pointer_reset_ex(ptr noundef nonnull %129, ptr noundef nonnull %130) #10
   %131 = load ptr, ptr %5, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 128
-  %133 = getelementptr inbounds i8, ptr %131, i64 164
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
+  %133 = getelementptr inbounds nuw i8, ptr %131, i64 164
   %134 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %132, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %133) #10
   %.not112119 = icmp eq i32 %134, 3
   br i1 %.not112119, label %.loopexit, label %.lr.ph121
 
 .lr.ph121:                                        ; preds = %._crit_edge, %155
   %135 = load ptr, ptr %11, align 8
-  %136 = getelementptr inbounds i8, ptr %135, i64 16
+  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %137 = load i64, ptr %136, align 8
   %138 = icmp ugt i64 %137, %75
   br i1 %138, label %139, label %155
 
 139:                                              ; preds = %.lr.ph121
-  %140 = getelementptr inbounds i8, ptr %135, i64 24
+  %140 = getelementptr inbounds nuw i8, ptr %135, i64 24
   %141 = load ptr, ptr %43, align 8
-  %142 = getelementptr inbounds i8, ptr %141, i64 25
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 25
   %bcmp = call i32 @bcmp(ptr nonnull %140, ptr nonnull %142, i64 %75)
   %143 = icmp eq i32 %bcmp, 0
   br i1 %143, label %144, label %155
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds [1 x i8], ptr %140, i64 0, i64 %75
+  %145 = getelementptr inbounds nuw [1 x i8], ptr %140, i64 0, i64 %75
   %146 = load i8, ptr %145, align 1
   %147 = icmp eq i8 %146, 47
   br i1 %147, label %148, label %155
@@ -1246,7 +1246,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not113, label %154, label %151
 
 151:                                              ; preds = %148
-  %152 = getelementptr inbounds i8, ptr %76, i64 56
+  %152 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %153 = load ptr, ptr %152, align 8
   call void @_efree(ptr noundef %153) #10
   call void @_efree(ptr noundef nonnull %76) #10
@@ -1258,12 +1258,12 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 155:                                              ; preds = %.lr.ph121, %139, %144
   %156 = load ptr, ptr %5, align 8
-  %157 = getelementptr inbounds i8, ptr %156, i64 128
-  %158 = getelementptr inbounds i8, ptr %156, i64 164
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 128
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 164
   %159 = call i32 @zend_hash_move_forward_ex(ptr noundef nonnull %157, ptr noundef nonnull %158) #10
   %160 = load ptr, ptr %5, align 8
-  %161 = getelementptr inbounds i8, ptr %160, i64 128
-  %162 = getelementptr inbounds i8, ptr %160, i64 164
+  %161 = getelementptr inbounds nuw i8, ptr %160, i64 128
+  %162 = getelementptr inbounds nuw i8, ptr %160, i64 164
   %163 = call i32 @zend_hash_get_current_key_ex(ptr noundef nonnull %161, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %162) #10
   %.not112 = icmp eq i32 %163, 3
   br i1 %.not112, label %.loopexit, label %.lr.ph121
@@ -1276,11 +1276,11 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
 
 166:                                              ; preds = %.loopexit
   %167 = load ptr, ptr %5, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 128
+  %168 = getelementptr inbounds nuw i8, ptr %167, i64 128
   %169 = load ptr, ptr %43, align 8
-  %170 = getelementptr inbounds i8, ptr %169, i64 25
+  %170 = getelementptr inbounds nuw i8, ptr %169, i64 25
   %171 = call i32 @zend_hash_str_del(ptr noundef nonnull %168, ptr noundef nonnull %170, i64 noundef %75) #10
-  %172 = getelementptr inbounds i8, ptr %76, i64 56
+  %172 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %173 = load ptr, ptr %172, align 8
   call void @_efree(ptr noundef %173) #10
   call void @_efree(ptr noundef nonnull %76) #10
@@ -1296,7 +1296,7 @@ define hidden range(i32 0, 2) i32 @phar_wrapper_rmdir(ptr noundef %0, ptr nounde
   br i1 %.not117, label %185, label %179
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds i8, ptr %76, i64 56
+  %180 = getelementptr inbounds nuw i8, ptr %76, i64 56
   %181 = load ptr, ptr %180, align 8
   %182 = load ptr, ptr %5, align 8
   %183 = load ptr, ptr %182, align 8
@@ -1338,15 +1338,15 @@ declare noalias ptr @_safe_emalloc(i64 noundef, i64 noundef, i64 noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 2) i32 @phar_compare_dir_name(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1) #1 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 24
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 24
-  %6 = getelementptr inbounds i8, ptr %4, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %1, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 24
-  %11 = getelementptr inbounds i8, ptr %9, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 8
   %13 = tail call i32 @zend_binary_strcmp(ptr noundef nonnull %5, i64 noundef %7, ptr noundef nonnull %10, i64 noundef %12) #10
   %.not = icmp eq i32 %13, 0

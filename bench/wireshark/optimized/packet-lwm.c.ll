@@ -233,7 +233,7 @@ define hidden void @proto_reg_handoff_lwm() #0 {
   br i1 %.not, label %.critedge, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %5, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 15
   %12 = zext i1 %11 to i32
@@ -264,7 +264,7 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = alloca [4 x i32], align 16
-  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %10, i32 noundef 34, ptr noundef nonnull @.str.87) #4
   %11 = load ptr, ptr %9, align 8
@@ -465,22 +465,22 @@ define internal i32 @dissect_lwm(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   store i32 %40, ptr %8, align 16
   %121 = shl nuw i32 %54, 16
   %122 = or disjoint i32 %121, %78
-  %123 = getelementptr inbounds i8, ptr %8, i64 4
+  %123 = getelementptr inbounds nuw i8, ptr %8, i64 4
   store i32 %122, ptr %123, align 4
   %124 = shl nuw i32 %45, 16
   %125 = or disjoint i32 %124, %72
-  %126 = getelementptr inbounds i8, ptr %8, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i32 %125, ptr %126, align 8
-  %127 = getelementptr inbounds i8, ptr %3, i64 64
+  %127 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %128 = load i16, ptr %127, align 8
   %129 = zext i16 %128 to i32
   %130 = shl nuw i32 %129, 16
   %131 = or disjoint i32 %130, %20
-  %132 = getelementptr inbounds i8, ptr %8, i64 12
+  %132 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 %131, ptr %132, align 4
   %133 = call i32 @tvb_reported_length(ptr noundef %113) #4
   %134 = add i32 %133, -4
-  %135 = getelementptr inbounds i8, ptr %1, i64 408
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %136 = load ptr, ptr %135, align 8
   %137 = sext i32 %134 to i64
   %138 = call ptr @tvb_memdup(ptr noundef %136, ptr noundef %113, i32 noundef 0, i64 noundef %137) #4
@@ -776,7 +776,7 @@ declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_add
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @dissect_lwm_cmd_frame_ack(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 1) #4
-  %5 = getelementptr inbounds i8, ptr %1, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = zext i8 %4 to i32
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %6, i32 noundef 25, ptr noundef nonnull @.str.123, i32 noundef %7) #4

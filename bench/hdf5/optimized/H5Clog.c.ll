@@ -66,7 +66,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_set_up(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr %6, align 8
   %8 = trunc i8 %7 to i1
@@ -141,7 +141,7 @@ declare i32 @H5C__log_trace_set_up(ptr noundef, ptr noundef, i32 noundef) local_
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_start_logging(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -155,9 +155,9 @@ define range(i32 -1, 1) i32 @H5C_start_logging(ptr nocapture noundef readonly %0
   br label %40
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %23, label %16
@@ -179,18 +179,18 @@ define range(i32 -1, 1) i32 @H5C_start_logging(ptr nocapture noundef readonly %0
 
 23:                                               ; preds = %._crit_edge, %11
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %3, %11 ]
-  %25 = getelementptr inbounds i8, ptr %24, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   store i8 1, ptr %25, align 1
   %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %28, i64 32
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
   %.not13 = icmp eq ptr %30, null
   br i1 %.not13, label %40, label %31
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds i8, ptr %26, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i32 %30(ptr noundef %33) #3
   %35 = icmp slt i32 %34, 0
@@ -209,7 +209,7 @@ define range(i32 -1, 1) i32 @H5C_start_logging(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_tear_down(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -223,7 +223,7 @@ define range(i32 -1, 1) i32 @H5C_log_tear_down(ptr nocapture noundef readonly %0
   br label %37
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = trunc i8 %13 to i1
   br i1 %14, label %15, label %22
@@ -245,9 +245,9 @@ define range(i32 -1, 1) i32 @H5C_log_tear_down(ptr nocapture noundef readonly %0
 
 22:                                               ; preds = %._crit_edge, %11
   %23 = phi ptr [ %.pre, %._crit_edge ], [ %3, %11 ]
-  %24 = getelementptr inbounds i8, ptr %23, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %35, label %28
@@ -279,7 +279,7 @@ define range(i32 -1, 1) i32 @H5C_log_tear_down(ptr nocapture noundef readonly %0
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = load i8, ptr %3, align 8
   %5 = and i8 %4, 1
@@ -293,7 +293,7 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
   br label %49
 
 11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %3, i64 1
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = and i8 %13, 1
   %15 = icmp eq i8 %14, 0
@@ -306,15 +306,15 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
   br label %49
 
 20:                                               ; preds = %11
-  %21 = getelementptr inbounds i8, ptr %3, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
   br i1 %.not, label %34, label %25
 
 25:                                               ; preds = %20
-  %26 = getelementptr inbounds i8, ptr %3, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 %24(ptr noundef %27) #3
   %29 = icmp slt i32 %28, 0
@@ -322,7 +322,7 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
 
 ._crit_edge:                                      ; preds = %25
   %.pre = load ptr, ptr %2, align 8
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 8
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.pre16 = load ptr, ptr %.phi.trans.insert, align 8
   br label %34
 
@@ -335,7 +335,7 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
 34:                                               ; preds = %._crit_edge, %20
   %35 = phi ptr [ %.pre16, %._crit_edge ], [ %22, %20 ]
   %36 = phi ptr [ %.pre, %._crit_edge ], [ %3, %20 ]
-  %37 = getelementptr inbounds i8, ptr %35, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %38 = load ptr, ptr %37, align 8
   %.not15 = icmp eq ptr %38, null
   br i1 %.not15, label %46, label %39
@@ -357,7 +357,7 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
 
 46:                                               ; preds = %._crit_edge17, %34
   %47 = phi ptr [ %.pre18, %._crit_edge17 ], [ %36, %34 ]
-  %48 = getelementptr inbounds i8, ptr %47, i64 1
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 1
   store i8 0, ptr %48, align 1
   br label %49
 
@@ -368,13 +368,13 @@ define range(i32 -1, 1) i32 @H5C_stop_logging(ptr nocapture noundef readonly %0)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef i32 @H5C_get_logging_status(ptr nocapture noundef readonly %0, ptr nocapture noundef writeonly initializes((0, 1)) %1, ptr nocapture noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #2 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = load i8, ptr %5, align 8
   %7 = and i8 %6, 1
   store i8 %7, ptr %1, align 1
   %8 = load ptr, ptr %4, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 1
   store i8 %11, ptr %2, align 1
@@ -383,17 +383,17 @@ define noundef i32 @H5C_get_logging_status(ptr nocapture noundef readonly %0, pt
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_create_cache_msg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %8(ptr noundef %11, i32 noundef %1) #3
   %13 = icmp slt i32 %12, 0
@@ -412,17 +412,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_create_cache_msg(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_destroy_cache_msg(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 56
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %1
-  %9 = getelementptr inbounds i8, ptr %3, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %7(ptr noundef %10) #3
   %12 = icmp slt i32 %11, 0
@@ -441,17 +441,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_destroy_cache_msg(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_evict_cache_msg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 64
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 64
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %8(ptr noundef %11, i32 noundef %1) #3
   %13 = icmp slt i32 %12, 0
@@ -470,17 +470,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_evict_cache_msg(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_expunge_entry_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 72
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %10(ptr noundef %13, i64 noundef %1, i32 noundef %2, i32 noundef %3) #3
   %15 = icmp slt i32 %14, 0
@@ -499,17 +499,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_expunge_entry_msg(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_flush_cache_msg(ptr nocapture noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %18, label %9
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %4, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 %8(ptr noundef %11, i32 noundef %1) #3
   %13 = icmp slt i32 %12, 0
@@ -528,17 +528,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_flush_cache_msg(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_insert_entry_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %10, i64 88
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 88
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %22, label %13
 
 13:                                               ; preds = %6
-  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %12(ptr noundef %15, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) #3
   %17 = icmp slt i32 %16, 0
@@ -557,17 +557,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_insert_entry_msg(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_mark_entry_dirty_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -586,17 +586,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_mark_entry_dirty_msg(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_mark_entry_clean_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 104
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -615,17 +615,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_mark_entry_clean_msg(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_mark_unserialized_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 112
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -644,17 +644,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_mark_unserialized_entry_msg(ptr nocap
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_mark_serialized_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 120
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -673,17 +673,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_mark_serialized_entry_msg(ptr nocaptu
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_move_entry_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 128
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 128
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %11(ptr noundef %14, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) #3
   %16 = icmp slt i32 %15, 0
@@ -702,17 +702,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_move_entry_msg(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_pin_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 136
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -731,17 +731,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_pin_entry_msg(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_create_fd_msg(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 144
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %10(ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %15 = icmp slt i32 %14, 0
@@ -760,17 +760,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_create_fd_msg(ptr nocapture noundef r
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_protect_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 152
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 152
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %11(ptr noundef %14, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3
   %16 = icmp slt i32 %15, 0
@@ -789,17 +789,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_protect_entry_msg(ptr nocapture nound
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_resize_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 160
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 160
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %10(ptr noundef %13, ptr noundef %1, i64 noundef %2, i32 noundef %3) #3
   %15 = icmp slt i32 %14, 0
@@ -818,17 +818,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_resize_entry_msg(ptr nocapture nounde
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_unpin_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -847,17 +847,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_unpin_entry_msg(ptr nocapture noundef
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_destroy_fd_msg(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds i8, ptr %6, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 176
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %20, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr inbounds i8, ptr %6, i64 16
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %10(ptr noundef %13, ptr noundef %1, ptr noundef %2, i32 noundef %3) #3
   %15 = icmp slt i32 %14, 0
@@ -876,17 +876,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_destroy_fd_msg(ptr nocapture noundef 
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_unprotect_entry_msg(ptr nocapture noundef readonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i8, ptr %0, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 184
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 184
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %21, label %12
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds i8, ptr %7, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %11(ptr noundef %14, i64 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) #3
   %16 = icmp slt i32 %15, 0
@@ -905,17 +905,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_unprotect_entry_msg(ptr nocapture nou
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_set_cache_config_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 192
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 192
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0
@@ -934,17 +934,17 @@ define range(i32 -1, 1) i32 @H5C_log_write_set_cache_config_msg(ptr nocapture no
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @H5C_log_write_remove_entry_msg(ptr nocapture noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds i8, ptr %5, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %7, i64 200
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %19, label %10
 
 10:                                               ; preds = %3
-  %11 = getelementptr inbounds i8, ptr %5, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 %9(ptr noundef %12, ptr noundef %1, i32 noundef %2) #3
   %14 = icmp slt i32 %13, 0

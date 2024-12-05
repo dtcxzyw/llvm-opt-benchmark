@@ -22,7 +22,7 @@ define ptr @Ivy_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
   %8 = ptrtoint ptr %.val26 to i64
   %9 = and i64 %8, -2
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds i8, ptr %10, i64 12
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %.loopexit, label %14
@@ -37,13 +37,13 @@ define ptr @Ivy_TableLookup(ptr nocapture noundef readonly %0, ptr nocapture nou
   %17 = ptrtoint ptr %.val27 to i64
   %18 = and i64 %17, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds i8, ptr %19, i64 12
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.loopexit, label %23
 
 23:                                               ; preds = %16, %14
-  %24 = getelementptr inbounds i8, ptr %0, i64 168
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %25 = load i32, ptr %24, align 8
   %.not.i.i = icmp eq ptr %.val26, null
   br i1 %.not.i.i, label %Ivy_ObjFaninId0.exit.i, label %26
@@ -82,7 +82,7 @@ Ivy_Hash.exit:                                    ; preds = %Ivy_ObjFaninId0.exi
   %46 = xor i32 %45, %28
   %47 = xor i32 %46, %33
   %48 = urem i32 %47, %25
-  %49 = getelementptr inbounds i8, ptr %0, i64 160
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %50 = load ptr, ptr %49, align 8
   %51 = sext i32 %48 to i64
   %52 = getelementptr inbounds i32, ptr %50, i64 %51
@@ -156,14 +156,14 @@ define void @Ivy_TableInsert(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %10, label %11, label %Ivy_TableResize.exit
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds i8, ptr %0, i64 168
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %13 = load i32, ptr %12, align 8
-  %14 = getelementptr inbounds i8, ptr %0, i64 140
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %15 = load i32, ptr %14, align 4
-  %16 = getelementptr inbounds i8, ptr %0, i64 144
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %17 = load i32, ptr %16, align 8
   %18 = add nsw i32 %17, %15
-  %19 = getelementptr inbounds i8, ptr %0, i64 136
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %20 = load i32, ptr %19, align 8
   %21 = add nsw i32 %18, %20
   %22 = shl nsw i32 %21, 1
@@ -174,7 +174,7 @@ define void @Ivy_TableInsert(ptr nocapture noundef %0, ptr nocapture noundef rea
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %25 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %26 = getelementptr inbounds i8, ptr %0, i64 160
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %12, align 8
   %29 = load i32, ptr %14, align 4
@@ -228,7 +228,7 @@ Abc_PrimeCudd.exit.i:                             ; preds = %.preheader.i.i, %38
 
 47:                                               ; preds = %101, %.lr.ph35.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.i ], [ %indvars.iv.next.i, %101 ]
-  %48 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %101, label %51
@@ -334,7 +334,7 @@ Ivy_TableFind.exit.i:                             ; preds = %.lr.ph.i, %.lr.ph.i
   br label %Ivy_TableResize.exit
 
 Ivy_TableResize.exit:                             ; preds = %102, %._crit_edge.i, %11, %7
-  %103 = getelementptr inbounds i8, ptr %0, i64 168
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %104 = load i32, ptr %103, align 8
   %.val.i.i = load i32, ptr %4, align 8
   %105 = getelementptr i8, ptr %1, i64 16
@@ -384,7 +384,7 @@ Ivy_Hash.exit.i:                                  ; preds = %113, %Ivy_ObjFaninI
   %132 = xor i32 %131, %125
   %133 = xor i32 %132, %117
   %134 = urem i32 %133, %104
-  %135 = getelementptr inbounds i8, ptr %0, i64 160
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %136 = load ptr, ptr %135, align 8
   %137 = sext i32 %134 to i64
   %138 = getelementptr inbounds i32, ptr %136, i64 %137
@@ -427,7 +427,7 @@ define void @Ivy_TableDelete(ptr nocapture noundef %0, ptr nocapture noundef rea
   br i1 %narrow.i, label %.loopexit, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 168
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i32, ptr %7, align 8
   %9 = getelementptr i8, ptr %1, i64 16
   %.val12.i.i = load ptr, ptr %9, align 8
@@ -475,7 +475,7 @@ Ivy_Hash.exit.i:                                  ; preds = %17, %Ivy_ObjFaninId
   %35 = xor i32 %34, %28
   %36 = xor i32 %35, %21
   %37 = urem i32 %36, %8
-  %38 = getelementptr inbounds i8, ptr %0, i64 160
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %39 = load ptr, ptr %38, align 8
   %40 = sext i32 %37 to i64
   %41 = getelementptr inbounds i32, ptr %39, i64 %40
@@ -559,7 +559,7 @@ define void @Ivy_TableUpdate(ptr nocapture noundef readonly %0, ptr nocapture no
   br i1 %narrow.i, label %53, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 168
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr i8, ptr %1, i64 16
   %.val12.i.i = load ptr, ptr %10, align 8
@@ -607,7 +607,7 @@ Ivy_Hash.exit.i:                                  ; preds = %18, %Ivy_ObjFaninId
   %36 = xor i32 %35, %29
   %37 = xor i32 %36, %22
   %38 = urem i32 %37, %9
-  %39 = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %38 to i64
   %42 = getelementptr inbounds i32, ptr %40, i64 %41
@@ -644,13 +644,13 @@ Ivy_TableFind.exit:                               ; preds = %.lr.ph, %.lr.ph.i, 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Ivy_TableCountEntries(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %6 = load ptr, ptr %5, align 8
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %7
@@ -658,7 +658,7 @@ define i32 @Ivy_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.08 = phi i32 [ 0, %.lr.ph ], [ %12, %7 ]
-  %8 = getelementptr inbounds i32, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp ne i32 %9, 0
   %11 = zext i1 %10 to i32
@@ -674,13 +674,13 @@ define i32 @Ivy_TableCountEntries(ptr nocapture noundef readonly %0) local_unnam
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Ivy_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_addr #3 {
-  %2 = getelementptr inbounds i8, ptr %0, i64 168
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
   br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %5 = getelementptr inbounds i8, ptr %0, i64 160
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
   br label %6
 
 6:                                                ; preds = %.lr.ph, %16
@@ -688,7 +688,7 @@ define void @Ivy_TableProfile(ptr nocapture noundef readonly %0) local_unnamed_a
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %.010 = phi i32 [ 0, %.lr.ph ], [ %.1, %16 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %13, label %11
