@@ -23,9 +23,14 @@ def get_url(name, dir):
 
 filters = ['third-party','third_party','thirdparty','deps']
 
+def get_last_updated(dir, head = 'HEAD'):
+    return subprocess.check_output(['git', '-C', dir, 'show', '-s', '--format=%cd', '--date=format:%Y-%m-%d', head]).decode('utf-8').strip()
+
 def guess_language(dir):
     if '/llvm' in dir:
-        return ('llvm-project', 'C++', 'https://github.com/llvm/llvm-project')
+        llvm_dir = os.path.join(bench_dir, '..', 'llvm', 'llvm-project')
+        llvm_version = open(os.path.join(bench_dir, 'llvm', 'version')).read().strip()
+        return ('llvm-project', 'C++', 'https://github.com/llvm/llvm-project', get_last_updated(llvm_dir, llvm_version))
 
     for subdir in os.listdir(dir):
         if subdir == 'original' or subdir == 'optimized' or subdir == 'contrib' or subdir == 'build.sh':
@@ -33,6 +38,7 @@ def guess_language(dir):
         if not os.path.isdir(os.path.join(dir, subdir)):
             continue
         url = get_url(subdir, os.path.join(dir, subdir))
+        last_updated = get_last_updated(os.path.join(dir, subdir))
         name = subdir.lower()
         if name == 'jdk':
             name = 'openjdk'
@@ -54,10 +60,10 @@ def guess_language(dir):
                 elif f.endswith('.rs'):
                     count_rs += os.stat(path).st_size
         if count_rs >= count_cpp and count_rs >= count_c:
-            return (name, 'Rust', url)
+            return (name, 'Rust', url, last_updated)
         if count_cpp >= count_rs and count_cpp >= count_c:
-            return (name, 'C++', url)
-        return (name, 'C', url)
+            return (name, 'C++', url, last_updated)
+        return (name, 'C', url, last_updated)
 
 def get_stars(url: str):
     if url.startswith("https://github.com/"):
@@ -83,7 +89,7 @@ for dir in os.listdir(bench_dir):
     bench_list.append(guess_language(os.path.join(bench_dir, dir)))
 
 bench_list.sort(key=lambda x: (priority[x[1]], x[0]))
-print('|Name|Language|Stars|')
-print('|---|---|---|')
-for name, lang, url in bench_list:
-    print('|[{}]({})|{}|![stars]({}?style=flat)|'.format(name, url, lang, get_stars(url)))
+print('|Name|Language|Stars|Last Updated|')
+print('|---|---|---|---|')
+for name, lang, url, date in bench_list:
+    print('|[{}]({})|{}|![stars]({}?style=flat)|{}|'.format(name, url, lang, get_stars(url), date))
