@@ -2836,42 +2836,40 @@ define internal range(i32 0, 5) i32 @noned_decompress(ptr nocapture noundef read
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %12
+  br label %8
 
-8:                                                ; preds = %24
-  %9 = sext i32 %17 to i64
-  %10 = sub nsw i64 %.01720, %9
-  %11 = icmp sgt i64 %10, 0
-  br i1 %11, label %12, label %._crit_edge
+8:                                                ; preds = %.lr.ph, %26
+  %.01720 = phi i64 [ %1, %.lr.ph ], [ %27, %26 ]
+  %9 = load i32, ptr %3, align 8
+  %10 = sext i32 %9 to i64
+  %11 = tail call i64 @llvm.smin.i64(i64 %.01720, i64 %10)
+  %12 = trunc i64 %11 to i32
+  %13 = load ptr, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %15 = load ptr, ptr %14, align 8
+  %16 = load ptr, ptr %5, align 8
+  %17 = load ptr, ptr %6, align 8
+  %18 = tail call i32 %15(ptr noundef %16, ptr noundef %17, i32 noundef %12) #8
+  %.not = icmp eq i32 %18, %12
+  br i1 %.not, label %19, label %._crit_edge
 
-12:                                               ; preds = %.lr.ph, %8
-  %.01720 = phi i64 [ %1, %.lr.ph ], [ %10, %8 ]
-  %13 = load i32, ptr %3, align 8
-  %14 = sext i32 %13 to i64
-  %15 = icmp sgt i64 %.01720, %14
-  %16 = trunc nuw nsw i64 %.01720 to i32
-  %17 = select i1 %15, i32 %13, i32 %16
-  %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %5, align 8
-  %22 = load ptr, ptr %6, align 8
-  %23 = tail call i32 %20(ptr noundef %21, ptr noundef %22, i32 noundef %17) #8
-  %.not = icmp eq i32 %23, %17
-  br i1 %.not, label %24, label %._crit_edge
+19:                                               ; preds = %8
+  %20 = load ptr, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  %22 = load ptr, ptr %21, align 8
+  %23 = load ptr, ptr %7, align 8
+  %24 = load ptr, ptr %6, align 8
+  %25 = tail call i32 %22(ptr noundef %23, ptr noundef %24, i32 noundef %12) #8
+  %.not19 = icmp eq i32 %25, %12
+  br i1 %.not19, label %26, label %._crit_edge
 
-24:                                               ; preds = %12
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %27 = load ptr, ptr %26, align 8
-  %28 = load ptr, ptr %7, align 8
-  %29 = load ptr, ptr %6, align 8
-  %30 = tail call i32 %27(ptr noundef %28, ptr noundef %29, i32 noundef %17) #8
-  %.not19 = icmp eq i32 %30, %17
-  br i1 %.not19, label %8, label %._crit_edge
+26:                                               ; preds = %19
+  %27 = sub nsw i64 %.01720, %11
+  %28 = icmp sgt i64 %27, 0
+  br i1 %28, label %8, label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %24, %8, %2
-  %.0 = phi i32 [ 0, %2 ], [ 0, %8 ], [ 4, %24 ], [ 3, %12 ]
+._crit_edge:                                      ; preds = %8, %19, %26, %2
+  %.0 = phi i32 [ 0, %2 ], [ 0, %26 ], [ 4, %19 ], [ 3, %8 ]
   ret i32 %.0
 }
 
@@ -2893,31 +2891,31 @@ declare void @qtmd_free(ptr noundef) local_unnamed_addr #1
 
 declare void @lzxd_free(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #6
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #6
+declare i32 @llvm.smin.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #6
+declare i32 @llvm.umax.i32(i32, i32) #5
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #6
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #6 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { nounwind }
 

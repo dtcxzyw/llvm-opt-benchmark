@@ -1375,9 +1375,8 @@ entry:
   %read_msgfds_num = getelementptr inbounds nuw i8, ptr %call.i, i64 224
   %0 = load i64, ptr %read_msgfds_num, align 8
   %conv = sext i32 %num to i64
-  %cmp = icmp ult i64 %0, %conv
-  %1 = trunc i64 %0 to i32
-  %cond = select i1 %cmp, i32 %1, i32 %num
+  %cond15 = tail call i64 @llvm.umin.i64(i64 %0, i64 %conv)
+  %cond = trunc i64 %cond15 to i32
   %cmp5 = icmp slt i32 %num, 17
   br i1 %cmp5, label %if.end, label %if.else
 
@@ -1391,30 +1390,31 @@ if.end:                                           ; preds = %entry
 
 if.then7:                                         ; preds = %if.end
   %read_msgfds = getelementptr inbounds nuw i8, ptr %call.i, i64 216
-  %2 = load ptr, ptr %read_msgfds, align 8
-  %conv8 = sext i32 %cond to i64
-  %mul = shl nsw i64 %conv8, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %fds, ptr align 4 %2, i64 %mul, i1 false)
-  %3 = load i64, ptr %read_msgfds_num, align 8
-  %cmp1116 = icmp ugt i64 %3, %conv8
-  br i1 %cmp1116, label %for.body, label %for.end
+  %1 = load ptr, ptr %read_msgfds, align 8
+  %sext = shl i64 %cond15, 32
+  %mul = ashr exact i64 %sext, 30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %fds, ptr align 4 %1, i64 %mul, i1 false)
+  %conv916 = ashr exact i64 %sext, 32
+  %2 = load i64, ptr %read_msgfds_num, align 8
+  %cmp1117 = icmp ugt i64 %2, %conv916
+  br i1 %cmp1117, label %for.body, label %for.end
 
 for.body:                                         ; preds = %if.then7, %for.body
-  %conv918 = phi i64 [ %conv9, %for.body ], [ %conv8, %if.then7 ]
-  %i.017 = phi i32 [ %inc, %for.body ], [ %cond, %if.then7 ]
-  %4 = load ptr, ptr %read_msgfds, align 8
-  %arrayidx = getelementptr i32, ptr %4, i64 %conv918
-  %5 = load i32, ptr %arrayidx, align 4
-  %call14 = tail call i32 @close(i32 noundef %5) #10
-  %inc = add i32 %i.017, 1
+  %conv919 = phi i64 [ %conv9, %for.body ], [ %conv916, %if.then7 ]
+  %i.018 = phi i32 [ %inc, %for.body ], [ %cond, %if.then7 ]
+  %3 = load ptr, ptr %read_msgfds, align 8
+  %arrayidx = getelementptr i32, ptr %3, i64 %conv919
+  %4 = load i32, ptr %arrayidx, align 4
+  %call14 = tail call i32 @close(i32 noundef %4) #10
+  %inc = add i32 %i.018, 1
   %conv9 = sext i32 %inc to i64
-  %6 = load i64, ptr %read_msgfds_num, align 8
-  %cmp11 = icmp ugt i64 %6, %conv9
+  %5 = load i64, ptr %read_msgfds_num, align 8
+  %cmp11 = icmp ugt i64 %5, %conv9
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !9
 
 for.end:                                          ; preds = %for.body, %if.then7
-  %7 = load ptr, ptr %read_msgfds, align 8
-  tail call void @g_free(ptr noundef %7) #10
+  %6 = load ptr, ptr %read_msgfds, align 8
+  tail call void @g_free(ptr noundef %6) #10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %read_msgfds, i8 0, i64 16, i1 false)
   br label %if.end18
 
@@ -3139,6 +3139,9 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

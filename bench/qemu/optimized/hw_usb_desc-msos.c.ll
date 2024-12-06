@@ -10,7 +10,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef i32 @usb_desc_msos(ptr nocapture noundef readonly %desc, ptr nocapture noundef writeonly %p, i32 noundef %index, ptr nocapture noundef writeonly %dest, i64 noundef %len) local_unnamed_addr #0 {
 entry:
-  %call = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc0(i64 noundef 4096) #6
+  %call = tail call noalias dereferenceable_or_null(4096) ptr @g_malloc0(i64 noundef 4096) #7
   switch i32 %index, label %sw.epilog [
     i32 4, label %sw.bb
     i32 5, label %sw.bb2
@@ -29,12 +29,22 @@ sw.bb:                                            ; preds = %entry
 
 if.then.i:                                        ; preds = %sw.bb
   %compatibleId.i = getelementptr i8, ptr %call, i64 18
-  %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %compatibleId.i, i64 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %1) #7
+  %call.i = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %compatibleId.i, i64 noundef 8, ptr noundef nonnull @.str, ptr noundef nonnull %1) #8
   br label %usb_desc_msos_compat.exit
 
 usb_desc_msos_compat.exit:                        ; preds = %sw.bb, %if.then.i
   store i32 40, ptr %call, align 1
-  br label %sw.epilog.sink.split
+  %bcdVersion_lo.i = getelementptr inbounds nuw i8, ptr %call, i64 4
+  store i8 0, ptr %bcdVersion_lo.i, align 1
+  %bcdVersion_hi.i = getelementptr inbounds nuw i8, ptr %call, i64 5
+  store i8 1, ptr %bcdVersion_hi.i, align 1
+  %wIndex_lo.i = getelementptr inbounds nuw i8, ptr %call, i64 6
+  store i8 4, ptr %wIndex_lo.i, align 1
+  %wIndex_hi.i = getelementptr inbounds nuw i8, ptr %call, i64 7
+  store i8 0, ptr %wIndex_hi.i, align 1
+  %bCount.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  store i8 1, ptr %bCount.i, align 1
+  br label %sw.epilog
 
 sw.bb2:                                           ; preds = %entry
   %msos.i8 = getelementptr inbounds nuw i8, ptr %desc, i64 48
@@ -45,7 +55,7 @@ sw.bb2:                                           ; preds = %entry
   br i1 %tobool.not.i9, label %if.end.i, label %if.then.i10
 
 if.then.i10:                                      ; preds = %sw.bb2
-  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull readonly %3) #8
+  %call.i.i = tail call i64 @wcslen(ptr noundef nonnull readonly %3) #9
   %dwPropertyDataType.i.i = getelementptr i8, ptr %call, i64 14
   store i32 1, ptr %dwPropertyDataType.i.i, align 1
   %dwPropertyNameLength_lo.i.i.i = getelementptr i8, ptr %call, i64 18
@@ -181,41 +191,27 @@ usb_desc_msos_prop.exit:                          ; preds = %if.end.i, %usb_desc
   store i32 %length.1.i, ptr %call, align 1
   %bcdVersion_lo.i12 = getelementptr inbounds nuw i8, ptr %call, i64 4
   store i8 0, ptr %bcdVersion_lo.i12, align 1
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %usb_desc_msos_compat.exit, %usb_desc_msos_prop.exit
-  %.sink23 = phi i64 [ 5, %usb_desc_msos_prop.exit ], [ 4, %usb_desc_msos_compat.exit ]
-  %.sink22 = phi i8 [ 1, %usb_desc_msos_prop.exit ], [ 0, %usb_desc_msos_compat.exit ]
-  %.sink21 = phi i64 [ 6, %usb_desc_msos_prop.exit ], [ 5, %usb_desc_msos_compat.exit ]
-  %.sink20 = phi i8 [ 5, %usb_desc_msos_prop.exit ], [ 1, %usb_desc_msos_compat.exit ]
-  %.sink19 = phi i64 [ 7, %usb_desc_msos_prop.exit ], [ 6, %usb_desc_msos_compat.exit ]
-  %.sink18 = phi i8 [ 0, %usb_desc_msos_prop.exit ], [ 4, %usb_desc_msos_compat.exit ]
-  %.sink17 = phi i64 [ 8, %usb_desc_msos_prop.exit ], [ 7, %usb_desc_msos_compat.exit ]
-  %count.1.i.sink = phi i8 [ %count.1.i, %usb_desc_msos_prop.exit ], [ 0, %usb_desc_msos_compat.exit ]
-  %.sink16 = phi i64 [ 9, %usb_desc_msos_prop.exit ], [ 8, %usb_desc_msos_compat.exit ]
-  %.sink = phi i8 [ 0, %usb_desc_msos_prop.exit ], [ 1, %usb_desc_msos_compat.exit ]
-  %length.0.ph = phi i32 [ %length.1.i, %usb_desc_msos_prop.exit ], [ 40, %usb_desc_msos_compat.exit ]
-  %bcdVersion_hi.i13 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink23
-  store i8 %.sink22, ptr %bcdVersion_hi.i13, align 1
-  %wIndex_lo.i14 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink21
-  store i8 %.sink20, ptr %wIndex_lo.i14, align 1
-  %wIndex_hi.i15 = getelementptr inbounds nuw i8, ptr %call, i64 %.sink19
-  store i8 %.sink18, ptr %wIndex_hi.i15, align 1
-  %wCount_lo.i = getelementptr inbounds nuw i8, ptr %call, i64 %.sink17
-  store i8 %count.1.i.sink, ptr %wCount_lo.i, align 1
-  %wCount_hi.i = getelementptr inbounds nuw i8, ptr %call, i64 %.sink16
-  store i8 %.sink, ptr %wCount_hi.i, align 1
+  %bcdVersion_hi.i13 = getelementptr inbounds nuw i8, ptr %call, i64 5
+  store i8 1, ptr %bcdVersion_hi.i13, align 1
+  %wIndex_lo.i14 = getelementptr inbounds nuw i8, ptr %call, i64 6
+  store i8 5, ptr %wIndex_lo.i14, align 1
+  %wIndex_hi.i15 = getelementptr inbounds nuw i8, ptr %call, i64 7
+  store i8 0, ptr %wIndex_hi.i15, align 1
+  %wCount_lo.i = getelementptr inbounds nuw i8, ptr %call, i64 8
+  store i8 %count.1.i, ptr %wCount_lo.i, align 1
+  %wCount_hi.i = getelementptr inbounds nuw i8, ptr %call, i64 9
+  store i8 0, ptr %wCount_hi.i, align 1
+  %18 = sext i32 %length.1.i to i64
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
-  %length.0 = phi i32 [ 0, %entry ], [ %length.0.ph, %sw.epilog.sink.split ]
-  %conv = sext i32 %length.0 to i64
-  %cmp = icmp ult i64 %len, %conv
-  %conv5 = trunc i64 %len to i32
-  %spec.select = select i1 %cmp, i32 %conv5, i32 %length.0
-  %conv6 = sext i32 %spec.select to i64
+sw.epilog:                                        ; preds = %usb_desc_msos_prop.exit, %usb_desc_msos_compat.exit, %entry
+  %length.0 = phi i64 [ 0, %entry ], [ %18, %usb_desc_msos_prop.exit ], [ 40, %usb_desc_msos_compat.exit ]
+  %spec.select16 = tail call i64 @llvm.umin.i64(i64 %len, i64 %length.0)
+  %spec.select = trunc i64 %spec.select16 to i32
+  %sext = shl i64 %spec.select16, 32
+  %conv6 = ashr exact i64 %sext, 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %dest, ptr align 1 %call, i64 %conv6, i1 false)
-  tail call void @g_free(ptr noundef %call) #7
+  tail call void @g_free(ptr noundef %call) #8
   %actual_length = getelementptr inbounds nuw i8, ptr %p, i64 88
   store i32 %spec.select, ptr %actual_length, align 8
   ret i32 0
@@ -235,15 +231,19 @@ declare noundef i32 @snprintf(ptr noalias nocapture noundef writeonly, i64 nound
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #5
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #6
+
 attributes #0 = { nounwind sspstrong uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind allocsize(0) }
-attributes #7 = { nounwind }
-attributes #8 = { nounwind willreturn memory(read) }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nounwind allocsize(0) }
+attributes #8 = { nounwind }
+attributes #9 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

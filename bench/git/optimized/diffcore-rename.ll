@@ -1518,21 +1518,21 @@ land.lhs.true.i223:                               ; preds = %strintmap_get.exit6
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %iter.i.i213)
   call void @hashmap_iter_init(ptr noundef %223, ptr noundef nonnull %iter.i.i213) #14
   %call.i.i.i224 = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i213) #14
-  %tobool.not10.i.i = icmp eq ptr %call.i.i.i224, null
-  br i1 %tobool.not10.i.i, label %dir_rename_already_determinable.exit.thread.i, label %for.body.i.i225
+  %tobool.not11.i.i = icmp eq ptr %call.i.i.i224, null
+  br i1 %tobool.not11.i.i, label %dir_rename_already_determinable.exit.thread.i, label %for.body.i.i225
 
 dir_rename_already_determinable.exit.thread.i:    ; preds = %land.lhs.true.i223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %iter.i.i213)
   br label %for.inc26.i
 
 for.body.i.i225:                                  ; preds = %land.lhs.true.i223, %for.inc.i.i227
-  %entry1.014.i.i = phi ptr [ %call18.i.i, %for.inc.i.i227 ], [ %call.i.i.i224, %land.lhs.true.i223 ]
-  %first.013.i.i = phi i32 [ %first.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
-  %unknown.012.i.i = phi i32 [ %unknown.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
-  %second.011.i.i = phi i32 [ %second.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
-  %key.i.i226 = getelementptr inbounds nuw i8, ptr %entry1.014.i.i, i64 16
+  %entry1.015.i.i = phi ptr [ %call18.i.i, %for.inc.i.i227 ], [ %call.i.i.i224, %land.lhs.true.i223 ]
+  %first.014.i.i = phi i32 [ %first.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
+  %unknown.013.i.i = phi i32 [ %unknown.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
+  %second.012.i.i = phi i32 [ %second.1.i.i, %for.inc.i.i227 ], [ 0, %land.lhs.true.i223 ]
+  %key.i.i226 = getelementptr inbounds nuw i8, ptr %entry1.015.i.i, i64 16
   %228 = load ptr, ptr %key.i.i226, align 8
-  %value.i63.i = getelementptr inbounds nuw i8, ptr %entry1.014.i.i, i64 24
+  %value.i63.i = getelementptr inbounds nuw i8, ptr %entry1.015.i.i, i64 24
   %229 = load ptr, ptr %value.i63.i, align 8
   %230 = ptrtoint ptr %229 to i64
   %231 = load i8, ptr %228, align 1
@@ -1550,7 +1550,7 @@ if.then.i66.i:                                    ; preds = %for.body.tail.i.i
   br label %for.inc.i.i227
 
 if.else.i64.i:                                    ; preds = %for.body.tail.i.i, %for.body.i.i225
-  %conv6.i.i = sext i32 %first.013.i.i to i64
+  %conv6.i.i = sext i32 %first.014.i.i to i64
   %cmp.not.i.i = icmp slt i64 %230, %conv6.i.i
   br i1 %cmp.not.i.i, label %if.else10.i.i, label %if.then8.i.i
 
@@ -1559,16 +1559,15 @@ if.then8.i.i:                                     ; preds = %if.else.i64.i
   br label %for.inc.i.i227
 
 if.else10.i.i:                                    ; preds = %if.else.i64.i
-  %conv11.i.i = sext i32 %second.011.i.i to i64
-  %cmp12.not.i.i = icmp slt i64 %230, %conv11.i.i
-  %conv15.i.i = trunc nsw i64 %230 to i32
-  %spec.select.i.i = select i1 %cmp12.not.i.i, i32 %second.011.i.i, i32 %conv15.i.i
+  %conv11.i.i = sext i32 %second.012.i.i to i64
+  %spec.select10.i.i = call i64 @llvm.smax.i64(i64 %230, i64 %conv11.i.i)
+  %spec.select.i.i = trunc i64 %spec.select10.i.i to i32
   br label %for.inc.i.i227
 
 for.inc.i.i227:                                   ; preds = %if.else10.i.i, %if.then8.i.i, %if.then.i66.i
-  %second.1.i.i = phi i32 [ %first.013.i.i, %if.then8.i.i ], [ %second.011.i.i, %if.then.i66.i ], [ %spec.select.i.i, %if.else10.i.i ]
-  %unknown.1.i.i = phi i32 [ %unknown.012.i.i, %if.then8.i.i ], [ %conv.i67.i, %if.then.i66.i ], [ %unknown.012.i.i, %if.else10.i.i ]
-  %first.1.i.i = phi i32 [ %conv9.i.i, %if.then8.i.i ], [ %first.013.i.i, %if.then.i66.i ], [ %first.013.i.i, %if.else10.i.i ]
+  %second.1.i.i = phi i32 [ %first.014.i.i, %if.then8.i.i ], [ %second.012.i.i, %if.then.i66.i ], [ %spec.select.i.i, %if.else10.i.i ]
+  %unknown.1.i.i = phi i32 [ %unknown.013.i.i, %if.then8.i.i ], [ %conv.i67.i, %if.then.i66.i ], [ %unknown.013.i.i, %if.else10.i.i ]
+  %first.1.i.i = phi i32 [ %conv9.i.i, %if.then8.i.i ], [ %first.014.i.i, %if.then.i66.i ], [ %first.014.i.i, %if.else10.i.i ]
   %call18.i.i = call ptr @hashmap_iter_next(ptr noundef nonnull %iter.i.i213) #14
   %tobool.not.i65.i = icmp eq ptr %call18.i.i, null
   br i1 %tobool.not.i65.i, label %dir_rename_already_determinable.exit.i, label %for.body.i.i225, !llvm.loop !23
@@ -3690,6 +3689,9 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #11
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

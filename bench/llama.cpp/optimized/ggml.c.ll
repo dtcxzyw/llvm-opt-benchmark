@@ -17632,9 +17632,8 @@ sw.bb15:                                          ; preds = %entry
   %arrayidx4.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i64, ptr %arrayidx4.i, align 8
   %mul5.i = mul nsw i64 %mul.i, %6
-  %cmp17 = icmp sgt i64 %mul5.i, %conv
-  %7 = trunc i64 %mul5.i to i32
-  %spec.select = select i1 %cmp17, i32 %cond, i32 %7
+  %spec.select57 = tail call i64 @llvm.smin.i64(i64 %mul5.i, i64 %conv)
+  %spec.select = trunc i64 %spec.select57 to i32
   br label %sw.epilog118
 
 sw.bb37:                                          ; preds = %entry, %entry
@@ -17645,67 +17644,67 @@ sw.bb44:                                          ; preds = %entry, %entry, %ent
 
 sw.bb45:                                          ; preds = %entry
   %n_tasks46 = getelementptr inbounds nuw i8, ptr %node, i64 92
-  %8 = load i32, ptr %n_tasks46, align 8
-  %cmp47 = icmp eq i32 %8, -1
+  %7 = load i32, ptr %n_tasks46, align 8
+  %cmp47 = icmp eq i32 %7, -1
   br i1 %cmp47, label %sw.epilog118, label %if.else
 
 if.else:                                          ; preds = %sw.bb45
-  %.n_threads = tail call i32 @llvm.smin.i32(i32 %8, i32 %n_threads)
+  %.n_threads = tail call i32 @llvm.smin.i32(i32 %7, i32 %n_threads)
   br label %sw.epilog118
 
 sw.bb57:                                          ; preds = %entry
   %n_tasks61 = getelementptr inbounds nuw i8, ptr %node, i64 92
-  %9 = load i32, ptr %n_tasks61, align 8
-  %cmp62 = icmp eq i32 %9, -1
+  %8 = load i32, ptr %n_tasks61, align 8
+  %cmp62 = icmp eq i32 %8, -1
   br i1 %cmp62, label %sw.epilog118, label %if.else65
 
 if.else65:                                        ; preds = %sw.bb57
-  %.n_threads49 = tail call i32 @llvm.smin.i32(i32 %9, i32 %n_threads)
+  %.n_threads49 = tail call i32 @llvm.smin.i32(i32 %8, i32 %n_threads)
   br label %sw.epilog118
 
 sw.bb75:                                          ; preds = %entry
   %n_tasks79 = getelementptr inbounds nuw i8, ptr %node, i64 92
-  %10 = load i32, ptr %n_tasks79, align 8
-  %cmp80 = icmp eq i32 %10, -1
+  %9 = load i32, ptr %n_tasks79, align 8
+  %cmp80 = icmp eq i32 %9, -1
   br i1 %cmp80, label %sw.epilog118, label %if.else83
 
 if.else83:                                        ; preds = %sw.bb75
-  %.n_threads50 = tail call i32 @llvm.smin.i32(i32 %10, i32 %n_threads)
+  %.n_threads50 = tail call i32 @llvm.smin.i32(i32 %9, i32 %n_threads)
   br label %sw.epilog118
 
 do.body97:                                        ; preds = %entry
-  %11 = load ptr, ptr @stdout, align 8
-  %call98 = tail call i32 @fflush(ptr noundef %11)
-  %12 = load ptr, ptr @stderr, align 8
-  %call99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16285, ptr noundef nonnull @.str.26) #46
+  %10 = load ptr, ptr @stdout, align 8
+  %call98 = tail call i32 @fflush(ptr noundef %10)
+  %11 = load ptr, ptr @stderr, align 8
+  %call99 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16285, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable
 
 sw.default101:                                    ; preds = %entry
-  %13 = load ptr, ptr @stderr, align 8
-  %call102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.466, ptr noundef nonnull @__func__.ggml_get_n_tasks) #46
-  %14 = load i32, ptr %op, align 8
-  %cmp104 = icmp ult i32 %14, 72
-  %15 = load ptr, ptr @stderr, align 8
+  %12 = load ptr, ptr @stderr, align 8
+  %call102 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.466, ptr noundef nonnull @__func__.ggml_get_n_tasks) #46
+  %13 = load i32, ptr %op, align 8
+  %cmp104 = icmp ult i32 %13, 72
+  %14 = load ptr, ptr @stderr, align 8
   br i1 %cmp104, label %if.then106, label %if.else110
 
 if.then106:                                       ; preds = %sw.default101
-  %idxprom.i = zext nneg i32 %14 to i64
+  %idxprom.i = zext nneg i32 %13 to i64
   %arrayidx.i56 = getelementptr inbounds nuw [72 x ptr], ptr @GGML_OP_NAME, i64 0, i64 %idxprom.i
-  %16 = load ptr, ptr %arrayidx.i56, align 8
-  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.467, ptr noundef %16) #46
+  %15 = load ptr, ptr %arrayidx.i56, align 8
+  %call109 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.467, ptr noundef %15) #46
   br label %do.body114
 
 if.else110:                                       ; preds = %sw.default101
-  %call112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.468, i32 noundef %14) #46
+  %call112 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.468, i32 noundef %13) #46
   br label %do.body114
 
 do.body114:                                       ; preds = %if.then106, %if.else110
-  %17 = load ptr, ptr @stdout, align 8
-  %call115 = tail call i32 @fflush(ptr noundef %17)
-  %18 = load ptr, ptr @stderr, align 8
-  %call116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16295, ptr noundef nonnull @.str.26) #46
+  %16 = load ptr, ptr @stdout, align 8
+  %call115 = tail call i32 @fflush(ptr noundef %16)
+  %17 = load ptr, ptr @stderr, align 8
+  %call116 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i32 noundef 16295, ptr noundef nonnull @.str.26) #46
   tail call void @ggml_print_backtrace()
   tail call void @abort() #47
   unreachable

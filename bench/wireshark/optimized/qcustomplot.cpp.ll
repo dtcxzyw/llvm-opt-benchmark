@@ -146309,7 +146309,7 @@ define noundef i32 @_ZNK12QCPErrorBars7findEndEdb(ptr nocapture noundef nonnull 
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   %20 = icmp eq i64 %19, 0
-  br i1 %20, label %45, label %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit
+  br i1 %20, label %43, label %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit
 
 _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %15
   %21 = load atomic i32, ptr %10 monotonic, align 4
@@ -146327,37 +146327,36 @@ _ZNK8QPointerI20QCPAbstractPlottableEptEv.exit:   ; preds = %15
   %32 = load ptr, ptr %16, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8
-  %35 = icmp slt i64 %34, %31
-  %36 = trunc i64 %34 to i32
-  %spec.select = select i1 %35, i32 %36, i32 %30
-  br label %45
+  %spec.select10 = tail call i64 @llvm.smin.i64(i64 %34, i64 %31)
+  %spec.select = trunc i64 %spec.select10 to i32
+  br label %43
 
 _ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread: ; preds = %3, %9
   store i32 2, ptr %5, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %37, i8 0, i64 20, i1 false)
-  store ptr @.str.229, ptr %38, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %35, i8 0, i64 20, i1 false)
+  store ptr @.str.229, ptr %36, align 8
   call void @_ZNK14QMessageLogger5debugEv(ptr dead_on_unwind nonnull writable sret(%class.QDebug) align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)
-  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK12QCPErrorBars7findEndEdb)
-          to label %40 unwind label %43
+  %37 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK12QCPErrorBars7findEndEdb)
+          to label %38 unwind label %41
 
-40:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
-  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %39, ptr noundef nonnull @.str.192)
-          to label %42 unwind label %43
+38:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
+  %39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6QDebuglsEPKc(ptr noundef nonnull align 8 dereferenceable(8) %37, ptr noundef nonnull @.str.192)
+          to label %40 unwind label %41
 
-42:                                               ; preds = %40
+40:                                               ; preds = %38
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #48
-  br label %45
+  br label %43
 
-43:                                               ; preds = %40, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
-  %44 = landingpad { ptr, i32 }
+41:                                               ; preds = %38, %_ZNK8QPointerI20QCPAbstractPlottableEcvPS0_Ev.exit.thread
+  %42 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QDebugD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #48
-  resume { ptr, i32 } %44
+  resume { ptr, i32 } %42
 
-45:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit, %15, %42
-  %.0 = phi i32 [ 0, %42 ], [ 0, %15 ], [ %spec.select, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit ]
+43:                                               ; preds = %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit, %15, %40
+  %.0 = phi i32 [ 0, %40 ], [ 0, %15 ], [ %spec.select, %_ZNK8QPointerI20QCPAbstractPlottableEptEv.exit ]
   ret i32 %.0
 }
 

@@ -730,7 +730,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   tail call void asm sideeffect "745: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 745b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 745) #10, !srcloc !29
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 319, i32 2307, i64 12) #10, !srcloc !30
   tail call void asm sideeffect "746: nop\0A\09.pushsection .discard.instr_end\0A\09.long 746b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 746) #10, !srcloc !31
-  br label %124
+  br label %122
 
 27:                                               ; preds = %2
   %28 = icmp sgt i32 %6, -1
@@ -746,7 +746,7 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
 
 33:                                               ; preds = %27
   tail call void @scm_detach_fds_compat(ptr noundef %0, ptr noundef %1) #10
-  br label %124
+  br label %122
 
 34:                                               ; preds = %45, %31
   %35 = phi i64 [ 0, %31 ], [ %46, %45 ]
@@ -823,71 +823,70 @@ define dso_local void @scm_detach_fds(ptr noundef %0, ptr noundef %1) #0 align 1
   %85 = add i32 %84, 16
   %86 = load i64, ptr %9, align 8
   %87 = sext i32 %85 to i64
-  %88 = icmp ult i64 %86, %87
-  %89 = trunc i64 %86 to i32
-  %90 = select i1 %88, i32 %89, i32 %85
-  %91 = load ptr, ptr %3, align 8
-  %92 = sext i32 %90 to i64
-  %93 = getelementptr i8, ptr %91, i64 %92
-  store ptr %93, ptr %3, align 8
-  %94 = sub i64 %86, %92
-  store i64 %94, ptr %9, align 8
+  %88 = tail call i64 @llvm.umin.i64(i64 %86, i64 %87)
+  %89 = load ptr, ptr %3, align 8
+  %sext = shl i64 %88, 32
+  %90 = ashr exact i64 %sext, 32
+  %91 = getelementptr i8, ptr %89, i64 %90
+  store ptr %91, ptr %3, align 8
+  %92 = sub i64 %86, %90
+  store i64 %92, ptr %9, align 8
   br label %.thread
 
 .thread:                                          ; preds = %29, %82, %71, %62, %51, %.loopexit6
-  %95 = phi i32 [ %49, %82 ], [ %49, %71 ], [ %49, %62 ], [ %49, %51 ], [ %49, %.loopexit6 ], [ 0, %29 ]
-  %96 = load ptr, ptr %16, align 8
-  %97 = load i16, ptr %96, align 8
-  %98 = sext i16 %97 to i32
-  %99 = icmp slt i32 %95, %98
-  br i1 %99, label %104, label %100
+  %93 = phi i32 [ %49, %82 ], [ %49, %71 ], [ %49, %62 ], [ %49, %51 ], [ %49, %.loopexit6 ], [ 0, %29 ]
+  %94 = load ptr, ptr %16, align 8
+  %95 = load i16, ptr %94, align 8
+  %96 = sext i16 %95 to i32
+  %97 = icmp slt i32 %93, %96
+  br i1 %97, label %102, label %98
 
-100:                                              ; preds = %.thread
-  %101 = icmp ne i16 %97, 0
-  %102 = icmp slt i32 %20, 1
-  %103 = select i1 %101, i1 %102, i1 false
-  br i1 %103, label %104, label %107
+98:                                               ; preds = %.thread
+  %99 = icmp ne i16 %95, 0
+  %100 = icmp slt i32 %20, 1
+  %101 = select i1 %99, i1 %100, i1 false
+  br i1 %101, label %102, label %105
 
-104:                                              ; preds = %100, %.thread
-  %105 = load i32, ptr %5, align 4
-  %106 = or i32 %105, 8
-  store i32 %106, ptr %5, align 4
+102:                                              ; preds = %98, %.thread
+  %103 = load i32, ptr %5, align 4
+  %104 = or i32 %103, 8
+  store i32 %104, ptr %5, align 4
   %.pre = load ptr, ptr %16, align 8
-  br label %107
+  br label %105
 
-107:                                              ; preds = %104, %100
-  %108 = phi ptr [ %.pre, %104 ], [ %96, %100 ]
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %124, label %110
+105:                                              ; preds = %102, %98
+  %106 = phi ptr [ %.pre, %102 ], [ %94, %98 ]
+  %107 = icmp eq ptr %106, null
+  br i1 %107, label %122, label %108
 
-110:                                              ; preds = %107
+108:                                              ; preds = %105
   store ptr null, ptr %16, align 8
-  %111 = load i16, ptr %108, align 8
-  %112 = icmp sgt i16 %111, 0
-  br i1 %112, label %113, label %.loopexit
+  %109 = load i16, ptr %106, align 8
+  %110 = icmp sgt i16 %109, 0
+  br i1 %110, label %111, label %.loopexit
 
-113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %115 = zext nneg i16 %111 to i64
-  br label %116
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %113 = zext nneg i16 %109 to i64
+  br label %114
 
-116:                                              ; preds = %116, %113
-  %117 = phi i64 [ %115, %113 ], [ %118, %116 ]
-  %118 = add nsw i64 %117, -1
-  %119 = getelementptr [253 x ptr], ptr %114, i64 0, i64 %118
-  %120 = load ptr, ptr %119, align 8
-  tail call void @fput(ptr noundef %120) #10
-  %121 = icmp samesign ugt i64 %117, 1
-  br i1 %121, label %116, label %.loopexit, !llvm.loop !6
+114:                                              ; preds = %114, %111
+  %115 = phi i64 [ %113, %111 ], [ %116, %114 ]
+  %116 = add nsw i64 %115, -1
+  %117 = getelementptr [253 x ptr], ptr %112, i64 0, i64 %116
+  %118 = load ptr, ptr %117, align 8
+  tail call void @fput(ptr noundef %118) #10
+  %119 = icmp samesign ugt i64 %115, 1
+  br i1 %119, label %114, label %.loopexit, !llvm.loop !6
 
-.loopexit:                                        ; preds = %116, %110
-  %122 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %123 = load ptr, ptr %122, align 8
-  tail call void @free_uid(ptr noundef %123) #10
-  tail call void @kfree(ptr noundef nonnull %108) #10
-  br label %124
+.loopexit:                                        ; preds = %114, %108
+  %120 = getelementptr inbounds nuw i8, ptr %106, i64 8
+  %121 = load ptr, ptr %120, align 8
+  tail call void @free_uid(ptr noundef %121) #10
+  tail call void @kfree(ptr noundef nonnull %106) #10
+  br label %122
 
-124:                                              ; preds = %.loopexit, %107, %33, %26
+122:                                              ; preds = %.loopexit, %105, %33, %26
   ret void
 }
 

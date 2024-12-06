@@ -1538,18 +1538,18 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %if.end
-  %maxenvlen.029 = phi i32 [ 12, %entry ], [ %spec.select, %if.end ]
-  %maxarglen.028 = phi i32 [ 8, %entry ], [ %maxarglen.1, %if.end ]
-  %arginfo.027 = phi ptr [ @arg_table, %entry ], [ %incdec.ptr, %if.end ]
-  %0 = load ptr, ptr %arginfo.027, align 8
+  %maxenvlen.030 = phi i64 [ 12, %entry ], [ %spec.select27, %if.end ]
+  %maxarglen.029 = phi i32 [ 8, %entry ], [ %maxarglen.1, %if.end ]
+  %arginfo.028 = phi ptr [ @arg_table, %entry ], [ %incdec.ptr, %if.end ]
+  %0 = load ptr, ptr %arginfo.028, align 8
   %call1 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #30
-  %has_arg = getelementptr inbounds nuw i8, ptr %arginfo.027, i64 16
+  %has_arg = getelementptr inbounds nuw i8, ptr %arginfo.028, i64 16
   %1 = load i8, ptr %has_arg, align 8
   %tobool = trunc i8 %1 to i1
   br i1 %tobool, label %if.then, label %if.end
 
 if.then:                                          ; preds = %for.body
-  %example = getelementptr inbounds nuw i8, ptr %arginfo.027, i64 32
+  %example = getelementptr inbounds nuw i8, ptr %arginfo.028, i64 32
   %2 = load ptr, ptr %example, align 8
   %call2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #30
   %add = add i64 %call1, 1
@@ -1559,31 +1559,31 @@ if.then:                                          ; preds = %for.body
 if.end:                                           ; preds = %if.then, %for.body
   %arglen.0.in = phi i64 [ %add4, %if.then ], [ %call1, %for.body ]
   %arglen.0 = trunc i64 %arglen.0.in to i32
-  %env = getelementptr inbounds nuw i8, ptr %arginfo.027, i64 8
+  %env = getelementptr inbounds nuw i8, ptr %arginfo.028, i64 8
   %3 = load ptr, ptr %env, align 8
   %call6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #30
-  %conv7 = sext i32 %maxenvlen.029 to i64
-  %cmp8 = icmp ugt i64 %call6, %conv7
-  %conv13 = trunc i64 %call6 to i32
-  %spec.select = select i1 %cmp8, i32 %conv13, i32 %maxenvlen.029
-  %maxarglen.1 = tail call i32 @llvm.smax.i32(i32 %maxarglen.028, i32 %arglen.0)
-  %incdec.ptr = getelementptr i8, ptr %arginfo.027, i64 48
-  %handle_opt = getelementptr i8, ptr %arginfo.027, i64 72
+  %sext = shl i64 %maxenvlen.030, 32
+  %conv7 = ashr exact i64 %sext, 32
+  %spec.select27 = tail call i64 @llvm.umax.i64(i64 %call6, i64 %conv7)
+  %maxarglen.1 = tail call i32 @llvm.smax.i32(i32 %maxarglen.029, i32 %arglen.0)
+  %incdec.ptr = getelementptr i8, ptr %arginfo.028, i64 48
+  %handle_opt = getelementptr i8, ptr %arginfo.028, i64 72
   %4 = load ptr, ptr %handle_opt, align 8
   %cmp.not = icmp eq ptr %4, null
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !18
 
 for.end:                                          ; preds = %if.end
+  %spec.select.le = trunc i64 %spec.select27 to i32
   %add19 = add nuw i32 %maxarglen.1, 1
-  %call20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, i32 noundef %add19, ptr noundef nonnull @.str.116, i32 noundef %spec.select, ptr noundef nonnull @.str.117)
+  %call20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.115, i32 noundef %add19, ptr noundef nonnull @.str.116, i32 noundef %spec.select.le, ptr noundef nonnull @.str.117)
   br label %for.body25
 
 for.body25:                                       ; preds = %for.end, %for.inc43
-  %arginfo.130 = phi ptr [ @arg_table, %for.end ], [ %incdec.ptr44, %for.inc43 ]
-  %has_arg26 = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 16
+  %arginfo.131 = phi ptr [ @arg_table, %for.end ], [ %incdec.ptr44, %for.inc43 ]
+  %has_arg26 = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 16
   %5 = load i8, ptr %has_arg26, align 8
   %tobool27 = trunc i8 %5 to i1
-  %6 = load ptr, ptr %arginfo.130, align 8
+  %6 = load ptr, ptr %arginfo.131, align 8
   br i1 %tobool27, label %if.then28, label %if.else
 
 if.then28:                                        ; preds = %for.body25
@@ -1591,26 +1591,26 @@ if.then28:                                        ; preds = %for.body25
   %7 = trunc i64 %call32 to i32
   %8 = xor i32 %7, -1
   %conv34 = add i32 %maxarglen.1, %8
-  %example35 = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 32
+  %example35 = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 32
   %9 = load ptr, ptr %example35, align 8
-  %env36 = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 8
+  %env36 = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 8
   %10 = load ptr, ptr %env36, align 8
-  %help = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 40
+  %help = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 40
   %11 = load ptr, ptr %help, align 8
-  %call37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, ptr noundef %6, i32 noundef %conv34, ptr noundef %9, i32 noundef %spec.select, ptr noundef %10, ptr noundef %11)
+  %call37 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.118, ptr noundef %6, i32 noundef %conv34, ptr noundef %9, i32 noundef %spec.select.le, ptr noundef %10, ptr noundef %11)
   br label %for.inc43
 
 if.else:                                          ; preds = %for.body25
-  %env39 = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 8
+  %env39 = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 8
   %12 = load ptr, ptr %env39, align 8
-  %help40 = getelementptr inbounds nuw i8, ptr %arginfo.130, i64 40
+  %help40 = getelementptr inbounds nuw i8, ptr %arginfo.131, i64 40
   %13 = load ptr, ptr %help40, align 8
-  %call41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.119, i32 noundef %maxarglen.1, ptr noundef %6, i32 noundef %spec.select, ptr noundef %12, ptr noundef %13)
+  %call41 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.119, i32 noundef %maxarglen.1, ptr noundef %6, i32 noundef %spec.select.le, ptr noundef %12, ptr noundef %13)
   br label %for.inc43
 
 for.inc43:                                        ; preds = %if.then28, %if.else
-  %incdec.ptr44 = getelementptr i8, ptr %arginfo.130, i64 48
-  %handle_opt22 = getelementptr i8, ptr %arginfo.130, i64 72
+  %incdec.ptr44 = getelementptr i8, ptr %arginfo.131, i64 48
+  %handle_opt22 = getelementptr i8, ptr %arginfo.131, i64 72
   %14 = load ptr, ptr %handle_opt22, align 8
   %cmp23.not = icmp eq ptr %14, null
   br i1 %cmp23.not, label %for.end45, label %for.body25, !llvm.loop !19
@@ -1675,6 +1675,9 @@ declare i64 @llvm.ctpop.i64(i64) #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr nocapture noundef readonly) local_unnamed_addr #26
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umax.i64(i64, i64) #27
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #27

@@ -947,13 +947,13 @@ if.end4.i:                                        ; preds = %if.end.i14
   %conv.i = sext i32 %sub.i to i64
   %size.i15 = getelementptr inbounds nuw i8, ptr %p, i64 64
   %11 = load i64, ptr %size.i15, align 8
-  %cmp7.i = icmp ult i64 %11, %conv.i
-  %conv12.i = trunc i64 %11 to i32
-  %spec.select.i = select i1 %cmp7.i, i32 %conv12.i, i32 %sub.i
+  %spec.select29.i = tail call i64 @llvm.umin.i64(i64 %11, i64 %conv.i)
+  %spec.select.i = trunc i64 %spec.select29.i to i32
   %in_buf.i = getelementptr inbounds nuw i8, ptr %dev, i64 7952
   %idxprom.i = zext i32 %8 to i64
   %arrayidx.i = getelementptr [2048 x i8], ptr %in_buf.i, i64 0, i64 %idxprom.i
-  %conv15.i = sext i32 %spec.select.i to i64
+  %sext.i = shl i64 %spec.select29.i, 32
+  %conv15.i = ashr exact i64 %sext.i, 32
   tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %arrayidx.i, i64 noundef %conv15.i) #10
   %12 = load i32, ptr %in_ptr.i, align 8
   %add.i = add i32 %12, %spec.select.i
@@ -1005,15 +1005,15 @@ sw.bb7:                                           ; preds = %sw.bb3
   %conv2.i = sext i32 %sub.i23 to i64
   %size.i24 = getelementptr inbounds nuw i8, ptr %p, i64 64
   %20 = load i64, ptr %size.i24, align 8
-  %cmp.i25 = icmp ult i64 %20, %conv2.i
-  %conv6.i = trunc i64 %20 to i32
-  %spec.select.i26 = select i1 %cmp.i25, i32 %conv6.i, i32 %sub.i23
-  %idxprom.i27 = zext i32 %19 to i64
-  %arrayidx.i28 = getelementptr [2048 x i8], ptr %out_buf.i, i64 0, i64 %idxprom.i27
-  %conv9.i = sext i32 %spec.select.i26 to i64
-  tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %arrayidx.i28, i64 noundef %conv9.i) #10
+  %spec.select42.i = tail call i64 @llvm.umin.i64(i64 %20, i64 %conv2.i)
+  %spec.select.i25 = trunc i64 %spec.select42.i to i32
+  %idxprom.i26 = zext i32 %19 to i64
+  %arrayidx.i27 = getelementptr [2048 x i8], ptr %out_buf.i, i64 0, i64 %idxprom.i26
+  %sext.i28 = shl i64 %spec.select42.i, 32
+  %conv9.i = ashr exact i64 %sext.i28, 32
+  tail call void @usb_packet_copy(ptr noundef nonnull %p, ptr noundef %arrayidx.i27, i64 noundef %conv9.i) #10
   %21 = load i32, ptr %out_ptr.i, align 4
-  %add.i29 = add i32 %spec.select.i26, %21
+  %add.i29 = add i32 %21, %spec.select.i25
   store i32 %add.i29, ptr %out_ptr.i, align 4
   %22 = getelementptr i8, ptr %dev, i64 5728
   %s.val.i30 = load ptr, ptr %22, align 8
@@ -1306,6 +1306,9 @@ declare void @qemu_del_nic(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #9

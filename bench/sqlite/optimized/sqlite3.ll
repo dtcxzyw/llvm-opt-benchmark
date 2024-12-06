@@ -135793,127 +135793,126 @@ define internal fastcc i32 @vdbePmaReadBlob(ptr nocapture noundef %0, i32 nounde
   %17 = srem i64 %7, %16
   %18 = trunc nsw i64 %17 to i32
   %19 = icmp eq i64 %17, 0
-  br i1 %19, label %20, label %34
+  br i1 %19, label %20, label %32
 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load i64, ptr %21, align 8
   %23 = sub nsw i64 %22, %7
-  %24 = icmp sgt i64 %23, %16
-  %25 = trunc i64 %23 to i32
-  %.071 = select i1 %24, i32 %15, i32 %25
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.07188 = tail call i64 @llvm.smin.i64(i64 %23, i64 %16)
+  %.071 = trunc i64 %.07188 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call i32 %32(ptr noundef nonnull %27, ptr noundef %29, i32 noundef %.071, i64 noundef %7) #57
-  %.not83 = icmp eq i32 %33, 0
-  br i1 %.not83, label %._crit_edge90, label %.loopexit
+  %28 = load ptr, ptr %25, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = tail call i32 %30(ptr noundef nonnull %25, ptr noundef %27, i32 noundef %.071, i64 noundef %7) #57
+  %.not83 = icmp eq i32 %31, 0
+  br i1 %.not83, label %._crit_edge91, label %.loopexit
 
-._crit_edge90:                                    ; preds = %20
+._crit_edge91:                                    ; preds = %20
   %.pre = load i32, ptr %14, align 8
-  br label %34
+  br label %32
 
-34:                                               ; preds = %._crit_edge90, %13
-  %35 = phi i32 [ %.pre, %._crit_edge90 ], [ %15, %13 ]
-  %36 = sub nsw i32 %35, %18
-  %.not84 = icmp sgt i32 %1, %36
-  br i1 %.not84, label %44, label %37
+32:                                               ; preds = %._crit_edge91, %13
+  %33 = phi i32 [ %.pre, %._crit_edge91 ], [ %15, %13 ]
+  %34 = sub nsw i32 %33, %18
+  %.not84 = icmp sgt i32 %1, %34
+  br i1 %.not84, label %42, label %35
 
-37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 %17
-  store ptr %40, ptr %2, align 8
-  %41 = sext i32 %1 to i64
-  %42 = load i64, ptr %0, align 8
-  %43 = add nsw i64 %42, %41
-  store i64 %43, ptr %0, align 8
+35:                                               ; preds = %32
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 %17
+  store ptr %38, ptr %2, align 8
+  %39 = sext i32 %1 to i64
+  %40 = load i64, ptr %0, align 8
+  %41 = add nsw i64 %40, %39
+  store i64 %41, ptr %0, align 8
   br label %.loopexit
 
-44:                                               ; preds = %34
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %46 = load i32, ptr %45, align 8
-  %47 = icmp slt i32 %46, %1
-  br i1 %47, label %48, label %._crit_edge91
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load i32, ptr %43, align 8
+  %45 = icmp slt i32 %44, %1
+  br i1 %45, label %46, label %._crit_edge92
 
-._crit_edge91:                                    ; preds = %44
+._crit_edge92:                                    ; preds = %42
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %.pre92 = load ptr, ptr %.phi.trans.insert, align 8
-  br label %63
+  %.pre93 = load ptr, ptr %.phi.trans.insert, align 8
+  br label %61
 
-48:                                               ; preds = %44
-  %49 = icmp slt i32 %46, 64
-  %50 = sext i32 %46 to i64
-  %51 = shl nsw i64 %50, 1
-  %52 = select i1 %49, i64 128, i64 %51
-  %53 = sext i32 %1 to i64
-  br label %54
+46:                                               ; preds = %42
+  %47 = icmp slt i32 %44, 64
+  %48 = sext i32 %44 to i64
+  %49 = shl nsw i64 %48, 1
+  %50 = select i1 %47, i64 128, i64 %49
+  %51 = sext i32 %1 to i64
+  br label %52
 
-54:                                               ; preds = %54, %48
-  %.070 = phi i64 [ %52, %48 ], [ %56, %54 ]
-  %55 = icmp slt i64 %.070, %53
-  %56 = shl nuw nsw i64 %.070, 1
-  br i1 %55, label %54, label %57, !llvm.loop !563
+52:                                               ; preds = %52, %46
+  %.070 = phi i64 [ %50, %46 ], [ %54, %52 ]
+  %53 = icmp slt i64 %.070, %51
+  %54 = shl nuw nsw i64 %.070, 1
+  br i1 %53, label %52, label %55, !llvm.loop !563
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call fastcc ptr @sqlite3Realloc(ptr noundef %59, i64 noundef %.070)
-  %.not85 = icmp eq ptr %60, null
-  br i1 %.not85, label %.loopexit, label %61
+55:                                               ; preds = %52
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %57 = load ptr, ptr %56, align 8
+  %58 = tail call fastcc ptr @sqlite3Realloc(ptr noundef %57, i64 noundef %.070)
+  %.not85 = icmp eq ptr %58, null
+  br i1 %.not85, label %.loopexit, label %59
 
-61:                                               ; preds = %57
-  %62 = trunc nuw i64 %.070 to i32
-  store i32 %62, ptr %45, align 8
-  store ptr %60, ptr %58, align 8
-  br label %63
+59:                                               ; preds = %55
+  %60 = trunc nuw i64 %.070 to i32
+  store i32 %60, ptr %43, align 8
+  store ptr %58, ptr %56, align 8
+  br label %61
 
-63:                                               ; preds = %._crit_edge91, %61
-  %64 = phi ptr [ %.pre92, %._crit_edge91 ], [ %60, %61 ]
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 %17
-  %69 = sext i32 %36 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %68, i64 %69, i1 false)
-  %70 = load i64, ptr %0, align 8
-  %71 = add nsw i64 %70, %69
-  store i64 %71, ptr %0, align 8
-  %72 = sub nsw i32 %1, %36
-  %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph, label %._crit_edge
+61:                                               ; preds = %._crit_edge92, %59
+  %62 = phi ptr [ %.pre93, %._crit_edge92 ], [ %58, %59 ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 %17
+  %67 = sext i32 %34 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %66, i64 %67, i1 false)
+  %68 = load i64, ptr %0, align 8
+  %69 = add nsw i64 %68, %67
+  store i64 %69, ptr %0, align 8
+  %70 = sub nsw i32 %1, %34
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %63, %76
-  %.07288 = phi i32 [ %83, %76 ], [ %72, %63 ]
-  %74 = load i32, ptr %14, align 8
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.07288, i32 %74)
-  %75 = call fastcc i32 @vdbePmaReadBlob(ptr noundef nonnull %0, i32 noundef %spec.select, ptr noundef nonnull %4)
-  %.not86 = icmp eq i32 %75, 0
-  br i1 %.not86, label %76, label %.loopexit
+.lr.ph:                                           ; preds = %61, %74
+  %.07289 = phi i32 [ %81, %74 ], [ %70, %61 ]
+  %72 = load i32, ptr %14, align 8
+  %spec.select = tail call i32 @llvm.smin.i32(i32 %.07289, i32 %72)
+  %73 = call fastcc i32 @vdbePmaReadBlob(ptr noundef nonnull %0, i32 noundef %spec.select, ptr noundef nonnull %4)
+  %.not86 = icmp eq i32 %73, 0
+  br i1 %.not86, label %74, label %.loopexit
 
-76:                                               ; preds = %.lr.ph
-  %77 = load ptr, ptr %65, align 8
-  %78 = sub nsw i32 %1, %.07288
-  %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i8, ptr %77, i64 %79
-  %81 = load ptr, ptr %4, align 8
-  %82 = sext i32 %spec.select to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %80, ptr align 1 %81, i64 %82, i1 false)
-  %83 = sub nsw i32 %.07288, %spec.select
-  %84 = icmp sgt i32 %83, 0
-  br i1 %84, label %.lr.ph, label %._crit_edge, !llvm.loop !564
+74:                                               ; preds = %.lr.ph
+  %75 = load ptr, ptr %63, align 8
+  %76 = sub nsw i32 %1, %.07289
+  %77 = sext i32 %76 to i64
+  %78 = getelementptr inbounds i8, ptr %75, i64 %77
+  %79 = load ptr, ptr %4, align 8
+  %80 = sext i32 %spec.select to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %78, ptr align 1 %79, i64 %80, i1 false)
+  %81 = sub nsw i32 %.07289, %spec.select
+  %82 = icmp sgt i32 %81, 0
+  br i1 %82, label %.lr.ph, label %._crit_edge, !llvm.loop !564
 
-._crit_edge:                                      ; preds = %76, %63
-  %85 = load ptr, ptr %65, align 8
-  store ptr %85, ptr %2, align 8
+._crit_edge:                                      ; preds = %74, %61
+  %83 = load ptr, ptr %63, align 8
+  store ptr %83, ptr %2, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %37, %._crit_edge, %57, %20, %8
-  %.069 = phi i32 [ 0, %8 ], [ %33, %20 ], [ 7, %57 ], [ 0, %._crit_edge ], [ 0, %37 ], [ %75, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %35, %._crit_edge, %55, %20, %8
+  %.069 = phi i32 [ 0, %8 ], [ %31, %20 ], [ 7, %55 ], [ 0, %._crit_edge ], [ 0, %35 ], [ %73, %.lr.ph ]
   ret i32 %.069
 }
 

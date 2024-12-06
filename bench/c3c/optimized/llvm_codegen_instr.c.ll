@@ -16,9 +16,9 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @llvm_emit_cond_br_raw(ptr nocapture noundef initializes((80, 88)) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #3
+  %7 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3) #4
   %8 = load ptr, ptr %5, align 8
-  tail call void @LLVMClearInsertionPosition(ptr noundef %8) #3
+  tail call void @LLVMClearInsertionPosition(ptr noundef %8) #4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -38,9 +38,9 @@ define dso_local void @llvm_emit_cond_br(ptr nocapture noundef initializes((80, 
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %8, ptr noundef %2, ptr noundef %3) #3
+  %9 = tail call ptr @LLVMBuildCondBr(ptr noundef %6, ptr noundef %8, ptr noundef %2, ptr noundef %3) #4
   %10 = load ptr, ptr %5, align 8
-  tail call void @LLVMClearInsertionPosition(ptr noundef %10) #3
+  tail call void @LLVMClearInsertionPosition(ptr noundef %10) #4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 424
@@ -56,22 +56,22 @@ define dso_local ptr @llvm_emit_lshr_fixed(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #3
-  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #3
+  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #4
+  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #4
   %8 = sext i32 %2 to i64
   %.not = icmp ugt i64 %7, %8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @LLVMConstNull(ptr noundef %6) #3
+  %10 = tail call ptr @LLVMConstNull(ptr noundef %6) #4
   br label %17
 
 11:                                               ; preds = %5
   %12 = zext i32 %2 to i64
-  %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #3
+  %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @LLVMBuildLShr(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.3) #3
+  %16 = tail call ptr @LLVMBuildLShr(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.3) #4
   br label %17
 
 17:                                               ; preds = %3, %11, %9
@@ -88,24 +88,22 @@ declare ptr @LLVMConstInt(ptr noundef, i64 noundef, i32 noundef) local_unnamed_a
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @llvm_emit_ashr_fixed(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %15, label %5
+  br i1 %4, label %14, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #3
-  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #3
+  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #4
+  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #4
   %8 = sext i32 %2 to i64
-  %.not = icmp ugt i64 %7, %8
-  %9 = trunc i64 %7 to i32
-  %spec.select = select i1 %.not, i32 %2, i32 %9
-  %10 = zext i32 %spec.select to i64
-  %11 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %10, i32 noundef 0) #3
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @LLVMBuildAShr(ptr noundef %13, ptr noundef %1, ptr noundef %11, ptr noundef nonnull @.str.4) #3
-  br label %15
+  %spec.select18 = tail call i64 @llvm.umin.i64(i64 %7, i64 %8)
+  %9 = and i64 %spec.select18, 4294967295
+  %10 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %9, i32 noundef 0) #4
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %12 = load ptr, ptr %11, align 8
+  %13 = tail call ptr @LLVMBuildAShr(ptr noundef %12, ptr noundef %1, ptr noundef %10, ptr noundef nonnull @.str.4) #4
+  br label %14
 
-15:                                               ; preds = %3, %5
-  %.0 = phi ptr [ %14, %5 ], [ %1, %3 ]
+14:                                               ; preds = %3, %5
+  %.0 = phi ptr [ %13, %5 ], [ %1, %3 ]
   ret ptr %.0
 }
 
@@ -115,22 +113,22 @@ define dso_local ptr @llvm_emit_shl_fixed(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %4, label %17, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #3
-  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #3
+  %6 = tail call ptr @LLVMTypeOf(ptr noundef %1) #4
+  %7 = tail call i64 @llvm_bitsize(ptr noundef %0, ptr noundef %6) #4
   %8 = sext i32 %2 to i64
   %.not = icmp ugt i64 %7, %8
   br i1 %.not, label %11, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @LLVMConstNull(ptr noundef %6) #3
+  %10 = tail call ptr @LLVMConstNull(ptr noundef %6) #4
   br label %17
 
 11:                                               ; preds = %5
   %12 = zext i32 %2 to i64
-  %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #3
+  %13 = tail call ptr @LLVMConstInt(ptr noundef %6, i64 noundef %12, i32 noundef 0) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @LLVMBuildShl(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.5) #3
+  %16 = tail call ptr @LLVMBuildShl(ptr noundef %15, ptr noundef %1, ptr noundef %13, ptr noundef nonnull @.str.5) #4
   br label %17
 
 17:                                               ; preds = %3, %11, %9
@@ -144,7 +142,7 @@ define dso_local range(i32 0, 8) i32 @llvm_atomic_ordering(i32 noundef %0) local
   br i1 %2, label %switch.lookup, label %3
 
 3:                                                ; preds = %1
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.llvm_atomic_ordering, ptr noundef nonnull @.str.2, i32 noundef 68) #4
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.llvm_atomic_ordering, ptr noundef nonnull @.str.2, i32 noundef 68) #5
   unreachable
 
 switch.lookup:                                    ; preds = %1
@@ -165,11 +163,15 @@ declare ptr @LLVMBuildAShr(ptr noundef, ptr noundef, ptr noundef, ptr noundef) l
 
 declare ptr @LLVMBuildShl(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #3
+
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind }
-attributes #4 = { noreturn nounwind }
+attributes #3 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #4 = { nounwind }
+attributes #5 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

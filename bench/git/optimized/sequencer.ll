@@ -13202,8 +13202,8 @@ if.then17:                                        ; preds = %if.end15
   %46 = load i64, ptr %len, align 8
   %call.i50 = call ptr @xcalloc(i64 noundef %45, i64 noundef 40) #19
   %47 = load i64, ptr %nr, align 8
-  %cmp115.not.i = icmp eq i64 %47, 0
-  br i1 %cmp115.not.i, label %for.cond21.preheader.i, label %for.body.lr.ph.i51
+  %cmp118.not.i = icmp eq i64 %47, 0
+  br i1 %cmp118.not.i, label %for.cond21.preheader.i, label %for.body.lr.ph.i51
 
 for.body.lr.ph.i51:                               ; preds = %if.then17
   %buf.i.i = getelementptr inbounds nuw i8, ptr %todo_list, i64 16
@@ -13212,8 +13212,8 @@ for.body.lr.ph.i51:                               ; preds = %if.then17
 for.cond21.preheader.i:                           ; preds = %strbuf_addch.exit.i, %if.then17
   %nr22.i = getelementptr inbounds nuw i8, ptr %todo_list, i64 32
   %48 = load i32, ptr %nr22.i, align 8
-  %cmp23119.i = icmp sgt i32 %48, 0
-  br i1 %cmp23119.i, label %for.body25.lr.ph.i, label %todo_list_add_exec_commands.exit
+  %cmp23122.i = icmp sgt i32 %48, 0
+  br i1 %cmp23122.i, label %for.body25.lr.ph.i, label %todo_list_add_exec_commands.exit
 
 for.body25.lr.ph.i:                               ; preds = %for.cond21.preheader.i
   %items27.i = getelementptr inbounds nuw i8, ptr %todo_list, i64 24
@@ -13221,7 +13221,7 @@ for.body25.lr.ph.i:                               ; preds = %for.cond21.preheade
 
 for.body.i52:                                     ; preds = %strbuf_addch.exit.i, %for.body.lr.ph.i51
   %indvars.iv.i53 = phi i64 [ 0, %for.body.lr.ph.i51 ], [ %indvars.iv.next.i57, %strbuf_addch.exit.i ]
-  %base_offset.0117.i = phi i64 [ %46, %for.body.lr.ph.i51 ], [ %add20.i, %strbuf_addch.exit.i ]
+  %base_offset.0120.i = phi i64 [ %46, %for.body.lr.ph.i51 ], [ %add20.i, %strbuf_addch.exit.i ]
   %49 = load ptr, ptr %commands, align 8
   %arrayidx.i = getelementptr inbounds nuw %struct.string_list_item, ptr %49, i64 %indvars.iv.i53
   %50 = load ptr, ptr %arrayidx.i, align 8
@@ -13257,13 +13257,13 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i72, %str
   %arrayidx12.i = getelementptr inbounds nuw %struct.todo_item, ptr %call.i50, i64 %indvars.iv.i53
   store i32 6, ptr %arrayidx12.i, align 8
   %offset_in_buf.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 24
-  store i64 %base_offset.0117.i, ptr %offset_in_buf.i, align 8
+  store i64 %base_offset.0120.i, ptr %offset_in_buf.i, align 8
   %arg_offset.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 32
-  store i64 %base_offset.0117.i, ptr %arg_offset.i, align 8
+  store i64 %base_offset.0120.i, ptr %arg_offset.i, align 8
   %conv17.i = trunc i64 %call6.i to i32
   %arg_len.i = getelementptr inbounds nuw i8, ptr %arrayidx12.i, i64 20
   store i32 %conv17.i, ptr %arg_len.i, align 4
-  %add.i56 = add i64 %base_offset.0117.i, 1
+  %add.i56 = add i64 %base_offset.0120.i, 1
   %add20.i = add i64 %add.i56, %call6.i
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i53, 1
   %57 = load i64, ptr %nr, align 8
@@ -13271,15 +13271,15 @@ strbuf_addch.exit.i:                              ; preds = %if.then.i.i72, %str
   br i1 %cmp.i58, label %for.body.i52, label %for.cond21.preheader.i, !llvm.loop !49
 
 for.body25.i:                                     ; preds = %for.body25.i.backedge, %for.body25.lr.ph.i
-  %indvars.iv130.i = phi i64 [ 0, %for.body25.lr.ph.i ], [ %indvars.iv130.i.be, %for.body25.i.backedge ]
-  %items.0123.i = phi ptr [ null, %for.body25.lr.ph.i ], [ %items.3.i, %for.body25.i.backedge ]
-  %alloc.0122.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %alloc.5.i, %for.body25.i.backedge ]
-  %nr.0121.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %add66.i, %for.body25.i.backedge ]
-  %insert.0120.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %insert.0120.i.be, %for.body25.i.backedge ]
+  %indvars.iv133.i = phi i64 [ 0, %for.body25.lr.ph.i ], [ %indvars.iv133.i.be, %for.body25.i.backedge ]
+  %items.0126.i = phi ptr [ null, %for.body25.lr.ph.i ], [ %items.3.i, %for.body25.i.backedge ]
+  %alloc.0125.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %alloc.5.i, %for.body25.i.backedge ]
+  %nr.0124.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %add66.i, %for.body25.i.backedge ]
+  %insert.0123.i = phi i32 [ 0, %for.body25.lr.ph.i ], [ %insert.0123.i.be, %for.body25.i.backedge ]
   %58 = load ptr, ptr %items27.i, align 8
-  %arrayidx29.i = getelementptr inbounds nuw %struct.todo_item, ptr %58, i64 %indvars.iv130.i
+  %arrayidx29.i = getelementptr inbounds nuw %struct.todo_item, ptr %58, i64 %indvars.iv133.i
   %59 = load i32, ptr %arrayidx29.i, align 8
-  %tobool.not.i59 = icmp eq i32 %insert.0120.i, 0
+  %tobool.not.i59 = icmp eq i32 %insert.0123.i, 0
   br i1 %tobool.not.i59, label %do.body65.i, label %land.lhs.true.i
 
 land.lhs.true.i:                                  ; preds = %for.body25.i
@@ -13288,23 +13288,22 @@ land.lhs.true.i:                                  ; preds = %for.body25.i
   br i1 %.not.i, label %do.body65.i, label %do.body.i
 
 do.body.i:                                        ; preds = %land.lhs.true.i
-  %conv33.i = sext i32 %nr.0121.i to i64
+  %conv33.i = sext i32 %nr.0124.i to i64
   %61 = load i64, ptr %nr, align 8
   %add35.i = add i64 %61, %conv33.i
-  %conv36.i = sext i32 %alloc.0122.i to i64
+  %conv36.i = sext i32 %alloc.0125.i to i64
   %cmp37.i = icmp ugt i64 %add35.i, %conv36.i
   br i1 %cmp37.i, label %if.then39.i, label %do.end.i60
 
 if.then39.i:                                      ; preds = %do.body.i
-  %62 = mul i32 %alloc.0122.i, 3
+  %62 = mul i32 %alloc.0125.i, 3
   %mul.i67 = add i32 %62, 48
   %div.i68 = sdiv i32 %mul.i67, 2
   %conv41.i = sext i32 %div.i68 to i64
-  %cmp45.i = icmp ugt i64 %add35.i, %conv41.i
-  %conv51.i = trunc i64 %add35.i to i32
-  %alloc.1.i = select i1 %cmp45.i, i32 %conv51.i, i32 %div.i68
-  %conv55.i = sext i32 %alloc.1.i to i64
-  %mul.ov.i.i69 = icmp slt i32 %alloc.1.i, 0
+  %alloc.1101.i = call i64 @llvm.umax.i64(i64 %add35.i, i64 %conv41.i)
+  %sext102.i = shl i64 %alloc.1101.i, 32
+  %conv55.i = ashr exact i64 %sext102.i, 32
+  %mul.ov.i.i69 = icmp ugt i64 %conv55.i, 461168601842738790
   br i1 %mul.ov.i.i69, label %if.then.i79.i, label %st_mult.exit.i70
 
 if.then.i79.i:                                    ; preds = %if.then39.i
@@ -13312,15 +13311,16 @@ if.then.i79.i:                                    ; preds = %if.then39.i
   unreachable
 
 st_mult.exit.i70:                                 ; preds = %if.then39.i
+  %alloc.1.i = trunc i64 %alloc.1101.i to i32
   %mul.i.i71 = mul nuw nsw i64 %conv55.i, 40
-  %call57.i = call ptr @xrealloc(ptr noundef %items.0123.i, i64 noundef %mul.i.i71) #19
+  %call57.i = call ptr @xrealloc(ptr noundef %items.0126.i, i64 noundef %mul.i.i71) #19
   %.pr.i = load i64, ptr %nr, align 8
   br label %do.end.i60
 
 do.end.i60:                                       ; preds = %st_mult.exit.i70, %do.body.i
   %63 = phi i64 [ %61, %do.body.i ], [ %.pr.i, %st_mult.exit.i70 ]
-  %alloc.2.i = phi i32 [ %alloc.0122.i, %do.body.i ], [ %alloc.1.i, %st_mult.exit.i70 ]
-  %items.1.i = phi ptr [ %items.0123.i, %do.body.i ], [ %call57.i, %st_mult.exit.i70 ]
+  %alloc.2.i = phi i32 [ %alloc.0125.i, %do.body.i ], [ %alloc.1.i, %st_mult.exit.i70 ]
+  %items.1.i = phi ptr [ %items.0126.i, %do.body.i ], [ %call57.i, %st_mult.exit.i70 ]
   %add.ptr.i61 = getelementptr inbounds %struct.todo_item, ptr %items.1.i, i64 %conv33.i
   %tobool.not.i80.i = icmp eq i64 %63, 0
   br i1 %tobool.not.i80.i, label %copy_array.exit.i, label %if.then.i81.i
@@ -13342,15 +13342,15 @@ st_mult.exit.i.i63:                               ; preds = %if.then.i81.i
 
 copy_array.exit.i:                                ; preds = %st_mult.exit.i.i63, %do.end.i60
   %65 = phi i32 [ 0, %do.end.i60 ], [ %64, %st_mult.exit.i.i63 ]
-  %conv63.i = add i32 %65, %nr.0121.i
+  %conv63.i = add i32 %65, %nr.0124.i
   br label %do.body65.i
 
 do.body65.i:                                      ; preds = %copy_array.exit.i, %land.lhs.true.i, %for.body25.i
   %66 = phi i1 [ false, %land.lhs.true.i ], [ true, %copy_array.exit.i ], [ true, %for.body25.i ]
   %insert.1.i = phi i32 [ 1, %land.lhs.true.i ], [ 0, %copy_array.exit.i ], [ 0, %for.body25.i ]
-  %nr.1.i = phi i32 [ %nr.0121.i, %land.lhs.true.i ], [ %conv63.i, %copy_array.exit.i ], [ %nr.0121.i, %for.body25.i ]
-  %alloc.3.i = phi i32 [ %alloc.0122.i, %land.lhs.true.i ], [ %alloc.2.i, %copy_array.exit.i ], [ %alloc.0122.i, %for.body25.i ]
-  %items.2.i = phi ptr [ %items.0123.i, %land.lhs.true.i ], [ %items.1.i, %copy_array.exit.i ], [ %items.0123.i, %for.body25.i ]
+  %nr.1.i = phi i32 [ %nr.0124.i, %land.lhs.true.i ], [ %conv63.i, %copy_array.exit.i ], [ %nr.0124.i, %for.body25.i ]
+  %alloc.3.i = phi i32 [ %alloc.0125.i, %land.lhs.true.i ], [ %alloc.2.i, %copy_array.exit.i ], [ %alloc.0125.i, %for.body25.i ]
+  %items.2.i = phi ptr [ %items.0126.i, %land.lhs.true.i ], [ %items.1.i, %copy_array.exit.i ], [ %items.0126.i, %for.body25.i ]
   %add66.i = add nsw i32 %nr.1.i, 1
   %cmp67.not.i = icmp slt i32 %nr.1.i, %alloc.3.i
   br i1 %cmp67.not.i, label %do.end87.i, label %if.then69.i
@@ -13380,7 +13380,7 @@ do.end87.i:                                       ; preds = %st_mult.exit86.i, %
   %idxprom89.i = sext i32 %nr.1.i to i64
   %arrayidx90.i = getelementptr inbounds %struct.todo_item, ptr %items.3.i, i64 %idxprom89.i
   %68 = load ptr, ptr %items27.i, align 8
-  %arrayidx93.i = getelementptr inbounds nuw %struct.todo_item, ptr %68, i64 %indvars.iv130.i
+  %arrayidx93.i = getelementptr inbounds nuw %struct.todo_item, ptr %68, i64 %indvars.iv133.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %arrayidx90.i, ptr noundef nonnull align 8 dereferenceable(40) %arrayidx93.i, i64 40, i1 false)
   switch i32 %59, label %for.inc100.i [
     i32 10, label %for.inc100.thread.i
@@ -13388,22 +13388,22 @@ do.end87.i:                                       ; preds = %st_mult.exit86.i, %
   ]
 
 for.inc100.i:                                     ; preds = %do.end87.i
-  %indvars.iv.next131.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
   %69 = load i32, ptr %nr22.i, align 8
   %70 = sext i32 %69 to i64
-  %cmp23.i = icmp slt i64 %indvars.iv.next131.i, %70
+  %cmp23.i = icmp slt i64 %indvars.iv.next134.i, %70
   br i1 %cmp23.i, label %for.body25.i.backedge, label %for.end102.i
 
 for.inc100.thread.i:                              ; preds = %do.end87.i, %do.end87.i
-  %indvars.iv.next131139.i = add nuw nsw i64 %indvars.iv130.i, 1
+  %indvars.iv.next134142.i = add nuw nsw i64 %indvars.iv133.i, 1
   %71 = load i32, ptr %nr22.i, align 8
   %72 = sext i32 %71 to i64
-  %cmp23140.i = icmp slt i64 %indvars.iv.next131139.i, %72
-  br i1 %cmp23140.i, label %for.body25.i.backedge, label %do.body105.i
+  %cmp23143.i = icmp slt i64 %indvars.iv.next134142.i, %72
+  br i1 %cmp23143.i, label %for.body25.i.backedge, label %do.body105.i
 
 for.body25.i.backedge:                            ; preds = %for.inc100.thread.i, %for.inc100.i
-  %indvars.iv130.i.be = phi i64 [ %indvars.iv.next131.i, %for.inc100.i ], [ %indvars.iv.next131139.i, %for.inc100.thread.i ]
-  %insert.0120.i.be = phi i32 [ %insert.1.i, %for.inc100.i ], [ 1, %for.inc100.thread.i ]
+  %indvars.iv133.i.be = phi i64 [ %indvars.iv.next134.i, %for.inc100.i ], [ %indvars.iv.next134142.i, %for.inc100.thread.i ]
+  %insert.0123.i.be = phi i32 [ %insert.1.i, %for.inc100.i ], [ 1, %for.inc100.thread.i ]
   br label %for.body25.i, !llvm.loop !50
 
 for.end102.i:                                     ; preds = %for.inc100.i
@@ -13422,11 +13422,10 @@ if.then112.i:                                     ; preds = %do.body105.i
   %mul114.i = add i32 %74, 48
   %div115.i = sdiv i32 %mul114.i, 2
   %conv116.i = sext i32 %div115.i to i64
-  %cmp120.i = icmp ugt i64 %add108.i, %conv116.i
-  %conv126.i = trunc i64 %add108.i to i32
-  %alloc.7.i = select i1 %cmp120.i, i32 %conv126.i, i32 %div115.i
-  %conv132.i = sext i32 %alloc.7.i to i64
-  %mul.ov.i88.i = icmp slt i32 %alloc.7.i, 0
+  %alloc.7100.i = call i64 @llvm.umax.i64(i64 %add108.i, i64 %conv116.i)
+  %sext.i = shl i64 %alloc.7100.i, 32
+  %conv132.i = ashr exact i64 %sext.i, 32
+  %mul.ov.i88.i = icmp ugt i64 %conv132.i, 461168601842738790
   br i1 %mul.ov.i88.i, label %if.then.i90.i, label %st_mult.exit91.i
 
 if.then.i90.i:                                    ; preds = %if.then112.i
@@ -13434,6 +13433,7 @@ if.then.i90.i:                                    ; preds = %if.then112.i
   unreachable
 
 st_mult.exit91.i:                                 ; preds = %if.then112.i
+  %alloc.7.i = trunc i64 %alloc.7100.i to i32
   %mul.i89.i = mul nuw nsw i64 %conv132.i, 40
   %call134.i = call ptr @xrealloc(ptr noundef nonnull %items.3.i, i64 noundef %mul.i89.i) #19
   %.pr99.i = load i64, ptr %nr, align 8
@@ -13458,8 +13458,8 @@ if.then.i.i97.i:                                  ; preds = %if.then.i93.i
 st_mult.exit.i95.i:                               ; preds = %if.then.i93.i
   %mul.i.i96.i = mul nuw i64 %75, 40
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr138.i, ptr readonly align 1 %call.i50, i64 %mul.i.i96.i, i1 false)
-  %.pre133.i = load i64, ptr %nr, align 8
-  %76 = trunc i64 %.pre133.i to i32
+  %.pre136.i = load i64, ptr %nr, align 8
+  %76 = trunc i64 %.pre136.i to i32
   br label %copy_array.exit98.i
 
 copy_array.exit98.i:                              ; preds = %st_mult.exit.i95.i, %do.end136.i

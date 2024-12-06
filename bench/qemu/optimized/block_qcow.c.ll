@@ -988,8 +988,8 @@ if.end3:                                          ; preds = %if.then, %if.else
   %orig_buf.0 = phi ptr [ %call, %if.then ], [ null, %if.else ]
   %lock = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #15
-  %cmp4.not62 = icmp eq i64 %bytes, 0
-  br i1 %cmp4.not62, label %while.end, label %while.body.lr.ph
+  %cmp4.not67 = icmp eq i64 %bytes, 0
+  br i1 %cmp4.not67, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end3
   %cluster_size = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1009,23 +1009,21 @@ while.body.lr.ph:                                 ; preds = %if.end3
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end87
-  %buf.165 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr93, %if.end87 ]
-  %offset.addr.064 = phi i64 [ %offset, %while.body.lr.ph ], [ %add91, %if.end87 ]
-  %bytes.addr.063 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub89, %if.end87 ]
-  %call5 = call i32 @get_cluster_offset(ptr noundef %bs, i64 noundef %offset.addr.064, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cluster_offset)
+  %buf.170 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr93, %if.end87 ]
+  %offset.addr.069 = phi i64 [ %offset, %while.body.lr.ph ], [ %add91, %if.end87 ]
+  %bytes.addr.068 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub89, %if.end87 ]
+  %call5 = call i32 @get_cluster_offset(ptr noundef %bs, i64 noundef %offset.addr.069, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %cluster_offset)
   %cmp6 = icmp slt i32 %call5, 0
   br i1 %cmp6, label %while.end, label %if.end8
 
 if.end8:                                          ; preds = %while.body
   %7 = load i32, ptr %cluster_size, align 4
   %sub = add i32 %7, -1
-  %8 = trunc i64 %offset.addr.064 to i32
+  %8 = trunc i64 %offset.addr.069 to i32
   %conv9 = and i32 %sub, %8
   %sub11 = sub i32 %7, %conv9
   %conv12 = sext i32 %sub11 to i64
-  %cmp13 = icmp slt i64 %bytes.addr.063, %conv12
-  %conv16 = trunc i64 %bytes.addr.063 to i32
-  %spec.select = select i1 %cmp13, i32 %conv16, i32 %sub11
+  %spec.select62 = call i64 @llvm.smin.i64(i64 %bytes.addr.068, i64 %conv12)
   %9 = load i64, ptr %cluster_offset, align 8
   %tobool.not = icmp eq i64 %9, 0
   br i1 %tobool.not, label %if.then18, label %if.else38
@@ -1048,23 +1046,25 @@ if.then23:                                        ; preds = %if.then20
 
 do.end:                                           ; preds = %if.then20, %if.then23
   %13 = load ptr, ptr %backing, align 8
-  %conv28 = sext i32 %spec.select to i64
+  %sext64 = shl i64 %spec.select62, 32
+  %conv28 = ashr exact i64 %sext64, 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
   store ptr %local_iov.i, ptr %qiov.i, align 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %6, align 8
-  store ptr %buf.165, ptr %local_iov.i, align 8
+  store ptr %buf.170, ptr %local_iov.i, align 8
   store i64 %conv28, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #15
-  %call.i = call i32 @bdrv_co_preadv(ptr noundef %13, i64 noundef %offset.addr.064, i64 noundef %conv28, ptr noundef nonnull %qiov.i, i32 noundef 0) #15
+  %call.i = call i32 @bdrv_co_preadv(ptr noundef %13, i64 noundef %offset.addr.069, i64 noundef %conv28, ptr noundef nonnull %qiov.i, i32 noundef 0) #15
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %qiov.i)
   call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #15
   %cmp31 = icmp slt i32 %call.i, 0
   br i1 %cmp31, label %while.end, label %if.end87
 
 if.else35:                                        ; preds = %if.then18
-  %conv36 = sext i32 %spec.select to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %buf.165, i8 0, i64 %conv36, i1 false)
+  %sext65 = shl i64 %spec.select62, 32
+  %conv36 = ashr exact i64 %sext65, 32
+  call void @llvm.memset.p0.i64(ptr align 1 %buf.170, i8 0, i64 %conv36, i1 false)
   br label %if.end87
 
 if.else38:                                        ; preds = %if.end8
@@ -1080,8 +1080,9 @@ if.end46:                                         ; preds = %if.then41
   %14 = load ptr, ptr %cluster_cache, align 8
   %idx.ext = sext i32 %conv9 to i64
   %add.ptr = getelementptr i8, ptr %14, i64 %idx.ext
-  %conv47 = sext i32 %spec.select to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.165, ptr align 1 %add.ptr, i64 %conv47, i1 false)
+  %sext = shl i64 %spec.select62, 32
+  %conv47 = ashr exact i64 %sext, 32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf.170, ptr align 1 %add.ptr, i64 %conv47, i1 false)
   br label %if.end87
 
 if.else48:                                        ; preds = %if.else38
@@ -1105,12 +1106,13 @@ do.end62:                                         ; preds = %if.end53, %if.then5
   %17 = phi ptr [ null, %if.end53 ], [ %.pre, %if.then58 ]
   %conv64 = sext i32 %conv9 to i64
   %add = add i64 %9, %conv64
-  %conv65 = sext i32 %spec.select to i64
+  %sext63 = shl i64 %spec.select62, 32
+  %conv65 = ashr exact i64 %sext63, 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i57)
   store ptr %local_iov.i58, ptr %qiov.i57, align 8
   store i32 1, ptr %niov.i59, align 8
   store i32 -1, ptr %5, align 8
-  store ptr %buf.165, ptr %local_iov.i58, align 8
+  store ptr %buf.170, ptr %local_iov.i58, align 8
   store i64 %conv65, ptr %iov_len.i60, align 8
   call void @assert_bdrv_graph_readable() #15
   %call.i61 = call i32 @bdrv_co_preadv(ptr noundef %17, i64 noundef %add, i64 noundef %conv65, ptr noundef nonnull %qiov.i57, i32 noundef 0) #15
@@ -1134,15 +1136,15 @@ if.else76:                                        ; preds = %if.then73
   unreachable
 
 if.end77:                                         ; preds = %if.then73
-  %call80 = call i32 @qcrypto_block_decrypt(ptr noundef nonnull %19, i64 noundef %offset.addr.064, ptr noundef %buf.165, i64 noundef %conv65, ptr noundef null) #15
+  %call80 = call i32 @qcrypto_block_decrypt(ptr noundef nonnull %19, i64 noundef %offset.addr.069, ptr noundef %buf.170, i64 noundef %conv65, ptr noundef null) #15
   %cmp81 = icmp slt i32 %call80, 0
   br i1 %cmp81, label %while.end, label %if.end87
 
 if.end87:                                         ; preds = %if.end46, %if.end77, %if.end71, %if.else35, %do.end
   %conv88.pre-phi = phi i64 [ %conv47, %if.end46 ], [ %conv65, %if.end77 ], [ %conv65, %if.end71 ], [ %conv36, %if.else35 ], [ %conv28, %do.end ]
-  %sub89 = sub i64 %bytes.addr.063, %conv88.pre-phi
-  %add91 = add i64 %offset.addr.064, %conv88.pre-phi
-  %add.ptr93 = getelementptr i8, ptr %buf.165, i64 %conv88.pre-phi
+  %sub89 = sub i64 %bytes.addr.068, %conv88.pre-phi
+  %add91 = add i64 %conv88.pre-phi, %offset.addr.069
+  %add.ptr93 = getelementptr i8, ptr %buf.170, i64 %conv88.pre-phi
   %cmp4.not = icmp eq i64 %sub89, 0
   br i1 %cmp4.not, label %while.end, label %while.body, !llvm.loop !8
 
@@ -1207,8 +1209,8 @@ if.end5:                                          ; preds = %if.else, %if.end
   %orig_buf.0 = phi ptr [ %call, %if.end ], [ null, %if.else ]
   %lock = getelementptr inbounds nuw i8, ptr %0, i64 288
   tail call void @qemu_co_mutex_lock(ptr noundef nonnull %lock) #15
-  %cmp6.not43 = icmp eq i64 %bytes, 0
-  br i1 %cmp6.not43, label %while.end, label %while.body.lr.ph
+  %cmp6.not45 = icmp eq i64 %bytes, 0
+  br i1 %cmp6.not45, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end5
   %cluster_size = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1221,20 +1223,19 @@ while.body.lr.ph:                                 ; preds = %if.end5
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end58
-  %buf.146 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr, %if.end58 ]
-  %offset.addr.045 = phi i64 [ %offset, %while.body.lr.ph ], [ %add62, %if.end58 ]
-  %bytes.addr.044 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub60, %if.end58 ]
+  %buf.148 = phi ptr [ %buf.0, %while.body.lr.ph ], [ %add.ptr, %if.end58 ]
+  %offset.addr.047 = phi i64 [ %offset, %while.body.lr.ph ], [ %add62, %if.end58 ]
+  %bytes.addr.046 = phi i64 [ %bytes, %while.body.lr.ph ], [ %sub60, %if.end58 ]
   %8 = load i32, ptr %cluster_size, align 4
   %sub = add i32 %8, -1
-  %9 = trunc i64 %offset.addr.045 to i32
+  %9 = trunc i64 %offset.addr.047 to i32
   %conv7 = and i32 %sub, %9
   %sub9 = sub i32 %8, %conv7
   %conv10 = sext i32 %sub9 to i64
-  %cmp11 = icmp slt i64 %bytes.addr.044, %conv10
-  %conv14 = trunc i64 %bytes.addr.044 to i32
-  %spec.select = select i1 %cmp11, i32 %conv14, i32 %sub9
-  %add = add i32 %spec.select, %conv7
-  %call16 = call i32 @get_cluster_offset(ptr noundef nonnull %bs, i64 noundef %offset.addr.045, i32 noundef 1, i32 noundef 0, i32 noundef %conv7, i32 noundef %add, ptr noundef nonnull %cluster_offset)
+  %spec.select43 = call i64 @llvm.smin.i64(i64 %bytes.addr.046, i64 %conv10)
+  %spec.select = trunc i64 %spec.select43 to i32
+  %add = add i32 %conv7, %spec.select
+  %call16 = call i32 @get_cluster_offset(ptr noundef nonnull %bs, i64 noundef %offset.addr.047, i32 noundef 1, i32 noundef 0, i32 noundef %conv7, i32 noundef %add, ptr noundef nonnull %cluster_offset)
   %cmp17 = icmp slt i32 %call16, 0
   br i1 %cmp17, label %while.end, label %if.end20
 
@@ -1261,8 +1262,9 @@ if.else33:                                        ; preds = %if.then30
   unreachable
 
 if.end34:                                         ; preds = %if.then30
-  %conv36 = sext i32 %spec.select to i64
-  %call37 = call i32 @qcrypto_block_encrypt(ptr noundef nonnull %12, i64 noundef %offset.addr.045, ptr noundef %buf.146, i64 noundef %conv36, ptr noundef null) #15
+  %sext = shl i64 %spec.select43, 32
+  %conv36 = ashr exact i64 %sext, 32
+  %call37 = call i32 @qcrypto_block_encrypt(ptr noundef nonnull %12, i64 noundef %offset.addr.047, ptr noundef %buf.148, i64 noundef %conv36, ptr noundef null) #15
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %while.end, label %if.end42
 
@@ -1282,12 +1284,13 @@ do.end:                                           ; preds = %if.end42, %if.then4
   %15 = phi ptr [ null, %if.end42 ], [ %.pre, %if.then45 ]
   %conv50 = sext i32 %conv7 to i64
   %add51 = add i64 %10, %conv50
-  %conv52 = sext i32 %spec.select to i64
+  %sext44 = shl i64 %spec.select43, 32
+  %conv52 = ashr exact i64 %sext44, 32
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %qiov.i)
   store ptr %local_iov.i, ptr %qiov.i, align 8
   store i32 1, ptr %niov.i, align 8
   store i32 -1, ptr %7, align 8
-  store ptr %buf.146, ptr %local_iov.i, align 8
+  store ptr %buf.148, ptr %local_iov.i, align 8
   store i64 %conv52, ptr %iov_len.i, align 8
   call void @assert_bdrv_graph_readable() #15
   %call.i = call i32 @bdrv_co_pwritev(ptr noundef %15, i64 noundef %add51, i64 noundef %conv52, ptr noundef nonnull %qiov.i, i32 noundef 0) #15
@@ -1297,9 +1300,9 @@ do.end:                                           ; preds = %if.end42, %if.then4
   br i1 %cmp55, label %while.end, label %if.end58
 
 if.end58:                                         ; preds = %do.end
-  %sub60 = sub i64 %bytes.addr.044, %conv52
-  %add62 = add i64 %offset.addr.045, %conv52
-  %add.ptr = getelementptr i8, ptr %buf.146, i64 %conv52
+  %sub60 = sub i64 %bytes.addr.046, %conv52
+  %add62 = add i64 %conv52, %offset.addr.047
+  %add.ptr = getelementptr i8, ptr %buf.148, i64 %conv52
   %cmp6.not = icmp eq i64 %sub60, 0
   br i1 %cmp6.not, label %while.end, label %while.body, !llvm.loop !9
 

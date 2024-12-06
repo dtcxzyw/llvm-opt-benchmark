@@ -10878,9 +10878,8 @@ land.lhs.true26.i1079:                            ; preds = %sw.bb18.i1074
   %conv24.i1080 = zext nneg i8 %conv1.i1073 to i32
   %sub.i1081 = add nsw i32 %conv24.i1080, -1
   %conv28.i = sext i8 %max_node_level.02398 to i32
-  %cmp29.i1082 = icmp sgt i32 %sub.i1081, %conv28.i
-  %conv33.i1083 = trunc nuw nsw i32 %sub.i1081 to i8
-  %spec.select47.i1084 = select i1 %cmp29.i1082, i8 %conv33.i1083, i8 %max_node_level.02398
+  %spec.select47.i108489 = call i32 @llvm.smax.i32(i32 %sub.i1081, i32 %conv28.i)
+  %spec.select47.i1084 = trunc nsw i32 %spec.select47.i108489 to i8
   br label %_ZL20get_max_liquid_level12NodeNeighbora.exit1092
 
 _ZL20get_max_liquid_level12NodeNeighbora.exit1092: ; preds = %land.lhs.true26.i1079, %sw.bb18.i1074, %if.else.i1088, %if.then.i1089, %for.body259
@@ -12709,9 +12708,9 @@ if.end705.thread:                                 ; preds = %if.else699
   br label %land.lhs.true716
 
 if.end705:                                        ; preds = %if.else699
-  %.pre519 = load i64, ptr %m_inc_trending_up_start_time, align 8
+  %.pre520 = load i64, ptr %m_inc_trending_up_start_time, align 8
   store i8 1, ptr %m_queue_size_timer_started700, align 8, !tbaa !77
-  %cmp710 = icmp ugt i64 %.pre519, %add.i1402
+  %cmp710 = icmp ugt i64 %.pre520, %add.i1402
   br i1 %cmp710, label %if.end713.thread, label %land.lhs.true716
 
 if.end713.thread:                                 ; preds = %if.end705
@@ -12723,7 +12722,7 @@ if.end713:                                        ; preds = %invoke.cont693
   br label %cleanup752
 
 land.lhs.true716:                                 ; preds = %if.end705.thread, %if.end705
-  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre519, %if.end705 ]
+  %312 = phi i64 [ %add.i1402, %if.end705.thread ], [ %.pre520, %if.end705 ]
   %sub718 = sub nuw i64 %add.i1402, %312
   %conv719 = zext i16 %mul to i64
   %cmp720 = icmp ugt i64 %sub718, %conv719
@@ -17409,6 +17408,9 @@ declare i32 @llvm.eh.typeid.for.p0(ptr) #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #29
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #29
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #29

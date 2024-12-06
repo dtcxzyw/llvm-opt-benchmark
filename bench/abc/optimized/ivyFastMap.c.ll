@@ -1481,19 +1481,18 @@ define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly 
   %119 = load i16, ptr %103, align 2
   %120 = sext i16 %119 to i32
   %121 = add nsw i32 %120, -1
-  %122 = icmp sgt i32 %121, %118
-  %123 = trunc i32 %121 to i16
-  %124 = select i1 %122, i16 %117, i16 %123
-  store i16 %124, ptr %116, align 2
-  %125 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  %126 = load i32, ptr %125, align 4
-  %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %125, align 4
+  %122 = tail call i32 @llvm.smin.i32(i32 %121, i32 %118)
+  %123 = trunc i32 %122 to i16
+  store i16 %123, ptr %116, align 2
+  %124 = getelementptr inbounds nuw i8, ptr %115, i64 4
+  %125 = load i32, ptr %124, align 4
+  %126 = add nsw i32 %125, 1
+  store i32 %126, ptr %124, align 4
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
-  %128 = load i8, ptr %99, align 4
-  %129 = sext i8 %128 to i64
-  %130 = icmp slt i64 %indvars.iv.next154, %129
-  br i1 %130, label %104, label %._crit_edge.loopexit, !llvm.loop !17
+  %127 = load i8, ptr %99, align 4
+  %128 = sext i8 %127 to i64
+  %129 = icmp slt i64 %indvars.iv.next154, %128
+  br i1 %129, label %104, label %._crit_edge.loopexit, !llvm.loop !17
 
 ._crit_edge.loopexit:                             ; preds = %104
   %.val.pre = load i32, ptr %89, align 4
@@ -1502,9 +1501,9 @@ define internal fastcc void @Ivy_FastMapRequired(ptr nocapture noundef readonly 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %92
   %.val = phi i32 [ %.val.pre, %._crit_edge.loopexit ], [ %.val162, %92 ]
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
-  %131 = sext i32 %.val to i64
-  %132 = icmp slt i64 %indvars.iv.next157, %131
-  br i1 %132, label %92, label %.critedge8.loopexit, !llvm.loop !18
+  %130 = sext i32 %.val to i64
+  %131 = icmp slt i64 %indvars.iv.next157, %130
+  br i1 %131, label %92, label %.critedge8.loopexit, !llvm.loop !18
 
 .critedge14:                                      ; preds = %.critedge8.loopexit, %.critedge4
   ret void

@@ -620,9 +620,9 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %7 = load i32, ptr %6, align 4
   %8 = icmp sgt i32 %7, 0
-  br i1 %8, label %.lr.ph51, label %._crit_edge52
+  br i1 %8, label %.lr.ph52, label %._crit_edge53
 
-.lr.ph51:                                         ; preds = %1
+.lr.ph52:                                         ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -636,19 +636,19 @@ define internal fastcc void @BufFileDumpBuffer(ptr noundef %0) unnamed_addr #0 {
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %20
 
-20:                                               ; preds = %.lr.ph51, %102
-  %21 = phi i32 [ %7, %.lr.ph51 ], [ %109, %102 ]
-  %.049 = phi i32 [ 0, %.lr.ph51 ], [ %106, %102 ]
+20:                                               ; preds = %.lr.ph52, %100
+  %21 = phi i32 [ %7, %.lr.ph52 ], [ %107, %100 ]
+  %.050 = phi i32 [ 0, %.lr.ph52 ], [ %104, %100 ]
   %22 = load i64, ptr %9, align 8
   %23 = icmp sgt i64 %22, 1073741823
-  %.pre61 = load i32, ptr %10, align 8
+  %.pre62 = load i32, ptr %10, align 8
   br i1 %23, label %.preheader, label %58
 
 .preheader:                                       ; preds = %20
-  %24 = add i32 %.pre61, 1
+  %24 = add i32 %.pre62, 1
   %25 = load i32, ptr %0, align 8
-  %.not48 = icmp slt i32 %24, %25
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp slt i32 %24, %25
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %extendBufFile.exit
   %26 = load ptr, ptr @CurrentResourceOwner, align 8
@@ -713,116 +713,115 @@ extendBufFile.exit:                               ; preds = %30, %34
   br label %58
 
 58:                                               ; preds = %._crit_edge, %20
-  %59 = phi i32 [ %.lcssa, %._crit_edge ], [ %.pre61, %20 ]
+  %59 = phi i32 [ %.lcssa, %._crit_edge ], [ %.pre62, %20 ]
   %60 = phi i64 [ 0, %._crit_edge ], [ %22, %20 ]
   %61 = phi i32 [ %.pre, %._crit_edge ], [ %21, %20 ]
-  %62 = sub i32 %61, %.049
+  %62 = sub i32 %61, %.050
   %63 = sub i64 1073741824, %60
   %64 = sext i32 %62 to i64
-  %65 = icmp slt i64 %63, %64
-  %66 = trunc i64 %63 to i32
-  %spec.select = select i1 %65, i32 %66, i32 %62
-  %67 = load ptr, ptr %15, align 8
-  %68 = sext i32 %59 to i64
-  %69 = getelementptr i32, ptr %67, i64 %68
-  %70 = load i32, ptr %69, align 4
-  %71 = load i8, ptr @track_io_timing, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %77
+  %spec.select42 = call i64 @llvm.smin.i64(i64 %63, i64 %64)
+  %65 = load ptr, ptr %15, align 8
+  %66 = sext i32 %59 to i64
+  %67 = getelementptr i32, ptr %65, i64 %66
+  %68 = load i32, ptr %67, align 4
+  %69 = load i8, ptr @track_io_timing, align 1
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %75
 
-73:                                               ; preds = %58
+71:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %74 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
-  %75 = load i64, ptr %4, align 8
-  %.neg = mul i64 %75, -1000000000
-  %76 = load i64, ptr %16, align 8
-  %.neg55 = sub i64 %.neg, %76
+  %72 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #10
+  %73 = load i64, ptr %4, align 8
+  %.neg = mul i64 %73, -1000000000
+  %74 = load i64, ptr %16, align 8
+  %.neg56 = sub i64 %.neg, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %.pre62 = load i64, ptr %9, align 8
-  br label %77
+  %.pre63 = load i64, ptr %9, align 8
+  br label %75
 
-77:                                               ; preds = %58, %73
-  %78 = phi i64 [ %.pre62, %73 ], [ %60, %58 ]
-  %.sroa.03.0.neg56 = phi i64 [ %.neg55, %73 ], [ 0, %58 ]
-  %79 = sext i32 %.049 to i64
-  %80 = getelementptr i8, ptr %17, i64 %79
-  %81 = sext i32 %spec.select to i64
+75:                                               ; preds = %58, %71
+  %76 = phi i64 [ %.pre63, %71 ], [ %60, %58 ]
+  %.sroa.03.0.neg57 = phi i64 [ %.neg56, %71 ], [ 0, %58 ]
+  %77 = sext i32 %.050 to i64
+  %78 = getelementptr i8, ptr %17, i64 %77
+  %sext = shl i64 %spec.select42, 32
+  %79 = ashr exact i64 %sext, 32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  store ptr %80, ptr %3, align 8
-  store i64 %81, ptr %18, align 8
-  %82 = call i64 @FileWriteV(i32 noundef %70, ptr noundef nonnull %3, i32 noundef 1, i64 noundef %78, i32 noundef 167772165) #10
+  store ptr %78, ptr %3, align 8
+  store i64 %79, ptr %18, align 8
+  %80 = call i64 @FileWriteV(i32 noundef %68, ptr noundef nonnull %3, i32 noundef 1, i64 noundef %76, i32 noundef 167772165) #10
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %83 = trunc i64 %82 to i32
-  %84 = icmp slt i32 %83, 1
-  br i1 %84, label %85, label %90
+  %81 = trunc i64 %80 to i32
+  %82 = icmp slt i32 %81, 1
+  br i1 %82, label %83, label %88
 
-85:                                               ; preds = %77
-  %86 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %86)
-  %87 = call i32 @errcode_for_file_access() #10
-  %88 = call ptr @FilePathName(i32 noundef %70) #10
-  %89 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %88) #10
+83:                                               ; preds = %75
+  %84 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  call void @llvm.assume(i1 %84)
+  %85 = call i32 @errcode_for_file_access() #10
+  %86 = call ptr @FilePathName(i32 noundef %68) #10
+  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef %86) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 546, ptr noundef nonnull @__func__.BufFileDumpBuffer) #10
   unreachable
 
-90:                                               ; preds = %77
-  %91 = load i8, ptr @track_io_timing, align 1
-  %92 = trunc i8 %91 to i1
-  br i1 %92, label %93, label %102
+88:                                               ; preds = %75
+  %89 = load i8, ptr @track_io_timing, align 1
+  %90 = trunc i8 %89 to i1
+  br i1 %90, label %91, label %100
 
-93:                                               ; preds = %90
+91:                                               ; preds = %88
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %94 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
-  %95 = load i64, ptr %2, align 8
-  %96 = mul i64 %95, 1000000000
-  %97 = load i64, ptr %19, align 8
+  %92 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
+  %93 = load i64, ptr %2, align 8
+  %94 = mul i64 %93, 1000000000
+  %95 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
-  %99 = add i64 %97, %.sroa.03.0.neg56
-  %100 = add i64 %99, %96
-  %101 = add i64 %100, %98
-  store i64 %101, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
-  br label %102
+  %96 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
+  %97 = add i64 %95, %.sroa.03.0.neg57
+  %98 = add i64 %97, %94
+  %99 = add i64 %98, %96
+  store i64 %99, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 120), align 8
+  br label %100
 
-102:                                              ; preds = %93, %90
-  %103 = and i64 %82, 2147483647
-  %104 = load i64, ptr %9, align 8
-  %105 = add i64 %104, %103
-  store i64 %105, ptr %9, align 8
-  %106 = add i32 %.049, %83
-  %107 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
-  %108 = add i64 %107, 1
-  store i64 %108, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
-  %109 = load i32, ptr %6, align 4
-  %110 = icmp slt i32 %106, %109
-  br i1 %110, label %20, label %._crit_edge52, !llvm.loop !10
+100:                                              ; preds = %91, %88
+  %101 = and i64 %80, 2147483647
+  %102 = load i64, ptr %9, align 8
+  %103 = add i64 %102, %101
+  store i64 %103, ptr %9, align 8
+  %104 = add i32 %.050, %81
+  %105 = load i64, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
+  %106 = add i64 %105, 1
+  store i64 %106, ptr getelementptr inbounds (i8, ptr @pgBufferUsage, i64 72), align 8
+  %107 = load i32, ptr %6, align 4
+  %108 = icmp slt i32 %104, %107
+  br i1 %108, label %20, label %._crit_edge53, !llvm.loop !10
 
-._crit_edge52:                                    ; preds = %102, %1
-  %.lcssa43 = phi i32 [ %7, %1 ], [ %109, %102 ]
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  store i8 0, ptr %111, align 1
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %113 = load i32, ptr %112, align 8
-  %114 = sub i32 %.lcssa43, %113
-  %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %117 = load i64, ptr %116, align 8
-  %118 = sub i64 %117, %115
-  store i64 %118, ptr %116, align 8
-  %119 = icmp slt i64 %118, 0
-  br i1 %119, label %120, label %125
+._crit_edge53:                                    ; preds = %100, %1
+  %.lcssa44 = phi i32 [ %7, %1 ], [ %107, %100 ]
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  store i8 0, ptr %109, align 1
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %111 = load i32, ptr %110, align 8
+  %112 = sub i32 %.lcssa44, %111
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %115 = load i64, ptr %114, align 8
+  %116 = sub i64 %115, %113
+  store i64 %116, ptr %114, align 8
+  %117 = icmp slt i64 %116, 0
+  br i1 %117, label %118, label %123
 
-120:                                              ; preds = %._crit_edge52
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %122 = load i32, ptr %121, align 8
-  %123 = add i32 %122, -1
-  store i32 %123, ptr %121, align 8
-  %124 = add nsw i64 %118, 1073741824
-  store i64 %124, ptr %116, align 8
-  br label %125
+118:                                              ; preds = %._crit_edge53
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %120 = load i32, ptr %119, align 8
+  %121 = add i32 %120, -1
+  store i32 %121, ptr %119, align 8
+  %122 = add nsw i64 %116, 1073741824
+  store i64 %122, ptr %114, align 8
+  br label %123
 
-125:                                              ; preds = %120, %._crit_edge52
-  store i32 0, ptr %112, align 8
+123:                                              ; preds = %118, %._crit_edge53
+  store i32 0, ptr %110, align 8
   store i32 0, ptr %6, align 4
   ret void
 }
@@ -1308,6 +1307,9 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #8
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9

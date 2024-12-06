@@ -620,7 +620,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @MyBEEntry, align 8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %88, label %6
+  br i1 %.not, label %86, label %6
 
 6:                                                ; preds = %2
   %7 = load i8, ptr @pgstat_track_activities, align 1
@@ -631,7 +631,7 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 232
   %11 = load volatile i32, ptr %10, align 8
   %.not43 = icmp eq i32 %11, 6
-  br i1 %.not43, label %88, label %12
+  br i1 %.not43, label %86, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr @MyProc, align 8
@@ -662,120 +662,119 @@ define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readon
 25:                                               ; preds = %6
   %26 = tail call i64 @GetCurrentStatementStartTimestamp() #11
   %.not44 = icmp eq ptr %1, null
-  br i1 %.not44, label %36, label %27
+  br i1 %.not44, label %34, label %27
 
 27:                                               ; preds = %25
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #12
   %29 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %30 = add i32 %29, -1
   %31 = sext i32 %30 to i64
-  %32 = icmp ult i64 %28, %31
-  %33 = trunc i64 %28 to i32
-  %34 = select i1 %32, i32 %33, i32 %30
-  %35 = sext i32 %34 to i64
-  br label %36
+  %32 = tail call i64 @llvm.umin.i64(i64 %28, i64 %31)
+  %sext = shl i64 %32, 32
+  %33 = ashr exact i64 %sext, 32
+  br label %34
 
-36:                                               ; preds = %27, %25
-  %.0 = phi i64 [ %35, %27 ], [ 0, %25 ]
-  %37 = tail call i64 @GetCurrentTimestamp() #11
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 232
-  %39 = load volatile i32, ptr %38, align 8
-  %40 = icmp eq i32 %39, 2
-  br i1 %40, label %50, label %41
+34:                                               ; preds = %27, %25
+  %.0 = phi i64 [ %33, %27 ], [ 0, %25 ]
+  %35 = tail call i64 @GetCurrentTimestamp() #11
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 232
+  %37 = load volatile i32, ptr %36, align 8
+  %38 = icmp eq i32 %37, 2
+  br i1 %38, label %48, label %39
 
-41:                                               ; preds = %36
-  %42 = load volatile i32, ptr %38, align 8
-  %43 = icmp eq i32 %42, 4
-  br i1 %43, label %50, label %44
+39:                                               ; preds = %34
+  %40 = load volatile i32, ptr %36, align 8
+  %41 = icmp eq i32 %40, 4
+  br i1 %41, label %48, label %42
 
-44:                                               ; preds = %41
-  %45 = load volatile i32, ptr %38, align 8
-  %46 = icmp eq i32 %45, 3
-  br i1 %46, label %50, label %47
+42:                                               ; preds = %39
+  %43 = load volatile i32, ptr %36, align 8
+  %44 = icmp eq i32 %43, 3
+  br i1 %44, label %48, label %45
 
-47:                                               ; preds = %44
-  %48 = load volatile i32, ptr %38, align 8
-  %49 = icmp eq i32 %48, 5
-  br i1 %49, label %50, label %67
+45:                                               ; preds = %42
+  %46 = load volatile i32, ptr %36, align 8
+  %47 = icmp eq i32 %46, 5
+  br i1 %47, label %48, label %65
 
-50:                                               ; preds = %47, %44, %41, %36
-  %51 = load volatile i32, ptr %38, align 8
-  %.not45 = icmp eq i32 %0, %51
-  br i1 %.not45, label %67, label %52
+48:                                               ; preds = %45, %42, %39, %34
+  %49 = load volatile i32, ptr %36, align 8
+  %.not45 = icmp eq i32 %0, %49
+  br i1 %.not45, label %65, label %50
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %54 = load volatile i64, ptr %53, align 8
-  call void @TimestampDifference(i64 noundef %54, i64 noundef %37, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
-  %55 = load volatile i32, ptr %38, align 8
-  %56 = icmp eq i32 %55, 2
-  br i1 %56, label %.sink.split, label %57
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %52 = load volatile i64, ptr %51, align 8
+  call void @TimestampDifference(i64 noundef %52, i64 noundef %35, ptr noundef nonnull %3, ptr noundef nonnull %4) #11
+  %53 = load volatile i32, ptr %36, align 8
+  %54 = icmp eq i32 %53, 2
+  br i1 %54, label %.sink.split, label %55
 
-57:                                               ; preds = %52
-  %58 = load volatile i32, ptr %38, align 8
-  %59 = icmp eq i32 %58, 4
-  %spec.select = select i1 %59, ptr @pgStatActiveTime, ptr @pgStatTransactionIdleTime
+55:                                               ; preds = %50
+  %56 = load volatile i32, ptr %36, align 8
+  %57 = icmp eq i32 %56, 4
+  %spec.select = select i1 %57, ptr @pgStatActiveTime, ptr @pgStatTransactionIdleTime
   br label %.sink.split
 
-.sink.split:                                      ; preds = %57, %52
-  %pgStatTransactionIdleTime.sink48 = phi ptr [ @pgStatActiveTime, %52 ], [ %spec.select, %57 ]
-  %60 = load i64, ptr %3, align 8
-  %61 = mul i64 %60, 1000000
-  %62 = load i32, ptr %4, align 4
-  %63 = sext i32 %62 to i64
-  %64 = add i64 %61, %63
-  %65 = load i64, ptr %pgStatTransactionIdleTime.sink48, align 8
-  %66 = add i64 %64, %65
-  store i64 %66, ptr %pgStatTransactionIdleTime.sink48, align 8
-  br label %67
+.sink.split:                                      ; preds = %55, %50
+  %pgStatTransactionIdleTime.sink48 = phi ptr [ @pgStatActiveTime, %50 ], [ %spec.select, %55 ]
+  %58 = load i64, ptr %3, align 8
+  %59 = mul i64 %58, 1000000
+  %60 = load i32, ptr %4, align 4
+  %61 = sext i32 %60 to i64
+  %62 = add i64 %59, %61
+  %63 = load i64, ptr %pgStatTransactionIdleTime.sink48, align 8
+  %64 = add i64 %62, %63
+  store i64 %64, ptr %pgStatTransactionIdleTime.sink48, align 8
+  br label %65
 
-67:                                               ; preds = %.sink.split, %47, %50
-  %68 = load volatile i32, ptr @CritSectionCount, align 4
+65:                                               ; preds = %.sink.split, %45, %48
+  %66 = load volatile i32, ptr @CritSectionCount, align 4
+  %67 = add i32 %66, 1
+  store volatile i32 %67, ptr @CritSectionCount, align 4
+  %68 = load volatile i32, ptr %5, align 8
   %69 = add i32 %68, 1
-  store volatile i32 %69, ptr @CritSectionCount, align 4
-  %70 = load volatile i32, ptr %5, align 8
-  %71 = add i32 %70, 1
-  store volatile i32 %71, ptr %5, align 8
+  store volatile i32 %69, ptr %5, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !17
-  store volatile i32 %0, ptr %38, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store volatile i64 %37, ptr %72, align 8
-  %73 = icmp eq i32 %0, 2
-  br i1 %73, label %74, label %76
+  store volatile i32 %0, ptr %36, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store volatile i64 %35, ptr %70, align 8
+  %71 = icmp eq i32 %0, 2
+  br i1 %71, label %72, label %74
 
-74:                                               ; preds = %67
-  %75 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  store volatile i64 0, ptr %75, align 8
-  br label %76
+72:                                               ; preds = %65
+  %73 = getelementptr inbounds nuw i8, ptr %5, i64 424
+  store volatile i64 0, ptr %73, align 8
+  br label %74
 
-76:                                               ; preds = %74, %67
-  br i1 %.not44, label %83, label %77
+74:                                               ; preds = %72, %65
+  br i1 %.not44, label %81, label %75
 
-77:                                               ; preds = %76
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 248
-  %79 = load volatile ptr, ptr %78, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %79, ptr nonnull align 1 %1, i64 %.0, i1 false)
-  %80 = load volatile ptr, ptr %78, align 8
-  %81 = getelementptr i8, ptr %80, i64 %.0
-  store i8 0, ptr %81, align 1
-  %82 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store volatile i64 %26, ptr %82, align 8
-  br label %83
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 248
+  %77 = load volatile ptr, ptr %76, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %77, ptr nonnull align 1 %1, i64 %.0, i1 false)
+  %78 = load volatile ptr, ptr %76, align 8
+  %79 = getelementptr i8, ptr %78, i64 %.0
+  store i8 0, ptr %79, align 1
+  %80 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store volatile i64 %26, ptr %80, align 8
+  br label %81
 
-83:                                               ; preds = %76, %77
+81:                                               ; preds = %74, %75
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !18
   br label %.sink.split52
 
-.sink.split52:                                    ; preds = %83, %12
-  %84 = load volatile i32, ptr %5, align 8
-  %85 = add i32 %84, 1
-  store volatile i32 %85, ptr %5, align 8
-  %86 = load volatile i32, ptr @CritSectionCount, align 4
-  %87 = add i32 %86, -1
-  store volatile i32 %87, ptr @CritSectionCount, align 4
-  br label %88
+.sink.split52:                                    ; preds = %81, %12
+  %82 = load volatile i32, ptr %5, align 8
+  %83 = add i32 %82, 1
+  store volatile i32 %83, ptr %5, align 8
+  %84 = load volatile i32, ptr @CritSectionCount, align 4
+  %85 = add i32 %84, -1
+  store volatile i32 %85, ptr @CritSectionCount, align 4
+  br label %86
 
-88:                                               ; preds = %.sink.split52, %9, %2
+86:                                               ; preds = %.sink.split52, %9, %2
   ret void
 }
 
@@ -1299,6 +1298,9 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #9
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #10

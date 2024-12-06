@@ -51,7 +51,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %6 = alloca %struct.oabd_file, align 8
   %7 = alloca %struct.oabd_file, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %138, label %8
+  br i1 %.not, label %134, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -59,14 +59,14 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr %11(ptr noundef nonnull %10, ptr noundef %1, i32 noundef 0) #5
   %.not114 = icmp eq ptr %12, null
-  br i1 %.not114, label %copy_fh.exit.thread145.thread.thread174, label %13
+  br i1 %.not114, label %copy_fh.exit.thread147.thread.thread176, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = call i32 %15(ptr noundef nonnull %12, ptr noundef nonnull %4, i32 noundef 16) #5
   %.not115 = icmp eq i32 %16, 16
-  br i1 %.not115, label %17, label %copy_fh.exit.thread145.thread.thread
+  br i1 %.not115, label %17, label %copy_fh.exit.thread147.thread.thread
 
 17:                                               ; preds = %13
   %18 = load i32, ptr %4, align 16
@@ -74,8 +74,8 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %20 = load i32, ptr %19, align 4
   %.not117 = icmp eq i32 %20, 1
-  %or.cond178 = select i1 %.not116, i1 %.not117, i1 false
-  br i1 %or.cond178, label %21, label %copy_fh.exit.thread145.thread.thread
+  %or.cond180 = select i1 %.not116, i1 %.not117, i1 false
+  br i1 %or.cond180, label %21, label %copy_fh.exit.thread147.thread.thread
 
 21:                                               ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -85,7 +85,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %26 = load ptr, ptr %10, align 8
   %27 = call ptr %26(ptr noundef nonnull %10, ptr noundef %2, i32 noundef 1) #5
   %.not118 = icmp eq ptr %27, null
-  br i1 %.not118, label %copy_fh.exit.thread145.thread.thread, label %28
+  br i1 %.not118, label %copy_fh.exit.thread147.thread.thread, label %28
 
 28:                                               ; preds = %21
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 56
@@ -95,7 +95,7 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %33 = sext i32 %32 to i64
   %34 = call ptr %30(ptr noundef nonnull %10, i64 noundef %33) #5
   %.not119 = icmp eq ptr %34, null
-  br i1 %.not119, label %copy_fh.exit.thread145.thread160, label %35
+  br i1 %.not119, label %copy_fh.exit.thread147.thread162, label %35
 
 35:                                               ; preds = %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef nonnull align 8 dereferenceable(88) %10, i64 88, i1 false)
@@ -109,8 +109,8 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   store ptr %10, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %27, ptr %39, align 8
-  %.not120185 = icmp eq i32 %25, 0
-  br i1 %.not120185, label %copy_fh.exit.thread145.thread160, label %.lr.ph
+  %.not120187 = icmp eq i32 %25, 0
+  br i1 %.not120187, label %copy_fh.exit.thread147.thread162, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35
   %40 = getelementptr i8, ptr %34, i64 2
@@ -128,11 +128,11 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   br label %52
 
 52:                                               ; preds = %.lr.ph, %copy_fh.exit.thread
-  %.097186 = phi i32 [ %25, %.lr.ph ], [ %131, %copy_fh.exit.thread ]
+  %.097188 = phi i32 [ %25, %.lr.ph ], [ %127, %copy_fh.exit.thread ]
   %53 = load ptr, ptr %14, align 8
   %54 = call i32 %53(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef 16) #5
   %.not121 = icmp eq i32 %54, 16
-  br i1 %.not121, label %55, label %copy_fh.exit.thread145.thread160
+  br i1 %.not121, label %55, label %copy_fh.exit.thread147.thread162
 
 55:                                               ; preds = %52
   %56 = load i16, ptr %40, align 1
@@ -167,13 +167,13 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
   %85 = or disjoint i32 %82, %84
   %86 = load i32, ptr %48, align 1
   %87 = icmp ugt i32 %85, %23
-  br i1 %87, label %copy_fh.exit.thread145.thread160, label %88
+  br i1 %87, label %copy_fh.exit.thread147.thread162, label %88
 
 88:                                               ; preds = %55
-  %89 = icmp ugt i32 %85, %.097186
+  %89 = icmp ugt i32 %85, %.097188
   %90 = icmp ugt i32 %65, 1
   %or.cond = select i1 %89, i1 true, i1 %90
-  br i1 %or.cond, label %copy_fh.exit.thread145.thread160, label %91
+  br i1 %or.cond, label %copy_fh.exit.thread147.thread162, label %91
 
 91:                                               ; preds = %88
   %.not122 = icmp eq i32 %65, 0
@@ -181,123 +181,123 @@ define internal i32 @oabd_decompress(ptr noundef readonly %0, ptr noundef %1, pt
 
 92:                                               ; preds = %91
   %.not123 = icmp eq i32 %85, %75
-  br i1 %.not123, label %93, label %copy_fh.exit.thread145.thread160
+  br i1 %.not123, label %93, label %copy_fh.exit.thread147.thread162
 
 93:                                               ; preds = %92
   %94 = load i32, ptr %31, align 8
   %95 = sext i32 %94 to i64
-  %.not24.i = icmp eq i32 %75, 0
-  br i1 %.not24.i, label %copy_fh.exit.thread, label %.lr.ph.split.i.preheader
+  %.not25.i = icmp eq i32 %75, 0
+  br i1 %.not25.i, label %copy_fh.exit.thread, label %.lr.ph.split.i.preheader
 
 .lr.ph.split.i.preheader:                         ; preds = %93
   %96 = zext i32 %75 to i64
   br label %.lr.ph.split.i
 
-.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %104
-  %.01925.i = phi i64 [ %106, %104 ], [ %96, %.lr.ph.split.i.preheader ]
-  %97 = icmp ult i64 %.01925.i, %95
-  %98 = trunc i64 %.01925.i to i32
-  %spec.select.i = select i1 %97, i32 %98, i32 %94
-  %99 = load ptr, ptr %14, align 8
-  %100 = call i32 %99(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
-  %.not21.i = icmp eq i32 %100, %spec.select.i
-  br i1 %.not21.i, label %101, label %copy_fh.exit.thread145.thread160
+.lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %102
+  %.01926.i = phi i64 [ %104, %102 ], [ %96, %.lr.ph.split.i.preheader ]
+  %spec.select24.i = call i64 @llvm.umin.i64(i64 %.01926.i, i64 %95)
+  %spec.select.i = trunc i64 %spec.select24.i to i32
+  %97 = load ptr, ptr %14, align 8
+  %98 = call i32 %97(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
+  %.not21.i = icmp eq i32 %98, %spec.select.i
+  br i1 %.not21.i, label %99, label %copy_fh.exit.thread147.thread162
 
-101:                                              ; preds = %.lr.ph.split.i
-  %102 = load ptr, ptr %51, align 8
-  %103 = call i32 %102(ptr noundef nonnull %27, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
-  %.not23.i = icmp eq i32 %103, %spec.select.i
-  br i1 %.not23.i, label %104, label %copy_fh.exit.thread145.thread160
+99:                                               ; preds = %.lr.ph.split.i
+  %100 = load ptr, ptr %51, align 8
+  %101 = call i32 %100(ptr noundef nonnull %27, ptr noundef nonnull %34, i32 noundef %spec.select.i) #5
+  %.not23.i = icmp eq i32 %101, %spec.select.i
+  br i1 %.not23.i, label %102, label %copy_fh.exit.thread147.thread162
 
-104:                                              ; preds = %101
-  %105 = sext i32 %spec.select.i to i64
-  %106 = sub i64 %.01925.i, %105
-  %.not.i = icmp eq i64 %106, 0
+102:                                              ; preds = %99
+  %sext.i = shl i64 %spec.select24.i, 32
+  %103 = ashr exact i64 %sext.i, 32
+  %104 = sub i64 %.01926.i, %103
+  %.not.i = icmp eq i64 %104, 0
   br i1 %.not.i, label %copy_fh.exit.thread, label %.lr.ph.split.i
 
 .preheader:                                       ; preds = %91, %.preheader
-  %.093 = phi i32 [ %111, %.preheader ], [ 17, %91 ]
-  %107 = icmp samesign ult i32 %.093, 25
-  %108 = shl nuw nsw i32 1, %.093
-  %109 = icmp ult i32 %108, %85
-  %110 = select i1 %107, i1 %109, i1 false
-  %111 = add nuw nsw i32 %.093, 1
-  br i1 %110, label %.preheader, label %112
+  %.093 = phi i32 [ %109, %.preheader ], [ 17, %91 ]
+  %105 = icmp samesign ult i32 %.093, 25
+  %106 = shl nuw nsw i32 1, %.093
+  %107 = icmp ult i32 %106, %85
+  %108 = select i1 %105, i1 %107, i1 false
+  %109 = add nuw nsw i32 %.093, 1
+  br i1 %108, label %.preheader, label %110
 
-112:                                              ; preds = %.preheader
-  %113 = zext i32 %75 to i64
-  store i64 %113, ptr %49, align 8
+110:                                              ; preds = %.preheader
+  %111 = zext i32 %75 to i64
+  store i64 %111, ptr %49, align 8
   store i32 -1, ptr %50, align 8
-  %114 = load i32, ptr %31, align 8
-  %115 = zext i32 %85 to i64
-  %116 = call ptr @lzxd_init(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.093, i32 noundef 0, i32 noundef %114, i64 noundef %115, i8 noundef signext 1) #5
-  %.not125 = icmp eq ptr %116, null
-  br i1 %.not125, label %copy_fh.exit.thread145.thread160, label %117
+  %112 = load i32, ptr %31, align 8
+  %113 = zext i32 %85 to i64
+  %114 = call ptr @lzxd_init(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %.093, i32 noundef 0, i32 noundef %112, i64 noundef %113, i8 noundef signext 1) #5
+  %.not125 = icmp eq ptr %114, null
+  br i1 %.not125, label %copy_fh.exit.thread147.thread162, label %115
 
-117:                                              ; preds = %112
-  %118 = call i32 @lzxd_decompress(ptr noundef nonnull %116, i64 noundef %115) #5
-  %.not126 = icmp eq i32 %118, 0
-  call void @lzxd_free(ptr noundef nonnull %116) #5
-  br i1 %.not126, label %119, label %copy_fh.exit.thread145.thread160
+115:                                              ; preds = %110
+  %116 = call i32 @lzxd_decompress(ptr noundef nonnull %114, i64 noundef %113) #5
+  %.not126 = icmp eq i32 %116, 0
+  call void @lzxd_free(ptr noundef nonnull %114) #5
+  br i1 %.not126, label %117, label %copy_fh.exit.thread147.thread162
 
-119:                                              ; preds = %117
-  %120 = load i64, ptr %49, align 8
-  %121 = load i32, ptr %31, align 8
-  %122 = sext i32 %121 to i64
-  %.not24.i131 = icmp eq i64 %120, 0
-  br i1 %.not24.i131, label %.loopexit, label %.lr.ph.split.us.i133
+117:                                              ; preds = %115
+  %118 = load i64, ptr %49, align 8
+  %119 = load i32, ptr %31, align 8
+  %120 = sext i32 %119 to i64
+  %.not25.i131 = icmp eq i64 %118, 0
+  br i1 %.not25.i131, label %.loopexit, label %.lr.ph.split.us.i133
 
-.lr.ph.split.us.i133:                             ; preds = %119, %127
-  %.01925.us.i134 = phi i64 [ %129, %127 ], [ %120, %119 ]
-  %123 = icmp ult i64 %.01925.us.i134, %122
-  %124 = trunc i64 %.01925.us.i134 to i32
-  %spec.select.us.i135 = select i1 %123, i32 %124, i32 %121
-  %125 = load ptr, ptr %14, align 8
-  %126 = call i32 %125(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.us.i135) #5
-  %.not21.us.i136 = icmp eq i32 %126, %spec.select.us.i135
-  br i1 %.not21.us.i136, label %127, label %copy_fh.exit.thread145.thread160
+.lr.ph.split.us.i133:                             ; preds = %117, %123
+  %.01926.us.i134 = phi i64 [ %125, %123 ], [ %118, %117 ]
+  %spec.select24.us.i135 = call i64 @llvm.umin.i64(i64 %.01926.us.i134, i64 %120)
+  %spec.select.us.i136 = trunc i64 %spec.select24.us.i135 to i32
+  %121 = load ptr, ptr %14, align 8
+  %122 = call i32 %121(ptr noundef nonnull %12, ptr noundef nonnull %34, i32 noundef %spec.select.us.i136) #5
+  %.not21.us.i137 = icmp eq i32 %122, %spec.select.us.i136
+  br i1 %.not21.us.i137, label %123, label %copy_fh.exit.thread147.thread162
 
-127:                                              ; preds = %.lr.ph.split.us.i133
-  %128 = sext i32 %spec.select.us.i135 to i64
-  %129 = sub i64 %.01925.us.i134, %128
-  %.not.us.i138 = icmp eq i64 %129, 0
-  br i1 %.not.us.i138, label %.loopexit, label %.lr.ph.split.us.i133
+123:                                              ; preds = %.lr.ph.split.us.i133
+  %sext.us.i139 = shl i64 %spec.select24.us.i135, 32
+  %124 = ashr exact i64 %sext.us.i139, 32
+  %125 = sub i64 %.01926.us.i134, %124
+  %.not.us.i140 = icmp eq i64 %125, 0
+  br i1 %.not.us.i140, label %.loopexit, label %.lr.ph.split.us.i133
 
-.loopexit:                                        ; preds = %127, %119
-  %130 = load i32, ptr %50, align 8
-  %.not128 = icmp eq i32 %130, %86
-  br i1 %.not128, label %copy_fh.exit.thread, label %copy_fh.exit.thread145.thread160
+.loopexit:                                        ; preds = %123, %117
+  %126 = load i32, ptr %50, align 8
+  %.not128 = icmp eq i32 %126, %86
+  br i1 %.not128, label %copy_fh.exit.thread, label %copy_fh.exit.thread147.thread162
 
-copy_fh.exit.thread:                              ; preds = %104, %93, %.loopexit
-  %131 = sub i32 %.097186, %85
-  %.not120 = icmp eq i32 %131, 0
-  br i1 %.not120, label %copy_fh.exit.thread145.thread160, label %52
+copy_fh.exit.thread:                              ; preds = %102, %93, %.loopexit
+  %127 = sub i32 %.097188, %85
+  %.not120 = icmp eq i32 %127, 0
+  br i1 %.not120, label %copy_fh.exit.thread147.thread162, label %52
 
-copy_fh.exit.thread145.thread160:                 ; preds = %.loopexit, %112, %92, %55, %88, %52, %copy_fh.exit.thread, %117, %.lr.ph.split.us.i133, %.lr.ph.split.i, %101, %35, %28
-  %.092151167 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %101 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %112 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %118, %117 ]
-  %132 = getelementptr inbounds nuw i8, ptr %10, i64 8
+copy_fh.exit.thread147.thread162:                 ; preds = %.loopexit, %110, %92, %55, %88, %52, %copy_fh.exit.thread, %115, %.lr.ph.split.us.i133, %.lr.ph.split.i, %99, %35, %28
+  %.092153169 = phi i32 [ 6, %28 ], [ 0, %35 ], [ 4, %99 ], [ 3, %.lr.ph.split.i ], [ 3, %.lr.ph.split.us.i133 ], [ 9, %.loopexit ], [ 6, %110 ], [ 8, %92 ], [ 8, %55 ], [ 8, %88 ], [ 3, %52 ], [ 0, %copy_fh.exit.thread ], [ %116, %115 ]
+  %128 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %129 = load ptr, ptr %128, align 8
+  call void %129(ptr noundef nonnull %27) #5
+  br label %copy_fh.exit.thread147.thread.thread
+
+copy_fh.exit.thread147.thread.thread:             ; preds = %copy_fh.exit.thread147.thread162, %21, %17, %13
+  %.091154160174 = phi ptr [ %34, %copy_fh.exit.thread147.thread162 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
+  %.092153161172 = phi i32 [ %.092153169, %copy_fh.exit.thread147.thread162 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
+  %130 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %131 = load ptr, ptr %130, align 8
+  call void %131(ptr noundef nonnull %12) #5
+  br label %copy_fh.exit.thread147.thread.thread176
+
+copy_fh.exit.thread147.thread.thread176:          ; preds = %8, %copy_fh.exit.thread147.thread.thread
+  %.091154160175 = phi ptr [ %.091154160174, %copy_fh.exit.thread147.thread.thread ], [ null, %8 ]
+  %.092153161173 = phi i32 [ %.092153161172, %copy_fh.exit.thread147.thread.thread ], [ 2, %8 ]
+  %132 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %133 = load ptr, ptr %132, align 8
-  call void %133(ptr noundef nonnull %27) #5
-  br label %copy_fh.exit.thread145.thread.thread
+  call void %133(ptr noundef %.091154160175) #5
+  br label %134
 
-copy_fh.exit.thread145.thread.thread:             ; preds = %copy_fh.exit.thread145.thread160, %21, %17, %13
-  %.091152158172 = phi ptr [ %34, %copy_fh.exit.thread145.thread160 ], [ null, %13 ], [ null, %17 ], [ null, %21 ]
-  %.092151159170 = phi i32 [ %.092151167, %copy_fh.exit.thread145.thread160 ], [ 3, %13 ], [ 7, %17 ], [ 2, %21 ]
-  %134 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull %12) #5
-  br label %copy_fh.exit.thread145.thread.thread174
-
-copy_fh.exit.thread145.thread.thread174:          ; preds = %8, %copy_fh.exit.thread145.thread.thread
-  %.091152158173 = phi ptr [ %.091152158172, %copy_fh.exit.thread145.thread.thread ], [ null, %8 ]
-  %.092151159171 = phi i32 [ %.092151159170, %copy_fh.exit.thread145.thread.thread ], [ 2, %8 ]
-  %136 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %137 = load ptr, ptr %136, align 8
-  call void %137(ptr noundef %.091152158173) #5
-  br label %138
-
-138:                                              ; preds = %3, %copy_fh.exit.thread145.thread.thread174
-  %.0 = phi i32 [ %.092151159171, %copy_fh.exit.thread145.thread.thread174 ], [ 1, %3 ]
+134:                                              ; preds = %3, %copy_fh.exit.thread147.thread.thread176
+  %.0 = phi i32 [ %.092153161173, %copy_fh.exit.thread147.thread.thread176 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -308,7 +308,7 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   %7 = alloca %struct.oabd_file, align 8
   %8 = alloca %struct.oabd_file, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %122, label %9
+  br i1 %.not, label %120, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -469,28 +469,28 @@ define internal i32 @oabd_decompress_incremental(ptr noundef readonly %0, ptr no
   %103 = load i64, ptr %51, align 8
   %104 = load i32, ptr %35, align 8
   %105 = sext i32 %104 to i64
-  %.not24.i = icmp eq i64 %103, 0
-  br i1 %.not24.i, label %.loopexit, label %.lr.ph.split.us.i
+  %.not25.i = icmp eq i64 %103, 0
+  br i1 %.not25.i, label %.loopexit, label %.lr.ph.split.us.i
 
-.lr.ph.split.us.i:                                ; preds = %102, %110
-  %.01925.us.i = phi i64 [ %112, %110 ], [ %103, %102 ]
-  %106 = icmp ult i64 %.01925.us.i, %105
-  %107 = trunc i64 %.01925.us.i to i32
-  %spec.select.us.i = select i1 %106, i32 %107, i32 %104
-  %108 = load ptr, ptr %15, align 8
-  %109 = call i32 %108(ptr noundef nonnull %13, ptr noundef nonnull %38, i32 noundef %spec.select.us.i) #5
-  %.not21.us.i = icmp eq i32 %109, %spec.select.us.i
-  br i1 %.not21.us.i, label %110, label %copy_fh.exit.thread141.thread160
+.lr.ph.split.us.i:                                ; preds = %102, %108
+  %.01926.us.i = phi i64 [ %110, %108 ], [ %103, %102 ]
+  %spec.select24.us.i = call i64 @llvm.umin.i64(i64 %.01926.us.i, i64 %105)
+  %spec.select.us.i = trunc i64 %spec.select24.us.i to i32
+  %106 = load ptr, ptr %15, align 8
+  %107 = call i32 %106(ptr noundef nonnull %13, ptr noundef nonnull %38, i32 noundef %spec.select.us.i) #5
+  %.not21.us.i = icmp eq i32 %107, %spec.select.us.i
+  br i1 %.not21.us.i, label %108, label %copy_fh.exit.thread141.thread160
 
-110:                                              ; preds = %.lr.ph.split.us.i
-  %111 = sext i32 %spec.select.us.i to i64
-  %112 = sub i64 %.01925.us.i, %111
-  %.not.us.i = icmp eq i64 %112, 0
+108:                                              ; preds = %.lr.ph.split.us.i
+  %sext.us.i = shl i64 %spec.select24.us.i, 32
+  %109 = ashr exact i64 %sext.us.i, 32
+  %110 = sub i64 %.01926.us.i, %109
+  %.not.us.i = icmp eq i64 %110, 0
   br i1 %.not.us.i, label %.loopexit, label %.lr.ph.split.us.i
 
-.loopexit:                                        ; preds = %110, %102
-  %113 = load i32, ptr %52, align 8
-  %.not133 = icmp eq i32 %113, %81
+.loopexit:                                        ; preds = %108, %102
+  %111 = load i32, ptr %52, align 8
+  %.not133 = icmp eq i32 %111, %81
   br i1 %.not133, label %53, label %copy_fh.exit.thread141.thread160
 
 copy_fh.exit:                                     ; preds = %98, %100
@@ -500,36 +500,36 @@ copy_fh.exit:                                     ; preds = %98, %100
 
 copy_fh.exit.thread141.thread160:                 ; preds = %.loopexit, %95, %58, %55, %53, %.lr.ph.split.us.i, %39, %copy_fh.exit, %32
   %.097149168 = phi i32 [ 6, %32 ], [ %.097, %copy_fh.exit ], [ 0, %39 ], [ 3, %.lr.ph.split.us.i ], [ 0, %53 ], [ 3, %55 ], [ 8, %58 ], [ 6, %95 ], [ 9, %.loopexit ]
-  %114 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %115 = load ptr, ptr %114, align 8
-  call void %115(ptr noundef nonnull %31) #5
+  %112 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %113 = load ptr, ptr %112, align 8
+  call void %113(ptr noundef nonnull %31) #5
   br label %copy_fh.exit.thread141.thread.thread176
 
 copy_fh.exit.thread141.thread.thread176:          ; preds = %copy_fh.exit.thread141.thread160, %29
   %.097149158182 = phi i32 [ %.097149168, %copy_fh.exit.thread141.thread160 ], [ 2, %29 ]
   %.0102148159181 = phi ptr [ %38, %copy_fh.exit.thread141.thread160 ], [ null, %29 ]
-  %116 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %117 = load ptr, ptr %116, align 8
-  call void %117(ptr noundef nonnull %28) #5
+  %114 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %115 = load ptr, ptr %114, align 8
+  call void %115(ptr noundef nonnull %28) #5
   br label %copy_fh.exit.thread141.thread.thread.thread
 
 copy_fh.exit.thread141.thread.thread.thread:      ; preds = %copy_fh.exit.thread141.thread.thread176, %14, %18, %22
   %.0102148159174188 = phi ptr [ %.0102148159181, %copy_fh.exit.thread141.thread.thread176 ], [ null, %22 ], [ null, %18 ], [ null, %14 ]
   %.097149158175186 = phi i32 [ %.097149158182, %copy_fh.exit.thread141.thread.thread176 ], [ 2, %22 ], [ 7, %18 ], [ 3, %14 ]
-  %118 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %119 = load ptr, ptr %118, align 8
-  call void %119(ptr noundef nonnull %13) #5
+  %116 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %117 = load ptr, ptr %116, align 8
+  call void %117(ptr noundef nonnull %13) #5
   br label %copy_fh.exit.thread141.thread.thread.thread190
 
 copy_fh.exit.thread141.thread.thread.thread190:   ; preds = %9, %copy_fh.exit.thread141.thread.thread.thread
   %.0102148159174189 = phi ptr [ %.0102148159174188, %copy_fh.exit.thread141.thread.thread.thread ], [ null, %9 ]
   %.097149158175187 = phi i32 [ %.097149158175186, %copy_fh.exit.thread141.thread.thread.thread ], [ 2, %9 ]
-  %120 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %121 = load ptr, ptr %120, align 8
-  call void %121(ptr noundef %.0102148159174189) #5
-  br label %122
+  %118 = getelementptr inbounds nuw i8, ptr %11, i64 64
+  %119 = load ptr, ptr %118, align 8
+  call void %119(ptr noundef %.0102148159174189) #5
+  br label %120
 
-122:                                              ; preds = %4, %copy_fh.exit.thread141.thread.thread.thread190
+120:                                              ; preds = %4, %copy_fh.exit.thread141.thread.thread.thread190
   %.0 = phi i32 [ %.097149158175187, %copy_fh.exit.thread141.thread.thread.thread190 ], [ 1, %4 ]
   ret i32 %.0
 }
@@ -578,27 +578,26 @@ define internal i32 @oabd_sys_read(ptr nocapture noundef %0, ptr noundef %1, i32
   %4 = sext i32 %2 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = icmp ult i64 %6, %4
-  %8 = trunc i64 %6 to i32
-  %spec.select = select i1 %7, i32 %8, i32 %2
-  %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %spec.select15 = tail call i64 @llvm.umin.i64(i64 %6, i64 %4)
+  %spec.select = trunc i64 %spec.select15 to i32
+  %7 = load ptr, ptr %0, align 8
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call i32 %11(ptr noundef %13, ptr noundef %1, i32 noundef %spec.select) #5
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %20, label %16
+  %12 = tail call i32 %9(ptr noundef %11, ptr noundef %1, i32 noundef %spec.select) #5
+  %13 = icmp slt i32 %12, 0
+  br i1 %13, label %18, label %14
 
-16:                                               ; preds = %3
-  %17 = zext nneg i32 %14 to i64
-  %18 = load i64, ptr %5, align 8
-  %19 = sub i64 %18, %17
-  store i64 %19, ptr %5, align 8
-  br label %20
+14:                                               ; preds = %3
+  %15 = zext nneg i32 %12 to i64
+  %16 = load i64, ptr %5, align 8
+  %17 = sub i64 %16, %15
+  store i64 %17, ptr %5, align 8
+  br label %18
 
-20:                                               ; preds = %3, %16
-  ret i32 %14
+18:                                               ; preds = %3, %14
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -652,6 +651,9 @@ declare i32 @lzxd_set_reference_data(ptr noundef, ptr noundef, ptr noundef, i32 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #4
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
