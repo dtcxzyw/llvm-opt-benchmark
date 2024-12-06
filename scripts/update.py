@@ -382,8 +382,8 @@ def update_pr():
             LLVM_REV))
     lines.append("patch: {}".format(get_env("COMMIT_URL")))
     lines.append("sha256: {}".format(get_env("PATCH_SHA256")))
-    lines.append("commit: {}".format(run_cmd("git rev-parse HEAD")))
     if not NO_DIFF:
+        lines.append("commit: {}".format(run_cmd("git rev-parse HEAD")))
         lines.append(diff_stat)
     if STATS_OUT is not None:
         lines.append(
