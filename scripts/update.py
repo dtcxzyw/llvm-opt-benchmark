@@ -154,6 +154,7 @@ def build_llvm():
         build_dir += "-stats"
     if COMPTIME_OUT:
         build_dir += "-comptime"
+        cmd.append("-DLLVM_ENABLE_ASSERTIONS=OFF")
     else:
         cmd.append("-DLLVM_ENABLE_ASSERTIONS=ON")
 
