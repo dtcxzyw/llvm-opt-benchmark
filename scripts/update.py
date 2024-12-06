@@ -363,14 +363,15 @@ def update_pr():
     global RUNNER_ID
     global LLVM_REV
 
-    diff_stat = run_cmd("git diff --shortstat", 1800.0)
-    if not os_do("./scripts/filter_pr_changes.py"):
-        return False
-    if not os_do("git commit -m 'pre-commit: Update'"):
-        return False
+    if not NO_DIFF:
+        diff_stat = run_cmd("git diff --shortstat", 1800.0)
+        if not os_do("./scripts/filter_pr_changes.py"):
+            return False
+        if not os_do("git commit -m 'pre-commit: Update'"):
+            return False
 
-    if not os_do("git push"):
-        return False
+        if not os_do("git push"):
+            return False
 
     lines = []
     lines.append("runner: {}".format(RUNNER_ID))
@@ -388,12 +389,13 @@ def update_pr():
 
     lines.append(run_cmd("head -100 test.log"))
 
-    out = run_cmd("git show --numstat --oneline")
-    if out is not None:
-        out = out.split("\n")
-        out = out[0:min(len(out), 200)]
-        out = "\n".join(out)
-    lines.append(out)
+    if not NO_DIFF:
+        out = run_cmd("git show --numstat --oneline")
+        if out is not None:
+            out = out.split("\n")
+            out = out[0:min(len(out), 200)]
+            out = "\n".join(out)
+        lines.append(out)
     lines.append("")
     output = "\n".join(lines)
     with open(OUT, "w") as f:
