@@ -10,6 +10,11 @@ if user not in authorized_users:
     print(f'User {user} is not authorized to submit tasks.')
     exit(0)
 
+comptime_mode = False
+if patch_url.startswith('/comptime'):
+    comptime_mode = True
+    patch_url = patch_url.removeprefix('/comptime').strip()
+
 try:
     res = urlparse(patch_url)
     if res.scheme != 'https':
@@ -27,6 +32,8 @@ patch_name = patch_url.removeprefix('llvm/llvm-project/pull/')
 
 try:
     subprocess.check_call(['sed', '-i', f's|export GITHUB_PATCH_ID=.*|export GITHUB_PATCH_ID={patch_url}|', 'scripts/setup_pre_commit_patch.sh'])
+    if comptime_mode:
+        subprocess.check_call(['sed', '-i', f's|export COMPTIME_MODE=0|export COMPTIME_MODE=1|', 'scripts/setup_pre_commit_patch.sh'])
 except Exception as e:
     print(f'Failed to set up patch: {e}')
     exit(0)

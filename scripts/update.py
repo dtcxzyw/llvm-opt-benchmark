@@ -206,7 +206,10 @@ def run_opt(task):
             "-vectorize-loops=false", "-vectorize-slp=false", input_file, "-S"
         ]
         tmp_output = output_file + ".bench_tmp.ll"
-        cmd += ["-o", tmp_output]
+        if NO_DIFF:
+            cmd += ["--disable-output"]
+        else:
+            cmd += ["-o", tmp_output]
         if COMPTIME_OUT is not None:
             worker_idx = int(current_process().name.split("-")[1]) - 1
             cmd = [
@@ -378,10 +381,6 @@ def update_pr():
     lines.append("sha256: {}".format(get_env("PATCH_SHA256")))
     lines.append("commit: {}".format(run_cmd("git rev-parse HEAD")))
     lines.append(diff_stat)
-    if COMPTIME_OUT is not None:
-        lines.append(
-            run_cmd("python3 scripts/comptime_diff.py comptime.{}.baseline {}".
-                    format(RUNNER_ID, COMPTIME_OUT)))
     if STATS_OUT is not None:
         lines.append(
             run_cmd("python3 scripts/stats_diff.py stats.baseline {}".format(

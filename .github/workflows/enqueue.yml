@@ -53,6 +53,7 @@ jobs:
           echo -e "> ${{ github.event.comment.body }}\n\nSee ${{ steps.cpr.outputs.pull-request-url }}" > ${{ github.workspace }}/scripts/issue.md
 
       - name: Comment
+        if: steps.info.outputs.SHOULD_OPEN_PR == '1'
         uses: peter-evans/create-or-update-comment@v4
         with:
           issue-number: ${{ github.event.issue.number }}
