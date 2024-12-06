@@ -240,6 +240,8 @@ def run_opt(task):
         if STATS_OUT is not None:
             err = ret.stderr.decode()
             stats_result = json.loads(err[err.find("{"):err.find("}") + 1])
+        if NO_DIFF:
+            return (input_file, "success", comptime_result, stats_result)
         diff_ret = subprocess.run(["diff", "-q", tmp_output, output_file],
                                   stdout=subprocess.DEVNULL,
                                   stderr=subprocess.DEVNULL)
