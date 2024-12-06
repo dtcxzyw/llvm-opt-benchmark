@@ -1456,12 +1456,12 @@ split.i.i:                                        ; preds = %split.i.loopexit.i,
 
 _ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i: ; preds = %.lr.ph.i.i.i.i, %split.i.i
   %.ptr46.ptr.add = add nuw nsw i64 %.ptr.add, 18
-  %46 = icmp slt i64 %.ptr.add50.pre-phi, %.ptr46.ptr.add
+  %46 = icmp samesign ult i64 %.ptr.add50.pre-phi, %.ptr46.ptr.add
   br i1 %46, label %47, label %_ZN6google12_GLOBAL__N_116MinimalFormatter20AppendHexWithPaddingEmi.exit
 
 47:                                               ; preds = %_ZN6google12_GLOBAL__N_116MinimalFormatter12AppendUint64Emj.exit.i
-  %gepdiff = sub nsw i64 %.ptr46.ptr.add, %.ptr.add50.pre-phi
-  %.not.i.i.i.i.i.i = icmp eq i64 %.ptr.add50.pre-phi, %.ptr.add
+  %gepdiff = sub nuw nsw i64 %.ptr46.ptr.add, %.ptr.add50.pre-phi
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.ptr.add50.pre-phi, %.ptr.add
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPcS0_ET0_T_S2_S1_.exit.i, label %48
 
 48:                                               ; preds = %47

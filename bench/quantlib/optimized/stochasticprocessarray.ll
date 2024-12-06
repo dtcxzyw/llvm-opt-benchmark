@@ -1758,7 +1758,7 @@ invoke.cont10:                                    ; preds = %invoke.cont4
   %add.i = add nuw i64 %i.0, 1
   %mul.i12 = mul i64 %add.i, %1
   %add.ptr.i13 = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i12
-  %cmp.not5.i = icmp eq i64 %mul.i9, %mul.i12
+  %cmp.not5.i = icmp samesign eq i64 %mul.i9, %mul.i12
   br i1 %cmp.not5.i, label %invoke.cont18, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont10
@@ -1975,7 +1975,7 @@ invoke.cont10:                                    ; preds = %invoke.cont4
   %add.i = add nuw i64 %i.0, 1
   %mul.i12 = mul i64 %add.i, %1
   %add.ptr.i13 = getelementptr inbounds nuw double, ptr %cond.i, i64 %mul.i12
-  %cmp.not5.i = icmp eq i64 %mul.i9, %mul.i12
+  %cmp.not5.i = icmp samesign eq i64 %mul.i9, %mul.i12
   br i1 %cmp.not5.i, label %invoke.cont18, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %invoke.cont10

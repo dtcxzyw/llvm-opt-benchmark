@@ -2375,7 +2375,7 @@ _ZL8intTokenN4llvm9StringRefERNS_5APIntE.exit138: ; preds = %_ZN4llvm5APIntD2Ev.
   br label %_ZN4llvm5APIntD2Ev.exit
 
 535:                                              ; preds = %532
-  %536 = icmp eq i64 %storemerge.idx, 1
+  %536 = icmp samesign eq i64 %storemerge.idx, 1
   br i1 %536, label %537, label %549
 
 537:                                              ; preds = %535

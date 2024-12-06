@@ -2755,7 +2755,7 @@ _ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit: ;
   %50 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %10, i64 %49
   %51 = add i32 %2, 1
   %52 = zext i32 %51 to i64
-  %.not79183 = icmp eq i64 %52, %49
+  %.not79183 = icmp samesign eq i64 %52, %49
   br i1 %.not79183, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit

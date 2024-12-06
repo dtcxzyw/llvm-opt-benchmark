@@ -3013,7 +3013,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
   %256 = zext nneg i32 %.sroa.4.0.i.i to i64
   %.idx251.i = shl nuw nsw i64 %256, 2
   %.idx250.i = and i64 %105, 17179869180
-  %.not.i.i.i.i.i189.i = icmp eq i64 %.idx250.i, %.idx251.i
+  %.not.i.i.i.i.i189.i = icmp samesign eq i64 %.idx250.i, %.idx251.i
   br i1 %.not.i.i.i.i.i189.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit190.i, label %257
 
 257:                                              ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i

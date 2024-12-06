@@ -21648,7 +21648,7 @@ arrayctor.loop.i.i.i.i:                           ; preds = %invoke.cont.i.i.i.i
 
 invoke.cont.i.i.i.i:                              ; preds = %arrayctor.loop.i.i.i.i
   %arrayctor.cur.add.i.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i.i, 4
-  %arrayctor.done.i.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i.i, 16
+  %arrayctor.done.i.i.i.i = icmp samesign eq i64 %arrayctor.cur.add.i.i.i.i, 16
   br i1 %arrayctor.done.i.i.i.i, label %delete.notnull.i.i.i.i103, label %arrayctor.loop.i.i.i.i
 
 lpad.i.i.i.i101:                                  ; preds = %arrayctor.loop.i.i.i.i
@@ -21851,7 +21851,7 @@ arrayctor.loop.i.i.i:                             ; preds = %invoke.cont.i.i.i, 
 
 invoke.cont.i.i.i:                                ; preds = %arrayctor.loop.i.i.i
   %arrayctor.cur.add.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i, 4
-  %arrayctor.done.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i, 16
+  %arrayctor.done.i.i.i = icmp samesign eq i64 %arrayctor.cur.add.i.i.i, 16
   br i1 %arrayctor.done.i.i.i, label %delete.notnull.i.i.i97, label %arrayctor.loop.i.i.i
 
 lpad.i.i.i95:                                     ; preds = %arrayctor.loop.i.i.i
@@ -24384,7 +24384,7 @@ arrayctor.loop.i.i:                               ; preds = %invoke.cont.i.i, %n
 
 invoke.cont.i.i:                                  ; preds = %arrayctor.loop.i.i
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 4
-  %arrayctor.done.i.i = icmp eq i64 %arrayctor.cur.add.i.i, 16
+  %arrayctor.done.i.i = icmp samesign eq i64 %arrayctor.cur.add.i.i, 16
   br i1 %arrayctor.done.i.i, label %delete.notnull.i.i43, label %arrayctor.loop.i.i
 
 delete.notnull.i.i43:                             ; preds = %invoke.cont.i.i
@@ -24770,7 +24770,7 @@ arrayctor.loop:                                   ; preds = %invoke.cont4, %invo
 
 invoke.cont4:                                     ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 4
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 16
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 16
   br i1 %arrayctor.done, label %delete.notnull.i.i, label %arrayctor.loop
 
 delete.notnull.i.i:                               ; preds = %invoke.cont4
@@ -24927,7 +24927,7 @@ arrayctor.loop:                                   ; preds = %invoke.cont5, %entr
 
 invoke.cont5:                                     ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 4
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 16
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 16
   br i1 %arrayctor.done, label %_ZN7testing8internal11CmpHelperLEIPhS2_EENS_15AssertionResultEPKcS5_RKT_RKT0_.exit, label %arrayctor.loop
 
 _ZN7testing8internal11CmpHelperLEIPhS2_EENS_15AssertionResultEPKcS5_RKT_RKT0_.exit: ; preds = %invoke.cont5

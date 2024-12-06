@@ -161,7 +161,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %6, ptr align 8 %15, i64 %add.ptr.idx.i.i.i, i1 false)
   %.pre.i.i.i = load i8, ptr %cached_block_length_.i.i.i, align 8
   %16 = zext i8 %.pre.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i, %16
+  %cmp.not3.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i, %16
   br i1 %cmp.not3.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i, label %for.body.preheader.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i:                   ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i, %if.then.i.i.i

@@ -126422,7 +126422,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS
   br i1 %67, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEEZN11processor_tD1EvE3$_0EvT_SB_T0_.exit", label %.lr.ph.i12.i.i.i, !llvm.loop !24
 
 .preheader.i20.i.i.i:                             ; preds = %_ZNSt6vectorISt4pairImmESaIS1_EEC2INSt8__detail14_Node_iteratorIS0_IKmmELb0ELb0EEEvEET_SA_RKS2_.exit
-  %68 = icmp eq i64 %.08.i.i.i.i.i.i.idx, 0
+  %68 = icmp samesign eq i64 %.08.i.i.i.i.i.i.idx, 0
   br i1 %68, label %"_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairImmESt6vectorIS3_SaIS3_EEEEZN11processor_tD1EvE3$_0EvT_SB_T0_.exit", label %.lr.ph.i22.i.i.i
 
 .lr.ph.i22.i.i.i:                                 ; preds = %.preheader.i20.i.i.i

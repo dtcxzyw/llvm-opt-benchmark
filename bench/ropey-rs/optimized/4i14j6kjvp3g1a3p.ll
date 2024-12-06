@@ -3120,7 +3120,7 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %74
   br i1 %127, label %._crit_edge1414, label %.lr.ph1413
 
 128:                                              ; preds = %_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit
-  %129 = icmp eq i64 %105, 0
+  %129 = icmp samesign eq i64 %105, 0
   br i1 %129, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit184, label %.preheader1258
 
 .preheader1258:                                   ; preds = %128, %.preheader1258
@@ -3891,7 +3891,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit: ; pre
   br i1 %495, label %._crit_edge1368, label %.lr.ph1367
 
 496:                                              ; preds = %472
-  %497 = icmp eq i64 %473, 0
+  %497 = icmp samesign eq i64 %473, 0
   br i1 %497, label %_ZN11str_indices5chars10count_impl17h85466a28fb53b459E.exit, label %.preheader1262
 
 .preheader1262:                                   ; preds = %496, %.preheader1262
@@ -4663,7 +4663,7 @@ _ZN5ropey4tree4node4Node16is_char_boundary17ha5718797aae7c9e8E.exit360.thread: ;
   br i1 %876, label %._crit_edge.i, label %.lr.ph170.i
 
 877:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i361"
-  %878 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i362, 0
+  %878 = icmp samesign eq i64 %.sroa.0.0.sroa.speculated.i.i362, 0
   br i1 %878, label %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %877, %.preheader.i
@@ -4840,7 +4840,7 @@ _ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit: ; preds = %.preh
   br i1 %976, label %._crit_edge.i382, label %.lr.ph170.i376
 
 977:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i367"
-  %978 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i369, 0
+  %978 = icmp samesign eq i64 %.sroa.0.0.sroa.speculated.i.i369, 0
   br i1 %978, label %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit405, label %.preheader.i397
 
 .preheader.i397:                                  ; preds = %977, %.preheader.i397

@@ -1443,7 +1443,7 @@ define void @_ZN21SelectionFilterPluginC2Ev(ptr noundef nonnull align 8 derefere
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %73 = icmp eq i64 %.021.i.i.i.add, 96
+  %73 = icmp samesign eq i64 %.021.i.i.i.add, 96
   br i1 %73, label %74, label %._crit_edge.i.i.i.thread
 
 74:                                               ; preds = %._crit_edge.i.i.i

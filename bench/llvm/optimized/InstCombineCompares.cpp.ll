@@ -3018,7 +3018,7 @@ _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12De
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i: ; preds = %96, %83
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %90, %83 ], [ %99, %96 ]
   %104 = zext i32 %81 to i64
-  %.not21.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %104
+  %.not21.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %104
   br i1 %.not21.i, label %109, label %105
 
 105:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i
@@ -3110,7 +3110,7 @@ _ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.i: ; preds = %109
 
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit72.i: ; preds = %140, %127
   %.lcssa.i.i.i.i.pn.i70.i = phi i64 [ %134, %127 ], [ %143, %140 ]
-  %.not23.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i70.i, %110
+  %.not23.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i70.i, %110
   br i1 %.not23.i, label %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit72.thread.i, label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread.i
 
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit72.thread.i: ; preds = %.lr.ph.i.i.i.i.i66.i, %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit72.i, %"_ZN4llvm8count_ifINS_14iterator_rangeIPNS_3UseEEEZL21canRewriteGEPAsOffsetPNS_5ValueES6_RKNS_10DataLayoutERNS_9SetVectorIS6_NS_11SmallVectorIS6_Lj0EEENS_8DenseSetIS6_NS_12DenseMapInfoIS6_vEEEELj0EEEE3$_0EEDaOT_T0_.exit.thread.i"
@@ -3259,7 +3259,7 @@ _ZN4llvm7PHINode15incoming_valuesEv.exit.i:       ; preds = %193, %190
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit85.i: ; preds = %217, %204
   %.lcssa.i.i.i.i.pn.i83.i = phi i64 [ %211, %204 ], [ %220, %217 ]
   %224 = zext i32 %202 to i64
-  %.not24.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i83.i, %224
+  %.not24.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i83.i, %224
   br i1 %.not24.i, label %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit85.thread.i, label %235
 
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit85.thread.i: ; preds = %.lr.ph.i.i.i.i.i79.i, %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit85.i, %.lr.ph37.i
@@ -3390,7 +3390,7 @@ _ZN4llvm9SetVectorIPNS_7PHINodeENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12D
 
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit98.i: ; preds = %279, %267
   %.lcssa.i.i.i.i.pn.i96.i = phi i64 [ %273, %267 ], [ %282, %279 ]
-  %.not26.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i96.i, %256
+  %.not26.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i96.i, %256
   br i1 %.not26.i, label %.critedge5.i, label %286
 
 286:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit98.i

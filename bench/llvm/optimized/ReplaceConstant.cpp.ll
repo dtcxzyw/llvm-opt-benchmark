@@ -751,7 +751,7 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %295, %298
 _ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %344, %331
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %338, %331 ], [ %347, %344 ]
   %351 = zext i32 %329 to i64
-  %.not266 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %351
+  %.not266 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %351
   br i1 %.not266, label %_ZN4llvm11SmallVectorIPNS_11InstructionELj4EED2Ev.exit, label %352
 
 352:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_8ConstantENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

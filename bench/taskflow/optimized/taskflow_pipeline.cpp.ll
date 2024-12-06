@@ -5494,7 +5494,7 @@ lpad.i.i:                                         ; preds = %arrayctor.loop.i
           cleanup
   call void @_ZN2tf5GraphD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_graph.i.i) #33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_name.i.i) #33
-  %arraydestroy.isempty.i = icmp eq i64 %arrayctor.cur.idx.i, 0
+  %arraydestroy.isempty.i = icmp samesign eq i64 %arrayctor.cur.idx.i, 0
   br i1 %arraydestroy.isempty.i, label %ehcleanup76, label %arraydestroy.body.i
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i

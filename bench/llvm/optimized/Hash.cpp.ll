@@ -91,7 +91,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb12hashStringV2ENS_9StringRefE(ptr read
   %12 = and i64 %1, 3
   %13 = getelementptr inbounds i8, ptr %0, i64 %11
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %12
-  %.not2541 = icmp eq i64 %12, 0
+  %.not2541 = icmp samesign eq i64 %12, 0
   br i1 %.not2541, label %._crit_edge46, label %.lr.ph45
 
 .lr.ph45:                                         ; preds = %._crit_edge, %.lr.ph45

@@ -579,7 +579,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.i.i.i.i.i": ; preds = %61, %49
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i = phi i64 [ %55, %49 ], [ %64, %61 ]
-  %68 = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i, %23
+  %68 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i, %23
   br i1 %68, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEEEEEEZNS_15InstCostVisitor21canEliminateSuccessorEPS3_SB_RNS_8DenseSetISB_NS_12DenseMapInfoISB_vEEEEE3$_0EEbOT_T0_.exit", label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.thread5.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.thread5.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.i.i.i.i.i", %.lr.ph.split
@@ -963,7 +963,7 @@ _ZN4llvm10successorsEPNS_10BasicBlockE.exit:      ; preds = %150
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %176, %163
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %170, %163 ], [ %179, %176 ]
   %183 = zext i32 %.fr26.i to i64
-  %.not.i41 = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %183
+  %.not.i41 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %183
   br i1 %.not.i41, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread68, label %_ZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS_10BasicBlockES2_RNS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEE.exit
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread68: ; preds = %.lr.ph.i.i.i.i.i, %159, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -1086,7 +1086,7 @@ _ZN4llvm12PredIteratorINS_10BasicBlockENS_5Value18user_iterator_implINS_4UserEEE
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %239, %227
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %233, %227 ], [ %242, %239 ]
-  %246 = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %201
+  %246 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %201
   br i1 %246, label %_ZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS_10BasicBlockES2_RNS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEE.exit, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.thread5.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.thread5.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm15InstCostVisitor21canEliminateSuccessorEPNS2_10BasicBlockES5_RNS2_8DenseSetIS5_NS2_12DenseMapInfoIS5_vEEEEE3$_0EclINS2_12PredIteratorIS4_NS2_5Value18user_iterator_implINS2_4UserEEEEEEEbT_.exit.i.i.i.i.i.i", %.lr.ph.split.i
@@ -1265,7 +1265,7 @@ define dso_local i64 @_ZN4llvm15InstCostVisitor23getBonusFromPendingPHIsEv(ptr n
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %36, %23
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %30, %23 ], [ %39, %36 ]
   %43 = zext i32 %21 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %43
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %43
   br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread4, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread4: ; preds = %.lr.ph.i.i.i.i.i, %19, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -1634,7 +1634,7 @@ _ZN4llvmmlERKNS_15InstructionCostES2_.exit:       ; preds = %_ZN4llvm12DenseMapB
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %174, %161
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %168, %161 ], [ %177, %174 ]
   %181 = zext i32 %159 to i64
-  %.not.i73 = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %181
+  %.not.i73 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %181
   br i1 %.not.i73, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread120, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread120: ; preds = %.lr.ph.i.i.i.i.i, %157, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -1734,7 +1734,7 @@ define dso_local i64 @_ZN4llvm15InstCostVisitor22getSpecializationBonusEPNS_8Arg
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %35, %22
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %29, %22 ], [ %38, %35 ]
   %42 = zext i32 %20 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %42
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %42
   br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread17, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread17: ; preds = %.lr.ph.i.i.i.i.i, %18, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -1885,7 +1885,7 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateSwitchInstERNS
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %75, %62
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %69, %62 ], [ %78, %75 ]
   %82 = zext i32 %60 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %82
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %82
   br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread34: ; preds = %.lr.ph.i.i.i.i.i, %58, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -2009,7 +2009,7 @@ define dso_local { i64, i32 } @_ZN4llvm15InstCostVisitor18estimateBranchInstERNS
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit: ; preds = %39, %26
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %33, %26 ], [ %42, %39 ]
   %46 = zext i32 %24 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %46
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %46
   br i1 %.not.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread7, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread7: ; preds = %.lr.ph.i.i.i.i.i, %20, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit
@@ -2624,7 +2624,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_7PHINodeELb1EE9push_backES2_.exit: ; preds
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %110, %97
   %.lcssa.i.i.i.pn.i = phi i64 [ %104, %97 ], [ %113, %110 ]
   %117 = zext i32 %95 to i64
-  %.not45 = icmp eq i64 %.lcssa.i.i.i.pn.i, %117
+  %.not45 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %117
   br i1 %.not45, label %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %155
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i31, %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %.lr.ph
@@ -2945,7 +2945,7 @@ _ZL15findConstantForPN4llvm5ValueERNS_8DenseMapIS1_PNS_8ConstantENS_12DenseMapIn
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.us: ; preds = %97, %83
   %.lcssa.i.i.i.pn.i.us = phi i64 [ %91, %83 ], [ %100, %97 ]
-  %.not50.us = icmp eq i64 %.lcssa.i.i.i.pn.i.us, %56
+  %.not50.us = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.us, %56
   br i1 %.not50.us, label %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.us, label %107
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.us: ; preds = %.lr.ph.i.i.i.i41.us, %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.us, %.lr.ph.split.us.split
@@ -3097,7 +3097,7 @@ _ZL15findConstantForPN4llvm5ValueERNS_8DenseMapIS1_PNS_8ConstantENS_12DenseMapIn
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %159, %145
   %.lcssa.i.i.i.pn.i = phi i64 [ %153, %145 ], [ %162, %159 ]
-  %.not50 = icmp eq i64 %.lcssa.i.i.i.pn.i, %56
+  %.not50 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %56
   br i1 %.not50, label %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %204
 
 _ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i41, %_ZNK4llvm6detail12DenseSetImplIPNS_10BasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %.lr.ph.split.split
@@ -6648,7 +6648,7 @@ _ZN4llvm19FunctionSpecializer21getInstCostVisitorForEPNS_8FunctionE.exit: ; pred
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.i: ; preds = %222, %209
   %.lcssa.i.i.i.pn.i.i.i = phi i64 [ %216, %209 ], [ %225, %222 ]
   %229 = zext i32 %207 to i64
-  %.not.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i, %229
+  %.not.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i, %229
   br i1 %.not.i.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread17.i, label %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread.i
 
 _ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.thread17.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZN4llvm15InstCostVisitor17isBlockExecutableEPNS_10BasicBlockE.exit.i, %205

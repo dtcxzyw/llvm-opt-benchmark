@@ -3676,7 +3676,7 @@ while.body.i.i10.i.i.i:                           ; preds = %for.body.i4.i.i.i, 
   br i1 %cmp.i.not.i.i.i.i9, label %for.body.preheader, label %for.body.i4.i.i.i, !llvm.loop !58
 
 for.cond.preheader.i17.i.i.i:                     ; preds = %if.then.i.i7
-  %cmp.i1.not11.i19.i.i.i = icmp eq i64 %__cur.07.i.i.i.i.i.i.idx, 0
+  %cmp.i1.not11.i19.i.i.i = icmp samesign eq i64 %__cur.07.i.i.i.i.i.i.idx, 0
   br i1 %cmp.i1.not11.i19.i.i.i, label %for.body.preheader, label %for.body.lr.ph.i20.i.i.i
 
 for.body.lr.ph.i20.i.i.i:                         ; preds = %for.cond.preheader.i17.i.i.i

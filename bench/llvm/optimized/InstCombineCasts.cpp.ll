@@ -12050,7 +12050,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_7PHINodeELj4EEES3_EEbOT_RKT0_.exit
 _ZNK4llvm9SetVectorIPNS_7PHINodeENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit: ; preds = %213, %200
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %207, %200 ], [ %216, %213 ]
   %220 = zext i32 %198 to i64
-  %.not275 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %220
+  %.not275 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %220
   br i1 %.not275, label %_ZN4llvm13SmallDenseMapIPNS_7PHINodeES2_Lj4ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEED2Ev.exit, label %221
 
 221:                                              ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_7PHINodeELj4EEES3_EEbOT_RKT0_.exit, %141, %138, %_ZNK4llvm9SetVectorIPNS_7PHINodeENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit

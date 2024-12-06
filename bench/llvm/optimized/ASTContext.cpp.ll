@@ -98330,7 +98330,7 @@ _ZNK5clang12DeclListNode8iteratordeEv.exit:       ; preds = %25, %29
 _ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit: ; preds = %72, %59
   %.lcssa.i.i.i.pn.i = phi i64 [ %66, %59 ], [ %75, %72 ]
   %79 = zext i32 %57 to i64
-  %.not29 = icmp eq i64 %.lcssa.i.i.i.pn.i, %79
+  %.not29 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %79
   br i1 %.not29, label %_ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread, label %97
 
 _ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPKN5clang12FunctionDeclENS_13SmallDenseMapIS5_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS5_vEENS0_12DenseSetPairIS5_EEEES9_E8containsES5_.exit

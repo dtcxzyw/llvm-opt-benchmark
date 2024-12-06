@@ -50851,7 +50851,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9
   br i1 %cmp.i.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers9StructDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i, label %for.body.i2.i, !llvm.loop !1008
 
 if.else.i274:                                     ; preds = %.noexc.i
-  %cmp.i1.not10.i12.i = icmp eq i64 %sub.ptr.sub.i.i.i, 8
+  %cmp.i1.not10.i12.i = icmp samesign eq i64 %sub.ptr.sub.i.i.i, 8
   br i1 %cmp.i1.not10.i12.i, label %for.body.preheader.i, label %for.body.i15.i.preheader
 
 for.body.i15.i.preheader:                         ; preds = %if.else.i274
@@ -51313,7 +51313,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7
   br i1 %cmp.i.not.i.i331, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPPN11flatbuffers7EnumDefESt6vectorIS4_SaIS4_EEEEPFbPKS3_SB_EEvT_SE_T0_.exit.i, label %for.body.i2.i326, !llvm.loop !1018
 
 if.else.i290:                                     ; preds = %.noexc.i30
-  %cmp.i1.not10.i12.i293 = icmp eq i64 %sub.ptr.sub.i.i.i20, 8
+  %cmp.i1.not10.i12.i293 = icmp samesign eq i64 %sub.ptr.sub.i.i.i20, 8
   br i1 %cmp.i1.not10.i12.i293, label %for.body.preheader.i35, label %for.body.i15.i295.preheader
 
 for.body.i15.i295.preheader:                      ; preds = %if.else.i290

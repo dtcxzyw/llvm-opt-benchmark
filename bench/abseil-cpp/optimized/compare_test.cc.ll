@@ -359,7 +359,7 @@ for.cond582.preheader:                            ; preds = %if.end, %for.inc641
 for.body584:                                      ; preds = %for.cond582.preheader, %_ZN7testing15AssertionResultD2Ev.exit467
   %__begin3.0.idx468 = phi i64 [ 0, %for.cond582.preheader ], [ %__begin3.0.add, %_ZN7testing15AssertionResultD2Ev.exit467 ]
   %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %values, i64 %__begin3.0.idx468
-  %cmp585 = icmp eq i64 %__begin2.0.idx469, %__begin3.0.idx468
+  %cmp585 = icmp samesign eq i64 %__begin2.0.idx469, %__begin3.0.idx468
   %frombool586 = zext i1 %cmp585 to i8
   store i8 %frombool586, ptr %are_equal, align 1
   %agg.tmp589.sroa.0.0.copyload = load i8, ptr %__begin3.0.ptr, align 1
@@ -817,7 +817,7 @@ for.cond274.preheader:                            ; preds = %if.end, %for.inc330
 for.body276:                                      ; preds = %for.cond274.preheader, %_ZN7testing15AssertionResultD2Ev.exit257
   %__begin3.0.idx258 = phi i64 [ 0, %for.cond274.preheader ], [ %__begin3.0.add, %_ZN7testing15AssertionResultD2Ev.exit257 ]
   %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %values, i64 %__begin3.0.idx258
-  %cmp277 = icmp eq i64 %__begin2.0.idx259, %__begin3.0.idx258
+  %cmp277 = icmp samesign eq i64 %__begin2.0.idx259, %__begin3.0.idx258
   %frombool278 = zext i1 %cmp277 to i8
   store i8 %frombool278, ptr %are_equal, align 1
   %agg.tmp281.sroa.0.0.copyload = load i8, ptr %__begin3.0.ptr, align 1
@@ -1128,7 +1128,7 @@ for.cond330.preheader:                            ; preds = %if.end, %for.inc386
 for.body332:                                      ; preds = %for.cond330.preheader, %_ZN7testing15AssertionResultD2Ev.exit303
   %__begin3.0.idx321 = phi i64 [ 0, %for.cond330.preheader ], [ %__begin3.0.add, %_ZN7testing15AssertionResultD2Ev.exit303 ]
   %__begin3.0.ptr = getelementptr inbounds nuw i8, ptr %values, i64 %__begin3.0.idx321
-  %cmp333 = icmp eq i64 %__begin2.0.idx322, %__begin3.0.idx321
+  %cmp333 = icmp samesign eq i64 %__begin2.0.idx322, %__begin3.0.idx321
   %frombool334 = zext i1 %cmp333 to i8
   store i8 %frombool334, ptr %are_equal, align 1
   %agg.tmp337.sroa.0.0.copyload = load i8, ptr %__begin3.0.ptr, align 1

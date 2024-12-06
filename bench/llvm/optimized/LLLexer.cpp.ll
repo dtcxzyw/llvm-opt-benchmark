@@ -6554,7 +6554,7 @@ define dso_local noundef range(i32 1, 513) i32 @_ZN4llvm7LLLexer5Lex0xEv(ptr nou
 38:                                               ; preds = %._crit_edge
   %39 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7)
-  %.not15.i = icmp eq i64 %.add, 2
+  %.not15.i = icmp samesign eq i64 %.add, 2
   br i1 %.not15.i, label %_ZN4llvm7LLLexer11HexIntToValEPKcS2_.exit, label %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph.i
@@ -6651,7 +6651,7 @@ _ZN4llvm7APFloatD2Ev.exit:                        ; preds = %63, %_ZN4llvm6detai
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6)
   %77 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 0, ptr %77, align 8
-  %.not.i9 = icmp eq i64 %.add, 3
+  %.not.i9 = icmp samesign eq i64 %.add, 3
   br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i10
 
 .lr.ph.i10:                                       ; preds = %75, %.lr.ph.i10
@@ -7003,7 +7003,7 @@ _ZN4llvm7APFloatD2Ev.exit47:                      ; preds = %221, %_ZN4llvm6deta
 233:                                              ; preds = %._crit_edge
   %234 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #17
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
-  %.not15.i49 = icmp eq i64 %.add, 3
+  %.not15.i49 = icmp samesign eq i64 %.add, 3
   br i1 %.not15.i49, label %_ZN4llvm7LLLexer11HexIntToValEPKcS2_.exit56, label %.lr.ph.i50.preheader
 
 .lr.ph.i50.preheader:                             ; preds = %233

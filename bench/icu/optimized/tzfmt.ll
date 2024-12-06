@@ -846,7 +846,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3, %invo
   %fUnion2.i47 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i47, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1024
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1024
   br i1 %arrayctor.done, label %invoke.cont12, label %invoke.cont5
 
 invoke.cont12:                                    ; preds = %invoke.cont5
@@ -1992,7 +1992,7 @@ invoke.cont5:                                     ; preds = %invoke.cont5, %invo
   %fUnion2.i10 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i10, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1024
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1024
   br i1 %arrayctor.done, label %invoke.cont12, label %invoke.cont5
 
 invoke.cont12:                                    ; preds = %invoke.cont5

@@ -3085,7 +3085,7 @@ define dso_local noundef i32 @_ZN4llvm3pdb11SymbolCache31getOrCreateGlobalSymbol
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %22, %13
   %.lcssa.i.i.pn = phi i64 [ %16, %13 ], [ %25, %22 ]
   %29 = zext i32 %11 to i64
-  %.not33 = icmp eq i64 %.lcssa.i.i.pn, %29
+  %.not33 = icmp samesign eq i64 %.lcssa.i.i.pn, %29
   br i1 %.not33, label %_ZN4llvm8ExpectedIRNS_3pdb12SymbolStreamEED2Ev.exit, label %30
 
 30:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
@@ -10660,7 +10660,7 @@ define dso_local noundef i32 @_ZNK4llvm3pdb11SymbolCache21getOrCreateSourceFileE
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %18, %8
   %.lcssa.i.i.pn = phi i64 [ %12, %8 ], [ %21, %18 ]
   %25 = zext i32 %6 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.pn, %25
+  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %25
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %26
 
 26:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit

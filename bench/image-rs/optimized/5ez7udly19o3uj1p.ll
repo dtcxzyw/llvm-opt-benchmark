@@ -28313,7 +28313,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 121:                                              ; preds = %116
   %122 = getelementptr i8, ptr %117, i64 %118
-  %123 = icmp eq i64 %115, 0
+  %123 = icmp samesign eq i64 %115, 0
   br i1 %123, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %121
@@ -29319,7 +29319,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 122:                                              ; preds = %117
   %123 = getelementptr i8, ptr %118, i64 %119
-  %124 = icmp eq i64 %116, 0
+  %124 = icmp samesign eq i64 %116, 0
   br i1 %124, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %122

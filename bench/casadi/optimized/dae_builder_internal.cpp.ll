@@ -6107,7 +6107,7 @@ define void @_ZN6casadi18DaeBuilderInternalC2ERKNSt7__cxx1112basic_stringIcSt11c
 
 63:                                               ; preds = %62
   %.add = add nuw nsw i64 %.idx, 8
-  %64 = icmp eq i64 %.add, 1176
+  %64 = icmp samesign eq i64 %.add, 1176
   br i1 %64, label %65, label %62
 
 65:                                               ; preds = %63

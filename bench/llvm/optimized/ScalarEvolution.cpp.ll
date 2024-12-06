@@ -100461,7 +100461,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit._
 _ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit: ; preds = %575, %562
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %569, %562 ], [ %578, %575 ]
   %582 = zext i32 %560 to i64
-  %.not727 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %582
+  %.not727 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %582
   br i1 %.not727, label %.critedge, label %589
 
 .critedge:                                        ; preds = %556, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_5ValueELj4EEES3_EEbOT_RKT0_.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVENS_14SmallSetVectorIPNS_5ValueELj4EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S8_EEEES4_S8_SA_SD_E4findES4_.exit, %_ZNK4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit, %.lr.ph.i.i.i.i.i282

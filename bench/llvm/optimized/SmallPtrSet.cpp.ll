@@ -941,7 +941,7 @@ _ZSt11swap_rangesIPPKvS2_ET0_T_S4_S3_.exit:       ; preds = %_ZSt11swap_rangesIP
   %84 = load i32, ptr %65, align 4
   %85 = zext i32 %84 to i64
   %.idx50 = shl nuw nsw i64 %85, 3
-  %.not.i.i.i.i.i42 = icmp eq i64 %.idx50, %.idx53
+  %.not.i.i.i.i.i42 = icmp samesign eq i64 %.idx50, %.idx53
   br i1 %.not.i.i.i.i.i42, label %_ZSt4copyIPPKvS2_ET0_T_S4_S3_.exit41, label %86
 
 86:                                               ; preds = %83

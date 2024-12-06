@@ -2553,7 +2553,7 @@ _ZN10open_spiel6hearts5TrickC2Ev.exit.i.i.i:      ; preds = %_ZNSt5arrayIN4absl7
 739:                                              ; preds = %_ZNSt5arrayIN4absl7debian28optionalIiEELm52EEC2Ev.exit120.i.i
   %740 = landingpad { ptr, i32 }
           cleanup
-  %741 = icmp eq i64 %.idx.i121.i.i, 0
+  %741 = icmp samesign eq i64 %.idx.i121.i.i, 0
   br i1 %741, label %.body43.i, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %739, %_ZN10open_spiel6hearts5TrickD2Ev.exit.i.i.i

@@ -152,7 +152,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i": ; preds = %21
   %27 = and i8 %25, 31
   %28 = zext nneg i8 %27 to i32
-  %29 = icmp ne i64 %.sroa.4.0.i53, 1
+  %29 = icmp samesign ne i64 %.sroa.4.0.i53, 1
   tail call void @llvm.assume(i1 %29)
   %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 2
   %31 = load i8, ptr %24, align 1, !noalias !27, !noundef !15
@@ -168,7 +168,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread29"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
-  %39 = icmp ne i64 %.sroa.4.0.i53, 2
+  %39 = icmp samesign ne i64 %.sroa.4.0.i53, 2
   tail call void @llvm.assume(i1 %39)
   %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i54, i64 3
   %41 = load i8, ptr %30, align 1, !noalias !27, !noundef !15
@@ -182,7 +182,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @"_ZN7tendril7tendril20
   br i1 %48, label %49, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread29"
 
 49:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i"
-  %50 = icmp ne i64 %.sroa.4.0.i53, 3
+  %50 = icmp samesign ne i64 %.sroa.4.0.i53, 3
   tail call void @llvm.assume(i1 %50)
   %51 = load i8, ptr %40, align 1, !noalias !27, !noundef !15
   %52 = shl nuw nsw i32 %28, 18
@@ -613,7 +613,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 1
   %35 = and i8 %32, 31
   %36 = zext nneg i8 %35 to i32
-  %37 = icmp ne i64 %.sroa.4.0.i17.i, 1
+  %37 = icmp samesign ne i64 %.sroa.4.0.i17.i, 1
   tail call void @llvm.assume(i1 %37)
   %38 = load i8, ptr %34, align 1, !noalias !73, !noundef !15
   %39 = shl nuw nsw i32 %36, 6
@@ -629,7 +629,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit13.i.i"
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 2
-  %47 = icmp ne i64 %.sroa.4.0.i17.i, 2
+  %47 = icmp samesign ne i64 %.sroa.4.0.i17.i, 2
   tail call void @llvm.assume(i1 %47)
   %48 = load i8, ptr %46, align 1, !noalias !73, !noundef !15
   %49 = shl nuw nsw i32 %41, 6
@@ -643,7 +643,7 @@ define noundef range(i32 0, 1114113) i32 @_ZN11markup5ever4util12buffer_queue11B
 
 56:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5315faca9b8057f3E.exit15.i.i"
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i18.i, i64 3
-  %58 = icmp ne i64 %.sroa.4.0.i17.i, 3
+  %58 = icmp samesign ne i64 %.sroa.4.0.i17.i, 3
   tail call void @llvm.assume(i1 %58)
   %59 = load i8, ptr %57, align 1, !noalias !73, !noundef !15
   %60 = shl nuw nsw i32 %36, 18

@@ -1704,7 +1704,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.then
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not4.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
@@ -2813,7 +2813,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.then
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not4.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
@@ -14695,7 +14695,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.then
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not4.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then
@@ -15536,7 +15536,7 @@ for.body.i.i.i.preheader:                         ; preds = %if.then
   %3 = and i64 %2, -4
   %4 = add i64 %3, 4
   call void @llvm.memset.p0.i64(ptr align 4 %add.ptr.ptr, i8 0, i64 %4, i1 false)
-  %cmp.not4.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not4.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not4.i, label %while.body.preheader, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %for.body.i.i.i.preheader, %if.then

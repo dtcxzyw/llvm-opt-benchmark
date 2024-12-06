@@ -17033,7 +17033,7 @@ _ZL30findProtocolsWithExplicitImplsPKN5clang17ObjCInterfaceDeclERN4llvm8DenseSet
 _ZNK4llvm6detail12DenseSetImplIPN5clang14IdentifierInfoENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit: ; preds = %75, %62
   %.lcssa.i.i.i.pn.i = phi i64 [ %69, %62 ], [ %78, %75 ]
   %82 = zext i32 %60 to i64
-  %.not23 = icmp eq i64 %.lcssa.i.i.i.pn.i, %82
+  %.not23 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %82
   br i1 %.not23, label %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit.thread, label %.loopexit
 
 _ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit.thread: ; preds = %41, %34, %.lr.ph.i.i.i.i, %_ZL30findProtocolsWithExplicitImplsPKN5clang17ObjCInterfaceDeclERN4llvm8DenseSetIPNS_14IdentifierInfoENS3_12DenseMapInfoIS6_vEEEE.exit, %36, %18, %_ZNK4llvm6detail12DenseSetImplIPN5clang14IdentifierInfoENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsEPKS3_.exit, %_ZNK5clang4Decl7hasAttrINS_28ObjCExplicitProtocolImplAttrEEEbv.exit

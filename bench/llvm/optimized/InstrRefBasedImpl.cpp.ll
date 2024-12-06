@@ -23633,7 +23633,7 @@ _ZNK15LiveDebugValues8DbgValue18getLocationOpCountEv.exit76: ; preds = %212, %21
 _ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit: ; preds = %239, %228
   %.lcssa.i.i.i.pn.i = phi i64 [ %232, %228 ], [ %242, %239 ]
   %247 = zext i32 %226 to i64
-  %.not112 = icmp eq i64 %.lcssa.i.i.i.pn.i, %247
+  %.not112 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %247
   br i1 %.not112, label %_ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %253
 
 _ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread: ; preds = %.lr.ph.i.i.i.i77, %220, %_ZNK4llvm6detail12DenseSetImplIjNS_13SmallDenseMapIjNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit
@@ -27958,7 +27958,7 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE5beginEv.exit200: ; preds =
 _ZNK4llvm9MapVectorIjN15LiveDebugValues8DbgValueENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS_11SmallVectorISt4pairIjS2_ELj0EEEE8containsERKj.exit: ; preds = %424, %416
   %.lcssa.i.i.i.pn.i = phi i64 [ %418, %416 ], [ %427, %424 ]
   %431 = zext i32 %414 to i64
-  %.not1237 = icmp eq i64 %.lcssa.i.i.i.pn.i, %431
+  %.not1237 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %431
   br i1 %.not1237, label %_ZNK4llvm9MapVectorIjN15LiveDebugValues8DbgValueENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS_11SmallVectorISt4pairIjS2_ELj0EEEE8containsERKj.exit.thread, label %432
 
 432:                                              ; preds = %_ZNK4llvm9MapVectorIjN15LiveDebugValues8DbgValueENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEENS_11SmallVectorISt4pairIjS2_ELj0EEEE8containsERKj.exit
@@ -29705,7 +29705,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i: ; preds = %1270, %1262
   %.lcssa.i.i.pn.i = phi i64 [ %1264, %1262 ], [ %1273, %1270 ]
   %1277 = zext i32 %1260 to i64
-  %1278 = icmp eq i64 %.lcssa.i.i.pn.i, %1277
+  %1278 = icmp samesign eq i64 %.lcssa.i.i.pn.i, %1277
   br i1 %1278, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %1283
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i: ; preds = %.lr.ph.i.i.i325, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEPN15LiveDebugValues8DbgValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_EixERKS4_.exit324
@@ -32873,7 +32873,7 @@ define dso_local void @_ZN15LiveDebugValues16InstrRefBasedLDV31placePHIsForSingl
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i: ; preds = %26, %17
   %.lcssa.i.i.pn.i = phi i64 [ %20, %17 ], [ %29, %26 ]
   %33 = zext i32 %15 to i64
-  %34 = icmp eq i64 %.lcssa.i.i.pn.i, %33
+  %34 = icmp samesign eq i64 %.lcssa.i.i.pn.i, %33
   br i1 %34, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %39
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i: ; preds = %.lr.ph.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i, %6

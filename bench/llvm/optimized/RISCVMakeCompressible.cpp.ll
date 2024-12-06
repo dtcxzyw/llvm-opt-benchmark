@@ -806,7 +806,7 @@ _ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i: ; preds = %277, %273, %2
   %288 = load i24, ptr %287, align 8
   %289 = zext i24 %288 to i64
   %290 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %286, i64 %289
-  %.not31.i = icmp eq i64 %spec.select.i, %289
+  %.not31.i = icmp samesign eq i64 %spec.select.i, %289
   br i1 %.not31.i, label %_ZL14updateOperandsRN4llvm12MachineInstrENS_10RegImmPairENS_8RegisterE.exit, label %.lr.ph.i67.preheader
 
 .lr.ph.i67.preheader:                             ; preds = %_ZL19isCompressibleStoreRKN4llvm12MachineInstrE.exit.i

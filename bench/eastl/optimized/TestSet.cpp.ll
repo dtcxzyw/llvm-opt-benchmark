@@ -51054,7 +51054,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %inc.i3.i.i.i = add nsw i64 %10, 1
   store i64 %inc.i3.i.i.i, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %cmp.not.i.i.i.i = icmp eq i64 %rem.i.i, %swapIter.08
+  %cmp.not.i.i.i.i = icmp samesign eq i64 %rem.i.i, %swapIter.08
   br i1 %cmp.not.i.i.i.i, label %_ZN10TestObjectaSEOS_.exit.i.i.i, label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body

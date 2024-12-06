@@ -10702,7 +10702,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIN3smt12
 
 _ZN6vectorIN3smt12theory_utvpiINS0_7idl_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIN3smt12theory_utvpiINS0_7idl_extEE5scopeELb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %5, %if.end.i.i.i ], [ 0, %_ZNK6vectorIN3smt12theory_utvpiINS0_7idl_extEE5scopeELb0EjE4sizeEv.exit ]
-  %cmp.not4.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not4.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not4.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6vectorIN3smt12theory_utvpiINS0_7idl_extEE4atomELb0EjE3endEv.exit.i
@@ -10788,7 +10788,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIN3smt12theory_utvpiINS0_7idl_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not4 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not4 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIN3smt12theory_utvpiINS0_7idl_extEE4atomELb0EjE3endEv.exit
@@ -27019,7 +27019,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIN3smt12
 
 _ZN6vectorIN3smt12theory_utvpiINS0_7rdl_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIN3smt12theory_utvpiINS0_7rdl_extEE5scopeELb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %5, %if.end.i.i.i ], [ 0, %_ZNK6vectorIN3smt12theory_utvpiINS0_7rdl_extEE5scopeELb0EjE4sizeEv.exit ]
-  %cmp.not4.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not4.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not4.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6vectorIN3smt12theory_utvpiINS0_7rdl_extEE4atomELb0EjE3endEv.exit.i
@@ -27105,7 +27105,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIN3smt12theory_utvpiINS0_7rdl_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not4 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not4 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not4, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIN3smt12theory_utvpiINS0_7rdl_extEE4atomELb0EjE3endEv.exit

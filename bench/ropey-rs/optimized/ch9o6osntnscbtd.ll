@@ -2221,7 +2221,7 @@ define internal fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 28:                                               ; preds = %3
-  %29 = icmp eq i64 %2, 0
+  %29 = icmp samesign eq i64 %2, 0
   br i1 %29, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.preheader457
 
 .preheader457:                                    ; preds = %28, %.preheader457

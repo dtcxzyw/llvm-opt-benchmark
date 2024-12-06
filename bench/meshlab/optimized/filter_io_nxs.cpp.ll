@@ -995,7 +995,7 @@ define void @_ZN17FilterIONXSPluginC2Ev(ptr noundef nonnull align 8 dereferencea
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %65 = icmp eq i64 %.021.i.i.i.add, 8
+  %65 = icmp samesign eq i64 %.021.i.i.i.add, 8
   br i1 %65, label %66, label %._crit_edge.i.i.i.thread
 
 66:                                               ; preds = %._crit_edge.i.i.i

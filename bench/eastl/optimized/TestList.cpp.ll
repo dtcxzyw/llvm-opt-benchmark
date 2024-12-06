@@ -18208,7 +18208,7 @@ for.body.i.i2280:                                 ; preds = %invoke.cont1455, %f
   br i1 %840, label %for.body.i.i2280, label %for.end.i.i2259, !llvm.loop !557
 
 for.end.i.i2259:                                  ; preds = %for.body.i.i2280
-  %cmp5.i.i2260 = icmp eq i64 %first.addr.015.i.i.add, 40
+  %cmp5.i.i2260 = icmp samesign eq i64 %first.addr.015.i.i.add, 40
   br i1 %cmp5.i.i2260, label %if.then.i.i2269, label %for.body.lr.ph.i.i.i2261
 
 if.then.i.i2269:                                  ; preds = %for.end.i.i2259

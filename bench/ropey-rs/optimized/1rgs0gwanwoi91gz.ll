@@ -808,7 +808,7 @@ _ZN11str_indices5utf1616to_byte_idx_impl17hc61dbf244c402ddbE.exit: ; preds = %"_
   br i1 %115, label %._crit_edge.i, label %.lr.ph170.i
 
 116:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.llvm.12620698079031950665.exit.i"
-  %117 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
+  %117 = icmp samesign eq i64 %.sroa.0.0.sroa.speculated.i.i, 0
   br i1 %117, label %_ZN11str_indices5chars13from_byte_idx17hb1b42a85030a5ab6E.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %116, %.preheader.i

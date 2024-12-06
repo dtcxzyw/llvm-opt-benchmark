@@ -3138,7 +3138,7 @@ define internal fastcc void @_ZL24calculateCXXStateNumbersRN4llvm13WinEHFuncInfo
   %23 = shl i32 %22, 5
   %.idx = zext i32 %23 to i64
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx
-  %.not258292 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not258292 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not258292, label %._crit_edge296, label %.lr.ph295.preheader
 
 .lr.ph295.preheader:                              ; preds = %14

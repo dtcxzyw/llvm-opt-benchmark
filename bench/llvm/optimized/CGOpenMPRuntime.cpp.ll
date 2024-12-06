@@ -49376,7 +49376,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i.i.i.i.i.i.i: ; preds = %
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %43, %30
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %37, %30 ], [ %46, %43 ]
   %50 = zext i32 %28 to i64
-  %.not111.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %50
+  %.not111.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %50
   br i1 %.not111.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i.i.i.i.i.i.i
@@ -49438,7 +49438,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i37.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit46.i.i.i.i.i.i": ; preds = %80, %67
   %.lcssa.i.i.i.pn.i.i.i44.i.i.i.i.i.i = phi i64 [ %74, %67 ], [ %83, %80 ]
   %87 = zext i32 %65 to i64
-  %.not112.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i44.i.i.i.i.i.i, %87
+  %.not112.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i44.i.i.i.i.i.i, %87
   br i1 %.not112.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit46.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit46.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i40.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit46.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i37.i.i.i.i.i.i
@@ -49500,7 +49500,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i48.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit57.i.i.i.i.i.i": ; preds = %117, %104
   %.lcssa.i.i.i.pn.i.i.i55.i.i.i.i.i.i = phi i64 [ %111, %104 ], [ %120, %117 ]
   %124 = zext i32 %102 to i64
-  %.not113.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i55.i.i.i.i.i.i, %124
+  %.not113.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i55.i.i.i.i.i.i, %124
   br i1 %.not113.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit57.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit57.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i51.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit57.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i48.i.i.i.i.i.i
@@ -49562,7 +49562,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i59.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit68.i.i.i.i.i.i": ; preds = %154, %141
   %.lcssa.i.i.i.pn.i.i.i66.i.i.i.i.i.i = phi i64 [ %148, %141 ], [ %157, %154 ]
   %161 = zext i32 %139 to i64
-  %.not114.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i66.i.i.i.i.i.i, %161
+  %.not114.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i66.i.i.i.i.i.i, %161
   br i1 %.not114.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit68.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit68.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i62.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit68.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i59.i.i.i.i.i.i
@@ -49644,7 +49644,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i70.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit79.i.i.i.i.i.i": ; preds = %195, %182
   %.lcssa.i.i.i.pn.i.i.i77.i.i.i.i.i.i = phi i64 [ %189, %182 ], [ %198, %195 ]
   %202 = zext i32 %180 to i64
-  %.not.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i77.i.i.i.i.i.i, %202
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i77.i.i.i.i.i.i, %202
   br i1 %.not.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit79.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit79.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i73.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit79.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i70.i.i.i.i.i.i
@@ -49711,7 +49711,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i81.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit90.i.i.i.i.i.i": ; preds = %233, %220
   %.lcssa.i.i.i.pn.i.i.i88.i.i.i.i.i.i = phi i64 [ %227, %220 ], [ %236, %233 ]
   %240 = zext i32 %218 to i64
-  %.not109.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i88.i.i.i.i.i.i, %240
+  %.not109.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i88.i.i.i.i.i.i, %240
   br i1 %.not109.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit90.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit90.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i84.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit90.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i81.i.i.i.i.i.i
@@ -49778,7 +49778,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i92.i.i.i.i.i.i: ; preds =
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit101.i.i.i.i.i.i": ; preds = %271, %258
   %.lcssa.i.i.i.pn.i.i.i99.i.i.i.i.i.i = phi i64 [ %265, %258 ], [ %274, %271 ]
   %278 = zext i32 %256 to i64
-  %.not110.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i99.i.i.i.i.i.i, %278
+  %.not110.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i99.i.i.i.i.i.i, %278
   br i1 %.not110.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit101.thread.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_13SmallDenseSetIN5clang16CanonicalDeclPtrIKNS3_4DeclEEELj4ENS_12DenseMapInfoIS7_vEEEELj4EEEZNKS3_7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS3_9ValueDeclEE3$_0EEbOT_T0_.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit101.thread.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i95.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK5clang7CodeGen15CGOpenMPRuntime17isNontemporalDeclEPKNS2_9ValueDeclEE3$_0EclIPN4llvm13SmallDenseSetINS2_16CanonicalDeclPtrIKNS2_4DeclEEELj4ENSB_12DenseMapInfoISG_vEEEEEEbT_.exit101.i.i.i.i.i.i", %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit.i.i92.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i
@@ -56475,7 +56475,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_7VarDeclEEC2EPS2_.exit: ; preds = %183, %184
 _ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit: ; preds = %206, %193
   %.lcssa.i.i.i.pn.i = phi i64 [ %200, %193 ], [ %209, %206 ]
   %213 = zext i32 %191 to i64
-  %.not144 = icmp eq i64 %.lcssa.i.i.i.pn.i, %213
+  %.not144 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %213
   br i1 %.not144, label %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit.thread, label %.critedge2
 
 _ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit.thread: ; preds = %.lr.ph.i.i.i.i53, %_ZN5clang16CanonicalDeclPtrIKNS_7VarDeclEEC2EPS2_.exit, %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_7VarDeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit
@@ -66497,7 +66497,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit: ; preds = %11, %22
 _ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_4DeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit: ; preds = %45, %32
   %.lcssa.i.i.i.pn.i = phi i64 [ %39, %32 ], [ %48, %45 ]
   %52 = zext i32 %30 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.i.pn.i, %52
+  %.not = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %52
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_4DeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit.thread, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120MappableExprsHandler7MapInfoEE12emplace_backIJRNS_8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEERNS7_19OpenMPMapClauseKindERNS6_INS7_21OpenMPMapModifierKindEEERNS6_INS7_24OpenMPMotionModifierKindEEERbSK_RPKNS7_9ValueDeclERPKNS7_4ExprESK_EEERS3_DpOT_.exit
 
 _ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_4DeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZN5clang16CanonicalDeclPtrIKNS_4DeclEEC2EPS2_.exit, %_ZNK4llvm6detail12DenseSetImplIN5clang16CanonicalDeclPtrIKNS2_4DeclEEENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsERKS6_.exit

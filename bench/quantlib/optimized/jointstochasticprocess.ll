@@ -1650,7 +1650,7 @@ _ZN8QuantLib5ArrayC2Em.exit:                      ; preds = %entry, %cond.true.i
   store i64 %sub, ptr %n_.i, align 8, !tbaa !80
   %add.ptr.idx = shl nuw nsw i64 %3, 3
   %add.ptr12.idx = shl nuw nsw i64 %2, 3
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr12.idx, %add.ptr.idx
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx, %add.ptr.idx
   br i1 %tobool.not.i.i.i.i.i, label %nrvo.skipdtor, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %_ZN8QuantLib5ArrayC2Em.exit
@@ -1855,7 +1855,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i:                    ; preds = %cond.true.i.i, %inv
   store i64 %sub.i, ptr %n_.i.i, align 8, !tbaa !80, !alias.scope !89
   %add.ptr.idx.i = shl nuw nsw i64 %12, 3
   %add.ptr12.idx.i = shl nuw nsw i64 %11, 3
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
@@ -2040,7 +2040,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i:                    ; preds = %cond.true.i.i, %inv
   store i64 %sub.i, ptr %n_.i.i, align 8, !tbaa !80, !alias.scope !93
   %add.ptr.idx.i = shl nuw nsw i64 %12, 3
   %add.ptr12.idx.i = shl nuw nsw i64 %11, 3
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
@@ -2369,7 +2369,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i:                    ; preds = %cond.true.i.i, %inv
   store i64 %sub.i, ptr %n_.i.i37, align 8, !tbaa !80, !alias.scope !110
   %add.ptr.idx.i = shl nuw nsw i64 %16, 3
   %add.ptr12.idx.i = shl nuw nsw i64 %20, 3
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont12, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
@@ -2461,7 +2461,7 @@ for.body23:                                       ; preds = %for.body23.preheade
   %add.i = add nuw i64 %i.098, 1
   %mul.i55 = shl i64 %add.i, 3
   %add.ptr.i56.idx = mul i64 %mul.i55, %28
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr.i56.idx, %add.ptr.i53.idx
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr.i56.idx, %add.ptr.i53.idx
   br i1 %tobool.not.i.i.i.i.i, label %for.inc, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body23
@@ -3007,7 +3007,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i:                    ; preds = %cond.true.i.i, %inv
   store i64 %sub.i, ptr %n_.i.i, align 8, !tbaa !80, !alias.scope !124
   %add.ptr.idx.i = shl nuw nsw i64 %12, 3
   %add.ptr12.idx.i = shl nuw nsw i64 %11, 3
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont8, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
@@ -3039,7 +3039,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i19:                  ; preds = %cond.true.i.i18, %i
   store i64 %sub.i16, ptr %n_.i.i21, align 8, !tbaa !80, !alias.scope !127
   %add.ptr.idx.i22 = shl nuw nsw i64 %18, 3
   %add.ptr12.idx.i23 = shl nuw nsw i64 %17, 3
-  %tobool.not.i.i.i.i.i.i24 = icmp eq i64 %add.ptr12.idx.i23, %add.ptr.idx.i22
+  %tobool.not.i.i.i.i.i.i24 = icmp samesign eq i64 %add.ptr12.idx.i23, %add.ptr.idx.i22
   br i1 %tobool.not.i.i.i.i.i.i24, label %invoke.cont11, label %if.then.i.i.i.i.i.i25
 
 if.then.i.i.i.i.i.i25:                            ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i19
@@ -3525,7 +3525,7 @@ _ZN8QuantLib5ArrayC2Em.exit.i:                    ; preds = %cond.true.i.i, %inv
   store i64 %sub.i, ptr %n_.i.i138, align 8, !tbaa !80, !alias.scope !143
   %add.ptr.idx.i = shl nuw nsw i64 %44, 3
   %add.ptr12.idx.i = shl nuw nsw i64 %48, 3
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %add.ptr12.idx.i, %add.ptr.idx.i
   br i1 %tobool.not.i.i.i.i.i.i, label %invoke.cont70, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %_ZN8QuantLib5ArrayC2Em.exit.i
@@ -3600,7 +3600,7 @@ for.body84:                                       ; preds = %for.body84.lr.ph, %
   %add.i = add nuw i64 %i77.0621, 1
   %mul.i153 = mul i64 %57, %add.i
   %add.ptr.i154 = getelementptr inbounds nuw double, ptr %56, i64 %mul.i153
-  %cmp.not5.i = icmp eq i64 %mul.i150, %mul.i153
+  %cmp.not5.i = icmp samesign eq i64 %mul.i150, %mul.i153
   br i1 %cmp.not5.i, label %if.end, label %for.body.i158
 
 for.body.i158:                                    ; preds = %for.body84, %for.body.i158
@@ -3943,7 +3943,7 @@ for.body180:                                      ; preds = %for.body180.lr.ph, 
   %mul.i242.reass = mul i64 %i173.0627, %factor.op.mul
   %add.i245 = add nuw i64 %i173.0627, 1
   %mul.i246.reass = mul i64 %add.i245, %factor.op.mul
-  %tobool.not.i.i.i.i.i = icmp eq i64 %mul.i246.reass, %mul.i242.reass
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %mul.i246.reass, %mul.i242.reass
   br i1 %tobool.not.i.i.i.i.i, label %for.inc189, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %for.body180
@@ -4065,7 +4065,7 @@ for.body228:                                      ; preds = %for.body228.lr.ph, 
   %add.ptr.i288.idx = mul i64 %mul.i287, %i221.0636
   %add.i290 = add nuw i64 %i221.0636, 1
   %add.ptr.i292.idx = mul i64 %mul.i287, %add.i290
-  %tobool.not.i.i.i.i.i299 = icmp eq i64 %add.ptr.i292.idx, %add.ptr.i288.idx
+  %tobool.not.i.i.i.i.i299 = icmp samesign eq i64 %add.ptr.i292.idx, %add.ptr.i288.idx
   br i1 %tobool.not.i.i.i.i.i299, label %for.inc237, label %if.then.i.i.i.i.i300
 
 if.then.i.i.i.i.i300:                             ; preds = %for.body228

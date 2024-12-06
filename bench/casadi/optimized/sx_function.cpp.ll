@@ -46232,7 +46232,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt27__uninitialized_default_n_1ILb0EE
 6:                                                ; preds = %3
   %7 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = icmp eq i64 %.idx.i.i, 0
+  %8 = icmp samesign eq i64 %.idx.i.i, 0
   br i1 %8, label %.body, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %6, %.preheader.i.i

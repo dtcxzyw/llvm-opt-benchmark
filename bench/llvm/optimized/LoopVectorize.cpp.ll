@@ -29461,7 +29461,7 @@ _ZN4llvm11SmallVectorINS_26LoopVectorizationCostModel13RegisterUsageELj8EED2Ev.e
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i: ; preds = %117, %107
   %.lcssa.i.i.pn.i = phi i64 [ %111, %107 ], [ %120, %117 ]
   %124 = zext i32 %105 to i64
-  %125 = icmp eq i64 %.lcssa.i.i.pn.i, %124
+  %125 = icmp samesign eq i64 %.lcssa.i.i.pn.i, %124
   br i1 %125, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %129
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i: ; preds = %.lr.ph.i.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj4ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i, %97
@@ -45433,7 +45433,7 @@ _ZN4llvm4User8operandsEv.exit243:                 ; preds = %350, %353
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm24LoopVectorizationPlanner15precomputeCostsERNS2_5VPlanENS2_12ElementCountERNS2_13VPCostContextEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i.i.i": ; preds = %388, %375
   %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %382, %375 ], [ %391, %388 ]
   %395 = zext i32 %373 to i64
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i, %395
+  %.not.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i, %395
   br i1 %.not.i.i.i.i.i.i.i.i, label %.critedge3, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm24LoopVectorizationPlanner15precomputeCostsERNS2_5VPlanENS2_12ElementCountERNS2_13VPCostContextEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm24LoopVectorizationPlanner15precomputeCostsERNS2_5VPlanENS2_12ElementCountERNS2_13VPCostContextEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm24LoopVectorizationPlanner15precomputeCostsERNS2_5VPlanENS2_12ElementCountERNS2_13VPCostContextEE3$_1EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i.i.i", %.lr.ph.i.i.i.i.i.i
@@ -48056,7 +48056,7 @@ _ZSteqIPN4llvm11VPBlockBaseESt8optionalIPS2_EEbRKSt4pairIT_T0_ESB_.exit.i.i.i.i.
 _ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i: ; preds = %522, %509
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %516, %509 ], [ %525, %522 ]
   %529 = zext i32 %507 to i64
-  %.not84.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %529
+  %.not84.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %529
   br i1 %.not84.i, label %_ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.i, label %_ZN4llvm6detail12DenseSetImplIPNS_4TypeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_.exit.thread.i
 
 _ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPNS_12VPRecipeBaseENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i, %.lr.ph.i

@@ -90957,7 +90957,7 @@ _ZN5taffy7compute4grid5types9grid_item8GridItem31max_content_contribution_cached
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h83067c46ae790309E.exit.preheader.i.i.i": ; preds = %_ZN5taffy7compute4grid5types9grid_item8GridItem31max_content_contribution_cached17h045b9c08e0ed343aE.exit.i.i.i
   %52 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [2 x i32] }, float, float, float, float, float, float, float, i8, i8, i8, [1 x i8] }, ptr %15, i64 %32
-  %53 = icmp eq i64 %31, %32
+  %53 = icmp samesign eq i64 %31, %32
   br i1 %53, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h30f4e99aac704821E.exit.i", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h83067c46ae790309E.exit.i.i.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h83067c46ae790309E.exit.i.i.i": ; preds = %66, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h83067c46ae790309E.exit.preheader.i.i.i"

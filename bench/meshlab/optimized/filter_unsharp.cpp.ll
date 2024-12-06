@@ -1883,7 +1883,7 @@ define void @_ZN13FilterUnsharpC2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %47 = icmp eq i64 %.021.i.i.i.add, 84
+  %47 = icmp samesign eq i64 %.021.i.i.i.add, 84
   br i1 %47, label %48, label %._crit_edge.i.i.i.thread
 
 48:                                               ; preds = %._crit_edge.i.i.i

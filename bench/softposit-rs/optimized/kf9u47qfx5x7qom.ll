@@ -170,7 +170,7 @@ _ZN9softposit7quire325Q32E26is_nar17h609ee7b07649a137E.exit.thread: ; preds = %_
   br label %87
 
 75:                                               ; preds = %._crit_edge
-  %76 = icmp eq i64 %.sroa.0112.0.add, 64
+  %76 = icmp samesign eq i64 %.sroa.0112.0.add, 64
   br i1 %76, label %77, label %78
 
 77:                                               ; preds = %75

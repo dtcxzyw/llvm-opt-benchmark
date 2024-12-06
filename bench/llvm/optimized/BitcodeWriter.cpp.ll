@@ -54825,7 +54825,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit682: ; preds = %942, %9
   %967 = shl i32 %966, 5
   %.idx = zext i32 %967 to i64
   %968 = getelementptr inbounds nuw i8, ptr %963, i64 %.idx
-  %.not9941047 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not9941047 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not9941047, label %._crit_edge1050, label %.lr.ph1049
 
 .lr.ph1049:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit682
@@ -63842,7 +63842,7 @@ _ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit: ; preds = %11
 _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit: ; preds = %1129, %1117
   %.lcssa.i.i.i.pn.i = phi i64 [ %1123, %1117 ], [ %1132, %1129 ]
   %1136 = zext i32 %1115 to i64
-  %.not822 = icmp eq i64 %.lcssa.i.i.i.pn.i, %1136
+  %.not822 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %1136
   br i1 %.not822, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit.thread, label %1137
 
 1137:                                             ; preds = %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit
@@ -63990,7 +63990,7 @@ _ZN4llvm11GlobalValue22dropLLVMManglingEscapeENS_9StringRefE.exit482: ; preds = 
 _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit490: ; preds = %1202, %1190
   %.lcssa.i.i.i.pn.i488 = phi i64 [ %1196, %1190 ], [ %1205, %1202 ]
   %1209 = zext i32 %1188 to i64
-  %.not824 = icmp eq i64 %.lcssa.i.i.i.pn.i488, %1209
+  %.not824 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i488, %1209
   br i1 %.not824, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit490.thread, label %1210
 
 1210:                                             ; preds = %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit490

@@ -5645,7 +5645,7 @@ lpad.i.i:                                         ; preds = %init.i.i
   %244 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #23
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur364.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur364.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup2064, label %arraydestroy.body
 
 invoke.cont366:                                   ; preds = %invoke.cont.i.i, %init.check.i.i, %arrayctor.loop363

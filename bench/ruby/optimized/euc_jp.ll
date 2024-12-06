@@ -272,7 +272,7 @@ define internal range(i32 -400, 4) i32 @code_to_mbc(i32 noundef %0, ptr nocaptur
   br label %mbc_enc_len.exit
 
 25:                                               ; preds = %13
-  %26 = icmp eq i64 %.1.idx, 0
+  %26 = icmp samesign eq i64 %.1.idx, 0
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
@@ -499,7 +499,7 @@ get_lower_case.exit:                              ; preds = %63, %68, %70
   br label %code_to_mbc.exit
 
 95:                                               ; preds = %83
-  %96 = icmp eq i64 %.1.idx.i, 0
+  %96 = icmp samesign eq i64 %.1.idx.i, 0
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %95

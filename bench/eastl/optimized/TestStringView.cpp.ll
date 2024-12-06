@@ -541,7 +541,7 @@ if.end.i.i:                                       ; preds = %while.body19.i.i
   br i1 %cmp24.i.i, label %while.cond4.preheader.i.i1000.preheader, label %while.cond15.i.i, !llvm.loop !7
 
 invoke.cont.i:                                    ; preds = %while.body19.i.i
-  %cmp13.not.i.not = icmp ne i64 %first1.addr.234.i.i.idx, 13
+  %cmp13.not.i.not = icmp samesign ne i64 %first1.addr.234.i.i.idx, 13
   br label %while.cond4.preheader.i.i1000.preheader
 
 while.cond4.preheader.i.i1000.preheader:          ; preds = %if.then11.i.i, %while.body8.i.i, %if.end.i.i, %invoke.cont.i
@@ -587,7 +587,7 @@ if.end.i.i1019:                                   ; preds = %while.body19.i.i101
   br i1 %cmp24.i.i1021, label %while.cond4.preheader.i.i1062.preheader, label %while.cond15.i.i1012, !llvm.loop !7
 
 invoke.cont.i1022:                                ; preds = %while.body19.i.i1016
-  %cmp13.not.i1024.not = icmp ne i64 %first1.addr.234.i.i1003.idx, 13
+  %cmp13.not.i1024.not = icmp samesign ne i64 %first1.addr.234.i.i1003.idx, 13
   br label %while.cond4.preheader.i.i1062.preheader
 
 while.cond4.preheader.i.i1062.preheader:          ; preds = %if.then11.i.i1009, %while.body8.i.i1005, %if.end.i.i1019, %invoke.cont.i1022
@@ -633,7 +633,7 @@ if.end.i.i1081:                                   ; preds = %while.body19.i.i107
   br i1 %cmp24.i.i1083, label %land.rhs.i.i.i.i1357.preheader, label %while.cond15.i.i1074, !llvm.loop !7
 
 invoke.cont.i1084:                                ; preds = %while.body19.i.i1078
-  %cmp13.not.i1086.not = icmp eq i64 %first1.addr.234.i.i1065.idx, 13
+  %cmp13.not.i1086.not = icmp samesign eq i64 %first1.addr.234.i.i1065.idx, 13
   br label %land.rhs.i.i.i.i1357.preheader
 
 land.rhs.i.i.i.i1357.preheader:                   ; preds = %if.then11.i.i1071, %while.body8.i.i1067, %if.end.i.i1081, %invoke.cont.i1084
@@ -658,7 +658,7 @@ while.body.i.i.i.i1360:                           ; preds = %land.rhs.i.i.i.i135
   br i1 %cmp.not.i.i.i.i1362, label %land.rhs.i.i.i.i1416.preheader, label %land.rhs.i.i.i.i1357, !llvm.loop !8
 
 invoke.cont.i.i1347:                              ; preds = %land.rhs.i.i.i.i1357
-  %cmp13.not.i.not.i1349 = icmp eq i64 %first.addr.05.i.i.i.i1358.idx, 13
+  %cmp13.not.i.not.i1349 = icmp samesign eq i64 %first.addr.05.i.i.i.i1358.idx, 13
   br label %land.rhs.i.i.i.i1416.preheader
 
 land.rhs.i.i.i.i1416.preheader:                   ; preds = %while.body.i.i.i.i1360, %invoke.cont.i.i1347
@@ -679,7 +679,7 @@ while.body.i.i.i.i1419:                           ; preds = %land.rhs.i.i.i.i141
   br i1 %cmp.not.i.i.i.i1421, label %while.cond4.preheader.i.i.i1440.preheader, label %land.rhs.i.i.i.i1416, !llvm.loop !8
 
 invoke.cont.i.i1406:                              ; preds = %land.rhs.i.i.i.i1416
-  %cmp13.not.i.not.i1408 = icmp eq i64 %first.addr.05.i.i.i.i1417.idx, 13
+  %cmp13.not.i.not.i1408 = icmp samesign eq i64 %first.addr.05.i.i.i.i1417.idx, 13
   br label %while.cond4.preheader.i.i.i1440.preheader
 
 while.cond4.preheader.i.i.i1440.preheader:        ; preds = %while.body.i.i.i.i1419, %invoke.cont.i.i1406
@@ -725,7 +725,7 @@ if.end.i.i.i1458:                                 ; preds = %while.body19.i.i.i1
   br i1 %cmp24.i.i.i1460, label %while.cond4.preheader.i.i.i1477.preheader, label %while.cond15.i.i.i1451, !llvm.loop !7
 
 invoke.cont.i.i1461:                              ; preds = %while.body19.i.i.i1455
-  %cmp13.not.i.not.i1463 = icmp ne i64 %first1.addr.234.i.i.i1443.idx, 16
+  %cmp13.not.i.not.i1463 = icmp samesign ne i64 %first1.addr.234.i.i.i1443.idx, 16
   br label %while.cond4.preheader.i.i.i1477.preheader
 
 while.cond4.preheader.i.i.i1477.preheader:        ; preds = %if.then11.i.i.i1448, %while.body8.i.i.i1445, %if.end.i.i.i1458, %invoke.cont.i.i1461
@@ -871,7 +871,7 @@ if.end.i.i.i1593:                                 ; preds = %while.body19.i.i.i1
   br i1 %cmp24.i.i.i1595, label %while.cond4.preheader.i.i.i1635.preheader, label %while.cond15.i.i.i1586, !llvm.loop !7
 
 invoke.cont.i.i1596:                              ; preds = %while.body19.i.i.i1590
-  %cmp13.not.i.not.i1598 = icmp ne i64 %first1.addr.234.i.i.i1578.idx, 16
+  %cmp13.not.i.not.i1598 = icmp samesign ne i64 %first1.addr.234.i.i.i1578.idx, 16
   br label %while.cond4.preheader.i.i.i1635.preheader
 
 while.cond4.preheader.i.i.i1635.preheader:        ; preds = %if.then11.i.i.i1583, %while.body8.i.i.i1580, %if.end.i.i.i1593, %invoke.cont.i.i1596
@@ -1467,7 +1467,7 @@ for.cond1.for.inc6_crit_edge.i.i.i2494:           ; preds = %for.cond1.i.i.i2491
   br i1 %cmp.not.i.i.i2496, label %for.cond1.preheader.i.i.i2517.preheader, label %for.cond1.preheader.i.i.i2486, !llvm.loop !14
 
 _ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i.i2497: ; preds = %for.body3.i.i.i2488
-  %71 = icmp eq i64 %p1Begin.addr.012.i.i.i2487.idx, 0
+  %71 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2487.idx, 0
   br label %for.cond1.preheader.i.i.i2517.preheader
 
 for.cond1.preheader.i.i.i2517.preheader:          ; preds = %for.cond1.for.inc6_crit_edge.i.i.i2494, %_ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i.i2497
@@ -1595,7 +1595,7 @@ while.body.i.i.i.i.i2581:                         ; preds = %land.rhs.i.i.i.i.i2
   br i1 %cmp.not.i.i.i.i.i2583, label %_ZNK5eastl17basic_string_viewIcE13find_first_ofEcm.exit2590, label %land.rhs.i.i.i.i.i2578, !llvm.loop !8
 
 invoke.cont.i.i.i2584:                            ; preds = %land.rhs.i.i.i.i.i2578
-  %cmp13.not.i.not.i.i2585 = icmp eq i64 %first.addr.05.i.i.i.i.i2579.idx, 29
+  %cmp13.not.i.not.i.i2585 = icmp samesign eq i64 %first.addr.05.i.i.i.i.i2579.idx, 29
   br label %_ZNK5eastl17basic_string_viewIcE13find_first_ofEcm.exit2590
 
 _ZNK5eastl17basic_string_viewIcE13find_first_ofEcm.exit2590: ; preds = %while.body.i.i.i.i.i2581, %invoke.cont.i.i.i2584
@@ -1616,7 +1616,7 @@ for.cond1.i.i.i2607:                              ; preds = %for.cond1.preheader
   br i1 %cmp.not.i.i.i2612, label %for.cond1.preheader.i.i.i2646.preheader, label %for.cond1.preheader.i.i.i2602, !llvm.loop !14
 
 _ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i.i2613: ; preds = %for.cond1.preheader.i.i.i2602
-  %cmp7.not.i.i2614 = icmp eq i64 %p1Begin.addr.012.i.i.i2603.idx, 29
+  %cmp7.not.i.i2614 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2603.idx, 29
   br label %for.cond1.preheader.i.i.i2646.preheader
 
 for.cond1.preheader.i.i.i2646.preheader:          ; preds = %for.cond1.i.i.i2607, %_ZN5eastl25CharTypeStringFindFirstOfIcEEPKT_S3_S3_S3_S3_.exit.i.i2613
@@ -1836,7 +1836,7 @@ for.body3.i.i.i2824:                              ; preds = %for.cond1.i.i.i2826
 
 for.inc9.i.i.i:                                   ; preds = %for.body3.i.i.i2824
   %p1Begin.addr.015.i.i.i.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i.idx, 1
-  %cmp.not.i.i.i2837 = icmp eq i64 %p1Begin.addr.015.i.i.i.add, 29
+  %cmp.not.i.i.i2837 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i.add, 29
   br i1 %cmp.not.i.i.i2837, label %for.cond1.preheader.i.i.i2851.preheader, label %for.cond1.preheader.i.i.i2823, !llvm.loop !18
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIcEEPKT_S3_S3_S3_S3_.exit.i.i: ; preds = %for.cond1.i.i.i2826
@@ -1868,7 +1868,7 @@ for.body3.i.i.i2853:                              ; preds = %for.cond1.i.i.i2856
 
 for.inc9.i.i.i2867:                               ; preds = %for.body3.i.i.i2853
   %p1Begin.addr.015.i.i.i2852.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i2852.idx, 1
-  %cmp.not.i.i.i2869 = icmp eq i64 %p1Begin.addr.015.i.i.i2852.add, 29
+  %cmp.not.i.i.i2869 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i2852.add, 29
   br i1 %cmp.not.i.i.i2869, label %for.cond1.preheader.i.i.i2952.preheader, label %for.cond1.preheader.i.i.i2851, !llvm.loop !18
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIcEEPKT_S3_S3_S3_S3_.exit.i.i2859: ; preds = %for.cond1.i.i.i2856
@@ -2476,7 +2476,7 @@ if.end.i.i:                                       ; preds = %while.body16.i.i
   br i1 %cmp21.i.i, label %while.cond4.preheader.i.i1463.preheader, label %while.cond14.i.i, !llvm.loop !23
 
 invoke.cont.i:                                    ; preds = %while.body16.i.i
-  %cmp13.not.i.not = icmp ne i64 %first1.addr.234.i.i.idx, 52
+  %cmp13.not.i.not = icmp samesign ne i64 %first1.addr.234.i.i.idx, 52
   br label %while.cond4.preheader.i.i1463.preheader
 
 while.cond4.preheader.i.i1463.preheader:          ; preds = %if.then10.i.i, %while.body7.i.i, %if.end.i.i, %invoke.cont.i
@@ -2522,7 +2522,7 @@ if.end.i.i1482:                                   ; preds = %while.body16.i.i147
   br i1 %cmp21.i.i1484, label %while.cond4.preheader.i.i1529.preheader, label %while.cond14.i.i1475, !llvm.loop !23
 
 invoke.cont.i1485:                                ; preds = %while.body16.i.i1479
-  %cmp13.not.i1487.not = icmp ne i64 %first1.addr.234.i.i1466.idx, 52
+  %cmp13.not.i1487.not = icmp samesign ne i64 %first1.addr.234.i.i1466.idx, 52
   br label %while.cond4.preheader.i.i1529.preheader
 
 while.cond4.preheader.i.i1529.preheader:          ; preds = %if.then10.i.i1472, %while.body7.i.i1468, %if.end.i.i1482, %invoke.cont.i1485
@@ -2568,7 +2568,7 @@ if.end.i.i1548:                                   ; preds = %while.body16.i.i154
   br i1 %cmp21.i.i1550, label %land.rhs.i.i.i.i1839.preheader, label %while.cond14.i.i1541, !llvm.loop !23
 
 invoke.cont.i1551:                                ; preds = %while.body16.i.i1545
-  %cmp13.not.i1553.not = icmp eq i64 %first1.addr.234.i.i1532.idx, 52
+  %cmp13.not.i1553.not = icmp samesign eq i64 %first1.addr.234.i.i1532.idx, 52
   br label %land.rhs.i.i.i.i1839.preheader
 
 land.rhs.i.i.i.i1839.preheader:                   ; preds = %if.then10.i.i1538, %while.body7.i.i1534, %if.end.i.i1548, %invoke.cont.i1551
@@ -2593,7 +2593,7 @@ while.body.i.i.i.i1842:                           ; preds = %land.rhs.i.i.i.i183
   br i1 %cmp.not.i.i.i.i1844, label %land.rhs.i.i.i.i1900.preheader, label %land.rhs.i.i.i.i1839, !llvm.loop !24
 
 invoke.cont.i.i1828:                              ; preds = %land.rhs.i.i.i.i1839
-  %cmp13.not.i.not.i1830 = icmp eq i64 %first.addr.05.i.i.i.i1840.idx, 52
+  %cmp13.not.i.not.i1830 = icmp samesign eq i64 %first.addr.05.i.i.i.i1840.idx, 52
   br label %land.rhs.i.i.i.i1900.preheader
 
 land.rhs.i.i.i.i1900.preheader:                   ; preds = %while.body.i.i.i.i1842, %invoke.cont.i.i1828
@@ -2614,7 +2614,7 @@ while.body.i.i.i.i1903:                           ; preds = %land.rhs.i.i.i.i190
   br i1 %cmp.not.i.i.i.i1905, label %while.cond4.preheader.i.i.i1926.preheader, label %land.rhs.i.i.i.i1900, !llvm.loop !24
 
 invoke.cont.i.i1889:                              ; preds = %land.rhs.i.i.i.i1900
-  %cmp13.not.i.not.i1891 = icmp eq i64 %first.addr.05.i.i.i.i1901.idx, 52
+  %cmp13.not.i.not.i1891 = icmp samesign eq i64 %first.addr.05.i.i.i.i1901.idx, 52
   br label %while.cond4.preheader.i.i.i1926.preheader
 
 while.cond4.preheader.i.i.i1926.preheader:        ; preds = %while.body.i.i.i.i1903, %invoke.cont.i.i1889
@@ -2660,7 +2660,7 @@ if.end.i.i.i1944:                                 ; preds = %while.body16.i.i.i1
   br i1 %cmp21.i.i.i1946, label %while.cond4.preheader.i.i.i1964.preheader, label %while.cond14.i.i.i1937, !llvm.loop !23
 
 invoke.cont.i.i1947:                              ; preds = %while.body16.i.i.i1941
-  %cmp13.not.i.not.i1949 = icmp ne i64 %first1.addr.234.i.i.i1929.idx, 64
+  %cmp13.not.i.not.i1949 = icmp samesign ne i64 %first1.addr.234.i.i.i1929.idx, 64
   br label %while.cond4.preheader.i.i.i1964.preheader
 
 while.cond4.preheader.i.i.i1964.preheader:        ; preds = %if.then10.i.i.i1934, %while.body7.i.i.i1931, %if.end.i.i.i1944, %invoke.cont.i.i1947
@@ -2806,7 +2806,7 @@ if.end.i.i.i2085:                                 ; preds = %while.body16.i.i.i2
   br i1 %cmp21.i.i.i2087, label %while.cond4.preheader.i.i.i2129.preheader, label %while.cond14.i.i.i2078, !llvm.loop !23
 
 invoke.cont.i.i2088:                              ; preds = %while.body16.i.i.i2082
-  %cmp13.not.i.not.i2090 = icmp ne i64 %first1.addr.234.i.i.i2070.idx, 64
+  %cmp13.not.i.not.i2090 = icmp samesign ne i64 %first1.addr.234.i.i.i2070.idx, 64
   br label %while.cond4.preheader.i.i.i2129.preheader
 
 while.cond4.preheader.i.i.i2129.preheader:        ; preds = %if.then10.i.i.i2075, %while.body7.i.i.i2072, %if.end.i.i.i2085, %invoke.cont.i.i2088
@@ -3394,7 +3394,7 @@ for.cond1.for.inc5_crit_edge.i.i.i2981:           ; preds = %for.cond1.i.i.i2978
   br i1 %cmp.not.i.i.i2983, label %for.cond1.preheader.i.i.i3005.preheader, label %for.cond1.preheader.i.i.i2973, !llvm.loop !30
 
 _ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i.i2984: ; preds = %for.body3.i.i.i2975
-  %101 = icmp eq i64 %p1Begin.addr.012.i.i.i2974.idx, 0
+  %101 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2974.idx, 0
   br label %for.cond1.preheader.i.i.i3005.preheader
 
 for.cond1.preheader.i.i.i3005.preheader:          ; preds = %for.cond1.for.inc5_crit_edge.i.i.i2981, %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i.i2984
@@ -3522,7 +3522,7 @@ while.body.i.i.i.i.i3075:                         ; preds = %land.rhs.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i3077, label %_ZNK5eastl17basic_string_viewIwE13find_first_ofEwm.exit3085, label %land.rhs.i.i.i.i.i3072, !llvm.loop !24
 
 invoke.cont.i.i.i3078:                            ; preds = %land.rhs.i.i.i.i.i3072
-  %cmp13.not.i.not.i.i3079 = icmp eq i64 %first.addr.05.i.i.i.i.i3073.idx, 116
+  %cmp13.not.i.not.i.i3079 = icmp samesign eq i64 %first.addr.05.i.i.i.i.i3073.idx, 116
   br label %_ZNK5eastl17basic_string_viewIwE13find_first_ofEwm.exit3085
 
 _ZNK5eastl17basic_string_viewIwE13find_first_ofEwm.exit3085: ; preds = %while.body.i.i.i.i.i3075, %invoke.cont.i.i.i3078
@@ -3543,7 +3543,7 @@ for.cond1.i.i.i3102:                              ; preds = %for.cond1.preheader
   br i1 %cmp.not.i.i.i3107, label %for.cond1.preheader.i.i.i3146.preheader, label %for.cond1.preheader.i.i.i3097, !llvm.loop !30
 
 _ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3108: ; preds = %for.cond1.preheader.i.i.i3097
-  %cmp7.not.i.i3109 = icmp eq i64 %p1Begin.addr.012.i.i.i3098.idx, 116
+  %cmp7.not.i.i3109 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i3098.idx, 116
   br label %for.cond1.preheader.i.i.i3146.preheader
 
 for.cond1.preheader.i.i.i3146.preheader:          ; preds = %for.cond1.i.i.i3102, %_ZN5eastl25CharTypeStringFindFirstOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3108
@@ -3763,7 +3763,7 @@ for.body3.i.i.i3333:                              ; preds = %for.cond1.i.i.i3335
 
 for.inc8.i.i.i:                                   ; preds = %for.body3.i.i.i3333
   %p1Begin.addr.015.i.i.i.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i.idx, 4
-  %cmp.not.i.i.i3347 = icmp eq i64 %p1Begin.addr.015.i.i.i.add, 116
+  %cmp.not.i.i.i3347 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i.add, 116
   br i1 %cmp.not.i.i.i3347, label %for.cond1.preheader.i.i.i3361.preheader, label %for.cond1.preheader.i.i.i3332, !llvm.loop !34
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIwEEPKT_S3_S3_S3_S3_.exit.i.i: ; preds = %for.cond1.i.i.i3335
@@ -3795,7 +3795,7 @@ for.body3.i.i.i3363:                              ; preds = %for.cond1.i.i.i3366
 
 for.inc8.i.i.i3378:                               ; preds = %for.body3.i.i.i3363
   %p1Begin.addr.015.i.i.i3362.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i3362.idx, 4
-  %cmp.not.i.i.i3380 = icmp eq i64 %p1Begin.addr.015.i.i.i3362.add, 116
+  %cmp.not.i.i.i3380 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i3362.add, 116
   br i1 %cmp.not.i.i.i3380, label %for.cond1.preheader.i.i.i3471.preheader, label %for.cond1.preheader.i.i.i3361, !llvm.loop !34
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIwEEPKT_S3_S3_S3_S3_.exit.i.i3369: ; preds = %for.cond1.i.i.i3366
@@ -5052,7 +5052,7 @@ if.end.i.i:                                       ; preds = %while.body19.i.i
   br i1 %cmp24.i.i, label %while.cond4.preheader.i.i1411.preheader, label %while.cond15.i.i, !llvm.loop !39
 
 invoke.cont.i:                                    ; preds = %while.body19.i.i
-  %cmp13.not.i.not = icmp ne i64 %first1.addr.234.i.i.idx, 13
+  %cmp13.not.i.not = icmp samesign ne i64 %first1.addr.234.i.i.idx, 13
   br label %while.cond4.preheader.i.i1411.preheader
 
 while.cond4.preheader.i.i1411.preheader:          ; preds = %if.then11.i.i, %while.body8.i.i, %if.end.i.i, %invoke.cont.i
@@ -5098,7 +5098,7 @@ if.end.i.i1430:                                   ; preds = %while.body19.i.i142
   br i1 %cmp24.i.i1432, label %while.cond4.preheader.i.i1474.preheader, label %while.cond15.i.i1423, !llvm.loop !39
 
 invoke.cont.i1433:                                ; preds = %while.body19.i.i1427
-  %cmp13.not.i1435.not = icmp ne i64 %first1.addr.234.i.i1414.idx, 13
+  %cmp13.not.i1435.not = icmp samesign ne i64 %first1.addr.234.i.i1414.idx, 13
   br label %while.cond4.preheader.i.i1474.preheader
 
 while.cond4.preheader.i.i1474.preheader:          ; preds = %if.then11.i.i1420, %while.body8.i.i1416, %if.end.i.i1430, %invoke.cont.i1433
@@ -5144,7 +5144,7 @@ if.end.i.i1493:                                   ; preds = %while.body19.i.i149
   br i1 %cmp24.i.i1495, label %land.rhs.i.i.i.i1771.preheader, label %while.cond15.i.i1486, !llvm.loop !39
 
 invoke.cont.i1496:                                ; preds = %while.body19.i.i1490
-  %cmp13.not.i1498.not = icmp eq i64 %first1.addr.234.i.i1477.idx, 13
+  %cmp13.not.i1498.not = icmp samesign eq i64 %first1.addr.234.i.i1477.idx, 13
   br label %land.rhs.i.i.i.i1771.preheader
 
 land.rhs.i.i.i.i1771.preheader:                   ; preds = %if.then11.i.i1483, %while.body8.i.i1479, %if.end.i.i1493, %invoke.cont.i1496
@@ -5169,7 +5169,7 @@ while.body.i.i.i.i1774:                           ; preds = %land.rhs.i.i.i.i177
   br i1 %cmp.not.i.i.i.i1776, label %land.rhs.i.i.i.i1830.preheader, label %land.rhs.i.i.i.i1771, !llvm.loop !40
 
 invoke.cont.i.i1761:                              ; preds = %land.rhs.i.i.i.i1771
-  %cmp13.not.i.not.i1763 = icmp eq i64 %first.addr.05.i.i.i.i1772.idx, 13
+  %cmp13.not.i.not.i1763 = icmp samesign eq i64 %first.addr.05.i.i.i.i1772.idx, 13
   br label %land.rhs.i.i.i.i1830.preheader
 
 land.rhs.i.i.i.i1830.preheader:                   ; preds = %while.body.i.i.i.i1774, %invoke.cont.i.i1761
@@ -5190,7 +5190,7 @@ while.body.i.i.i.i1833:                           ; preds = %land.rhs.i.i.i.i183
   br i1 %cmp.not.i.i.i.i1835, label %while.cond4.preheader.i.i.i1855.preheader, label %land.rhs.i.i.i.i1830, !llvm.loop !40
 
 invoke.cont.i.i1820:                              ; preds = %land.rhs.i.i.i.i1830
-  %cmp13.not.i.not.i1822 = icmp eq i64 %first.addr.05.i.i.i.i1831.idx, 13
+  %cmp13.not.i.not.i1822 = icmp samesign eq i64 %first.addr.05.i.i.i.i1831.idx, 13
   br label %while.cond4.preheader.i.i.i1855.preheader
 
 while.cond4.preheader.i.i.i1855.preheader:        ; preds = %while.body.i.i.i.i1833, %invoke.cont.i.i1820
@@ -5236,7 +5236,7 @@ if.end.i.i.i1873:                                 ; preds = %while.body19.i.i.i1
   br i1 %cmp24.i.i.i1875, label %while.cond4.preheader.i.i.i1892.preheader, label %while.cond15.i.i.i1866, !llvm.loop !39
 
 invoke.cont.i.i1876:                              ; preds = %while.body19.i.i.i1870
-  %cmp13.not.i.not.i1878 = icmp ne i64 %first1.addr.234.i.i.i1858.idx, 16
+  %cmp13.not.i.not.i1878 = icmp samesign ne i64 %first1.addr.234.i.i.i1858.idx, 16
   br label %while.cond4.preheader.i.i.i1892.preheader
 
 while.cond4.preheader.i.i.i1892.preheader:        ; preds = %if.then11.i.i.i1863, %while.body8.i.i.i1860, %if.end.i.i.i1873, %invoke.cont.i.i1876
@@ -5382,7 +5382,7 @@ if.end.i.i.i2009:                                 ; preds = %while.body19.i.i.i2
   br i1 %cmp24.i.i.i2011, label %while.cond4.preheader.i.i.i2051.preheader, label %while.cond15.i.i.i2002, !llvm.loop !39
 
 invoke.cont.i.i2012:                              ; preds = %while.body19.i.i.i2006
-  %cmp13.not.i.not.i2014 = icmp ne i64 %first1.addr.234.i.i.i1994.idx, 16
+  %cmp13.not.i.not.i2014 = icmp samesign ne i64 %first1.addr.234.i.i.i1994.idx, 16
   br label %while.cond4.preheader.i.i.i2051.preheader
 
 while.cond4.preheader.i.i.i2051.preheader:        ; preds = %if.then11.i.i.i1999, %while.body8.i.i.i1996, %if.end.i.i.i2009, %invoke.cont.i.i2012
@@ -5978,7 +5978,7 @@ for.cond1.for.inc6_crit_edge.i.i.i2917:           ; preds = %for.cond1.i.i.i2914
   br i1 %cmp.not.i.i.i2919, label %for.cond1.preheader.i.i.i2940.preheader, label %for.cond1.preheader.i.i.i2909, !llvm.loop !46
 
 _ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i2920: ; preds = %for.body3.i.i.i2911
-  %103 = icmp eq i64 %p1Begin.addr.012.i.i.i2910.idx, 0
+  %103 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2910.idx, 0
   br label %for.cond1.preheader.i.i.i2940.preheader
 
 for.cond1.preheader.i.i.i2940.preheader:          ; preds = %for.cond1.for.inc6_crit_edge.i.i.i2917, %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i2920
@@ -6106,7 +6106,7 @@ while.body.i.i.i.i.i3004:                         ; preds = %land.rhs.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i3006, label %_ZNK5eastl17basic_string_viewIDuE13find_first_ofEDum.exit3013, label %land.rhs.i.i.i.i.i3001, !llvm.loop !40
 
 invoke.cont.i.i.i3007:                            ; preds = %land.rhs.i.i.i.i.i3001
-  %cmp13.not.i.not.i.i3008 = icmp eq i64 %first.addr.05.i.i.i.i.i3002.idx, 29
+  %cmp13.not.i.not.i.i3008 = icmp samesign eq i64 %first.addr.05.i.i.i.i.i3002.idx, 29
   br label %_ZNK5eastl17basic_string_viewIDuE13find_first_ofEDum.exit3013
 
 _ZNK5eastl17basic_string_viewIDuE13find_first_ofEDum.exit3013: ; preds = %while.body.i.i.i.i.i3004, %invoke.cont.i.i.i3007
@@ -6127,7 +6127,7 @@ for.cond1.i.i.i3030:                              ; preds = %for.cond1.preheader
   br i1 %cmp.not.i.i.i3035, label %for.cond1.preheader.i.i.i3071.preheader, label %for.cond1.preheader.i.i.i3025, !llvm.loop !46
 
 _ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3036: ; preds = %for.cond1.preheader.i.i.i3025
-  %cmp7.not.i.i3037 = icmp eq i64 %p1Begin.addr.012.i.i.i3026.idx, 29
+  %cmp7.not.i.i3037 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i3026.idx, 29
   br label %for.cond1.preheader.i.i.i3071.preheader
 
 for.cond1.preheader.i.i.i3071.preheader:          ; preds = %for.cond1.i.i.i3030, %_ZN5eastl25CharTypeStringFindFirstOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3036
@@ -6347,7 +6347,7 @@ for.body3.i.i.i3251:                              ; preds = %for.cond1.i.i.i3253
 
 for.inc9.i.i.i:                                   ; preds = %for.body3.i.i.i3251
   %p1Begin.addr.015.i.i.i.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i.idx, 1
-  %cmp.not.i.i.i3264 = icmp eq i64 %p1Begin.addr.015.i.i.i.add, 29
+  %cmp.not.i.i.i3264 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i.add, 29
   br i1 %cmp.not.i.i.i3264, label %for.cond1.preheader.i.i.i3278.preheader, label %for.cond1.preheader.i.i.i3250, !llvm.loop !50
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i: ; preds = %for.cond1.i.i.i3253
@@ -6379,7 +6379,7 @@ for.body3.i.i.i3280:                              ; preds = %for.cond1.i.i.i3283
 
 for.inc9.i.i.i3294:                               ; preds = %for.body3.i.i.i3280
   %p1Begin.addr.015.i.i.i3279.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i3279.idx, 1
-  %cmp.not.i.i.i3296 = icmp eq i64 %p1Begin.addr.015.i.i.i3279.add, 29
+  %cmp.not.i.i.i3296 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i3279.add, 29
   br i1 %cmp.not.i.i.i3296, label %for.cond1.preheader.i.i.i3382.preheader, label %for.cond1.preheader.i.i.i3278, !llvm.loop !50
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDuEEPKT_S3_S3_S3_S3_.exit.i.i3286: ; preds = %for.cond1.i.i.i3283
@@ -7590,7 +7590,7 @@ if.end.i.i:                                       ; preds = %while.body19.i.i
   br i1 %cmp24.i.i, label %while.cond4.preheader.i.i1463.preheader, label %while.cond15.i.i, !llvm.loop !55
 
 invoke.cont.i:                                    ; preds = %while.body19.i.i
-  %cmp13.not.i.not = icmp ne i64 %first1.addr.234.i.i.idx, 26
+  %cmp13.not.i.not = icmp samesign ne i64 %first1.addr.234.i.i.idx, 26
   br label %while.cond4.preheader.i.i1463.preheader
 
 while.cond4.preheader.i.i1463.preheader:          ; preds = %if.then11.i.i, %while.body8.i.i, %if.end.i.i, %invoke.cont.i
@@ -7636,7 +7636,7 @@ if.end.i.i1482:                                   ; preds = %while.body19.i.i147
   br i1 %cmp24.i.i1484, label %while.cond4.preheader.i.i1529.preheader, label %while.cond15.i.i1475, !llvm.loop !55
 
 invoke.cont.i1485:                                ; preds = %while.body19.i.i1479
-  %cmp13.not.i1487.not = icmp ne i64 %first1.addr.234.i.i1466.idx, 26
+  %cmp13.not.i1487.not = icmp samesign ne i64 %first1.addr.234.i.i1466.idx, 26
   br label %while.cond4.preheader.i.i1529.preheader
 
 while.cond4.preheader.i.i1529.preheader:          ; preds = %if.then11.i.i1472, %while.body8.i.i1468, %if.end.i.i1482, %invoke.cont.i1485
@@ -7682,7 +7682,7 @@ if.end.i.i1548:                                   ; preds = %while.body19.i.i154
   br i1 %cmp24.i.i1550, label %land.rhs.i.i.i.i1838.preheader, label %while.cond15.i.i1541, !llvm.loop !55
 
 invoke.cont.i1551:                                ; preds = %while.body19.i.i1545
-  %cmp13.not.i1553.not = icmp eq i64 %first1.addr.234.i.i1532.idx, 26
+  %cmp13.not.i1553.not = icmp samesign eq i64 %first1.addr.234.i.i1532.idx, 26
   br label %land.rhs.i.i.i.i1838.preheader
 
 land.rhs.i.i.i.i1838.preheader:                   ; preds = %if.then11.i.i1538, %while.body8.i.i1534, %if.end.i.i1548, %invoke.cont.i1551
@@ -7707,7 +7707,7 @@ while.body.i.i.i.i1841:                           ; preds = %land.rhs.i.i.i.i183
   br i1 %cmp.not.i.i.i.i1843, label %land.rhs.i.i.i.i1899.preheader, label %land.rhs.i.i.i.i1838, !llvm.loop !56
 
 invoke.cont.i.i1827:                              ; preds = %land.rhs.i.i.i.i1838
-  %cmp13.not.i.not.i1829 = icmp eq i64 %first.addr.05.i.i.i.i1839.idx, 26
+  %cmp13.not.i.not.i1829 = icmp samesign eq i64 %first.addr.05.i.i.i.i1839.idx, 26
   br label %land.rhs.i.i.i.i1899.preheader
 
 land.rhs.i.i.i.i1899.preheader:                   ; preds = %while.body.i.i.i.i1841, %invoke.cont.i.i1827
@@ -7728,7 +7728,7 @@ while.body.i.i.i.i1902:                           ; preds = %land.rhs.i.i.i.i189
   br i1 %cmp.not.i.i.i.i1904, label %while.cond4.preheader.i.i.i1925.preheader, label %land.rhs.i.i.i.i1899, !llvm.loop !56
 
 invoke.cont.i.i1888:                              ; preds = %land.rhs.i.i.i.i1899
-  %cmp13.not.i.not.i1890 = icmp eq i64 %first.addr.05.i.i.i.i1900.idx, 26
+  %cmp13.not.i.not.i1890 = icmp samesign eq i64 %first.addr.05.i.i.i.i1900.idx, 26
   br label %while.cond4.preheader.i.i.i1925.preheader
 
 while.cond4.preheader.i.i.i1925.preheader:        ; preds = %while.body.i.i.i.i1902, %invoke.cont.i.i1888
@@ -7774,7 +7774,7 @@ if.end.i.i.i1943:                                 ; preds = %while.body19.i.i.i1
   br i1 %cmp24.i.i.i1945, label %while.cond4.preheader.i.i.i1963.preheader, label %while.cond15.i.i.i1936, !llvm.loop !55
 
 invoke.cont.i.i1946:                              ; preds = %while.body19.i.i.i1940
-  %cmp13.not.i.not.i1948 = icmp ne i64 %first1.addr.234.i.i.i1928.idx, 32
+  %cmp13.not.i.not.i1948 = icmp samesign ne i64 %first1.addr.234.i.i.i1928.idx, 32
   br label %while.cond4.preheader.i.i.i1963.preheader
 
 while.cond4.preheader.i.i.i1963.preheader:        ; preds = %if.then11.i.i.i1933, %while.body8.i.i.i1930, %if.end.i.i.i1943, %invoke.cont.i.i1946
@@ -7920,7 +7920,7 @@ if.end.i.i.i2084:                                 ; preds = %while.body19.i.i.i2
   br i1 %cmp24.i.i.i2086, label %while.cond4.preheader.i.i.i2128.preheader, label %while.cond15.i.i.i2077, !llvm.loop !55
 
 invoke.cont.i.i2087:                              ; preds = %while.body19.i.i.i2081
-  %cmp13.not.i.not.i2089 = icmp ne i64 %first1.addr.234.i.i.i2069.idx, 32
+  %cmp13.not.i.not.i2089 = icmp samesign ne i64 %first1.addr.234.i.i.i2069.idx, 32
   br label %while.cond4.preheader.i.i.i2128.preheader
 
 while.cond4.preheader.i.i.i2128.preheader:        ; preds = %if.then11.i.i.i2074, %while.body8.i.i.i2071, %if.end.i.i.i2084, %invoke.cont.i.i2087
@@ -8508,7 +8508,7 @@ for.cond1.for.inc6_crit_edge.i.i.i2982:           ; preds = %for.cond1.i.i.i2979
   br i1 %cmp.not.i.i.i2984, label %for.cond1.preheader.i.i.i3006.preheader, label %for.cond1.preheader.i.i.i2974, !llvm.loop !62
 
 _ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i2985: ; preds = %for.body3.i.i.i2976
-  %101 = icmp eq i64 %p1Begin.addr.012.i.i.i2975.idx, 0
+  %101 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2975.idx, 0
   br label %for.cond1.preheader.i.i.i3006.preheader
 
 for.cond1.preheader.i.i.i3006.preheader:          ; preds = %for.cond1.for.inc6_crit_edge.i.i.i2982, %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i2985
@@ -8636,7 +8636,7 @@ while.body.i.i.i.i.i3074:                         ; preds = %land.rhs.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i3076, label %_ZNK5eastl17basic_string_viewIDsE13find_first_ofEDsm.exit3084, label %land.rhs.i.i.i.i.i3071, !llvm.loop !56
 
 invoke.cont.i.i.i3077:                            ; preds = %land.rhs.i.i.i.i.i3071
-  %cmp13.not.i.not.i.i3078 = icmp eq i64 %first.addr.05.i.i.i.i.i3072.idx, 58
+  %cmp13.not.i.not.i.i3078 = icmp samesign eq i64 %first.addr.05.i.i.i.i.i3072.idx, 58
   br label %_ZNK5eastl17basic_string_viewIDsE13find_first_ofEDsm.exit3084
 
 _ZNK5eastl17basic_string_viewIDsE13find_first_ofEDsm.exit3084: ; preds = %while.body.i.i.i.i.i3074, %invoke.cont.i.i.i3077
@@ -8657,7 +8657,7 @@ for.cond1.i.i.i3101:                              ; preds = %for.cond1.preheader
   br i1 %cmp.not.i.i.i3106, label %for.cond1.preheader.i.i.i3145.preheader, label %for.cond1.preheader.i.i.i3096, !llvm.loop !62
 
 _ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3107: ; preds = %for.cond1.preheader.i.i.i3096
-  %cmp7.not.i.i3108 = icmp eq i64 %p1Begin.addr.012.i.i.i3097.idx, 58
+  %cmp7.not.i.i3108 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i3097.idx, 58
   br label %for.cond1.preheader.i.i.i3145.preheader
 
 for.cond1.preheader.i.i.i3145.preheader:          ; preds = %for.cond1.i.i.i3101, %_ZN5eastl25CharTypeStringFindFirstOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3107
@@ -8877,7 +8877,7 @@ for.body3.i.i.i3333:                              ; preds = %for.cond1.i.i.i3335
 
 for.inc9.i.i.i:                                   ; preds = %for.body3.i.i.i3333
   %p1Begin.addr.015.i.i.i.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i.idx, 2
-  %cmp.not.i.i.i3347 = icmp eq i64 %p1Begin.addr.015.i.i.i.add, 58
+  %cmp.not.i.i.i3347 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i.add, 58
   br i1 %cmp.not.i.i.i3347, label %for.cond1.preheader.i.i.i3361.preheader, label %for.cond1.preheader.i.i.i3332, !llvm.loop !66
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i: ; preds = %for.cond1.i.i.i3335
@@ -8909,7 +8909,7 @@ for.body3.i.i.i3363:                              ; preds = %for.cond1.i.i.i3366
 
 for.inc9.i.i.i3378:                               ; preds = %for.body3.i.i.i3363
   %p1Begin.addr.015.i.i.i3362.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i3362.idx, 2
-  %cmp.not.i.i.i3380 = icmp eq i64 %p1Begin.addr.015.i.i.i3362.add, 58
+  %cmp.not.i.i.i3380 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i3362.add, 58
   br i1 %cmp.not.i.i.i3380, label %for.cond1.preheader.i.i.i3471.preheader, label %for.cond1.preheader.i.i.i3361, !llvm.loop !66
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDsEEPKT_S3_S3_S3_S3_.exit.i.i3369: ; preds = %for.cond1.i.i.i3366
@@ -10142,7 +10142,7 @@ if.end.i.i:                                       ; preds = %while.body16.i.i
   br i1 %cmp21.i.i, label %while.cond4.preheader.i.i1463.preheader, label %while.cond14.i.i, !llvm.loop !71
 
 invoke.cont.i:                                    ; preds = %while.body16.i.i
-  %cmp13.not.i.not = icmp ne i64 %first1.addr.234.i.i.idx, 52
+  %cmp13.not.i.not = icmp samesign ne i64 %first1.addr.234.i.i.idx, 52
   br label %while.cond4.preheader.i.i1463.preheader
 
 while.cond4.preheader.i.i1463.preheader:          ; preds = %if.then10.i.i, %while.body7.i.i, %if.end.i.i, %invoke.cont.i
@@ -10188,7 +10188,7 @@ if.end.i.i1482:                                   ; preds = %while.body16.i.i147
   br i1 %cmp21.i.i1484, label %while.cond4.preheader.i.i1529.preheader, label %while.cond14.i.i1475, !llvm.loop !71
 
 invoke.cont.i1485:                                ; preds = %while.body16.i.i1479
-  %cmp13.not.i1487.not = icmp ne i64 %first1.addr.234.i.i1466.idx, 52
+  %cmp13.not.i1487.not = icmp samesign ne i64 %first1.addr.234.i.i1466.idx, 52
   br label %while.cond4.preheader.i.i1529.preheader
 
 while.cond4.preheader.i.i1529.preheader:          ; preds = %if.then10.i.i1472, %while.body7.i.i1468, %if.end.i.i1482, %invoke.cont.i1485
@@ -10234,7 +10234,7 @@ if.end.i.i1548:                                   ; preds = %while.body16.i.i154
   br i1 %cmp21.i.i1550, label %land.rhs.i.i.i.i1839.preheader, label %while.cond14.i.i1541, !llvm.loop !71
 
 invoke.cont.i1551:                                ; preds = %while.body16.i.i1545
-  %cmp13.not.i1553.not = icmp eq i64 %first1.addr.234.i.i1532.idx, 52
+  %cmp13.not.i1553.not = icmp samesign eq i64 %first1.addr.234.i.i1532.idx, 52
   br label %land.rhs.i.i.i.i1839.preheader
 
 land.rhs.i.i.i.i1839.preheader:                   ; preds = %if.then10.i.i1538, %while.body7.i.i1534, %if.end.i.i1548, %invoke.cont.i1551
@@ -10259,7 +10259,7 @@ while.body.i.i.i.i1842:                           ; preds = %land.rhs.i.i.i.i183
   br i1 %cmp.not.i.i.i.i1844, label %land.rhs.i.i.i.i1900.preheader, label %land.rhs.i.i.i.i1839, !llvm.loop !72
 
 invoke.cont.i.i1828:                              ; preds = %land.rhs.i.i.i.i1839
-  %cmp13.not.i.not.i1830 = icmp eq i64 %first.addr.05.i.i.i.i1840.idx, 52
+  %cmp13.not.i.not.i1830 = icmp samesign eq i64 %first.addr.05.i.i.i.i1840.idx, 52
   br label %land.rhs.i.i.i.i1900.preheader
 
 land.rhs.i.i.i.i1900.preheader:                   ; preds = %while.body.i.i.i.i1842, %invoke.cont.i.i1828
@@ -10280,7 +10280,7 @@ while.body.i.i.i.i1903:                           ; preds = %land.rhs.i.i.i.i190
   br i1 %cmp.not.i.i.i.i1905, label %while.cond4.preheader.i.i.i1926.preheader, label %land.rhs.i.i.i.i1900, !llvm.loop !72
 
 invoke.cont.i.i1889:                              ; preds = %land.rhs.i.i.i.i1900
-  %cmp13.not.i.not.i1891 = icmp eq i64 %first.addr.05.i.i.i.i1901.idx, 52
+  %cmp13.not.i.not.i1891 = icmp samesign eq i64 %first.addr.05.i.i.i.i1901.idx, 52
   br label %while.cond4.preheader.i.i.i1926.preheader
 
 while.cond4.preheader.i.i.i1926.preheader:        ; preds = %while.body.i.i.i.i1903, %invoke.cont.i.i1889
@@ -10326,7 +10326,7 @@ if.end.i.i.i1944:                                 ; preds = %while.body16.i.i.i1
   br i1 %cmp21.i.i.i1946, label %while.cond4.preheader.i.i.i1964.preheader, label %while.cond14.i.i.i1937, !llvm.loop !71
 
 invoke.cont.i.i1947:                              ; preds = %while.body16.i.i.i1941
-  %cmp13.not.i.not.i1949 = icmp ne i64 %first1.addr.234.i.i.i1929.idx, 64
+  %cmp13.not.i.not.i1949 = icmp samesign ne i64 %first1.addr.234.i.i.i1929.idx, 64
   br label %while.cond4.preheader.i.i.i1964.preheader
 
 while.cond4.preheader.i.i.i1964.preheader:        ; preds = %if.then10.i.i.i1934, %while.body7.i.i.i1931, %if.end.i.i.i1944, %invoke.cont.i.i1947
@@ -10472,7 +10472,7 @@ if.end.i.i.i2085:                                 ; preds = %while.body16.i.i.i2
   br i1 %cmp21.i.i.i2087, label %while.cond4.preheader.i.i.i2129.preheader, label %while.cond14.i.i.i2078, !llvm.loop !71
 
 invoke.cont.i.i2088:                              ; preds = %while.body16.i.i.i2082
-  %cmp13.not.i.not.i2090 = icmp ne i64 %first1.addr.234.i.i.i2070.idx, 64
+  %cmp13.not.i.not.i2090 = icmp samesign ne i64 %first1.addr.234.i.i.i2070.idx, 64
   br label %while.cond4.preheader.i.i.i2129.preheader
 
 while.cond4.preheader.i.i.i2129.preheader:        ; preds = %if.then10.i.i.i2075, %while.body7.i.i.i2072, %if.end.i.i.i2085, %invoke.cont.i.i2088
@@ -11060,7 +11060,7 @@ for.cond1.for.inc5_crit_edge.i.i.i2981:           ; preds = %for.cond1.i.i.i2978
   br i1 %cmp.not.i.i.i2983, label %for.cond1.preheader.i.i.i3005.preheader, label %for.cond1.preheader.i.i.i2973, !llvm.loop !78
 
 _ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i2984: ; preds = %for.body3.i.i.i2975
-  %101 = icmp eq i64 %p1Begin.addr.012.i.i.i2974.idx, 0
+  %101 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i2974.idx, 0
   br label %for.cond1.preheader.i.i.i3005.preheader
 
 for.cond1.preheader.i.i.i3005.preheader:          ; preds = %for.cond1.for.inc5_crit_edge.i.i.i2981, %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i2984
@@ -11188,7 +11188,7 @@ while.body.i.i.i.i.i3075:                         ; preds = %land.rhs.i.i.i.i.i3
   br i1 %cmp.not.i.i.i.i.i3077, label %_ZNK5eastl17basic_string_viewIDiE13find_first_ofEDim.exit3085, label %land.rhs.i.i.i.i.i3072, !llvm.loop !72
 
 invoke.cont.i.i.i3078:                            ; preds = %land.rhs.i.i.i.i.i3072
-  %cmp13.not.i.not.i.i3079 = icmp eq i64 %first.addr.05.i.i.i.i.i3073.idx, 116
+  %cmp13.not.i.not.i.i3079 = icmp samesign eq i64 %first.addr.05.i.i.i.i.i3073.idx, 116
   br label %_ZNK5eastl17basic_string_viewIDiE13find_first_ofEDim.exit3085
 
 _ZNK5eastl17basic_string_viewIDiE13find_first_ofEDim.exit3085: ; preds = %while.body.i.i.i.i.i3075, %invoke.cont.i.i.i3078
@@ -11209,7 +11209,7 @@ for.cond1.i.i.i3102:                              ; preds = %for.cond1.preheader
   br i1 %cmp.not.i.i.i3107, label %for.cond1.preheader.i.i.i3146.preheader, label %for.cond1.preheader.i.i.i3097, !llvm.loop !78
 
 _ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3108: ; preds = %for.cond1.preheader.i.i.i3097
-  %cmp7.not.i.i3109 = icmp eq i64 %p1Begin.addr.012.i.i.i3098.idx, 116
+  %cmp7.not.i.i3109 = icmp samesign eq i64 %p1Begin.addr.012.i.i.i3098.idx, 116
   br label %for.cond1.preheader.i.i.i3146.preheader
 
 for.cond1.preheader.i.i.i3146.preheader:          ; preds = %for.cond1.i.i.i3102, %_ZN5eastl25CharTypeStringFindFirstOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3108
@@ -11429,7 +11429,7 @@ for.body3.i.i.i3333:                              ; preds = %for.cond1.i.i.i3335
 
 for.inc8.i.i.i:                                   ; preds = %for.body3.i.i.i3333
   %p1Begin.addr.015.i.i.i.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i.idx, 4
-  %cmp.not.i.i.i3347 = icmp eq i64 %p1Begin.addr.015.i.i.i.add, 116
+  %cmp.not.i.i.i3347 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i.add, 116
   br i1 %cmp.not.i.i.i3347, label %for.cond1.preheader.i.i.i3361.preheader, label %for.cond1.preheader.i.i.i3332, !llvm.loop !82
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i: ; preds = %for.cond1.i.i.i3335
@@ -11461,7 +11461,7 @@ for.body3.i.i.i3363:                              ; preds = %for.cond1.i.i.i3366
 
 for.inc8.i.i.i3378:                               ; preds = %for.body3.i.i.i3363
   %p1Begin.addr.015.i.i.i3362.add = add nuw nsw i64 %p1Begin.addr.015.i.i.i3362.idx, 4
-  %cmp.not.i.i.i3380 = icmp eq i64 %p1Begin.addr.015.i.i.i3362.add, 116
+  %cmp.not.i.i.i3380 = icmp samesign eq i64 %p1Begin.addr.015.i.i.i3362.add, 116
   br i1 %cmp.not.i.i.i3380, label %for.cond1.preheader.i.i.i3471.preheader, label %for.cond1.preheader.i.i.i3361, !llvm.loop !82
 
 _ZN5eastl28CharTypeStringFindFirstNotOfIDiEEPKT_S3_S3_S3_S3_.exit.i.i3369: ; preds = %for.cond1.i.i.i3366

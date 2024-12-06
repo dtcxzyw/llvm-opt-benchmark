@@ -450,7 +450,7 @@ entry:
   %_M_data.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %call.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %call) #24
   store ptr %call.i.i, ptr %_M_data.i, align 8, !tbaa !45
-  %cmp.not2.i.i.i = icmp eq i64 %call, 0
+  %cmp.not2.i.i.i = icmp samesign eq i64 %call, 0
   br i1 %cmp.not2.i.i.i, label %_ZNSt8valarrayIbEC2ERKbm.exit, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %entry

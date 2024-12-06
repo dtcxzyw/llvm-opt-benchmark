@@ -1389,7 +1389,7 @@ if.end.i.i112:                                    ; preds = %if.then.i.i113, %if
   %conv.i3.i.i = trunc i64 %add to i32
   store i32 %conv.i3.i.i, ptr %Size.i.i.i.i.i, align 8
   %conv.i4.i.i = and i64 %add, 4294967295
-  %tobool.not.i.i.i.i.i.i.i = icmp eq i64 %conv.i4.i.i, 0
+  %tobool.not.i.i.i.i.i.i.i = icmp samesign eq i64 %conv.i4.i.i, 0
   br i1 %tobool.not.i.i.i.i.i.i.i, label %_ZN4llvh11SmallVectorIcLj32EEC2EmRKc.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i112

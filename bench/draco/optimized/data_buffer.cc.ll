@@ -48,7 +48,7 @@ define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvl(ptr noundef nonnull
   br label %18
 
 18:                                               ; preds = %17, %9
-  %.not.i.i.i.i.i.i = icmp eq i64 %2, 0
+  %.not.i.i.i.i.i.i = icmp samesign eq i64 %2, 0
   br i1 %.not.i.i.i.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit.i, label %19
 
 19:                                               ; preds = %18
@@ -102,7 +102,7 @@ define noundef zeroext i1 @_ZN5draco10DataBuffer6UpdateEPKvll(ptr noundef nonnul
   br label %22
 
 22:                                               ; preds = %21, %12
-  %.not.i.i.i.i.i = icmp eq i64 %2, 0
+  %.not.i.i.i.i.i = icmp samesign eq i64 %2, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKhPhET0_T_S4_S3_.exit, label %23
 
 23:                                               ; preds = %22

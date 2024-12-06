@@ -29548,7 +29548,7 @@ define internal fastcc void @_ZL15_GetEditTargetsRKN32pxrInternal_v0_24__pxrRese
 38:                                               ; preds = %35
   %39 = landingpad { ptr, i32 }
           cleanup
-  %40 = icmp eq i64 %.idx.i, 0
+  %40 = icmp samesign eq i64 %.idx.i, 0
   br i1 %40, label %common.resume, label %.preheader.i
 
 .preheader.i:                                     ; preds = %38, %.preheader.i

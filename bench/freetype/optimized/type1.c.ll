@@ -5309,7 +5309,7 @@ define internal fastcc i32 @T1_Read_PFM(ptr noundef %0, ptr nocapture noundef re
   %36 = zext i8 %35 to i64
   %37 = or disjoint i64 %34, %36
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 %37
-  %39 = icmp eq i64 %37, 0
+  %39 = icmp samesign eq i64 %37, 0
   br i1 %39, label %.thread85, label %40
 
 40:                                               ; preds = %24

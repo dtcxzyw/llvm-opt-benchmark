@@ -15039,7 +15039,7 @@ for.end:                                          ; preds = %_ZN12_GLOBAL__N_110
   %this.val1.i.i = load ptr, ptr %0, align 8
   %cond.i.i = select i1 %tobool.i.not.i.i, ptr %0, ptr %this.val1.i.i
   %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %add.ptr.idx
-  %cmp.not.i = icmp eq i64 %erase_begin.0371, %erase_end.0370
+  %cmp.not.i = icmp samesign eq i64 %erase_begin.0371, %erase_end.0370
   br i1 %cmp.not.i, label %invoke.cont20, label %if.then.i
 
 if.then.i:                                        ; preds = %for.end

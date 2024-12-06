@@ -4543,7 +4543,7 @@ arrayctor.loop.i:                                 ; preds = %.noexc3, %arrayctor
 
 .noexc3:                                          ; preds = %.noexc
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 968
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 60776
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 60776
   br i1 %arrayctor.done.i, label %invoke.cont9, label %arrayctor.loop.i
 
 invoke.cont9:                                     ; preds = %.noexc3

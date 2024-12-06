@@ -3567,7 +3567,7 @@ define linkonce_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi5EEC2Ej
 11:                                               ; preds = %8
   %12 = landingpad { ptr, i32 }
           cleanup
-  %13 = icmp eq i64 %.idx.i.i, 0
+  %13 = icmp samesign eq i64 %.idx.i.i, 0
   br i1 %13, label %common.resume, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %11, %.preheader.i.i

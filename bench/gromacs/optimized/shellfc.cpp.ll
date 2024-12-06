@@ -1346,7 +1346,7 @@ define linkonce_odr void @_ZN13gmx_shellfc_tC2Ev(ptr noundef nonnull align 8 der
 9:                                                ; preds = %5
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = icmp eq i64 %.idx.i, 0
+  %11 = icmp samesign eq i64 %.idx.i, 0
   br i1 %11, label %.body, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %9
@@ -1388,7 +1388,7 @@ _ZNSt5arrayIN3gmx12PaddedVectorINS0_11BasicVectorIfEENS0_9AllocatorIS3_NS0_20Hos
 18:                                               ; preds = %_ZNSt5arrayIN3gmx12PaddedVectorINS0_11BasicVectorIfEENS0_9AllocatorIS3_NS0_20HostAllocationPolicyEEEEELm2EEC2Ev.exit
   %19 = landingpad { ptr, i32 }
           cleanup
-  %20 = icmp eq i64 %.idx.i10, 0
+  %20 = icmp samesign eq i64 %.idx.i10, 0
   br i1 %20, label %.body17, label %.preheader.i12.preheader
 
 .preheader.i12.preheader:                         ; preds = %18

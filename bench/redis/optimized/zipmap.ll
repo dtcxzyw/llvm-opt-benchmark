@@ -1048,9 +1048,11 @@ while.body:                                       ; preds = %while.cond
   %cmp.i.not = icmp eq i8 %2, -2
   %idx.ext = select i1 %cmp.i.not, i64 5, i64 1
   %p.0.add = add nuw nsw i64 %idx.ext, %p.0.idx
+  %cmp12 = icmp slt i64 %p.0.add, 2
   %add.ptr10.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %p.0.add
   %cmp18 = icmp ugt ptr %add.ptr10.ptr, %arrayidx
-  br i1 %cmp18, label %return, label %if.end21
+  %or.cond56 = select i1 %cmp12, i1 true, i1 %cmp18
+  br i1 %or.cond56, label %return, label %if.end21
 
 if.end21:                                         ; preds = %while.body
   br i1 %cmp.i.not, label %if.end.i, label %if.then.i

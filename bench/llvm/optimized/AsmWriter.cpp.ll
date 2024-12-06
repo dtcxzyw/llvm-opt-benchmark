@@ -16382,7 +16382,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit1069:             ; preds = %1066, %1068
   %1076 = shl i32 %1075, 5
   %.idx = zext i32 %1076 to i64
   %1077 = getelementptr inbounds nuw i8, ptr %1071, i64 %.idx
-  %.not875929 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not875929 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not875929, label %._crit_edge934, label %.lr.ph933.preheader
 
 .lr.ph933.preheader:                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit1069

@@ -791,7 +791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !13
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 %19
-  %.not5.i = icmp eq i64 %19, 0
+  %.not5.i = icmp samesign eq i64 %19, 0
   br i1 %.not5.i, label %"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5boost6nowide4test18create_random_dataEmNSC_9data_typeEE3$_0EvT_SF_T0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %.noexc
@@ -852,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit: ; pre
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !13
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
-  %.not5.i14 = icmp eq i64 %42, 0
+  %.not5.i14 = icmp samesign eq i64 %42, 0
   br i1 %.not5.i14, label %"_ZSt8generateIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEZN5boost6nowide4test18create_random_dataEmNSC_9data_typeEE3$_1EvT_SF_T0_.exit", label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %36, %.noexc18
@@ -1071,7 +1071,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit:
   %1 = load ptr, ptr @_ZZN5boost6nowide4test18create_random_dataB5cxx11EmNS1_9data_typeEE9text_dataB5cxx11, align 8, !tbaa !4
   %2 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost6nowide4test18create_random_dataB5cxx11EmNS1_9data_typeEE9text_dataB5cxx11, i64 8), align 8, !tbaa !13
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %.not5.i = icmp eq i64 %2, 1
+  %.not5.i = icmp samesign eq i64 %2, 1
   br i1 %.not5.i, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_T0_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEmcRKS3_.exit

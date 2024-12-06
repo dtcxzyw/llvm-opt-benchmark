@@ -7673,7 +7673,7 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit149.i.i: ; preds = %
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(144) %25, ptr noundef nonnull %480, i64 noundef 8) #24
   %481 = and i64 %.05.i.in.i.i, 4294967295
   %482 = getelementptr inbounds nuw i16, ptr %spec.select1.i.i.i, i64 %spec.select.i.i.i429
-  %.not134240.i.i = icmp eq i64 %spec.select.i.i.i429, %481
+  %.not134240.i.i = icmp samesign eq i64 %spec.select.i.i.i429, %481
   br i1 %.not134240.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %478

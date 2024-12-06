@@ -30210,7 +30210,7 @@ _ZN5image6codecs3dxt17encode_dxt5_alpha17h9fea82578024f908E.exit.i: ; preds = %9
 
 101:                                              ; preds = %100
   %.ptr113.le.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add.i
-  %102 = icmp eq i64 %.add.i, 16
+  %102 = icmp samesign eq i64 %.add.i, 16
   br i1 %102, label %_ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i, label %103
 
 103:                                              ; preds = %101
@@ -30247,7 +30247,7 @@ _ZN4core4iter6traits8iterator8Iterator6max_by17h983b0e9a43ebbbf1E.exit.i: ; pred
 
 110:                                              ; preds = %109
   %.ptr117.le.i = getelementptr inbounds nuw i8, ptr %8, i64 %.add115.i
-  %111 = icmp eq i64 %.add115.i, 16
+  %111 = icmp samesign eq i64 %.add115.i, 16
   br i1 %111, label %_ZN4core4iter6traits8iterator8Iterator6min_by17h9813b99652d2db9bE.exit.i, label %112
 
 112:                                              ; preds = %110

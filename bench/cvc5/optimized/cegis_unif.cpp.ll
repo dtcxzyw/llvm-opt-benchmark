@@ -18920,7 +18920,7 @@ arrayctor.loop4:                                  ; preds = %invoke.cont7, %invo
 
 invoke.cont7:                                     ; preds = %arrayctor.loop4
   %arrayctor.cur5.add = add nuw nsw i64 %arrayctor.cur5.idx, 16
-  %arrayctor.done10 = icmp eq i64 %arrayctor.cur5.add, 120
+  %arrayctor.done10 = icmp samesign eq i64 %arrayctor.cur5.add, 120
   br i1 %arrayctor.done10, label %arrayctor.cont11, label %arrayctor.loop4
 
 arrayctor.cont11:                                 ; preds = %invoke.cont7

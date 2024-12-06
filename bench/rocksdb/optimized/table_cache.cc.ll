@@ -2230,7 +2230,7 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %cal
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 8256
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 8256
   br i1 %arrayctor.done.i, label %invoke.cont, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i

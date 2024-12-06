@@ -87231,7 +87231,7 @@ define dso_local void @_ZN5clang11ASTImporter6ImportENS_6FileIDEb(ptr dead_on_un
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E4findERKS3_.exit: ; preds = %25, %19
   %.lcssa.i.i.pn = phi i64 [ %21, %19 ], [ %28, %25 ]
   %31 = zext i32 %17 to i64
-  %.not135 = icmp eq i64 %.lcssa.i.i.pn, %31
+  %.not135 = icmp samesign eq i64 %.lcssa.i.i.pn, %31
   br i1 %.not135, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E4findERKS3_.exit.thread, label %32
 
 32:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E4findERKS3_.exit

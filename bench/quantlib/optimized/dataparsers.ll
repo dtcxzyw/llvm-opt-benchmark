@@ -11923,7 +11923,7 @@ _ZNSt19istreambuf_iteratorIcSt11char_traitsIcEEppEv.exit: ; preds = %if.then.i.i
 while.end:                                        ; preds = %if.then.i.i16.i.i, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit.thr_comm, %_ZNKSt19istreambuf_iteratorIcSt11char_traitsIcEEdeEv.exit, %_ZStneIcSt11char_traitsIcEEbRKSt19istreambuf_iteratorIT_T0_ES7_.exit
   %_M_string_length.i.i = getelementptr inbounds nuw i8, ptr %format_str, i64 8
   %21 = load i64, ptr %_M_string_length.i.i, align 8, !tbaa !3
-  %cmp.i.not1035 = icmp eq i64 %21, 0
+  %cmp.i.not1035 = icmp samesign eq i64 %21, 0
   br i1 %cmp.i.not1035, label %if.end332, label %land.rhs11.lr.ph
 
 land.rhs11.lr.ph:                                 ; preds = %while.end
@@ -13997,7 +13997,7 @@ while.end:                                        ; preds = %_ZNKSt19istreambuf_
 if.end21:                                         ; preds = %while.end
   %51 = load ptr, ptr %mr, align 8, !tbaa !10
   %add.ptr.i2.i.i.i = getelementptr inbounds nuw i8, ptr %51, i64 %50
-  %cmp.i.i.i.i.i90 = icmp eq i64 %50, 0
+  %cmp.i.i.i.i.i90 = icmp samesign eq i64 %50, 0
   br i1 %cmp.i.i.i.i.i90, label %if.then.i, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.end21

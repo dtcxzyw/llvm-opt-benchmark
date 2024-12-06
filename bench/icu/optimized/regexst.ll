@@ -69,7 +69,7 @@ arrayinit.body:                                   ; preds = %invoke.cont, %entry
 
 invoke.cont:                                      ; preds = %arrayinit.body
   %arrayinit.cur.add = add nuw nsw i64 %arrayinit.cur.idx, 200
-  %arrayinit.done = icmp eq i64 %arrayinit.cur.add, 2608
+  %arrayinit.done = icmp samesign eq i64 %arrayinit.cur.add, 2608
   br i1 %arrayinit.done, label %arrayinit.end2, label %arrayinit.body
 
 arrayinit.end2:                                   ; preds = %invoke.cont
@@ -86,7 +86,7 @@ arrayinit.body16:                                 ; preds = %invoke.cont19, %arr
 
 invoke.cont19:                                    ; preds = %arrayinit.body16
   %arrayinit.cur17.add = add nuw nsw i64 %arrayinit.cur17.idx, 200
-  %arrayinit.done21 = icmp eq i64 %arrayinit.cur17.add, 3624
+  %arrayinit.done21 = icmp samesign eq i64 %arrayinit.cur17.add, 3624
   br i1 %arrayinit.done21, label %arrayinit.end22, label %arrayinit.body16
 
 arrayinit.end22:                                  ; preds = %invoke.cont19

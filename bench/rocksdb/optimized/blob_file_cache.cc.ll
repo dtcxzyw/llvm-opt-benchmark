@@ -64,7 +64,7 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %ent
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 64
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 8256
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 8256
   br i1 %arrayctor.done.i, label %_ZN7rocksdb7StripedINS_19CacheAlignedWrapperINS_4port5MutexEEENS_5SliceENS_15SliceNPHasher64EEC2Em.exit, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i

@@ -8214,7 +8214,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12D
 "_ZN9__gnu_cxx5__ops10_Iter_predIZL29rematerializeLiveValuesAtUsesRN4llvm9MapVectorIPNS2_5ValueEN12_GLOBAL__N_132RematerizlizationCandidateRecordENS2_8DenseMapIS5_jNS2_12DenseMapInfoIS5_vEENS2_6detail12DenseMapPairIS5_jEEEENS2_11SmallVectorISt4pairIS5_S7_ELj0EEEEENS2_15MutableArrayRefINS6_35PartiallyConstructedSafepointRecordEEERNS3_IS5_S5_SE_NSF_ISG_IS5_S5_ELj0EEEEEE3$_0EclIPSM_EEbT_.exit.i.i.i.i": ; preds = %2922, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i.i.i.i.i.i.i, %2914
   %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i = phi i64 [ %2929, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i.i.i.i.i.i.i ], [ %2916, %2914 ], [ %2925, %2922 ]
   %2930 = zext i32 %.05.val6.i.i.i.i to i64
-  %.not7.i.i.i.i = icmp ne i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i, %2930
+  %.not7.i.i.i.i = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i, %2930
   %2931 = zext i1 %.not7.i.i.i.i to i32
   %spec.select.i.i.i.i279 = add i32 %.010.i.i.i.i, %2931
   %2932 = getelementptr inbounds nuw i8, ptr %.059.i.i.i.i, i64 96

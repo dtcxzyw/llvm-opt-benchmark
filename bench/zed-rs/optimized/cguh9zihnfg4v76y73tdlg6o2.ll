@@ -879,7 +879,7 @@ _ZN12aho_corasick4util10primitives9PatternID3new17hfbe7a56c108857afE.exit: ; pre
 73:                                               ; preds = %77, %66
   %74 = load i32, ptr %17, align 8, !noundef !5
   %75 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %76 = icmp eq i64 %.val1.i, 0
+  %76 = icmp samesign eq i64 %.val1.i, 0
   br i1 %76, label %._crit_edge, label %.lr.ph308
 
 77:                                               ; preds = %66

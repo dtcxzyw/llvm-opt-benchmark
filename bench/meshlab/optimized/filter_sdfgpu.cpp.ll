@@ -1052,7 +1052,7 @@ define void @_ZN12SdfGpuPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(3
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %53 = icmp eq i64 %.021.i.i.i.add, 12
+  %53 = icmp samesign eq i64 %.021.i.i.i.add, 12
   br i1 %53, label %54, label %._crit_edge.i.i.i.thread
 
 54:                                               ; preds = %._crit_edge.i.i.i

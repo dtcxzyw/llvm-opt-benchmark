@@ -2164,7 +2164,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang6markup6AddFIDERN4llvm8DenseMap
 _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findERKS3_.exit: ; preds = %15, %9
   %.lcssa.i.i.pn = phi i64 [ %11, %9 ], [ %18, %15 ]
   %21 = zext i32 %7 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.pn, %21
+  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %21
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findERKS3_.exit.thread, label %22
 
 22:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findERKS3_.exit

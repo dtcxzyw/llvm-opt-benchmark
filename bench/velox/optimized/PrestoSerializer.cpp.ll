@@ -55477,7 +55477,7 @@ _ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 1
   %add.ptr9.i = getelementptr inbounds nuw i16, ptr %10, i64 %numElements
   %11 = load i16, ptr %initValue, align 2
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryIsEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i
@@ -55601,7 +55601,7 @@ _ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 1
   %add.ptr9.i70 = getelementptr inbounds nuw i16, ptr %28, i64 %numElements
   %29 = load i16, ptr %initValue, align 2
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i66
@@ -55844,7 +55844,7 @@ _ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 1
   %add.ptr9.i127 = getelementptr inbounds nuw i16, ptr %75, i64 %numElements
   %76 = load i16, ptr %initValue, align 2
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i123
@@ -55897,7 +55897,7 @@ _ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 1
   %add.ptr9.i156 = getelementptr inbounds nuw i16, ptr %add.ptr.i138, i64 %numElements
   %78 = load i16, ptr %initValue, align 2
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIsEEPT_v.exit.i152
@@ -56324,7 +56324,7 @@ _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 2
   %add.ptr9.i = getelementptr inbounds nuw i32, ptr %10, i64 %numElements
   %11 = load i32, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryIiEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i
@@ -56448,7 +56448,7 @@ _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 2
   %add.ptr9.i70 = getelementptr inbounds nuw i32, ptr %28, i64 %numElements
   %29 = load i32, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i66
@@ -56691,7 +56691,7 @@ _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 2
   %add.ptr9.i127 = getelementptr inbounds nuw i32, ptr %75, i64 %numElements
   %76 = load i32, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i123
@@ -56744,7 +56744,7 @@ _ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 2
   %add.ptr9.i156 = getelementptr inbounds nuw i32, ptr %add.ptr.i138, i64 %numElements
   %78 = load i32, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIiEEPT_v.exit.i152
@@ -57282,7 +57282,7 @@ _ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 3
   %add.ptr9.i = getelementptr inbounds nuw i64, ptr %10, i64 %numElements
   %11 = load i64, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryIlEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i
@@ -57406,7 +57406,7 @@ _ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 3
   %add.ptr9.i70 = getelementptr inbounds nuw i64, ptr %28, i64 %numElements
   %29 = load i64, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i66
@@ -57649,7 +57649,7 @@ _ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 3
   %add.ptr9.i127 = getelementptr inbounds nuw i64, ptr %75, i64 %numElements
   %76 = load i64, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i123
@@ -57702,7 +57702,7 @@ _ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 3
   %add.ptr9.i156 = getelementptr inbounds nuw i64, ptr %add.ptr.i138, i64 %numElements
   %78 = load i64, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIlEEPT_v.exit.i152
@@ -58239,7 +58239,7 @@ _ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 4
   %add.ptr9.i = getelementptr inbounds nuw i128, ptr %10, i64 %numElements
   %11 = load i128, ptr %initValue, align 16
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryInEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i
@@ -58363,7 +58363,7 @@ _ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 4
   %add.ptr9.i70 = getelementptr inbounds nuw i128, ptr %28, i64 %numElements
   %29 = load i128, ptr %initValue, align 16
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i66
@@ -58606,7 +58606,7 @@ _ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 4
   %add.ptr9.i127 = getelementptr inbounds nuw i128, ptr %75, i64 %numElements
   %76 = load i128, ptr %initValue, align 16
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i123
@@ -58659,7 +58659,7 @@ _ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 4
   %add.ptr9.i156 = getelementptr inbounds nuw i128, ptr %add.ptr.i138, i64 %numElements
   %78 = load i128, ptr %initValue, align 16
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableInEEPT_v.exit.i152
@@ -59086,7 +59086,7 @@ _ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 2
   %add.ptr9.i = getelementptr inbounds nuw float, ptr %10, i64 %numElements
   %11 = load float, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryIfEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i
@@ -59210,7 +59210,7 @@ _ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 2
   %add.ptr9.i70 = getelementptr inbounds nuw float, ptr %28, i64 %numElements
   %29 = load float, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i66
@@ -59453,7 +59453,7 @@ _ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 2
   %add.ptr9.i127 = getelementptr inbounds nuw float, ptr %75, i64 %numElements
   %76 = load float, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i123
@@ -59506,7 +59506,7 @@ _ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 2
   %add.ptr9.i156 = getelementptr inbounds nuw float, ptr %add.ptr.i138, i64 %numElements
   %78 = load float, ptr %initValue, align 4
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIfEEPT_v.exit.i152
@@ -60048,7 +60048,7 @@ _ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i: ; preds = %if.then6.i
   %div6.i = lshr i64 %3, 3
   %add.ptr9.i = getelementptr inbounds nuw double, ptr %10, i64 %numElements
   %11 = load double, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryIdEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i
@@ -60172,7 +60172,7 @@ _ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i66: ; preds = %call.i.i65.noe
   %div6.i68 = lshr i64 %24, 3
   %add.ptr9.i70 = getelementptr inbounds nuw double, ptr %28, i64 %numElements
   %29 = load double, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i66
@@ -60415,7 +60415,7 @@ _ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i123: ; preds = %if.then6.i119
   %div6.i125 = lshr i64 %3, 3
   %add.ptr9.i127 = getelementptr inbounds nuw double, ptr %75, i64 %numElements
   %76 = load double, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i123
@@ -60468,7 +60468,7 @@ _ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 3
   %add.ptr9.i156 = getelementptr inbounds nuw double, ptr %add.ptr.i138, i64 %numElements
   %78 = load double, ptr %initValue, align 8
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableIdEEPT_v.exit.i152
@@ -61017,7 +61017,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i: ; preds = %if
   %10 = load ptr, ptr %data_.i.i, align 8
   %div6.i = lshr i64 %3, 4
   %add.ptr9.i = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %10, i64 %numElements
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryINS0_9TimestampEEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i
@@ -61140,7 +61140,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i66: ; preds = %
   %27 = load ptr, ptr %data_.i.i67, align 8
   %div6.i68 = lshr i64 %23, 4
   %add.ptr9.i70 = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %27, i64 %numElements
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i66
@@ -61382,7 +61382,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i123: ; preds = 
   %73 = load ptr, ptr %data_.i.i124, align 8
   %div6.i125 = lshr i64 %3, 4
   %add.ptr9.i127 = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %73, i64 %numElements
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i123
@@ -61434,7 +61434,7 @@ if.end4.i145:                                     ; preds = %if.end.i143
 _ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 4
   %add.ptr9.i156 = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %add.ptr.i138, i64 %numElements
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_9TimestampEEEPT_v.exit.i152
@@ -62105,7 +62105,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i: ; preds = %
   %10 = load ptr, ptr %data_.i.i, align 8
   %div6.i = lshr i64 %3, 4
   %add.ptr9.i = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %10, i64 %numElements
-  %cmp.not3.i.i.i.i = icmp eq i64 %div6.i, %numElements
+  %cmp.not3.i.i.i.i = icmp samesign eq i64 %div6.i, %numElements
   br i1 %cmp.not3.i.i.i.i, label %_ZN8facebook5velox13AlignedBuffer13fillNewMemoryINS0_10StringViewEEEvmmRKSt8optionalIT_E.exit, label %for.body.i.i.i.preheader.i
 
 for.body.i.i.i.preheader.i:                       ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i
@@ -62228,7 +62228,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i66: ; preds =
   %27 = load ptr, ptr %data_.i.i67, align 8
   %div6.i68 = lshr i64 %23, 4
   %add.ptr9.i70 = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %27, i64 %numElements
-  %cmp.not3.i.i.i.i71 = icmp eq i64 %div6.i68, %numElements
+  %cmp.not3.i.i.i.i71 = icmp samesign eq i64 %div6.i68, %numElements
   br i1 %cmp.not3.i.i.i.i71, label %invoke.cont26, label %for.body.i.i.i.preheader.i72
 
 for.body.i.i.i.preheader.i72:                     ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i66
@@ -62470,7 +62470,7 @@ _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i123: ; preds 
   %73 = load ptr, ptr %data_.i.i124, align 8
   %div6.i125 = lshr i64 %3, 4
   %add.ptr9.i127 = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %73, i64 %numElements
-  %cmp.not3.i.i.i.i128 = icmp eq i64 %div6.i125, %numElements
+  %cmp.not3.i.i.i.i128 = icmp samesign eq i64 %div6.i125, %numElements
   br i1 %cmp.not3.i.i.i.i128, label %return, label %for.body.i.i.i.preheader.i129
 
 for.body.i.i.i.preheader.i129:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i123
@@ -62522,7 +62522,7 @@ if.end4.i145:                                     ; preds = %if.end.i143
 _ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i152: ; preds = %if.end4.i145
   %div6.i154 = lshr i64 %3, 4
   %add.ptr9.i156 = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %add.ptr.i138, i64 %numElements
-  %cmp.not3.i.i.i.i157 = icmp eq i64 %div6.i154, %numElements
+  %cmp.not3.i.i.i.i157 = icmp samesign eq i64 %div6.i154, %numElements
   br i1 %cmp.not3.i.i.i.i157, label %_ZN5boost13intrusive_ptrIN8facebook5velox6BufferEEC2EPS3_b.exit.i170, label %for.body.i.i.i.preheader.i158
 
 for.body.i.i.i.preheader.i158:                    ; preds = %_ZNK8facebook5velox6Buffer9asMutableINS0_10StringViewEEEPT_v.exit.i152

@@ -1264,7 +1264,7 @@ _ZN5boost4urls15pct_string_viewC2EPKcm.exit226:   ; preds = %376
 389:                                              ; preds = %_ZN5boost4urls15pct_string_viewC2EPKcm.exit226
   %390 = load ptr, ptr %35, align 8, !tbaa !86
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 %387
-  %.not6.i.i = icmp eq i64 %387, 1
+  %.not6.i.i = icmp samesign eq i64 %387, 1
   br i1 %.not6.i.i, label %_ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %389
@@ -1332,7 +1332,7 @@ _ZSt5countIPKccENSt15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit: ; pr
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4) #22, !noalias !91
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %36) #22
   %415 = getelementptr inbounds nuw i8, ptr %.sroa.0254.0.copyload, i64 %.sroa.6.0.copyload
-  %.not6.i.i227 = icmp eq i64 %.sroa.6.0.copyload, 0
+  %.not6.i.i227 = icmp samesign eq i64 %.sroa.6.0.copyload, 0
   br i1 %.not6.i.i227, label %.critedge, label %.lr.ph.i.i228
 
 .lr.ph.i.i228:                                    ; preds = %413, %.lr.ph.i.i228

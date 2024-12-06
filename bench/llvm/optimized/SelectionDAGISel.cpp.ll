@@ -3274,7 +3274,7 @@ _ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit.i.i.i: ; p
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_10MCRegisterENS_8RegisterENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E4findERKS2_.exit: ; preds = %343, %334
   %.lcssa.i.i147.pn = phi i64 [ %337, %334 ], [ %346, %343 ]
   %350 = zext i32 %332 to i64
-  %.not259 = icmp eq i64 %.lcssa.i.i147.pn, %350
+  %.not259 = icmp samesign eq i64 %.lcssa.i.i147.pn, %350
   br i1 %.not259, label %_ZN4llvm8DebugLocD2Ev.exit, label %351
 
 351:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_10MCRegisterENS_8RegisterENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E4findERKS2_.exit

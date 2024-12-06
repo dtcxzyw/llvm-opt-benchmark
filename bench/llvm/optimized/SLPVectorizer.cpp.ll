@@ -20297,7 +20297,7 @@ _ZNSt8optionalIN4llvm11SmallVectorIjLj4EEEED2Ev.exit: ; preds = %_ZN4llvm6detail
 _ZNK4llvm6detail12DenseSetImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsES6_.exit: ; preds = %212, %199
   %.lcssa.i.i.i.pn.i = phi i64 [ %206, %199 ], [ %215, %212 ]
   %219 = zext i32 %197 to i64
-  %.not829 = icmp eq i64 %.lcssa.i.i.i.pn.i, %219
+  %.not829 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %219
   br i1 %.not829, label %.critedge, label %220
 
 220:                                              ; preds = %.lr.ph889, %.lr.ph889, %_ZNK4llvm6detail12DenseSetImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsES6_.exit
@@ -24643,7 +24643,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm13slpvectorizer7BoUpSLP18re
 _ZNK4llvm6detail12DenseSetImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsES6_.exit: ; preds = %55, %42
   %.lcssa.i.i.i.pn.i = phi i64 [ %49, %42 ], [ %58, %55 ]
   %62 = zext i32 %40 to i64
-  %.not14 = icmp eq i64 %.lcssa.i.i.i.pn.i, %62
+  %.not14 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %62
   br i1 %.not14, label %_ZNSt8optionalIN4llvm11SmallVectorIjLj4EEEED2Ev.exit, label %63
 
 63:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIPKNS_13slpvectorizer7BoUpSLP9TreeEntryENS_8DenseMapIS6_NS0_13DenseSetEmptyENS_12DenseMapInfoIS6_vEENS0_12DenseSetPairIS6_EEEESA_E8containsES6_.exit
@@ -25371,7 +25371,7 @@ _ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit: ; preds = %.
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %317, %304
   %.lcssa.i.i.i.pn.i = phi i64 [ %311, %304 ], [ %320, %317 ]
   %324 = zext i32 %302 to i64
-  %.not189 = icmp eq i64 %.lcssa.i.i.i.pn.i, %324
+  %.not189 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %324
   br i1 %.not189, label %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %_ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit.thread
 
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i45, %294, %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %_ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit
@@ -26333,7 +26333,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyE
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E4findEPKS2_.exit: ; preds = %25, %12, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i
   %.lcssa.i.i.i.pn = phi i64 [ %32, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i ], [ %19, %12 ], [ %28, %25 ]
   %33 = zext i32 %10 to i64
-  %34 = icmp ne i64 %.lcssa.i.i.i.pn, %33
+  %34 = icmp samesign ne i64 %.lcssa.i.i.i.pn, %33
   ret i1 %34
 }
 
@@ -31885,7 +31885,7 @@ _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvE
 _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit.i: ; preds = %98, %89
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %92, %89 ], [ %101, %98 ]
   %106 = zext i32 %87 to i64
-  %.not33.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %106
+  %.not33.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %106
   br i1 %.not33.i, label %107, label %.critedge.i
 
 107:                                              ; preds = %_ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit.i, %_ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit.thread.i
@@ -31921,7 +31921,7 @@ _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvE
 
 _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit25.i: ; preds = %118, %109
   %.lcssa.i.i.i.i.pn.i23.i = phi i64 [ %112, %109 ], [ %121, %118 ]
-  %.not34.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i23.i, %108
+  %.not34.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i23.i, %108
   br i1 %.not34.i, label %_ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit25.thread.i, label %.critedge.i
 
 _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit25.thread.i: ; preds = %.lr.ph.i.i.i.i.i19.i, %_ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE8containsERKj.exit25.i, %107
@@ -41884,7 +41884,7 @@ _ZNK4llvm5Value9hasOneUseEv.exit:                 ; preds = %3
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %33, %20
   %.lcssa.i.i.i.pn.i = phi i64 [ %27, %20 ], [ %36, %33 ]
   %40 = zext i32 %18 to i64
-  %.not15 = icmp eq i64 %.lcssa.i.i.i.pn.i, %40
+  %.not15 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %40
   br i1 %.not15, label %.lr.ph.i.i.i.i.i, label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNKS_13slpvectorizer7BoUpSLP21areAllUsersVectorizedEPNS_11InstructionEPKNS_13SmallDenseSetIPS2_Lj4ENS_12DenseMapInfoISC_vEEEEE3$_0EEbOT_T0_.exit"
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %10, %_ZNK4llvm5Value9hasOneUseEv.exit
@@ -91894,7 +91894,7 @@ _ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %204, %191
   %.lcssa.i.i.i.pn.i = phi i64 [ %198, %191 ], [ %207, %204 ]
   %211 = zext i32 %189 to i64
-  %.not196 = icmp eq i64 %.lcssa.i.i.i.pn.i, %211
+  %.not196 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %211
   br i1 %.not196, label %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %_ZN4llvm14WeakTrackingVHD2Ev.exit
 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i99, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
@@ -92324,7 +92324,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %357, %362
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit124: ; preds = %388, %375
   %.lcssa.i.i.i.pn.i122 = phi i64 [ %382, %375 ], [ %391, %388 ]
   %395 = zext i32 %373 to i64
-  %.not198 = icmp eq i64 %.lcssa.i.i.i.pn.i122, %395
+  %.not198 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i122, %395
   br i1 %.not198, label %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit124.thread, label %_ZN4llvm14WeakTrackingVHD2Ev.exit131
 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit124.thread: ; preds = %.lr.ph.i.i.i.i118, %371, %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit124
@@ -93112,7 +93112,7 @@ _ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit102: ; preds =
 _ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %272, %259
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %266, %259 ], [ %275, %272 ]
   %279 = zext i32 %257 to i64
-  %.not241 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %279
+  %.not241 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %279
   br i1 %.not241, label %_ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit102.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm13slpvectorizer7BoUpSLP9isDeletedEPNS_11InstructionE.exit102, %_ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit
@@ -93654,7 +93654,7 @@ _ZN4llvm13slpvectorizer7BoUpSLP16eraseInstructionEPNS_11InstructionE.exit: ; pre
 _ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit113: ; preds = %542, %529
   %.lcssa.i.i.i.i.pn.i111 = phi i64 [ %536, %529 ], [ %545, %542 ]
   %549 = zext i32 %527 to i64
-  %.not242 = icmp eq i64 %.lcssa.i.i.i.i.pn.i111, %549
+  %.not242 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i111, %549
   br i1 %.not242, label %_ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit113.thread, label %550
 
 550:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_11InstructionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit113
@@ -99713,7 +99713,7 @@ _ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry9getOpcodeEv.exit119.thread: ; preds =
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %175, %162
   %.lcssa.i.i.i.pn.i = phi i64 [ %169, %162 ], [ %178, %175 ]
   %182 = zext i32 %160 to i64
-  %.not335 = icmp eq i64 %.lcssa.i.i.i.pn.i, %182
+  %.not335 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %182
   br i1 %.not335, label %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %_ZN4llvm11SmallVectorIjLj12EED2Ev.exit
 
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm13slpvectorizer7BoUpSLP9TreeEntry9getOpcodeEv.exit119.thread, %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
@@ -100482,7 +100482,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.i.i.i.i.i.i.i": ; preds = %580, %.lr.ph.i.split.i.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i = phi i64 [ %574, %.lr.ph.i.split.i.i.i.i.i.i ], [ %583, %580 ]
-  %.not106.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %567
+  %.not106.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %567
   br i1 %.not106.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.i.i.i.i.i.i.i"
@@ -100519,7 +100519,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.i.i.i.i.i.i.i": ; preds = %599, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.thread.i.i.i.i.i.i.i"
   %.lcssa.i.i.i.pn.i.i.i52.i.i.i.i.i.i.i = phi i64 [ %593, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit.thread.i.i.i.i.i.i.i" ], [ %602, %599 ]
-  %.not107.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i52.i.i.i.i.i.i.i, %567
+  %.not107.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i52.i.i.i.i.i.i.i, %567
   br i1 %.not107.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i.loopexit.split.loop.exit"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i48.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.i.i.i.i.i.i.i"
@@ -100556,7 +100556,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.i.i.i.i.i.i.i": ; preds = %618, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i.i.i"
   %.lcssa.i.i.i.pn.i.i.i60.i.i.i.i.i.i.i = phi i64 [ %612, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.thread.i.i.i.i.i.i.i" ], [ %621, %618 ]
-  %.not108.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i60.i.i.i.i.i.i.i, %567
+  %.not108.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i60.i.i.i.i.i.i.i, %567
   br i1 %.not108.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i.loopexit.split.loop.exit616"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i56.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.i.i.i.i.i.i.i"
@@ -100593,7 +100593,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit70.i.i.i.i.i.i.i": ; preds = %637, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.thread.i.i.i.i.i.i.i"
   %.lcssa.i.i.i.pn.i.i.i68.i.i.i.i.i.i.i = phi i64 [ %631, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit62.thread.i.i.i.i.i.i.i" ], [ %640, %637 ]
-  %.not109.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i68.i.i.i.i.i.i.i, %567
+  %.not109.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i68.i.i.i.i.i.i.i, %567
   br i1 %.not109.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit70.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i.loopexit.split.loop.exit618"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit70.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i64.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit70.i.i.i.i.i.i.i"
@@ -100666,7 +100666,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit78.i.i.i.i.i.i.i": ; preds = %663, %650
   %.lcssa.i.i.i.pn.i.i.i76.i.i.i.i.i.i.i = phi i64 [ %657, %650 ], [ %666, %663 ]
   %670 = zext i32 %.val36.val42.i.i.i.i.i.i.i to i64
-  %.not.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i76.i.i.i.i.i.i.i, %670
+  %.not.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i76.i.i.i.i.i.i.i, %670
   br i1 %.not.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit78.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit78.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i72.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit78.i.i.i.i.i.i.i", %648
@@ -100715,7 +100715,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit86.i.i.i.i.i.i.i": ; preds = %687, %674
   %.lcssa.i.i.i.pn.i.i.i84.i.i.i.i.i.i.i = phi i64 [ %681, %674 ], [ %690, %687 ]
   %694 = zext i32 %.val38.val41.i.i.i.i.i.i.i to i64
-  %.not104.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i84.i.i.i.i.i.i.i, %694
+  %.not104.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i84.i.i.i.i.i.i.i, %694
   br i1 %.not104.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit86.thread.i.i.i.i.i.i.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit86.thread.i.i.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i80.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit86.i.i.i.i.i.i.i", %672
@@ -100764,7 +100764,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i:           ; preds = %553, %_ZL14getNumEl
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit94.i.i.i.i.i.i.i": ; preds = %711, %698
   %.lcssa.i.i.i.pn.i.i.i92.i.i.i.i.i.i.i = phi i64 [ %705, %698 ], [ %714, %711 ]
   %718 = zext i32 %.val39.val40.i.i.i.i.i.i.i to i64
-  %.not105.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i92.i.i.i.i.i.i.i, %718
+  %.not105.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i92.i.i.i.i.i.i.i, %718
   br i1 %.not105.i.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.thread.i", label %"_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i"
 
 "_ZN4llvm6any_ofIRKNS_11SmallVectorIPNS_5ValueELj8EEEZZNS_13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS8_9TreeEntryEbbjjbbEUlS3_E0_EEbOT_T0_.exit.i.loopexit.split.loop.exit": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm13slpvectorizer7BoUpSLP24computeMinimumValueSizesEvENK3$_1clERKNS4_9TreeEntryEbbjjbbEUlPNS2_5ValueEE0_EclIPKSA_EEbT_.exit54.i.i.i.i.i.i.i"
@@ -109810,7 +109810,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i": ; preds = %36, %.lr.ph.split.i.i.i.i.i.i.i.i.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %30, %.lr.ph.split.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %39, %36 ]
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %22
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %22
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit", label %43
 
 43:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i"
@@ -109882,7 +109882,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i58.i.i.i.i.i": ; preds = %73, %.lr.ph.split.i.i.i.i.i.i.i.i51.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i59.i.i.i.i.i = phi i64 [ %67, %.lr.ph.split.i.i.i.i.i.i.i.i51.i.i.i.i.i ], [ %76, %73 ]
-  %.not.i.i.i.i.i.i.i.i.i.i60.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i59.i.i.i.i.i, %59
+  %.not.i.i.i.i.i.i.i.i.i.i60.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i59.i.i.i.i.i, %59
   br i1 %.not.i.i.i.i.i.i.i.i.i.i60.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit.loopexit113", label %80
 
 80:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i58.i.i.i.i.i"
@@ -109954,7 +109954,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i74.i.i.i.i.i": ; preds = %110, %.lr.ph.split.i.i.i.i.i.i.i.i67.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i75.i.i.i.i.i = phi i64 [ %104, %.lr.ph.split.i.i.i.i.i.i.i.i67.i.i.i.i.i ], [ %113, %110 ]
-  %.not.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i75.i.i.i.i.i, %96
+  %.not.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i75.i.i.i.i.i, %96
   br i1 %.not.i.i.i.i.i.i.i.i.i.i76.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit.loopexit112", label %117
 
 117:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i74.i.i.i.i.i"
@@ -110026,7 +110026,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i90.i.i.i.i.i": ; preds = %147, %.lr.ph.split.i.i.i.i.i.i.i.i83.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i = phi i64 [ %141, %.lr.ph.split.i.i.i.i.i.i.i.i83.i.i.i.i.i ], [ %150, %147 ]
-  %.not.i.i.i.i.i.i.i.i.i.i92.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, %133
+  %.not.i.i.i.i.i.i.i.i.i.i92.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i91.i.i.i.i.i, %133
   br i1 %.not.i.i.i.i.i.i.i.i.i.i92.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit.loopexit111", label %154
 
 154:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i90.i.i.i.i.i"
@@ -110120,7 +110120,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i106.i.i.i.i.i": ; preds = %190, %.lr.ph.split.i.i.i.i.i.i.i.i99.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i107.i.i.i.i.i = phi i64 [ %184, %.lr.ph.split.i.i.i.i.i.i.i.i99.i.i.i.i.i ], [ %193, %190 ]
-  %.not.i.i.i.i.i.i.i.i.i.i108.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i107.i.i.i.i.i, %176
+  %.not.i.i.i.i.i.i.i.i.i.i108.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i107.i.i.i.i.i, %176
   br i1 %.not.i.i.i.i.i.i.i.i.i.i108.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit", label %197
 
 197:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i106.i.i.i.i.i"
@@ -110198,7 +110198,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i122.i.i.i.i.i": ; preds = %230, %.lr.ph.split.i.i.i.i.i.i.i.i115.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i123.i.i.i.i.i = phi i64 [ %224, %.lr.ph.split.i.i.i.i.i.i.i.i115.i.i.i.i.i ], [ %233, %230 ]
-  %.not.i.i.i.i.i.i.i.i.i.i124.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i123.i.i.i.i.i, %216
+  %.not.i.i.i.i.i.i.i.i.i.i124.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i123.i.i.i.i.i, %216
   br i1 %.not.i.i.i.i.i.i.i.i.i.i124.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit", label %237
 
 237:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i122.i.i.i.i.i"
@@ -110276,7 +110276,7 @@ define internal fastcc noundef zeroext i1 @"_ZN4llvm6any_ofINS_8ArrayRefIPNS_5Va
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i138.i.i.i.i.i": ; preds = %270, %.lr.ph.split.i.i.i.i.i.i.i.i131.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i139.i.i.i.i.i = phi i64 [ %264, %.lr.ph.split.i.i.i.i.i.i.i.i131.i.i.i.i.i ], [ %273, %270 ]
-  %.not.i.i.i.i.i.i.i.i.i.i140.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i139.i.i.i.i.i, %256
+  %.not.i.i.i.i.i.i.i.i.i.i140.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i.i139.i.i.i.i.i, %256
   br i1 %.not.i.i.i.i.i.i.i.i.i.i140.i.i.i.i.i, label %"_ZSt6any_ofIPKPN4llvm5ValueEZNS0_17SLPVectorizerPass19vectorizeStoreChainENS0_8ArrayRefIS2_EERNS0_13slpvectorizer7BoUpSLPEjjRjE3$_0EbT_SD_T0_.exit", label %277
 
 277:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZZN4llvm17SLPVectorizerPass19vectorizeStoreChainENS2_8ArrayRefIPNS2_5ValueEEERNS2_13slpvectorizer7BoUpSLPEjjRjENK3$_0clES6_EUlPNS2_4UserEE_EclINS5_18user_iterator_implISD_EEEEbT_.exit.i.i.i.i.i.i.i.i138.i.i.i.i.i"
@@ -120360,7 +120360,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_7CmpInstENS_6detail13DenseSetEmptyENS_1
 _ZNK4llvm6detail12DenseSetImplIPNS_7CmpInstENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit.i: ; preds = %73, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_7CmpInstENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i, %60
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %80, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_7CmpInstENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i ], [ %67, %60 ], [ %76, %73 ]
   %81 = zext i32 %58 to i64
-  %82 = icmp ne i64 %.lcssa.i.i.i.i.pn.i, %81
+  %82 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i, %81
   br label %_ZNK4llvm9SetVectorIPNS_7CmpInstENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE8containsERKS2_.exit
 
 83:                                               ; preds = %1
@@ -120527,7 +120527,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmpty
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit.i: ; preds = %153, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i, %140
   %.lcssa.i.i.i.i.pn.i7 = phi i64 [ %160, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i ], [ %147, %140 ], [ %156, %153 ]
   %161 = zext i32 %138 to i64
-  %162 = icmp ne i64 %.lcssa.i.i.i.i.pn.i7, %161
+  %162 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i7, %161
   br label %_ZNK4llvm9SetVectorIPNS_7CmpInstENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE8containsERKS2_.exit
 
 _ZNK4llvm9SetVectorIPNS_7CmpInstENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj8EE8containsERKS2_.exit: ; preds = %83, %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit.i, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_11InstructionELj8EEES3_EEbOT_RKT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPNS_7CmpInstENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E4findEPKS2_.exit.i, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_7CmpInstELj8EEES3_EEbOT_RKT0_.exit
@@ -141493,7 +141493,7 @@ _ZN4llvm9MapVectorIjSt4pairIjjENS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i: ; preds = %104, %95
   %.lcssa.i.i.pn.i = phi i64 [ %98, %95 ], [ %107, %104 ]
   %111 = zext i32 %93 to i64
-  %112 = icmp eq i64 %.lcssa.i.i.pn.i, %111
+  %112 = icmp samesign eq i64 %.lcssa.i.i.pn.i, %111
   br i1 %112, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i, label %116
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i: ; preds = %.lr.ph.i.i.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i, %91
@@ -162972,7 +162972,7 @@ _ZSt4nextIPPN4llvm5ValueEET_S4_NSt15iterator_traitsIS4_E15difference_typeE.exit:
 _ZNK4llvm13slpvectorizer7BoUpSLP24areAnalyzedReductionValsENS_8ArrayRefIPNS_5ValueEEE.exit: ; preds = %2018, %2006
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %2012, %2006 ], [ %2021, %2018 ]
   %2025 = zext i32 %2004 to i64
-  %.not1636 = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %2025
+  %.not1636 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %2025
   br i1 %.not1636, label %_ZNK4llvm13slpvectorizer7BoUpSLP24areAnalyzedReductionValsENS_8ArrayRefIPNS_5ValueEEE.exit.thread, label %2026
 
 2026:                                             ; preds = %_ZNK4llvm13slpvectorizer7BoUpSLP24areAnalyzedReductionValsENS_8ArrayRefIPNS_5ValueEEE.exit
@@ -178379,7 +178379,7 @@ _ZN4llvm9adl_beginIRKNS_11SmallPtrSetIPNS_5ValueELj16EEEEEDTclsr10adl_detailE10b
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm13slpvectorizer7BoUpSLP13isAnyGatheredERKNS2_13SmallDenseSetIPNS2_5ValueELj4ENS2_12DenseMapInfoIS7_vEEEEEUlS7_E_EclINS2_19SmallPtrSetIteratorIS7_EEEEbT_.exit.i.i.i.i.i.i.i: ; preds = %43, %.lr.ph.split.i.i.i.i.i.i.i
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i = phi i64 [ %37, %.lr.ph.split.i.i.i.i.i.i.i ], [ %46, %43 ]
-  %.not7.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %30
+  %.not7.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %30
   br i1 %.not7.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm13slpvectorizer7BoUpSLP13isAnyGatheredERKNS2_13SmallDenseSetIPNS2_5ValueELj4ENS2_12DenseMapInfoIS7_vEEEEEUlS7_E_EclINS2_19SmallPtrSetIteratorIS7_EEEEbT_.exit.thread.i.i.i.i.i.i.i, label %_ZNK4llvm13slpvectorizer7BoUpSLP13isAnyGatheredERKNS_13SmallDenseSetIPNS_5ValueELj4ENS_12DenseMapInfoIS4_vEEEE.exit
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm13slpvectorizer7BoUpSLP13isAnyGatheredERKNS2_13SmallDenseSetIPNS2_5ValueELj4ENS2_12DenseMapInfoIS7_vEEEEEUlS7_E_EclINS2_19SmallPtrSetIteratorIS7_EEEEbT_.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm13slpvectorizer7BoUpSLP13isAnyGatheredERKNS2_13SmallDenseSetIPNS2_5ValueELj4ENS2_12DenseMapInfoIS7_vEEEEEUlS7_E_EclINS2_19SmallPtrSetIteratorIS7_EEEEbT_.exit.i.i.i.i.i.i.i
@@ -179278,7 +179278,7 @@ _ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit: ; preds 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %204, %191
   %.lcssa.i.i.i.pn.i = phi i64 [ %198, %191 ], [ %207, %204 ]
   %211 = zext i32 %189 to i64
-  %.not192 = icmp eq i64 %.lcssa.i.i.i.pn.i, %211
+  %.not192 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %211
   br i1 %.not192, label %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %_ZN4llvm14WeakTrackingVHD2Ev.exit
 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i95, %_ZN4llvm19dyn_cast_if_presentINS_11InstructionENS_5ValueEEEDaPT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit
@@ -179708,7 +179708,7 @@ _ZN4llvm3Use3setEPNS_5ValueE.exit:                ; preds = %357, %362
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit120: ; preds = %388, %375
   %.lcssa.i.i.i.pn.i118 = phi i64 [ %382, %375 ], [ %391, %388 ]
   %395 = zext i32 %373 to i64
-  %.not194 = icmp eq i64 %.lcssa.i.i.i.pn.i118, %395
+  %.not194 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i118, %395
   br i1 %.not194, label %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit120.thread, label %_ZN4llvm14WeakTrackingVHD2Ev.exit127
 
 _ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit120.thread: ; preds = %.lr.ph.i.i.i.i114, %371, %_ZNK4llvm6detail12DenseSetImplIPNS_11InstructionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit120
@@ -225884,7 +225884,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyE
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i: ; preds = %106, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i, %93
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %113, %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_5ValueENS_6detail13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIPKS2_EEPKS9_RKT_.exit.thread.i.i.i ], [ %100, %93 ], [ %109, %106 ]
   %114 = zext i32 %91 to i64
-  %115 = icmp ne i64 %.lcssa.i.i.i.pn.i.i, %114
+  %115 = icmp samesign ne i64 %.lcssa.i.i.i.pn.i.i, %114
   br label %"_ZZN4llvm13slpvectorizer7BoUpSLP13vectorizeTreeERKNS_9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS5_ISt4pairIS4_S8_ELj0EEEEERNS_15SmallVectorImplISG_IS4_S4_EEES7_ENK3$_6clERNS_3UseE.exit"
 
 "_ZZN4llvm13slpvectorizer7BoUpSLP13vectorizeTreeERKNS_9MapVectorIPNS_5ValueENS_11SmallVectorIPNS_11InstructionELj2EEENS_8DenseMapIS4_jNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_jEEEENS5_ISt4pairIS4_S8_ELj0EEEEERNS_15SmallVectorImplISG_IS4_S4_EEES7_ENK3$_6clERNS_3UseE.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_10SelectInstELb1EE9push_backES2_.exit.i, %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i
@@ -227762,7 +227762,7 @@ _ZNK4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread.i.i.i.i.i
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i.i.i.i.i.i.i.i: ; preds = %120, %107
   %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i = phi i64 [ %114, %107 ], [ %123, %120 ]
   %127 = zext i32 %105 to i64
-  %.not16.i.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %127
+  %.not16.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i.i.i.i.i.i, %127
   br i1 %.not16.i.i.i.i.i.i.i.i, label %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZZNK4llvm13slpvectorizer7BoUpSLP21collectValuesToDemoteERKNS4_9TreeEntryEbRjRNS2_15SmallVectorImplIjEERNS2_8DenseSetIPS6_NS2_12DenseMapInfoISD_vEEEES8_RbbENK3$_3clEPNS2_5ValueEEUlPNS2_4UserEE_EclINSK_18user_iterator_implISM_EEEEbT_.exit.thread5.i.i.i.i.i.i"
 
 _ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i4.i.i.i.i.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPNS_5ValueENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj4ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.i.i.i.i.i.i.i.i, %97, %94, %_ZNK4llvm13slpvectorizer7BoUpSLP12getTreeEntryEPNS_5ValueE.exit.thread.i.i.i.i.i.i.i.i

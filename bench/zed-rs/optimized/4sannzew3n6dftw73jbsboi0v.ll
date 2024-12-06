@@ -10998,7 +10998,7 @@ common.resume:                                    ; preds = %.body, %.body.i
   %281 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %282 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %283 = getelementptr inbounds nuw i8, ptr %279, i64 %277
-  %284 = icmp eq i64 %277, 0
+  %284 = icmp samesign eq i64 %277, 0
   br i1 %274, label %427, label %.lr.ph.split.i
 
 285:                                              ; preds = %271

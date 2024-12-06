@@ -1382,7 +1382,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMap
 _ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i.i102, %_ZNK4llvm15FunctionVarLocs10locs_beginEPKNS_11InstructionE.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i106
   %.sroa.3.0.i.i = phi i64 [ %274, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i106 ], [ 0, %_ZNK4llvm15FunctionVarLocs10locs_beginEPKNS_11InstructionE.exit ], [ 0, %.lr.ph.i.i.i.i102 ]
   %275 = getelementptr inbounds nuw %"struct.llvm::VarLocInfo", ptr %249, i64 %.sroa.3.0.i.i
-  %.not56143 = icmp eq i64 %.sroa.0.0.i.i98, %.sroa.3.0.i.i
+  %.not56143 = icmp samesign eq i64 %.sroa.0.0.i.i98, %.sroa.3.0.i.i
   br i1 %.not56143, label %._crit_edge146, label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %_ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit, %.lr.ph145

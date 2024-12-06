@@ -360,7 +360,7 @@ define hidden noundef i64 @_ZN11str_indices5chars10count_impl17h85466a28fb53b459
   br i1 %26, label %._crit_edge, label %.lr.ph
 
 27:                                               ; preds = %2
-  %28 = icmp eq i64 %1, 0
+  %28 = icmp samesign eq i64 %1, 0
   br i1 %28, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbeaae77c068fbe97E.llvm.15236414416081531888.exit", label %.preheader
 
 .preheader:                                       ; preds = %27, %.preheader
@@ -8013,7 +8013,7 @@ define hidden void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c193d8bea4
   br i1 %28, label %._crit_edge, label %.lr.ph
 
 29:                                               ; preds = %3
-  %30 = icmp eq i64 %2, 0
+  %30 = icmp samesign eq i64 %2, 0
   br i1 %30, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.llvm.15236414416081531888.exit, label %.preheader463
 
 .preheader463:                                    ; preds = %29, %.preheader463

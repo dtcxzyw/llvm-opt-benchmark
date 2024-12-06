@@ -156470,7 +156470,7 @@ _ZN5boost14multiprecision8backends12gmp_rationalC2Ev.exit.i.i.i.i.i: ; preds = %
 9:                                                ; preds = %7
   %10 = landingpad { ptr, i32 }
           cleanup
-  %11 = icmp eq i64 %.idx.i.i.i.i.i, 0
+  %11 = icmp samesign eq i64 %.idx.i.i.i.i.i, 0
   br i1 %11, label %.body, label %.preheader.i.i.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %9, %.preheader.i.i.i.i.i

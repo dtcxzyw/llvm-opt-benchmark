@@ -18602,7 +18602,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm12IRTranslator22findUnwindDestinati
   %55 = shl i32 %54, 5
   %.idx = zext i32 %55 to i64
   %56 = getelementptr inbounds nuw i8, ptr %49, i64 %.idx
-  %.not5964 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not5964 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not5964, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %47

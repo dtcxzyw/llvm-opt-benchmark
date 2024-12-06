@@ -5546,7 +5546,7 @@ land.rhs.i2145:                                   ; preds = %land.rhs.i2145.preh
 
 while.body.i2148:                                 ; preds = %land.rhs.i2145
   %first.addr.05.i2146.add = add nuw nsw i64 %first.addr.05.i2146.idx, 4
-  %cmp.not.i2150 = icmp eq i64 %first.addr.05.i2146.idx, 12
+  %cmp.not.i2150 = icmp samesign eq i64 %first.addr.05.i2146.idx, 12
   br i1 %cmp.not.i2150, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit, label %land.rhs.i2145, !llvm.loop !107
 
 _ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit:           ; preds = %land.rhs.i2145, %while.body.i2148
@@ -5576,7 +5576,7 @@ while.body.i2157:                                 ; preds = %land.rhs.i2154
 
 _ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit2161:       ; preds = %while.body.i2157, %land.rhs.i2154
   %first.addr.05.i2155.add.lcssa.sink = phi i64 [ %first.addr.05.i2155.idx, %land.rhs.i2154 ], [ %first.addr.05.i2155.add, %while.body.i2157 ]
-  %cmp1249 = icmp eq i64 %first.addr.05.i2155.add.lcssa.sink, 16
+  %cmp1249 = icmp samesign eq i64 %first.addr.05.i2155.add.lcssa.sink, 16
   %call1251 = invoke noundef i32 @_ZN2EA8UnitTest12TestInternal17EATEST_VERIFY_IMPEbRiPKciS4_(i1 noundef zeroext %cmp1249, ptr noundef nonnull align 4 dereferenceable(4) %nErrorCount, ptr noundef nonnull @.str, i32 noundef 1144, ptr noundef nonnull @.str.98)
           to label %_ZN5eastl6vectorIiNS_9allocatorEED2Ev.exit2166 unwind label %lpad1222
 
@@ -15883,7 +15883,7 @@ if.end10.i:                                       ; preds = %if.else7.i, %if.the
   br i1 %1709, label %while.body.i8615, label %while.end.i8607, !llvm.loop !609
 
 while.end.i8607:                                  ; preds = %if.end10.i
-  %cmp.i.i.i.i.i8610 = icmp eq i64 %first1.addr.1.i.idx, 40
+  %cmp.i.i.i.i.i8610 = icmp samesign eq i64 %first1.addr.1.i.idx, 40
   br i1 %cmp.i.i.i.i.i8610, label %_ZN5eastl14set_differenceIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit8627, label %if.end.i.i.i.i.i8611
 
 if.end.i.i.i.i.i8611:                             ; preds = %while.end.i8607
@@ -15942,7 +15942,7 @@ if.end9.i8644:                                    ; preds = %if.else6.i, %if.the
   br i1 %1712, label %while.body.i8636, label %while.end.i8628, !llvm.loop !610
 
 while.end.i8628:                                  ; preds = %if.end9.i8644
-  %cmp.i.i.i.i.i8631 = icmp eq i64 %first1.addr.1.i8646.idx, 40
+  %cmp.i.i.i.i.i8631 = icmp samesign eq i64 %first1.addr.1.i8646.idx, 40
   br i1 %cmp.i.i.i.i.i8631, label %_ZN5eastl24set_symmetric_differenceIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit, label %if.end.i.i.i.i.i8632
 
 if.end.i.i.i.i.i8632:                             ; preds = %while.end.i8628
@@ -16002,7 +16002,7 @@ if.end11.i:                                       ; preds = %if.else8.i8699, %if
 
 while.end.i8680:                                  ; preds = %if.end11.i
   %first2.addr.1.i8701.ptr.le = getelementptr inbounds nuw i8, ptr @__const._Z13TestAlgorithmv.intArray2.301, i64 %first2.addr.1.i8701.idx
-  %cmp.i.i.i.i.i8683 = icmp eq i64 %first1.addr.1.i8702.idx, 40
+  %cmp.i.i.i.i.i8683 = icmp samesign eq i64 %first1.addr.1.i8702.idx, 40
   br i1 %cmp.i.i.i.i.i8683, label %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8687, label %if.end.i.i.i.i.i8684
 
 if.end.i.i.i.i.i8684:                             ; preds = %while.end.i8680
@@ -16014,7 +16014,7 @@ if.end.i.i.i.i.i8684:                             ; preds = %while.end.i8680
 
 _ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8687:     ; preds = %if.end.i.i.i.i.i8684, %while.end.i8680
   %retval.0.i.i.i.i.i8688 = phi ptr [ %add.ptr.i.i.i.i.i8686, %if.end.i.i.i.i.i8684 ], [ %result.addr.1.i8703, %while.end.i8680 ]
-  %cmp.i.i.i.i20.i8689 = icmp eq i64 %first2.addr.1.i8701.idx, 40
+  %cmp.i.i.i.i20.i8689 = icmp samesign eq i64 %first2.addr.1.i8701.idx, 40
   br i1 %cmp.i.i.i.i20.i8689, label %_ZN5eastl24set_symmetric_differenceIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit8711, label %if.end.i.i.i.i21.i8690
 
 if.end.i.i.i.i21.i8690:                           ; preds = %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8687
@@ -16080,7 +16080,7 @@ if.end10.i8735:                                   ; preds = %if.else7.i8733, %if
 
 while.end.i8712:                                  ; preds = %if.end10.i8735
   %first2.addr.1.i8736.ptr.le = getelementptr inbounds nuw i8, ptr @__const._Z13TestAlgorithmv.intArray2.301, i64 %first2.addr.1.i8736.idx
-  %cmp.i.i.i.i.i8715 = icmp eq i64 %first1.addr.1.i8737.idx, 40
+  %cmp.i.i.i.i.i8715 = icmp samesign eq i64 %first1.addr.1.i8737.idx, 40
   br i1 %cmp.i.i.i.i.i8715, label %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8719, label %if.end.i.i.i.i.i8716
 
 if.end.i.i.i.i.i8716:                             ; preds = %while.end.i8712
@@ -16092,7 +16092,7 @@ if.end.i.i.i.i.i8716:                             ; preds = %while.end.i8712
 
 _ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8719:     ; preds = %if.end.i.i.i.i.i8716, %while.end.i8712
   %retval.0.i.i.i.i.i8720 = phi ptr [ %add.ptr.i.i.i.i.i8718, %if.end.i.i.i.i.i8716 ], [ %result.addr.1.i8738, %while.end.i8712 ]
-  %cmp.i.i.i.i20.i8721 = icmp eq i64 %first2.addr.1.i8736.idx, 40
+  %cmp.i.i.i.i20.i8721 = icmp samesign eq i64 %first2.addr.1.i8736.idx, 40
   br i1 %cmp.i.i.i.i20.i8721, label %_ZN5eastl24set_symmetric_differenceIPiS1_S1_NS_4lessIiEEEET1_T_S5_T0_S6_S4_T2_.exit, label %if.end.i.i.i.i21.i8722
 
 if.end.i.i.i.i21.i8722:                           ; preds = %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8719
@@ -16254,7 +16254,7 @@ if.end9.i8859:                                    ; preds = %if.else6.i8856, %if
 
 while.end.i8838:                                  ; preds = %if.end9.i8859
   %first2.addr.1.i8860.ptr.le = getelementptr inbounds nuw i8, ptr @__const._Z13TestAlgorithmv.intArray2.301, i64 %first2.addr.1.i8860.idx
-  %cmp.i.i.i.i.i8841 = icmp eq i64 %first1.addr.1.i8861.idx, 40
+  %cmp.i.i.i.i.i8841 = icmp samesign eq i64 %first1.addr.1.i8861.idx, 40
   br i1 %cmp.i.i.i.i.i8841, label %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8845, label %if.end.i.i.i.i.i8842
 
 if.end.i.i.i.i.i8842:                             ; preds = %while.end.i8838
@@ -16266,7 +16266,7 @@ if.end.i.i.i.i.i8842:                             ; preds = %while.end.i8838
 
 _ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8845:     ; preds = %if.end.i.i.i.i.i8842, %while.end.i8838
   %retval.0.i.i.i.i.i8846 = phi ptr [ %add.ptr.i.i.i.i.i8844, %if.end.i.i.i.i.i8842 ], [ %incdec.ptr10.i, %while.end.i8838 ]
-  %cmp.i.i.i.i21.i8847 = icmp eq i64 %first2.addr.1.i8860.idx, 40
+  %cmp.i.i.i.i21.i8847 = icmp samesign eq i64 %first2.addr.1.i8860.idx, 40
   br i1 %cmp.i.i.i.i21.i8847, label %_ZN5eastl9set_unionIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit8868, label %if.end.i.i.i.i22.i8848
 
 if.end.i.i.i.i22.i8848:                           ; preds = %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8845
@@ -16344,7 +16344,7 @@ if.end8.i8892:                                    ; preds = %if.else5.i8889, %if
 
 while.end.i8869:                                  ; preds = %if.end8.i8892
   %first2.addr.1.i8893.ptr.le = getelementptr inbounds nuw i8, ptr @__const._Z13TestAlgorithmv.intArray2.301, i64 %first2.addr.1.i8893.idx
-  %cmp.i.i.i.i.i8872 = icmp eq i64 %first1.addr.1.i8894.idx, 40
+  %cmp.i.i.i.i.i8872 = icmp samesign eq i64 %first1.addr.1.i8894.idx, 40
   br i1 %cmp.i.i.i.i.i8872, label %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8876, label %if.end.i.i.i.i.i8873
 
 if.end.i.i.i.i.i8873:                             ; preds = %while.end.i8869
@@ -16356,7 +16356,7 @@ if.end.i.i.i.i.i8873:                             ; preds = %while.end.i8869
 
 _ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8876:     ; preds = %if.end.i.i.i.i.i8873, %while.end.i8869
   %retval.0.i.i.i.i.i8877 = phi ptr [ %add.ptr.i.i.i.i.i8875, %if.end.i.i.i.i.i8873 ], [ %incdec.ptr9.i8895, %while.end.i8869 ]
-  %cmp.i.i.i.i21.i8878 = icmp eq i64 %first2.addr.1.i8893.idx, 40
+  %cmp.i.i.i.i21.i8878 = icmp samesign eq i64 %first2.addr.1.i8893.idx, 40
   br i1 %cmp.i.i.i.i21.i8878, label %_ZN5eastl9set_unionIPiS1_S1_NS_4lessIiEEEET1_T_S5_T0_S6_S4_T2_.exit, label %if.end.i.i.i.i22.i8879
 
 if.end.i.i.i.i22.i8879:                           ; preds = %_ZN5eastl4copyIPiS1_EET0_T_S3_S2_.exit.i8876
@@ -17284,7 +17284,7 @@ land.rhs.i9606:                                   ; preds = %_ZN5eastl6vectorIZ1
 while.body.i9632:                                 ; preds = %land.rhs.i9606
   %first1.addr.046.i.add = add nuw nsw i64 %first1.addr.046.i.idx, 4
   %incdec.ptr2.i9634 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i, i64 4
-  %cmp.not.i9635 = icmp eq i64 %first1.addr.046.i.add, 20
+  %cmp.not.i9635 = icmp samesign eq i64 %first1.addr.046.i.add, 20
   br i1 %cmp.not.i9635, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit, label %land.rhs.i9606, !llvm.loop !623
 
 if.then.i9608:                                    ; preds = %land.rhs.i9606
@@ -17297,7 +17297,7 @@ if.then.i9608:                                    ; preds = %land.rhs.i9606
 for.body.i9612:                                   ; preds = %if.then.i9608, %for.inc.i9625
   %i.048.i9613.idx = phi i64 [ %i.048.i9613.add, %for.inc.i9625 ], [ %first1.addr.046.i.idx, %if.then.i9608 ]
   %i.048.i9613.ptr = getelementptr inbounds nuw i8, ptr %intArray15036, i64 %i.048.i9613.idx
-  %cmp.not4.i.i9614 = icmp eq i64 %first1.addr.046.i.idx, %i.048.i9613.idx
+  %cmp.not4.i.i9614 = icmp samesign eq i64 %first1.addr.046.i.idx, %i.048.i9613.idx
   br i1 %cmp.not4.i.i9614, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9622, label %land.rhs.lr.ph.i.i9615
 
 land.rhs.lr.ph.i.i9615:                           ; preds = %for.body.i9612
@@ -17357,7 +17357,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9625:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9622
   %i.048.i9613.add = add nuw nsw i64 %i.048.i9613.idx, 4
-  %cmp4.not.i = icmp eq i64 %i.048.i9613.add, 20
+  %cmp4.not.i = icmp samesign eq i64 %i.048.i9613.add, 20
   br i1 %cmp4.not.i, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit, label %for.body.i9612, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit:  ; preds = %while.body.i9632, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %for.inc.i9625, %if.then.i9608
@@ -17399,7 +17399,7 @@ land.rhs.i9647:                                   ; preds = %for.body.i9641, %wh
 while.body.i9695:                                 ; preds = %land.rhs.i9647
   %first1.addr.046.i9648.add = add nuw nsw i64 %first1.addr.046.i9648.idx, 4
   %incdec.ptr2.i9697 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9649, i64 4
-  %cmp.not.i9698 = icmp eq i64 %first1.addr.046.i9648.add, 20
+  %cmp.not.i9698 = icmp samesign eq i64 %first1.addr.046.i9648.add, 20
   br i1 %cmp.not.i9698, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9699, label %land.rhs.i9647, !llvm.loop !623
 
 if.then.i9651:                                    ; preds = %land.rhs.i9647
@@ -17412,7 +17412,7 @@ if.then.i9651:                                    ; preds = %land.rhs.i9647
 for.body.i9657:                                   ; preds = %if.then.i9651, %for.inc.i9670
   %i.048.i9658.idx = phi i64 [ %i.048.i9658.add, %for.inc.i9670 ], [ %first1.addr.046.i9648.idx, %if.then.i9651 ]
   %i.048.i9658.ptr = getelementptr inbounds nuw i8, ptr %intArray15036, i64 %i.048.i9658.idx
-  %cmp.not4.i.i9659 = icmp eq i64 %first1.addr.046.i9648.idx, %i.048.i9658.idx
+  %cmp.not4.i.i9659 = icmp samesign eq i64 %first1.addr.046.i9648.idx, %i.048.i9658.idx
   br i1 %cmp.not4.i.i9659, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9667, label %land.rhs.lr.ph.i.i9660
 
 land.rhs.lr.ph.i.i9660:                           ; preds = %for.body.i9657
@@ -17472,7 +17472,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9670:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9693, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9667
   %i.048.i9658.add = add nuw nsw i64 %i.048.i9658.idx, 4
-  %cmp4.not.i9672 = icmp eq i64 %i.048.i9658.add, 20
+  %cmp4.not.i9672 = icmp samesign eq i64 %i.048.i9658.add, 20
   br i1 %cmp4.not.i9672, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9699, label %for.body.i9657, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9699: ; preds = %while.body.i9695, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i9683, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9693, %for.inc.i9670, %if.then.i9651
@@ -17514,7 +17514,7 @@ land.rhs.i9719:                                   ; preds = %for.body.i9705, %wh
 while.body.i9767:                                 ; preds = %land.rhs.i9719
   %first1.addr.046.i9720.add = add nuw nsw i64 %first1.addr.046.i9720.idx, 4
   %incdec.ptr2.i9769 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9721, i64 4
-  %cmp.not.i9770 = icmp eq i64 %first1.addr.046.i9720.add, 20
+  %cmp.not.i9770 = icmp samesign eq i64 %first1.addr.046.i9720.add, 20
   br i1 %cmp.not.i9770, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9771, label %land.rhs.i9719, !llvm.loop !623
 
 if.then.i9723:                                    ; preds = %land.rhs.i9719
@@ -17527,7 +17527,7 @@ if.then.i9723:                                    ; preds = %land.rhs.i9719
 for.body.i9729:                                   ; preds = %if.then.i9723, %for.inc.i9742
   %i.048.i9730.idx = phi i64 [ %i.048.i9730.add, %for.inc.i9742 ], [ %first1.addr.046.i9720.idx, %if.then.i9723 ]
   %i.048.i9730.ptr = getelementptr inbounds nuw i8, ptr %intArray15036, i64 %i.048.i9730.idx
-  %cmp.not4.i.i9731 = icmp eq i64 %first1.addr.046.i9720.idx, %i.048.i9730.idx
+  %cmp.not4.i.i9731 = icmp samesign eq i64 %first1.addr.046.i9720.idx, %i.048.i9730.idx
   br i1 %cmp.not4.i.i9731, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9739, label %land.rhs.lr.ph.i.i9732
 
 land.rhs.lr.ph.i.i9732:                           ; preds = %for.body.i9729
@@ -17587,7 +17587,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9742:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9765, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9739
   %i.048.i9730.add = add nuw nsw i64 %i.048.i9730.idx, 4
-  %cmp4.not.i9744 = icmp eq i64 %i.048.i9730.add, 20
+  %cmp4.not.i9744 = icmp samesign eq i64 %i.048.i9730.add, 20
   br i1 %cmp4.not.i9744, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9771, label %for.body.i9729, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9771: ; preds = %while.body.i9767, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i9755, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9765, %for.inc.i9742, %if.then.i9723
@@ -17611,7 +17611,7 @@ land.rhs.i9772:                                   ; preds = %_ZN5eastl14is_permu
 while.body.i9820:                                 ; preds = %land.rhs.i9772
   %first1.addr.046.i9773.add = add nuw nsw i64 %first1.addr.046.i9773.idx, 4
   %incdec.ptr2.i9822 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9774, i64 4
-  %cmp.not.i9823 = icmp eq i64 %first1.addr.046.i9773.add, 20
+  %cmp.not.i9823 = icmp samesign eq i64 %first1.addr.046.i9773.add, 20
   br i1 %cmp.not.i9823, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9824, label %land.rhs.i9772, !llvm.loop !623
 
 if.then.i9776:                                    ; preds = %land.rhs.i9772
@@ -17624,7 +17624,7 @@ if.then.i9776:                                    ; preds = %land.rhs.i9772
 for.body.i9782:                                   ; preds = %if.then.i9776, %for.inc.i9795
   %i.048.i9783.idx = phi i64 [ %i.048.i9783.add, %for.inc.i9795 ], [ %first1.addr.046.i9773.idx, %if.then.i9776 ]
   %i.048.i9783.ptr = getelementptr inbounds nuw i8, ptr %intArray15036, i64 %i.048.i9783.idx
-  %cmp.not4.i.i9784 = icmp eq i64 %first1.addr.046.i9773.idx, %i.048.i9783.idx
+  %cmp.not4.i.i9784 = icmp samesign eq i64 %first1.addr.046.i9773.idx, %i.048.i9783.idx
   br i1 %cmp.not4.i.i9784, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9792, label %land.rhs.lr.ph.i.i9785
 
 land.rhs.lr.ph.i.i9785:                           ; preds = %for.body.i9782
@@ -17684,7 +17684,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9795:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9818, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9792
   %i.048.i9783.add = add nuw nsw i64 %i.048.i9783.idx, 4
-  %cmp4.not.i9797 = icmp eq i64 %i.048.i9783.add, 20
+  %cmp4.not.i9797 = icmp samesign eq i64 %i.048.i9783.add, 20
   br i1 %cmp4.not.i9797, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9824, label %for.body.i9782, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9824: ; preds = %while.body.i9820, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i9808, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9818, %for.inc.i9795, %if.then.i9776
@@ -17706,7 +17706,7 @@ land.rhs.i9825:                                   ; preds = %_ZN5eastl14is_permu
 while.body.i9873:                                 ; preds = %land.rhs.i9825
   %first1.addr.046.i9826.add = add nuw nsw i64 %first1.addr.046.i9826.idx, 4
   %incdec.ptr2.i9875 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9827, i64 4
-  %cmp.not.i9876 = icmp eq i64 %first1.addr.046.i9826.add, 20
+  %cmp.not.i9876 = icmp samesign eq i64 %first1.addr.046.i9826.add, 20
   br i1 %cmp.not.i9876, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9877, label %land.rhs.i9825, !llvm.loop !623
 
 if.then.i9829:                                    ; preds = %land.rhs.i9825
@@ -17719,7 +17719,7 @@ if.then.i9829:                                    ; preds = %land.rhs.i9825
 for.body.i9835:                                   ; preds = %if.then.i9829, %for.inc.i9848
   %i.048.i9836.idx = phi i64 [ %i.048.i9836.add, %for.inc.i9848 ], [ %first1.addr.046.i9826.idx, %if.then.i9829 ]
   %i.048.i9836.ptr = getelementptr inbounds nuw i8, ptr %intArray15077, i64 %i.048.i9836.idx
-  %cmp.not4.i.i9837 = icmp eq i64 %first1.addr.046.i9826.idx, %i.048.i9836.idx
+  %cmp.not4.i.i9837 = icmp samesign eq i64 %first1.addr.046.i9826.idx, %i.048.i9836.idx
   br i1 %cmp.not4.i.i9837, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9845, label %land.rhs.lr.ph.i.i9838
 
 land.rhs.lr.ph.i.i9838:                           ; preds = %for.body.i9835
@@ -17779,7 +17779,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9848:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9871, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9845
   %i.048.i9836.add = add nuw nsw i64 %i.048.i9836.idx, 4
-  %cmp4.not.i9850 = icmp eq i64 %i.048.i9836.add, 20
+  %cmp4.not.i9850 = icmp samesign eq i64 %i.048.i9836.add, 20
   br i1 %cmp4.not.i9850, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9877, label %for.body.i9835, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9877: ; preds = %while.body.i9873, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i9861, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9871, %for.inc.i9848, %if.then.i9829
@@ -17821,7 +17821,7 @@ land.rhs.i9897:                                   ; preds = %for.body.i9883, %wh
 while.body.i9945:                                 ; preds = %land.rhs.i9897
   %first1.addr.046.i9898.add = add nuw nsw i64 %first1.addr.046.i9898.idx, 4
   %incdec.ptr2.i9947 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9899, i64 4
-  %cmp.not.i9948 = icmp eq i64 %first1.addr.046.i9898.add, 20
+  %cmp.not.i9948 = icmp samesign eq i64 %first1.addr.046.i9898.add, 20
   br i1 %cmp.not.i9948, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9949, label %land.rhs.i9897, !llvm.loop !623
 
 if.then.i9901:                                    ; preds = %land.rhs.i9897
@@ -17834,7 +17834,7 @@ if.then.i9901:                                    ; preds = %land.rhs.i9897
 for.body.i9907:                                   ; preds = %if.then.i9901, %for.inc.i9920
   %i.048.i9908.idx = phi i64 [ %i.048.i9908.add, %for.inc.i9920 ], [ %first1.addr.046.i9898.idx, %if.then.i9901 ]
   %i.048.i9908.ptr = getelementptr inbounds nuw i8, ptr %intArray15077, i64 %i.048.i9908.idx
-  %cmp.not4.i.i9909 = icmp eq i64 %first1.addr.046.i9898.idx, %i.048.i9908.idx
+  %cmp.not4.i.i9909 = icmp samesign eq i64 %first1.addr.046.i9898.idx, %i.048.i9908.idx
   br i1 %cmp.not4.i.i9909, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9917, label %land.rhs.lr.ph.i.i9910
 
 land.rhs.lr.ph.i.i9910:                           ; preds = %for.body.i9907
@@ -17894,7 +17894,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9920:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9943, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9917
   %i.048.i9908.add = add nuw nsw i64 %i.048.i9908.idx, 4
-  %cmp4.not.i9922 = icmp eq i64 %i.048.i9908.add, 20
+  %cmp4.not.i9922 = icmp samesign eq i64 %i.048.i9908.add, 20
   br i1 %cmp4.not.i9922, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9949, label %for.body.i9907, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit9949: ; preds = %while.body.i9945, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i9933, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i9943, %for.inc.i9920, %if.then.i9901
@@ -17936,7 +17936,7 @@ land.rhs.i9969:                                   ; preds = %for.body.i9955, %wh
 while.body.i10017:                                ; preds = %land.rhs.i9969
   %first1.addr.046.i9970.add = add nuw nsw i64 %first1.addr.046.i9970.idx, 4
   %incdec.ptr2.i10019 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i9971, i64 4
-  %cmp.not.i10020 = icmp eq i64 %first1.addr.046.i9970.add, 20
+  %cmp.not.i10020 = icmp samesign eq i64 %first1.addr.046.i9970.add, 20
   br i1 %cmp.not.i10020, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10021, label %land.rhs.i9969, !llvm.loop !623
 
 if.then.i9973:                                    ; preds = %land.rhs.i9969
@@ -17949,7 +17949,7 @@ if.then.i9973:                                    ; preds = %land.rhs.i9969
 for.body.i9979:                                   ; preds = %if.then.i9973, %for.inc.i9992
   %i.048.i9980.idx = phi i64 [ %i.048.i9980.add, %for.inc.i9992 ], [ %first1.addr.046.i9970.idx, %if.then.i9973 ]
   %i.048.i9980.ptr = getelementptr inbounds nuw i8, ptr %intArray15077, i64 %i.048.i9980.idx
-  %cmp.not4.i.i9981 = icmp eq i64 %first1.addr.046.i9970.idx, %i.048.i9980.idx
+  %cmp.not4.i.i9981 = icmp samesign eq i64 %first1.addr.046.i9970.idx, %i.048.i9980.idx
   br i1 %cmp.not4.i.i9981, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9989, label %land.rhs.lr.ph.i.i9982
 
 land.rhs.lr.ph.i.i9982:                           ; preds = %for.body.i9979
@@ -18009,7 +18009,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i9992:                                    ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i10015, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i9989
   %i.048.i9980.add = add nuw nsw i64 %i.048.i9980.idx, 4
-  %cmp4.not.i9994 = icmp eq i64 %i.048.i9980.add, 20
+  %cmp4.not.i9994 = icmp samesign eq i64 %i.048.i9980.add, 20
   br i1 %cmp4.not.i9994, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10021, label %for.body.i9979, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10021: ; preds = %while.body.i10017, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i10005, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i10015, %for.inc.i9992, %if.then.i9973
@@ -18034,7 +18034,7 @@ land.rhs.i10022:                                  ; preds = %_ZN5eastl14is_permu
 while.body.i10070:                                ; preds = %land.rhs.i10022
   %first1.addr.046.i10023.add = add nuw nsw i64 %first1.addr.046.i10023.idx, 4
   %incdec.ptr2.i10072 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i10024, i64 4
-  %cmp.not.i10073 = icmp eq i64 %first1.addr.046.i10023.add, 20
+  %cmp.not.i10073 = icmp samesign eq i64 %first1.addr.046.i10023.add, 20
   br i1 %cmp.not.i10073, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10074, label %land.rhs.i10022, !llvm.loop !623
 
 if.then.i10026:                                   ; preds = %land.rhs.i10022
@@ -18047,7 +18047,7 @@ if.then.i10026:                                   ; preds = %land.rhs.i10022
 for.body.i10032:                                  ; preds = %if.then.i10026, %for.inc.i10045
   %i.048.i10033.idx = phi i64 [ %i.048.i10033.add, %for.inc.i10045 ], [ %first1.addr.046.i10023.idx, %if.then.i10026 ]
   %i.048.i10033.ptr = getelementptr inbounds nuw i8, ptr %intArray15077, i64 %i.048.i10033.idx
-  %cmp.not4.i.i10034 = icmp eq i64 %first1.addr.046.i10023.idx, %i.048.i10033.idx
+  %cmp.not4.i.i10034 = icmp samesign eq i64 %first1.addr.046.i10023.idx, %i.048.i10033.idx
   br i1 %cmp.not4.i.i10034, label %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i10042, label %land.rhs.lr.ph.i.i10035
 
 land.rhs.lr.ph.i.i10035:                          ; preds = %for.body.i10032
@@ -18107,7 +18107,7 @@ _ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i10045:                                   ; preds = %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i10068, %_ZN5eastl4findIPiiEET_S2_S2_RKT0_.exit.i10042
   %i.048.i10033.add = add nuw nsw i64 %i.048.i10033.idx, 4
-  %cmp4.not.i10047 = icmp eq i64 %i.048.i10033.add, 20
+  %cmp4.not.i10047 = icmp samesign eq i64 %i.048.i10033.add, 20
   br i1 %cmp4.not.i10047, label %_ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10074, label %for.body.i10032, !llvm.loop !625
 
 _ZN5eastl14is_permutationIPiS1_EEbT_S2_T0_.exit10074: ; preds = %while.body.i10070, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i10058, %_ZN5eastl5countIPiiEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i10068, %for.inc.i10045, %if.then.i10026
@@ -18426,7 +18426,7 @@ land.rhs.i10232:                                  ; preds = %for.body5122, %whil
 while.body.i10277:                                ; preds = %land.rhs.i10232
   %first1.addr.046.i10233.add = add nuw nsw i64 %first1.addr.046.i10233.idx, 8
   %incdec.ptr2.i10279 = getelementptr inbounds nuw i8, ptr %first2.addr.045.i10234, i64 8
-  %cmp.not.i10280 = icmp eq i64 %first1.addr.046.i10233.add, 48
+  %cmp.not.i10280 = icmp samesign eq i64 %first1.addr.046.i10233.add, 48
   br i1 %cmp.not.i10280, label %_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit, label %land.rhs.i10232, !llvm.loop !628
 
 if.then.i10236:                                   ; preds = %land.rhs.i10232
@@ -18439,7 +18439,7 @@ if.then.i10236:                                   ; preds = %land.rhs.i10232
 for.body.i10242:                                  ; preds = %if.then.i10236, %for.inc.i10254
   %i.048.i10243.idx = phi i64 [ %i.048.i10243.add, %for.inc.i10254 ], [ %first1.addr.046.i10233.idx, %if.then.i10236 ]
   %i.048.i10243.ptr = getelementptr inbounds nuw i8, ptr %intArray15117, i64 %i.048.i10243.idx
-  %cmp.not4.i.i10244 = icmp eq i64 %first1.addr.046.i10233.idx, %i.048.i10243.idx
+  %cmp.not4.i.i10244 = icmp samesign eq i64 %first1.addr.046.i10233.idx, %i.048.i10243.idx
   br i1 %cmp.not4.i.i10244, label %_ZN5eastl4findIPmmEET_S2_S2_RKT0_.exit.i, label %land.rhs.lr.ph.i.i10245
 
 land.rhs.lr.ph.i.i10245:                          ; preds = %for.body.i10242
@@ -18499,7 +18499,7 @@ _ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit3
 
 for.inc.i10254:                                   ; preds = %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %_ZN5eastl4findIPmmEET_S2_S2_RKT0_.exit.i
   %i.048.i10243.add = add nuw nsw i64 %i.048.i10243.idx, 8
-  %cmp4.not.i10256 = icmp eq i64 %i.048.i10243.add, 48
+  %cmp4.not.i10256 = icmp samesign eq i64 %i.048.i10243.add, 48
   br i1 %cmp4.not.i10256, label %_ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit, label %for.body.i10242, !llvm.loop !631
 
 _ZN5eastl8Internal22quick_sort_impl_helperIPmlKmEEvT_S4_T0_.exit: ; preds = %while.body.i10277, %for.inc.i10254, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit37.i, %_ZN5eastl5countIPmmEENS_15iterator_traitsIT_E15difference_typeES3_S3_RKT0_.exit.i, %if.then.i10236

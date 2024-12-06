@@ -15818,7 +15818,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIiLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIiLb0EjE3endEv.exit
@@ -29812,7 +29812,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIN3smt12
 
 _ZN6vectorIN3smt12theory_arithINS0_6mi_extEE11bound_trailELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIN3smt12theory_arithINS0_6mi_extEE5scopeELb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %31, %if.end.i.i.i ], [ 0, %_ZNK6vectorIN3smt12theory_arithINS0_6mi_extEE5scopeELb0EjE4sizeEv.exit ]
-  %cmp.not24.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not24.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not24.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6vectorIN3smt12theory_arithINS0_6mi_extEE11bound_trailELb0EjE3endEv.exit.i
@@ -29915,7 +29915,7 @@ if.end.i.i.i33:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIjLb0EjE3endEv.exit.i35:                ; preds = %if.end.i.i.i33, %_ZN3smt12theory_arithINS_6mi_extEE14restore_boundsEj.exit
   %retval.0.i.i.i36 = phi i64 [ %48, %if.end.i.i.i33 ], [ 0, %_ZN3smt12theory_arithINS_6mi_extEE14restore_boundsEj.exit ]
-  %cmp.not5.i = icmp eq i64 %retval.0.i.i.i36, %idx.ext.i30
+  %cmp.not5.i = icmp samesign eq i64 %retval.0.i.i.i36, %idx.ext.i30
   br i1 %cmp.not5.i, label %while.end.i46, label %while.body.lr.ph.i37
 
 while.body.lr.ph.i37:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.i35
@@ -29985,7 +29985,7 @@ if.end.i.i.i56:                                   ; preds = %_ZN6vectorIPN3smt12
 
 _ZN6vectorIiLb0EjE3endEv.exit.i:                  ; preds = %if.end.i.i.i56, %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE6shrinkEj.exit
   %retval.0.i.i.i58 = phi i64 [ %59, %if.end.i.i.i56 ], [ 0, %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE6shrinkEj.exit ]
-  %cmp.not5.i59 = icmp eq i64 %retval.0.i.i.i58, %idx.ext.i53
+  %cmp.not5.i59 = icmp samesign eq i64 %retval.0.i.i.i58, %idx.ext.i53
   br i1 %cmp.not5.i59, label %while.end.i70, label %while.body.lr.ph.i60
 
 while.body.lr.ph.i60:                             ; preds = %_ZN6vectorIiLb0EjE3endEv.exit.i
@@ -30050,7 +30050,7 @@ if.end.i.i.i81:                                   ; preds = %_ZN6vectorIiLb0EjE6
 
 _ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i81, %_ZN6vectorIiLb0EjE6shrinkEj.exit
   %retval.0.i.i.i83 = phi i64 [ %68, %if.end.i.i.i81 ], [ 0, %_ZN6vectorIiLb0EjE6shrinkEj.exit ]
-  %cmp.not10.i = icmp eq i64 %retval.0.i.i.i83, %idx.ext.i78
+  %cmp.not10.i = icmp samesign eq i64 %retval.0.i.i.i83, %idx.ext.i78
   br i1 %cmp.not10.i, label %while.end.i93, label %_Z7deallocIN3smt12theory_arithINS0_6mi_extEE4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt12theory_arithINS0_6mi_extEE4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE3endEv.exit.i
@@ -30118,7 +30118,7 @@ if.end.i.i.i99:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i99, %_ZN3smt12theory_arithINS_6mi_extEE9del_atomsEj.exit
   %retval.0.i.i.i101 = phi i64 [ %81, %if.end.i.i.i99 ], [ 0, %_ZN3smt12theory_arithINS_6mi_extEE9del_atomsEj.exit ]
-  %cmp.not5.i102 = icmp eq i64 %retval.0.i.i.i101, %idx.ext.i96
+  %cmp.not5.i102 = icmp samesign eq i64 %retval.0.i.i.i101, %idx.ext.i96
   br i1 %cmp.not5.i102, label %while.end.i113, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE3endEv.exit.i
@@ -30347,7 +30347,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIN3smt12theory_arithINS0_6mi_extEE11bound_trailELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not24 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not24 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not24, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIN3smt12theory_arithINS0_6mi_extEE11bound_trailELb0EjE3endEv.exit
@@ -30454,7 +30454,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
@@ -30511,7 +30511,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not10 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not10 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not10, label %while.end, label %_Z7deallocIN3smt12theory_arithINS0_6mi_extEE4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt12theory_arithINS0_6mi_extEE4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE4atomELb0EjE3endEv.exit
@@ -30583,7 +30583,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_6mi_extEE5boundELb0EjE3endEv.exit
@@ -96431,7 +96431,7 @@ arrayctor.loop87:                                 ; preds = %invoke.cont90, %inv
 
 invoke.cont90:                                    ; preds = %arrayctor.loop87
   %arrayctor.cur88.add = add nuw nsw i64 %arrayctor.cur88.idx, 48
-  %arrayctor.done98 = icmp eq i64 %arrayctor.cur88.add, 1224
+  %arrayctor.done98 = icmp samesign eq i64 %arrayctor.cur88.add, 1224
   br i1 %arrayctor.done98, label %arrayctor.cont99, label %arrayctor.loop87
 
 arrayctor.cont99:                                 ; preds = %invoke.cont90
@@ -118189,7 +118189,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIiLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIiLb0EjE3endEv.exit
@@ -132495,7 +132495,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIN3smt12
 
 _ZN6vectorIN3smt12theory_arithINS0_5i_extEE11bound_trailELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIN3smt12theory_arithINS0_5i_extEE5scopeELb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %19, %if.end.i.i.i ], [ 0, %_ZNK6vectorIN3smt12theory_arithINS0_5i_extEE5scopeELb0EjE4sizeEv.exit ]
-  %cmp.not24.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not24.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not24.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6vectorIN3smt12theory_arithINS0_5i_extEE11bound_trailELb0EjE3endEv.exit.i
@@ -132598,7 +132598,7 @@ if.end.i.i.i22:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %if.end.i.i.i22, %_ZN3smt12theory_arithINS_5i_extEE14restore_boundsEj.exit
   %retval.0.i.i.i24 = phi i64 [ %36, %if.end.i.i.i22 ], [ 0, %_ZN3smt12theory_arithINS_5i_extEE14restore_boundsEj.exit ]
-  %cmp.not5.i = icmp eq i64 %retval.0.i.i.i24, %idx.ext.i19
+  %cmp.not5.i = icmp samesign eq i64 %retval.0.i.i.i24, %idx.ext.i19
   br i1 %cmp.not5.i, label %while.end.i33, label %while.body.lr.ph.i25
 
 while.body.lr.ph.i25:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.i
@@ -132668,7 +132668,7 @@ if.end.i.i.i43:                                   ; preds = %_ZN6vectorIPN3smt12
 
 _ZN6vectorIiLb0EjE3endEv.exit.i:                  ; preds = %if.end.i.i.i43, %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE6shrinkEj.exit
   %retval.0.i.i.i45 = phi i64 [ %47, %if.end.i.i.i43 ], [ 0, %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE6shrinkEj.exit ]
-  %cmp.not5.i46 = icmp eq i64 %retval.0.i.i.i45, %idx.ext.i40
+  %cmp.not5.i46 = icmp samesign eq i64 %retval.0.i.i.i45, %idx.ext.i40
   br i1 %cmp.not5.i46, label %while.end.i57, label %while.body.lr.ph.i47
 
 while.body.lr.ph.i47:                             ; preds = %_ZN6vectorIiLb0EjE3endEv.exit.i
@@ -132733,7 +132733,7 @@ if.end.i.i.i68:                                   ; preds = %_ZN6vectorIiLb0EjE6
 
 _ZN6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i68, %_ZN6vectorIiLb0EjE6shrinkEj.exit
   %retval.0.i.i.i70 = phi i64 [ %56, %if.end.i.i.i68 ], [ 0, %_ZN6vectorIiLb0EjE6shrinkEj.exit ]
-  %cmp.not10.i = icmp eq i64 %retval.0.i.i.i70, %idx.ext.i65
+  %cmp.not10.i = icmp samesign eq i64 %retval.0.i.i.i70, %idx.ext.i65
   br i1 %cmp.not10.i, label %while.end.i79, label %_Z7deallocIN3smt12theory_arithINS0_5i_extEE4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt12theory_arithINS0_5i_extEE4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE3endEv.exit.i
@@ -132801,7 +132801,7 @@ if.end.i.i.i85:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i85, %_ZN3smt12theory_arithINS_5i_extEE9del_atomsEj.exit
   %retval.0.i.i.i87 = phi i64 [ %69, %if.end.i.i.i85 ], [ 0, %_ZN3smt12theory_arithINS_5i_extEE9del_atomsEj.exit ]
-  %cmp.not5.i88 = icmp eq i64 %retval.0.i.i.i87, %idx.ext.i82
+  %cmp.not5.i88 = icmp samesign eq i64 %retval.0.i.i.i87, %idx.ext.i82
   br i1 %cmp.not5.i88, label %while.end.i99, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE3endEv.exit.i
@@ -133072,7 +133072,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIN3smt12theory_arithINS0_5i_extEE11bound_trailELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not24 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not24 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not24, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIN3smt12theory_arithINS0_5i_extEE11bound_trailELb0EjE3endEv.exit
@@ -133179,7 +133179,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
@@ -133236,7 +133236,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not10 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not10 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not10, label %while.end, label %_Z7deallocIN3smt12theory_arithINS0_5i_extEE4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt12theory_arithINS0_5i_extEE4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE4atomELb0EjE3endEv.exit
@@ -133308,7 +133308,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_5i_extEE5boundELb0EjE3endEv.exit
@@ -198387,7 +198387,7 @@ arrayctor.loop87:                                 ; preds = %invoke.cont90, %inv
 
 invoke.cont90:                                    ; preds = %arrayctor.loop87
   %arrayctor.cur88.add = add nuw nsw i64 %arrayctor.cur88.idx, 48
-  %arrayctor.done98 = icmp eq i64 %arrayctor.cur88.add, 1128
+  %arrayctor.done98 = icmp samesign eq i64 %arrayctor.cur88.add, 1128
   br i1 %arrayctor.done98, label %arrayctor.cont99, label %arrayctor.loop87
 
 arrayctor.cont99:                                 ; preds = %invoke.cont90
@@ -219076,7 +219076,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIiLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIiLb0EjE3endEv.exit
@@ -233223,7 +233223,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIN3smt12
 
 _ZN6vectorIN3smt12theory_arithINS0_7inf_extEE11bound_trailELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIN3smt12theory_arithINS0_7inf_extEE5scopeELb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %19, %if.end.i.i.i ], [ 0, %_ZNK6vectorIN3smt12theory_arithINS0_7inf_extEE5scopeELb0EjE4sizeEv.exit ]
-  %cmp.not24.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not24.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not24.i, label %while.end.i, label %while.body.lr.ph.i
 
 while.body.lr.ph.i:                               ; preds = %_ZN6vectorIN3smt12theory_arithINS0_7inf_extEE11bound_trailELb0EjE3endEv.exit.i
@@ -233326,7 +233326,7 @@ if.end.i.i.i22:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIjLb0EjE3endEv.exit.i:                  ; preds = %if.end.i.i.i22, %_ZN3smt12theory_arithINS_7inf_extEE14restore_boundsEj.exit
   %retval.0.i.i.i24 = phi i64 [ %36, %if.end.i.i.i22 ], [ 0, %_ZN3smt12theory_arithINS_7inf_extEE14restore_boundsEj.exit ]
-  %cmp.not5.i = icmp eq i64 %retval.0.i.i.i24, %idx.ext.i19
+  %cmp.not5.i = icmp samesign eq i64 %retval.0.i.i.i24, %idx.ext.i19
   br i1 %cmp.not5.i, label %while.end.i33, label %while.body.lr.ph.i25
 
 while.body.lr.ph.i25:                             ; preds = %_ZN6vectorIjLb0EjE3endEv.exit.i
@@ -233396,7 +233396,7 @@ if.end.i.i.i43:                                   ; preds = %_ZN6vectorIPN3smt12
 
 _ZN6vectorIiLb0EjE3endEv.exit.i:                  ; preds = %if.end.i.i.i43, %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE6shrinkEj.exit
   %retval.0.i.i.i45 = phi i64 [ %47, %if.end.i.i.i43 ], [ 0, %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE6shrinkEj.exit ]
-  %cmp.not5.i46 = icmp eq i64 %retval.0.i.i.i45, %idx.ext.i40
+  %cmp.not5.i46 = icmp samesign eq i64 %retval.0.i.i.i45, %idx.ext.i40
   br i1 %cmp.not5.i46, label %while.end.i57, label %while.body.lr.ph.i47
 
 while.body.lr.ph.i47:                             ; preds = %_ZN6vectorIiLb0EjE3endEv.exit.i
@@ -233461,7 +233461,7 @@ if.end.i.i.i68:                                   ; preds = %_ZN6vectorIiLb0EjE6
 
 _ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i68, %_ZN6vectorIiLb0EjE6shrinkEj.exit
   %retval.0.i.i.i70 = phi i64 [ %56, %if.end.i.i.i68 ], [ 0, %_ZN6vectorIiLb0EjE6shrinkEj.exit ]
-  %cmp.not10.i = icmp eq i64 %retval.0.i.i.i70, %idx.ext.i65
+  %cmp.not10.i = icmp samesign eq i64 %retval.0.i.i.i70, %idx.ext.i65
   br i1 %cmp.not10.i, label %while.end.i79, label %_Z7deallocIN3smt12theory_arithINS0_7inf_extEE4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt12theory_arithINS0_7inf_extEE4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE3endEv.exit.i
@@ -233529,7 +233529,7 @@ if.end.i.i.i85:                                   ; preds = %_ZN3smt12theory_ari
 
 _ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i85, %_ZN3smt12theory_arithINS_7inf_extEE9del_atomsEj.exit
   %retval.0.i.i.i87 = phi i64 [ %69, %if.end.i.i.i85 ], [ 0, %_ZN3smt12theory_arithINS_7inf_extEE9del_atomsEj.exit ]
-  %cmp.not5.i88 = icmp eq i64 %retval.0.i.i.i87, %idx.ext.i82
+  %cmp.not5.i88 = icmp samesign eq i64 %retval.0.i.i.i87, %idx.ext.i82
   br i1 %cmp.not5.i88, label %while.end.i99, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE3endEv.exit.i
@@ -233803,7 +233803,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIN3smt12theory_arithINS0_7inf_extEE11bound_trailELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not24 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not24 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not24, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIN3smt12theory_arithINS0_7inf_extEE11bound_trailELb0EjE3endEv.exit
@@ -233910,7 +233910,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIjLb0EjE3endEv.exit:                    ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIjLb0EjE3endEv.exit
@@ -233967,7 +233967,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not10 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not10 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not10, label %while.end, label %_Z7deallocIN3smt12theory_arithINS0_7inf_extEE4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt12theory_arithINS0_7inf_extEE4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE4atomELb0EjE3endEv.exit
@@ -234039,7 +234039,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %while.end, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %_ZN6vectorIPN3smt12theory_arithINS0_7inf_extEE5boundELb0EjE3endEv.exit
@@ -297978,7 +297978,7 @@ arrayctor.loop87:                                 ; preds = %invoke.cont90, %inv
 
 invoke.cont90:                                    ; preds = %arrayctor.loop87
   %arrayctor.cur88.add = add nuw nsw i64 %arrayctor.cur88.idx, 48
-  %arrayctor.done98 = icmp eq i64 %arrayctor.cur88.add, 1320
+  %arrayctor.done98 = icmp samesign eq i64 %arrayctor.cur88.add, 1320
   br i1 %arrayctor.done98, label %arrayctor.cont99, label %arrayctor.loop87
 
 arrayctor.cont99:                                 ; preds = %invoke.cont90

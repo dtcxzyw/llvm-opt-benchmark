@@ -28633,7 +28633,7 @@ terminate.lpad.i389:                              ; preds = %if.then2.i.i.i388
 lpad181:                                          ; preds = %arrayctor.loop
   %243 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup589, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad181, %arraydestroy.body

@@ -580,7 +580,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -604,7 +604,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
-  %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
+  %arrayctor.done20 = icmp samesign eq i64 %arrayctor.cur10.add, 2680
   br i1 %arrayctor.done20, label %invoke.cont27, label %invoke.cont12
 
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
@@ -614,7 +614,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
-  %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
+  %arrayctor.done35 = icmp samesign eq i64 %arrayctor.cur25.add, 2872
   br i1 %arrayctor.done35, label %arrayinit.body.preheader, label %invoke.cont27
 
 arrayinit.body.preheader:                         ; preds = %invoke.cont27
@@ -1329,7 +1329,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1353,7 +1353,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
-  %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
+  %arrayctor.done20 = icmp samesign eq i64 %arrayctor.cur10.add, 2680
   br i1 %arrayctor.done20, label %invoke.cont27, label %invoke.cont12
 
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
@@ -1363,7 +1363,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
-  %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
+  %arrayctor.done35 = icmp samesign eq i64 %arrayctor.cur25.add, 2872
   br i1 %arrayctor.done35, label %arrayinit.body.preheader, label %invoke.cont27
 
 arrayinit.body.preheader:                         ; preds = %invoke.cont27
@@ -1438,7 +1438,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1462,7 +1462,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
-  %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
+  %arrayctor.done20 = icmp samesign eq i64 %arrayctor.cur10.add, 2680
   br i1 %arrayctor.done20, label %invoke.cont27, label %invoke.cont12
 
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
@@ -1472,7 +1472,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
-  %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
+  %arrayctor.done35 = icmp samesign eq i64 %arrayctor.cur25.add, 2872
   br i1 %arrayctor.done35, label %arrayinit.body.preheader, label %invoke.cont27
 
 arrayinit.body.preheader:                         ; preds = %invoke.cont27
@@ -1545,7 +1545,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -1573,7 +1573,7 @@ invoke.cont13:                                    ; preds = %invoke.cont7, %invo
   %fUnion2.i7 = getelementptr inbounds nuw i8, ptr %arrayctor.cur11.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i7, align 8
   %arrayctor.cur11.add = add nuw nsw i64 %arrayctor.cur11.idx, 64
-  %arrayctor.done21 = icmp eq i64 %arrayctor.cur11.add, 2680
+  %arrayctor.done21 = icmp samesign eq i64 %arrayctor.cur11.add, 2680
   br i1 %arrayctor.done21, label %invoke.cont28, label %invoke.cont13
 
 invoke.cont28:                                    ; preds = %invoke.cont13, %invoke.cont28
@@ -1583,7 +1583,7 @@ invoke.cont28:                                    ; preds = %invoke.cont13, %inv
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur26.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur26.add = add nuw nsw i64 %arrayctor.cur26.idx, 64
-  %arrayctor.done36 = icmp eq i64 %arrayctor.cur26.add, 2872
+  %arrayctor.done36 = icmp samesign eq i64 %arrayctor.cur26.add, 2872
   br i1 %arrayctor.done36, label %arrayinit.body.preheader, label %invoke.cont28
 
 arrayinit.body.preheader:                         ; preds = %invoke.cont28
@@ -2159,7 +2159,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1864
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1864
   br i1 %arrayctor.done, label %invoke.cont4, label %invoke.cont
 
 invoke.cont4:                                     ; preds = %invoke.cont
@@ -2183,7 +2183,7 @@ invoke.cont12:                                    ; preds = %invoke.cont6, %invo
   %fUnion2.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur10.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i8, align 8
   %arrayctor.cur10.add = add nuw nsw i64 %arrayctor.cur10.idx, 64
-  %arrayctor.done20 = icmp eq i64 %arrayctor.cur10.add, 2680
+  %arrayctor.done20 = icmp samesign eq i64 %arrayctor.cur10.add, 2680
   br i1 %arrayctor.done20, label %invoke.cont27, label %invoke.cont12
 
 invoke.cont27:                                    ; preds = %invoke.cont12, %invoke.cont27
@@ -2193,7 +2193,7 @@ invoke.cont27:                                    ; preds = %invoke.cont12, %inv
   %fUnion2.i9 = getelementptr inbounds nuw i8, ptr %arrayctor.cur25.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i9, align 8
   %arrayctor.cur25.add = add nuw nsw i64 %arrayctor.cur25.idx, 64
-  %arrayctor.done35 = icmp eq i64 %arrayctor.cur25.add, 2872
+  %arrayctor.done35 = icmp samesign eq i64 %arrayctor.cur25.add, 2872
   br i1 %arrayctor.done35, label %arrayinit.body.preheader, label %invoke.cont27
 
 arrayinit.body.preheader:                         ; preds = %invoke.cont27

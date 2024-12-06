@@ -12134,7 +12134,7 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit: ; preds = %_ZN5clang17D
   br i1 %or.cond, label %.loopexit, label %154
 
 154:                                              ; preds = %_ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit
-  %155 = icmp ne i64 %.4.idx, 1
+  %155 = icmp samesign ne i64 %.4.idx, 1
   %156 = icmp ne i8 %.0.i, 47
   %or.cond8 = and i1 %155, %156
   br i1 %or.cond8, label %157, label %_ZN5clang17DiagnosticBuilderD2Ev.exit98
@@ -12148,12 +12148,12 @@ _ZN5clang5Lexer17getAndAdvanceCharERPKcRNS_5TokenE.exit: ; preds = %_ZN5clang17D
 161:                                              ; preds = %157
   %162 = load i8, ptr %.4.ptr, align 1
   %.not75 = icmp eq i8 %162, 47
-  %.not76162 = icmp eq i64 %.4.idx, 0
+  %.not76162 = icmp samesign eq i64 %.4.idx, 0
   %or.cond164 = select i1 %.not75, i1 true, i1 %.not76162
   br i1 %or.cond164, label %_ZN5clang17DiagnosticBuilderD2Ev.exit98, label %.lr.ph.preheader
 
 163:                                              ; preds = %157
-  %.not76162.old = icmp eq i64 %.4.idx, 0
+  %.not76162.old = icmp samesign eq i64 %.4.idx, 0
   br i1 %.not76162.old, label %_ZN5clang17DiagnosticBuilderD2Ev.exit98, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %163, %161

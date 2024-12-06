@@ -6954,7 +6954,7 @@ if.then14:                                        ; preds = %while.body
 if.end16:                                         ; preds = %while.body
   %8 = load i8, ptr %p.0.ptr, align 1
   %cmp17 = icmp eq i8 %8, 10
-  %cmp20 = icmp ne i64 %p.0.idx, 0
+  %cmp20 = icmp samesign ne i64 %p.0.idx, 0
   %or.cond = and i1 %cmp20, %cmp17
   br i1 %or.cond, label %while.end, label %if.end23
 
@@ -7018,7 +7018,7 @@ if.then59:                                        ; preds = %while.body55
 if.end61:                                         ; preds = %while.body55
   %16 = load i8, ptr %p.3.ptr, align 1
   %cmp63 = icmp eq i8 %16, 10
-  %cmp67 = icmp ne i64 %p.3.idx, 0
+  %cmp67 = icmp samesign ne i64 %p.3.idx, 0
   %or.cond1 = and i1 %cmp67, %cmp63
   br i1 %or.cond1, label %while.end84, label %if.end70
 

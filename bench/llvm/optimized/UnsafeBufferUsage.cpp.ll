@@ -105658,7 +105658,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK25VariableGroupsManagerImpl13getGro
 _ZNK4llvm9SetVectorIPKN5clang7VarDeclENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE8containsERKS4_.exit: ; preds = %23, %10
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %17, %10 ], [ %26, %23 ]
   %30 = zext i32 %8 to i64
-  %.not12 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %30
+  %.not12 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %30
   br i1 %.not12, label %_ZNK4llvm9SetVectorIPKN5clang7VarDeclENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE8containsERKS4_.exit.thread, label %31
 
 31:                                               ; preds = %_ZNK4llvm9SetVectorIPKN5clang7VarDeclENS_11SmallVectorIS4_Lj0EEENS_8DenseSetIS4_NS_12DenseMapInfoIS4_vEEEELj0EE8containsERKS4_.exit

@@ -2190,7 +2190,7 @@ default.unreachable244:                           ; preds = %35
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5f7116524aecd0faE.exit.i": ; preds = %48
   %52 = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %46
-  %53 = icmp eq i64 %46, %44
+  %53 = icmp samesign eq i64 %46, %44
   br i1 %53, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h8a683f6bf31b8393E.exit28.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h234b4d1bbee512b7E.exit.lr.ph.i"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h234b4d1bbee512b7E.exit.lr.ph.i": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h5f7116524aecd0faE.exit.i"
@@ -3712,7 +3712,7 @@ switch.lookup:                                    ; preds = %4
 
 50:                                               ; preds = %43
   %51 = getelementptr inbounds nuw i32, ptr %18, i64 %44
-  %52 = icmp eq i64 %45, %44
+  %52 = icmp samesign eq i64 %45, %44
   br i1 %52, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1998cf7938c85e67E.llvm.331090089658796353.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1998cf7938c85e67E.llvm.331090089658796353.exit.lr.ph"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1998cf7938c85e67E.llvm.331090089658796353.exit.lr.ph": ; preds = %50

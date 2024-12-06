@@ -37459,7 +37459,7 @@ _ZN4llvm8dyn_castINS_12GlobalObjectENS_5ValueEEEDcPT0_.exit: ; preds = %_ZNK4llv
 _ZNK4llvm6detail12DenseSetImplIPNS_12GlobalObjectENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %89, %76
   %.lcssa.i.i.i.pn.i = phi i64 [ %83, %76 ], [ %92, %89 ]
   %96 = zext i32 %74 to i64
-  %.not28 = icmp eq i64 %.lcssa.i.i.i.pn.i, %96
+  %.not28 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %96
   br i1 %.not28, label %_ZNK4llvm6Triple14supportsCOMDATEv.exit, label %97
 
 97:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIPNS_12GlobalObjectENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit

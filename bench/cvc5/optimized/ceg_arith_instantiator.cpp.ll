@@ -359,7 +359,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i.i34, 
   %17 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %17, ptr %arrayctor.cur.ptr.ptr, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 8
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 72
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 72
   br i1 %arrayctor.done, label %arrayctor.loop11.preheader, label %arrayctor.loop
 
 arrayctor.loop11.preheader:                       ; preds = %invoke.cont7
@@ -3108,7 +3108,7 @@ lpad.i.i:                                         ; preds = %init.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #21
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup950, label %arraydestroy.body
 
 invoke.cont70:                                    ; preds = %invoke.cont.i.i, %init.check.i.i, %arrayctor.loop
@@ -11554,7 +11554,7 @@ lpad.i.i:                                         ; preds = %init.i.i
   %85 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #21
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur150.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur150.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup1493, label %arraydestroy.body
 
 invoke.cont152:                                   ; preds = %invoke.cont.i.i, %init.check.i.i, %arrayctor.loop149
@@ -11622,7 +11622,7 @@ lpad.i.i780:                                      ; preds = %init.i.i778
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #21
-  %arraydestroy.isempty172 = icmp eq i64 %arrayctor.cur168.idx, 0
+  %arraydestroy.isempty172 = icmp samesign eq i64 %arrayctor.cur168.idx, 0
   br i1 %arraydestroy.isempty172, label %ehcleanup879, label %arraydestroy.body173
 
 invoke.cont170:                                   ; preds = %invoke.cont.i.i781, %init.check.i.i776, %arrayctor.loop167
@@ -15414,7 +15414,7 @@ lpad.i.i3384:                                     ; preds = %init.i.i3382
   %512 = landingpad { ptr, i32 }
           cleanup
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #21
-  %arraydestroy.isempty998 = icmp eq i64 %arrayctor.cur994.idx, 0
+  %arraydestroy.isempty998 = icmp samesign eq i64 %arrayctor.cur994.idx, 0
   br i1 %arraydestroy.isempty998, label %ehcleanup1493, label %arraydestroy.body999
 
 invoke.cont996:                                   ; preds = %invoke.cont.i.i3385, %init.check.i.i3380, %arrayctor.loop993

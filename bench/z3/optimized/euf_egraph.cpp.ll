@@ -5288,7 +5288,7 @@ if.end.i.i.i:                                     ; preds = %entry
 _ZNK3euf5enode11end_parentsEv.exit:               ; preds = %entry, %if.end.i.i.i
   %retval.0.i.i.i = phi i64 [ %7, %if.end.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %retval.0.i.i.i
-  %cmp.not44 = icmp eq i64 %retval.0.i.i.i, %idx.ext
+  %cmp.not44 = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext
   br i1 %cmp.not44, label %for.body11.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZNK3euf5enode11end_parentsEv.exit

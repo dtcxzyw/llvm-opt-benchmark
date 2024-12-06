@@ -90266,7 +90266,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN4llvm12SelectionDAG13copyExtraIn
 _ZNK4llvm6detail12DenseSetImplIPKNS_6SDNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit: ; preds = %25, %12
   %.lcssa.i.i.i.pn.i = phi i64 [ %19, %12 ], [ %28, %25 ]
   %32 = zext i32 %10 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.i.pn.i, %32
+  %.not = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %32
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplIPKNS_6SDNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit.thread, label %.loopexit
 
 _ZNK4llvm6detail12DenseSetImplIPKNS_6SDNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %3, %_ZNK4llvm6detail12DenseSetImplIPKNS_6SDNodeENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit

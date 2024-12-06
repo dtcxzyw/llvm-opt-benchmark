@@ -1647,7 +1647,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i": ; preds = %462
   %468 = and i8 %466, 31
   %469 = zext nneg i8 %468 to i32
-  %470 = icmp ne i64 %.sroa.4.0.i67.i.i, 1
+  %470 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 1
   call void @llvm.assume(i1 %470)
   %471 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 2
   %472 = load i8, ptr %465, align 1, !noalias !186, !noundef !4
@@ -1663,7 +1663,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br label %500
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit12.i.i.i.i"
-  %480 = icmp ne i64 %.sroa.4.0.i67.i.i, 2
+  %480 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 2
   call void @llvm.assume(i1 %480)
   %481 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 3
   %482 = load i8, ptr %471, align 1, !noalias !186, !noundef !4
@@ -1677,7 +1677,7 @@ define hidden void @"_ZN120_$LT$html5ever..tree_builder..TreeBuilder$LT$Handle$C
   br i1 %489, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i", label %500
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit16.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5cf8f59e5b395926E.exit14.i.i.i.i"
-  %490 = icmp ne i64 %.sroa.4.0.i67.i.i, 3
+  %490 = icmp samesign ne i64 %.sroa.4.0.i67.i.i, 3
   call void @llvm.assume(i1 %490)
   %491 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i68.i.i, i64 4
   %492 = load i8, ptr %481, align 1, !noalias !186, !noundef !4

@@ -6131,7 +6131,7 @@ _ZN4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit67: ; preds
 _ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %99, %86
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %93, %86 ], [ %102, %99 ]
   %106 = zext i32 %84 to i64
-  %.not73 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %106
+  %.not73 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %106
   br i1 %.not73, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_15MachineFunctionEEEE19isCommonDomFrontierEPNS_17MachineBasicBlockES6_S6_.exit, label %107
 
 107:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

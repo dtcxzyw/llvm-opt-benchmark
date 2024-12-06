@@ -1220,7 +1220,7 @@ _ZN4llvm20GISelObserverWrapperD2Ev.exit84:        ; preds = %274, %_ZN4llvm11Sma
 _ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %300, %287
   %.lcssa.i.i.i.pn.i = phi i64 [ %294, %287 ], [ %303, %300 ]
   %307 = zext i32 %285 to i64
-  %.not158 = icmp eq i64 %.lcssa.i.i.i.pn.i, %307
+  %.not158 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %307
   br i1 %.not158, label %_ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %320
 
 _ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i85, %283, %_ZNK4llvm6detail12DenseSetImplIPNS_17MachineBasicBlockENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit

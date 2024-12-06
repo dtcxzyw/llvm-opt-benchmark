@@ -369,7 +369,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %.idx = shl nuw nsw i64 %.sroa.25.0.extract.shift.i, 3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %8, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %8, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %2
@@ -629,7 +629,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   store i32 %2, ptr %.sroa.249.0..ptr8.i.sroa_idx.i, align 4
   %.sroa.350.0..ptr8.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %3, ptr %.sroa.350.0..ptr8.i.sroa_idx.i, align 8
-  %.not18.i.i.i = icmp eq i64 %12, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %12, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_S6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %4, %.loopexit.i.i.i
@@ -5554,7 +5554,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit163: ; preds = %772
   %784 = and i64 %782, 4294967295
   %785 = getelementptr inbounds nuw ptr, ptr %783, i64 %784
   %786 = getelementptr inbounds nuw ptr, ptr %783, i64 %.sroa.25.0.extract.shift.i
-  %.not18.i.i.i = icmp eq i64 %784, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %784, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i164
 
 .lr.ph.i.i.i164:                                  ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit163, %.loopexit.i.i.i
@@ -5627,7 +5627,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit: ; preds = %.preheader.pre
   %803 = and i64 %801, 4294967295
   %804 = getelementptr inbounds nuw ptr, ptr %802, i64 %803
   %805 = getelementptr inbounds nuw ptr, ptr %802, i64 %.sroa.25.0.extract.shift.i169
-  %.not18.i.i.i170 = icmp eq i64 %803, %.sroa.25.0.extract.shift.i169
+  %.not18.i.i.i170 = icmp samesign eq i64 %803, %.sroa.25.0.extract.shift.i169
   br i1 %.not18.i.i.i170, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit182, label %.lr.ph.i.i.i172
 
 .lr.ph.i.i.i172:                                  ; preds = %._crit_edge, %.loopexit.i.i.i175
@@ -5700,7 +5700,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit200: ; preds = %.preheader.
   %822 = and i64 %820, 4294967295
   %823 = getelementptr inbounds nuw ptr, ptr %821, i64 %822
   %824 = getelementptr inbounds nuw ptr, ptr %821, i64 %.sroa.25.0.extract.shift.i201
-  %.not18.i.i.i202 = icmp eq i64 %822, %.sroa.25.0.extract.shift.i201
+  %.not18.i.i.i202 = icmp samesign eq i64 %822, %.sroa.25.0.extract.shift.i201
   br i1 %.not18.i.i.i202, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit214, label %.lr.ph.i.i.i204
 
 .lr.ph.i.i.i204:                                  ; preds = %._crit_edge428, %.loopexit.i.i.i207
@@ -6198,7 +6198,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   store i32 %1, ptr %.ptr8.i.i, align 8
   %.sroa.242.0..ptr8.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 20
   store i32 %2, ptr %.sroa.242.0..ptr8.i.sroa_idx.i, align 4
-  %.not18.i.i.i = icmp eq i64 %10, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %10, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %3, %.loopexit.i.i.i
@@ -6410,7 +6410,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   store i32 %4, ptr %.sroa.464.0..ptr8.i.sroa_idx.i, align 4
   %.sroa.565.0..ptr8.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
   store i32 %5, ptr %.sroa.565.0..ptr8.i.sroa_idx.i, align 8
-  %.not18.i.i.i = icmp eq i64 %16, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %16, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDES6_S6_S6_S6_EEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %6, %.loopexit.i.i.i

@@ -8020,7 +8020,7 @@ invoke.cont22.i.i.i.i.i:                          ; preds = %invoke.cont20.i.i.i
 lpad.i.i.i.i.i:                                   ; preds = %arrayctor.loop.i.i.i.i.i
   %11 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty.i.i.i.i.i = icmp eq i64 %arrayctor.cur.idx.i.i.i.i.i, 0
+  %arraydestroy.isempty.i.i.i.i.i = icmp samesign eq i64 %arrayctor.cur.idx.i.i.i.i.i, 0
   br i1 %arraydestroy.isempty.i.i.i.i.i, label %eh.resume.i.i.i.i.i, label %arraydestroy.body.i.i.i.i.i
 
 arraydestroy.body.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i, %arraydestroy.body.i.i.i.i.i

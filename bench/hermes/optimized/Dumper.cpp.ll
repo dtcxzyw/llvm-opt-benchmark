@@ -2527,7 +2527,7 @@ if.end.i.i306:                                    ; preds = %if.end9.i.i.i.i, %f
 _ZN4llvh6detail12DenseSetImplIPN6hermes11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E4findEPKS3_.exit: ; preds = %if.end13.i.i.i.i, %if.end.i.i306
   %idx.ext.i.i.i.i.lcssa.sink = phi i64 [ %idx.ext.i.i3.i.i, %if.end.i.i306 ], [ %idx.ext.i.i.i.i, %if.end13.i.i.i.i ]
   %idx.ext.i.i.i307 = zext i32 %100 to i64
-  %cmp.i.i.i309.not = icmp eq i64 %idx.ext.i.i.i.i.lcssa.sink, %idx.ext.i.i.i307
+  %cmp.i.i.i309.not = icmp samesign eq i64 %idx.ext.i.i.i.i.lcssa.sink, %idx.ext.i.i.i307
   br i1 %cmp.i.i.i309.not, label %if.end101, label %for.inc107
 
 _ZN4llvh6detail12DenseSetImplIPN6hermes11InstructionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_EENS0_12DenseSetPairIS4_EEEES8_E4findEPKS3_.exit.thread: ; preds = %if.end.i.i.i.i

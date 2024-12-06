@@ -3215,7 +3215,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i:          ; preds = %if.end.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %retval.0.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %cmp.not6.i.i = icmp eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
+  %cmp.not6.i.i = icmp samesign eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
   br i1 %cmp.not6.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i
@@ -3301,7 +3301,7 @@ if.end.i.i12:                                     ; preds = %_ZNK3smt6theory16ge
 _ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit: ; preds = %_ZNK3smt6theory16get_old_num_varsEj.exit, %if.end.i.i12
   %retval.0.i.i14 = phi i64 [ %15, %if.end.i.i12 ], [ 0, %_ZNK3smt6theory16get_old_num_varsEj.exit ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %retval.0.i.i14
-  %cmp.not3.i = icmp eq i64 %retval.0.i.i14, %idx.ext
+  %cmp.not3.i = icmp samesign eq i64 %retval.0.i.i14, %idx.ext
   br i1 %cmp.not3.i, label %_ZSt8for_eachIPPN3smt12theory_array8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6vectorIPN3smt12theory_array8var_dataELb0EjE3endEv.exit, %_ZN11delete_procIN3smt12theory_array8var_dataEEclEPS2_.exit.i
@@ -3636,7 +3636,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i:        ; preds = %if.end.i.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ]
-  %cmp.not6.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
+  %cmp.not6.i.i.i = icmp samesign eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
   br i1 %cmp.not6.i.i.i, label %while.end.i.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i

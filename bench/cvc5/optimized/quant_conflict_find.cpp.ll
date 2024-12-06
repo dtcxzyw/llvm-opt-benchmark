@@ -11574,7 +11574,7 @@ lpad.i.i547:                                      ; preds = %init.i.i545
   %80 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null) #29
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %common.resume, label %arraydestroy.body
 
 invoke.cont237:                                   ; preds = %invoke.cont.i.i548, %init.check.i.i543, %arrayctor.loop

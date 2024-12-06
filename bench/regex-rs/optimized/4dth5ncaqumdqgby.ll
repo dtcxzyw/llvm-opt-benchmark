@@ -1647,7 +1647,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 61:                                               ; preds = %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5850a6414333fbc6E.exit"
   %62 = load i32, ptr %21, align 8, !noundef !5
   %63 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %64 = icmp eq i64 %.val1.i, 0
+  %64 = icmp samesign eq i64 %.val1.i, 0
   br i1 %64, label %._crit_edge, label %.lr.ph
 
 65:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5850a6414333fbc6E.exit"
@@ -2058,7 +2058,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 60:                                               ; preds = %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5850a6414333fbc6E.exit"
   %61 = load i32, ptr %21, align 8, !noundef !5
   %62 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %63 = icmp eq i64 %.val1.i, 0
+  %63 = icmp samesign eq i64 %.val1.i, 0
   br i1 %63, label %._crit_edge, label %.lr.ph
 
 64:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5850a6414333fbc6E.exit"
@@ -2471,7 +2471,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
   %65 = getelementptr inbounds nuw i8, ptr %38, i64 %39
   %66 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %66)
-  %67 = icmp eq i64 %39, 0
+  %67 = icmp samesign eq i64 %39, 0
   br i1 %67, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6876ebd625298856E.exit.thread", label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6876ebd625298856E.exit"
 
 68:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h5850a6414333fbc6E.exit"

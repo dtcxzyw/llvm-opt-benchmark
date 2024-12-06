@@ -12980,7 +12980,7 @@ define dso_local void @LLVMGetHandlers(ptr nocapture noundef readonly %0, ptr no
   %10 = shl i32 %9, 5
   %.idx = zext i32 %10 to i64
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not16 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not16 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not16, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2

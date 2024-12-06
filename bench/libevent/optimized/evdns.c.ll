@@ -8132,7 +8132,7 @@ if.end9.i:                                        ; preds = %do.body5.i
   br i1 %or.cond.i, label %for.cond.outer.i, label %if.then298
 
 if.end37.i:                                       ; preds = %if.end2.i
-  %cmp38.not.i = icmp eq i64 %cp.049.i.idx, 0
+  %cmp38.not.i = icmp samesign eq i64 %cp.049.i.idx, 0
   br i1 %cmp38.not.i, label %if.end46.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end37.i
@@ -8149,7 +8149,7 @@ if.end46.i:                                       ; preds = %if.end45.i, %if.end
   %cp.1.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.1.i.idx
   %idx.ext48.i = zext nneg i8 %1 to i64
   %cp.1.i.add = add nuw nsw i64 %cp.1.i.idx, %idx.ext48.i
-  %cmp50.not.i = icmp slt i64 %cp.1.i.add, 256
+  %cmp50.not.i = icmp samesign ult i64 %cp.1.i.add, 256
   br i1 %cmp50.not.i, label %if.end53.i, label %if.then298
 
 if.end53.i:                                       ; preds = %if.end46.i
@@ -8165,7 +8165,7 @@ if.end59.i:                                       ; preds = %if.end53.i
   br i1 %cmp.not.i, label %if.end.i, label %if.then298
 
 for.end.i:                                        ; preds = %if.end.i
-  %cmp68.not.i = icmp slt i64 %cp.049.i.idx, 256
+  %cmp68.not.i = icmp samesign ult i64 %cp.049.i.idx, 256
   br i1 %cmp68.not.i, label %do.body102, label %if.then298
 
 do.body102:                                       ; preds = %for.end.i
@@ -9781,7 +9781,7 @@ if.end9.i:                                        ; preds = %do.body5.i
   br i1 %or.cond.i, label %for.cond.outer.i, label %err
 
 if.end37.i:                                       ; preds = %if.end2.i
-  %cmp38.not.i = icmp eq i64 %cp.049.i.idx, 0
+  %cmp38.not.i = icmp samesign eq i64 %cp.049.i.idx, 0
   br i1 %cmp38.not.i, label %if.end46.i, label %if.then40.i
 
 if.then40.i:                                      ; preds = %if.end37.i
@@ -9798,7 +9798,7 @@ if.end46.i:                                       ; preds = %if.end45.i, %if.end
   %cp.1.i.ptr = getelementptr inbounds nuw i8, ptr %tmp_name, i64 %cp.1.i.idx
   %idx.ext48.i = zext nneg i8 %6 to i64
   %cp.1.i.add = add nuw nsw i64 %cp.1.i.idx, %idx.ext48.i
-  %cmp50.not.i = icmp slt i64 %cp.1.i.add, 256
+  %cmp50.not.i = icmp samesign ult i64 %cp.1.i.add, 256
   br i1 %cmp50.not.i, label %if.end53.i, label %err
 
 if.end53.i:                                       ; preds = %if.end46.i
@@ -9814,7 +9814,7 @@ if.end59.i:                                       ; preds = %if.end53.i
   br i1 %cmp.not.i, label %if.end.i, label %err
 
 for.end.i:                                        ; preds = %if.end.i
-  %cmp68.not.i = icmp slt i64 %cp.049.i.idx, 256
+  %cmp68.not.i = icmp samesign ult i64 %cp.049.i.idx, 256
   br i1 %cmp68.not.i, label %if.end87, label %err
 
 if.end87:                                         ; preds = %for.end.i
@@ -9867,7 +9867,7 @@ if.end9.i189:                                     ; preds = %do.body5.i187
   br i1 %or.cond.i202, label %for.cond.outer.i170, label %err
 
 if.end37.i203:                                    ; preds = %if.end2.i184
-  %cmp38.not.i204 = icmp eq i64 %cp.049.i179.idx, 0
+  %cmp38.not.i204 = icmp samesign eq i64 %cp.049.i179.idx, 0
   br i1 %cmp38.not.i204, label %if.end46.i209, label %if.then40.i205
 
 if.then40.i205:                                   ; preds = %if.end37.i203
@@ -9884,7 +9884,7 @@ if.end46.i209:                                    ; preds = %if.end45.i208, %if.
   %cp.1.i210.ptr = getelementptr inbounds nuw i8, ptr %cmp_name, i64 %cp.1.i210.idx
   %idx.ext48.i211 = zext nneg i8 %10 to i64
   %cp.1.i210.add = add nuw nsw i64 %cp.1.i210.idx, %idx.ext48.i211
-  %cmp50.not.i213 = icmp slt i64 %cp.1.i210.add, 256
+  %cmp50.not.i213 = icmp samesign ult i64 %cp.1.i210.add, 256
   br i1 %cmp50.not.i213, label %if.end53.i214, label %err
 
 if.end53.i214:                                    ; preds = %if.end46.i209
@@ -9900,7 +9900,7 @@ if.end59.i217:                                    ; preds = %if.end53.i214
   br i1 %cmp.not.i220, label %if.end.i177, label %err
 
 for.end.i221:                                     ; preds = %if.end.i177
-  %cmp68.not.i222 = icmp slt i64 %cp.049.i179.idx, 256
+  %cmp68.not.i222 = icmp samesign ult i64 %cp.049.i179.idx, 256
   br i1 %cmp68.not.i222, label %if.end93, label %err
 
 if.end93:                                         ; preds = %for.end.i221

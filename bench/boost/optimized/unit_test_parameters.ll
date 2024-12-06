@@ -2072,7 +2072,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %57 = load ptr, ptr %42, align 8, !tbaa !23
   %58 = load i64, ptr %44, align 8, !tbaa !19
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
-  %.not5.i.i = icmp eq i64 %58, 0
+  %.not5.i.i = icmp samesign eq i64 %58, 0
   br i1 %.not5.i.i, label %.loopexit5.i, label %.lr.ph.i.i
 
 60:                                               ; preds = %.lr.ph.i.i
@@ -2150,7 +2150,7 @@ _ZN5boost3nfp10opt_assignINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS
   %80 = load ptr, ptr %45, align 8, !tbaa !23
   %81 = load i64, ptr %47, align 8, !tbaa !19
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 %81
-  %.not5.i26.i = icmp eq i64 %81, 0
+  %.not5.i26.i = icmp samesign eq i64 %81, 0
   br i1 %.not5.i26.i, label %.loopexit.i, label %.lr.ph.i27.i
 
 83:                                               ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i27.i
@@ -26328,7 +26328,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %93 = load ptr, ptr %0, align 8, !tbaa !23
   %94 = load i64, ptr %41, align 8, !tbaa !19
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
-  %.not5.i = icmp eq i64 %94, 0
+  %.not5.i = icmp samesign eq i64 %94, 0
   br i1 %.not5.i, label %.loopexit85, label %.lr.ph.i
 
 96:                                               ; preds = %.lr.ph.i
@@ -26431,7 +26431,7 @@ define linkonce_odr hidden void @_ZN5boost7runtime16parameter_cla_idC2ENS_9unit_
   %126 = load ptr, ptr %44, align 8, !tbaa !23
   %127 = load i64, ptr %65, align 8, !tbaa !19
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 %127
-  %.not5.i55 = icmp eq i64 %127, 0
+  %.not5.i55 = icmp samesign eq i64 %127, 0
   br i1 %.not5.i55, label %.loopexit84, label %.lr.ph.i56
 
 129:                                              ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %.lr.ph.i56
@@ -26533,7 +26533,7 @@ switch.early.test.i:                              ; preds = %.lr.ph.i56
   %155 = load ptr, ptr %68, align 8, !tbaa !23
   %156 = load i64, ptr %89, align 8, !tbaa !19
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
-  %.not5.i61 = icmp eq i64 %156, 0
+  %.not5.i61 = icmp samesign eq i64 %156, 0
   br i1 %.not5.i61, label %.loopexit, label %.lr.ph.i62
 
 158:                                              ; preds = %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62, %.lr.ph.i62

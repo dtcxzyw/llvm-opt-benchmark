@@ -271,7 +271,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   switch i8 %16, label %27 [
     i8 0, label %Io_ReadFileRemoveComments.exit
     i8 35, label %.lr.ph.i
-    i8 10, label %.loopexit.thread.i
+    i8 10, label %18
   ]
 
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
@@ -282,43 +282,43 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
   %.2.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.2.add.i
   %17 = load i8, ptr %.2.ptr.i, align 1
   %.not38.i = icmp eq i8 %17, 10
-  br i1 %.not38.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !6
+  br i1 %.not38.i, label %.thread.i, label %.lr.ph.i, !llvm.loop !6
 
-.loopexit.thread.i:                               ; preds = %.lr.ph.i, %15
-  %.131.idx7.i = phi i64 [ %.030.idx.i, %15 ], [ %.2.add.i, %.lr.ph.i ]
-  %.131.ptr9.i = getelementptr inbounds nuw i8, ptr %0, i64 %.131.idx7.i
-  %18 = icmp sgt i64 %.131.idx7.i, 0
-  br i1 %18, label %19, label %27
+18:                                               ; preds = %15
+  %.not41.i = icmp eq i64 %.030.idx.i, 0
+  br i1 %.not41.i, label %27, label %.thread.i
 
-19:                                               ; preds = %.loopexit.thread.i
-  %20 = getelementptr inbounds i8, ptr %.131.ptr9.i, i64 -1
-  %21 = load i8, ptr %20, align 1
-  switch i8 %21, label %27 [
-    i8 13, label %22
+.thread.i:                                        ; preds = %.lr.ph.i, %18
+  %.131.idx714.i = phi i64 [ %.030.idx.i, %18 ], [ %.2.add.i, %.lr.ph.i ]
+  %.131.ptr913.i = getelementptr inbounds nuw i8, ptr %0, i64 %.131.idx714.i
+  %19 = getelementptr inbounds i8, ptr %.131.ptr913.i, i64 -1
+  %20 = load i8, ptr %19, align 1
+  switch i8 %20, label %27 [
+    i8 13, label %21
     i8 92, label %.sink.split.i
   ]
 
-22:                                               ; preds = %19
-  %.not.i = icmp eq i64 %.131.idx7.i, 1
-  br i1 %.not.i, label %27, label %23
+21:                                               ; preds = %.thread.i
+  %22 = icmp sgt i64 %.131.idx714.i, 1
+  br i1 %22, label %23, label %27
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds i8, ptr %.131.ptr9.i, i64 -2
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds i8, ptr %.131.ptr913.i, i64 -2
   %25 = load i8, ptr %24, align 1
-  %.not41.i = icmp eq i8 %25, 92
-  br i1 %.not41.i, label %26, label %27
+  %.not42.i = icmp eq i8 %25, 92
+  br i1 %.not42.i, label %26, label %27
 
 26:                                               ; preds = %23
   store i8 32, ptr %24, align 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %26, %19
-  store i8 32, ptr %20, align 1
-  store i8 32, ptr %.131.ptr9.i, align 1
+.sink.split.i:                                    ; preds = %26, %.thread.i
+  store i8 32, ptr %19, align 1
+  store i8 32, ptr %.131.ptr913.i, align 1
   br label %27
 
-27:                                               ; preds = %15, %.sink.split.i, %23, %22, %19, %.loopexit.thread.i
-  %.131.idx8.i = phi i64 [ 1, %22 ], [ %.131.idx7.i, %.loopexit.thread.i ], [ %.131.idx7.i, %23 ], [ %.131.idx7.i, %19 ], [ %.131.idx7.i, %.sink.split.i ], [ %.030.idx.i, %15 ]
+27:                                               ; preds = %15, %.sink.split.i, %23, %21, %.thread.i, %18
+  %.131.idx8.i = phi i64 [ %.131.idx714.i, %21 ], [ 0, %18 ], [ %.131.idx714.i, %23 ], [ %.131.idx714.i, %.thread.i ], [ %.131.idx714.i, %.sink.split.i ], [ %.030.idx.i, %15 ]
   %.131.add.i = add nuw nsw i64 %.131.idx8.i, 1
   br label %15, !llvm.loop !7
 
@@ -361,13 +361,13 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
 .critedge2.i:                                     ; preds = %33, %30
   %36 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.066108.i, ptr noundef nonnull dereferenceable(6) @.str.12) #18
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.preheader.i, label %.thread.i
+  br i1 %37, label %.preheader.i, label %.thread.i16
 
 .preheader.i:                                     ; preds = %.critedge2.i, %.backedge.i
   %.2106.i = phi ptr [ %44, %.backedge.i ], [ %.066108.i, %.critedge2.i ]
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2106.i, ptr noundef nonnull dereferenceable(5) @.str.11) #18
   %.not50.i = icmp eq i32 %38, 0
-  br i1 %.not50.i, label %.thread.i, label %39
+  br i1 %.not50.i, label %.thread.i16, label %39
 
 39:                                               ; preds = %.preheader.i
   %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2106.i, ptr noundef nonnull dereferenceable(5) @.str.13) #18
@@ -388,7 +388,7 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
   %.not49.i = icmp eq ptr %44, null
   br i1 %.not49.i, label %.critedge.i, label %.preheader.i, !llvm.loop !8
 
-.thread.i:                                        ; preds = %.preheader.i, %.critedge2.i
+.thread.i16:                                      ; preds = %.preheader.i, %.critedge2.i
   %47 = tail call noalias dereferenceable_or_null(120) ptr @calloc(i64 noundef 1, i64 noundef 120) #20
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
   store i32 -1, ptr %48, align 8
@@ -396,15 +396,15 @@ Io_ReadFileRemoveComments.exit:                   ; preds = %15
   %.not.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i, label %Abc_UtilStrsav.exit.i.i, label %50
 
-50:                                               ; preds = %.thread.i
+50:                                               ; preds = %.thread.i16
   %51 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %49) #18
   %52 = add i64 %51, 1
   %53 = tail call noalias ptr @malloc(i64 noundef %52) #19
   %54 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %53, ptr noundef nonnull readonly dereferenceable(1) %49) #17
   br label %Abc_UtilStrsav.exit.i.i
 
-Abc_UtilStrsav.exit.i.i:                          ; preds = %50, %.thread.i
-  %55 = phi ptr [ %53, %50 ], [ null, %.thread.i ]
+Abc_UtilStrsav.exit.i.i:                          ; preds = %50, %.thread.i16
+  %55 = phi ptr [ %53, %50 ], [ null, %.thread.i16 ]
   store ptr %55, ptr %47, align 8
   %56 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.10) #17
   %57 = tail call double @atof(ptr noundef %56) #18
@@ -602,8 +602,8 @@ Mio_LibraryReadGate.exit.thread70.i:              ; preds = %146, %.lr.ph.i.i, %
 
 154:                                              ; preds = %Mio_LibraryReadGate.exit.thread70.i
   tail call void @Mio_GateDelete(ptr noundef nonnull %47) #17
-  %.not.i16 = icmp eq ptr %.025.i73.i, null
-  br i1 %.not.i16, label %.critedge.i, label %30, !llvm.loop !12
+  %.not.i = icmp eq ptr %.025.i73.i, null
+  br i1 %.not.i, label %.critedge.i, label %30, !llvm.loop !12
 
 155:                                              ; preds = %Mio_LibraryReadGate.exit.thread70.i
   %156 = getelementptr inbounds nuw i8, ptr %47, i64 40

@@ -20276,7 +20276,7 @@ lpad:                                             ; preds = %arrayctor.loop
 
 lpad.body:                                        ; preds = %arraydestroy.body.i, %lpad
   %eh.lpad-body = phi { ptr, i32 } [ %1, %lpad ], [ %0, %arraydestroy.body.i ]
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %eh.resume, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad.body, %_ZN5folly16CoreRawAllocatorILm64EE9AllocatorD2Ev.exit

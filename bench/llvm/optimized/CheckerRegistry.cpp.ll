@@ -9682,7 +9682,7 @@ define internal fastcc void @"_ZL23collectWeakDependenciesIZN5clang4ento15Checke
 "_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit": ; preds = %27, %14
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %21, %14 ], [ %30, %27 ]
   %34 = zext i32 %.val.val13 to i64
-  %.not2 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %34
+  %.not2 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %34
   br i1 %.not2, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit.thread", label %35
 
 35:                                               ; preds = %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit"
@@ -14027,7 +14027,7 @@ define internal fastcc noundef zeroext i1 @"_ZL25collectStrongDependenciesIZN5cl
 "_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit": ; preds = %25, %12
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %19, %12 ], [ %28, %25 ]
   %32 = zext i32 %.val.val12 to i64
-  %.not2 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %32
+  %.not2 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %32
   br i1 %.not2, label %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit.thread", label %33
 
 33:                                               ; preds = %"_ZZN5clang4ento15CheckerRegistry18initializeRegistryERKNS0_14CheckerManagerEENK3$_1clEPKNS0_11CheckerInfoE.exit"

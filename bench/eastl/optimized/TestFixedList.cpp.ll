@@ -7746,7 +7746,7 @@ for.body.i:                                       ; preds = %invoke.cont855, %fo
   br i1 %803, label %for.body.i, label %for.end.i, !llvm.loop !369
 
 for.end.i:                                        ; preds = %for.body.i
-  %cmp5.i2070 = icmp eq i64 %first.addr.014.i.add, 12
+  %cmp5.i2070 = icmp samesign eq i64 %first.addr.014.i.add, 12
   br i1 %cmp5.i2070, label %if.then.i2081, label %for.body.i.i2073.preheader
 
 for.body.i.i2073.preheader:                       ; preds = %invoke.cont855, %for.end.i
@@ -7836,7 +7836,7 @@ for.body.i2125:                                   ; preds = %invoke.cont871, %fo
   br i1 %815, label %for.body.i2125, label %for.end.i2099, !llvm.loop !369
 
 for.end.i2099:                                    ; preds = %for.body.i2125
-  %cmp5.i2102 = icmp eq i64 %first.addr.014.i2127.add, 12
+  %cmp5.i2102 = icmp samesign eq i64 %first.addr.014.i2127.add, 12
   br i1 %cmp5.i2102, label %if.then.i2114, label %for.body.i.i2106.preheader
 
 for.body.i.i2106.preheader:                       ; preds = %invoke.cont871, %for.end.i2099

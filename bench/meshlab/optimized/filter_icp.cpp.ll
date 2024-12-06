@@ -1963,7 +1963,7 @@ define void @_ZN15FilterIcpPluginC2Ev(ptr noundef nonnull align 8 dereferenceabl
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %67 = icmp eq i64 %.021.i.i.i.add, 12
+  %67 = icmp samesign eq i64 %.021.i.i.i.add, 12
   br i1 %67, label %68, label %._crit_edge.i.i.i.thread
 
 68:                                               ; preds = %._crit_edge.i.i.i

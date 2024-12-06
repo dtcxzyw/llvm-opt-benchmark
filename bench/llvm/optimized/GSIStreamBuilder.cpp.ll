@@ -5601,7 +5601,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6
   br i1 %.not.i31.i.i.i.i.i, label %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", label %.lr.ph.i25.i.i.i.i.i, !llvm.loop !97
 
 "_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i": ; preds = %63, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops14_Val_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_T0_.exit.i15.i.i.i.i.i", %48, %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS2_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SI_E_EEEvT_SL_T0_.exit.i.i.i.i.i"
-  %.not23.i = icmp eq i64 %.idx21.i, %.idx.i
+  %.not23.i = icmp samesign eq i64 %.idx21.i, %.idx.i
   br i1 %.not23.i, label %"_ZZN4llvm3pdb20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS0_10BulkPublicEEEENK3$_1clEm.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN4llvm4sortIN9__gnu_cxx17__normal_iteratorIPNS_3pdb12PSHashRecordESt6vectorIS4_SaIS4_EEEEZZNS3_20GSIHashStreamBuilder15finalizeBucketsEjNS_15MutableArrayRefINS3_10BulkPublicEEEENK3$_1clEmEUlRKS4_SG_E_EEvT_SI_T0_.exit.i", %.lr.ph.i

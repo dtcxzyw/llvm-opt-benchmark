@@ -2674,7 +2674,7 @@ _ZN6casadi2MXaSERKS0_.exit:                       ; preds = %_ZN6casadimlERKNS_2
 42:                                               ; preds = %9
   %43 = landingpad { ptr, i32 }
           cleanup
-  %44 = icmp eq i64 %.idx, 0
+  %44 = icmp samesign eq i64 %.idx, 0
   br i1 %44, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %42, %.preheader
@@ -3280,7 +3280,7 @@ _ZN6casadimlERKNS_2MXES2_.exit:                   ; preds = %.lr.ph
 46:                                               ; preds = %10
   %47 = landingpad { ptr, i32 }
           cleanup
-  %48 = icmp eq i64 %.idx, 0
+  %48 = icmp samesign eq i64 %.idx, 0
   br i1 %48, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %46, %.preheader

@@ -1175,7 +1175,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmpty
 _ZNK4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findES4_.exit.i: ; preds = %72, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIS4_EEPKSA_RKT_.exit.thread.i.i.i, %59
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %79, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIS4_EEPKSA_RKT_.exit.thread.i.i.i ], [ %66, %59 ], [ %75, %72 ]
   %80 = zext i32 %57 to i64
-  %81 = icmp ne i64 %.lcssa.i.i.i.i.pn.i, %80
+  %81 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i, %80
   br label %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EE8containsERKS7_.exit
 
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EE8containsERKS7_.exit: ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findES4_.exit.i
@@ -4383,7 +4383,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit: ; preds = %128, %115
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %122, %115 ], [ %131, %128 ]
   %135 = zext i32 %113 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %135
+  %.not = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %135
   br i1 %.not, label %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread, label %136
 
 136:                                              ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit, %.lr.ph
@@ -4675,7 +4675,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit116: ; preds = %257, %244
   %.lcssa.i.i.i.i.pn.i.i95 = phi i64 [ %251, %244 ], [ %260, %257 ]
   %264 = zext i32 %242 to i64
-  %.not155 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i95, %264
+  %.not155 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i95, %264
   br i1 %.not155, label %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit116.thread, label %265
 
 265:                                              ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i104, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit116, %.lr.ph185
@@ -5723,7 +5723,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit99: ; preds = %121, %113
   %.lcssa.i.i.i.i.pn.i.i78 = phi i64 [ %115, %113 ], [ %124, %121 ]
   %128 = zext i32 %111 to i64
-  %.not119 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i78, %128
+  %.not119 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i78, %128
   br i1 %.not119, label %.preheader.i.i.backedge, label %.critedge.i.i
 
 .preheader.i.i.backedge:                          ; preds = %.lr.ph.i.i.i.i.i.i73, %107, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit99, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i87
@@ -5895,7 +5895,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit: ; preds = %196, %188
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %190, %188 ], [ %199, %196 ]
   %203 = zext i32 %186 to i64
-  %.not121 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %203
+  %.not121 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %203
   br i1 %.not121, label %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread, label %.critedge.i17.i
 
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %182, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit
@@ -10296,7 +10296,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit: ; preds = %101, %88
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %95, %88 ], [ %104, %101 ]
   %108 = zext i32 %86 to i64
-  %.not85 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %108
+  %.not85 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %108
   br i1 %.not85, label %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread, label %110
 
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %84, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit, %.lr.ph.i
@@ -10641,7 +10641,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit65: ; preds = %270, %257
   %.lcssa.i.i.i.i.pn.i.i44 = phi i64 [ %264, %257 ], [ %273, %270 ]
   %277 = zext i32 %255 to i64
-  %.not89 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i44, %277
+  %.not89 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i44, %277
   br i1 %.not89, label %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit65.thread, label %278
 
 _ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit65.thread: ; preds = %.lr.ph.i.i.i.i.i.i39, %253, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit.i53, %_ZNK4llvm12GenericCycleINS_17GenericSSAContextINS_8FunctionEEEE8containsEPKNS_10BasicBlockE.exit65

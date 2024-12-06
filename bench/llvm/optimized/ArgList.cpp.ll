@@ -338,7 +338,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i:
   %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
   %.idx = shl nuw nsw i64 %.sroa.28.0.extract.shift.i, 3
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %39, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %39, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i
@@ -872,7 +872,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i:
   %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
   %.idx = shl nuw nsw i64 %.sroa.28.0.extract.shift.i, 3
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %39, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %39, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i
@@ -1437,7 +1437,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i:
   %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
   %.idx = shl nuw nsw i64 %.sroa.28.0.extract.shift.i, 3
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %40, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %40, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i
@@ -1637,7 +1637,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   store i32 %3, ptr %.sroa.252.0..ptr8.i.sroa_idx, align 4
   %.sroa.353.0..ptr8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store i32 %4, ptr %.sroa.353.0..ptr8.i.sroa_idx, align 8
-  %.not18.i.i = icmp eq i64 %46, %.sroa.214.0.extract.shift
+  %.not18.i.i = icmp samesign eq i64 %46, %.sroa.214.0.extract.shift
   br i1 %.not18.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj3EEC2ES5_S5_RA3_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit, %.loopexit.i.i
@@ -1800,7 +1800,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i:
   %44 = and i64 %.sroa.014.0.insert.insert.i.i, 4294967295
   %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
   %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %.sroa.28.0.extract.shift.i
-  %.not18.i.i.i = icmp eq i64 %44, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %44, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i
@@ -2111,7 +2111,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i:
   %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
   %.idx = shl nuw nsw i64 %.sroa.28.0.extract.shift.i, 3
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %39, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %39, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit.i
@@ -3851,7 +3851,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   store i32 %2, ptr %.ptr8.i, align 8
   %.sroa.245.0..ptr8.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %3, ptr %.sroa.245.0..ptr8.i.sroa_idx, align 4
-  %.not18.i.i = icmp eq i64 %44, %.sroa.211.0.extract.shift
+  %.not18.i.i = icmp samesign eq i64 %44, %.sroa.211.0.extract.shift
   br i1 %.not18.i.i, label %_ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj2EEC2ES5_S5_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit, %.loopexit.i.i
@@ -3991,7 +3991,7 @@ _ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit: ;
   store i32 %2, ptr %.ptr6.i, align 8
   %.sroa.250.0..ptr6.i.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 20
   store i32 %3, ptr %.sroa.250.0..ptr6.i.sroa_idx, align 4
-  %.not1116.i.i = icmp eq i64 %.sroa.28.0.extract.shift, %45
+  %.not1116.i.i = icmp samesign eq i64 %.sroa.28.0.extract.shift, %45
   br i1 %.not1116.i.i, label %_ZN4llvm3opt12arg_iteratorISt16reverse_iteratorIPKPNS0_3ArgEELj2EEC2ES7_S7_RA2_KNS0_12OptSpecifierE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK4llvm3opt7ArgList8getRangeESt16initializer_listINS0_12OptSpecifierEE.exit, %.loopexit.i.i

@@ -753,7 +753,7 @@ define dso_local void @_ZN4llvm6object7DirectX9Signature10initializeENS_9StringR
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i64 %43, ptr %.sroa.2.0..sroa_idx, align 8
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 %28
-  %.not66 = icmp eq i64 %28, 0
+  %.not66 = icmp samesign eq i64 %28, 0
   br i1 %.not66, label %_ZN4llvm12ErrorSuccessD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37

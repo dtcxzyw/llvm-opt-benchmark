@@ -143,7 +143,7 @@ invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %last_event_time_usec.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 80
   store i64 0, ptr %last_event_time_usec.i.i, align 8
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 88
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 720
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 720
   br i1 %arrayctor.done.i, label %_ZN3net22PriorityWriteSchedulerIjEC2Ev.exit, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i

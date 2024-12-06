@@ -2190,7 +2190,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %16, %34, %47, %_ZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr, i8 0, i64 24, i1 false)
   store i32 -1, ptr %59, align 8
   %.add = add nuw nsw i64 %.idx, 32
-  %60 = icmp eq i64 %.add, 544
+  %60 = icmp samesign eq i64 %.add, 544
   br i1 %60, label %61, label %58
 
 61:                                               ; preds = %58

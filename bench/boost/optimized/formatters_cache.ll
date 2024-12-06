@@ -89,7 +89,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   %9 = getelementptr inbounds nuw i8, ptr %.ptr49.ptr, i64 8
   store i16 2, ptr %9, align 8, !tbaa !13
   %.add48 = add nuw nsw i64 %.idx47, 64
-  %10 = icmp eq i64 %.add48, 328
+  %10 = icmp samesign eq i64 %.add48, 328
   br i1 %10, label %11, label %.preheader176
 
 11:                                               ; preds = %.preheader176
@@ -103,7 +103,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   %13 = getelementptr inbounds nuw i8, ptr %.ptr58.ptr, i64 8
   store i16 2, ptr %13, align 8, !tbaa !13
   %.add57 = add nuw nsw i64 %.idx56, 64
-  %14 = icmp eq i64 %.add57, 584
+  %14 = icmp samesign eq i64 %.add57, 584
   br i1 %14, label %15, label %12
 
 15:                                               ; preds = %12
@@ -117,7 +117,7 @@ define hidden void @_ZN5boost6locale8impl_icu16formatters_cacheC2ERKN6icu_706Loc
   %17 = getelementptr inbounds nuw i8, ptr %.ptr67.ptr, i64 8
   store i16 2, ptr %17, align 8, !tbaa !13
   %.add66 = add nuw nsw i64 %.idx65, 64
-  %18 = icmp eq i64 %.add66, 1608
+  %18 = icmp samesign eq i64 %.add66, 1608
   br i1 %18, label %19, label %16
 
 19:                                               ; preds = %16

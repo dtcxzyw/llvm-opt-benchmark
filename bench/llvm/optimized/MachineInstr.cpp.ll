@@ -7094,7 +7094,7 @@ _ZNK4llvm12MachineInstr17implicit_operandsEv.exit: ; preds = %.lr.ph.i.i.i, %19,
   %21 = zext i32 %.0.i.i.i to i64
   %22 = zext i24 %.pre.i to i64
   %23 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %4, i64 %22
-  %.not14.not = icmp eq i64 %21, %22
+  %.not14.not = icmp samesign eq i64 %21, %22
   br i1 %.not14.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr17implicit_operandsEv.exit
@@ -10434,7 +10434,7 @@ _ZNK4llvm12MachineInstr17implicit_operandsEv.exit: ; preds = %.lr.ph.i.i.i, %18,
   %20 = zext i32 %.0.i.i.i to i64
   %21 = zext i24 %.pre.i to i64
   %22 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %3, i64 %21
-  %.not14 = icmp eq i64 %20, %21
+  %.not14 = icmp samesign eq i64 %20, %21
   br i1 %.not14, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm12MachineInstr17implicit_operandsEv.exit
@@ -10473,7 +10473,7 @@ _ZN4llvm10drop_beginINS_14iterator_rangeIPKNS_14MachineOperandEEEEEDaOT_m.exit:
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %.not19 = icmp eq i64 %13, %7
+  %.not19 = icmp samesign eq i64 %13, %7
   br i1 %.not19, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4llvm10drop_beginINS_14iterator_rangeIPKNS_14MachineOperandEEEEEDaOT_m.exit

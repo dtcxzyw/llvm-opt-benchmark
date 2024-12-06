@@ -2607,7 +2607,7 @@ if.then:                                          ; preds = %invoke.cont
   %add.i = add nsw i64 %conv19, 1
   %mul.i61 = mul i64 %23, %add.i
   %add.ptr.i62 = getelementptr inbounds nuw double, ptr %22, i64 %mul.i61
-  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i61
+  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i61
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %if.then
@@ -2740,7 +2740,7 @@ for.cond.cleanup:                                 ; preds = %invoke.cont87, %for
   %mul.i82 = mul i64 %55, %indvars.iv
   %mul.i86 = mul i64 %55, %46
   %add.ptr.i87 = getelementptr inbounds nuw double, ptr %54, i64 %mul.i86
-  %cmp.not5.i88 = icmp eq i64 %mul.i82, %mul.i86
+  %cmp.not5.i88 = icmp samesign eq i64 %mul.i82, %mul.i86
   br i1 %cmp.not5.i88, label %_ZSt13inner_productIPKdN9__gnu_cxx17__normal_iteratorIPdSt6vectorIdSaIdEEEEdET1_T_SA_T0_S9_.exit97, label %for.body.i89.preheader
 
 for.body.i89.preheader:                           ; preds = %for.cond.cleanup

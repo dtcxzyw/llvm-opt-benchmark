@@ -43791,7 +43791,7 @@ _ZNK4llvm15CatchSwitchInst13getUnwindDestEv.exit.thread.i.i: ; preds = %2049, %_
   %2058 = shl i32 %2053, 5
   %.idx.i.i = zext i32 %2058 to i64
   %2059 = getelementptr inbounds nuw i8, ptr %2057, i64 %.idx.i.i
-  %.not4748.i.i = icmp eq i64 %spec.select.v.i.i.i.i, %.idx.i.i
+  %.not4748.i.i = icmp samesign eq i64 %spec.select.v.i.i.i.i, %.idx.i.i
   br i1 %.not4748.i.i, label %._crit_edge.i.i292, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %2056

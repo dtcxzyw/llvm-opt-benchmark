@@ -8894,7 +8894,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.i.i: ; preds = %1928, %1918
   %.lcssa.i.i.i.pn.i.i.i = phi i64 [ %1922, %1918 ], [ %1931, %1928 ]
   %1935 = zext i32 %1916 to i64
-  %.not40.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i, %1935
+  %.not40.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i, %1935
   br i1 %.not40.i.i, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread.i.i, label %1936
 
 1936:                                             ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.i.i
@@ -17773,7 +17773,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.i.i: ; preds = %2065, %2055
   %.lcssa.i.i.i.pn.i.i.i = phi i64 [ %2059, %2055 ], [ %2068, %2065 ]
   %2072 = zext i32 %2053 to i64
-  %.not40.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i, %2072
+  %.not40.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i, %2072
   br i1 %.not40.i.i, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread.i.i, label %2073
 
 2073:                                             ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.i.i
@@ -36663,7 +36663,7 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
 _ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit: ; preds = %36, %26
   %.lcssa.i.i.i.pn.i = phi i64 [ %30, %26 ], [ %39, %36 ]
   %43 = zext i32 %24 to i64
-  %.not40 = icmp eq i64 %.lcssa.i.i.i.pn.i, %43
+  %.not40 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %43
   br i1 %.not40, label %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit.thread, label %44
 
 44:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8containsERKj.exit

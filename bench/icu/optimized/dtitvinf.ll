@@ -1113,7 +1113,7 @@ invoke.cont:                                      ; preds = %new.notnull, %invok
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 584
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 584
   br i1 %arrayctor.done, label %if.end15, label %invoke.cont
 
 if.then13:                                        ; preds = %if.then4
@@ -1418,7 +1418,7 @@ invoke.cont:                                      ; preds = %new.notnull, %invok
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 584
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 584
   br i1 %arrayctor.done, label %for.body.preheader, label %invoke.cont
 
 for.body.preheader:                               ; preds = %invoke.cont

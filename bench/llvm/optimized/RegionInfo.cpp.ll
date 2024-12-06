@@ -7139,7 +7139,7 @@ define weak_odr noundef zeroext i1 @_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsI
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %49, %36
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %43, %36 ], [ %52, %49 ]
   %56 = zext i32 %34 to i64
-  %.not60 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %56
+  %.not60 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %56
   br i1 %.not60, label %_ZNK4llvm14RegionInfoBaseINS_12RegionTraitsINS_8FunctionEEEE19isCommonDomFrontierEPNS_10BasicBlockES6_S6_.exit, label %57
 
 57:                                               ; preds = %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

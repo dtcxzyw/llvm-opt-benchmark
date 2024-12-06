@@ -8501,7 +8501,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMap
 _ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit: ; preds = %.lr.ph.i.i.i.i69, %_ZNK4llvm15FunctionVarLocs10locs_beginEPKNS_11InstructionE.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i73
   %.sroa.3.0.i.i = phi i64 [ %85, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11InstructionESt4pairIjjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i.i73 ], [ 0, %_ZNK4llvm15FunctionVarLocs10locs_beginEPKNS_11InstructionE.exit ], [ 0, %.lr.ph.i.i.i.i69 ]
   %86 = getelementptr inbounds nuw %"struct.llvm::VarLocInfo", ptr %60, i64 %.sroa.3.0.i.i
-  %.not65130 = icmp eq i64 %.sroa.0.0.i.i, %.sroa.3.0.i.i
+  %.not65130 = icmp samesign eq i64 %.sroa.0.0.i.i, %.sroa.3.0.i.i
   br i1 %.not65130, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm15FunctionVarLocs8locs_endEPKNS_11InstructionE.exit
@@ -31316,7 +31316,7 @@ define internal fastcc void @_ZL22findUnwindDestinationsRN4llvm20FunctionLowerin
   %44 = shl i32 %43, 5
   %.idx.i = zext i32 %44 to i64
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i
-  %.not3033.i = icmp eq i64 %spec.select.v.i.i.i, %.idx.i
+  %.not3033.i = icmp samesign eq i64 %spec.select.v.i.i.i, %.idx.i
   br i1 %.not3033.i, label %_ZL26findWasmUnwindDestinationsRN4llvm20FunctionLoweringInfoEPKNS_10BasicBlockENS_17BranchProbabilityERNS_15SmallVectorImplISt4pairIPNS_17MachineBasicBlockES5_EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36
@@ -31410,7 +31410,7 @@ _ZL26findWasmUnwindDestinationsRN4llvm20FunctionLoweringInfoEPKNS_10BasicBlockEN
   %102 = shl i32 %101, 5
   %.idx = zext i32 %102 to i64
   %103 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx
-  %.not6571 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not6571 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not6571, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %94
@@ -81506,7 +81506,7 @@ _ZNK4llvm15MachineFunction15VariableDbgInfo12getStackSlotEv.exit: ; preds = %127
 _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit: ; preds = %1292, %1283
   %.lcssa.i.i.pn = phi i64 [ %1286, %1283 ], [ %1295, %1292 ]
   %1299 = zext i32 %1281 to i64
-  %.not648 = icmp eq i64 %.lcssa.i.i.pn, %1299
+  %.not648 = icmp samesign eq i64 %.lcssa.i.i.pn, %1299
   br i1 %.not648, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.thread, label %_ZN4llvm15MachineFunction15VariableDbgInfo15updateStackSlotEi.exit
 
 _ZN4llvm15MachineFunction15VariableDbgInfo15updateStackSlotEi.exit: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit

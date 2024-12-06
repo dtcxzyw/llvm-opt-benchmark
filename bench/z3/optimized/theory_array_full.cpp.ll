@@ -8552,7 +8552,7 @@ if.end.i.i4:                                      ; preds = %_ZNK3smt6theory16ge
 _ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit: ; preds = %_ZNK3smt6theory16get_old_num_varsEj.exit, %if.end.i.i4
   %retval.0.i.i6 = phi i64 [ %5, %if.end.i.i4 ], [ 0, %_ZNK3smt6theory16get_old_num_varsEj.exit ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %3, i64 %retval.0.i.i6
-  %cmp.not3.i = icmp eq i64 %retval.0.i.i6, %idx.ext
+  %cmp.not3.i = icmp samesign eq i64 %retval.0.i.i6, %idx.ext
   br i1 %cmp.not3.i, label %_ZSt8for_eachIPPN3smt17theory_array_full13var_data_fullE11delete_procIS2_EET0_T_S8_S7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6vectorIPN3smt17theory_array_full13var_data_fullELb0EjE3endEv.exit, %_ZN11delete_procIN3smt17theory_array_full13var_data_fullEEclEPS2_.exit.i

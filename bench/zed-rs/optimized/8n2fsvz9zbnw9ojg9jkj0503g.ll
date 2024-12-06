@@ -154568,7 +154568,7 @@ define noundef zeroext i1 @_ZN4gpui11text_system13font_features20is_valid_featur
   %.ptr9 = getelementptr inbounds nuw i8, ptr %0, i64 %.add4
   %8 = and i8 %6, 31
   %9 = zext nneg i8 %8 to i32
-  %10 = icmp ne i64 %.add4, 4
+  %10 = icmp samesign ne i64 %.add4, 4
   tail call void @llvm.assume(i1 %10)
   %.add = add nuw nsw i64 %.idx, 2
   %11 = load i8, ptr %.ptr9, align 1, !noalias !43337, !noundef !4
@@ -154585,7 +154585,7 @@ define noundef zeroext i1 @_ZN4gpui11text_system13font_features20is_valid_featur
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58fe6d19d541bc8dE.exit14.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58fe6d19d541bc8dE.exit12.i.i.i"
   %.ptr7 = getelementptr inbounds nuw i8, ptr %0, i64 %.add
-  %19 = icmp ne i64 %.add, 4
+  %19 = icmp samesign ne i64 %.add, 4
   tail call void @llvm.assume(i1 %19)
   %.add3 = add nuw nsw i64 %.idx, 3
   %20 = load i8, ptr %.ptr7, align 1, !noalias !43337, !noundef !4
@@ -154600,7 +154600,7 @@ define noundef zeroext i1 @_ZN4gpui11text_system13font_features20is_valid_featur
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5130c238633cf11E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h58fe6d19d541bc8dE.exit14.i.i.i"
   %.ptr8 = getelementptr inbounds nuw i8, ptr %0, i64 %.add3
-  %28 = icmp ne i64 %.add3, 4
+  %28 = icmp samesign ne i64 %.add3, 4
   tail call void @llvm.assume(i1 %28)
   %.add5 = add nuw nsw i64 %.idx, 4
   %29 = load i8, ptr %.ptr8, align 1, !noalias !43337, !noundef !4

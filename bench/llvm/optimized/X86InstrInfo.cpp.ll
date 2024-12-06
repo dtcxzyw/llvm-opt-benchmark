@@ -23577,7 +23577,7 @@ _ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit: ;
   %42 = zext i24 %41 to i64
   %43 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %39, i64 %42
   %44 = zext i16 %26 to i64
-  %.not3140 = icmp eq i64 %44, %42
+  %.not3140 = icmp samesign eq i64 %44, %42
   br i1 %.not3140, label %._crit_edge, label %.lr.ph42.preheader
 
 .lr.ph42.preheader:                               ; preds = %_ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit

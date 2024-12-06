@@ -24135,7 +24135,7 @@ lpad5131:                                         ; preds = %invoke.cont5130
 lpad5137:                                         ; preds = %arrayctor.loop
   %2664 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty5140 = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty5140 = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty5140, label %ehcleanup5358, label %arraydestroy.body5141
 
 arraydestroy.body5141:                            ; preds = %lpad5137, %arraydestroy.body5141
@@ -24148,7 +24148,7 @@ arraydestroy.body5141:                            ; preds = %lpad5137, %arraydes
 lpad5150:                                         ; preds = %arrayctor.loop5148
   %2665 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty5153 = icmp eq i64 %arrayctor.cur5149.idx, 0
+  %arraydestroy.isempty5153 = icmp samesign eq i64 %arrayctor.cur5149.idx, 0
   br i1 %arraydestroy.isempty5153, label %ehcleanup5351, label %arraydestroy.body5154
 
 arraydestroy.body5154:                            ; preds = %lpad5150, %arraydestroy.body5154

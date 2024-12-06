@@ -2301,7 +2301,7 @@ for.body.i478:                                    ; preds = %call11.i.i.noexc, %
 if.end.i2559:                                     ; preds = %for.body.i478
   %storemerge = load i64, ptr %pReplace1_8, align 8
   store i64 %storemerge, ptr %add.ptr.i.i486, align 1
-  %cmp.not.i.i2561 = icmp eq i64 %cond.i4.i.i, 8
+  %cmp.not.i.i2561 = icmp samesign eq i64 %cond.i4.i.i, 8
   br i1 %cmp.not.i.i2561, label %call11.i.i.noexc, label %if.then.i.i2562
 
 if.then.i.i2562:                                  ; preds = %if.end.i2559

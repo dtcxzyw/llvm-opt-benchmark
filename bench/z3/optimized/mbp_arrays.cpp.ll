@@ -16727,7 +16727,7 @@ _ZN6vectorIN3mbp26array_project_selects_util7idx_valELb1EjE3endEv.exit: ; preds 
   %retval.0.i.i185 = phi i64 [ %143, %if.end.i.i183 ], [ 0, %if.then95 ]
   %add.ptr.i186.idx = mul nuw nsw i64 %retval.0.i.i185, 40
   %add.ptr.i186 = getelementptr inbounds nuw i8, ptr %140, i64 %add.ptr.i186.idx
-  %cmp.not.i.i = icmp eq i64 %retval.0.i.i185, %idx.ext
+  %cmp.not.i.i = icmp samesign eq i64 %retval.0.i.i185, %idx.ext
   br i1 %cmp.not.i.i, label %_ZSt4sortIPN3mbp26array_project_selects_util7idx_valENS1_11compare_idxEEvT_S5_T0_.exit, label %if.then.i.i187
 
 if.then.i.i187:                                   ; preds = %_ZN6vectorIN3mbp26array_project_selects_util7idx_valELb1EjE3endEv.exit

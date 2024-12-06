@@ -1122,9 +1122,9 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   %5 = alloca %struct.lv_fs_dir_t, align 8
   %6 = tail call i32 @lv_event_get_code(ptr noundef %0) #7
   %7 = tail call ptr @lv_event_get_user_data(ptr noundef %0) #7
-  switch i32 %6, label %59 [
+  switch i32 %6, label %65 [
     i32 35, label %8
-    i32 49, label %55
+    i32 49, label %61
   ]
 
 8:                                                ; preds = %1
@@ -1147,27 +1147,23 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
 17:                                               ; preds = %8
   %18 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.11) #7
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %20, label %39
+  br i1 %19, label %20, label %45
 
 20:                                               ; preds = %17
-  %.ptr39.ptr = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %21 = call i64 @lv_strlen(ptr noundef nonnull %.ptr39.ptr) #7
+  %.ptr38.ptr = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %21 = call i64 @lv_strlen(ptr noundef nonnull %.ptr38.ptr) #7
   %22 = icmp ugt i64 %21, 3
-  br i1 %22, label %23, label %39
+  br i1 %22, label %23, label %45
 
 23:                                               ; preds = %20
-  %24 = call i64 @lv_strlen(ptr noundef nonnull %.ptr39.ptr) #7
-  %.not14.i = icmp slt i64 %24, 0
-  br i1 %.not14.i, label %strip_ext.exit, label %.lr.ph.i.preheader
-
-.lr.ph.i.preheader:                               ; preds = %23
-  %.add = add nuw i64 %24, 184
+  %24 = call i64 @lv_strlen(ptr noundef nonnull %.ptr38.ptr) #7
+  %.add = add i64 %24, 184
   %smin = call i64 @llvm.smin.i64(i64 %.add, i64 184)
   %25 = add i64 %smin, -1
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
-  %.015.i.idx = phi i64 [ %.015.i.add, %27 ], [ %.add, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %27, %23
+  %.015.i.idx = phi i64 [ %.015.i.add, %27 ], [ %.add, %23 ]
   %.015.i.ptr.ptr = getelementptr inbounds i8, ptr %7, i64 %.015.i.idx
   %26 = load i8, ptr %.015.i.ptr.ptr, align 1, !tbaa !25
   %.not13.i = icmp eq i8 %26, 47
@@ -1179,124 +1175,128 @@ define internal void @browser_file_event_handler(ptr noundef %0) #0 {
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %27, %.lr.ph.i
-  %.0.lcssa.i.idx = phi i64 [ %25, %27 ], [ %.015.i.idx, %.lr.ph.i ]
-  %28 = icmp sgt i64 %.0.lcssa.i.idx, 184
-  br i1 %28, label %strip_ext.exit.sink.split, label %29
+  %.0.lcssa.ph.i.idx = phi i64 [ %.015.i.idx, %.lr.ph.i ], [ %25, %27 ]
+  %.0.lcssa.ph.i.ptr = getelementptr inbounds i8, ptr %7, i64 %.0.lcssa.ph.i.idx
+  %28 = icmp sgt i64 %.0.lcssa.ph.i.idx, 184
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %.critedge.i
-  %30 = icmp eq i64 %.0.lcssa.i.idx, 184
-  br i1 %30, label %strip_ext.exit.sink.split, label %strip_ext.exit
-
-strip_ext.exit.sink.split:                        ; preds = %29, %.critedge.i
-  %.0.lcssa.i.idx.sink = phi i64 [ %.0.lcssa.i.idx, %.critedge.i ], [ 185, %29 ]
-  %.0.lcssa.i.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0.lcssa.i.idx.sink
-  store i8 0, ptr %.0.lcssa.i.ptr, align 1, !tbaa !25
+  store i8 0, ptr %.0.lcssa.ph.i.ptr, align 1, !tbaa !25
   br label %strip_ext.exit
 
-strip_ext.exit:                                   ; preds = %strip_ext.exit.sink.split, %23, %29
-  %31 = call i64 @lv_strlen(ptr noundef nonnull %.ptr39.ptr) #7
-  %.not14.i31 = icmp slt i64 %31, 0
-  br i1 %.not14.i31, label %strip_ext.exit38, label %.lr.ph.i32.preheader
+30:                                               ; preds = %.critedge.i
+  %31 = icmp eq i64 %.0.lcssa.ph.i.idx, 184
+  br i1 %31, label %32, label %strip_ext.exit
 
-.lr.ph.i32.preheader:                             ; preds = %strip_ext.exit
-  %.ptr39.add = add nuw i64 %31, 184
-  %smin42 = call i64 @llvm.smin.i64(i64 %.ptr39.add, i64 184)
-  %32 = add i64 %smin42, -1
-  br label %.lr.ph.i32
+32:                                               ; preds = %30
+  %33 = getelementptr inbounds nuw i8, ptr %.0.lcssa.ph.i.ptr, i64 1
+  store i8 0, ptr %33, align 1, !tbaa !25
+  br label %strip_ext.exit
 
-.lr.ph.i32:                                       ; preds = %.lr.ph.i32.preheader, %34
-  %.015.i33.idx = phi i64 [ %.015.i33.add, %34 ], [ %.ptr39.add, %.lr.ph.i32.preheader ]
-  %.015.i33.ptr.ptr = getelementptr inbounds i8, ptr %7, i64 %.015.i33.idx
-  %33 = load i8, ptr %.015.i33.ptr.ptr, align 1, !tbaa !25
-  %.not13.i34 = icmp eq i8 %33, 47
-  br i1 %.not13.i34, label %.critedge.i36, label %34
+strip_ext.exit:                                   ; preds = %29, %30, %32
+  %34 = call i64 @lv_strlen(ptr noundef nonnull %.ptr38.ptr) #7
+  %.ptr38.add = add i64 %34, 184
+  %smin41 = call i64 @llvm.smin.i64(i64 %.ptr38.add, i64 184)
+  %35 = add i64 %smin41, -1
+  br label %.lr.ph.i31
 
-34:                                               ; preds = %.lr.ph.i32
-  %.015.i33.add = add nsw i64 %.015.i33.idx, -1
-  %.not.i35 = icmp slt i64 %.015.i33.idx, 185
-  br i1 %.not.i35, label %.critedge.i36, label %.lr.ph.i32, !llvm.loop !28
+.lr.ph.i31:                                       ; preds = %37, %strip_ext.exit
+  %.015.i32.idx = phi i64 [ %.015.i32.add, %37 ], [ %.ptr38.add, %strip_ext.exit ]
+  %.015.i32.ptr.ptr = getelementptr inbounds i8, ptr %7, i64 %.015.i32.idx
+  %36 = load i8, ptr %.015.i32.ptr.ptr, align 1, !tbaa !25
+  %.not13.i33 = icmp eq i8 %36, 47
+  br i1 %.not13.i33, label %.critedge.i35, label %37
 
-.critedge.i36:                                    ; preds = %34, %.lr.ph.i32
-  %.0.lcssa.i37.idx = phi i64 [ %32, %34 ], [ %.015.i33.idx, %.lr.ph.i32 ]
-  %35 = icmp sgt i64 %.0.lcssa.i37.idx, 184
-  br i1 %35, label %strip_ext.exit38.sink.split, label %36
+37:                                               ; preds = %.lr.ph.i31
+  %.015.i32.add = add nsw i64 %.015.i32.idx, -1
+  %.not.i34 = icmp slt i64 %.015.i32.idx, 185
+  br i1 %.not.i34, label %.critedge.i35, label %.lr.ph.i31, !llvm.loop !28
 
-36:                                               ; preds = %.critedge.i36
-  %37 = icmp eq i64 %.0.lcssa.i37.idx, 184
-  br i1 %37, label %strip_ext.exit38.sink.split, label %strip_ext.exit38
+.critedge.i35:                                    ; preds = %37, %.lr.ph.i31
+  %.0.lcssa.ph.i36.idx = phi i64 [ %.015.i32.idx, %.lr.ph.i31 ], [ %35, %37 ]
+  %.0.lcssa.ph.i36.ptr = getelementptr inbounds i8, ptr %7, i64 %.0.lcssa.ph.i36.idx
+  %38 = icmp sgt i64 %.0.lcssa.ph.i36.idx, 184
+  br i1 %38, label %39, label %40
 
-strip_ext.exit38.sink.split:                      ; preds = %36, %.critedge.i36
-  %.0.lcssa.i37.idx.sink = phi i64 [ %.0.lcssa.i37.idx, %.critedge.i36 ], [ 185, %36 ]
-  %.0.lcssa.i37.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.0.lcssa.i37.idx.sink
-  store i8 0, ptr %.0.lcssa.i37.ptr, align 1, !tbaa !25
-  br label %strip_ext.exit38
+39:                                               ; preds = %.critedge.i35
+  store i8 0, ptr %.0.lcssa.ph.i36.ptr, align 1, !tbaa !25
+  br label %strip_ext.exit37
 
-strip_ext.exit38:                                 ; preds = %strip_ext.exit38.sink.split, %strip_ext.exit, %36
-  %38 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.12, ptr noundef nonnull %.ptr39.ptr) #7
-  br label %44
+40:                                               ; preds = %.critedge.i35
+  %41 = icmp eq i64 %.0.lcssa.ph.i36.idx, 184
+  br i1 %41, label %42, label %strip_ext.exit37
 
-39:                                               ; preds = %20, %17
-  %40 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.11) #7
-  %.not = icmp eq i32 %40, 0
-  br i1 %.not, label %44, label %41
+42:                                               ; preds = %40
+  %43 = getelementptr inbounds nuw i8, ptr %.0.lcssa.ph.i36.ptr, i64 1
+  store i8 0, ptr %43, align 1, !tbaa !25
+  br label %strip_ext.exit37
 
-41:                                               ; preds = %39
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 184
-  %43 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.13, ptr noundef nonnull %42, ptr noundef nonnull %15) #7
-  br label %44
+strip_ext.exit37:                                 ; preds = %39, %40, %42
+  %44 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.12, ptr noundef nonnull %.ptr38.ptr) #7
+  br label %50
 
-44:                                               ; preds = %39, %41, %strip_ext.exit38
+45:                                               ; preds = %20, %17
+  %46 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.11) #7
+  %.not = icmp eq i32 %46, 0
+  br i1 %.not, label %50, label %47
+
+47:                                               ; preds = %45
+  %48 = getelementptr inbounds nuw i8, ptr %7, i64 184
+  %49 = call i32 (ptr, i64, ptr, ...) @lv_snprintf(ptr noundef nonnull %2, i64 noundef 128, ptr noundef nonnull @.str.13, ptr noundef nonnull %48, ptr noundef nonnull %15) #7
+  br label %50
+
+50:                                               ; preds = %45, %47, %strip_ext.exit37
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #7
-  %45 = call i32 @lv_fs_dir_open(ptr noundef nonnull %5, ptr noundef nonnull %2) #7
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %49
+  %51 = call i32 @lv_fs_dir_open(ptr noundef nonnull %5, ptr noundef nonnull %2) #7
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %55
 
-47:                                               ; preds = %44
-  %48 = call i32 @lv_fs_dir_close(ptr noundef nonnull %5) #7
+53:                                               ; preds = %50
+  %54 = call i32 @lv_fs_dir_close(ptr noundef nonnull %5) #7
   call fastcc void @show_dir(ptr noundef nonnull %7, ptr noundef nonnull %2)
-  br label %54
+  br label %60
 
-49:                                               ; preds = %44
-  %50 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.11) #7
-  %.not29 = icmp eq i32 %50, 0
-  br i1 %.not29, label %54, label %51
+55:                                               ; preds = %50
+  %56 = call i32 @lv_strcmp(ptr noundef nonnull %15, ptr noundef nonnull @.str.11) #7
+  %.not29 = icmp eq i32 %56, 0
+  br i1 %.not29, label %60, label %57
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 176
-  store ptr %15, ptr %52, align 8, !tbaa !24
-  %53 = call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #7
-  br label %54
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %7, i64 176
+  store ptr %15, ptr %58, align 8, !tbaa !24
+  %59 = call i32 @lv_obj_send_event(ptr noundef nonnull %7, i32 noundef 35, ptr noundef null) #7
+  br label %60
 
-54:                                               ; preds = %49, %51, %47
+60:                                               ; preds = %55, %57, %53
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
-  br label %63
+  br label %69
 
-55:                                               ; preds = %1
-  %56 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %57 = load ptr, ptr %56, align 8, !tbaa !19
-  %58 = tail call i32 @lv_obj_get_width(ptr noundef %57) #7
-  tail call void @lv_table_set_column_width(ptr noundef %57, i32 noundef 0, i32 noundef %58) #7
-  br label %63
+61:                                               ; preds = %1
+  %62 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %63 = load ptr, ptr %62, align 8, !tbaa !19
+  %64 = tail call i32 @lv_obj_get_width(ptr noundef %63) #7
+  tail call void @lv_table_set_column_width(ptr noundef %63, i32 noundef 0, i32 noundef %64) #7
+  br label %69
 
-59:                                               ; preds = %1
-  %60 = and i32 %6, -2
-  %or.cond = icmp eq i32 %60, 10
-  br i1 %or.cond, label %61, label %63
+65:                                               ; preds = %1
+  %66 = and i32 %6, -2
+  %or.cond = icmp eq i32 %66, 10
+  br i1 %or.cond, label %67, label %69
 
-61:                                               ; preds = %59
-  %62 = tail call i32 @lv_obj_send_event(ptr noundef %7, i32 noundef 10, ptr noundef null) #7
-  br label %63
+67:                                               ; preds = %65
+  %68 = tail call i32 @lv_obj_send_event(ptr noundef %7, i32 noundef 10, ptr noundef null) #7
+  br label %69
 
 .critedge:                                        ; preds = %8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %2) #7
-  br label %63
+  br label %69
 
-63:                                               ; preds = %54, %61, %59, %55, %.critedge
+69:                                               ; preds = %60, %67, %65, %61, %.critedge
   ret void
 }
 

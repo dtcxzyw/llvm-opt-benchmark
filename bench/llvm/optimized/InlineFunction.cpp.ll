@@ -14726,7 +14726,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapIn
   %5725 = shl i32 %5724, 5
   %.idx.i = zext i32 %5725 to i64
   %5726 = getelementptr inbounds nuw i8, ptr %5721, i64 %.idx.i
-  %.not163174.i = icmp eq i64 %spec.select.v.i.i.i, %.idx.i
+  %.not163174.i = icmp samesign eq i64 %spec.select.v.i.i.i, %.idx.i
   br i1 %.not163174.i, label %._crit_edge178.i, label %.lr.ph177.preheader.i
 
 .lr.ph177.preheader.i:                            ; preds = %5707
@@ -17008,7 +17008,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_11InstructionEPNS_5ValueENS_12DenseMapIn
   %252 = shl i32 %251, 5
   %.idx = zext i32 %252 to i64
   %253 = getelementptr inbounds nuw i8, ptr %246, i64 %.idx
-  %.not165200 = icmp eq i64 %spec.select.v.i.i, %.idx
+  %.not165200 = icmp samesign eq i64 %spec.select.v.i.i, %.idx
   br i1 %.not165200, label %.backedge, label %.lr.ph203.preheader
 
 .lr.ph203.preheader:                              ; preds = %244

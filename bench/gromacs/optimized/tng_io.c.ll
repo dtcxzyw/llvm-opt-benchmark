@@ -7675,7 +7675,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.split.us.i, %23
   %.01115.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph.split.us.i ]
-  %22 = icmp eq i64 %.01115.i, %.01417.us.i
+  %22 = icmp samesign eq i64 %.01115.i, %.01417.us.i
   br i1 %22, label %28, label %23
 
 23:                                               ; preds = %.lr.ph.i42
@@ -7707,7 +7707,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 
 .lr.ph.i44:                                       ; preds = %28, %40
   %.02933.i = phi i64 [ %41, %40 ], [ 0, %28 ]
-  %39 = icmp eq i64 %.02933.i, %.01417.us.i
+  %39 = icmp samesign eq i64 %.02933.i, %.01417.us.i
   br i1 %39, label %44, label %40
 
 40:                                               ; preds = %.lr.ph.i44

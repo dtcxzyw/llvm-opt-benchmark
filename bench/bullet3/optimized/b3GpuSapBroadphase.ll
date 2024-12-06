@@ -264,7 +264,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %m_capacity.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i32 0, ptr %m_capacity.i.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 32
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 280
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 280
   br i1 %arrayctor.done, label %invoke.cont8, label %invoke.cont
 
 invoke.cont8:                                     ; preds = %invoke.cont, %invoke.cont8
@@ -279,7 +279,7 @@ invoke.cont8:                                     ; preds = %invoke.cont, %invok
   %m_capacity.i.i107 = getelementptr inbounds nuw i8, ptr %arrayctor.cur6.ptr.ptr, i64 8
   store i32 0, ptr %m_capacity.i.i107, align 8
   %arrayctor.cur6.add = add nuw nsw i64 %arrayctor.cur6.idx, 32
-  %arrayctor.done16 = icmp eq i64 %arrayctor.cur6.add, 472
+  %arrayctor.done16 = icmp samesign eq i64 %arrayctor.cur6.add, 472
   br i1 %arrayctor.done16, label %invoke.cont75, label %invoke.cont8
 
 invoke.cont75:                                    ; preds = %invoke.cont8

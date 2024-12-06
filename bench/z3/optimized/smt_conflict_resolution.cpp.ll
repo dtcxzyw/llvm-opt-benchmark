@@ -1765,7 +1765,7 @@ if.end.i.i:                                       ; preds = %entry
 _ZN6vectorIPN3smt13justificationELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %retval.0.i.i
-  %cmp.not10 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not10 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not10, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIPN3smt13justificationELb0EjE3endEv.exit, %for.body
@@ -4324,7 +4324,7 @@ _ZN6vectorIN3sat7literalELb0EjE3endEv.exit:       ; preds = %if.end, %if.end.i.i
   %bf.cast.i.i = and i32 %10, 8388607
   %m_lemma_iscope_lvl = getelementptr inbounds nuw i8, ptr %this, i64 84
   store i32 %bf.cast.i.i, ptr %m_lemma_iscope_lvl, align 4
-  %cmp.not24 = icmp eq i64 %retval.0.i.i, 4
+  %cmp.not24 = icmp samesign eq i64 %retval.0.i.i, 4
   br i1 %cmp.not24, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIN3sat7literalELb0EjE3endEv.exit

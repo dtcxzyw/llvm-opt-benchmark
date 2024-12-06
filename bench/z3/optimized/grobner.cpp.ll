@@ -769,7 +769,7 @@ _ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %retval.0.i.i
   %idx.ext = zext i32 %old_size to i64
-  %cmp.not6 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not6 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not6, label %for.end, label %for.body.preheader
 
 for.body.preheader:                               ; preds = %_ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit
@@ -1039,7 +1039,7 @@ _ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %retval.0.i.i
   %idx.ext = zext i32 %old_size to i64
-  %cmp.not5 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not5 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not5, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit
@@ -1192,7 +1192,7 @@ _ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_Z
   %retval.0.i.i.i = phi i64 [ %5, %if.end.i.i.i ], [ 0, %_ZNK7grobner15get_scope_levelEv.exit ]
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %3, i64 %retval.0.i.i.i
   %idx.ext.i = zext i32 %2 to i64
-  %cmp.not5.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not5.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not5.i, label %for.end.i, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %_ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit.i
@@ -1243,7 +1243,7 @@ _ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit.i7: ; preds = %if.end.i.i.i5, %
   %retval.0.i.i.i8 = phi i64 [ %11, %if.end.i.i.i5 ], [ 0, %_ZN7grobner18unfreeze_equationsEj.exit ]
   %add.ptr.i.i9 = getelementptr inbounds nuw ptr, ptr %9, i64 %retval.0.i.i.i8
   %idx.ext.i10 = zext i32 %8 to i64
-  %cmp.not6.i = icmp eq i64 %retval.0.i.i.i8, %idx.ext.i10
+  %cmp.not6.i = icmp samesign eq i64 %retval.0.i.i.i8, %idx.ext.i10
   br i1 %cmp.not6.i, label %for.end.i17, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZN6vectorIPN7grobner8equationELb0EjE3endEv.exit.i7

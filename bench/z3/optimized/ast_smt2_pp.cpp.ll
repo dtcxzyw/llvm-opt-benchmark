@@ -16175,7 +16175,7 @@ if.end.i.i36:                                     ; preds = %if.end105
 _ZN6vectorIN12smt2_printer4infoELb0EjE3endEv.exit: ; preds = %if.end105, %if.end.i.i36
   %retval.0.i.i38 = phi i64 [ %49, %if.end.i.i36 ], [ 0, %if.end105 ]
   %add.ptr.i = getelementptr inbounds nuw %"struct.smt2_printer::info", ptr %46, i64 %retval.0.i.i38
-  %cmp115.not41 = icmp eq i64 %retval.0.i.i38, %idx.ext110
+  %cmp115.not41 = icmp samesign eq i64 %retval.0.i.i38, %idx.ext110
   br i1 %cmp115.not41, label %for.end, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIN12smt2_printer4infoELb0EjE3endEv.exit, %if.end121

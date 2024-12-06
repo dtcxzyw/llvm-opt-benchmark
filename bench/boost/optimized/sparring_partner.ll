@@ -2905,7 +2905,7 @@ _ZNSt12_Vector_baseIPcSaIS0_EED2Ev.exit.i:        ; preds = %759, %760
 _ZNSt6vectorIPcSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit: ; preds = %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i, %.noexc4.i
   %.sroa.0792.0 = phi ptr [ %761, %.noexc4.i ], [ null, %_ZNSt6vectorIPcSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i.i ]
   %.sroa.11.0 = getelementptr inbounds nuw i8, ptr %.sroa.0792.0, i64 %gepdiff
-  %.not826839 = icmp eq i64 %gepdiff, 0
+  %.not826839 = icmp samesign eq i64 %gepdiff, 0
   br i1 %.not826839, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSolsEPFRSoS_E.exit404, %_ZNSt6vectorIPcSaIS0_EEC2IPS0_vEET_S5_RKS1_.exit
@@ -6926,7 +6926,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost12lexical_castIiNSt7__cxx1112ba
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 %7
-  %9 = icmp eq i64 %7, 0
+  %9 = icmp samesign eq i64 %7, 0
   br i1 %9, label %_ZN5boost10conversion6detail19try_lexical_convertIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread, label %10
 
 10:                                               ; preds = %1
@@ -13635,7 +13635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = load i64, ptr %24, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  %30 = icmp eq i64 %28, 0
+  %30 = icmp samesign eq i64 %28, 0
   br i1 %30, label %_ZN5boost10conversion6detail19try_lexical_convertIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread.i, label %31
 
 31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit
@@ -17997,7 +17997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
   %27 = load ptr, ptr %9, align 8, !tbaa !11
   %28 = load i64, ptr %24, align 8, !tbaa !14
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 %28
-  %30 = icmp eq i64 %28, 0
+  %30 = icmp samesign eq i64 %28, 0
   br i1 %30, label %_ZN5boost10conversion6detail19try_lexical_convertImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEbRKT0_RT_.exit.thread.i, label %31
 
 31:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit

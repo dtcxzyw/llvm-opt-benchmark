@@ -1570,7 +1570,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
   %.ptr14 = getelementptr inbounds nuw i8, ptr %1, i64 %.add9
   %16 = and i8 %14, 31
   %17 = zext nneg i8 %16 to i32
-  %18 = icmp ne i64 %.add9, 64
+  %18 = icmp samesign ne i64 %.add9, 64
   tail call void @llvm.assume(i1 %18)
   %.add = add nuw nsw i64 %.idx, 2
   %19 = load i8, ptr %.ptr14, align 1, !noalias !235, !noundef !5
@@ -1587,7 +1587,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit15.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit13.i.i.i"
   %.ptr12 = getelementptr inbounds nuw i8, ptr %1, i64 %.add
-  %27 = icmp ne i64 %.add, 64
+  %27 = icmp samesign ne i64 %.add, 64
   tail call void @llvm.assume(i1 %27)
   %.add8 = add nuw nsw i64 %.idx, 3
   %28 = load i8, ptr %.ptr12, align 1, !noalias !235, !noundef !5
@@ -1602,7 +1602,7 @@ define void @_ZN6common10validation20validate_sha256_hash17hb20d4f9609c91bf7E(pt
 
 "_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0282f441031caae2E.exit.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb5250dd02f5adaefE.exit15.i.i.i"
   %.ptr13 = getelementptr inbounds nuw i8, ptr %1, i64 %.add8
-  %36 = icmp ne i64 %.add8, 64
+  %36 = icmp samesign ne i64 %.add8, 64
   tail call void @llvm.assume(i1 %36)
   %.add10 = add nuw nsw i64 %.idx, 4
   %37 = load i8, ptr %.ptr13, align 1, !noalias !235, !noundef !5

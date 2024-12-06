@@ -1098,7 +1098,7 @@ define void @_ZN11QhullPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(80
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %50 = icmp eq i64 %.021.i.i.i.add, 16
+  %50 = icmp samesign eq i64 %.021.i.i.i.add, 16
   br i1 %50, label %51, label %._crit_edge.i.i.i.thread
 
 51:                                               ; preds = %._crit_edge.i.i.i

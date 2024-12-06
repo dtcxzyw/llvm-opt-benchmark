@@ -8282,7 +8282,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %.loopexit229
   br label %.lr.ph274
 
 .preheader227:                                    ; preds = %_ZN4LuauL13getJumpTargetEjj.exit.thread
-  %.not297 = icmp eq i64 %269, 0
+  %.not297 = icmp samesign eq i64 %269, 0
   br i1 %.not297, label %._crit_edge, label %.lr.ph277.preheader
 
 .lr.ph277.preheader:                              ; preds = %.preheader227

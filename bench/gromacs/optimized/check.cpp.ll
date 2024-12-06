@@ -1803,7 +1803,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i32:      ; preds = %669, %_ZN26PartialD
 674:                                              ; preds = %646
   %675 = landingpad { ptr, i32 }
           cleanup
-  %676 = icmp eq i64 %.idx36.i, 0
+  %676 = icmp samesign eq i64 %.idx36.i, 0
   br i1 %676, label %.loopexit.i21, label %.preheader57.i
 
 .preheader57.i:                                   ; preds = %674, %.preheader57.i
@@ -1816,7 +1816,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i32:      ; preds = %669, %_ZN26PartialD
 680:                                              ; preds = %651
   %681 = landingpad { ptr, i32 }
           cleanup
-  %682 = icmp eq i64 %.idx40.i, 0
+  %682 = icmp samesign eq i64 %.idx40.i, 0
   br i1 %682, label %.loopexit52.i, label %.preheader55.i
 
 .preheader55.i:                                   ; preds = %680, %.preheader55.i

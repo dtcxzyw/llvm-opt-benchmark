@@ -18280,7 +18280,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
 
 _ZN6casadi10get_ordersERKSt6vectorIxSaIxEE.exit:  ; preds = %1304
   %1306 = getelementptr inbounds nuw i8, ptr %1290, i64 %1288
-  %.not9.i.i = icmp eq i64 %1288, 8
+  %.not9.i.i = icmp samesign eq i64 %1288, 8
   br i1 %.not9.i.i, label %.lr.ph1588.preheader, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN6casadi10get_ordersERKSt6vectorIxSaIxEE.exit
@@ -24905,7 +24905,7 @@ _ZNSt6vectorIxSaIxEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %_ZNSt6vector
 
 _ZN6casadi10get_ordersERKSt6vectorIxSaIxEE.exit:  ; preds = %1406
   %1408 = getelementptr inbounds nuw i8, ptr %1392, i64 %1390
-  %.not9.i.i = icmp eq i64 %1390, 8
+  %.not9.i.i = icmp samesign eq i64 %1390, 8
   br i1 %.not9.i.i, label %.lr.ph1994.preheader, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %_ZN6casadi10get_ordersERKSt6vectorIxSaIxEE.exit

@@ -574,13 +574,13 @@ invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
   %4 = load ptr, ptr %arrayctor.cur8.ptr.ptr.i, align 8
   store i8 0, ptr %4, align 1
   %arrayctor.cur8.add.i = add nuw nsw i64 %arrayctor.cur8.idx.i, 64
-  %arrayctor.done18.i = icmp eq i64 %arrayctor.cur8.add.i, 1648
+  %arrayctor.done18.i = icmp samesign eq i64 %arrayctor.cur8.add.i, 1648
   br i1 %arrayctor.done18.i, label %_ZN12CollatorSpecC2Ev.exit, label %arrayctor.loop7.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
   %5 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty.i = icmp eq i64 %arrayctor.cur.idx.i, 0
+  %arraydestroy.isempty.i = icmp samesign eq i64 %arrayctor.cur.idx.i, 0
   br i1 %arraydestroy.isempty.i, label %common.resume, label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i
@@ -1151,13 +1151,13 @@ invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
   %3 = load ptr, ptr %arrayctor.cur8.ptr.ptr.i, align 8
   store i8 0, ptr %3, align 1
   %arrayctor.cur8.add.i = add nuw nsw i64 %arrayctor.cur8.idx.i, 64
-  %arrayctor.done18.i = icmp eq i64 %arrayctor.cur8.add.i, 1648
+  %arrayctor.done18.i = icmp samesign eq i64 %arrayctor.cur8.add.i, 1648
   br i1 %arrayctor.done18.i, label %_ZN12CollatorSpecC2Ev.exit, label %arrayctor.loop7.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty.i = icmp eq i64 %arrayctor.cur.idx.i, 0
+  %arraydestroy.isempty.i = icmp samesign eq i64 %arrayctor.cur.idx.i, 0
   br i1 %arraydestroy.isempty.i, label %common.resume, label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i
@@ -1499,13 +1499,13 @@ invoke.cont10.i:                                  ; preds = %arrayctor.loop7.i
   %3 = load ptr, ptr %arrayctor.cur8.ptr.ptr.i, align 8
   store i8 0, ptr %3, align 1
   %arrayctor.cur8.add.i = add nuw nsw i64 %arrayctor.cur8.idx.i, 64
-  %arrayctor.done18.i = icmp eq i64 %arrayctor.cur8.add.i, 1648
+  %arrayctor.done18.i = icmp samesign eq i64 %arrayctor.cur8.add.i, 1648
   br i1 %arrayctor.done18.i, label %_ZN12CollatorSpecC2Ev.exit, label %arrayctor.loop7.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
   %4 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty.i = icmp eq i64 %arrayctor.cur.idx.i, 0
+  %arraydestroy.isempty.i = icmp samesign eq i64 %arrayctor.cur.idx.i, 0
   br i1 %arraydestroy.isempty.i, label %common.resume, label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %lpad.i, %arraydestroy.body.i

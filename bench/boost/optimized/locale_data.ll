@@ -1249,7 +1249,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i68:
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %143 = load i64, ptr %142, align 8, !tbaa !8
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 %143
-  %.not15.i = icmp eq i64 %143, 0
+  %.not15.i = icmp samesign eq i64 %143, 0
   br i1 %.not15.i, label %_ZN5boost6locale4util11locale_data18parse_from_variantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc75, %150
@@ -1783,7 +1783,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i58:
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %175 = load i64, ptr %174, align 8, !tbaa !8
   %176 = getelementptr inbounds nuw i8, ptr %173, i64 %175
-  %.not15.i = icmp eq i64 %175, 0
+  %.not15.i = icmp samesign eq i64 %175, 0
   br i1 %.not15.i, label %_ZN5boost6locale4util11locale_data18parse_from_variantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc65, %182
@@ -2093,7 +2093,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_checkEmPKc.exit.i.i: ;
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %77 = load i64, ptr %76, align 8, !tbaa !8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 %77
-  %.not15.i = icmp eq i64 %77, 0
+  %.not15.i = icmp samesign eq i64 %77, 0
   br i1 %.not15.i, label %_ZN5boost6locale4util11locale_data18parse_from_variantERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc24, %84
@@ -2225,7 +2225,7 @@ define noundef zeroext i1 @_ZN5boost6locale4util11locale_data18parse_from_varian
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %12 = load i64, ptr %11, align 8, !tbaa !8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 %12
-  %.not15 = icmp eq i64 %12, 0
+  %.not15 = icmp samesign eq i64 %12, 0
   br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %19
@@ -2259,7 +2259,7 @@ define noundef nonnull align 8 dereferenceable(129) ptr @_ZN5boost6locale4util11
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 %8
-  %.not9 = icmp eq i64 %8, 0
+  %.not9 = icmp samesign eq i64 %8, 0
   br i1 %.not9, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %15

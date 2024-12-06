@@ -120,7 +120,7 @@ _ZN8QuantLib5ArrayD2Ev.exit:                      ; preds = %invoke.cont, %_ZNKS
   %add.i = add i64 %3, 1
   %mul.i2 = mul i64 %5, %add.i
   %add.ptr.i3 = getelementptr inbounds nuw double, ptr %4, i64 %mul.i2
-  %cmp.not5.i = icmp eq i64 %mul.i, %mul.i2
+  %cmp.not5.i = icmp samesign eq i64 %mul.i, %mul.i2
   br i1 %cmp.not5.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit, label %for.body.i.preheader
 
 for.body.i.preheader:                             ; preds = %_ZN8QuantLib5ArrayD2Ev.exit
@@ -1245,7 +1245,7 @@ _ZN8QuantLib5ArrayD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   %add.i.i = add i64 %4, 1
   %mul.i2.i = mul i64 %6, %add.i.i
   %add.ptr.i3.i = getelementptr inbounds nuw double, ptr %5, i64 %mul.i2.i
-  %cmp.not5.i.i = icmp eq i64 %mul.i.i, %mul.i2.i
+  %cmp.not5.i.i = icmp samesign eq i64 %mul.i.i, %mul.i2.i
   br i1 %cmp.not5.i.i, label %_ZSt13inner_productIPKdS1_dET1_T_S3_T0_S2_.exit.i, label %for.body.i.preheader.i
 
 for.body.i.preheader.i:                           ; preds = %_ZN8QuantLib5ArrayD2Ev.exit.i

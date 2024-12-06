@@ -3295,7 +3295,7 @@ define void @_ZN7uu_tail6chunks10LinesChunk10from_chunk17h3bb0dd871f51c231E(ptr 
 
 _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit.i: ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %10
-  %14 = icmp eq i64 %10, 0
+  %14 = icmp samesign eq i64 %10, 0
   %15 = icmp eq i64 %2, 0
   %or.cond12.i = or i1 %15, %14
   br i1 %or.cond12.i, label %_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from17h37a06c6153847714E.exit, label %.lr.ph.i
@@ -3434,7 +3434,7 @@ define noundef i64 @_ZN7uu_tail6chunks10LinesChunk27calculate_bytes_offset_from1
 
 _ZN7uu_tail6chunks10LinesChunk10get_buffer17h49ad03b84d6908c1E.exit: ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  %8 = icmp eq i64 %4, 0
+  %8 = icmp samesign eq i64 %4, 0
   %9 = icmp eq i64 %1, 0
   %or.cond12 = or i1 %8, %9
   br i1 %or.cond12, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0a659e0ee6351131E.exit.thread", label %.lr.ph

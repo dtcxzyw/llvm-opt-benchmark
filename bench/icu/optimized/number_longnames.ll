@@ -6435,7 +6435,7 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %new
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 104
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 848
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 848
   br i1 %arrayctor.done.i, label %new.cont, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i
@@ -9323,7 +9323,7 @@ arrayctor.loop.i:                                 ; preds = %invoke.cont.i, %new
 
 invoke.cont.i:                                    ; preds = %arrayctor.loop.i
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 104
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 848
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 848
   br i1 %arrayctor.done.i, label %_ZN6icu_756number4impl15LongNameHandlerC2Ev.exit, label %arrayctor.loop.i
 
 lpad.i:                                           ; preds = %arrayctor.loop.i

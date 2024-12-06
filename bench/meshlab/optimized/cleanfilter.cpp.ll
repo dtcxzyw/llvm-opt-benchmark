@@ -1661,7 +1661,7 @@ define void @_ZN11CleanFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(80
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %49 = icmp eq i64 %.021.i.i.i.add, 60
+  %49 = icmp samesign eq i64 %.021.i.i.i.add, 60
   br i1 %49, label %50, label %._crit_edge.i.i.i.thread
 
 50:                                               ; preds = %._crit_edge.i.i.i

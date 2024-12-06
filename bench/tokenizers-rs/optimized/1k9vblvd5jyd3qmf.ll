@@ -1932,7 +1932,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 62:                                               ; preds = %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha1a02bc78fb1e502E.exit"
   %63 = load i32, ptr %21, align 8, !noundef !15
   %64 = getelementptr inbounds nuw i8, ptr %32, i64 %34
-  %65 = icmp eq i64 %34, 0
+  %65 = icmp samesign eq i64 %34, 0
   br i1 %65, label %._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha1a02bc78fb1e502E.exit"
@@ -2333,7 +2333,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 61:                                               ; preds = %65, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha1a02bc78fb1e502E.exit"
   %62 = load i32, ptr %21, align 8, !noundef !15
   %63 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %64 = icmp eq i64 %.val1.i, 0
+  %64 = icmp samesign eq i64 %.val1.i, 0
   br i1 %64, label %._crit_edge, label %.lr.ph
 
 65:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha1a02bc78fb1e502E.exit"

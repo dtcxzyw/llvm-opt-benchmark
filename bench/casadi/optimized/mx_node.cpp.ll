@@ -27393,7 +27393,7 @@ _ZN6casadi12if_else_zeroERKNS_2MXES2_.exit:       ; preds = %41
 47:                                               ; preds = %11
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = icmp eq i64 %.idx, 0
+  %49 = icmp samesign eq i64 %.idx, 0
   br i1 %49, label %.loopexit, label %.preheader41
 
 .preheader41:                                     ; preds = %47, %.preheader41
@@ -27679,7 +27679,7 @@ _ZN6casadi3dotERKNS_2MXES2_.exit:                 ; preds = %_ZNK6casadi6MXNode3
 69:                                               ; preds = %16
   %70 = landingpad { ptr, i32 }
           cleanup
-  %71 = icmp eq i64 %.idx, 0
+  %71 = icmp samesign eq i64 %.idx, 0
   br i1 %71, label %.loopexit, label %.preheader112
 
 .preheader112:                                    ; preds = %69, %.preheader112
@@ -39138,7 +39138,7 @@ _ZN6casadi12if_else_zeroERKNS_2MXES2_.exit:       ; preds = %41
 47:                                               ; preds = %11
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = icmp eq i64 %.idx, 0
+  %49 = icmp samesign eq i64 %.idx, 0
   br i1 %49, label %.loopexit, label %.preheader41
 
 .preheader41:                                     ; preds = %47, %.preheader41
@@ -39424,7 +39424,7 @@ _ZN6casadi3dotERKNS_2MXES2_.exit:                 ; preds = %_ZNK6casadi6MXNode3
 69:                                               ; preds = %16
   %70 = landingpad { ptr, i32 }
           cleanup
-  %71 = icmp eq i64 %.idx, 0
+  %71 = icmp samesign eq i64 %.idx, 0
   br i1 %71, label %.loopexit, label %.preheader112
 
 .preheader112:                                    ; preds = %69, %.preheader112
@@ -41160,7 +41160,7 @@ _ZN6casadi12if_else_zeroERKNS_2MXES2_.exit:       ; preds = %41
 47:                                               ; preds = %11
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = icmp eq i64 %.idx, 0
+  %49 = icmp samesign eq i64 %.idx, 0
   br i1 %49, label %.loopexit, label %.preheader41
 
 .preheader41:                                     ; preds = %47, %.preheader41
@@ -41446,7 +41446,7 @@ _ZN6casadi3dotERKNS_2MXES2_.exit:                 ; preds = %_ZNK6casadi6MXNode3
 69:                                               ; preds = %16
   %70 = landingpad { ptr, i32 }
           cleanup
-  %71 = icmp eq i64 %.idx, 0
+  %71 = icmp samesign eq i64 %.idx, 0
   br i1 %71, label %.loopexit, label %.preheader112
 
 .preheader112:                                    ; preds = %69, %.preheader112
@@ -46220,7 +46220,7 @@ _ZN6casadi12if_else_zeroERKNS_2MXES2_.exit:       ; preds = %41
 47:                                               ; preds = %11
   %48 = landingpad { ptr, i32 }
           cleanup
-  %49 = icmp eq i64 %.idx, 0
+  %49 = icmp samesign eq i64 %.idx, 0
   br i1 %49, label %.loopexit, label %.preheader41
 
 .preheader41:                                     ; preds = %47, %.preheader41
@@ -46506,7 +46506,7 @@ _ZN6casadi3dotERKNS_2MXES2_.exit:                 ; preds = %_ZNK6casadi6MXNode3
 69:                                               ; preds = %16
   %70 = landingpad { ptr, i32 }
           cleanup
-  %71 = icmp eq i64 %.idx, 0
+  %71 = icmp samesign eq i64 %.idx, 0
   br i1 %71, label %.loopexit, label %.preheader112
 
 .preheader112:                                    ; preds = %69, %.preheader112

@@ -171,7 +171,7 @@ while.body.i.i11.i.i.i:                           ; preds = %for.body.i5.i.i.i, 
 
 for.cond.preheader.i19.i.i.i:                     ; preds = %if.then.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %__val.i17.i.i.i)
-  %cmp.i1.not10.i21.i.i.i = icmp eq i64 %__cur.07.i.i.i.i.i.i.idx, 0
+  %cmp.i1.not10.i21.i.i.i = icmp samesign eq i64 %__cur.07.i.i.i.i.i.i.idx, 0
   br i1 %cmp.i1.not10.i21.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4node12CleanupQueue19CleanupHookCallbackESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_10GetOrderedEvE3$_0EEEvT_SE_T0_.exit50.i.i.i", label %for.body.lr.ph.i22.i.i.i
 
 for.body.lr.ph.i22.i.i.i:                         ; preds = %for.cond.preheader.i19.i.i.i

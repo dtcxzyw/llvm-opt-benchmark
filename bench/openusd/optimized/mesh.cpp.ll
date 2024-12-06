@@ -2039,7 +2039,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZN32pxrInter
 
 .body:                                            ; preds = %7, %49
   %eh.lpad-body = phi { ptr, i32 } [ %50, %49 ], [ %8, %7 ]
-  %51 = icmp eq i64 %.idx, 0
+  %51 = icmp samesign eq i64 %.idx, 0
   br i1 %51, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.body, %_ZN32pxrInternal_v0_24__pxrReserved__14HdMeshReprDescD2Ev.exit

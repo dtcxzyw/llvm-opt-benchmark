@@ -420,7 +420,7 @@ invoke.cont180.lr.ph:                             ; preds = %for.body.i.i.i.preh
   %63 = load i64, ptr %columns_.i147, align 8, !tbaa !3
   %mul.i215 = mul i64 %63, %indvars.iv.next489
   %invariant.gep460 = getelementptr double, ptr %62, i64 %mul.i215
-  %cmp.not5.i = icmp eq i64 %1, %indvars.iv.next489
+  %cmp.not5.i = icmp samesign eq i64 %1, %indvars.iv.next489
   br i1 %cmp.not5.i, label %invoke.cont180.us, label %invoke.cont180
 
 invoke.cont180.us:                                ; preds = %invoke.cont180.lr.ph, %invoke.cont180.us

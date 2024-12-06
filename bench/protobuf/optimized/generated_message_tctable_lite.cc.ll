@@ -22650,7 +22650,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i21, ptr align 8 %14, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %15 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i.i, %15
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i.i, %15
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -22810,7 +22810,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i22, ptr align 8 %13, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %14 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i.i, %14
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i.i, %14
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -22952,7 +22952,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i20, ptr align 8 %13, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %14 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i.i, %14
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i.i, %14
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -28363,7 +28363,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %38, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %39 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %conv.i22, %39
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %conv.i22, %39
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -28800,7 +28800,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %35, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %36 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %conv.i22, %36
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %conv.i22, %36
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -29231,7 +29231,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %35, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %36 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %conv.i22, %36
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %conv.i22, %36
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -29648,7 +29648,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %6, ptr align 8 %22, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %23 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %conv.i21, %23
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %conv.i21, %23
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -36907,7 +36907,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i22, ptr align 8 %13, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %14 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i.i, %14
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i.i, %14
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i
@@ -37052,7 +37052,7 @@ _ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i21, ptr align 8 %14, i64 %add.ptr.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i = load i8, ptr %cached_block_length_.i.i.i.i, align 8
   %15 = zext i8 %.pre.i.i.i.i to i64
-  %cmp.not3.i.i.i.i.i.i.i = icmp eq i64 %div10.i.i.i.i, %15
+  %cmp.not3.i.i.i.i.i.i.i = icmp samesign eq i64 %div10.i.i.i.i, %15
   br i1 %cmp.not3.i.i.i.i.i.i.i, label %_ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.exit.i.i.i.i, label %for.body.preheader.i.i.i.i.i.i.i
 
 for.body.preheader.i.i.i.i.i.i.i:                 ; preds = %_ZSt4copyIPPN6google8protobuf8internal11SerialArena11CachedBlockES6_ET0_T_S8_S7_.exit.i.i.i.i, %if.then.i.i.i.i

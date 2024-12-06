@@ -12820,7 +12820,7 @@ _ZNK4llvm19MachineRegisterInfo13isAllocatableENS_10MCRegisterE.exit: ; preds = %
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i: ; preds = %85, %76
   %.lcssa.i.i.i.pn.i = phi i64 [ %79, %76 ], [ %88, %85 ]
   %92 = zext i32 %74 to i64
-  %93 = icmp eq i64 %.lcssa.i.i.i.pn.i, %92
+  %93 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %92
   br i1 %93, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, label %94
 
 94:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i
@@ -12932,7 +12932,7 @@ _ZN4llvm4PBQP6VectorD2Ev.exit59:                  ; preds = %_ZNKSt14default_del
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i65: ; preds = %137, %128
   %.lcssa.i.i.i.pn.i66 = phi i64 [ %131, %128 ], [ %140, %137 ]
   %144 = zext i32 %126 to i64
-  %145 = icmp eq i64 %.lcssa.i.i.i.pn.i66, %144
+  %145 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i66, %144
   br i1 %145, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit68, label %146
 
 146:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i65
@@ -12970,7 +12970,7 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit68: ;
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i74: ; preds = %156, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit68
   %.lcssa.i.i.i.pn.i75 = phi i64 [ %150, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit68 ], [ %159, %156 ]
   %163 = zext i32 %126 to i64
-  %164 = icmp eq i64 %.lcssa.i.i.i.pn.i75, %163
+  %164 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i75, %163
   br i1 %164, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit77, label %165
 
 165:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i74

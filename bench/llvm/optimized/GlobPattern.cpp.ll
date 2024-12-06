@@ -1441,7 +1441,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %27
   %.sroa.048.0.lcssa = phi ptr [ %1, %5 ], [ %.sroa.048.0.be, %.backedge ]
   %.sroa.10.0.lcssa = phi i64 [ %2, %5 ], [ %25, %.backedge ]
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.048.0.lcssa, i64 %.sroa.10.0.lcssa
-  %.not3064 = icmp eq i64 %.sroa.10.0.lcssa, 0
+  %.not3064 = icmp samesign eq i64 %.sroa.10.0.lcssa, 0
   br i1 %.not3064, label %._crit_edge68, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %._crit_edge, %.lr.ph67

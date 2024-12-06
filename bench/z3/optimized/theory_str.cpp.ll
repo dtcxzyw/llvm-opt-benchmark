@@ -3206,7 +3206,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i:        ; preds = %if.end.i.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ]
-  %cmp.not6.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
+  %cmp.not6.i.i.i = icmp samesign eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
   br i1 %cmp.not6.i.i.i, label %while.end.i.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i
@@ -15613,7 +15613,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i:        ; preds = %if.end.i.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %90, %if.end.i.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ]
-  %cmp.not6.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
+  %cmp.not6.i.i.i = icmp samesign eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
   br i1 %cmp.not6.i.i.i, label %while.end.i.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i
@@ -37152,7 +37152,7 @@ if.end.i.i.i.i.i:                                 ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i:        ; preds = %if.end.i.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i ]
-  %cmp.not6.i.i.i = icmp eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
+  %cmp.not6.i.i.i = icmp samesign eq i64 %retval.0.i.i.i.i.i, %idx.ext.i.i.i
   br i1 %cmp.not6.i.i.i, label %while.end.i.i.i, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i
@@ -37272,7 +37272,7 @@ if.end.i.i.i.i.i10:                               ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i12:      ; preds = %if.end.i.i.i.i.i10, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i6
   %retval.0.i.i.i.i.i13 = phi i64 [ %21, %if.end.i.i.i.i.i10 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i6 ]
-  %cmp.not6.i.i.i14 = icmp eq i64 %retval.0.i.i.i.i.i13, %idx.ext.i.i.i7
+  %cmp.not6.i.i.i14 = icmp samesign eq i64 %retval.0.i.i.i.i.i13, %idx.ext.i.i.i7
   br i1 %cmp.not6.i.i.i14, label %while.end.i.i.i25, label %while.body.preheader.i.i.i15
 
 while.body.preheader.i.i.i15:                     ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i.i12
@@ -103655,7 +103655,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i:          ; preds = %if.end.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %retval.0.i.i.i.i = phi i64 [ %98, %if.end.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %cmp.not6.i.i = icmp eq i64 %retval.0.i.i.i.i, %idx.ext.i.i138
+  %cmp.not6.i.i = icmp samesign eq i64 %retval.0.i.i.i.i, %idx.ext.i.i138
   br i1 %cmp.not6.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i
@@ -103746,7 +103746,7 @@ if.end.i.i.i.i169:                                ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i171:       ; preds = %if.end.i.i.i.i169, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i161
   %retval.0.i.i.i.i172 = phi i64 [ %108, %if.end.i.i.i.i169 ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i161 ]
-  %cmp.not6.i.i173 = icmp eq i64 %retval.0.i.i.i.i172, %idx.ext.i.i166
+  %cmp.not6.i.i173 = icmp samesign eq i64 %retval.0.i.i.i.i172, %idx.ext.i.i166
   br i1 %cmp.not6.i.i173, label %while.end.i.i184, label %while.body.preheader.i.i174
 
 while.body.preheader.i.i174:                      ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i171

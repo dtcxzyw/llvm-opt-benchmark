@@ -523,7 +523,7 @@ _ZNSt5arrayIN5ZXing10DataMatrix16DMRegressionLineELm4EEC2Ev.exit.preheader.i: ; 
 225:                                              ; preds = %168
   %226 = landingpad { ptr, i32 }
           cleanup
-  %227 = icmp eq i64 %.idx.i.i, 0
+  %227 = icmp samesign eq i64 %.idx.i.i, 0
   br i1 %227, label %.body, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %225, %_ZN5ZXing10DataMatrix16DMRegressionLineD2Ev.exit.i.i

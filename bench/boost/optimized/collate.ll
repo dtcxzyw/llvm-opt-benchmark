@@ -1172,7 +1172,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale10impl_posix8collatorIc
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
-  %.not5.i.i = icmp eq i64 %10, 0
+  %.not5.i.i = icmp samesign eq i64 %10, 0
   br i1 %.not5.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i
@@ -1985,7 +1985,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost6locale10impl_posix8collatorIw
   %10 = load i64, ptr %9, align 8, !tbaa !45
   %11 = shl i64 %10, 2
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
-  %.not5.i.i = icmp eq i64 %11, 0
+  %.not5.i.i = icmp samesign eq i64 %11, 0
   br i1 %.not5.i.i, label %_ZN5boost6locale11gnu_gettext26pj_winberger_hash_functionEPKcS3_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %.lr.ph.i.i

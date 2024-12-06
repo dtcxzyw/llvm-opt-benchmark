@@ -10225,7 +10225,7 @@ _ZN3smt5enode11end_parentsEv.exit:                ; preds = %entry, %if.end.i.i.
   %retval.0.i.i.i = phi i64 [ %7, %if.end.i.i.i ], [ 0, %entry ]
   %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %5, i64 %retval.0.i.i.i
   %idx.ext = zext i32 %r2_num_parents to i64
-  %cmp.not71 = icmp eq i64 %retval.0.i.i.i, %idx.ext
+  %cmp.not71 = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext
   br i1 %cmp.not71, label %do.body.preheader, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN3smt5enode11end_parentsEv.exit
@@ -15513,7 +15513,7 @@ if.end.i.i.i:                                     ; preds = %entry
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i:            ; preds = %if.end.i.i.i, %entry
   %retval.0.i.i.i = phi i64 [ %2, %if.end.i.i.i ], [ 0, %entry ]
-  %cmp.not6.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not6.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not6.i, label %while.end.i, label %while.body.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i
@@ -16013,12 +16013,12 @@ _ZN6vectorIPN3smt6clauseELb0EjE3endEv.exit:       ; preds = %_ZNK6vectorIPN3smt6
   br i1 %cmp4, label %if.then5, label %while.cond58.preheader
 
 while.cond58.preheader:                           ; preds = %_ZN6vectorIPN3smt6clauseELb0EjE3endEv.exit
-  %cmp59.not176 = icmp eq i64 %retval.0.i.i, %idx.ext162.pn
+  %cmp59.not176 = icmp samesign eq i64 %retval.0.i.i, %idx.ext162.pn
   br i1 %cmp59.not176, label %if.end63, label %while.body60
 
 if.then5:                                         ; preds = %_ZN6vectorIPN3smt6clauseELb0EjE3endEv.exit
   store ptr null, ptr %watches, align 8
-  %cmp6.not178 = icmp eq i64 %retval.0.i.i, %idx.ext162.pn
+  %cmp6.not178 = icmp samesign eq i64 %retval.0.i.i, %idx.ext162.pn
   br i1 %cmp6.not178, label %while.end.thread, label %while.body.lr.ph
 
 while.end.thread:                                 ; preds = %if.then5
@@ -18611,7 +18611,7 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont46
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i:          ; preds = %if.end.i.i.i.i, %invoke.cont46
   %retval.0.i.i.i.i = phi i64 [ %43, %if.end.i.i.i.i ], [ 0, %invoke.cont46 ]
-  %cmp.not6.i.i = icmp eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
+  %cmp.not6.i.i = icmp samesign eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
   br i1 %cmp.not6.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i
@@ -19338,7 +19338,7 @@ _ZN6vectorIPN3smt6clauseELb0EjE3endEv.exit:       ; preds = %entry, %if.end.i.i
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %retval.0.i.i
   %idx.ext = zext i32 %starting_at to i64
   %add.ptr = getelementptr inbounds nuw ptr, ptr %0, i64 %idx.ext
-  %cmp.not104 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not104 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not104, label %for.end82, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN6vectorIPN3smt6clauseELb0EjE3endEv.exit
@@ -35273,7 +35273,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i:          ; preds = %if.end.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %retval.0.i.i.i.i = phi i64 [ %5, %if.end.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %cmp.not6.i.i = icmp eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
+  %cmp.not6.i.i = icmp samesign eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
   br i1 %cmp.not6.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i

@@ -855,7 +855,7 @@ if.else:                                          ; preds = %_ZSt11swap_rangesIP
   %37 = load i32, ptr %NumNonEmpty51, align 4
   %idx.ext78 = zext i32 %37 to i64
   %add.ptr79.idx = shl nuw nsw i64 %idx.ext78, 3
-  %tobool.not.i.i.i.i.i63 = icmp eq i64 %add.ptr79.idx, %add.ptr64.idx
+  %tobool.not.i.i.i.i.i63 = icmp samesign eq i64 %add.ptr79.idx, %add.ptr64.idx
   br i1 %tobool.not.i.i.i.i.i63, label %if.end84, label %if.then.i.i.i.i.i64
 
 if.then.i.i.i.i.i64:                              ; preds = %if.else

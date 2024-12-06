@@ -2938,7 +2938,7 @@ _ZNKSt8functionIFvN4llvm9StringRefEEEclES1_.exit: ; preds = %_ZN4llvmplERKNS_5Tw
   %67 = and i64 %63, 4294967295
   %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %67
   %69 = getelementptr inbounds nuw ptr, ptr %65, i64 %.sroa.28.0.extract.shift.i
-  %.not18.i.i.i = icmp eq i64 %67, %.sroa.28.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %67, %.sroa.28.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJNS0_12OptSpecifierEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %62

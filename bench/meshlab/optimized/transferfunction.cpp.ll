@@ -1597,7 +1597,7 @@ define void @_ZN16TransferFunctionC2Ev(ptr noundef nonnull align 8 dereferenceab
 11:                                               ; preds = %3
   %12 = landingpad { ptr, i32 }
           cleanup
-  %13 = icmp eq i64 %.idx, 0
+  %13 = icmp samesign eq i64 %.idx, 0
   br i1 %13, label %.loopexit, label %.preheader13
 
 .preheader13:                                     ; preds = %11, %.preheader13
@@ -1994,7 +1994,7 @@ _ZN9TfChannel6addKeyEff.exit263.preheader:        ; preds = %11
 16:                                               ; preds = %4
   %17 = landingpad { ptr, i32 }
           cleanup
-  %18 = icmp eq i64 %.idx, 0
+  %18 = icmp samesign eq i64 %.idx, 0
   br i1 %18, label %.loopexit, label %.preheader269
 
 .preheader269:                                    ; preds = %16, %.preheader269
@@ -2946,7 +2946,7 @@ define void @_ZN16TransferFunctionC2E7QString(ptr noundef nonnull align 8 derefe
 23:                                               ; preds = %12
   %24 = landingpad { ptr, i32 }
           cleanup
-  %25 = icmp eq i64 %.idx, 0
+  %25 = icmp samesign eq i64 %.idx, 0
   br i1 %25, label %.loopexit, label %.preheader112
 
 .preheader112:                                    ; preds = %23, %.preheader112

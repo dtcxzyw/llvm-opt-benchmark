@@ -11,7 +11,7 @@ define void @swab(ptr nocapture noundef readonly %0, ptr noundef writeonly %1, i
 5:                                                ; preds = %3
   %6 = and i64 %2, 9223372036854775806
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
-  %.not13 = icmp eq i64 %6, 0
+  %.not13 = icmp samesign eq i64 %6, 0
   br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph

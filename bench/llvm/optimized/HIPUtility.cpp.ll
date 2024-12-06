@@ -3611,7 +3611,7 @@ _ZNK4llvm6Triple24isWindowsMSVCEnvironmentEv.exit: ; preds = %1
   %40 = and i64 %37, 4294967295
   %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
   %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %.sroa.25.0.extract.shift.i
-  %.not18.i.i.i = icmp eq i64 %40, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %40, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %31, %.loopexit.i.i.i
@@ -3731,7 +3731,7 @@ _ZN4llvm3opt12arg_iteratorIPKPNS0_3ArgELj1EEppEv.exit: ; preds = %.preheader.pre
   %77 = and i64 %74, 4294967295
   %78 = getelementptr inbounds nuw ptr, ptr %76, i64 %77
   %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %.sroa.25.0.extract.shift.i38
-  %.not18.i.i.i39 = icmp eq i64 %77, %.sroa.25.0.extract.shift.i38
+  %.not18.i.i.i39 = icmp samesign eq i64 %77, %.sroa.25.0.extract.shift.i38
   br i1 %.not18.i.i.i39, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit51, label %.lr.ph.i.i.i41
 
 .lr.ph.i.i.i41:                                   ; preds = %._crit_edge, %.loopexit.i.i.i44
@@ -9074,7 +9074,7 @@ define linkonce_odr hidden noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5cla
   %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
   %.idx = shl nuw nsw i64 %.sroa.25.0.extract.shift.i, 3
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not18.i.i.i = icmp eq i64 %8, %.sroa.25.0.extract.shift.i
+  %.not18.i.i.i = icmp samesign eq i64 %8, %.sroa.25.0.extract.shift.i
   br i1 %.not18.i.i.i, label %_ZNK4llvm3opt7ArgList8filteredIJN5clang6driver7options2IDEEEENS_14iterator_rangeINS0_12arg_iteratorIPKPNS0_3ArgEXsZT_EEEEEDpT_.exit, label %.lr.ph.i.i.preheader.i
 
 .lr.ph.i.i.preheader.i:                           ; preds = %2

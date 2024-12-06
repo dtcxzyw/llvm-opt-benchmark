@@ -4102,7 +4102,7 @@ _ZSteqIPN4llvm11VPBlockBaseESt8optionalINS0_23VPAllSuccessorsIteratorIS2_EEEEbRK
 _ZNK4llvm9SetVectorIPNS_13VPRegionBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i: ; preds = %1223, %1210
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %1217, %1210 ], [ %1226, %1223 ]
   %1230 = zext i32 %1208 to i64
-  %.not174.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %1230
+  %.not174.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %1230
   br i1 %.not174.i, label %_ZNK4llvm9SetVectorIPNS_13VPRegionBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread.i, label %_ZN4llvm9SetVectorIPNS_13VPRegionBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit
 
 _ZNK4llvm9SetVectorIPNS_13VPRegionBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i103.i, %_ZNK4llvm9SetVectorIPNS_13VPRegionBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i, %.lr.ph213.i

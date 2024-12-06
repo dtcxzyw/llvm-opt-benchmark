@@ -1282,7 +1282,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt
 
 .preheader.i26.i.i.i.i.i:                         ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
-  %.not17.i28.i.i.i.i.i = icmp eq i64 %24, 32
+  %.not17.i28.i.i.i.i.i = icmp samesign eq i64 %24, 32
   br i1 %.not17.i28.i.i.i.i.i, label %"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN4llvm8codeview9FrameDataESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_24DebugFrameDataSubsection6commitERNS2_18BinaryStreamWriterEE3$_0EEEvT_SH_T0_.exit47.i.i.i.i.i", label %.lr.ph.i29.i.i.i.i.i
 
 .lr.ph.i29.i.i.i.i.i:                             ; preds = %.preheader.i26.i.i.i.i.i

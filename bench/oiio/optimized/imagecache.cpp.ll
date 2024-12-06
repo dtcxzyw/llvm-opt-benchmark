@@ -15536,7 +15536,7 @@ invoke.cont.i:                                    ; preds = %init.i.i.i.i.i, %in
   %m_load_threshold.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i, i64 64
   store i64 0, ptr %m_load_threshold.i.i.i.i.i, align 64
   %arrayctor.cur.add.i = add nuw nsw i64 %arrayctor.cur.idx.i, 128
-  %arrayctor.done.i = icmp eq i64 %arrayctor.cur.add.i, 8256
+  %arrayctor.done.i = icmp samesign eq i64 %arrayctor.cur.add.i, 8256
   br i1 %arrayctor.done.i, label %invoke.cont6, label %arrayctor.loop.i
 
 invoke.cont6:                                     ; preds = %invoke.cont.i
@@ -15624,7 +15624,7 @@ invoke.cont.i13:                                  ; preds = %init.i.i.i.i.i26, %
   %m_load_threshold.i.i.i.i.i20 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i10, i64 64
   store i64 0, ptr %m_load_threshold.i.i.i.i.i20, align 64
   %arrayctor.cur.add.i21 = add nuw nsw i64 %arrayctor.cur.idx.i9, 128
-  %arrayctor.done.i22 = icmp eq i64 %arrayctor.cur.add.i21, 16448
+  %arrayctor.done.i22 = icmp samesign eq i64 %arrayctor.cur.add.i21, 16448
   br i1 %arrayctor.done.i22, label %invoke.cont10, label %arrayctor.loop.i8
 
 invoke.cont10:                                    ; preds = %invoke.cont.i13

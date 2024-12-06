@@ -5106,7 +5106,7 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 lpad56:                                           ; preds = %arrayctor.loop
   %33 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup97, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad56, %arraydestroy.body

@@ -28614,7 +28614,7 @@ define hidden void @"_ZN86_$LT$image..codecs..gif..GifDecoder$LT$R$GT$$u20$as$u2
 
 162:                                              ; preds = %157
   %163 = getelementptr i8, ptr %158, i64 %160
-  %164 = icmp eq i64 %154, 0
+  %164 = icmp samesign eq i64 %154, 0
   br i1 %164, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %162

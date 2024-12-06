@@ -12983,7 +12983,7 @@ invoke.cont:                                      ; preds = %entry, %invoke.cont
   %m_ptr.i4.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 32
   store ptr null, ptr %m_ptr.i4.i.i.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 40
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 96
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 96
   br i1 %arrayctor.done, label %invoke.cont11, label %invoke.cont
 
 invoke.cont11:                                    ; preds = %invoke.cont

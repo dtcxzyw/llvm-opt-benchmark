@@ -8050,7 +8050,7 @@ for.body312:                                      ; preds = %for.body312.lr.ph, 
   %add.ptr.idx = mul i64 %sub.ptr.sub.i, %j.0937
   %add320 = add nuw i64 %j.0937, 1
   %add.ptr323.idx = mul i64 %sub.ptr.sub.i, %add320
-  %tobool.not.i.i.i.i.i = icmp eq i64 %add.ptr323.idx, %add.ptr.idx
+  %tobool.not.i.i.i.i.i = icmp samesign eq i64 %add.ptr323.idx, %add.ptr.idx
   br i1 %tobool.not.i.i.i.i.i, label %_ZSt4copyIPdS0_ET0_T_S2_S1_.exit, label %if.then.i.i.i.i.i461
 
 if.then.i.i.i.i.i461:                             ; preds = %for.body312

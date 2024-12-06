@@ -23462,7 +23462,7 @@ _ZNK5clang4Decl7hasAttrINS_26NoThreadSafetyAnalysisAttrEEEbv.exit.thread: ; pred
   %spec.select.idx = select i1 %4, i64 8, i64 0
   %.idx = shl nuw nsw i64 %32, 3
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 %.idx
-  %.not924 = icmp ne i64 %spec.select.idx, %.idx
+  %.not924 = icmp samesign ne i64 %spec.select.idx, %.idx
   %34 = icmp ne ptr %2, %3
   %or.cond25 = select i1 %.not924, i1 %34, i1 false
   br i1 %or.cond25, label %.lr.ph, label %.critedge

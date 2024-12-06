@@ -2358,7 +2358,7 @@ invoke.cont18:                                    ; preds = %invoke.cont.i.i112,
   %41 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %41, ptr %arrayctor.cur.ptr.ptr, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 8
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 3728
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 3728
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont18

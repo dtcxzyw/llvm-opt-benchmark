@@ -4113,7 +4113,7 @@ _ZNSt8functionIFSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11
 1044:                                             ; preds = %464
   %1045 = landingpad { ptr, i32 }
           cleanup
-  %1046 = icmp eq i64 %.idx, 0
+  %1046 = icmp samesign eq i64 %.idx, 0
   br i1 %1046, label %.loopexit, label %.preheader1426
 
 .preheader1426:                                   ; preds = %1044, %.preheader1426
@@ -4126,7 +4126,7 @@ _ZNSt8functionIFSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11
 1050:                                             ; preds = %469
   %1051 = landingpad { ptr, i32 }
           cleanup
-  %1052 = icmp eq i64 %.idx211, 0
+  %1052 = icmp samesign eq i64 %.idx211, 0
   br i1 %1052, label %.loopexit1371, label %.preheader1424
 
 .preheader1424:                                   ; preds = %1050, %.preheader1424
@@ -4143,7 +4143,7 @@ _ZNSt8functionIFSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11
 
 .body369:                                         ; preds = %475, %1056
   %eh.lpad-body370 = phi { ptr, i32 } [ %1057, %1056 ], [ %476, %475 ]
-  %1058 = icmp eq i64 %.idx215, 0
+  %1058 = icmp samesign eq i64 %.idx215, 0
   br i1 %1058, label %.loopexit1372, label %.preheader1422
 
 .preheader1422:                                   ; preds = %.body369, %.preheader1422
@@ -4160,7 +4160,7 @@ _ZNSt8functionIFSt6vectorIN2cv4util7variantIJNS2_9monostateENS1_8GMatDescENS1_11
 
 .body372:                                         ; preds = %481, %1062
   %eh.lpad-body373 = phi { ptr, i32 } [ %1063, %1062 ], [ %482, %481 ]
-  %1064 = icmp eq i64 %.idx219, 0
+  %1064 = icmp samesign eq i64 %.idx219, 0
   br i1 %1064, label %.loopexit1373, label %.preheader1420
 
 .preheader1420:                                   ; preds = %.body372, %.preheader1420

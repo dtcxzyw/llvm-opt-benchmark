@@ -3773,7 +3773,7 @@ define hidden noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_da
 
 ._crit_edge.thread:                               ; preds = %3, %26, %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 %10
-  %30 = icmp eq i64 %10, 0
+  %30 = icmp samesign eq i64 %10, 0
   br i1 %30, label %"_ZN8fdeflate8compress19Compressor$LT$W$GT$10write_bits17he6fdca41e7ea426eE.exit104", label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.llvm.7091670428431571743.exit.lr.ph"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7dab66f161a57521E.llvm.7091670428431571743.exit.lr.ph": ; preds = %._crit_edge.thread

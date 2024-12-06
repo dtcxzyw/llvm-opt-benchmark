@@ -6636,7 +6636,7 @@ define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boo
 define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEEaSESt16initializer_listIcE(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.not15.i.i = icmp eq i64 %2, 0
+  %.not15.i.i = icmp samesign eq i64 %2, 0
   br i1 %.not15.i.i, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignESt16initializer_listIcE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %8
@@ -6679,7 +6679,7 @@ _ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assign
 define weak_odr hidden noundef nonnull align 2 dereferenceable(423) ptr @_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignESt16initializer_listIcE(ptr noundef nonnull align 2 dereferenceable(423) %0, ptr %1, i64 %2) local_unnamed_addr #4 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %.not15.i = icmp eq i64 %2, 0
+  %.not15.i = icmp samesign eq i64 %2, 0
   br i1 %.not15.i, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6assignIPKcEENSt9enable_ifIXsr6detail17is_input_iteratorIT_EE5valueERS4_E4typeES9_S9_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %8
@@ -7233,7 +7233,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %23, %18
   br i1 %or.cond.i.i, label %32, label %28
 
 28:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %4, 0
+  %.not7.i.i.i = icmp samesign eq i64 %4, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %28, %.lr.ph.i.i.i
@@ -7265,7 +7265,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %32
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 41:                                               ; preds = %32
-  %42 = icmp eq i64 %4, 0
+  %42 = icmp samesign eq i64 %4, 0
   br i1 %42, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %43
 
 43:                                               ; preds = %41
@@ -7327,7 +7327,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i:         ; preds = %23, %18
   br i1 %or.cond.i, label %32, label %28
 
 28:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i
-  %.not7.i.i = icmp eq i64 %3, 0
+  %.not7.i.i = icmp samesign eq i64 %3, 0
   br i1 %.not7.i.i, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueEPcE4typeES7_S9_S9_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %.lr.ph.i.i
@@ -7359,7 +7359,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i:         ; preds = %32
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueEPcE4typeES7_S9_S9_.exit
 
 41:                                               ; preds = %32
-  %42 = icmp eq i64 %3, 0
+  %42 = icmp samesign eq i64 %3, 0
   br i1 %42, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertIPKcEENSt9enable_ifIXsr6detail19is_forward_iteratorIT_EE5valueEPcE4typeES7_S9_S9_.exit, label %43
 
 43:                                               ; preds = %41
@@ -7531,7 +7531,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %31, %26
   br i1 %or.cond.i.i, label %40, label %36
 
 36:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %.sroa.speculated.i, 0
+  %.not7.i.i.i = icmp samesign eq i64 %.sroa.speculated.i, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
@@ -7563,7 +7563,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %40
   br label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 49:                                               ; preds = %40
-  %50 = icmp eq i64 %.sroa.speculated.i, 0
+  %50 = icmp samesign eq i64 %.sroa.speculated.i, 0
   br i1 %50, label %_ZN5boost14static_strings19basic_static_stringILm420EcSt11char_traitsIcEE6insertEmPKcm.exit, label %51
 
 51:                                               ; preds = %49
@@ -29273,7 +29273,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   br label %.lr.ph.i.i.i510
 
 _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i514: ; preds = %1196
-  %1199 = icmp eq i64 %.01931.i.i.i511.idx, 7
+  %1199 = icmp samesign eq i64 %.01931.i.i.i511.idx, 7
   br label %_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit517
 
 _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit517: ; preds = %1190, %_ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i514
@@ -29318,7 +29318,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   br label %.lr.ph.i.i.i519
 
 _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i523: ; preds = %1209
-  %1212 = icmp eq i64 %.01931.i.i.i520.idx, 7
+  %1212 = icmp samesign eq i64 %.01931.i.i.i520.idx, 7
   br label %_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit526
 
 _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit526: ; preds = %1203, %_ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i523
@@ -29440,7 +29440,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   br label %.lr.ph.i.i.i634
 
 _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i638: ; preds = %1254
-  %1257 = icmp eq i64 %.01931.i.i.i635.idx, 7
+  %1257 = icmp samesign eq i64 %.01931.i.i.i635.idx, 7
   br label %_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit641
 
 _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit641: ; preds = %1248, %_ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i638
@@ -30236,7 +30236,7 @@ _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.
   br label %.lr.ph.i.i.i1299
 
 _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i1303: ; preds = %1521
-  %1524 = icmp eq i64 %.01931.i.i.i1300.idx, 12
+  %1524 = icmp samesign eq i64 %.01931.i.i.i1300.idx, 12
   br label %_ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit1306
 
 _ZN5boost14static_strings19basic_static_stringILm400EcSt11char_traitsIcEEC2EPKc.exit1306: ; preds = %1515, %_ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i1303
@@ -31519,7 +31519,7 @@ _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.e
   br label %.lr.ph.i.i.i2079
 
 _ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i2083: ; preds = %1933
-  %1936 = icmp eq i64 %.01931.i.i.i2080.idx, 22
+  %1936 = icmp samesign eq i64 %.01931.i.i.i2080.idx, 22
   br label %.loopexit27067
 
 .loopexit27067:                                   ; preds = %1927, %_ZN5boost14static_strings6detail6searchIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i2083
@@ -36430,7 +36430,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6162, label %.loopexit26974, label %.preheader.i.i.i6157, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6163: ; preds = %.preheader.i.i.i6157
-  %3355 = icmp eq i64 %.01528.i.i.i6158.idx, 7
+  %3355 = icmp samesign eq i64 %.01528.i.i.i6158.idx, 7
   br label %.loopexit26974
 
 .loopexit26974:                                   ; preds = %._crit_edge.i.i.i6161, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6163
@@ -36471,7 +36471,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6173, label %.loopexit26973, label %.preheader.i.i.i6168, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6174: ; preds = %3361
-  %3364 = icmp eq i64 %.01528.i.i.i6169.idx, 7
+  %3364 = icmp samesign eq i64 %.01528.i.i.i6169.idx, 7
   br label %.loopexit26973
 
 .loopexit26973:                                   ; preds = %._crit_edge.i.i.i6172, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6174
@@ -36508,7 +36508,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i6183:                            ; preds = %3369
   %.01528.i.i.i6180.add = add nuw nsw i64 %.01528.i.i.i6180.idx, 1
-  %.not.i.i.i6184 = icmp eq i64 %.01528.i.i.i6180.add, 7
+  %.not.i.i.i6184 = icmp samesign eq i64 %.01528.i.i.i6180.add, 7
   br i1 %.not.i.i.i6184, label %.loopexit26972, label %.preheader.i.i.i6179, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6185: ; preds = %3370
@@ -36584,7 +36584,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6216, label %.loopexit26970, label %.preheader.i.i.i6211, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6217: ; preds = %.preheader.i.i.i6211
-  %3389 = icmp eq i64 %.01528.i.i.i6212.idx, 7
+  %3389 = icmp samesign eq i64 %.01528.i.i.i6212.idx, 7
   br label %.loopexit26970
 
 .loopexit26970:                                   ; preds = %._crit_edge.i.i.i6215, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6217
@@ -36625,7 +36625,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6227, label %.loopexit26969, label %.preheader.i.i.i6222, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6228: ; preds = %3395
-  %3398 = icmp eq i64 %.01528.i.i.i6223.idx, 7
+  %3398 = icmp samesign eq i64 %.01528.i.i.i6223.idx, 7
   br label %.loopexit26969
 
 .loopexit26969:                                   ; preds = %._crit_edge.i.i.i6226, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6228
@@ -36662,7 +36662,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i6237:                            ; preds = %3403
   %.01528.i.i.i6234.add = add nuw nsw i64 %.01528.i.i.i6234.idx, 1
-  %.not.i.i.i6238 = icmp eq i64 %.01528.i.i.i6234.add, 7
+  %.not.i.i.i6238 = icmp samesign eq i64 %.01528.i.i.i6234.add, 7
   br i1 %.not.i.i.i6238, label %.loopexit26968, label %.preheader.i.i.i6233, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6239: ; preds = %3404
@@ -36738,7 +36738,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6270, label %.loopexit26966, label %.preheader.i.i.i6265, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6271: ; preds = %.preheader.i.i.i6265
-  %3423 = icmp eq i64 %.01528.i.i.i6266.idx, 7
+  %3423 = icmp samesign eq i64 %.01528.i.i.i6266.idx, 7
   br label %.loopexit26966
 
 .loopexit26966:                                   ; preds = %._crit_edge.i.i.i6269, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6271
@@ -36779,7 +36779,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6281, label %.loopexit26965, label %.preheader.i.i.i6276, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6282: ; preds = %3429
-  %3432 = icmp eq i64 %.01528.i.i.i6277.idx, 7
+  %3432 = icmp samesign eq i64 %.01528.i.i.i6277.idx, 7
   br label %.loopexit26965
 
 .loopexit26965:                                   ; preds = %._crit_edge.i.i.i6280, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6282
@@ -36816,7 +36816,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i6291:                            ; preds = %3437
   %.01528.i.i.i6288.add = add nuw nsw i64 %.01528.i.i.i6288.idx, 1
-  %.not.i.i.i6292 = icmp eq i64 %.01528.i.i.i6288.add, 7
+  %.not.i.i.i6292 = icmp samesign eq i64 %.01528.i.i.i6288.add, 7
   br i1 %.not.i.i.i6292, label %.loopexit26964, label %.preheader.i.i.i6287, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6293: ; preds = %3438
@@ -36857,7 +36857,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i6302:                            ; preds = %3446
   %.01528.i.i.i6299.add = add nuw nsw i64 %.01528.i.i.i6299.idx, 1
-  %.not.i.i.i6303 = icmp eq i64 %.01528.i.i.i6299.add, 7
+  %.not.i.i.i6303 = icmp samesign eq i64 %.01528.i.i.i6299.add, 7
   br i1 %.not.i.i.i6303, label %.loopexit26963, label %.preheader.i.i.i6298, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6304: ; preds = %3447
@@ -36893,7 +36893,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6334, label %.loopexit26962, label %.preheader.i.i.i6329, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6335: ; preds = %.preheader.i.i.i6329
-  %3459 = icmp eq i64 %.01528.i.i.i6330.idx, 7
+  %3459 = icmp samesign eq i64 %.01528.i.i.i6330.idx, 7
   br label %.loopexit26962
 
 .loopexit26962:                                   ; preds = %._crit_edge.i.i.i6333, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6335
@@ -36934,7 +36934,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6345, label %.loopexit26961, label %.preheader.i.i.i6340, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6346: ; preds = %3466
-  %3469 = icmp eq i64 %.01528.i.i.i6341.idx, 7
+  %3469 = icmp samesign eq i64 %.01528.i.i.i6341.idx, 7
   br label %.loopexit26961
 
 .loopexit26961:                                   ; preds = %._crit_edge.i.i.i6344, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6346
@@ -37016,7 +37016,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6367, label %.loopexit26959, label %.preheader.i.i.i6362, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6368: ; preds = %3486
-  %3489 = icmp eq i64 %.01528.i.i.i6363.idx, 7
+  %3489 = icmp samesign eq i64 %.01528.i.i.i6363.idx, 7
   br label %.loopexit26959
 
 .loopexit26959:                                   ; preds = %._crit_edge.i.i.i6366, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6368
@@ -37088,7 +37088,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6399, label %.loopexit26957, label %.preheader.i.i.i6394, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6400: ; preds = %3504
-  %3507 = icmp eq i64 %.01528.i.i.i6395.idx, 7
+  %3507 = icmp samesign eq i64 %.01528.i.i.i6395.idx, 7
   br label %.loopexit26957
 
 .loopexit26957:                                   ; preds = %._crit_edge.i.i.i6398, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6400
@@ -37201,7 +37201,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6442, label %.loopexit26954, label %.preheader.i.i.i6437, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6443: ; preds = %.preheader.i.i.i6437
-  %3535 = icmp eq i64 %.01528.i.i.i6438.idx, 7
+  %3535 = icmp samesign eq i64 %.01528.i.i.i6438.idx, 7
   br label %.loopexit26954
 
 .loopexit26954:                                   ; preds = %._crit_edge.i.i.i6441, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6443
@@ -37356,7 +37356,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6506, label %.loopexit26950, label %.preheader.i.i.i6501, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6507: ; preds = %.preheader.i.i.i6501
-  %3574 = icmp eq i64 %.01528.i.i.i6502.idx, 7
+  %3574 = icmp samesign eq i64 %.01528.i.i.i6502.idx, 7
   br label %.loopexit26950
 
 .loopexit26950:                                   ; preds = %._crit_edge.i.i.i6505, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6507
@@ -37438,7 +37438,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6528, label %.loopexit26948, label %.preheader.i.i.i6523, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6529: ; preds = %3591
-  %3594 = icmp eq i64 %.01528.i.i.i6524.idx, 7
+  %3594 = icmp samesign eq i64 %.01528.i.i.i6524.idx, 7
   br label %.loopexit26948
 
 .loopexit26948:                                   ; preds = %._crit_edge.i.i.i6527, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6529
@@ -37510,7 +37510,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6560, label %.loopexit26946, label %.preheader.i.i.i6555, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6561: ; preds = %.preheader.i.i.i6555
-  %3612 = icmp eq i64 %.01528.i.i.i6556.idx, 7
+  %3612 = icmp samesign eq i64 %.01528.i.i.i6556.idx, 7
   br label %.loopexit26946
 
 .loopexit26946:                                   ; preds = %._crit_edge.i.i.i6559, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6561
@@ -37664,7 +37664,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i6614, label %.loopexit26942, label %.preheader.i.i.i6609, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6615: ; preds = %.preheader.i.i.i6609
-  %3650 = icmp eq i64 %.01528.i.i.i6610.idx, 7
+  %3650 = icmp samesign eq i64 %.01528.i.i.i6610.idx, 7
   br label %.loopexit26942
 
 .loopexit26942:                                   ; preds = %._crit_edge.i.i.i6613, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i6615
@@ -38150,7 +38150,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i7258:                            ; preds = %3794
   %.01528.i.i.i7255.add = add nuw nsw i64 %.01528.i.i.i7255.idx, 1
-  %.not.i.i.i7259 = icmp eq i64 %.01528.i.i.i7255.add, 12
+  %.not.i.i.i7259 = icmp samesign eq i64 %.01528.i.i.i7255.add, 12
   br i1 %.not.i.i.i7259, label %.loopexit26934, label %.preheader.i.i.i7254, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7260: ; preds = %3795
@@ -38189,7 +38189,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i7269:                            ; preds = %3802
   %.01528.i.i.i7266.add = add nuw nsw i64 %.01528.i.i.i7266.idx, 1
-  %.not.i.i.i7270 = icmp eq i64 %.01528.i.i.i7266.add, 12
+  %.not.i.i.i7270 = icmp samesign eq i64 %.01528.i.i.i7266.add, 12
   br i1 %.not.i.i.i7270, label %.loopexit26933, label %.preheader.i.i.i7265, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7271: ; preds = %3803
@@ -38261,7 +38261,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7302, label %.loopexit26931, label %.preheader.i.i.i7297, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7303: ; preds = %.preheader.i.i.i7297
-  %3820 = icmp eq i64 %.01528.i.i.i7298.idx, 12
+  %3820 = icmp samesign eq i64 %.01528.i.i.i7298.idx, 12
   br label %.loopexit26931
 
 .loopexit26931:                                   ; preds = %._crit_edge.i.i.i7301, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7303
@@ -38335,7 +38335,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i7323:                            ; preds = %3832
   %.01528.i.i.i7320.add = add nuw nsw i64 %.01528.i.i.i7320.idx, 1
-  %.not.i.i.i7324 = icmp eq i64 %.01528.i.i.i7320.add, 12
+  %.not.i.i.i7324 = icmp samesign eq i64 %.01528.i.i.i7320.add, 12
   br i1 %.not.i.i.i7324, label %.loopexit26929, label %.preheader.i.i.i7319, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7325: ; preds = %3833
@@ -38374,7 +38374,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i7334:                            ; preds = %3840
   %.01528.i.i.i7331.add = add nuw nsw i64 %.01528.i.i.i7331.idx, 1
-  %.not.i.i.i7335 = icmp eq i64 %.01528.i.i.i7331.add, 12
+  %.not.i.i.i7335 = icmp samesign eq i64 %.01528.i.i.i7331.add, 12
   br i1 %.not.i.i.i7335, label %.loopexit26928, label %.preheader.i.i.i7330, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7336: ; preds = %3841
@@ -38408,7 +38408,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7366, label %.loopexit26927, label %.preheader.i.i.i7361, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7367: ; preds = %.preheader.i.i.i7361
-  %3852 = icmp eq i64 %.01528.i.i.i7362.idx, 12
+  %3852 = icmp samesign eq i64 %.01528.i.i.i7362.idx, 12
   br label %.loopexit26927
 
 .loopexit26927:                                   ; preds = %._crit_edge.i.i.i7365, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7367
@@ -38554,7 +38554,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7420, label %.loopexit26923, label %.preheader.i.i.i7415, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7421: ; preds = %.preheader.i.i.i7415
-  %3886 = icmp eq i64 %.01528.i.i.i7416.idx, 12
+  %3886 = icmp samesign eq i64 %.01528.i.i.i7416.idx, 12
   br label %.loopexit26923
 
 .loopexit26923:                                   ; preds = %._crit_edge.i.i.i7419, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7421
@@ -38700,7 +38700,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7474, label %.loopexit26919, label %.preheader.i.i.i7469, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7475: ; preds = %.preheader.i.i.i7469
-  %3920 = icmp eq i64 %.01528.i.i.i7470.idx, 12
+  %3920 = icmp samesign eq i64 %.01528.i.i.i7470.idx, 12
   br label %.loopexit26919
 
 .loopexit26919:                                   ; preds = %._crit_edge.i.i.i7473, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7475
@@ -38847,7 +38847,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7538, label %.loopexit26915, label %.preheader.i.i.i7533, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7539: ; preds = %.preheader.i.i.i7533
-  %3955 = icmp eq i64 %.01528.i.i.i7534.idx, 12
+  %3955 = icmp samesign eq i64 %.01528.i.i.i7534.idx, 12
   br label %.loopexit26915
 
 .loopexit26915:                                   ; preds = %._crit_edge.i.i.i7537, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7539
@@ -38925,7 +38925,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7560, label %.loopexit26913, label %.preheader.i.i.i7555, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7561: ; preds = %3970
-  %3973 = icmp eq i64 %.01528.i.i.i7556.idx, 12
+  %3973 = icmp samesign eq i64 %.01528.i.i.i7556.idx, 12
   br label %.loopexit26913
 
 .loopexit26913:                                   ; preds = %._crit_edge.i.i.i7559, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7561
@@ -39110,7 +39110,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7625, label %.loopexit26908, label %.preheader.i.i.i7620, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7626: ; preds = %4013
-  %4016 = icmp eq i64 %.01528.i.i.i7621.idx, 12
+  %4016 = icmp samesign eq i64 %.01528.i.i.i7621.idx, 12
   br label %.loopexit26908
 
 .loopexit26908:                                   ; preds = %._crit_edge.i.i.i7624, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7626
@@ -39139,7 +39139,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i7646, label %.loopexit26907, label %.preheader.i.i.i7641, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7647: ; preds = %.preheader.i.i.i7641
-  %4023 = icmp eq i64 %.01528.i.i.i7642.idx, 12
+  %4023 = icmp samesign eq i64 %.01528.i.i.i7642.idx, 12
   br label %.loopexit26907
 
 .loopexit26907:                                   ; preds = %._crit_edge.i.i.i7645, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i7647
@@ -39817,7 +39817,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i8355:                            ; preds = %4205
   %.01528.i.i.i8352.add = add nuw nsw i64 %.01528.i.i.i8352.idx, 1
-  %.not.i.i.i8356 = icmp eq i64 %.01528.i.i.i8352.add, 22
+  %.not.i.i.i8356 = icmp samesign eq i64 %.01528.i.i.i8352.add, 22
   br i1 %.not.i.i.i8356, label %.loopexit26894, label %.preheader.i.i.i8351, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8357: ; preds = %4206
@@ -39856,7 +39856,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
 
 ._crit_edge.i.i.i8366:                            ; preds = %4213
   %.01528.i.i.i8363.add = add nuw nsw i64 %.01528.i.i.i8363.idx, 1
-  %.not.i.i.i8367 = icmp eq i64 %.01528.i.i.i8363.add, 22
+  %.not.i.i.i8367 = icmp samesign eq i64 %.01528.i.i.i8363.add, 22
   br i1 %.not.i.i.i8367, label %.loopexit26893, label %.preheader.i.i.i8362, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8368: ; preds = %4214
@@ -40368,7 +40368,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i8581, label %.loopexit26879, label %.preheader.i.i.i8576, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8582: ; preds = %4334
-  %4337 = icmp eq i64 %.01528.i.i.i8577.idx, 22
+  %4337 = icmp samesign eq i64 %.01528.i.i.i8577.idx, 22
   br label %.loopexit26879
 
 .loopexit26879:                                   ; preds = %._crit_edge.i.i.i8580, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8582
@@ -40475,7 +40475,7 @@ _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_
   br i1 %.not.i.i.i8624, label %.loopexit26876, label %.preheader.i.i.i8619, !llvm.loop !27
 
 _ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8625: ; preds = %.preheader.i.i.i8619
-  %4362 = icmp eq i64 %.01528.i.i.i8620.idx, 22
+  %4362 = icmp samesign eq i64 %.01528.i.i.i8620.idx, 22
   br label %.loopexit26876
 
 .loopexit26876:                                   ; preds = %._crit_edge.i.i.i8623, %_ZN5boost14static_strings6detail13find_first_ofIPKcS4_PDoFbRS3_S5_EEET_S8_S8_T0_S9_T1_.exit.i.i8625
@@ -50087,7 +50087,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14225: ; preds = %6950, %.loopexit
 
 6950:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14225
   %.0814.i.i.i14226.add = add nuw nsw i64 %.0814.i.i.i14226.idx, 1
-  %.not.i.i.i14228 = icmp eq i64 %.0814.i.i.i14226.add, 7
+  %.not.i.i.i14228 = icmp samesign eq i64 %.0814.i.i.i14226.add, 7
   br i1 %.not.i.i.i14228, label %.loopexit26868, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14225, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14229: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14225
@@ -50118,7 +50118,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14235: ; preds = %6957, %.loopexit
 
 6957:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14235
   %.0814.i.i.i14236.add = add nuw nsw i64 %.0814.i.i.i14236.idx, 1
-  %.not.i.i.i14238 = icmp eq i64 %.0814.i.i.i14236.add, 7
+  %.not.i.i.i14238 = icmp samesign eq i64 %.0814.i.i.i14236.add, 7
   br i1 %.not.i.i.i14238, label %.loopexit26867, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14235, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14239: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14235
@@ -50182,7 +50182,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14255: ; preds = %6973, %.loopexit
 
 6973:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14255
   %.0814.i.i.i14256.add = add nuw nsw i64 %.0814.i.i.i14256.idx, 1
-  %.not.i.i.i14258 = icmp eq i64 %.0814.i.i.i14256.add, 7
+  %.not.i.i.i14258 = icmp samesign eq i64 %.0814.i.i.i14256.add, 7
   br i1 %.not.i.i.i14258, label %.loopexit26865, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14255, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14259: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14255
@@ -50213,7 +50213,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14269: ; preds = %6980, %.loopexit
 
 6980:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14269
   %.0814.i.i.i14270.add = add nuw nsw i64 %.0814.i.i.i14270.idx, 1
-  %.not.i.i.i14272 = icmp eq i64 %.0814.i.i.i14270.add, 7
+  %.not.i.i.i14272 = icmp samesign eq i64 %.0814.i.i.i14270.add, 7
   br i1 %.not.i.i.i14272, label %.loopexit26864, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14269, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14273: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14269
@@ -50245,7 +50245,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14279: ; preds = %6988, %.loopexit
 
 6988:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14279
   %.0814.i.i.i14280.add = add nuw nsw i64 %.0814.i.i.i14280.idx, 1
-  %.not.i.i.i14282 = icmp eq i64 %.0814.i.i.i14280.add, 7
+  %.not.i.i.i14282 = icmp samesign eq i64 %.0814.i.i.i14280.add, 7
   br i1 %.not.i.i.i14282, label %.loopexit26863, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14279, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14283: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14279
@@ -50309,7 +50309,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14299: ; preds = %7004, %.loopexit
 
 7004:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14299
   %.0814.i.i.i14300.add = add nuw nsw i64 %.0814.i.i.i14300.idx, 1
-  %.not.i.i.i14302 = icmp eq i64 %.0814.i.i.i14300.add, 7
+  %.not.i.i.i14302 = icmp samesign eq i64 %.0814.i.i.i14300.add, 7
   br i1 %.not.i.i.i14302, label %.loopexit26861, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14299, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14303: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14299
@@ -50340,7 +50340,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14313: ; preds = %7011, %.loopexit
 
 7011:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14313
   %.0814.i.i.i14314.add = add nuw nsw i64 %.0814.i.i.i14314.idx, 1
-  %.not.i.i.i14316 = icmp eq i64 %.0814.i.i.i14314.add, 7
+  %.not.i.i.i14316 = icmp samesign eq i64 %.0814.i.i.i14314.add, 7
   br i1 %.not.i.i.i14316, label %.loopexit26860, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14313, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14317: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14313
@@ -50372,7 +50372,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14323: ; preds = %7019, %.loopexit
 
 7019:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14323
   %.0814.i.i.i14324.add = add nuw nsw i64 %.0814.i.i.i14324.idx, 1
-  %.not.i.i.i14326 = icmp eq i64 %.0814.i.i.i14324.add, 7
+  %.not.i.i.i14326 = icmp samesign eq i64 %.0814.i.i.i14324.add, 7
   br i1 %.not.i.i.i14326, label %.loopexit26859, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14323, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14327: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14323
@@ -50425,7 +50425,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14333: ; preds = %7025, %.loopexit
   br i1 %.not.i.i.i14336, label %.loopexit26858, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14333, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14337: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14333
-  %7026 = icmp eq i64 %.0814.i.i.i14334.idx, 7
+  %7026 = icmp samesign eq i64 %.0814.i.i.i14334.idx, 7
   br label %.loopexit26858
 
 .loopexit26858:                                   ; preds = %7025, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14337
@@ -50456,7 +50456,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14343: ; preds = %7033, %.loopexit
   br i1 %.not.i.i.i14346, label %.loopexit26857, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14343, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14347: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14343
-  %7034 = icmp eq i64 %.0814.i.i.i14344.idx, 7
+  %7034 = icmp samesign eq i64 %.0814.i.i.i14344.idx, 7
   br label %.loopexit26857
 
 .loopexit26857:                                   ; preds = %7033, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14347
@@ -50484,7 +50484,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14361: ; preds = %7042, %.loopexit
 
 7042:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14361
   %.0814.i.i.i14362.add = add nuw nsw i64 %.0814.i.i.i14362.idx, 1
-  %.not.i.i.i14364 = icmp eq i64 %.0814.i.i.i14362.add, 7
+  %.not.i.i.i14364 = icmp samesign eq i64 %.0814.i.i.i14362.add, 7
   br i1 %.not.i.i.i14364, label %.loopexit26856, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14361, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14365: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14361
@@ -50611,7 +50611,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14405: ; preds = %7075, %.loopexit
 
 7075:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14405
   %.0814.i.i.i14406.add = add nuw nsw i64 %.0814.i.i.i14406.idx, 1
-  %.not.i.i.i14408 = icmp eq i64 %.0814.i.i.i14406.add, 7
+  %.not.i.i.i14408 = icmp samesign eq i64 %.0814.i.i.i14406.add, 7
   br i1 %.not.i.i.i14408, label %.loopexit26852, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14405, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14409: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14405
@@ -50738,7 +50738,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14449: ; preds = %7110, %.loopexit
 
 7110:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14449
   %.0814.i.i.i14450.add = add nuw nsw i64 %.0814.i.i.i14450.idx, 1
-  %.not.i.i.i14452 = icmp eq i64 %.0814.i.i.i14450.add, 7
+  %.not.i.i.i14452 = icmp samesign eq i64 %.0814.i.i.i14450.add, 7
   br i1 %.not.i.i.i14452, label %.loopexit26848, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14449, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14453: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14449
@@ -50823,7 +50823,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14469: ; preds = %7126, %.loopexit
   br i1 %.not.i.i.i14472, label %.loopexit26846, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14469, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14473: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14469
-  %7127 = icmp eq i64 %.0814.i.i.i14470.idx, 7
+  %7127 = icmp samesign eq i64 %.0814.i.i.i14470.idx, 7
   br label %.loopexit26846
 
 .loopexit26846:                                   ; preds = %7126, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14473
@@ -50854,7 +50854,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14479: ; preds = %7135, %.loopexit
   br i1 %.not.i.i.i14482, label %.loopexit26845, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14479, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14483: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14479
-  %7136 = icmp eq i64 %.0814.i.i.i14480.idx, 7
+  %7136 = icmp samesign eq i64 %.0814.i.i.i14480.idx, 7
   br label %.loopexit26845
 
 .loopexit26845:                                   ; preds = %7135, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14483
@@ -50882,7 +50882,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14497: ; preds = %7144, %.loopexit
 
 7144:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14497
   %.0814.i.i.i14498.add = add nuw nsw i64 %.0814.i.i.i14498.idx, 1
-  %.not.i.i.i14500 = icmp eq i64 %.0814.i.i.i14498.add, 7
+  %.not.i.i.i14500 = icmp samesign eq i64 %.0814.i.i.i14498.add, 7
   br i1 %.not.i.i.i14500, label %.loopexit26844, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14497, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14501: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14497
@@ -51009,7 +51009,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14541: ; preds = %7177, %.loopexit
 
 7177:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14541
   %.0814.i.i.i14542.add = add nuw nsw i64 %.0814.i.i.i14542.idx, 1
-  %.not.i.i.i14544 = icmp eq i64 %.0814.i.i.i14542.add, 7
+  %.not.i.i.i14544 = icmp samesign eq i64 %.0814.i.i.i14542.add, 7
   br i1 %.not.i.i.i14544, label %.loopexit26840, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14541, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14545: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14541
@@ -51136,7 +51136,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14585: ; preds = %7212, %.loopexit
 
 7212:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14585
   %.0814.i.i.i14586.add = add nuw nsw i64 %.0814.i.i.i14586.idx, 1
-  %.not.i.i.i14588 = icmp eq i64 %.0814.i.i.i14586.add, 7
+  %.not.i.i.i14588 = icmp samesign eq i64 %.0814.i.i.i14586.add, 7
   br i1 %.not.i.i.i14588, label %.loopexit26836, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14585, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14589: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14585
@@ -51205,7 +51205,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14605: ; preds = %7231, %.loopexit
   br i1 %.not.i.i.i14608, label %.loopexit26834, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14605, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14609: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14605
-  %7232 = icmp eq i64 %.0814.i.i.i14606.idx, 7
+  %7232 = icmp samesign eq i64 %.0814.i.i.i14606.idx, 7
   br label %.loopexit26834
 
 .loopexit26834:                                   ; preds = %7231, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14609
@@ -51236,7 +51236,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14615: ; preds = %7240, %.loopexit
   br i1 %.not.i.i.i14618, label %.loopexit26833, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14615, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14619: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i14615
-  %7241 = icmp eq i64 %.0814.i.i.i14616.idx, 7
+  %7241 = icmp samesign eq i64 %.0814.i.i.i14616.idx, 7
   br label %.loopexit26833
 
 .loopexit26833:                                   ; preds = %7240, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i14619
@@ -51310,7 +51310,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15041: ; preds = %7295, %.loopexit
 
 7295:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15041
   %.0814.i.i.i15042.add = add nuw nsw i64 %.0814.i.i.i15042.idx, 1
-  %.not.i.i.i15044 = icmp eq i64 %.0814.i.i.i15042.add, 12
+  %.not.i.i.i15044 = icmp samesign eq i64 %.0814.i.i.i15042.add, 12
   br i1 %.not.i.i.i15044, label %.loopexit26832, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15041, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15045: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15041
@@ -51340,7 +51340,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15051: ; preds = %7300, %.loopexit
 
 7300:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15051, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15051
   %.0814.i.i.i15052.add = add nuw nsw i64 %.0814.i.i.i15052.idx, 1
-  %.not.i.i.i15054 = icmp eq i64 %.0814.i.i.i15052.add, 12
+  %.not.i.i.i15054 = icmp samesign eq i64 %.0814.i.i.i15052.add, 12
   br i1 %.not.i.i.i15054, label %.loopexit26831, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15051, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15055: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15051
@@ -51370,7 +51370,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15061: ; preds = %7307, %.loopexit
 
 7307:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15061
   %.0814.i.i.i15062.add = add nuw nsw i64 %.0814.i.i.i15062.idx, 1
-  %.not.i.i.i15064 = icmp eq i64 %.0814.i.i.i15062.add, 12
+  %.not.i.i.i15064 = icmp samesign eq i64 %.0814.i.i.i15062.add, 12
   br i1 %.not.i.i.i15064, label %.loopexit26830, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15061, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15065: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15061
@@ -51400,7 +51400,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15071: ; preds = %7314, %.loopexit
 
 7314:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15071
   %.0814.i.i.i15072.add = add nuw nsw i64 %.0814.i.i.i15072.idx, 1
-  %.not.i.i.i15074 = icmp eq i64 %.0814.i.i.i15072.add, 12
+  %.not.i.i.i15074 = icmp samesign eq i64 %.0814.i.i.i15072.add, 12
   br i1 %.not.i.i.i15074, label %.loopexit26829, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15071, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15075: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15071
@@ -51429,7 +51429,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15085: ; preds = %7320, %.loopexit
 
 7320:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15085
   %.0814.i.i.i15086.add = add nuw nsw i64 %.0814.i.i.i15086.idx, 1
-  %.not.i.i.i15088 = icmp eq i64 %.0814.i.i.i15086.add, 12
+  %.not.i.i.i15088 = icmp samesign eq i64 %.0814.i.i.i15086.add, 12
   br i1 %.not.i.i.i15088, label %.loopexit26828, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15085, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15089: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15085
@@ -51519,7 +51519,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15115: ; preds = %7341, %.loopexit
 
 7341:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15115
   %.0814.i.i.i15116.add = add nuw nsw i64 %.0814.i.i.i15116.idx, 1
-  %.not.i.i.i15118 = icmp eq i64 %.0814.i.i.i15116.add, 12
+  %.not.i.i.i15118 = icmp samesign eq i64 %.0814.i.i.i15116.add, 12
   br i1 %.not.i.i.i15118, label %.loopexit26825, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15115, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15119: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15115
@@ -51548,7 +51548,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15129: ; preds = %7347, %.loopexit
 
 7347:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15129
   %.0814.i.i.i15130.add = add nuw nsw i64 %.0814.i.i.i15130.idx, 1
-  %.not.i.i.i15132 = icmp eq i64 %.0814.i.i.i15130.add, 12
+  %.not.i.i.i15132 = icmp samesign eq i64 %.0814.i.i.i15130.add, 12
   br i1 %.not.i.i.i15132, label %.loopexit26824, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15129, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15133: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15129
@@ -51578,7 +51578,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15139: ; preds = %7354, %.loopexit
 
 7354:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15139
   %.0814.i.i.i15140.add = add nuw nsw i64 %.0814.i.i.i15140.idx, 1
-  %.not.i.i.i15142 = icmp eq i64 %.0814.i.i.i15140.add, 12
+  %.not.i.i.i15142 = icmp samesign eq i64 %.0814.i.i.i15140.add, 12
   br i1 %.not.i.i.i15142, label %.loopexit26823, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15139, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15143: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15139
@@ -51643,7 +51643,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15159: ; preds = %7370, %.loopexit
   br i1 %.not.i.i.i15162, label %.loopexit26821, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15159, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15163: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15159
-  %7371 = icmp eq i64 %.0814.i.i.i15160.idx, 12
+  %7371 = icmp samesign eq i64 %.0814.i.i.i15160.idx, 12
   br label %.loopexit26821
 
 .loopexit26821:                                   ; preds = %7370, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15163
@@ -51669,7 +51669,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15177: ; preds = %7378, %.loopexit
 
 7378:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15177
   %.0814.i.i.i15178.add = add nuw nsw i64 %.0814.i.i.i15178.idx, 1
-  %.not.i.i.i15180 = icmp eq i64 %.0814.i.i.i15178.add, 12
+  %.not.i.i.i15180 = icmp samesign eq i64 %.0814.i.i.i15178.add, 12
   br i1 %.not.i.i.i15180, label %.loopexit26820, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15177, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15181: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15177
@@ -51788,7 +51788,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15221: ; preds = %7407, %.loopexit
 
 7407:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15221
   %.0814.i.i.i15222.add = add nuw nsw i64 %.0814.i.i.i15222.idx, 1
-  %.not.i.i.i15224 = icmp eq i64 %.0814.i.i.i15222.add, 12
+  %.not.i.i.i15224 = icmp samesign eq i64 %.0814.i.i.i15222.add, 12
   br i1 %.not.i.i.i15224, label %.loopexit26816, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15221, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15225: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15221
@@ -51907,7 +51907,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15265: ; preds = %7438, %.loopexit
 
 7438:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15265
   %.0814.i.i.i15266.add = add nuw nsw i64 %.0814.i.i.i15266.idx, 1
-  %.not.i.i.i15268 = icmp eq i64 %.0814.i.i.i15266.add, 12
+  %.not.i.i.i15268 = icmp samesign eq i64 %.0814.i.i.i15266.add, 12
   br i1 %.not.i.i.i15268, label %.loopexit26812, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15265, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15269: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15265
@@ -52002,7 +52002,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15295: ; preds = %7464, %.loopexit
   br i1 %.not.i.i.i15298, label %.loopexit26809, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15295, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15299: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15295
-  %7465 = icmp eq i64 %.0814.i.i.i15296.idx, 12
+  %7465 = icmp samesign eq i64 %.0814.i.i.i15296.idx, 12
   br label %.loopexit26809
 
 .loopexit26809:                                   ; preds = %7464, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15299
@@ -52028,7 +52028,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15313: ; preds = %7472, %.loopexit
 
 7472:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15313
   %.0814.i.i.i15314.add = add nuw nsw i64 %.0814.i.i.i15314.idx, 1
-  %.not.i.i.i15316 = icmp eq i64 %.0814.i.i.i15314.add, 12
+  %.not.i.i.i15316 = icmp samesign eq i64 %.0814.i.i.i15314.add, 12
   br i1 %.not.i.i.i15316, label %.loopexit26808, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15313, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15317: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15313
@@ -52147,7 +52147,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15357: ; preds = %7501, %.loopexit
 
 7501:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15357
   %.0814.i.i.i15358.add = add nuw nsw i64 %.0814.i.i.i15358.idx, 1
-  %.not.i.i.i15360 = icmp eq i64 %.0814.i.i.i15358.add, 12
+  %.not.i.i.i15360 = icmp samesign eq i64 %.0814.i.i.i15358.add, 12
   br i1 %.not.i.i.i15360, label %.loopexit26804, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15357, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15361: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15357
@@ -52266,7 +52266,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15401: ; preds = %7532, %.loopexit
 
 7532:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15401
   %.0814.i.i.i15402.add = add nuw nsw i64 %.0814.i.i.i15402.idx, 1
-  %.not.i.i.i15404 = icmp eq i64 %.0814.i.i.i15402.add, 12
+  %.not.i.i.i15404 = icmp samesign eq i64 %.0814.i.i.i15402.add, 12
   br i1 %.not.i.i.i15404, label %.loopexit26800, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15401, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15405: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15401
@@ -52361,7 +52361,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15431: ; preds = %7558, %.loopexit
   br i1 %.not.i.i.i15434, label %.loopexit26797, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15431, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15435: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15431
-  %7559 = icmp eq i64 %.0814.i.i.i15432.idx, 12
+  %7559 = icmp samesign eq i64 %.0814.i.i.i15432.idx, 12
   br label %.loopexit26797
 
 .loopexit26797:                                   ; preds = %7558, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15435
@@ -52435,7 +52435,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15857: ; preds = %7613, %.loopexit
 
 7613:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15857
   %.0814.i.i.i15858.add = add nuw nsw i64 %.0814.i.i.i15858.idx, 1
-  %.not.i.i.i15860 = icmp eq i64 %.0814.i.i.i15858.add, 22
+  %.not.i.i.i15860 = icmp samesign eq i64 %.0814.i.i.i15858.add, 22
   br i1 %.not.i.i.i15860, label %.loopexit26796, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15857, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15861: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15857
@@ -52465,7 +52465,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15867: ; preds = %7618, %.loopexit
 
 7618:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15867, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15867
   %.0814.i.i.i15868.add = add nuw nsw i64 %.0814.i.i.i15868.idx, 1
-  %.not.i.i.i15870 = icmp eq i64 %.0814.i.i.i15868.add, 22
+  %.not.i.i.i15870 = icmp samesign eq i64 %.0814.i.i.i15868.add, 22
   br i1 %.not.i.i.i15870, label %.loopexit26795, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15867, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15871: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15867
@@ -52495,7 +52495,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15877: ; preds = %7625, %.loopexit
 
 7625:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15877
   %.0814.i.i.i15878.add = add nuw nsw i64 %.0814.i.i.i15878.idx, 1
-  %.not.i.i.i15880 = icmp eq i64 %.0814.i.i.i15878.add, 22
+  %.not.i.i.i15880 = icmp samesign eq i64 %.0814.i.i.i15878.add, 22
   br i1 %.not.i.i.i15880, label %.loopexit26794, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15877, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15881: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15877
@@ -52525,7 +52525,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15887: ; preds = %7632, %.loopexit
 
 7632:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15887
   %.0814.i.i.i15888.add = add nuw nsw i64 %.0814.i.i.i15888.idx, 1
-  %.not.i.i.i15890 = icmp eq i64 %.0814.i.i.i15888.add, 22
+  %.not.i.i.i15890 = icmp samesign eq i64 %.0814.i.i.i15888.add, 22
   br i1 %.not.i.i.i15890, label %.loopexit26793, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15887, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15891: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15887
@@ -52554,7 +52554,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15901: ; preds = %7638, %.loopexit
 
 7638:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15901
   %.0814.i.i.i15902.add = add nuw nsw i64 %.0814.i.i.i15902.idx, 1
-  %.not.i.i.i15904 = icmp eq i64 %.0814.i.i.i15902.add, 22
+  %.not.i.i.i15904 = icmp samesign eq i64 %.0814.i.i.i15902.add, 22
   br i1 %.not.i.i.i15904, label %.loopexit26792, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15901, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15905: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15901
@@ -52587,7 +52587,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911: ; preds = %7643, %.loopexit
 
 7643:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911
   %.0814.i.i.i15912.add = add nuw nsw i64 %.0814.i.i.i15912.idx, 1
-  %.not.i.i.i15914 = icmp eq i64 %.0814.i.i.i15912.add, 22
+  %.not.i.i.i15914 = icmp samesign eq i64 %.0814.i.i.i15912.add, 22
   br i1 %.not.i.i.i15914, label %.loopexit26791, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15915: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15911
@@ -52617,7 +52617,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15921: ; preds = %7650, %.loopexit
 
 7650:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15921
   %.0814.i.i.i15922.add = add nuw nsw i64 %.0814.i.i.i15922.idx, 1
-  %.not.i.i.i15924 = icmp eq i64 %.0814.i.i.i15922.add, 22
+  %.not.i.i.i15924 = icmp samesign eq i64 %.0814.i.i.i15922.add, 22
   br i1 %.not.i.i.i15924, label %.loopexit26790, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15921, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15925: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15921
@@ -52647,7 +52647,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15931: ; preds = %7657, %.loopexit
 
 7657:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15931
   %.0814.i.i.i15932.add = add nuw nsw i64 %.0814.i.i.i15932.idx, 1
-  %.not.i.i.i15934 = icmp eq i64 %.0814.i.i.i15932.add, 22
+  %.not.i.i.i15934 = icmp samesign eq i64 %.0814.i.i.i15932.add, 22
   br i1 %.not.i.i.i15934, label %.loopexit26789, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15931, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15935: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15931
@@ -52676,7 +52676,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15945: ; preds = %7663, %.loopexit
 
 7663:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15945
   %.0814.i.i.i15946.add = add nuw nsw i64 %.0814.i.i.i15946.idx, 1
-  %.not.i.i.i15948 = icmp eq i64 %.0814.i.i.i15946.add, 22
+  %.not.i.i.i15948 = icmp samesign eq i64 %.0814.i.i.i15946.add, 22
   br i1 %.not.i.i.i15948, label %.loopexit26788, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15945, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15949: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15945
@@ -52706,7 +52706,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15955: ; preds = %7670, %.loopexit
 
 7670:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15955
   %.0814.i.i.i15956.add = add nuw nsw i64 %.0814.i.i.i15956.idx, 1
-  %.not.i.i.i15958 = icmp eq i64 %.0814.i.i.i15956.add, 22
+  %.not.i.i.i15958 = icmp samesign eq i64 %.0814.i.i.i15956.add, 22
   br i1 %.not.i.i.i15958, label %.loopexit26787, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15955, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15959: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15955
@@ -52740,7 +52740,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15965: ; preds = %7678, %.loopexit
 
 7678:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15965
   %.0814.i.i.i15966.add = add nuw nsw i64 %.0814.i.i.i15966.idx, 1
-  %.not.i.i.i15968 = icmp eq i64 %.0814.i.i.i15966.add, 22
+  %.not.i.i.i15968 = icmp samesign eq i64 %.0814.i.i.i15966.add, 22
   br i1 %.not.i.i.i15968, label %.loopexit26786, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15965, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15969: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15965
@@ -52773,7 +52773,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15975: ; preds = %7685, %.loopexit
   br i1 %.not.i.i.i15978, label %.loopexit26785, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15975, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15979: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15975
-  %7686 = icmp eq i64 %.0814.i.i.i15976.idx, 22
+  %7686 = icmp samesign eq i64 %.0814.i.i.i15976.idx, 22
   br label %.loopexit26785
 
 .loopexit26785:                                   ; preds = %7685, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15979
@@ -52799,7 +52799,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15993: ; preds = %7693, %.loopexit
 
 7693:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15993
   %.0814.i.i.i15994.add = add nuw nsw i64 %.0814.i.i.i15994.idx, 1
-  %.not.i.i.i15996 = icmp eq i64 %.0814.i.i.i15994.add, 22
+  %.not.i.i.i15996 = icmp samesign eq i64 %.0814.i.i.i15994.add, 22
   br i1 %.not.i.i.i15996, label %.loopexit26784, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15993, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i15997: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i15993
@@ -52918,7 +52918,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16037: ; preds = %7722, %.loopexit
 
 7722:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16037
   %.0814.i.i.i16038.add = add nuw nsw i64 %.0814.i.i.i16038.idx, 1
-  %.not.i.i.i16040 = icmp eq i64 %.0814.i.i.i16038.add, 22
+  %.not.i.i.i16040 = icmp samesign eq i64 %.0814.i.i.i16038.add, 22
   br i1 %.not.i.i.i16040, label %.loopexit26780, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16037, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16041: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16037
@@ -53037,7 +53037,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16081: ; preds = %7753, %.loopexit
 
 7753:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16081
   %.0814.i.i.i16082.add = add nuw nsw i64 %.0814.i.i.i16082.idx, 1
-  %.not.i.i.i16084 = icmp eq i64 %.0814.i.i.i16082.add, 22
+  %.not.i.i.i16084 = icmp samesign eq i64 %.0814.i.i.i16082.add, 22
   br i1 %.not.i.i.i16084, label %.loopexit26776, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16081, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16085: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16081
@@ -53129,7 +53129,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16111: ; preds = %7777, %.loopexit
   br i1 %.not.i.i.i16114, label %.loopexit26773, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16111, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16115: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16111
-  %7778 = icmp eq i64 %.0814.i.i.i16112.idx, 22
+  %7778 = icmp samesign eq i64 %.0814.i.i.i16112.idx, 22
   br label %.loopexit26773
 
 .loopexit26773:                                   ; preds = %7777, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16115
@@ -53155,7 +53155,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16129: ; preds = %7785, %.loopexit
 
 7785:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16129
   %.0814.i.i.i16130.add = add nuw nsw i64 %.0814.i.i.i16130.idx, 1
-  %.not.i.i.i16132 = icmp eq i64 %.0814.i.i.i16130.add, 22
+  %.not.i.i.i16132 = icmp samesign eq i64 %.0814.i.i.i16130.add, 22
   br i1 %.not.i.i.i16132, label %.loopexit26772, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16129, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16133: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16129
@@ -53276,7 +53276,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16173: ; preds = %7812, %.loopexit
 
 7812:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16173
   %.0814.i.i.i16174.add = add nuw nsw i64 %.0814.i.i.i16174.idx, 1
-  %.not.i.i.i16176 = icmp eq i64 %.0814.i.i.i16174.add, 22
+  %.not.i.i.i16176 = icmp samesign eq i64 %.0814.i.i.i16174.add, 22
   br i1 %.not.i.i.i16176, label %.loopexit26768, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16173, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16177: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16173
@@ -53395,7 +53395,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16217: ; preds = %7843, %.loopexit
 
 7843:                                             ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16217
   %.0814.i.i.i16218.add = add nuw nsw i64 %.0814.i.i.i16218.idx, 1
-  %.not.i.i.i16220 = icmp eq i64 %.0814.i.i.i16218.add, 22
+  %.not.i.i.i16220 = icmp samesign eq i64 %.0814.i.i.i16218.add, 22
   br i1 %.not.i.i.i16220, label %.loopexit26764, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16217, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16221: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16217
@@ -53490,7 +53490,7 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16247: ; preds = %7869, %.loopexit
   br i1 %.not.i.i.i16250, label %_ZN5boost14static_strings7testFFNINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit16660, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16247, !llvm.loop !39
 
 _ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16251: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i16247
-  %7870 = icmp eq i64 %.0814.i.i.i16248.idx, 22
+  %7870 = icmp samesign eq i64 %.0814.i.i.i16248.idx, 22
   br label %_ZN5boost14static_strings7testFFNINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit16660
 
 _ZN5boost14static_strings7testFFNINS0_19basic_static_stringILm400EcSt11char_traitsIcEEEEEbRKT_PKNS6_10value_typeENS6_9size_typeESC_SC_.exit16660: ; preds = %7869, %_ZN5boost14static_strings6detail11find_not_ofISt11char_traitsIcEcPKcEET1_S7_S7_PKT0_m.exit.i.i16251
@@ -80091,7 +80091,7 @@ _ZN5boost6detail9test_implEPKcS2_iS2_b.exit29:    ; preds = %_ZN5boost14static_s
   %112 = and i1 %110, %111
   %.not.i.i.i.i30 = icmp ugt ptr %107, %99
   %or.cond.i.i.i.i31 = and i1 %112, %.not.i.i.i.i30
-  %113 = icmp eq i64 %101, 0
+  %113 = icmp samesign eq i64 %101, 0
   br i1 %or.cond.i.i.i.i31, label %115, label %114
 
 114:                                              ; preds = %106
@@ -102394,7 +102394,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %32, %27
   br i1 %or.cond.i.i, label %41, label %37
 
 37:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %.sroa.speculated, 0
+  %.not7.i.i.i = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.i.i.i
@@ -102426,7 +102426,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %41
   br label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 50:                                               ; preds = %41
-  %51 = icmp eq i64 %.sroa.speculated, 0
+  %51 = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %51, label %_ZN5boost14static_strings19basic_static_stringILm4EcSt11char_traitsIcEE6insertEmPKcm.exit, label %52
 
 52:                                               ; preds = %50
@@ -102502,7 +102502,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %32, %27
   br i1 %or.cond.i.i, label %41, label %37
 
 37:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %.sroa.speculated, 0
+  %.not7.i.i.i = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.i.i.i
@@ -102534,7 +102534,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %41
   br label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 50:                                               ; preds = %41
-  %51 = icmp eq i64 %.sroa.speculated, 0
+  %51 = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %51, label %_ZN5boost14static_strings19basic_static_stringILm3EcSt11char_traitsIcEE6insertEmPKcm.exit, label %52
 
 52:                                               ; preds = %50
@@ -102610,7 +102610,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %31, %26
   br i1 %or.cond.i.i, label %40, label %36
 
 36:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %.sroa.speculated.i, 0
+  %.not7.i.i.i = icmp samesign eq i64 %.sroa.speculated.i, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm10EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %36, %.lr.ph.i.i.i
@@ -102642,7 +102642,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %40
   br label %_ZN5boost14static_strings19basic_static_stringILm10EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 49:                                               ; preds = %40
-  %50 = icmp eq i64 %.sroa.speculated.i, 0
+  %50 = icmp samesign eq i64 %.sroa.speculated.i, 0
   br i1 %50, label %_ZN5boost14static_strings19basic_static_stringILm10EcSt11char_traitsIcEE6insertEmPKcm.exit, label %51
 
 51:                                               ; preds = %49
@@ -102718,7 +102718,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %32, %27
   br i1 %or.cond.i.i, label %41, label %37
 
 37:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %.sroa.speculated, 0
+  %.not7.i.i.i = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm6EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %37, %.lr.ph.i.i.i
@@ -102750,7 +102750,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %41
   br label %_ZN5boost14static_strings19basic_static_stringILm6EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 50:                                               ; preds = %41
-  %51 = icmp eq i64 %.sroa.speculated, 0
+  %51 = icmp samesign eq i64 %.sroa.speculated, 0
   br i1 %51, label %_ZN5boost14static_strings19basic_static_stringILm6EcSt11char_traitsIcEE6insertEmPKcm.exit, label %52
 
 52:                                               ; preds = %50
@@ -102808,7 +102808,7 @@ _ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i:       ; preds = %22, %17
   br i1 %or.cond.i.i, label %31, label %27
 
 27:                                               ; preds = %_ZNSt11char_traitsIcE4moveEPcPKcm.exit.i.i
-  %.not7.i.i.i = icmp eq i64 %3, 0
+  %.not7.i.i.i = icmp samesign eq i64 %3, 0
   br i1 %.not7.i.i.i, label %_ZN5boost14static_strings19basic_static_stringILm100EcSt11char_traitsIcEE6insertEmPKcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %27, %.lr.ph.i.i.i
@@ -102840,7 +102840,7 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit.i.i:       ; preds = %31
   br label %_ZN5boost14static_strings19basic_static_stringILm100EcSt11char_traitsIcEE6insertEmPKcm.exit
 
 40:                                               ; preds = %31
-  %41 = icmp eq i64 %3, 0
+  %41 = icmp samesign eq i64 %3, 0
   br i1 %41, label %_ZN5boost14static_strings19basic_static_stringILm100EcSt11char_traitsIcEE6insertEmPKcm.exit, label %42
 
 42:                                               ; preds = %40

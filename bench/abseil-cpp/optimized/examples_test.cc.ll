@@ -3514,7 +3514,7 @@ if.then:                                          ; preds = %entry
   %5 = and i64 %4, -4
   %6 = add nsw i64 %5, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %6, i1 false)
-  %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i
 
 _ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE13generate_implIPjEEvNS4_22ContiguousAndUint32TagET_S8_m.exit.i: ; preds = %if.then
@@ -4270,7 +4270,7 @@ if.then:                                          ; preds = %entry
   %4 = and i64 %3, -4
   %5 = add nsw i64 %4, 4
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %add.ptr.ptr, i8 0, i64 %5, i1 false)
-  %cmp.not.i = icmp eq i64 %add.ptr.idx, 0
+  %cmp.not.i = icmp samesign eq i64 %add.ptr.idx, 0
   br i1 %cmp.not.i, label %while.body.preheader, label %if.then.i
 
 if.then.i:                                        ; preds = %if.then

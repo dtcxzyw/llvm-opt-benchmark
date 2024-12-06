@@ -5247,7 +5247,7 @@ for.body.i1420:                                   ; preds = %invoke.cont459, %fo
   br i1 %523, label %for.body.i1420, label %for.end.i1376, !llvm.loop !113
 
 for.end.i1376:                                    ; preds = %for.body.i1420
-  %cmp4.i1379 = icmp eq i64 %first.addr.014.i1422.add, 12
+  %cmp4.i1379 = icmp samesign eq i64 %first.addr.014.i1422.add, 12
   br i1 %cmp4.i1379, label %if.then.i1402, label %for.body.i.i.i1386.preheader
 
 for.body.i.i.i1386.preheader:                     ; preds = %invoke.cont459, %for.end.i1376

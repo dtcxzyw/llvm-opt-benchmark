@@ -642,7 +642,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 59:                                               ; preds = %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"
   %60 = load i32, ptr %20, align 8, !noundef !5
   %61 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %62 = icmp eq i64 %.val1.i, 0
+  %62 = icmp samesign eq i64 %.val1.i, 0
   br i1 %62, label %._crit_edge, label %.lr.ph
 
 63:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1d7fa3332db0c379E.exit"

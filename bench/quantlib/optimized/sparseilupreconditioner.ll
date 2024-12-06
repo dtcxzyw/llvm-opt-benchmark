@@ -351,7 +351,7 @@ if.end.i.i.i.i:                                   ; preds = %invoke.cont49
   %38 = load i64, ptr %add.ptr9.i.i.i.i, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i = shl nuw nsw i64 %38, 3
   %add.ptr11.i.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 %add.ptr11.idx.i.i.i.i
-  %cmp.i.i.i.i.i = icmp eq i64 %37, %38
+  %cmp.i.i.i.i.i = icmp samesign eq i64 %37, %38
   br i1 %cmp.i.i.i.i.i, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i, label %lor.lhs.false.i.i.i.i.i
 
 lor.lhs.false.i.i.i.i.i:                          ; preds = %if.end.i.i.i.i
@@ -563,7 +563,7 @@ if.end.i.i:                                       ; preds = %for.body74
   %62 = load i64, ptr %add.ptr9.i.i, align 8, !tbaa !31
   %add.ptr11.idx.i.i = shl nuw nsw i64 %62, 3
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %58, i64 %add.ptr11.idx.i.i
-  %cmp.i.i.i144 = icmp eq i64 %61, %62
+  %cmp.i.i.i144 = icmp samesign eq i64 %61, %62
   br i1 %cmp.i.i.i144, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i
@@ -757,7 +757,7 @@ if.end.i.i.i.i200:                                ; preds = %invoke.cont154
   %80 = load i64, ptr %add.ptr9.i.i.i.i206, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i207 = shl nuw nsw i64 %80, 3
   %add.ptr11.i.i.i.i208 = getelementptr inbounds nuw i8, ptr %78, i64 %add.ptr11.idx.i.i.i.i207
-  %cmp.i.i.i.i.i209 = icmp eq i64 %79, %80
+  %cmp.i.i.i.i.i209 = icmp samesign eq i64 %79, %80
   br i1 %cmp.i.i.i.i.i209, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i212, label %lor.lhs.false.i.i.i.i.i210
 
 lor.lhs.false.i.i.i.i.i210:                       ; preds = %if.end.i.i.i.i200
@@ -927,7 +927,7 @@ if.end.i.i.i.i300:                                ; preds = %invoke.cont185
   %96 = load i64, ptr %add.ptr9.i.i.i.i306, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i307 = shl nuw nsw i64 %96, 3
   %add.ptr11.i.i.i.i308 = getelementptr inbounds nuw i8, ptr %94, i64 %add.ptr11.idx.i.i.i.i307
-  %cmp.i.i.i.i.i309 = icmp eq i64 %95, %96
+  %cmp.i.i.i.i.i309 = icmp samesign eq i64 %95, %96
   br i1 %cmp.i.i.i.i.i309, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i312, label %lor.lhs.false.i.i.i.i.i310
 
 lor.lhs.false.i.i.i.i.i310:                       ; preds = %if.end.i.i.i.i300
@@ -1217,7 +1217,7 @@ if.end.i.i.i.i424:                                ; preds = %invoke.cont230
   %115 = load i64, ptr %add.ptr9.i.i.i.i430, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i431 = shl nuw nsw i64 %115, 3
   %add.ptr11.i.i.i.i432 = getelementptr inbounds nuw i8, ptr %111, i64 %add.ptr11.idx.i.i.i.i431
-  %cmp.i.i.i.i.i433 = icmp eq i64 %114, %115
+  %cmp.i.i.i.i.i433 = icmp samesign eq i64 %114, %115
   br i1 %cmp.i.i.i.i.i433, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i436, label %lor.lhs.false.i.i.i.i.i434
 
 lor.lhs.false.i.i.i.i.i434:                       ; preds = %if.end.i.i.i.i424
@@ -1760,7 +1760,7 @@ if.end.i.i.i.i725:                                ; preds = %invoke.cont374
   %142 = load i64, ptr %add.ptr9.i.i.i.i731, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i732 = shl nuw nsw i64 %142, 3
   %add.ptr11.i.i.i.i733 = getelementptr inbounds nuw i8, ptr %140, i64 %add.ptr11.idx.i.i.i.i732
-  %cmp.i.i.i.i.i734 = icmp eq i64 %141, %142
+  %cmp.i.i.i.i.i734 = icmp samesign eq i64 %141, %142
   br i1 %cmp.i.i.i.i.i734, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i737, label %lor.lhs.false.i.i.i.i.i735
 
 lor.lhs.false.i.i.i.i.i735:                       ; preds = %if.end.i.i.i.i725
@@ -1855,7 +1855,7 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %156 = load i64, ptr %add.ptr17.i, align 8, !tbaa !31
   %add.ptr19.idx.i = shl nuw nsw i64 %156, 3
   %add.ptr19.i = getelementptr inbounds nuw i8, ptr %154, i64 %add.ptr19.idx.i
-  %cmp.i.i1092 = icmp eq i64 %155, %156
+  %cmp.i.i1092 = icmp samesign eq i64 %155, %156
   br i1 %cmp.i.i1092, label %_ZN5boost7numeric5ublas6detail11lower_boundIPmmSt4lessImEEET_RKS7_S9_RKT0_T1_.exit.i, label %lor.lhs.false.i.i1093
 
 lor.lhs.false.i.i1093:                            ; preds = %while.end.i
@@ -2053,7 +2053,7 @@ if.end.i.i.i.i791:                                ; preds = %invoke.cont392
   %182 = load i64, ptr %add.ptr9.i.i.i.i797, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i798 = shl nuw nsw i64 %182, 3
   %add.ptr11.i.i.i.i799 = getelementptr inbounds nuw i8, ptr %180, i64 %add.ptr11.idx.i.i.i.i798
-  %cmp.i.i.i.i.i800 = icmp eq i64 %181, %182
+  %cmp.i.i.i.i.i800 = icmp samesign eq i64 %181, %182
   br i1 %cmp.i.i.i.i.i800, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i803, label %lor.lhs.false.i.i.i.i.i801
 
 lor.lhs.false.i.i.i.i.i801:                       ; preds = %if.end.i.i.i.i791
@@ -2148,7 +2148,7 @@ while.end.i1122:                                  ; preds = %while.body.i1118, %
   %196 = load i64, ptr %add.ptr17.i1128, align 8, !tbaa !31
   %add.ptr19.idx.i1129 = shl nuw nsw i64 %196, 3
   %add.ptr19.i1130 = getelementptr inbounds nuw i8, ptr %194, i64 %add.ptr19.idx.i1129
-  %cmp.i.i1131 = icmp eq i64 %195, %196
+  %cmp.i.i1131 = icmp samesign eq i64 %195, %196
   br i1 %cmp.i.i1131, label %_ZN5boost7numeric5ublas6detail11lower_boundIPmmSt4lessImEEET_RKS7_S9_RKT0_T1_.exit.i1134, label %lor.lhs.false.i.i1132
 
 lor.lhs.false.i.i1132:                            ; preds = %while.end.i1122
@@ -2274,7 +2274,7 @@ if.end.i.i.i.i850:                                ; preds = %invoke.cont403
   %214 = load i64, ptr %add.ptr9.i.i.i.i856, align 8, !tbaa !31
   %add.ptr11.idx.i.i.i.i857 = shl nuw nsw i64 %214, 3
   %add.ptr11.i.i.i.i858 = getelementptr inbounds nuw i8, ptr %212, i64 %add.ptr11.idx.i.i.i.i857
-  %cmp.i.i.i.i.i859 = icmp eq i64 %213, %214
+  %cmp.i.i.i.i.i859 = icmp samesign eq i64 %213, %214
   br i1 %cmp.i.i.i.i.i859, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i.i.i862, label %lor.lhs.false.i.i.i.i.i860
 
 lor.lhs.false.i.i.i.i.i860:                       ; preds = %if.end.i.i.i.i850
@@ -2369,7 +2369,7 @@ while.end.i1213:                                  ; preds = %while.body.i1209, %
   %228 = load i64, ptr %add.ptr17.i1219, align 8, !tbaa !31
   %add.ptr19.idx.i1220 = shl nuw nsw i64 %228, 3
   %add.ptr19.i1221 = getelementptr inbounds nuw i8, ptr %226, i64 %add.ptr19.idx.i1220
-  %cmp.i.i1222 = icmp eq i64 %227, %228
+  %cmp.i.i1222 = icmp samesign eq i64 %227, %228
   br i1 %cmp.i.i1222, label %_ZN5boost7numeric5ublas6detail11lower_boundIPmmSt4lessImEEET_RKS7_S9_RKT0_T1_.exit.i1225, label %lor.lhs.false.i.i1223
 
 lor.lhs.false.i.i1223:                            ; preds = %while.end.i1213
@@ -3504,7 +3504,7 @@ if.end.i.i:                                       ; preds = %_ZN8QuantLib5ArrayC
   %11 = load i64, ptr %add.ptr9.i.i, align 8, !tbaa !31
   %add.ptr11.idx.i.i = shl nuw nsw i64 %11, 3
   %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %add.ptr11.idx.i.i
-  %cmp.i.i.i = icmp eq i64 %10, %11
+  %cmp.i.i.i = icmp samesign eq i64 %10, %11
   br i1 %cmp.i.i.i, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i, label %lor.lhs.false.i.i.i
 
 lor.lhs.false.i.i.i:                              ; preds = %if.end.i.i
@@ -3609,7 +3609,7 @@ if.end.i.i36:                                     ; preds = %for.body
   %28 = load i64, ptr %add.ptr9.i.i42, align 8, !tbaa !31
   %add.ptr11.idx.i.i43 = shl nuw nsw i64 %28, 3
   %add.ptr11.i.i44 = getelementptr inbounds nuw i8, ptr %21, i64 %add.ptr11.idx.i.i43
-  %cmp.i.i.i45 = icmp eq i64 %27, %28
+  %cmp.i.i.i45 = icmp samesign eq i64 %27, %28
   br i1 %cmp.i.i.i45, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i48, label %lor.lhs.false.i.i.i46
 
 lor.lhs.false.i.i.i46:                            ; preds = %if.end.i.i36
@@ -3704,7 +3704,7 @@ if.end.i.i90:                                     ; preds = %for.body33
   %39 = load i64, ptr %add.ptr9.i.i96, align 8, !tbaa !31
   %add.ptr11.idx.i.i97 = shl nuw nsw i64 %39, 3
   %add.ptr11.i.i98 = getelementptr inbounds nuw i8, ptr %21, i64 %add.ptr11.idx.i.i97
-  %cmp.i.i.i99 = icmp eq i64 %38, %39
+  %cmp.i.i.i99 = icmp samesign eq i64 %38, %39
   br i1 %cmp.i.i.i99, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i102, label %lor.lhs.false.i.i.i100
 
 lor.lhs.false.i.i.i100:                           ; preds = %if.end.i.i90
@@ -3951,7 +3951,7 @@ if.end.i.i30:                                     ; preds = %for.body
   %24 = load i64, ptr %add.ptr9.i.i36, align 8, !tbaa !31
   %add.ptr11.idx.i.i37 = shl nuw nsw i64 %24, 3
   %add.ptr11.i.i38 = getelementptr inbounds nuw i8, ptr %17, i64 %add.ptr11.idx.i.i37
-  %cmp.i.i.i39 = icmp eq i64 %23, %24
+  %cmp.i.i.i39 = icmp samesign eq i64 %23, %24
   br i1 %cmp.i.i.i39, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i41, label %lor.lhs.false.i.i.i40
 
 lor.lhs.false.i.i.i40:                            ; preds = %if.end.i.i30
@@ -4053,7 +4053,7 @@ if.end.i.i60:                                     ; preds = %if.then
   %36 = load i64, ptr %add.ptr9.i.i66, align 8, !tbaa !31
   %add.ptr11.idx.i.i67 = shl nuw nsw i64 %36, 3
   %add.ptr11.i.i68 = getelementptr inbounds nuw i8, ptr %17, i64 %add.ptr11.idx.i.i67
-  %cmp.i.i.i69 = icmp eq i64 %35, %36
+  %cmp.i.i.i69 = icmp samesign eq i64 %35, %36
   br i1 %cmp.i.i.i69, label %_ZN5boost7numeric5ublas6detail11lower_boundIPKmmSt4lessImEEET_RKS8_SA_RKT0_T1_.exit.i.i72, label %lor.lhs.false.i.i.i70
 
 lor.lhs.false.i.i.i70:                            ; preds = %if.end.i.i60
@@ -4310,7 +4310,7 @@ while.end:                                        ; preds = %while.body, %if.end
   %7 = load i64, ptr %add.ptr17, align 8, !tbaa !31
   %add.ptr19.idx = shl nuw nsw i64 %7, 3
   %add.ptr19 = getelementptr inbounds nuw i8, ptr %5, i64 %add.ptr19.idx
-  %cmp.i = icmp eq i64 %6, %7
+  %cmp.i = icmp samesign eq i64 %6, %7
   br i1 %cmp.i, label %_ZN5boost7numeric5ublas6detail11lower_boundIPmmSt4lessImEEET_RKS7_S9_RKT0_T1_.exit, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.end

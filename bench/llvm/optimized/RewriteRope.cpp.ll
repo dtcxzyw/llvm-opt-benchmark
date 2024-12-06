@@ -799,7 +799,7 @@ _ZN4llvm9RopePieceaSERKS0_.exit.i:                ; preds = %53, %50, %_ZN4llvm1
   %60 = zext i32 %59 to i64
   %61 = zext i8 %.val48.lcssa.i to i64
   %62 = getelementptr inbounds nuw [16 x %"struct.llvm::RopePiece"], ptr %10, i64 0, i64 %61
-  %.not5.i.i.i.i = icmp eq i64 %60, %61
+  %.not5.i.i.i.i = icmp samesign eq i64 %60, %61
   br i1 %.not5.i.i.i.i, label %_ZN4llvm9RopePieceD2Ev.exit.i, label %_ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.preheader.i
 
 _ZN4llvm18IntrusiveRefCntPtrINS_18RopeRefCountStringEEC2ERKS2_.exit.i.i.i.i.preheader.i: ; preds = %._crit_edge.i

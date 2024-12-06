@@ -3237,7 +3237,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPN8QuantLib4DateE
   br i1 %cmp.i.not.i.i.i.i, label %invoke.cont16, label %for.body.i2.i.i.i, !llvm.loop !127
 
 if.else.i.i.i:                                    ; preds = %.noexc35
-  %cmp.i2.not11.i12.i.i.i = icmp eq i64 %__cur.07.i.i.i.i.i.idx, 0
+  %cmp.i2.not11.i12.i.i.i = icmp samesign eq i64 %__cur.07.i.i.i.i.i.idx, 0
   br i1 %cmp.i2.not11.i12.i.i.i, label %invoke.cont16, label %for.body.i15.i.i.i
 
 for.body.i15.i.i.i:                               ; preds = %if.else.i.i.i, %for.inc.i21.i.i.i

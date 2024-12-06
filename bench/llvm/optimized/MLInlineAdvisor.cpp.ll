@@ -6701,7 +6701,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit39:               ; preds = %131, %133
 _ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %161, %148
   %.lcssa.i.i.i.pn.i = phi i64 [ %155, %148 ], [ %164, %161 ]
   %168 = zext i32 %146 to i64
-  %.not62 = icmp eq i64 %.lcssa.i.i.i.pn.i, %168
+  %.not62 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %168
   br i1 %.not62, label %.loopexit, label %.thread
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIPNS_8FunctionENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit, %141

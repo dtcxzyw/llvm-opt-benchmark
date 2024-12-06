@@ -1209,7 +1209,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIfEEvRKNS1
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 160
   store ptr null, ptr %9, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 168
-  %10 = icmp eq i64 %.add.i, 528
+  %10 = icmp samesign eq i64 %.add.i, 528
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %4
@@ -7067,7 +7067,7 @@ define linkonce_odr void @_ZN10OpenSubdiv6v3_6_03Far16convertToGregoryIdEEvRKNS1
   %9 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 168
   store ptr null, ptr %9, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 176
-  %10 = icmp eq i64 %.add.i, 552
+  %10 = icmp samesign eq i64 %.add.i, 552
   br i1 %10, label %11, label %4
 
 11:                                               ; preds = %4

@@ -4417,7 +4417,7 @@ _ZNK5clang9NamedDecl7getNameEv.exit:              ; preds = %305, %311
 _ZNK5clang7CodeGen17VarBypassDetector10IsBypassedEPKNS_7VarDeclE.exit: ; preds = %363, %350
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %357, %350 ], [ %366, %363 ]
   %370 = zext i32 %348 to i64
-  %.not324 = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %370
+  %.not324 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %370
   br i1 %.not324, label %_ZNK5clang7CodeGen17VarBypassDetector10IsBypassedEPKNS_7VarDeclE.exit.thread309, label %_ZNK5clang7CodeGen17VarBypassDetector10IsBypassedEPKNS_7VarDeclE.exit.thread
 
 _ZNK5clang7CodeGen17VarBypassDetector10IsBypassedEPKNS_7VarDeclE.exit.thread309: ; preds = %.lr.ph.i.i.i.i.i, %344, %_ZNK5clang7CodeGen17VarBypassDetector10IsBypassedEPKNS_7VarDeclE.exit

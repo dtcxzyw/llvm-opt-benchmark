@@ -17408,7 +17408,7 @@ define linkonce_odr void @_ZN6OctreeIfEC2Ev(ptr noundef nonnull align 8 derefere
 12:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %13 = icmp eq i64 %.add.i, 264
+  %13 = icmp samesign eq i64 %.add.i, 264
   br i1 %13, label %.loopexit35.i, label %10
 
 14:                                               ; preds = %10
@@ -17526,7 +17526,7 @@ _ZN7OctNodeI12TreeNodeDataE8NewBroodEPFvRS1_E.exit: ; preds = %.split40.i
 52:                                               ; preds = %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i9, i8 0, i64 24, i1 false)
   %.add.i11 = add nuw nsw i64 %.idx.i8, 32
-  %53 = icmp eq i64 %.add.i11, 264
+  %53 = icmp samesign eq i64 %.add.i11, 264
   br i1 %53, label %.thread.i, label %50
 
 .thread.i:                                        ; preds = %52
@@ -18078,7 +18078,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.body, %58
 89:                                               ; preds = %87
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %90 = icmp eq i64 %.add.i, 264
+  %90 = icmp samesign eq i64 %.add.i, 264
   br i1 %90, label %.thread.i, label %87
 
 .thread.i:                                        ; preds = %89
@@ -19015,7 +19015,7 @@ define linkonce_odr void @_ZN6OctreeIfE26inalizeForBroodedMultigridILi2ELi2EL12B
 27:                                               ; preds = %25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %28 = icmp eq i64 %.add.i, 264
+  %28 = icmp samesign eq i64 %.add.i, 264
   br i1 %28, label %.loopexit35.i, label %25
 
 29:                                               ; preds = %25
@@ -22613,7 +22613,7 @@ define linkonce_odr noundef i32 @_ZN7OctNodeI12TreeNodeDataE12initChildrenEPFvRS
 19:                                               ; preds = %17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr, i8 0, i64 24, i1 false)
   %.add = add nuw nsw i64 %.idx, 32
-  %20 = icmp eq i64 %.add, 264
+  %20 = icmp samesign eq i64 %.add, 264
   br i1 %20, label %.thread, label %17
 
 .thread:                                          ; preds = %19
@@ -24713,7 +24713,7 @@ _Z12IsActiveNodePK7OctNodeI12TreeNodeDataE.exit.thread: ; preds = %37, %_Z12IsAc
 97:                                               ; preds = %95
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %98 = icmp eq i64 %.add.i, 264
+  %98 = icmp samesign eq i64 %.add.i, 264
   br i1 %98, label %.thread.i, label %95
 
 .thread.i:                                        ; preds = %97
@@ -25960,7 +25960,7 @@ define linkonce_odr void @_ZN6OctreeIfE13_setFullDepthILi2EL12BoundaryType0EEEvi
 12:                                               ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %13 = icmp eq i64 %.add.i, 264
+  %13 = icmp samesign eq i64 %.add.i, 264
   br i1 %13, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %12
@@ -26769,7 +26769,7 @@ _ZNK6OctreeIfE12_outOfBoundsILi2EL12BoundaryType0EEEbPK7OctNodeI12TreeNodeDataE.
 58:                                               ; preds = %56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.ptr.ptr.i, i8 0, i64 24, i1 false)
   %.add.i = add nuw nsw i64 %.idx.i, 32
-  %59 = icmp eq i64 %.add.i, 264
+  %59 = icmp samesign eq i64 %.add.i, 264
   br i1 %59, label %.thread.i, label %56
 
 .thread.i:                                        ; preds = %58
@@ -27104,7 +27104,7 @@ _ZN22BSplineIntegrationDataILi2EL12BoundaryType2ELi2ELS0_2EE13SetIntegratorILj2E
 82:                                               ; preds = %71
   %83 = landingpad { ptr, i32 }
           cleanup
-  %84 = icmp eq i64 %.idx52, 0
+  %84 = icmp samesign eq i64 %.idx52, 0
   br i1 %84, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %82, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit
@@ -27833,7 +27833,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit132: ; preds = %.no
 333:                                              ; preds = %260
   %334 = landingpad { ptr, i32 }
           cleanup
-  %335 = icmp eq i64 %.idx, 0
+  %335 = icmp samesign eq i64 %.idx, 0
   br i1 %335, label %.loopexit161, label %.preheader162
 
 .preheader162:                                    ; preds = %333, %_ZN7StencilI7Point3DIdELi5EED2Ev.exit134
@@ -29867,7 +29867,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 163:                                              ; preds = %53
   %164 = landingpad { ptr, i32 }
           cleanup
-  %165 = icmp eq i64 %.idx, 0
+  %165 = icmp samesign eq i64 %.idx, 0
   br i1 %165, label %.lr.ph.i.i.i.i72.preheader, label %.preheader85
 
 .preheader85:                                     ; preds = %163, %_ZN7StencilIdLi2EED2Ev.exit
@@ -43934,7 +43934,7 @@ _ZNK21BSplineEvaluationDataILi2EL12BoundaryType2EE17UpSampleEvaluator5valueEii.e
 163:                                              ; preds = %53
   %164 = landingpad { ptr, i32 }
           cleanup
-  %165 = icmp eq i64 %.idx, 0
+  %165 = icmp samesign eq i64 %.idx, 0
   br i1 %165, label %.lr.ph.i.i.i.i72.preheader, label %.preheader85
 
 .preheader85:                                     ; preds = %163, %_ZN7StencilIdLi2EED2Ev.exit
@@ -44579,7 +44579,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 146:                                              ; preds = %44
   %147 = landingpad { ptr, i32 }
           cleanup
-  %148 = icmp eq i64 %.idx, 0
+  %148 = icmp samesign eq i64 %.idx, 0
   br i1 %148, label %.loopexit.thread, label %.preheader
 
 .preheader:                                       ; preds = %146, %_ZN7StencilIdLi5EED2Ev.exit
@@ -45593,7 +45593,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 101:                                              ; preds = %19
   %102 = landingpad { ptr, i32 }
           cleanup
-  %103 = icmp eq i64 %.idx, 0
+  %103 = icmp samesign eq i64 %.idx, 0
   br i1 %103, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %101, %_ZN7StencilIdLi5EED2Ev.exit
@@ -52240,7 +52240,7 @@ _ZN7OctNodeI12TreeNodeDataE11NeighborKeyILj1ELj1EE3setEi.exit: ; preds = %.noexc
 161:                                              ; preds = %60
   %162 = landingpad { ptr, i32 }
           cleanup
-  %163 = icmp eq i64 %.idx, 0
+  %163 = icmp samesign eq i64 %.idx, 0
   br i1 %163, label %.loopexit.thread, label %.preheader
 
 .preheader:                                       ; preds = %161, %_ZN7StencilIdLi5EED2Ev.exit
@@ -53789,7 +53789,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   store ptr %9, ptr %.ptr.ptr, align 8
   %.add = add nuw nsw i64 %.idx, 8
-  %11 = icmp eq i64 %.add, 872
+  %11 = icmp samesign eq i64 %.add, 872
   br i1 %11, label %.preheader363, label %8
 
 .preheader363:                                    ; preds = %10, %13
@@ -53801,7 +53801,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr72 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx64
   store ptr %12, ptr %.ptr.ptr72, align 8
   %.add65 = add nuw nsw i64 %.idx64, 8
-  %14 = icmp eq i64 %.add65, 968
+  %14 = icmp samesign eq i64 %.add65, 968
   br i1 %14, label %.preheader360, label %.preheader363
 
 .preheader360:                                    ; preds = %13, %16
@@ -53813,7 +53813,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr81 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx73
   store ptr %15, ptr %.ptr.ptr81, align 8
   %.add74 = add nuw nsw i64 %.idx73, 8
-  %17 = icmp eq i64 %.add74, 1736
+  %17 = icmp samesign eq i64 %.add74, 1736
   br i1 %17, label %.preheader357, label %.preheader360
 
 .preheader357:                                    ; preds = %16, %19
@@ -53825,7 +53825,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr90 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx82
   store ptr %18, ptr %.ptr.ptr90, align 8
   %.add83 = add nuw nsw i64 %.idx82, 8
-  %20 = icmp eq i64 %.add83, 1784
+  %20 = icmp samesign eq i64 %.add83, 1784
   br i1 %20, label %.preheader354, label %.preheader357
 
 .preheader354:                                    ; preds = %19, %22
@@ -53837,7 +53837,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr99 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx91
   store ptr %21, ptr %.ptr.ptr99, align 8
   %.add92 = add nuw nsw i64 %.idx91, 8
-  %23 = icmp eq i64 %.add92, 2168
+  %23 = icmp samesign eq i64 %.add92, 2168
   br i1 %23, label %.preheader351, label %.preheader354
 
 .preheader351:                                    ; preds = %22, %25
@@ -53849,7 +53849,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr108 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx100
   store ptr %24, ptr %.ptr.ptr108, align 8
   %.add101 = add nuw nsw i64 %.idx100, 8
-  %26 = icmp eq i64 %.add101, 2232
+  %26 = icmp samesign eq i64 %.add101, 2232
   br i1 %26, label %.preheader348, label %.preheader351
 
 .preheader348:                                    ; preds = %25, %28
@@ -53861,7 +53861,7 @@ define linkonce_odr void @_ZN6OctreeIfE10_EvaluatorILi2EL12BoundaryType2EEC2Ev(p
   %.ptr.ptr117 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx109
   store ptr %27, ptr %.ptr.ptr117, align 8
   %.add110 = add nuw nsw i64 %.idx109, 8
-  %29 = icmp eq i64 %.add110, 2744
+  %29 = icmp samesign eq i64 %.add110, 2744
   br i1 %29, label %30, label %.preheader348
 
 30:                                               ; preds = %28
@@ -53884,7 +53884,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %34, i8 0, i64 648, i1 false)
   store ptr %34, ptr %.ptr.ptr126, align 8
   %.add119 = add nuw nsw i64 %.idx118, 8
-  %36 = icmp eq i64 %.add119, 2816
+  %36 = icmp samesign eq i64 %.add119, 2816
   br i1 %36, label %.preheader343, label %33
 
 .preheader343:                                    ; preds = %35, %38
@@ -53897,7 +53897,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %37, i8 0, i64 648, i1 false)
   store ptr %37, ptr %.ptr.ptr135, align 8
   %.add128 = add nuw nsw i64 %.idx127, 8
-  %39 = icmp eq i64 %.add128, 2912
+  %39 = icmp samesign eq i64 %.add128, 2912
   br i1 %39, label %.preheader340, label %.preheader343
 
 .preheader340:                                    ; preds = %38, %41
@@ -53910,7 +53910,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %40, i8 0, i64 648, i1 false)
   store ptr %40, ptr %.ptr.ptr144, align 8
   %.add137 = add nuw nsw i64 %.idx136, 8
-  %42 = icmp eq i64 %.add137, 3680
+  %42 = icmp samesign eq i64 %.add137, 3680
   br i1 %42, label %.preheader337, label %.preheader340
 
 .preheader337:                                    ; preds = %41, %44
@@ -53923,7 +53923,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %43, i8 0, i64 648, i1 false)
   store ptr %43, ptr %.ptr.ptr153, align 8
   %.add146 = add nuw nsw i64 %.idx145, 8
-  %45 = icmp eq i64 %.add146, 3728
+  %45 = icmp samesign eq i64 %.add146, 3728
   br i1 %45, label %.preheader334, label %.preheader337
 
 .preheader334:                                    ; preds = %44, %47
@@ -53936,7 +53936,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %46, i8 0, i64 648, i1 false)
   store ptr %46, ptr %.ptr.ptr162, align 8
   %.add155 = add nuw nsw i64 %.idx154, 8
-  %48 = icmp eq i64 %.add155, 4112
+  %48 = icmp samesign eq i64 %.add155, 4112
   br i1 %48, label %.preheader331, label %.preheader334
 
 .preheader331:                                    ; preds = %47, %50
@@ -53949,7 +53949,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %49, i8 0, i64 648, i1 false)
   store ptr %49, ptr %.ptr.ptr171, align 8
   %.add164 = add nuw nsw i64 %.idx163, 8
-  %51 = icmp eq i64 %.add164, 4176
+  %51 = icmp samesign eq i64 %.add164, 4176
   br i1 %51, label %.preheader328, label %.preheader331
 
 .preheader328:                                    ; preds = %50, %53
@@ -53962,7 +53962,7 @@ _ZN7StencilI7Point3DIdELi3EEC2Ev.exit:            ; preds = %30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(648) %52, i8 0, i64 648, i1 false)
   store ptr %52, ptr %.ptr.ptr180, align 8
   %.add173 = add nuw nsw i64 %.idx172, 8
-  %54 = icmp eq i64 %.add173, 4688
+  %54 = icmp samesign eq i64 %.add173, 4688
   br i1 %54, label %55, label %.preheader328
 
 55:                                               ; preds = %53
@@ -62244,7 +62244,7 @@ _ZNSt12_Vector_baseIN6OctreeIfE11_SlabValuesI22PlyColorAndValueVertexIfEEESaIS5_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, i8 0, i64 64, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 32, i1 false)
   %.add10.i.i.i.i.i.i = add nuw nsw i64 %.idx9.i.i.i.i.i.i, 320
-  %54 = icmp eq i64 %.add10.i.i.i.i.i.i, 1152
+  %54 = icmp samesign eq i64 %.add10.i.i.i.i.i.i, 1152
   br i1 %54, label %_ZSt10_ConstructIN6OctreeIfE11_SlabValuesI22PlyColorAndValueVertexIfEEEJEEvPT_DpOT0_.exit.i.i.i.i, label %.preheader.i.i.i.i.i.i
 
 _ZSt10_ConstructIN6OctreeIfE11_SlabValuesI22PlyColorAndValueVertexIfEEEJEEvPT_DpOT0_.exit.i.i.i.i: ; preds = %.preheader.i.i.i.i.i.i

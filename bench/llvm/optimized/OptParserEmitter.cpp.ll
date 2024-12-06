@@ -4331,7 +4331,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit54:               ; preds = %156, %158
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit57
 
 _ZN4llvm11raw_ostreamlsEPKc.exit57:               ; preds = %170, %172
-  %.not125147 = icmp eq i64 %.0.lcssa.i.i.i.i.i.i50.idx, 0
+  %.not125147 = icmp samesign eq i64 %.0.lcssa.i.i.i.i.i.i50.idx, 0
   br i1 %.not125147, label %._crit_edge150, label %.lr.ph149.preheader
 
 .lr.ph149.preheader:                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit57

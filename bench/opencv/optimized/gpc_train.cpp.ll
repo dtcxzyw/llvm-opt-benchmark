@@ -1370,7 +1370,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestIL
   %13 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i.i.i, i64 44
   store i8 1, ptr %13, align 4
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 48
-  %14 = icmp eq i64 %.add.i.i.i.i, 248
+  %14 = icmp samesign eq i64 %.add.i.i.i.i, 248
   br i1 %14, label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN2cv7optflow9GPCForestILi5EEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit, label %7
 
 15:                                               ; preds = %7

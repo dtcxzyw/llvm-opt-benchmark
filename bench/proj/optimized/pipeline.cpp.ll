@@ -145,7 +145,7 @@ define hidden noundef ptr @_Z37pj_projection_specific_setup_pipelineP8PJconsts(p
 
 _ZNSt5stackIdSt5dequeIdSaIdEEEC2IS2_vEEv.exit.i:  ; preds = %24
   %.add.i = add nuw nsw i64 %.idx.i, 80
-  %25 = icmp eq i64 %.add.i, 360
+  %25 = icmp samesign eq i64 %.add.i, 360
   br i1 %25, label %34, label %24
 
 26:                                               ; preds = %24

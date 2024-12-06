@@ -293,7 +293,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_index(ptr nocapture nound
   %.masked.i = zext i8 %31 to i64
   %32 = or disjoint i64 %28, %.masked.i
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 %32
-  %34 = icmp eq i64 %32, 0
+  %34 = icmp samesign eq i64 %32, 0
   br i1 %34, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
 
 tt_cmap2_get_subheader.exit:                      ; preds = %21, %10
@@ -408,7 +408,7 @@ define internal range(i32 0, 65536) i32 @tt_cmap2_char_next(ptr nocapture nounde
   %.masked.i = zext i8 %33 to i64
   %34 = or disjoint i64 %30, %.masked.i
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 %34
-  %36 = icmp eq i64 %34, 0
+  %36 = icmp samesign eq i64 %34, 0
   br i1 %36, label %tt_cmap2_get_subheader.exit.thread, label %tt_cmap2_get_subheader.exit
 
 tt_cmap2_get_subheader.exit:                      ; preds = %23, %12

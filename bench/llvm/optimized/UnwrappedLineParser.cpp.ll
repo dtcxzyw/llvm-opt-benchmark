@@ -29041,7 +29041,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang6format18IndexedTokenSource12ge
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i: ; preds = %27, %18
   %.lcssa.i.i.i.pn.i = phi i64 [ %21, %18 ], [ %30, %27 ]
   %34 = zext i32 %16 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i, %34
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %34
   br i1 %.not.i, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, label %35
 
 35:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i
@@ -29143,7 +29143,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang6format18IndexedTokenSource13pe
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i: ; preds = %32, %23
   %.lcssa.i.i.i.pn.i = phi i64 [ %26, %23 ], [ %35, %32 ]
   %39 = zext i32 %21 to i64
-  %.not.i = icmp eq i64 %.lcssa.i.i.i.pn.i, %39
+  %.not.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %39
   br i1 %.not.i, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit, label %40
 
 40:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i
@@ -29211,7 +29211,7 @@ _ZNK5clang6format18IndexedTokenSource9successorEi.exit15.us: ; preds = %.lr.ph, 
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11: ; preds = %66, %.lr.ph.split
   %.lcssa.i.i.i.pn.i12 = phi i64 [ %60, %.lr.ph.split ], [ %69, %66 ]
-  %.not.i13 = icmp eq i64 %.lcssa.i.i.i.pn.i12, %52
+  %.not.i13 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i12, %52
   br i1 %.not.i13, label %_ZNK5clang6format18IndexedTokenSource9successorEi.exit15, label %73
 
 73:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i11

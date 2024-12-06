@@ -12515,7 +12515,7 @@ _ZN3smtL8add_nextER5u_mapIP4exprER10ref_vectorIS1_11ast_managerEjS2_RS6_.exit: ;
 lpad79:                                           ; preds = %arrayctor.loop
   %139 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup404, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad79, %arraydestroy.body

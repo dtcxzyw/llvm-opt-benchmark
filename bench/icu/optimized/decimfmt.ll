@@ -1479,7 +1479,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i.i.i, 
   %fBogus.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 266
   store i8 1, ptr %fBogus.i.i.i.i, align 2
   %arrayctor.cur.add.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i, 272
-  %arrayctor.done.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i, 2184
+  %arrayctor.done.i.i.i = icmp samesign eq i64 %arrayctor.cur.add.i.i.i, 2184
   br i1 %arrayctor.done.i.i.i, label %invoke.cont5, label %invoke.cont.i.i.i
 
 invoke.cont5:                                     ; preds = %invoke.cont.i.i.i
@@ -3268,7 +3268,7 @@ invoke.cont.i.i.i:                                ; preds = %invoke.cont.i.i.i, 
   %fBogus.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr.i.i.i, i64 266
   store i8 1, ptr %fBogus.i.i.i.i, align 2
   %arrayctor.cur.add.i.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i.i, 272
-  %arrayctor.done.i.i.i = icmp eq i64 %arrayctor.cur.add.i.i.i, 2184
+  %arrayctor.done.i.i.i = icmp samesign eq i64 %arrayctor.cur.add.i.i.i, 2184
   br i1 %arrayctor.done.i.i.i, label %invoke.cont5, label %invoke.cont.i.i.i
 
 invoke.cont5:                                     ; preds = %invoke.cont.i.i.i

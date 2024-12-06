@@ -2523,7 +2523,7 @@ if.then16:                                        ; preds = %for.inc.i
 lpad:                                             ; preds = %arrayctor.loop
   %10 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %eh.resume, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad, %arraydestroy.body

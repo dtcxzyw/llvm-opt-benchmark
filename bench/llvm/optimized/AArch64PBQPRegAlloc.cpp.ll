@@ -188,7 +188,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm21A57ChainingConstraint23addIntraCh
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i: ; preds = %30, %21
   %.lcssa.i.i.i.pn.i = phi i64 [ %24, %21 ], [ %33, %30 ]
   %37 = zext i32 %19 to i64
-  %38 = icmp eq i64 %.lcssa.i.i.i.pn.i, %37
+  %38 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %37
   br i1 %38, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, label %39
 
 39:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i
@@ -226,7 +226,7 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit: ; p
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i91: ; preds = %49, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit
   %.lcssa.i.i.i.pn.i92 = phi i64 [ %43, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit ], [ %52, %49 ]
   %56 = zext i32 %19 to i64
-  %57 = icmp eq i64 %.lcssa.i.i.i.pn.i92, %56
+  %57 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i92, %56
   br i1 %57, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit94, label %58
 
 58:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i91
@@ -1305,7 +1305,7 @@ _ZNK4llvm9SetVectorIjNS_11SmallVectorIjLj32EEENS_8DenseSetIjNS_12DenseMapInfoIjv
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i: ; preds = %100, %91
   %.lcssa.i.i.i.pn.i = phi i64 [ %94, %91 ], [ %103, %100 ]
   %107 = zext i32 %89 to i64
-  %108 = icmp eq i64 %.lcssa.i.i.i.pn.i, %107
+  %108 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %107
   br i1 %108, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit, label %109
 
 109:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i
@@ -1465,7 +1465,7 @@ _ZNK4llvm9LiveRange8overlapsERKS0_.exit:          ; preds = %_ZN4llvm13LiveInter
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i78: ; preds = %188, %179
   %.lcssa.i.i.i.pn.i79 = phi i64 [ %182, %179 ], [ %191, %188 ]
   %195 = zext i32 %177 to i64
-  %196 = icmp eq i64 %.lcssa.i.i.i.pn.i79, %195
+  %196 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i79, %195
   br i1 %196, label %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit81, label %197
 
 197:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterEjNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_E4findERKS2_.exit.i78

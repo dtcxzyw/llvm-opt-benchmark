@@ -3240,7 +3240,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %24, %50, %63, %_ZNS
   %95 = getelementptr inbounds nuw i8, ptr %.ptr.ptr, i64 32
   store ptr %93, ptr %95, align 8
   %.add = add nuw nsw i64 %.idx, 48
-  %96 = icmp eq i64 %.add, 720
+  %96 = icmp samesign eq i64 %.add, 720
   br i1 %96, label %.preheader44, label %84
 
 .preheader44:                                     ; preds = %92, %.preheader44

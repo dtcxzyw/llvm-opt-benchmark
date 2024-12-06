@@ -26274,7 +26274,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %415 = load i32, ptr %33, align 4
   %416 = zext i32 %415 to i64
   %.idx.i = shl nuw nsw i64 %416, 2
-  %.not.i.i.i.i.i113.i = icmp eq i64 %.idx.i, %.idx180.i
+  %.not.i.i.i.i.i113.i = icmp samesign eq i64 %.idx.i, %.idx180.i
   %.pre185.i = load i64, ptr %28, align 8
   br i1 %.not.i.i.i.i.i113.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit.i, label %417
 
@@ -27568,7 +27568,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
   %949 = load i32, ptr %14, align 4
   %950 = zext i32 %949 to i64
   %.idx.i158 = shl nuw nsw i64 %950, 2
-  %.not.i.i.i.i.i113.i159 = icmp eq i64 %.idx.i158, %.idx180.i157
+  %.not.i.i.i.i.i113.i159 = icmp samesign eq i64 %.idx.i158, %.idx180.i157
   %.pre185.i160 = load i64, ptr %9, align 8
   br i1 %.not.i.i.i.i.i113.i159, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKfSt6vectorIfSaIfEEEENS1_IPfS6_EEET0_T_SB_SA_.exit.i164, label %951
 

@@ -543,7 +543,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3, %invo
   %fUnion2.i = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 664
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 664
   br i1 %arrayctor.done, label %arrayctor.cont, label %invoke.cont5
 
 arrayctor.cont:                                   ; preds = %invoke.cont5

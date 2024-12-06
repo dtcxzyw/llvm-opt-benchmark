@@ -1477,7 +1477,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKS0_.exit:               ; preds = %2, %12
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %64, %56
   %.lcssa.i.i.i.pn = phi i64 [ %58, %56 ], [ %67, %64 ]
-  %.not12 = icmp eq i64 %.lcssa.i.i.i.pn, %47
+  %.not12 = icmp samesign eq i64 %.lcssa.i.i.i.pn, %47
   br i1 %.not12, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %71
 
 71:                                               ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
@@ -4977,7 +4977,7 @@ define dso_local void @_ZN5clang12HeaderSearch15noteLookupUsageEjNS_14SourceLoca
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %28, %19
   %.lcssa.i.i.pn = phi i64 [ %22, %19 ], [ %31, %28 ]
   %35 = zext i32 %17 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.pn, %35
+  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %35
   br i1 %.not, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %36
 
 36:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit

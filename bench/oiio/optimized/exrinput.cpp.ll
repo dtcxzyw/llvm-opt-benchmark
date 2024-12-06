@@ -8715,7 +8715,7 @@ for.inc.i655:                                     ; preds = %_ZSt25__unguarded_l
 
 .noexc215:                                        ; preds = %for.inc.i655
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %__val.sroa.7.i605)
-  %cmp.i.not1.i.i.i.i176 = icmp eq i64 %layerend.sroa.0.0.idx.lcssa, 1280
+  %cmp.i.not1.i.i.i.i176 = icmp samesign eq i64 %layerend.sroa.0.0.idx.lcssa, 1280
   br i1 %cmp.i.not1.i.i.i.i176, label %invoke.cont96, label %for.body.i.i.i.i190.preheader
 
 for.body.i.i.i.i190.preheader:                    ; preds = %.noexc215

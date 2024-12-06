@@ -1544,7 +1544,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %624, %538
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %645, %636
   %.lcssa.i.i.pn = phi i64 [ %639, %636 ], [ %648, %645 ]
   %652 = zext i32 %634 to i64
-  %.not167 = icmp eq i64 %.lcssa.i.i.pn, %652
+  %.not167 = icmp samesign eq i64 %.lcssa.i.i.pn, %652
   br i1 %.not167, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %653
 
 653:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit

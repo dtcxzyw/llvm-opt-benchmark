@@ -1470,7 +1470,7 @@ _ZN9CryptData13KDF3CacheItemC2Ev.exit:            ; preds = %.noexc3.i
 
 _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
   %.add12 = add nuw nsw i64 %.idx11, 152
-  %18 = icmp eq i64 %.add12, 936
+  %18 = icmp samesign eq i64 %.add12, 936
   br i1 %18, label %19, label %.preheader35
 
 19:                                               ; preds = %_ZN9CryptData13KDF5CacheItemC2Ev.exit
@@ -1495,7 +1495,7 @@ _ZN9CryptData13KDF5CacheItemC2Ev.exit:            ; preds = %.noexc4.i
 
 .body:                                            ; preds = %8, %25
   %eh.lpad-body = phi { ptr, i32 } [ %26, %25 ], [ %9, %8 ]
-  %27 = icmp eq i64 %.idx, 0
+  %27 = icmp samesign eq i64 %.idx, 0
   br i1 %27, label %.loopexit, label %.preheader36
 
 .preheader36:                                     ; preds = %.body, %.preheader36

@@ -27993,7 +27993,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_120LowerTypeTestsModule14replaceCfi
 _ZNK12_GLOBAL__N_120LowerTypeTestsModule20isFunctionAnnotationEPN4llvm5ValueE.exit: ; preds = %44, %31
   %.lcssa.i.i.i.pn.i.i = phi i64 [ %38, %31 ], [ %47, %44 ]
   %51 = zext i32 %.val22 to i64
-  %.not31 = icmp eq i64 %.lcssa.i.i.i.pn.i.i, %51
+  %.not31 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i, %51
   br i1 %.not31, label %_ZNK12_GLOBAL__N_120LowerTypeTestsModule20isFunctionAnnotationEPN4llvm5ValueE.exit.thread, label %_ZN4llvm3Use3setEPNS_5ValueE.exit
 
 _ZNK12_GLOBAL__N_120LowerTypeTestsModule20isFunctionAnnotationEPN4llvm5ValueE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZNK12_GLOBAL__N_120LowerTypeTestsModule20isFunctionAnnotationEPN4llvm5ValueE.exit

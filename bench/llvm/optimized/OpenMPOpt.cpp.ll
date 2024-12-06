@@ -2273,7 +2273,7 @@ _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_1
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %101, %88
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %95, %88 ], [ %104, %101 ]
   %109 = zext i32 %86 to i64
-  %.not102 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %109
+  %.not102 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %109
   br i1 %.not102, label %110, label %.critedge
 
 110:                                              ; preds = %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit
@@ -2313,7 +2313,7 @@ _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_1
 
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i: ; preds = %125, %112
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %119, %112 ], [ %128, %125 ]
-  %.not.i49 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %111
+  %.not.i49 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %111
   br i1 %.not.i49, label %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread.i, label %.loopexit103
 
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.i, %110
@@ -2874,7 +2874,7 @@ _ZN4llvm16AttributorConfigD2Ev.exit:              ; preds = %_ZNSt8functionIFbRN
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit63: ; preds = %373, %360
   %.lcssa.i.i.i.i.pn.i61 = phi i64 [ %367, %360 ], [ %376, %373 ]
   %380 = zext i32 %358 to i64
-  %.not101 = icmp eq i64 %.lcssa.i.i.i.i.pn.i61, %380
+  %.not101 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i61, %380
   br i1 %.not101, label %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit63.thread, label %.critedge2
 
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit63.thread: ; preds = %.lr.ph.i.i.i.i.i57, %356, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit63
@@ -12125,7 +12125,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11InstructionELb1EE9push_backES2_.exit241:
 _ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit: ; preds = %947, %934
   %.lcssa.i.i.i.i.pn.i.i = phi i64 [ %941, %934 ], [ %950, %947 ]
   %954 = zext i32 %932 to i64
-  %.not485 = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i, %954
+  %.not485 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i, %954
   br i1 %.not485, label %_ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.thread, label %_ZN4llvm17AAExecutionDomain17ExecutionDomainTy13addAssumeInstERNS_10AttributorERNS_10AssumeInstE.exit
 
 _ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %927, %_ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit, %925
@@ -13327,7 +13327,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8CallBaseELj16EEES3_EEbOT_RKT0_.ex
 _ZNK4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE8containsERKS2_.exit: ; preds = %85, %72
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %79, %72 ], [ %88, %85 ]
   %92 = zext i32 %70 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %92
+  %.not = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %92
   br i1 %.not, label %.critedge, label %_ZN4llvm17AAExecutionDomain17ExecutionDomainTyD2Ev.exit109
 
 .critedge:                                        ; preds = %.lr.ph.i.i.i.i.i, %68, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8CallBaseELj16EEES3_EEbOT_RKT0_.exit, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit, %_ZNK4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE8containsERKS2_.exit
@@ -13677,7 +13677,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8CallBaseELj16EEES3_EEbOT_RKT0_.ex
 _ZNK4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE8containsERKS2_.exit81: ; preds = %251, %238
   %.lcssa.i.i.i.i.pn.i78 = phi i64 [ %245, %238 ], [ %254, %251 ]
   %258 = zext i32 %236 to i64
-  %.not181 = icmp eq i64 %.lcssa.i.i.i.i.pn.i78, %258
+  %.not181 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i78, %258
   br i1 %.not181, label %.critedge2, label %_ZN4llvm17AAExecutionDomain17ExecutionDomainTyD2Ev.exit109
 
 .critedge2:                                       ; preds = %.lr.ph.i.i.i.i.i73, %234, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_8CallBaseELj16EEES3_EEbOT_RKT0_.exit131, %_ZN4llvm8dyn_castINS_8CallBaseEKNS_11InstructionEEEDcPT0_.exit71, %_ZNK4llvm9SetVectorIPNS_8CallBaseENS_11SmallVectorIS2_Lj16EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj16EE8containsERKS2_.exit81
@@ -71455,7 +71455,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_119OMPInformationCache11collectUses
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %44, %31
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %38, %31 ], [ %47, %44 ]
   %51 = zext i32 %29 to i64
-  %.not37 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %51
+  %.not37 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %51
   br i1 %.not37, label %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %21, %19, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit
@@ -95911,7 +95911,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit:     ; preds = %_ZN4llvm16dyn_cast_
 _ZNK4llvm6detail12DenseSetImplIPKNS_8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit: ; preds = %121, %108
   %.lcssa.i.i.i.pn.i = phi i64 [ %115, %108 ], [ %124, %121 ]
   %128 = zext i32 %106 to i64
-  %.not92 = icmp eq i64 %.lcssa.i.i.i.pn.i, %128
+  %.not92 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %128
   br i1 %.not92, label %_ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread, label %_ZNK4llvm10Attributor10emitRemarkINS_26OptimizationRemarkAnalysisERZN12_GLOBAL__N_120AAKernelInfoFunction16changeToSPMDModeERS0_RNS_12ChangeStatusEEUlS2_E_EEvPNS_11InstructionENS_9StringRefEOT0_.exit
 
 _ZN4llvm8dyn_castINS_8CallBaseENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm8CallBase17getCalledFunctionEv.exit, %93, %_ZNK4llvm6detail12DenseSetImplIPKNS_8FunctionENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E8containsES4_.exit
@@ -96393,7 +96393,7 @@ _ZNK4llvm8CallBase17getCalledFunctionEv.exit.i.i: ; preds = %_ZN4llvm16dyn_cast_
 _ZNK12_GLOBAL__N_125BooleanStateWithSetVectorIPN4llvm11InstructionELb0EE8containsERKS3_.exit.i: ; preds = %336, %323
   %.lcssa.i.i.i.i.pn.i.i.i = phi i64 [ %330, %323 ], [ %339, %336 ]
   %343 = zext i32 %.val77.i to i64
-  %.not179.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i.i, %343
+  %.not179.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i, %343
   br i1 %.not179.i, label %_ZN12_GLOBAL__N_19OpenMPOpt20getCallIfRegularCallERN4llvm5ValueEPNS_19OMPInformationCache19RuntimeFunctionInfoE.exit.outer.backedge.i, label %344
 
 344:                                              ; preds = %_ZNK12_GLOBAL__N_125BooleanStateWithSetVectorIPN4llvm11InstructionELb0EE8containsERKS3_.exit.i
@@ -96707,7 +96707,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE8containsEPKS1_.exit.i: ; preds = 
 _ZNK12_GLOBAL__N_125BooleanStateWithSetVectorIPN4llvm11InstructionELb0EE8containsERKS3_.exit107.i: ; preds = %492, %479
   %.lcssa.i.i.i.i.pn.i.i105.i = phi i64 [ %486, %479 ], [ %495, %492 ]
   %499 = zext i32 %.val80.i to i64
-  %.not182.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i105.i, %499
+  %.not182.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i105.i, %499
   br i1 %.not182.i, label %_ZNK12_GLOBAL__N_125BooleanStateWithSetVectorIPN4llvm11InstructionELb0EE8containsERKS3_.exit107.thread.i, label %500
 
 500:                                              ; preds = %_ZNK12_GLOBAL__N_125BooleanStateWithSetVectorIPN4llvm11InstructionELb0EE8containsERKS3_.exit107.i
@@ -109685,7 +109685,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_19OpenMPOpt18getUniqueKernel
 _ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %36, %23
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %30, %23 ], [ %39, %36 ]
   %43 = zext i32 %21 to i64
-  %.not74 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %43
+  %.not74 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %43
   br i1 %.not74, label %"_ZNK12_GLOBAL__N_19OpenMPOpt10emitRemarkIN4llvm26OptimizationRemarkAnalysisERZNS0_18getUniqueKernelForERNS2_8FunctionEE3$_0EEvPS4_NS2_9StringRefEOT0_.exit", label %.critedge
 
 .critedge:                                        ; preds = %13, %2, %_ZNK4llvm9SetVectorIPNS_8FunctionENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit

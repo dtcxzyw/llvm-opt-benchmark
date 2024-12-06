@@ -10095,7 +10095,7 @@ if.end.i:                                         ; preds = %if.then.i, %entry
   %conv.i3.i = trunc i64 %Size to i32
   store i32 %conv.i3.i, ptr %Size.i.i.i.i, align 8
   %conv.i4.i = and i64 %Size, 4294967295
-  %tobool.not.i.i.i.i.i.i = icmp eq i64 %conv.i4.i, 0
+  %tobool.not.i.i.i.i.i.i = icmp samesign eq i64 %conv.i4.i, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN4llvh15SmallVectorImplIcE6assignEmRKc.exit, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i

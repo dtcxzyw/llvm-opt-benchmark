@@ -1595,7 +1595,7 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   %108 = getelementptr inbounds nuw i8, ptr %.sroa.0121.0, i64 160
   %109 = load ptr, ptr %108, align 8
   store ptr %109, ptr %42, align 8
-  %.not.i.i55 = icmp eq i64 %.0.lcssa.i.i.i.i.i.idx, 0
+  %.not.i.i55 = icmp samesign eq i64 %.0.lcssa.i.i.i.i.i.idx, 0
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   br i1 %.not.i.i55, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS3_SaIS3_EEEEEvT_S9_.exit, label %110
 

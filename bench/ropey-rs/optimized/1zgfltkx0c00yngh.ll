@@ -693,7 +693,7 @@ define internal fastcc void @"_ZN78_$LT$ropey..slice..RopeSlice$u20$as$u20$core.
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 28:                                               ; preds = %3
-  %29 = icmp eq i64 %2, 0
+  %29 = icmp samesign eq i64 %2, 0
   br i1 %29, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.preheader462
 
 .preheader462:                                    ; preds = %28, %.preheader462
@@ -1335,7 +1335,7 @@ define internal fastcc void @_ZN5ropey4tree9text_info8TextInfo8from_str17h819b0c
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 28:                                               ; preds = %3
-  %29 = icmp eq i64 %2, 0
+  %29 = icmp samesign eq i64 %2, 0
   br i1 %29, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.preheader457
 
 .preheader457:                                    ; preds = %28, %.preheader457
@@ -5167,7 +5167,7 @@ define void @_ZN5ropey4iter5Lines9prev_impl17h75e809cb14f6e25aE(ptr dead_on_unwi
   br i1 %103, label %._crit_edge, label %.lr.ph
 
 104:                                              ; preds = %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h5bf8989fb42c6dcbE.exit227"
-  %105 = icmp eq i64 %.sroa.4114.0, 0
+  %105 = icmp samesign eq i64 %.sroa.4114.0, 0
   br i1 %105, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit189, label %.preheader961
 
 .preheader961:                                    ; preds = %104, %.preheader961
@@ -7772,7 +7772,7 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit361.us:
 605:                                              ; preds = %575
   %606 = icmp ne ptr %581, null
   tail call void @llvm.assume(i1 %606)
-  %607 = icmp eq i64 %582, 0
+  %607 = icmp samesign eq i64 %582, 0
   br i1 %607, label %_ZN11str_indices5utf1621count_surrogates_impl17he841adeda45da07eE.exit, label %.preheader1479
 
 .preheader1479:                                   ; preds = %605, %.preheader1479

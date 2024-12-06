@@ -581,7 +581,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 invoke.cont3:                                     ; preds = %call2.i.i.noexc, %if.then5.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 88
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 1552
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 1552
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont3

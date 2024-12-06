@@ -56047,7 +56047,7 @@ define internal fastcc noundef range(i32 0, 2097152) i32 @_ZN9byte_unit9byte_uni
   br i1 %33, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.12408969533158119881.exit16.i.i.i", label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h917887c7fa076885E.exit.i"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.12408969533158119881.exit16.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2a7c50e0a8a2426bE.llvm.12408969533158119881.exit14.i.i.i"
-  %34 = icmp ne i64 %.sroa.06.0.ph, 3
+  %34 = icmp samesign ne i64 %.sroa.06.0.ph, 3
   tail call void @llvm.assume(i1 %34)
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %36 = load i8, ptr %25, align 1, !alias.scope !9243, !noalias !9246, !noundef !5

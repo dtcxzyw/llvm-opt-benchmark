@@ -1507,7 +1507,7 @@ define hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix5sinks9anonymous13ma
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 %18
-  %.not137 = icmp eq i64 %14, 0
+  %.not137 = icmp samesign eq i64 %14, 0
   br i1 %.not137, label %.critedge.thread, label %.lr.ph140
 
 .lr.ph140:                                        ; preds = %4, %128
@@ -8343,7 +8343,7 @@ define linkonce_odr hidden void @_ZNSt7__cxx114listIN5boost3log11v2_mt_posix5sin
   %.0.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0.idx
   %13 = load ptr, ptr %12, align 8, !tbaa !95
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %12, ptr noundef %13) #29
-  %.not3653 = icmp eq i64 %.0.idx, 0
+  %.not3653 = icmp samesign eq i64 %.0.idx, 0
   br i1 %.not3653, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader51, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN5boost3log11v2_mt_posix5sinks9anonymous14file_collector9file_infoEENSA_18order_by_timestampEEEEEvRNS_15_List_node_baseET_.exit
@@ -15711,7 +15711,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNK5boost9date_time10date_facetINS_9gre
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %.pre109.pre110.pre113.pre116, i64 %32
-  %.not2835.i.i.i = icmp eq i64 %32, 0
+  %.not2835.i.i.i = icmp samesign eq i64 %32, 0
   br i1 %.not2835.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %22, %.critedge15.i.i.i
@@ -15796,7 +15796,7 @@ _ZN5boost9algorithm11replace_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %.pre109.pre110.pre113, i64 %58
-  %.not2835.i.i.i19 = icmp eq i64 %58, 0
+  %.not2835.i.i.i19 = icmp samesign eq i64 %58, 0
   br i1 %.not2835.i.i.i19, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i32, label %.lr.ph.preheader.i.i.i21
 
 .lr.ph.preheader.i.i.i21:                         ; preds = %48, %.critedge15.i.i.i30
@@ -15881,7 +15881,7 @@ _ZN5boost9algorithm11replace_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %84 = load i64, ptr %83, align 8, !tbaa !16
   %85 = getelementptr inbounds nuw i8, ptr %.pre109.pre110, i64 %84
-  %.not2835.i.i.i40 = icmp eq i64 %84, 0
+  %.not2835.i.i.i40 = icmp samesign eq i64 %84, 0
   br i1 %.not2835.i.i.i40, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i53, label %.lr.ph.preheader.i.i.i42
 
 .lr.ph.preheader.i.i.i42:                         ; preds = %74, %.critedge15.i.i.i51
@@ -15966,7 +15966,7 @@ _ZN5boost9algorithm11replace_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %110 = load i64, ptr %109, align 8, !tbaa !16
   %111 = getelementptr inbounds nuw i8, ptr %.pre109, i64 %110
-  %.not2835.i.i.i61 = icmp eq i64 %110, 0
+  %.not2835.i.i.i61 = icmp samesign eq i64 %110, 0
   br i1 %.not2835.i.i.i61, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i74, label %.lr.ph.preheader.i.i.i63
 
 .lr.ph.preheader.i.i.i63:                         ; preds = %100, %.critedge15.i.i.i72
@@ -25074,7 +25074,7 @@ _ZNK5boost9date_time4dateINS_9gregorian4dateENS2_18gregorian_calendarENS2_13date
   %70 = load ptr, ptr %29, align 8, !tbaa !13
   %71 = load i64, ptr %67, align 8, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
-  %.not2835.i.i.i = icmp eq i64 %71, 0
+  %.not2835.i.i.i = icmp samesign eq i64 %71, 0
   br i1 %.not2835.i.i.i, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i, label %.lr.ph.preheader.i.i.i
 
 .lr.ph.preheader.i.i.i:                           ; preds = %65, %.critedge15.i.i.i
@@ -25142,7 +25142,7 @@ _ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__n
   %.sroa.2.0..sroa_idx.i98 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost9date_time12time_formatsIcE25short_24_hour_time_formatE, i64 2), ptr %.sroa.2.0..sroa_idx.i98, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %82
-  %.not2835.i.i.i99 = icmp eq i64 %82, 0
+  %.not2835.i.i.i99 = icmp samesign eq i64 %82, 0
   br i1 %.not2835.i.i.i99, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i112, label %.lr.ph.preheader.i.i.i101
 
 .lr.ph.preheader.i.i.i101:                        ; preds = %81, %.critedge15.i.i.i110
@@ -25474,9 +25474,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_
   %200 = load ptr, ptr %29, align 8, !tbaa !13
   %201 = load i64, ptr %67, align 8, !tbaa !16
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 %201
-  %.not2835.i.i.i132 = icmp eq i64 %201, 0
-  %203 = icmp eq i64 %195, 0
-  %or.cond.i133 = or i1 %203, %.not2835.i.i.i132
+  %.not2835.i.i.i132 = icmp samesign eq i64 %201, 0
+  %203 = icmp samesign eq i64 %195, 0
+  %or.cond.i133 = select i1 %.not2835.i.i.i132, i1 true, i1 %203
   br i1 %or.cond.i133, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i145, label %.lr.ph.preheader.i.i.i134
 
 .lr.ph.preheader.i.i.i134:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit, %.critedge15.i.i.i143
@@ -25623,9 +25623,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit157: ; preds = %_Z
   %246 = load ptr, ptr %29, align 8, !tbaa !13
   %247 = load i64, ptr %67, align 8, !tbaa !16
   %248 = getelementptr inbounds nuw i8, ptr %246, i64 %247
-  %.not2835.i.i.i162 = icmp eq i64 %247, 0
-  %249 = icmp eq i64 %244, 0
-  %or.cond.i163 = or i1 %249, %.not2835.i.i.i162
+  %.not2835.i.i.i162 = icmp samesign eq i64 %247, 0
+  %249 = icmp samesign eq i64 %244, 0
+  %or.cond.i163 = select i1 %.not2835.i.i.i162, i1 true, i1 %249
   br i1 %or.cond.i163, label %_ZN5boost9algorithm9erase_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_RKT0_.exit, label %.lr.ph.preheader.i.i.i164
 
 .lr.ph.preheader.i.i.i164:                        ; preds = %242, %.critedge15.i.i.i173
@@ -25795,8 +25795,8 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit: ; pred
   %317 = load ptr, ptr %29, align 8, !tbaa !13
   %318 = load i64, ptr %67, align 8, !tbaa !16
   %319 = getelementptr inbounds nuw i8, ptr %317, i64 %318
-  %.not36.i.i.i = icmp eq i64 %318, 0
-  %320 = icmp eq i64 %315, 0
+  %.not36.i.i.i = icmp samesign eq i64 %318, 0
+  %320 = icmp samesign eq i64 %315, 0
   %or.cond.i217 = select i1 %.not36.i.i.i, i1 true, i1 %320
   br i1 %or.cond.i217, label %.loopexit634, label %.lr.ph.preheader.i.i.i218
 
@@ -26063,8 +26063,8 @@ _ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv.exit280: ; p
   %425 = load ptr, ptr %29, align 8, !tbaa !13
   %426 = load i64, ptr %67, align 8, !tbaa !16
   %427 = getelementptr inbounds nuw i8, ptr %425, i64 %426
-  %.not36.i.i.i282 = icmp eq i64 %426, 0
-  %428 = icmp eq i64 %423, 0
+  %.not36.i.i.i282 = icmp samesign eq i64 %426, 0
+  %428 = icmp samesign eq i64 %423, 0
   %or.cond.i283 = select i1 %.not36.i.i.i282, i1 true, i1 %428
   br i1 %or.cond.i283, label %.loopexit, label %.lr.ph.preheader.i.i.i284
 
@@ -26230,9 +26230,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i30
   %485 = load ptr, ptr %29, align 8, !tbaa !13
   %486 = load i64, ptr %67, align 8, !tbaa !16
   %487 = getelementptr inbounds nuw i8, ptr %485, i64 %486
-  %.not2835.i.i.i340 = icmp eq i64 %486, 0
-  %488 = icmp eq i64 %483, 0
-  %or.cond.i341 = or i1 %488, %.not2835.i.i.i340
+  %.not2835.i.i.i340 = icmp samesign eq i64 %486, 0
+  %488 = icmp samesign eq i64 %483, 0
+  %or.cond.i341 = select i1 %.not2835.i.i.i340, i1 true, i1 %488
   br i1 %or.cond.i341, label %_ZN5boost9algorithm9erase_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_RKT0_.exit358, label %.lr.ph.preheader.i.i.i342
 
 .lr.ph.preheader.i.i.i342:                        ; preds = %481, %.critedge15.i.i.i351
@@ -26296,9 +26296,9 @@ _ZN5boost9algorithm9erase_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %506 = load ptr, ptr %29, align 8, !tbaa !13
   %507 = load i64, ptr %67, align 8, !tbaa !16
   %508 = getelementptr inbounds nuw i8, ptr %506, i64 %507
-  %.not2835.i.i.i391 = icmp eq i64 %507, 0
-  %509 = icmp eq i64 %504, 0
-  %or.cond.i392 = or i1 %509, %.not2835.i.i.i391
+  %.not2835.i.i.i391 = icmp samesign eq i64 %507, 0
+  %509 = icmp samesign eq i64 %504, 0
+  %or.cond.i392 = select i1 %.not2835.i.i.i391, i1 true, i1 %509
   br i1 %or.cond.i392, label %_ZN5boost9algorithm9erase_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_RKT0_.exit409, label %.lr.ph.preheader.i.i.i393
 
 .lr.ph.preheader.i.i.i393:                        ; preds = %502, %.critedge15.i.i.i402
@@ -26507,9 +26507,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit459: ; preds = %_Z
   %583 = load ptr, ptr %29, align 8, !tbaa !13
   %584 = load i64, ptr %67, align 8, !tbaa !16
   %585 = getelementptr inbounds nuw i8, ptr %583, i64 %584
-  %.not2835.i.i.i461 = icmp eq i64 %584, 0
-  %586 = icmp eq i64 %579, 0
-  %or.cond.i462 = or i1 %586, %.not2835.i.i.i461
+  %.not2835.i.i.i461 = icmp samesign eq i64 %584, 0
+  %586 = icmp samesign eq i64 %579, 0
+  %or.cond.i462 = select i1 %.not2835.i.i.i461, i1 true, i1 %586
   br i1 %or.cond.i462, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i474, label %.lr.ph.preheader.i.i.i463
 
 .lr.ph.preheader.i.i.i463:                        ; preds = %576, %.critedge15.i.i.i472
@@ -26770,9 +26770,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit513: ; preds =
   %678 = load ptr, ptr %29, align 8, !tbaa !13
   %679 = load i64, ptr %67, align 8, !tbaa !16
   %680 = getelementptr inbounds nuw i8, ptr %678, i64 %679
-  %.not2835.i.i.i515 = icmp eq i64 %679, 0
-  %681 = icmp eq i64 %673, 0
-  %or.cond.i516 = or i1 %681, %.not2835.i.i.i515
+  %.not2835.i.i.i515 = icmp samesign eq i64 %679, 0
+  %681 = icmp samesign eq i64 %673, 0
+  %or.cond.i516 = select i1 %.not2835.i.i.i515, i1 true, i1 %681
   br i1 %or.cond.i516, label %_ZNK5boost9algorithm6detail13first_finderFIPKcNS0_8is_equalEEclIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEENS_14iterator_rangeIT_EESJ_SJ_.exit.thread.i.i528, label %.lr.ph.preheader.i.i.i517
 
 .lr.ph.preheader.i.i.i517:                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit513, %.critedge15.i.i.i526
@@ -26896,9 +26896,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit541: ; preds = %_Z
   %714 = load ptr, ptr %29, align 8, !tbaa !13
   %715 = load i64, ptr %67, align 8, !tbaa !16
   %716 = getelementptr inbounds nuw i8, ptr %714, i64 %715
-  %.not2835.i.i.i543 = icmp eq i64 %715, 0
-  %717 = icmp eq i64 %712, 0
-  %or.cond.i544 = or i1 %717, %.not2835.i.i.i543
+  %.not2835.i.i.i543 = icmp samesign eq i64 %715, 0
+  %717 = icmp samesign eq i64 %712, 0
+  %or.cond.i544 = select i1 %.not2835.i.i.i543, i1 true, i1 %717
   br i1 %or.cond.i544, label %_ZN5boost9algorithm9erase_allINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcEEvRT_RKT0_.exit561, label %.lr.ph.preheader.i.i.i545
 
 .lr.ph.preheader.i.i.i545:                        ; preds = %710, %.critedge15.i.i.i554

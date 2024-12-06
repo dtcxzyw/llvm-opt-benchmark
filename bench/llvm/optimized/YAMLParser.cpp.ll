@@ -3903,7 +3903,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %19
   %or.cond37.i = or i1 %or.cond11.i, %or.cond36.i
   %spec.select.idx.i = select i1 %or.cond37.i, i64 %.sroa.9.0.extract.shift.i, i64 0
   %spec.select.i = getelementptr inbounds nuw i8, ptr %13, i64 %spec.select.idx.i
-  %29 = icmp eq i64 %spec.select.idx.i, 0
+  %29 = icmp samesign eq i64 %spec.select.idx.i, 0
   br i1 %29, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread, label %30
 
 30:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
@@ -4618,7 +4618,7 @@ _ZN4llvm4yaml7Scanner7consumeEj.exit:             ; preds = %1, %_ZN4llvm4yaml7S
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit:     ; preds = %49, %58
   %.sink = phi i64 [ %spec.select.idx.i.i, %58 ], [ 1, %49 ]
   %63 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 %.sink
-  %64 = icmp eq i64 %.sink, 0
+  %64 = icmp samesign eq i64 %.sink, 0
   br i1 %64, label %.lr.ph.preheader, label %.split.us.i, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit: ; preds = %.split.us.i
@@ -4724,7 +4724,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit65:   ; preds = %83, %92
   %.sink137 = phi i64 [ %spec.select.idx.i.i63, %92 ], [ 1, %83 ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.us.i27, i64 %.sink137
-  %98 = icmp eq i64 %.sink137, 0
+  %98 = icmp samesign eq i64 %.sink137, 0
   br i1 %98, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit28, label %.split.us.i26, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit28: ; preds = %85, %86, %81, %81, %.split.us.i26, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit65
@@ -4848,7 +4848,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit32.thread:       ; preds = %_ZN4llvmeqENS_9Stri
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit80:   ; preds = %136, %145
   %.sink138 = phi i64 [ %spec.select.idx.i.i78, %145 ], [ 1, %136 ]
   %150 = getelementptr inbounds nuw i8, ptr %.0.us.i34, i64 %.sink138
-  %151 = icmp eq i64 %.sink138, 0
+  %151 = icmp samesign eq i64 %.sink138, 0
   br i1 %151, label %.lr.ph122.preheader, label %.split.us.i33, !llvm.loop !43
 
 .lr.ph122.preheader:                              ; preds = %138, %139, %134, %134, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit80
@@ -4926,7 +4926,7 @@ _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit38: ; preds = %.split.us.i
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit97:   ; preds = %159, %168
   %.sink139 = phi i64 [ %spec.select.idx.i.i95, %168 ], [ 1, %159 ]
   %173 = getelementptr inbounds nuw i8, ptr %.0.us.i40, i64 %.sink139
-  %174 = icmp eq i64 %.sink139, 0
+  %174 = icmp samesign eq i64 %.sink139, 0
   br i1 %174, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit41, label %.split.us.i39, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit41: ; preds = %161, %162, %157, %157, %.split.us.i39, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit97
@@ -5949,7 +5949,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %53
   %or.cond37.i = or i1 %or.cond11.i, %or.cond36.i
   %spec.select.idx.i = select i1 %or.cond37.i, i64 %.sroa.9.0.extract.shift.i, i64 0
   %spec.select.i = getelementptr inbounds nuw i8, ptr %33, i64 %spec.select.idx.i
-  %63 = icmp eq i64 %spec.select.idx.i, 0
+  %63 = icmp samesign eq i64 %spec.select.idx.i, 0
   br i1 %63, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread, label %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread33
 
 _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread: ; preds = %52, %53, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
@@ -6290,7 +6290,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %53
   %or.cond37.i = or i1 %or.cond11.i, %or.cond36.i
   %spec.select.idx.i = select i1 %or.cond37.i, i64 %.sroa.9.0.extract.shift.i, i64 0
   %spec.select.i = getelementptr inbounds nuw i8, ptr %44, i64 %spec.select.idx.i
-  %64 = icmp eq i64 %spec.select.idx.i, 0
+  %64 = icmp samesign eq i64 %spec.select.idx.i, 0
   br i1 %64, label %.critedge, label %65
 
 65:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread67, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
@@ -6638,7 +6638,7 @@ _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit:     ; preds = %18
   %or.cond37.i.i = or i1 %or.cond11.i.i, %or.cond36.i.i
   %spec.select.idx.i.i = select i1 %or.cond37.i.i, i64 %.sroa.9.0.extract.shift.i.i, i64 0
   %.add = add nuw nsw i64 %.idx, %spec.select.idx.i.i
-  %28 = icmp eq i64 %spec.select.idx.i.i, 0
+  %28 = icmp samesign eq i64 %spec.select.idx.i.i, 0
   br i1 %28, label %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit.thread, label %29
 
 29:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit.thread14, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit
@@ -7012,7 +7012,7 @@ _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.i:   ; preds = %62
   %or.cond37.i.i = or i1 %or.cond11.i.i, %or.cond36.i.i
   %spec.select.idx.i.i = select i1 %or.cond37.i.i, i64 %.sroa.9.0.extract.shift.i.i, i64 0
   %spec.select.i.i = getelementptr inbounds nuw i8, ptr %57, i64 %spec.select.idx.i.i
-  %72 = icmp eq i64 %spec.select.idx.i.i, 0
+  %72 = icmp samesign eq i64 %spec.select.idx.i.i, 0
   br i1 %72, label %_ZN4llvm4yaml7Scanner11skipCommentEv.exit, label %73
 
 73:                                               ; preds = %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.i, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit.thread5.i
@@ -7725,7 +7725,7 @@ _ZN4llvm4yaml7Scanner25scanBlockScalarIndicatorsERcS2_RjRb.exit: ; preds = %2, %
 _ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit:     ; preds = %52, %63
   %.sink = phi i64 [ %spec.select.idx.i, %63 ], [ 1, %52 ]
   %68 = getelementptr inbounds nuw i8, ptr %.0.us.i.i, i64 %.sink
-  %69 = icmp eq i64 %.sink, 0
+  %69 = icmp samesign eq i64 %.sink, 0
   br i1 %69, label %_ZN4llvm4yaml7Scanner12advanceWhileEMS1_FPKcS3_E.exit, label %.split.us.i.i, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner12advanceWhileEMS1_FPKcS3_E.exit: ; preds = %56, %57, %.split.us.i.i, %_ZN4llvm4yaml7Scanner12skip_nb_charEPKc.exit
@@ -8316,7 +8316,7 @@ _ZN4llvm4yaml7Scanner7consumeEj.exit:             ; preds = %85
 _ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit:     ; preds = %93, %102
   %.sink = phi i64 [ %spec.select.idx.i.i, %102 ], [ 1, %93 ]
   %107 = getelementptr inbounds nuw i8, ptr %.0.us.i, i64 %.sink
-  %108 = icmp eq i64 %.sink, 0
+  %108 = icmp samesign eq i64 %.sink, 0
   br i1 %108, label %_ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit, label %.split.us.i, !llvm.loop !43
 
 _ZN4llvm4yaml7Scanner10skip_whileEMS1_FPKcS3_ES3_.exit: ; preds = %95, %96, %91, %91, %.split.us.i, %_ZN4llvm4yaml7Scanner12skip_ns_charEPKc.exit

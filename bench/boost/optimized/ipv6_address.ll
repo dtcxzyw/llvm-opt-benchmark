@@ -517,7 +517,7 @@ define noundef i64 @_ZNK5boost4urls12ipv6_address10print_implEPc(ptr noundef non
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 1
   store i8 58, ptr %1, align 1, !tbaa !3
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 %.154
-  %121 = icmp eq i64 %.154, %.v
+  %121 = icmp samesign eq i64 %.154, %.v
   br i1 %121, label %122, label %"_ZZNK5boost4urls12ipv6_address10print_implEPcENK3$_1clES2_t.exit"
 
 122:                                              ; preds = %118

@@ -92560,7 +92560,7 @@ _ZN12_GLOBAL__N_125AAPotentialValuesFloating13handlePHINodeERN4llvm10AttributorE
 _ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.i.i.i: ; preds = %862, %849
   %.lcssa.i.i.i.i.pn.i.i.i.i.i = phi i64 [ %856, %849 ], [ %865, %862 ]
   %869 = zext i32 %847 to i64
-  %.not19.i.i.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i, %869
+  %.not19.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i, %869
   br i1 %.not19.i.i.i, label %_ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.thread.i.i.i, label %870
 
 870:                                              ; preds = %_ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.i.i.i
@@ -96949,7 +96949,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmpty
 _ZNK4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findES4_.exit.i: ; preds = %72, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIS4_EEPKSA_RKT_.exit.thread.i.i.i, %59
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %79, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIS4_EEPKSA_RKT_.exit.thread.i.i.i ], [ %66, %59 ], [ %75, %72 ]
   %80 = zext i32 %57 to i64
-  %81 = icmp ne i64 %.lcssa.i.i.i.i.pn.i, %80
+  %81 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i, %80
   br label %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EE8containsERKS7_.exit
 
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj8EEENS_8DenseSetIPKS1_NS_12DenseMapInfoIS7_vEEEELj8EE8containsERKS7_.exit: ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj8EEEPKS2_EEbOT_RKT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPKNS_10BasicBlockENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findES4_.exit.i
@@ -134582,7 +134582,7 @@ _ZN4llvm10IRPosition5valueERKNS_5ValueEPKNS_8CallBaseE.exit.i: ; preds = %_ZN4ll
 _ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.i.i.i.i.i.i.i.i: ; preds = %65, %52
   %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i.i = phi i64 [ %59, %52 ], [ %68, %65 ]
   %72 = zext i32 %50 to i64
-  %.not8.i.i.i.i.i.i.i.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %72
+  %.not8.i.i.i.i.i.i.i.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i.i.i.i.i.i.i.i, %72
   br i1 %.not8.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZZN12_GLOBAL__N_116AAIsDeadFloating11isDeadStoreERN4llvm10AttributorERNS4_9StoreInstEPNS4_14SmallSetVectorIPNS4_11InstructionELj8EEEENKUlPNS4_5ValueEE_clESF_EUlRKNS4_3UseEE_EclINSE_17use_iterator_implISH_EEEEbT_.exit.i.i.i.i.i.i, label %73
 
 73:                                               ; preds = %_ZNK4llvm16InformationCache18isOnlyUsedByAssumeERKNS_11InstructionE.exit.i.i.i.i.i.i.i.i

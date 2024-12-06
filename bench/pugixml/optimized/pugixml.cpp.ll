@@ -11003,7 +11003,7 @@ while.cond6:                                      ; preds = %while.cond, %while.
   br i1 %or.cond, label %while.end13, label %while.cond6, !llvm.loop !98
 
 while.end13:                                      ; preds = %while.cond6
-  %cmp14 = icmp eq i64 %path_segment_end.0.idx, 0
+  %cmp14 = icmp samesign eq i64 %path_segment_end.0.idx, 0
   br i1 %cmp14, label %if.then15, label %while.cond17.preheader
 
 while.cond17.preheader:                           ; preds = %while.end13
@@ -11038,8 +11038,8 @@ if.else:                                          ; preds = %while.end23
 land.lhs.true32:                                  ; preds = %if.else
   %11 = load i8, ptr %incdec.ptr, align 1
   %cmp35 = icmp eq i8 %11, 46
-  %cmp38 = icmp eq i64 %path_segment_end.0.idx, 2
-  %or.cond35 = and i1 %cmp38, %cmp35
+  %cmp38 = icmp samesign eq i64 %path_segment_end.0.idx, 2
+  %or.cond35 = select i1 %cmp35, i1 %cmp38, i1 false
   br i1 %or.cond35, label %_ZNK4pugi8xml_node6parentEv.exit, label %if.else44
 
 _ZNK4pugi8xml_node6parentEv.exit:                 ; preds = %land.lhs.true32

@@ -178,7 +178,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10query_iter7measureERm(ptr noca
   %.sroa.0.0.copyload = load i24, ptr %3, align 4
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 %11
   %13 = trunc i24 %.sroa.0.0.copyload to i1
-  %.not29.i = icmp eq i64 %11, 0
+  %.not29.i = icmp samesign eq i64 %11, 0
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %7
@@ -356,7 +356,7 @@ define void @_ZN5boost4urls6detail10query_iter4copyERPcPKc(ptr nocapture noundef
   %14 = getelementptr inbounds nuw [2 x ptr], ptr @_ZN5boost4urls6detailL7hexdigsE, i64 0, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = trunc i24 %.sroa.0.0.copyload to i1
-  %.not1745.i = icmp eq i64 %10, 0
+  %.not1745.i = icmp samesign eq i64 %10, 0
   br i1 %16, label %.preheader.i, label %.preheader40.i
 
 .preheader40.i:                                   ; preds = %3
@@ -570,7 +570,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail10param_iter7measureERm(ptr noca
   %.sroa.03.0.copyload = load i24, ptr %3, align 4
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 %.sroa.25.0.copyload
   %10 = trunc i24 %.sroa.03.0.copyload to i1
-  %.not29.i = icmp eq i64 %.sroa.25.0.copyload, 0
+  %.not29.i = icmp samesign eq i64 %.sroa.25.0.copyload, 0
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %7
@@ -637,7 +637,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.2.0.copyload
-  %.not29.i19 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not29.i19 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %10, label %44, label %45
 
 44:                                               ; preds = %40
@@ -763,7 +763,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   br i1 %14, label %50, label %.preheader64
 
 .preheader64:                                     ; preds = %6
-  %.not71 = icmp eq i64 %3, 0
+  %.not71 = icmp samesign eq i64 %3, 0
   br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader64, %.backedge65
@@ -835,7 +835,7 @@ define linkonce_odr hidden noundef i64 @_ZN5boost4urls6encodeINS0_7grammar9lut_c
   %51 = load i64, ptr %4, align 8, !tbaa !7
   %52 = and i64 %51, 256
   %.not62 = icmp ne i64 %52, 0
-  %.not4074 = icmp eq i64 %3, 0
+  %.not4074 = icmp samesign eq i64 %3, 0
   %or.cond = select i1 %.not62, i1 true, i1 %.not4074
   br i1 %or.cond, label %.loopexit, label %.lr.ph77
 
@@ -934,7 +934,7 @@ define void @_ZN5boost4urls6detail16params_iter_base12measure_implERmRKNS0_10par
   %.sroa.03.0.copyload = load i24, ptr %3, align 4
   %4 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload, i64 %.sroa.25.0.copyload
   %5 = trunc i24 %.sroa.03.0.copyload to i1
-  %.not29.i = icmp eq i64 %.sroa.25.0.copyload, 0
+  %.not29.i = icmp samesign eq i64 %.sroa.25.0.copyload, 0
   br i1 %5, label %6, label %7
 
 6:                                                ; preds = %2
@@ -1001,7 +1001,7 @@ _ZN5boost4urls12encoded_sizeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_vi
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.2.0.copyload
-  %.not29.i20 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not29.i20 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %5, label %39, label %40
 
 39:                                               ; preds = %35
@@ -1156,7 +1156,7 @@ define noundef zeroext i1 @_ZN5boost4urls6detail18param_encoded_iter7measureERm(
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
   %8 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
-  %.not15.i = icmp eq i64 %.sroa.22.0.copyload, 0
+  %.not15.i = icmp samesign eq i64 %.sroa.22.0.copyload, 0
   br i1 %.not15.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %19
@@ -1203,7 +1203,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not15.i6 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not15.i6 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not15.i6, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit18, label %.lr.ph.i7
 
 .lr.ph.i7:                                        ; preds = %26, %39
@@ -1258,7 +1258,7 @@ define void @_ZN5boost4urls6detail18param_encoded_iter4copyERPcPKc(ptr nocapture
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
   %5 = load ptr, ptr %1, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
-  %.not34.i = icmp eq i64 %.sroa.22.0.copyload, 0
+  %.not34.i = icmp samesign eq i64 %.sroa.22.0.copyload, 0
   br i1 %.not34.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %42
@@ -1345,7 +1345,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %49 = load ptr, ptr %1, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not34.i8 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not34.i8 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not34.i8, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit23, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %46, %86
@@ -1429,7 +1429,7 @@ define void @_ZN5boost4urls6detail24params_encoded_iter_base12measure_implERmRKN
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
-  %.not15.i = icmp eq i64 %.sroa.22.0.copyload, 0
+  %.not15.i = icmp samesign eq i64 %.sroa.22.0.copyload, 0
   br i1 %.not15.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %14
@@ -1476,7 +1476,7 @@ _ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not15.i7 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not15.i7 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not15.i7, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit19, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %21, %34
@@ -1525,7 +1525,7 @@ define void @_ZN5boost4urls6detail24params_encoded_iter_base9copy_implERPcPKcRKN
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8, !tbaa !7
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.22.0.copyload
-  %.not34.i = icmp eq i64 %.sroa.22.0.copyload, 0
+  %.not34.i = icmp samesign eq i64 %.sroa.22.0.copyload, 0
   br i1 %.not34.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %41
@@ -1612,7 +1612,7 @@ _ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %48 = load ptr, ptr %0, align 8, !tbaa !3
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not34.i10 = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not34.i10 = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not34.i10, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit25, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %45, %85
@@ -1727,7 +1727,7 @@ define hidden noundef zeroext i1 @_ZN5boost4urls6detail16param_value_iter7measur
   %.sroa.0.0.copyload = load i24, ptr %3, align 4
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 %.sroa.2.0.copyload
   %18 = trunc i24 %.sroa.0.0.copyload to i1
-  %.not29.i = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not29.i = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %15
@@ -1865,7 +1865,7 @@ define hidden noundef zeroext i1 @_ZN5boost4urls6detail24param_encoded_value_ite
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not15.i = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not15.i = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not15.i, label %_ZN5boost4urls6detail22re_encoded_size_unsafeINS0_7grammar9lut_charsEEEmNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14, %27
@@ -1934,7 +1934,7 @@ define hidden void @_ZN5boost4urls6detail24param_encoded_value_iter4copyERPcPKc(
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !7
   %14 = load ptr, ptr %1, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload
-  %.not34.i = icmp eq i64 %.sroa.2.0.copyload, 0
+  %.not34.i = icmp samesign eq i64 %.sroa.2.0.copyload, 0
   br i1 %.not34.i, label %_ZN5boost4urls6detail16re_encode_unsafeINS0_7grammar9lut_charsEEEmRPcPKcNS_4core17basic_string_viewIcEERKT_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %51

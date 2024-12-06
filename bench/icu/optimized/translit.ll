@@ -1776,7 +1776,7 @@ invoke.cont113:                                   ; preds = %invoke.cont109
 lpad64:                                           ; preds = %arrayctor.loop
   %42 = landingpad { ptr, i32 }
           cleanup
-  %arraydestroy.isempty = icmp eq i64 %arrayctor.cur.idx, 0
+  %arraydestroy.isempty = icmp samesign eq i64 %arrayctor.cur.idx, 0
   br i1 %arraydestroy.isempty, label %ehcleanup145, label %arraydestroy.body
 
 arraydestroy.body:                                ; preds = %lpad64, %arraydestroy.body

@@ -233,7 +233,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 208
   store ptr null, ptr %12, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 216
-  %13 = icmp eq i64 %.add.i, 888
+  %13 = icmp samesign eq i64 %.add.i, 888
   br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %.preheader
@@ -301,7 +301,7 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2ERKNS1_11SourcePatchERNS1_12Spa
   %38 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 208
   store ptr null, ptr %38, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 216
-  %39 = icmp eq i64 %.add.i.i, 888
+  %39 = icmp samesign eq i64 %.add.i.i, 888
   br i1 %39, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2Ev.exit.i, label %33
 
 _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIfEC2Ev.exit.i: ; preds = %33
@@ -6247,7 +6247,7 @@ define linkonce_odr noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far19CatmarkPatchBuilde
   %12 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i, i64 216
   store ptr null, ptr %12, align 8
   %.add.i = add nuw nsw i64 %.idx.i, 224
-  %13 = icmp eq i64 %.add.i, 920
+  %13 = icmp samesign eq i64 %.add.i, 920
   br i1 %13, label %14, label %.preheader
 
 14:                                               ; preds = %.preheader
@@ -6315,7 +6315,7 @@ _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2ERKNS1_11SourcePatchERNS1_12Spa
   %38 = getelementptr inbounds nuw i8, ptr %.ptr.ptr.i.i, i64 216
   store ptr null, ptr %38, align 8
   %.add.i.i = add nuw nsw i64 %.idx.i.i, 224
-  %39 = icmp eq i64 %.add.i.i, 920
+  %39 = icmp samesign eq i64 %.add.i.i, 920
   br i1 %39, label %_ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2Ev.exit.i, label %33
 
 _ZN10OpenSubdiv6v3_6_03Far16GregoryConverterIdEC2Ev.exit.i: ; preds = %33

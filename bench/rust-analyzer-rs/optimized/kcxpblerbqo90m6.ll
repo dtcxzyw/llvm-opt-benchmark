@@ -28626,7 +28626,7 @@ _ZN3ide10join_lines10compute_ws17h24d2e1664bd70251E.exit: ; preds = %"_ZN5rowan3
 
 1202:                                             ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.1684962189325099908.exit7.i.i.i", %1196, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.llvm.1684962189325099908.exit.thread.i.i.i"
   %1203 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i180.i, i64 %.sroa.3.0.i185402.i
-  %.not19.i.i.i.i = icmp eq i64 %.sroa.3.0.i185402.i, %1186
+  %.not19.i.i.i.i = icmp samesign eq i64 %.sroa.3.0.i185402.i, %1186
   br i1 %.not19.i.i.i.i, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd8da5eca04170dcbE.exit.i", label %.lr.ph.preheader.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i:                         ; preds = %1202

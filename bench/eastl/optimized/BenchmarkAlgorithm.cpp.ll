@@ -6139,7 +6139,7 @@ for.inc.i.i:                                      ; preds = %if.end.i.i262
   br i1 %57, label %for.body.i.i261, label %for.end.i.i, !llvm.loop !71
 
 for.end.i.i:                                      ; preds = %for.inc.i.i
-  %cmp6.i.i258 = icmp eq i64 %first1.addr.016.i.i.add, 2400000
+  %cmp6.i.i258 = icmp samesign eq i64 %first1.addr.016.i.i.add, 2400000
   %58 = select i1 %cmp6.i.i258, i1 %cmp1.i.i, i1 false
   %59 = zext i1 %58 to i32
   br label %_ZN5eastl23lexicographical_compareIP10TestObjectS2_EEbT_S3_T0_S4_.exit.i
@@ -14063,7 +14063,7 @@ while.body.i.i.i:                                 ; preds = %_ZN2EA4StdC9Stopwat
 while.end.i.i.i:                                  ; preds = %while.body.i.i.i
   %__first2.sroa.0.1.i.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i59, i64 %__first2.sroa.0.021.i.i.i.add
   %gepdiff = sub nsw i64 40000, %__first1.sroa.0.022.i.i.i.add
-  %tobool.not.i.i.i.i.i.i.i.i = icmp eq i64 %__first1.sroa.0.022.i.i.i.add, 40000
+  %tobool.not.i.i.i.i.i.i.i.i = icmp samesign eq i64 %__first1.sroa.0.022.i.i.i.add, 40000
   br i1 %tobool.not.i.i.i.i.i.i.i.i, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i
@@ -14072,7 +14072,7 @@ if.then.i.i.i.i.i.i.i.i:                          ; preds = %while.end.i.i.i
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %while.end.i.i.i
-  %tobool.not.i.i.i.i.i8.i.i.i = icmp eq i64 %__first2.sroa.0.021.i.i.i.add, 40000
+  %tobool.not.i.i.i.i.i8.i.i.i = icmp samesign eq i64 %__first2.sroa.0.021.i.i.i.add, 40000
   br i1 %tobool.not.i.i.i.i.i8.i.i.i, label %_ZSt5mergeIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_S6_ET1_T_S8_T0_S9_S7_.exit.i, label %if.then.i.i.i.i.i9.i.i.i
 
 if.then.i.i.i.i.i9.i.i.i:                         ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T_S8_S7_.exit.i.i.i
@@ -14142,12 +14142,12 @@ while.body.i.i.i313:                              ; preds = %_ZN2EA4StdC9Stopwat
 
 while.end.i.i.i312:                               ; preds = %while.body.i.i.i313
   %first1.addr.1.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i112118, i64 %first1.addr.025.i.i.i.add
-  %cmp4.i.i.i = icmp eq i64 %first1.addr.025.i.i.i.add, 40000
+  %cmp4.i.i.i = icmp samesign eq i64 %first1.addr.025.i.i.i.add, 40000
   br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %return.sink.split.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %while.end.i.i.i312
   %first2.addr.1.i.i.i.ptr.le = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i120126, i64 %first2.addr.026.i.i.i.add
-  %cmp.i.i.i.i.i.i.i = icmp eq i64 %first2.addr.026.i.i.i.add, 40000
+  %cmp.i.i.i.i.i.i.i = icmp samesign eq i64 %first2.addr.026.i.i.i.add, 40000
   br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i, label %return.sink.split.i.i.i
 
 return.sink.split.i.i.i:                          ; preds = %if.then5.i.i.i, %while.end.i.i.i312

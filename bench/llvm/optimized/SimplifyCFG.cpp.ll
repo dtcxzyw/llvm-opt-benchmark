@@ -10558,7 +10558,7 @@ _ZNSt6vectorIN4llvm3cfg6UpdateIPNS0_10BasicBlockEEESaIS5_EE5clearEv.exit236.i: ;
   %3402 = load i32, ptr %3401, align 4
   %3403 = shl i32 %3402, 5
   %.idx.i = zext i32 %3403 to i64
-  %.not438506.i = icmp eq i64 %spec.select.v.i.i, %.idx.i
+  %.not438506.i = icmp samesign eq i64 %spec.select.v.i.i, %.idx.i
   br i1 %.not438506.i, label %._crit_edge512.i, label %.lr.ph511.preheader.i
 
 .lr.ph511.preheader.i:                            ; preds = %3399

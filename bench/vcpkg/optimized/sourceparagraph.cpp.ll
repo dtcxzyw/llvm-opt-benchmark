@@ -23392,7 +23392,7 @@ _ZN5vcpkg10ParserBase11match_whileIPFbDiEEENS_10StringViewET_.exit: ; preds = %3
   br i1 %.not.i.i, label %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit.thread, label %.lr.ph.i.i, !llvm.loop !413
 
 _ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit: ; preds = %.lr.ph.i.i
-  %.not62 = icmp eq i64 %.08.i.i.idx, 7744
+  %.not62 = icmp samesign eq i64 %.08.i.i.idx, 7744
   br i1 %.not62, label %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit.thread, label %115
 
 115:                                              ; preds = %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit
@@ -23446,7 +23446,7 @@ _ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13Str
   br i1 %.not.i.i94, label %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit96.thread, label %.lr.ph.i.i89, !llvm.loop !413
 
 _ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit96: ; preds = %.lr.ph.i.i89
-  %.not = icmp eq i64 %.08.i.i90.idx, 656
+  %.not = icmp samesign eq i64 %.08.i.i90.idx, 656
   br i1 %.not, label %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit96.thread, label %131
 
 131:                                              ; preds = %_ZN5vcpkg27SpdxLicenseExpressionParser21case_insensitive_findENS_4SpanIKNS_13StringLiteralEEENS_10StringViewE.exit96

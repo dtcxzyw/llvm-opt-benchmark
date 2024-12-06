@@ -6122,7 +6122,7 @@ if.then195:                                       ; preds = %while.end
   %34 = load i32, ptr %pErrorCode, align 4
   %cmp.i116 = icmp slt i32 %34, 1
   %cmp199 = icmp eq ptr %source.1.ptr, %7
-  %cmp201 = icmp sgt i64 %source.1.idx, 0
+  %cmp201 = icmp ne i64 %source.1.idx, 0
   %35 = and i1 %cmp199, %cmp201
   %or.cond115 = select i1 %cmp.i116, i1 %35, i1 false
   br i1 %or.cond115, label %if.then202, label %if.else207
@@ -6155,25 +6155,23 @@ if.then210:                                       ; preds = %if.else207
   %37 = load ptr, ptr %sharedData, align 8
   %dbcsOnlyState213 = getelementptr inbounds nuw i8, ptr %37, i64 49
   %38 = load i8, ptr %dbcsOnlyState213, align 1
-  %.fr = freeze i8 %38
-  %cmp215.not = icmp eq i8 %.fr, 0
   %toUBytes218 = getelementptr inbounds nuw i8, ptr %0, i64 65
   %incdec.ptr220 = getelementptr inbounds nuw i8, ptr %lastSource.0.ph, i64 1
   %39 = load i8, ptr %lastSource.0.ph, align 1
   store i8 %39, ptr %toUBytes218, align 1
-  %cmp222 = icmp eq i64 %source.1.idx, 1
-  br i1 %cmp222, label %if.then223, label %if.else225
+  switch i64 %source.1.idx, label %land.rhs.lr.ph [
+    i64 1, label %if.then223
+    i64 0, label %for.end
+  ]
 
 if.then223:                                       ; preds = %if.then210
   %toULength224 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 1, ptr %toULength224, align 8
   br label %if.end237
 
-if.else225:                                       ; preds = %if.then210
-  %cmp226220 = icmp sgt i64 %source.1.idx, 1
-  br i1 %cmp226220, label %land.rhs.lr.ph, label %for.end
-
-land.rhs.lr.ph:                                   ; preds = %if.else225
+land.rhs.lr.ph:                                   ; preds = %if.then210
+  %.fr = freeze i8 %38
+  %cmp215.not = icmp eq i8 %.fr, 0
   %incdec.ptr221 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %idxprom.i120 = zext i8 %state.2 to i64
   %arrayidx.i = getelementptr inbounds nuw [256 x i32], ptr %stateTable.0, i64 %idxprom.i120
@@ -6256,9 +6254,9 @@ for.body:                                         ; preds = %if.else.i, %_ZL14is
   %cmp226 = icmp ult ptr %incdec.ptr229, %source.1.ptr
   br i1 %cmp226, label %land.rhs, label %for.end, !llvm.loop !45
 
-for.end:                                          ; preds = %_ZL14isSingleOrLeadPA256_Kihah.exit, %for.body, %_ZL14isSingleOrLeadPA256_Kihah.exit.us, %for.body.us, %if.else225
-  %lastSource.2.lcssa = phi ptr [ %incdec.ptr220, %if.else225 ], [ %incdec.ptr229.us, %for.body.us ], [ %lastSource.2221.us, %_ZL14isSingleOrLeadPA256_Kihah.exit.us ], [ %incdec.ptr229, %for.body ], [ %lastSource.2221, %_ZL14isSingleOrLeadPA256_Kihah.exit ]
-  %i.0.lcssa = phi i8 [ 1, %if.else225 ], [ %inc231.us, %for.body.us ], [ %i.0223.us, %_ZL14isSingleOrLeadPA256_Kihah.exit.us ], [ %inc231, %for.body ], [ %i.0223, %_ZL14isSingleOrLeadPA256_Kihah.exit ]
+for.end:                                          ; preds = %_ZL14isSingleOrLeadPA256_Kihah.exit, %for.body, %_ZL14isSingleOrLeadPA256_Kihah.exit.us, %for.body.us, %if.then210
+  %lastSource.2.lcssa = phi ptr [ %incdec.ptr220, %if.then210 ], [ %incdec.ptr229.us, %for.body.us ], [ %lastSource.2221.us, %_ZL14isSingleOrLeadPA256_Kihah.exit.us ], [ %incdec.ptr229, %for.body ], [ %lastSource.2221, %_ZL14isSingleOrLeadPA256_Kihah.exit ]
+  %i.0.lcssa = phi i8 [ 1, %if.then210 ], [ %inc231.us, %for.body.us ], [ %i.0223.us, %_ZL14isSingleOrLeadPA256_Kihah.exit.us ], [ %inc231, %for.body ], [ %i.0223, %_ZL14isSingleOrLeadPA256_Kihah.exit ]
   %toULength232 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i8 %i.0.lcssa, ptr %toULength232, align 8
   br label %if.end237

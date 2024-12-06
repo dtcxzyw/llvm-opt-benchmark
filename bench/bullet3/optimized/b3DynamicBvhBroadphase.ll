@@ -129,7 +129,7 @@ arrayctor.loop:                                   ; preds = %invoke.cont, %entry
 
 invoke.cont:                                      ; preds = %arrayctor.loop
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 96
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 200
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 200
   br i1 %arrayctor.done, label %invoke.cont4, label %arrayctor.loop
 
 invoke.cont4:                                     ; preds = %invoke.cont

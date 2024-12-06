@@ -12467,7 +12467,7 @@ define internal fastcc void @_ZN12aho_corasick3nfa13noncontiguous8Compiler10buil
 47:                                               ; preds = %51, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h52f7fa0b98d1bc3bE.exit"
   %48 = load i32, ptr %16, align 8, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val1.i
-  %50 = icmp eq i64 %.val1.i, 0
+  %50 = icmp samesign eq i64 %.val1.i, 0
   br i1 %50, label %._crit_edge, label %.lr.ph270
 
 51:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h52f7fa0b98d1bc3bE.exit"

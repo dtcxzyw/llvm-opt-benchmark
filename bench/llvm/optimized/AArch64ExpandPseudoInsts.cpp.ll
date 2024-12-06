@@ -1131,7 +1131,7 @@ _ZN4llvm8DebugLocD2Ev.exit118.i:                  ; preds = %337, %_ZN4llvm10MIM
   %382 = getelementptr inbounds nuw i8, ptr %376, i64 2
   %383 = load i16, ptr %382, align 2
   %384 = zext i16 %383 to i64
-  %.not18.i.i = icmp eq i64 %384, %380
+  %.not18.i.i = icmp samesign eq i64 %384, %380
   br i1 %.not18.i.i, label %_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expand_DestructiveOpERN4llvm12MachineInstrERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorIS2_Lb0EEE.exit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %375
@@ -1160,7 +1160,7 @@ _ZN4llvm8DebugLocD2Ev.exit118.i:                  ; preds = %337, %_ZN4llvm10MIM
   %397 = getelementptr inbounds nuw i8, ptr %391, i64 2
   %398 = load i16, ptr %397, align 2
   %399 = zext i16 %398 to i64
-  %.not18.i122.i = icmp eq i64 %399, %395
+  %.not18.i122.i = icmp samesign eq i64 %399, %395
   br i1 %.not18.i122.i, label %_ZN12_GLOBAL__N_119AArch64ExpandPseudo20expand_DestructiveOpERN4llvm12MachineInstrERNS1_17MachineBasicBlockENS1_26MachineInstrBundleIteratorIS2_Lb0EEE.exit, label %.lr.ph.i123.i.preheader
 
 .lr.ph.i123.i.preheader:                          ; preds = %390
@@ -1877,7 +1877,7 @@ _ZNK4llvm12MachineInstr13getPCSectionsEv.exit:    ; preds = %_ZN4llvm8DebugLocD2
   %663 = getelementptr inbounds nuw i8, ptr %657, i64 2
   %664 = load i16, ptr %663, align 2
   %665 = zext i16 %664 to i64
-  %.not18.i = icmp eq i64 %665, %661
+  %.not18.i = icmp samesign eq i64 %665, %661
   br i1 %.not18.i, label %_ZL14transferImpOpsRN4llvm12MachineInstrERNS_19MachineInstrBuilderES3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZNK4llvm12MachineInstr13getPCSectionsEv.exit
@@ -2736,7 +2736,7 @@ _ZN4llvm8DebugLocD2Ev.exit640:                    ; preds = %_ZN4llvm10MIMetadat
   %1026 = getelementptr inbounds nuw i8, ptr %1020, i64 2
   %1027 = load i16, ptr %1026, align 2
   %1028 = zext i16 %1027 to i64
-  %.not18.i643 = icmp eq i64 %1028, %1024
+  %.not18.i643 = icmp samesign eq i64 %1028, %1024
   br i1 %.not18.i643, label %_ZL14transferImpOpsRN4llvm12MachineInstrERNS_19MachineInstrBuilderES3_.exit651, label %.lr.ph.i644.preheader
 
 .lr.ph.i644.preheader:                            ; preds = %_ZN4llvm8DebugLocD2Ev.exit640
@@ -4453,7 +4453,7 @@ _ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit:
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %12 = load i16, ptr %11, align 2
   %13 = zext i16 %12 to i64
-  %.not18 = icmp eq i64 %13, %9
+  %.not18 = icmp samesign eq i64 %13, %9
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm10drop_beginINS_14iterator_rangeIPNS_14MachineOperandEEEEEDaOT_m.exit
@@ -5497,7 +5497,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %388, %_ZN4llvm10MIM
   %400 = getelementptr inbounds nuw i8, ptr %394, i64 2
   %401 = load i16, ptr %400, align 2
   %402 = zext i16 %401 to i64
-  %.not18.i = icmp eq i64 %402, %398
+  %.not18.i = icmp samesign eq i64 %402, %398
   br i1 %.not18.i, label %_ZL14transferImpOpsRN4llvm12MachineInstrERNS_19MachineInstrBuilderES3_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge
@@ -8655,7 +8655,7 @@ _ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm10MIMetadat
   %139 = getelementptr inbounds nuw i8, ptr %133, i64 2
   %140 = load i16, ptr %139, align 2
   %141 = zext i16 %140 to i64
-  %.not18.i = icmp eq i64 %141, %137
+  %.not18.i = icmp samesign eq i64 %141, %137
   br i1 %.not18.i, label %_ZL14transferImpOpsRN4llvm12MachineInstrERNS_19MachineInstrBuilderES3_.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN4llvm8DebugLocD2Ev.exit

@@ -14210,7 +14210,7 @@ _ZNK4llvm19TargetRegisterClass8containsENS_8RegisterE.exit: ; preds = %1767
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.i: ; preds = %1801, %1792
   %.lcssa.i.i.i.pn.i = phi i64 [ %1795, %1792 ], [ %1804, %1801 ]
   %1808 = zext i32 %1790 to i64
-  %1809 = icmp eq i64 %.lcssa.i.i.i.pn.i, %1808
+  %1809 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %1808
   br i1 %1809, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread.i, label %1816
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread.i: ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.i, %1784
@@ -15812,7 +15812,7 @@ define dso_local noundef i32 @_ZNK4llvm16X86FrameLowering23getWin64EHFrameIndexR
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit: ; preds = %23, %14
   %.lcssa.i.i.i.pn = phi i64 [ %17, %14 ], [ %26, %23 ]
   %30 = zext i32 %12 to i64
-  %31 = icmp eq i64 %.lcssa.i.i.i.pn, %30
+  %31 = icmp samesign eq i64 %.lcssa.i.i.i.pn, %30
   br i1 %31, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread, label %38
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit.thread: ; preds = %.lr.ph.i.i.i, %4, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIijNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIijEEEEijS3_S6_E4findERKi.exit

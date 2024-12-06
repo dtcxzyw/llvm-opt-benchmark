@@ -2112,7 +2112,7 @@ define dso_local noundef i32 @_ZN5clang6interp15ByteCodeEmitter9getOffsetEj(ptr 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %26, %17
   %.lcssa.i.i.pn = phi i64 [ %20, %17 ], [ %29, %26 ]
   %33 = zext i32 %15 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.pn, %33
+  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %33
   br i1 %.not, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %34
 
 34:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit

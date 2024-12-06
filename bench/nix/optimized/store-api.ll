@@ -34625,7 +34625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   %.0.ptr.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.idx.i
   %132 = load ptr, ptr %131, align 8
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull %131, ptr noundef %132) #33
-  %.not366.i = icmp eq i64 %.0.idx.i, 0
+  %.not366.i = icmp samesign eq i64 %.0.idx.i, 0
   br i1 %.not366.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader4.i, %"_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorIN3nix3refINS4_5StoreEEEEZZNS4_22getDefaultSubstitutersB5cxx11EvENK3$_0clB5cxx11EvEUlRS7_SA_E_EEEEvRNS_15_List_node_baseET_.exit.i"

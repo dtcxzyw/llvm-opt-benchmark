@@ -18637,7 +18637,7 @@ define internal fastcc void @_ZNSt7__cxx114listISt4pairIS1_IN5clang14SourceLocat
   %.0.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.0.idx
   %14 = load ptr, ptr %13, align 8
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull %13, ptr noundef %14) #22
-  %.not2745 = icmp eq i64 %.0.idx, 0
+  %.not2745 = icmp samesign eq i64 %.0.idx, 0
   br i1 %.not2745, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader43, %_ZNSt8__detail13_Scratch_list5mergeINS0_8_Ptr_cmpISt14_List_iteratorISt4pairIS4_IN5clang14SourceLocationENS5_17PartialDiagnosticEEN4llvm11SmallVectorIS8_Lj1EEEEENS5_12_GLOBAL__N_124SortDiagBySourceLocationEEEEEvRNS_15_List_node_baseET_.exit

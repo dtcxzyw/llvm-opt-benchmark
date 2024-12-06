@@ -2768,7 +2768,7 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %switch.load
   %48 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %47, i64 %15
-  %.not18 = icmp eq i64 %15, 0
+  %.not18 = icmp samesign eq i64 %15, 0
   br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i

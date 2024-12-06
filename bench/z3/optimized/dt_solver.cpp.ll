@@ -7379,7 +7379,7 @@ if.end.i.i2:                                      ; preds = %_ZNK3euf13th_euf_so
 _ZN6vectorIPN2dt6solver8var_dataELb0EjE3endEv.exit: ; preds = %_ZNK3euf13th_euf_solver12get_num_varsEv.exit, %if.end.i.i2
   %retval.0.i.i4 = phi i64 [ %5, %if.end.i.i2 ], [ 0, %_ZNK3euf13th_euf_solver12get_num_varsEv.exit ]
   %add.ptr.i = getelementptr inbounds nuw ptr, ptr %0, i64 %retval.0.i.i4
-  %cmp.not3.i = icmp eq i64 %retval.0.i.i, %retval.0.i.i4
+  %cmp.not3.i = icmp samesign eq i64 %retval.0.i.i, %retval.0.i.i4
   br i1 %cmp.not3.i, label %_ZSt8for_eachIPPN2dt6solver8var_dataE11delete_procIS2_EET0_T_S8_S7_.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %_ZN6vectorIPN2dt6solver8var_dataELb0EjE3endEv.exit, %_ZN11delete_procIN2dt6solver8var_dataEEclEPS2_.exit.i

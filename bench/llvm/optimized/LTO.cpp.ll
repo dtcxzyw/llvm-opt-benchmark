@@ -2360,7 +2360,7 @@ define internal fastcc void @"_ZZN4llvm18computeLTOCacheKeyB5cxx11ERKNS_3lto6Con
 _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit: ; preds = %20, %8
   %.lcssa.i.i.i.pn.i = phi i64 [ %14, %8 ], [ %23, %20 ]
   %27 = zext i32 %6 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.i.pn.i, %27
+  %.not = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %27
   br i1 %.not, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit.thread, label %28
 
 28:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit
@@ -2470,7 +2470,7 @@ _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapI
 _ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit10: ; preds = %73, %61
   %.lcssa.i.i.i.pn.i8 = phi i64 [ %67, %61 ], [ %76, %73 ]
   %80 = zext i32 %59 to i64
-  %.not40 = icmp eq i64 %.lcssa.i.i.i.pn.i8, %80
+  %.not40 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i8, %80
   br i1 %.not40, label %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit10.thread, label %81
 
 81:                                               ; preds = %_ZNK4llvm6detail12DenseSetImplImNS_8DenseMapImNS0_13DenseSetEmptyENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit10
@@ -14439,7 +14439,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEES6_ET0_T
   br i1 %.not.i12.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorIiSaIiEEZNS_3lto23generateModulesOrderingENS_8ArrayRefIPNS_13BitcodeModuleEEEE3$_0EEvOT_T0_.exit", label %.lr.ph.i10.i.i.i.i.i, !llvm.loop !324
 
 84:                                               ; preds = %16
-  %.not19.i20.i.i.i.i.i = icmp eq i64 %.049.i.i.i.i.i.i.i.i.i.i.idx, 0
+  %.not19.i20.i.i.i.i.i = icmp samesign eq i64 %.049.i.i.i.i.i.i.i.i.i.i.idx, 0
   br i1 %.not19.i20.i.i.i.i.i, label %"_ZN4llvm4sortIRSt6vectorIiSaIiEEZNS_3lto23generateModulesOrderingENS_8ArrayRefIPNS_13BitcodeModuleEEEE3$_0EEvOT_T0_.exit", label %.lr.ph.i21.i.i.i.i.i
 
 .lr.ph.i21.i.i.i.i.i:                             ; preds = %84, %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__ops14_Val_comp_iterIZN4llvm3lto23generateModulesOrderingENS9_8ArrayRefIPNS9_13BitcodeModuleEEEE3$_0EEEvT_T0_.exit.i25.i.i.i.i.i"

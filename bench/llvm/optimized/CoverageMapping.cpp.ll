@@ -5770,7 +5770,7 @@ _ZN4llvm5ErrorD2Ev.exit135:                       ; preds = %_ZN4llvm5ErrorD2Ev.
 _ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.i.i: ; preds = %496, %488
   %.lcssa.i.i.i.pn.i.i.i = phi i64 [ %490, %488 ], [ %499, %496 ]
   %503 = zext i32 %486 to i64
-  %.not11.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i, %503
+  %.not11.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i, %503
   br i1 %.not11.i.i, label %_ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.thread.i.i, label %.loopexit.i
 
 _ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm6detail12DenseSetImplIsNS_8DenseMapIsNS0_13DenseSetEmptyENS_12DenseMapInfoIsvEENS0_12DenseSetPairIsEEEES5_E8containsERKs.exit.i.i, %481
@@ -5852,7 +5852,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i: ; preds = %516
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i: ; preds = %542, %534
   %.lcssa.i.i.i.pn.i.i.i.i = phi i64 [ %536, %534 ], [ %545, %542 ]
   %549 = zext i32 %532 to i64
-  %.not12.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %549
+  %.not12.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %549
   br i1 %.not12.i.i, label %.loopexit.i, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %524
@@ -15922,7 +15922,7 @@ _ZStgeIjjEbRKSt4pairIT_T0_ES5_.exit.thread.i.i.i: ; preds = %14
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i: ; preds = %43, %34
   %.lcssa.i.i.i.pn.i.i.i.i = phi i64 [ %37, %34 ], [ %46, %43 ]
   %50 = zext i32 %32 to i64
-  %.not.i.i = icmp eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %50
+  %.not.i.i = icmp samesign eq i64 %.lcssa.i.i.i.pn.i.i.i.i, %50
   br i1 %.not.i.i, label %_ZZN12_GLOBAL__N_120MCDCDecisionRecorder15recordExpansionERKN4llvm8coverage20CounterMappingRegionEENKUlRT_E_clINS0_14DecisionRecordEEEDaS7_.exit, label %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i
 
 _ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread.i.i: ; preds = %_ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.i.i, %._ZNK12_GLOBAL__N_120MCDCDecisionRecorder14DecisionRecord9dominatesERKN4llvm8coverage20CounterMappingRegionE.exit.thread_crit_edge.i.i

@@ -1794,7 +1794,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclENS_6detail13DenseSetEmpt
 _ZNK4llvm6detail12DenseSetImplIPN5clang9NamedDeclENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findEPKS3_.exit.i: ; preds = %74, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIPKS3_EEPKSA_RKT_.exit.thread.i.i.i, %61
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %81, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang9NamedDeclENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E6doFindIPKS3_EEPKSA_RKT_.exit.thread.i.i.i ], [ %68, %61 ], [ %77, %74 ]
   %82 = zext i32 %59 to i64
-  %83 = icmp ne i64 %.lcssa.i.i.i.i.pn.i, %82
+  %83 = icmp samesign ne i64 %.lcssa.i.i.i.i.pn.i, %82
   br label %_ZNK4llvm9SetVectorIPN5clang9NamedDeclENS_11SmallVectorIS3_Lj2EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj2EE8containsERKS3_.exit
 
 _ZNK4llvm9SetVectorIPN5clang9NamedDeclENS_11SmallVectorIS3_Lj2EEENS_8DenseSetIS3_NS_12DenseMapInfoIS3_vEEEELj2EE8containsERKS3_.exit: ; preds = %_ZN4llvm12is_containedIRKNS_11SmallVectorIPN5clang9NamedDeclELj2EEES4_EEbOT_RKT0_.exit, %_ZNK4llvm6detail12DenseSetImplIPN5clang9NamedDeclENS_8DenseMapIS4_NS0_13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS0_12DenseSetPairIS4_EEEES8_E4findEPKS3_.exit.i

@@ -5112,7 +5112,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit: ; preds = %489
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %524, %.split
   %.lcssa.i.i.pn = phi i64 [ %518, %.split ], [ %527, %524 ]
-  %531 = icmp eq i64 %.lcssa.i.i.pn, %513
+  %531 = icmp samesign eq i64 %.lcssa.i.i.pn, %513
   br i1 %531, label %.split433, label %532
 
 532:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
@@ -5321,7 +5321,7 @@ _ZNK4llvm12MachineInstr7mayLoadENS0_9QueryTypeE.exit.thread: ; preds = %483, %49
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit202: ; preds = %641, %632
   %.lcssa.i.i196.pn = phi i64 [ %635, %632 ], [ %644, %641 ]
   %648 = zext i32 %630 to i64
-  %649 = icmp eq i64 %.lcssa.i.i196.pn, %648
+  %649 = icmp samesign eq i64 %.lcssa.i.i196.pn, %648
   br i1 %649, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit202.thread, label %650
 
 650:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit202

@@ -1493,7 +1493,7 @@ define void @_ZN25FilterImgPatchParamPluginC2Ev(ptr noundef nonnull align 8 dere
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %51 = icmp eq i64 %.021.i.i.i.add, 16
+  %51 = icmp samesign eq i64 %.021.i.i.i.add, 16
   br i1 %51, label %52, label %._crit_edge.i.i.i.thread
 
 52:                                               ; preds = %._crit_edge.i.i.i

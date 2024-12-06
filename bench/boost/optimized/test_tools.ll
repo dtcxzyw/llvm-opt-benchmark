@@ -901,7 +901,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit185: ; preds = %150
   %153 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5boost23basic_wrap_stringstreamIcE3strB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(408) %152), !noalias !43
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load i64, ptr %154, align 8, !tbaa !23, !noalias !43
-  %156 = icmp eq i64 %155, 0
+  %156 = icmp samesign eq i64 %155, 0
   br i1 %156, label %_ZNSt6vectorISt4pairIPKcPKN5boost9unit_test12lazy_ostreamEESaIS8_EED2Ev.exit, label %157
 
 157:                                              ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit185
@@ -3449,7 +3449,7 @@ _ZNK5boost10test_tools16assertion_result7messageEv.exit173: ; preds = %86
   store ptr %90, ptr %11, align 8, !tbaa !30, !alias.scope !94
   %94 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %93, ptr %94, align 8, !tbaa !32, !alias.scope !94
-  %95 = icmp eq i64 %92, 0
+  %95 = icmp samesign eq i64 %92, 0
   br i1 %95, label %_ZNK5boost10test_tools16assertion_result7messageEv.exit173.thread, label %96
 
 96:                                               ; preds = %_ZNK5boost10test_tools16assertion_result7messageEv.exit173
@@ -6778,7 +6778,7 @@ _ZNSt6vectorIcSaIcEE17_M_realloc_insertIJRKcEEEvN9__gnu_cxx17__normal_iteratorIP
   %170 = load ptr, ptr %13, align 8, !tbaa !21
   %171 = load i64, ptr %69, align 8, !tbaa !23
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
-  %.not5.i.i = icmp eq i64 %171, 0
+  %.not5.i.i = icmp samesign eq i64 %171, 0
   br i1 %.not5.i.i, label %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcENSt15iterator_traitsIT_E15difference_typeESB_SB_RKT0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %166, %.lr.ph.i.i

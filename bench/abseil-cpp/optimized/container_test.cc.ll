@@ -15600,7 +15600,7 @@ _ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS0_5__ops
 
 for.inc72.i221:                                   ; preds = %_ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS0_5__ops18_Iter_comp_to_iterIPFbiiES7_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_T0_.exit.i243, %_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS0_5__ops18_Iter_comp_to_iterIPFbiiES7_EEET_SD_SD_T0_.exit.i218
   %__scan.sroa.0.049.i205.add = add nuw nsw i64 %__scan.sroa.0.049.i205.idx, 4
-  %cmp.i5.not.i223 = icmp eq i64 %__scan.sroa.0.049.i205.add, 16
+  %cmp.i5.not.i223 = icmp samesign eq i64 %__scan.sroa.0.049.i205.add, 16
   br i1 %cmp.i5.not.i223, label %if.else72, label %for.body30.i204, !llvm.loop !303
 
 if.end88.thread:                                  ; preds = %if.end45.i224, %_ZSt10__count_ifISt20_List_const_iteratorIiEN9__gnu_cxx5__ops18_Iter_comp_to_iterIPFbiiENS2_17__normal_iteratorIPKiSt6vectorIiSaIiEEEEEEENSt15iterator_traitsIT_E15difference_typeESG_SG_T0_.exit.i233, %_ZSt10__count_ifIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS0_5__ops18_Iter_comp_to_iterIPFbiiES7_EEENSt15iterator_traitsIT_E15difference_typeESE_SE_T0_.exit.i243, %if.end24.i197
@@ -24264,7 +24264,7 @@ if.end.i.i.i:                                     ; preds = %while.body.i.i.i10
   br i1 %or.cond.i.i.i, label %while.body.i.i.i10, label %invoke.cont18, !llvm.loop !397
 
 invoke.cont18:                                    ; preds = %if.end.i.i.i
-  %cmp.i4.i.i.i9 = icmp eq i64 %__first2.sroa.0.013.i.i.i.add, 12
+  %cmp.i4.i.i.i9 = icmp samesign eq i64 %__first2.sroa.0.013.i.i.i.add, 12
   %frombool = zext i1 %cmp.i4.i.i.i9 to i8
   store i8 %frombool, ptr %gtest_ar_, align 8
   %message_.i = getelementptr inbounds nuw i8, ptr %gtest_ar_, i64 8

@@ -450,7 +450,7 @@ for.end123.thread:                                ; preds = %if.then67
   br i1 %or.cond1243, label %while.cond.backedge, label %if.end177.sink.split
 
 if.then129:                                       ; preds = %for.end123
-  %cmp132 = icmp eq i64 %p.0.idx162, 1626
+  %cmp132 = icmp samesign eq i64 %p.0.idx162, 1626
   br i1 %cmp132, label %if.then134, label %if.else141
 
 if.then134:                                       ; preds = %if.then129

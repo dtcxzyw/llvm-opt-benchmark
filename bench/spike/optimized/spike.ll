@@ -5715,7 +5715,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIP9mem_cfg_tSt6vec
 
 140:                                              ; preds = %.noexc57.i.i.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %141 = icmp eq i64 %.08.i.i.i.i.i.idx.i.i.i.i, 0
+  %141 = icmp samesign eq i64 %.08.i.i.i.i.i.idx.i.i.i.i, 0
   br i1 %141, label %_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIP9mem_cfg_tSt6vectorIS2_SaIS2_EEEENS0_5__ops15_Iter_comp_iterIPFbRKS2_SB_EEEEvT_SF_T0_.exit30.i.i.i.i.i.i, label %.lr.ph.i19.i.preheader.i.i.i.i.i
 
 .lr.ph.i19.i.preheader.i.i.i.i.i:                 ; preds = %140

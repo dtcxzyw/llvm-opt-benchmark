@@ -29116,7 +29116,7 @@ _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit: ; preds = %_ZN4llvm1
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %102, %93
   %.lcssa.i.i.pn = phi i64 [ %96, %93 ], [ %105, %102 ]
   %109 = zext i32 %91 to i64
-  %110 = icmp eq i64 %.lcssa.i.i.pn, %109
+  %110 = icmp samesign eq i64 %.lcssa.i.i.pn, %109
   br i1 %110, label %_ZL14getLoopPhiUserN4llvm8RegisterEPNS_17MachineBasicBlockE.exit.thread, label %111
 
 111:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
@@ -32167,7 +32167,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6
   %.lcssa.i.i.pn = phi i64 [ %114, %111 ], [ %123, %120 ]
   %.pn9.i = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.642", ptr %107, i64 %.lcssa.i.i.pn
   %127 = zext i32 %109 to i64
-  %.not80 = icmp eq i64 %.lcssa.i.i.pn, %127
+  %.not80 = icmp samesign eq i64 %.lcssa.i.i.pn, %127
   br i1 %.not80, label %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.thread, label %128
 
 128:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit

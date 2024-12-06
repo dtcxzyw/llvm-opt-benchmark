@@ -498,7 +498,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit96: ; preds = %149, %.preheader.thread
   %.lcssa.i.i90 = phi i64 [ %143, %.preheader.thread ], [ %152, %149 ]
-  %.not249267 = icmp eq i64 %.lcssa.i.i90, %.pn356
+  %.not249267 = icmp samesign eq i64 %.lcssa.i.i90, %.pn356
   br i1 %.not249267, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit96
@@ -536,7 +536,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail
 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit113: ; preds = %168, %157
   %.lcssa.i.i107 = phi i64 [ %162, %157 ], [ %171, %168 ]
-  %.not249 = icmp eq i64 %.lcssa.i.i107, %.pn356
+  %.not249 = icmp samesign eq i64 %.lcssa.i.i107, %.pn356
   br i1 %.not249, label %._crit_edge, label %157, !llvm.loop !7
 
 ._crit_edge:                                      ; preds = %.lr.ph.i.i85, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit113, %.lr.ph.i.i102, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit96
@@ -2979,7 +2979,7 @@ define hidden void @_ZN4llvm16DAGTypeLegalizer7RemapIdERj(ptr nocapture noundef 
 _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %23, %13
   %.lcssa.i.i.pn = phi i64 [ %17, %13 ], [ %26, %23 ]
   %30 = zext i32 %11 to i64
-  %.not = icmp eq i64 %.lcssa.i.i.pn, %30
+  %.not = icmp samesign eq i64 %.lcssa.i.i.pn, %30
   br i1 %.not, label %common.ret9, label %31
 
 common.ret9:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjjLj8ENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, %2, %.lr.ph.i.i, %31

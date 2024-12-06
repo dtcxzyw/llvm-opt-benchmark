@@ -840,7 +840,7 @@ invoke.cont7:                                     ; preds = %arrayctor.loop
   %m_num_deleted.i.i8 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 16
   store i32 0, ptr %m_num_deleted.i.i8, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 24
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 120
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 120
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
 
 arrayctor.cont:                                   ; preds = %invoke.cont7

@@ -2369,7 +2369,7 @@ define dso_local void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl27parseGlobal
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %28, %19
   %.lcssa.i.i.pn = phi i64 [ %22, %19 ], [ %31, %28 ]
   %35 = zext i32 %17 to i64
-  %36 = icmp eq i64 %.lcssa.i.i.pn, %35
+  %36 = icmp samesign eq i64 %.lcssa.i.i.pn, %35
   br i1 %36, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %39
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread: ; preds = %11, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, %.lr.ph.i.i
@@ -12644,7 +12644,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i37: ;
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit: ; preds = %119, %110
   %.lcssa.i.i.pn = phi i64 [ %113, %110 ], [ %122, %119 ]
   %126 = zext i32 %108 to i64
-  %127 = icmp eq i64 %.lcssa.i.i.pn, %126
+  %127 = icmp samesign eq i64 %.lcssa.i.i.pn, %126
   br i1 %127, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread, label %130
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread: ; preds = %.lr.ph, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit, %.lr.ph.i.i
@@ -16190,7 +16190,7 @@ _ZNK4llvm6MDNode8operandsEv.exit73:               ; preds = %223, %227
 _ZNK4llvm9SetVectorIPNS_8MetadataENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit: ; preds = %252, %239
   %.lcssa.i.i.i.i.pn.i = phi i64 [ %246, %239 ], [ %255, %252 ]
   %259 = zext i32 %237 to i64
-  %.not137 = icmp eq i64 %.lcssa.i.i.i.i.pn.i, %259
+  %.not137 = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i, %259
   br i1 %.not137, label %_ZNK4llvm9SetVectorIPNS_8MetadataENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread, label %270
 
 _ZNK4llvm9SetVectorIPNS_8MetadataENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i74, %.lr.ph158, %_ZNK4llvm9SetVectorIPNS_8MetadataENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE8containsERKS2_.exit
@@ -16765,7 +16765,7 @@ _ZN4llvm16dyn_cast_or_nullINS_12DILocalScopeENS_7DIScopeEEEDaPT0_.exit: ; preds 
 _ZNK4llvm6detail12DenseSetImplIPNS_12DILocalScopeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit: ; preds = %70, %57
   %.lcssa.i.i.i.pn.i = phi i64 [ %64, %57 ], [ %73, %70 ]
   %77 = zext i32 %55 to i64
-  %.not49 = icmp eq i64 %.lcssa.i.i.i.pn.i, %77
+  %.not49 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %77
   br i1 %.not49, label %_ZNK4llvm6detail12DenseSetImplIPNS_12DILocalScopeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread, label %.critedge
 
 _ZNK4llvm6detail12DenseSetImplIPNS_12DILocalScopeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit.thread: ; preds = %.lr.ph.i.i.i.i8, %_ZNK4llvm6detail12DenseSetImplIPNS_12DILocalScopeENS_8DenseMapIS3_NS0_13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E8containsEPKS2_.exit

@@ -26217,7 +26217,7 @@ if.end.i155:                                      ; preds = %invoke.cont71
 _ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit158: ; preds = %invoke.cont71, %if.end.i155
   %retval.0.i157 = phi i64 [ %115, %if.end.i155 ], [ 0, %invoke.cont71 ]
   %arrayidx.i160 = getelementptr inbounds nuw %class.svector, ptr %108, i64 %retval.0.i157
-  %cmp.i.i161 = icmp eq i64 %retval.0.i157, %retval.0.i.i152
+  %cmp.i.i161 = icmp samesign eq i64 %retval.0.i157, %retval.0.i.i152
   br i1 %cmp.i.i161, label %if.end, label %if.end.i.i162
 
 if.end.i.i162:                                    ; preds = %_ZNK6vectorI10ref_vectorI4expr11ast_managerELb1EjE4sizeEv.exit158

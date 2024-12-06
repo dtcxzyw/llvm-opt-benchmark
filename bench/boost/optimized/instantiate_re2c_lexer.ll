@@ -41191,7 +41191,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i: ; preds 
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit: ; preds = %11, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i
   %31 = phi ptr [ %4, %11 ], [ %.pre.i.i, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i ]
-  %.not.i.i.i.i.i = icmp eq i64 %2, 0
+  %.not.i.i.i.i.i = icmp samesign eq i64 %2, 0
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit, label %32
 
 32:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit
@@ -41297,7 +41297,7 @@ _ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i11: ; pred
 
 _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit15: ; preds = %56, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i11
   %77 = phi ptr [ %4, %56 ], [ %.pre.i.i13, %_ZN5boost4wave4util22AllocatorStringStorageIcSaIcEEC2ERKS4_.exit.i.i.i11 ]
-  %.not.i.i.i.i.i16 = icmp eq i64 %10, 0
+  %.not.i.i.i.i.i16 = icmp samesign eq i64 %10, 0
   br i1 %.not.i.i.i.i.i16, label %_ZSt4copyIPKcPcET0_T_S4_S3_.exit17, label %78
 
 78:                                               ; preds = %_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE5beginEv.exit15

@@ -7261,7 +7261,7 @@ _ZN5clang6Parser9NextTokenEv.exit139:             ; preds = %436, %440
 
 459:                                              ; preds = %462, %458
   %.0.idx41.i.i = phi i64 [ 0, %458 ], [ %.0.add.i.i, %462 ]
-  %.not26.i.i = icmp eq i64 %.0.idx41.i.i, %.v
+  %.not26.i.i = icmp samesign eq i64 %.0.idx41.i.i, %.v
   br i1 %.not26.i.i, label %462, label %460
 
 460:                                              ; preds = %459
@@ -7381,7 +7381,7 @@ _ZNK5clang17DiagnosticBuilderlsINS_9FixItHintEvEERKS0_OT_.exit.i.i: ; preds = %5
 
 506:                                              ; preds = %.preheader326, %515
   %.025.idx43.i.i = phi i64 [ %.025.add.i.i, %515 ], [ 0, %.preheader326 ]
-  %.not28.i.i = icmp eq i64 %.025.idx43.i.i, %.v
+  %.not28.i.i = icmp samesign eq i64 %.025.idx43.i.i, %.v
   br i1 %.not28.i.i, label %515, label %507
 
 507:                                              ; preds = %506

@@ -1904,7 +1904,7 @@ _ZN5ropey4rope4Rope13chunk_at_byte17h8290b9e820ea6253E.exit.i: ; preds = %_ZN5ro
   br i1 %284, label %._crit_edge.i.i, label %.lr.ph170.i.i
 
 285:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h5408cf5a27a91e6fE.exit.i.i"
-  %286 = icmp eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
+  %286 = icmp samesign eq i64 %.sroa.0.0.sroa.speculated.i.i.i, 0
   br i1 %286, label %.loopexit110, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %285, %.preheader.i.i

@@ -39856,8 +39856,8 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
   store ptr %1, ptr @GC_incomplete_normal_bl, align 8
   store ptr %2, ptr @GC_incomplete_stack_bl, align 8
   %8 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 288), align 8
-  %.not.i = icmp eq i64 %8, 0
-  br i1 %.not.i, label %total_stack_black_listed.exit, label %.lr.ph.i
+  %.not12.i = icmp eq i64 %8, 0
+  br i1 %.not12.i, label %total_stack_black_listed.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7
   %9 = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 92664), align 8
@@ -39865,88 +39865,88 @@ define internal fastcc void @GC_promote_black_lists() unnamed_addr #1 {
 
 10:                                               ; preds = %GC_number_stack_black_listed.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %GC_number_stack_black_listed.exit.i ]
-  %.0810.i = phi i64 [ 0, %.lr.ph.i ], [ %29, %GC_number_stack_black_listed.exit.i ]
+  %.0810.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %GC_number_stack_black_listed.exit.i ]
   %11 = getelementptr inbounds nuw %struct.HeapSect, ptr %9, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load i64, ptr %13, align 8
   %15 = lshr i64 %14, 12
   %16 = getelementptr inbounds nuw %struct.GC_hblk_s, ptr %12, i64 %15
-  %17 = icmp sgt i64 %14, 4095
-  br i1 %17, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i
+  %.not.i = icmp ult i64 %14, 4096
+  br i1 %.not.i, label %GC_number_stack_black_listed.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
-  %.011.i.i = phi ptr [ %27, %.lr.ph.i.i ], [ %12, %10 ]
+  %.011.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %12, %10 ]
   %.0810.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %10 ]
-  %18 = ptrtoint ptr %.011.i.i to i64
-  %19 = lshr i64 %18, 12
-  %20 = lshr i64 %18, 18
-  %21 = and i64 %20, 4095
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %21
-  %23 = load i64, ptr %22, align 8
-  %24 = and i64 %19, 63
-  %25 = lshr i64 %23, %24
-  %26 = and i64 %25, 1
-  %spec.select.i.i = add i64 %26, %.0810.i.i
-  %27 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 4096
-  %28 = icmp ult ptr %27, %16
-  br i1 %28, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i, !llvm.loop !224
+  %17 = ptrtoint ptr %.011.i.i to i64
+  %18 = lshr i64 %17, 12
+  %19 = lshr i64 %17, 18
+  %20 = and i64 %19, 4095
+  %21 = getelementptr inbounds nuw i64, ptr %4, i64 %20
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %18, 63
+  %24 = lshr i64 %22, %23
+  %25 = and i64 %24, 1
+  %spec.select.i.i = add i64 %25, %.0810.i.i
+  %26 = getelementptr inbounds nuw i8, ptr %.011.i.i, i64 4096
+  %27 = icmp ult ptr %26, %16
+  br i1 %27, label %.lr.ph.i.i, label %GC_number_stack_black_listed.exit.i, !llvm.loop !224
 
 GC_number_stack_black_listed.exit.i:              ; preds = %.lr.ph.i.i, %10
   %.08.lcssa.i.i = phi i64 [ 0, %10 ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %29 = add i64 %.08.lcssa.i.i, %.0810.i
+  %28 = add i64 %.08.lcssa.i.i, %.0810.i
   %indvars.iv.next.i = add i64 %indvars.iv.i, 1
-  %30 = and i64 %indvars.iv.next.i, 4294967295
-  %31 = icmp ugt i64 %8, %30
-  br i1 %31, label %10, label %._crit_edge.loopexit.i, !llvm.loop !225
+  %29 = and i64 %indvars.iv.next.i, 4294967295
+  %30 = icmp ugt i64 %8, %29
+  br i1 %30, label %10, label %._crit_edge.loopexit.i, !llvm.loop !225
 
 ._crit_edge.loopexit.i:                           ; preds = %GC_number_stack_black_listed.exit.i
-  %32 = shl i64 %29, 12
+  %31 = shl i64 %28, 12
   br label %total_stack_black_listed.exit
 
 total_stack_black_listed.exit:                    ; preds = %7, %._crit_edge.loopexit.i
-  %.08.lcssa.i = phi i64 [ 0, %7 ], [ %32, %._crit_edge.loopexit.i ]
+  %.08.lcssa.i = phi i64 [ 0, %7 ], [ %31, %._crit_edge.loopexit.i ]
   store i64 %.08.lcssa.i, ptr @GC_total_stack_black_listed, align 8
-  %33 = load i32, ptr @GC_print_stats, align 4
-  %.not4 = icmp eq i32 %33, 2
-  br i1 %.not4, label %34, label %35
+  %32 = load i32, ptr @GC_print_stats, align 4
+  %.not4 = icmp eq i32 %32, 2
+  br i1 %.not4, label %33, label %34
 
-34:                                               ; preds = %total_stack_black_listed.exit
+33:                                               ; preds = %total_stack_black_listed.exit
   tail call void (ptr, ...) @GC_log_printf(ptr noundef nonnull @.str.181, i64 noundef %.08.lcssa.i)
   %.pr = load i64, ptr @GC_total_stack_black_listed, align 8
-  br label %35
+  br label %34
 
-35:                                               ; preds = %total_stack_black_listed.exit, %34
-  %36 = phi i64 [ %.08.lcssa.i, %total_stack_black_listed.exit ], [ %.pr, %34 ]
-  %.not5 = icmp eq i64 %36, 0
-  br i1 %.not5, label %thread-pre-split, label %37
+34:                                               ; preds = %total_stack_black_listed.exit, %33
+  %35 = phi i64 [ %.08.lcssa.i, %total_stack_black_listed.exit ], [ %.pr, %33 ]
+  %.not5 = icmp eq i64 %35, 0
+  br i1 %.not5, label %thread-pre-split, label %36
 
-37:                                               ; preds = %35
-  %38 = load i64, ptr @GC_arrays, align 8
-  %39 = udiv i64 %38, %36
-  %40 = shl i64 %39, 12
-  store i64 %40, ptr @GC_black_list_spacing, align 8
-  br label %41
+36:                                               ; preds = %34
+  %37 = load i64, ptr @GC_arrays, align 8
+  %38 = udiv i64 %37, %35
+  %39 = shl i64 %38, 12
+  store i64 %39, ptr @GC_black_list_spacing, align 8
+  br label %40
 
-thread-pre-split:                                 ; preds = %35
+thread-pre-split:                                 ; preds = %34
   %.pr6 = load i64, ptr @GC_black_list_spacing, align 8
-  br label %41
+  br label %40
 
-41:                                               ; preds = %thread-pre-split, %37
-  %.pr8 = phi i64 [ %.pr6, %thread-pre-split ], [ %40, %37 ]
-  %42 = icmp ult i64 %.pr8, 12288
-  br i1 %42, label %.sink.split, label %43
+40:                                               ; preds = %thread-pre-split, %36
+  %.pr8 = phi i64 [ %.pr6, %thread-pre-split ], [ %39, %36 ]
+  %41 = icmp ult i64 %.pr8, 12288
+  br i1 %41, label %.sink.split, label %42
 
-43:                                               ; preds = %41
-  %44 = icmp ugt i64 %.pr8, 8388608
-  br i1 %44, label %.sink.split, label %45
+42:                                               ; preds = %40
+  %43 = icmp ugt i64 %.pr8, 8388608
+  br i1 %43, label %.sink.split, label %44
 
-.sink.split:                                      ; preds = %43, %41
-  %.sink = phi i64 [ 12288, %41 ], [ 8388608, %43 ]
+.sink.split:                                      ; preds = %42, %40
+  %.sink = phi i64 [ 12288, %40 ], [ 8388608, %42 ]
   store i64 %.sink, ptr @GC_black_list_spacing, align 8
-  br label %45
+  br label %44
 
-45:                                               ; preds = %.sink.split, %43
+44:                                               ; preds = %.sink.split, %42
   ret void
 }
 

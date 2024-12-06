@@ -7670,7 +7670,7 @@ _ZN4llvm16dyn_cast_or_nullINS_27FixedStackPseudoSourceValueEKNS_17PseudoSourceVa
 _ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i: ; preds = %3417, %3408
   %.lcssa.i.i.pn.i = phi i64 [ %3411, %3408 ], [ %3420, %3417 ]
   %3424 = zext i32 %3406 to i64
-  %.not571.i = icmp eq i64 %.lcssa.i.i.pn.i, %3424
+  %.not571.i = icmp samesign eq i64 %.lcssa.i.i.pn.i, %3424
   br i1 %.not571.i, label %_ZNSt6vectorIPN4llvm17MachineMemOperandESaIS2_EE9push_backERKS2_.exit.i, label %3425
 
 3425:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIiiNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiiEEEEiiS3_S6_E4findERKi.exit.i

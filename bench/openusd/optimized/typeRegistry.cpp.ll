@@ -11469,7 +11469,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
 
 3:                                                ; preds = %2
   %.add = add nuw nsw i64 %.idx, 40
-  %4 = icmp eq i64 %.add, 224
+  %4 = icmp samesign eq i64 %.add, 224
   br i1 %4, label %.preheader29, label %2
 
 .preheader29:                                     ; preds = %3, %5
@@ -11480,7 +11480,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
 
 5:                                                ; preds = %.preheader29
   %.add15 = add nuw nsw i64 %.idx14, 40
-  %6 = icmp eq i64 %.add15, 384
+  %6 = icmp samesign eq i64 %.add15, 384
   br i1 %6, label %7, label %.preheader29
 
 7:                                                ; preds = %5
@@ -16178,7 +16178,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
 
 3:                                                ; preds = %2
   %.add = add nuw nsw i64 %.idx, 40
-  %4 = icmp eq i64 %.add, 224
+  %4 = icmp samesign eq i64 %.add, 224
   br i1 %4, label %.preheader29, label %2
 
 .preheader29:                                     ; preds = %3, %5
@@ -16189,7 +16189,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__9Ts_BezierINS_7Vt
 
 5:                                                ; preds = %.preheader29
   %.add15 = add nuw nsw i64 %.idx14, 40
-  %6 = icmp eq i64 %.add15, 384
+  %6 = icmp samesign eq i64 %.add15, 384
   br i1 %6, label %7, label %.preheader29
 
 7:                                                ; preds = %5

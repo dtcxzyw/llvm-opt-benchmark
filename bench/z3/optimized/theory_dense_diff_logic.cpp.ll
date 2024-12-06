@@ -5943,7 +5943,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6mi_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not21 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not21 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not21, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6mi_extEE4atomELb0EjE3endEv.exit
@@ -9574,7 +9574,7 @@ if.end.i.i.i:                                     ; preds = %_ZN3smt23theory_den
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6mi_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZN3smt23theory_dense_diff_logicINS_6mi_extEE13restore_cellsEj.exit
   %retval.0.i.i.i = phi i64 [ %18, %if.end.i.i.i ], [ 0, %_ZN3smt23theory_dense_diff_logicINS_6mi_extEE13restore_cellsEj.exit ]
-  %cmp.not21.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not21.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not21.i, label %while.end.i, label %while.body.lr.ph.i7
 
 while.body.lr.ph.i7:                              ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6mi_extEE4atomELb0EjE3endEv.exit.i
@@ -24814,7 +24814,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_5i_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not22 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not22 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not22, label %while.end, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_5i_extEE4atomELb0EjE3endEv.exit
@@ -37862,7 +37862,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not22 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not22 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not22, label %while.end, label %_Z7deallocIN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomELb0EjE3endEv.exit
@@ -40614,7 +40614,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6vectorIN3smt23t
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE4edgeELb1EjE6shrinkEj.exit
   %retval.0.i.i.i = phi i64 [ %22, %if.end.i.i.i ], [ 0, %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_7smi_extEE4edgeELb1EjE6shrinkEj.exit ]
-  %cmp.not22.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not22.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not22.i, label %while.end.i16, label %_Z7deallocIN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_7smi_extEE4atomELb0EjE3endEv.exit.i
@@ -49411,7 +49411,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6si_extEE4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not22 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not22 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not22, label %while.end, label %_Z7deallocIN3smt23theory_dense_diff_logicINS0_6si_extEE4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt23theory_dense_diff_logicINS0_6si_extEE4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6si_extEE4atomELb0EjE3endEv.exit
@@ -52127,7 +52127,7 @@ if.end.i.i.i:                                     ; preds = %_ZN6vectorIN3smt23t
 
 _ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6si_extEE4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_6si_extEE4edgeELb1EjE6shrinkEj.exit
   %retval.0.i.i.i = phi i64 [ %21, %if.end.i.i.i ], [ 0, %_ZN6vectorIN3smt23theory_dense_diff_logicINS0_6si_extEE4edgeELb1EjE6shrinkEj.exit ]
-  %cmp.not22.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not22.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not22.i, label %while.end.i16, label %_Z7deallocIN3smt23theory_dense_diff_logicINS0_6si_extEE4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt23theory_dense_diff_logicINS0_6si_extEE4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt23theory_dense_diff_logicINS0_6si_extEE4atomELb0EjE3endEv.exit.i

@@ -74424,7 +74424,7 @@ switch.lookup:
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i", %39, %35
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 %2
-  %45 = icmp eq i64 %2, %36
+  %45 = icmp samesign eq i64 %2, %36
   br i1 %45, label %.loopexit, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i.i"

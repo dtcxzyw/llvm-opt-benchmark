@@ -3340,7 +3340,7 @@ _ZNK4absl13cord_internal12CordRepBtree11IndexBeyondEm.exit: ; preds = %while.bod
   %17 = load i8, ptr %arrayidx.i.i.i.i, align 1
   %conv.i.i.i.i = zext i8 %17 to i64
   %add.ptr.i6.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i, i64 %conv.i.i.i.i
-  %cmp.not8.i = icmp eq i64 %conv.i.i.i, %conv.i.i.i.i
+  %cmp.not8.i = icmp samesign eq i64 %conv.i.i.i, %conv.i.i.i.i
   br i1 %cmp.not8.i, label %_ZNK4absl13cord_internal12CordRepBtree13CopyToEndFromEmm.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZNK4absl13cord_internal12CordRepBtree11IndexBeyondEm.exit
@@ -3472,7 +3472,7 @@ _ZNK4absl13cord_internal12CordRepBtree11IndexBeyondEm.exit105: ; preds = %while.
   %31 = load i8, ptr %arrayidx.i.i.i.i114, align 1
   %conv.i.i.i.i115 = zext i8 %31 to i64
   %add.ptr.i6.i116 = getelementptr inbounds nuw ptr, ptr %edges_.i.i112, i64 %conv.i.i.i.i115
-  %cmp.not8.i117 = icmp eq i64 %conv.i.i.i113, %conv.i.i.i.i115
+  %cmp.not8.i117 = icmp samesign eq i64 %conv.i.i.i113, %conv.i.i.i.i115
   br i1 %cmp.not8.i117, label %_ZNK4absl13cord_internal12CordRepBtree13CopyToEndFromEmm.exit125, label %for.body.preheader.i118
 
 for.body.preheader.i118:                          ; preds = %_ZNK4absl13cord_internal12CordRepBtree11IndexBeyondEm.exit105
@@ -3663,7 +3663,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit: ; preds = %while.body.i, 
   %conv.i.i.i = zext i8 %20 to i64
   %conv.i.i.i.i = and i64 %index.0.lcssa.i, 255
   %add.ptr.i6.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i, i64 %conv.i.i.i.i
-  %cmp.not8.i = icmp eq i64 %conv.i.i.i.i, %conv.i.i.i
+  %cmp.not8.i = icmp samesign eq i64 %conv.i.i.i.i, %conv.i.i.i
   br i1 %cmp.not8.i, label %_ZNK4absl13cord_internal12CordRepBtree11CopyBeginToEmm.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit
@@ -3795,7 +3795,7 @@ _ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit106: ; preds = %while.body.
   %conv.i.i.i115 = zext i8 %38 to i64
   %conv.i.i.i.i116 = and i64 %index.0.lcssa.i103, 255
   %add.ptr.i6.i117 = getelementptr inbounds nuw ptr, ptr %edges_.i.i113, i64 %conv.i.i.i.i116
-  %cmp.not8.i118 = icmp eq i64 %conv.i.i.i.i116, %conv.i.i.i115
+  %cmp.not8.i118 = icmp samesign eq i64 %conv.i.i.i.i116, %conv.i.i.i115
   br i1 %cmp.not8.i118, label %_ZNK4absl13cord_internal12CordRepBtree11CopyBeginToEmm.exit126, label %for.body.preheader.i119
 
 for.body.preheader.i119:                          ; preds = %_ZNK4absl13cord_internal12CordRepBtree7IndexOfEm.exit106
@@ -3979,7 +3979,7 @@ if.else:                                          ; preds = %entry
   %conv.i.i.i = zext i8 %5 to i64
   %conv.i.i.i.i = and i64 %end, 255
   %add.ptr.i6.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i, i64 %conv.i.i.i.i
-  %cmp.not8.i = icmp eq i64 %conv.i.i.i.i, %conv.i.i.i
+  %cmp.not8.i = icmp samesign eq i64 %conv.i.i.i.i, %conv.i.i.i
   br i1 %cmp.not8.i, label %_ZNK4absl13cord_internal12CordRepBtree11CopyBeginToEmm.exit, label %for.body.preheader.i
 
 for.body.preheader.i:                             ; preds = %if.else
@@ -4297,7 +4297,7 @@ if.else.i74:                                      ; preds = %while.end
   %conv.i.i.i.i = zext i8 %36 to i64
   %conv.i.i.i.i.i = and i64 %add, 255
   %add.ptr.i6.i.i = getelementptr inbounds nuw ptr, ptr %edges_.i.i.i, i64 %conv.i.i.i.i.i
-  %cmp.not8.i.i = icmp eq i64 %conv.i.i.i.i.i, %conv.i.i.i.i
+  %cmp.not8.i.i = icmp samesign eq i64 %conv.i.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.not8.i.i, label %_ZNK4absl13cord_internal12CordRepBtree11CopyBeginToEmm.exit.i, label %for.body.preheader.i.i
 
 for.body.preheader.i.i:                           ; preds = %if.else.i74
@@ -4505,7 +4505,7 @@ if.else.i150:                                     ; preds = %_ZNK4absl13cord_int
   %conv.i.i.i.i159 = zext i8 %60 to i64
   %conv.i.i.i.i.i160 = and i64 %index.0.in.i138, 255
   %add.ptr.i6.i.i161 = getelementptr inbounds nuw ptr, ptr %edges_.i.i.i157, i64 %conv.i.i.i.i.i160
-  %cmp.not8.i.i162 = icmp eq i64 %conv.i.i.i.i.i160, %conv.i.i.i.i159
+  %cmp.not8.i.i162 = icmp samesign eq i64 %conv.i.i.i.i.i160, %conv.i.i.i.i159
   br i1 %cmp.not8.i.i162, label %_ZNK4absl13cord_internal12CordRepBtree11CopyBeginToEmm.exit.i170, label %for.body.preheader.i.i163
 
 for.body.preheader.i.i163:                        ; preds = %if.else.i150

@@ -1184,7 +1184,7 @@ _ZN4llvm12MachineInstr8all_usesEv.exit.i.i.i:     ; preds = %335, %.lr.ph.i.i.i.
 _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i: ; preds = %353, %344
   %.lcssa.i.i.pn.i.i.i = phi i64 [ %347, %344 ], [ %356, %353 ]
   %360 = zext i32 %342 to i64
-  %.not88.i.i.i = icmp eq i64 %.lcssa.i.i.pn.i.i.i, %360
+  %.not88.i.i.i = icmp samesign eq i64 %.lcssa.i.i.pn.i.i.i, %360
   br i1 %.not88.i.i.i, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.thread.i.i.i, label %361
 
 361:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i.i.i

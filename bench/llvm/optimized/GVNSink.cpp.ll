@@ -2696,7 +2696,7 @@ _ZN12_GLOBAL__N_111ModelledPHIC2ERKS0_.exit.i:    ; preds = %855, %_ZN4llvm11Sma
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.i.i: ; preds = %882, %869
   %.lcssa.i.i.i.i.pn.i.i.i = phi i64 [ %876, %869 ], [ %885, %882 ]
   %889 = zext i32 %867 to i64
-  %.not12.i.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i.i, %889
+  %.not12.i.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i.i, %889
   br i1 %.not12.i.i, label %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.thread.i.i, label %910
 
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.thread.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i56, %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.i.i, %864, %862
@@ -3068,7 +3068,7 @@ _ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj4EEES3_EEbOT_RKT0_.
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.i131.i: ; preds = %1036, %1023
   %.lcssa.i.i.i.i.pn.i.i132.i = phi i64 [ %1030, %1023 ], [ %1039, %1036 ]
   %1043 = zext i32 %1021 to i64
-  %.not10.i.i = icmp eq i64 %.lcssa.i.i.i.i.pn.i.i132.i, %1043
+  %.not10.i.i = icmp samesign eq i64 %.lcssa.i.i.i.i.pn.i.i132.i, %1043
   br i1 %.not10.i.i, label %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.thread.i135.i, label %1056
 
 _ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.thread.i135.i: ; preds = %.lr.ph.i.i.i.i.i.i127.i, %_ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.i131.i, %1019, %_ZN4llvm12is_containedIRKNS_11SmallVectorIPNS_10BasicBlockELj4EEES3_EEbOT_RKT0_.exit._ZNK4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj4EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj4EE8containsERKS2_.exit.thread_crit_edge.i.i

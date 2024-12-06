@@ -1195,7 +1195,7 @@ _ZN4llvm4SHA112addUncountedEh.exit:               ; preds = %.lr.ph, %22
   %.sroa.0.1.lcssa = phi ptr [ %.sroa.0.0, %27 ], [ %37, %35 ]
   %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.0, %27 ], [ %36, %35 ]
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.lcssa, i64 %.sroa.9.1.lcssa
-  %.not2144 = icmp eq i64 %.sroa.9.1.lcssa, 0
+  %.not2144 = icmp samesign eq i64 %.sroa.9.1.lcssa, 0
   br i1 %.not2144, label %._crit_edge48, label %.lr.ph47.preheader
 
 .lr.ph47.preheader:                               ; preds = %._crit_edge42

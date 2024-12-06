@@ -330,7 +330,7 @@ select.unfold:                                    ; preds = %select.unfold.outer
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i: ; preds = %190, %181
   %.lcssa.i.i.i.pn.i = phi i64 [ %184, %181 ], [ %193, %190 ]
   %197 = zext i32 %179 to i64
-  %198 = icmp eq i64 %.lcssa.i.i.i.pn.i, %197
+  %198 = icmp samesign eq i64 %.lcssa.i.i.i.pn.i, %197
   br i1 %198, label %select.unfold.outer.backedge, label %199
 
 select.unfold.outer.backedge:                     ; preds = %.lr.ph.i.i.i.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit.i, %176, %169, %166, %_ZN12_GLOBAL__N_120FastDivInsertionTask19insertFastDivAndRemEv.exit.i, %701, %_ZN12_GLOBAL__N_120FastDivInsertionTask14getReplacementERN4llvm8DenseMapINS1_12DivRemMapKeyENS_11QuotRemPairENS1_12DenseMapInfoIS3_vEENS1_6detail12DenseMapPairIS3_S4_EEEE.exit

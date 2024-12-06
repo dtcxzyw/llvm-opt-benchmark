@@ -303,7 +303,7 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i.i
 
 call.i.i.noexc:                                   ; preds = %invoke.cont3
   store ptr %call.i.i45, ptr %_M_data.i, align 8, !tbaa !31
-  %cmp.not2.i.i.i = icmp eq i64 %add, 0
+  %cmp.not2.i.i.i = icmp samesign eq i64 %add, 0
   br i1 %cmp.not2.i.i.i, label %invoke.cont6, label %while.body.preheader.i.i.i
 
 while.body.preheader.i.i.i:                       ; preds = %call.i.i.noexc

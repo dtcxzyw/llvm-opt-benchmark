@@ -16767,7 +16767,7 @@ do.body:                                          ; preds = %arrayctor.loop, %fo
   %__fill.0.ptr = getelementptr inbounds nuw i8, ptr %__tmp, i64 %__fill.0.idx
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt8__detail15_List_node_base11_M_transferEPS0_S1_(ptr noundef nonnull align 8 dereferenceable(16) %__carry, ptr noundef nonnull %2, ptr noundef %3) #30
-  %cmp13.not49 = icmp eq i64 %__fill.0.idx, 0
+  %cmp13.not49 = icmp samesign eq i64 %__fill.0.idx, 0
   br i1 %cmp13.not49, label %for.end, label %land.rhs
 
 land.rhs:                                         ; preds = %do.body, %invoke.cont16

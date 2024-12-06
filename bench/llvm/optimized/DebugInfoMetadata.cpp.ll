@@ -12765,7 +12765,7 @@ _ZN4llvm12DIExpression16expr_op_iteratorppEv.exit: ; preds = %_ZN4llvm6detail12D
 
 _ZNK4llvm6detail12DenseSetImplImNS_13SmallDenseMapImNS0_13DenseSetEmptyELj4ENS_12DenseMapInfoImvEENS0_12DenseSetPairImEEEES5_E8containsERKm.exit: ; preds = %79, %.lr.ph26.split
   %.lcssa.i.i.i.pn.i = phi i64 [ %73, %.lr.ph26.split ], [ %82, %79 ]
-  %.not16.not = icmp ne i64 %.lcssa.i.i.i.pn.i, %23
+  %.not16.not = icmp samesign ne i64 %.lcssa.i.i.i.pn.i, %23
   %86 = add nuw nsw i64 %storemerge25, 1
   %exitcond.not = icmp ne i64 %86, %14
   %or.cond.not = select i1 %.not16.not, i1 %exitcond.not, i1 false

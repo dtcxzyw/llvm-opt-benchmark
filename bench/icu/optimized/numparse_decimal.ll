@@ -275,7 +275,7 @@ invoke.cont125:                                   ; preds = %new.notnull119, %in
   %fUnion2.i49 = getelementptr inbounds nuw i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i49, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
-  %arrayctor.done = icmp eq i64 %arrayctor.cur.add, 648
+  %arrayctor.done = icmp samesign eq i64 %arrayctor.cur.add, 648
   br i1 %arrayctor.done, label %new.cont133.loopexit, label %invoke.cont125
 
 new.cont133.loopexit:                             ; preds = %invoke.cont125

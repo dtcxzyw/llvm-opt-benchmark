@@ -7410,7 +7410,7 @@ _ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEcl
   %249 = shl nuw i64 1, %248
   %250 = and i64 %247, %249
   %.not.i.i.i.i.i.i27 = icmp eq i64 %250, 0
-  br i1 %236, label %251, label %344
+  br i1 %236, label %251, label %343
 
 251:                                              ; preds = %234
   br i1 %.not.i.i.i.i.i.i27, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i28
@@ -7497,174 +7497,174 @@ _ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i31: ; preds = %25
   %311 = getelementptr i8, ptr %310, i64 %305
   %312 = getelementptr i8, ptr %311, i64 %306
   %313 = getelementptr inbounds nuw i64, ptr %312, i64 %308
-  %314 = icmp ugt i32 %298, 7
-  br i1 %314, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
+  %.not.i.i.i35 = icmp ult i32 %298, 8
+  br i1 %.not.i.i.i35, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %287, %.loopexit.i.i.i
-  %.023.i.i.i = phi ptr [ %323, %.loopexit.i.i.i ], [ %312, %287 ]
-  %315 = load i64, ptr %.023.i.i.i, align 8
-  switch i64 %315, label %.preheader.i.i.i [
-    i64 -1, label %316
+  %.023.i.i.i = phi ptr [ %322, %.loopexit.i.i.i ], [ %312, %287 ]
+  %314 = load i64, ptr %.023.i.i.i, align 8
+  switch i64 %314, label %.preheader.i.i.i [
+    i64 -1, label %315
     i64 0, label %.loopexit.i.i.i
   ]
 
-316:                                              ; preds = %.lr.ph.i.i.i
+315:                                              ; preds = %.lr.ph.i.i.i
   store i64 0, ptr %.023.i.i.i, align 8
   br label %.loopexit.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %320
-  %.01822.i.i.i = phi i64 [ %322, %320 ], [ 0, %.lr.ph.i.i.i ]
-  %.01921.i.i.i = phi ptr [ %321, %320 ], [ %.023.i.i.i, %.lr.ph.i.i.i ]
-  %317 = load i8, ptr %.01921.i.i.i, align 1
-  %318 = icmp eq i8 %317, -1
-  br i1 %318, label %319, label %320
+.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %319
+  %.01822.i.i.i = phi i64 [ %321, %319 ], [ 0, %.lr.ph.i.i.i ]
+  %.01921.i.i.i = phi ptr [ %320, %319 ], [ %.023.i.i.i, %.lr.ph.i.i.i ]
+  %316 = load i8, ptr %.01921.i.i.i, align 1
+  %317 = icmp eq i8 %316, -1
+  br i1 %317, label %318, label %319
 
-319:                                              ; preds = %.preheader.i.i.i
+318:                                              ; preds = %.preheader.i.i.i
   store i8 0, ptr %.01921.i.i.i, align 1
-  br label %320
+  br label %319
 
-320:                                              ; preds = %319, %.preheader.i.i.i
-  %321 = getelementptr inbounds nuw i8, ptr %.01921.i.i.i, i64 1
-  %322 = add nuw nsw i64 %.01822.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %322, 8
+319:                                              ; preds = %318, %.preheader.i.i.i
+  %320 = getelementptr inbounds nuw i8, ptr %.01921.i.i.i, i64 1
+  %321 = add nuw nsw i64 %.01822.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %321, 8
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.preheader.i.i.i, !llvm.loop !55
 
-.loopexit.i.i.i:                                  ; preds = %320, %316, %.lr.ph.i.i.i
-  %323 = getelementptr inbounds nuw i8, ptr %.023.i.i.i, i64 8
-  %324 = icmp ult ptr %323, %313
-  br i1 %324, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, !llvm.loop !56
+.loopexit.i.i.i:                                  ; preds = %319, %315, %.lr.ph.i.i.i
+  %322 = getelementptr inbounds nuw i8, ptr %.023.i.i.i, i64 8
+  %323 = icmp ult ptr %322, %313
+  br i1 %323, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, !llvm.loop !56
 
 _ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i: ; preds = %.loopexit.i.i.i
   %.pre.i.i = load i64, ptr %304, align 8
   br label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
 
 _ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i:   ; preds = %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, %287
-  %325 = phi i64 [ %.pre.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i ], [ %305, %287 ]
-  %326 = getelementptr inbounds nuw i8, ptr %299, i64 96
-  %327 = load i64, ptr %326, align 8
-  %328 = add i64 %327, %307
-  store i64 %328, ptr %326, align 8
-  %329 = getelementptr inbounds nuw i8, ptr %299, i64 16
-  %330 = load ptr, ptr %329, align 8
-  %331 = add i64 %325, %306
-  %332 = getelementptr inbounds nuw i8, ptr %330, i64 40
-  %333 = load i8, ptr %332, align 8
-  %334 = zext i8 %333 to i64
-  %335 = lshr i64 %331, %334
-  %336 = add nsw i64 %307, -1
-  %337 = add i64 %336, %331
-  %338 = lshr i64 %337, %334
-  %.not7.i.i.i = icmp ugt i64 %335, %338
+  %324 = phi i64 [ %.pre.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i ], [ %305, %287 ]
+  %325 = getelementptr inbounds nuw i8, ptr %299, i64 96
+  %326 = load i64, ptr %325, align 8
+  %327 = add i64 %326, %307
+  store i64 %327, ptr %325, align 8
+  %328 = getelementptr inbounds nuw i8, ptr %299, i64 16
+  %329 = load ptr, ptr %328, align 8
+  %330 = add i64 %324, %306
+  %331 = getelementptr inbounds nuw i8, ptr %329, i64 40
+  %332 = load i8, ptr %331, align 8
+  %333 = zext i8 %332 to i64
+  %334 = lshr i64 %330, %333
+  %335 = add nsw i64 %307, -1
+  %336 = add i64 %335, %330
+  %337 = lshr i64 %336, %333
+  %.not7.i.i.i = icmp ugt i64 %334, %337
   br i1 %.not7.i.i.i, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %.lr.ph.i5.i.i
 
 .lr.ph.i5.i.i:                                    ; preds = %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
-  %339 = getelementptr inbounds nuw i8, ptr %330, i64 24
-  br label %340
+  %338 = getelementptr inbounds nuw i8, ptr %329, i64 24
+  br label %339
 
-340:                                              ; preds = %340, %.lr.ph.i5.i.i
-  %.08.i.i.i = phi i64 [ %335, %.lr.ph.i5.i.i ], [ %343, %340 ]
-  %341 = load ptr, ptr %339, align 8
-  %342 = getelementptr inbounds i8, ptr %341, i64 %.08.i.i.i
-  store i8 1, ptr %342, align 1
-  %343 = add i64 %.08.i.i.i, 1
-  %.not.i.i.i35 = icmp ugt i64 %343, %338
-  br i1 %.not.i.i.i35, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %340, !llvm.loop !57
+339:                                              ; preds = %339, %.lr.ph.i5.i.i
+  %.08.i.i.i = phi i64 [ %334, %.lr.ph.i5.i.i ], [ %342, %339 ]
+  %340 = load ptr, ptr %338, align 8
+  %341 = getelementptr inbounds i8, ptr %340, i64 %.08.i.i.i
+  store i8 1, ptr %341, align 1
+  %342 = add i64 %.08.i.i.i, 1
+  %.not.i6.i.i = icmp ugt i64 %342, %337
+  br i1 %.not.i6.i.i, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %339, !llvm.loop !57
 
-344:                                              ; preds = %234
+343:                                              ; preds = %234
   br i1 %.not.i.i.i.i.i.i27, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37
 
-_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37: ; preds = %344
-  %345 = getelementptr inbounds nuw i8, ptr %241, i64 496
-  %346 = load ptr, ptr %345, align 8
-  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %243
-  %348 = load ptr, ptr %347, align 8
-  %.not.i.i.i.i38 = icmp eq ptr %348, null
-  br i1 %.not.i.i.i.i38, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %349
+_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37: ; preds = %343
+  %344 = getelementptr inbounds nuw i8, ptr %241, i64 496
+  %345 = load ptr, ptr %344, align 8
+  %346 = getelementptr inbounds nuw ptr, ptr %345, i64 %243
+  %347 = load ptr, ptr %346, align 8
+  %.not.i.i.i.i38 = icmp eq ptr %347, null
+  br i1 %.not.i.i.i.i38, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %348
 
-349:                                              ; preds = %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37
-  %350 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
-  %351 = getelementptr inbounds nuw i8, ptr %348, i64 48
-  %352 = load i32, ptr %351, align 8
-  %353 = zext i32 %352 to i64
-  %354 = getelementptr inbounds nuw i8, ptr %350, i64 1448
-  %355 = load ptr, ptr %354, align 8
-  %356 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %355, i64 %353
-  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i39 = load i24, ptr %356, align 1
-  %357 = and i24 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i39, 32768
-  %358 = icmp eq i24 %357, 0
-  br i1 %358, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40
+348:                                              ; preds = %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37
+  %349 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %347, i64 48
+  %351 = load i32, ptr %350, align 8
+  %352 = zext i32 %351 to i64
+  %353 = getelementptr inbounds nuw i8, ptr %349, i64 1448
+  %354 = load ptr, ptr %353, align 8
+  %355 = getelementptr inbounds nuw %struct.G1HeapRegionAttr, ptr %354, i64 %352
+  %.sroa.0.0.copyload.i.i.i.i.i.i.i.i39 = load i24, ptr %355, align 1
+  %356 = and i24 %.sroa.0.0.copyload.i.i.i.i.i.i.i.i39, 32768
+  %357 = icmp eq i24 %356, 0
+  br i1 %357, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40
 
-_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40: ; preds = %349
-  %359 = getelementptr inbounds nuw i8, ptr %348, i64 52
-  %360 = load volatile i32, ptr %359, align 4
-  %361 = and i32 %360, 12
-  %.not.i.i.i41 = icmp eq i32 %361, 0
-  br i1 %.not.i.i.i41, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %362
+_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40: ; preds = %348
+  %358 = getelementptr inbounds nuw i8, ptr %347, i64 52
+  %359 = load volatile i32, ptr %358, align 4
+  %360 = and i32 %359, 12
+  %.not.i.i.i41 = icmp eq i32 %360, 0
+  br i1 %.not.i.i.i41, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %361
 
-362:                                              ; preds = %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40
-  %363 = load ptr, ptr %240, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 56
-  %365 = load ptr, ptr %364, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
-  %367 = load ptr, ptr %366, align 8
-  %368 = getelementptr inbounds nuw i8, ptr %367, i64 %243
-  %369 = load i8, ptr %368, align 1
-  %370 = trunc i8 %369 to i1
-  br i1 %370, label %380, label %371
+361:                                              ; preds = %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40
+  %362 = load ptr, ptr %240, align 8
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 56
+  %364 = load ptr, ptr %363, align 8
+  %365 = getelementptr inbounds nuw i8, ptr %364, i64 24
+  %366 = load ptr, ptr %365, align 8
+  %367 = getelementptr inbounds nuw i8, ptr %366, i64 %243
+  %368 = load i8, ptr %367, align 1
+  %369 = trunc i8 %368 to i1
+  br i1 %369, label %379, label %370
 
-371:                                              ; preds = %362
-  %372 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %368) #18, !srcloc !36
-  %373 = trunc i8 %372 to i1
-  br i1 %373, label %380, label %374
+370:                                              ; preds = %361
+  %371 = tail call i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i1 true, i1 false, ptr nonnull %367) #18, !srcloc !36
+  %372 = trunc i8 %371 to i1
+  br i1 %372, label %379, label %373
 
-374:                                              ; preds = %371
-  %375 = getelementptr inbounds nuw i8, ptr %365, i64 8
-  %376 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %375) #18, !srcloc !18
-  %377 = load ptr, ptr %365, align 8
-  %378 = zext i32 %376 to i64
-  %379 = getelementptr inbounds nuw i32, ptr %377, i64 %378
-  store i32 %239, ptr %379, align 4
-  br label %380
+373:                                              ; preds = %370
+  %374 = getelementptr inbounds nuw i8, ptr %364, i64 8
+  %375 = tail call noundef i32 asm sideeffect "lock xaddl $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, ptr nonnull %374) #18, !srcloc !18
+  %376 = load ptr, ptr %364, align 8
+  %377 = zext i32 %375 to i64
+  %378 = getelementptr inbounds nuw i32, ptr %376, i64 %377
+  store i32 %239, ptr %378, align 4
+  br label %379
 
-380:                                              ; preds = %374, %371, %362
-  %381 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
-  %382 = zext nneg i32 %381 to i64
-  %383 = shl i64 %243, %382
-  %384 = getelementptr inbounds nuw i8, ptr %237, i64 104
-  store i64 %383, ptr %384, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %237, i64 48
-  %386 = load i64, ptr %385, align 8
-  %387 = add i64 %386, 1
-  store i64 %387, ptr %385, align 8
-  %388 = and i64 %4, -4
-  %389 = inttoptr i64 %388 to ptr
-  %390 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %391 = load ptr, ptr %390, align 8
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  %393 = load i32, ptr %392, align 8
-  %.not.i44 = icmp eq i32 %393, 0
+379:                                              ; preds = %373, %370, %361
+  %380 = load i32, ptr @_ZN12G1HeapRegion17LogCardsPerRegionE, align 4
+  %381 = zext nneg i32 %380 to i64
+  %382 = shl i64 %243, %381
+  %383 = getelementptr inbounds nuw i8, ptr %237, i64 104
+  store i64 %382, ptr %383, align 8
+  %384 = getelementptr inbounds nuw i8, ptr %237, i64 48
+  %385 = load i64, ptr %384, align 8
+  %386 = add i64 %385, 1
+  store i64 %386, ptr %384, align 8
+  %387 = and i64 %4, -4
+  %388 = inttoptr i64 %387 to ptr
+  %389 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %390 = load ptr, ptr %389, align 8
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  %392 = load i32, ptr %391, align 8
+  %.not.i44 = icmp eq i32 %392, 0
   br i1 %.not.i44, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %.lr.ph.i45
 
-.lr.ph.i45:                                       ; preds = %380
-  %394 = getelementptr inbounds nuw i8, ptr %389, i64 16
-  br label %395
+.lr.ph.i45:                                       ; preds = %379
+  %393 = getelementptr inbounds nuw i8, ptr %388, i64 16
+  br label %394
 
-395:                                              ; preds = %395, %.lr.ph.i45
-  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i47, %395 ]
-  %396 = getelementptr inbounds nuw ptr, ptr %394, i64 %indvars.iv.i46
-  %397 = load ptr, ptr %396, align 8
-  %398 = trunc nuw i64 %indvars.iv.i46 to i32
-  tail call void @_ZN13G1CardSetHowl15iterate_cardsetI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvPvjRT_P22G1CardSetConfiguration(ptr noundef nonnull align 8 dereferenceable(24) %389, ptr noundef %397, i32 noundef %398, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %391)
+394:                                              ; preds = %394, %.lr.ph.i45
+  %indvars.iv.i46 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i47, %394 ]
+  %395 = getelementptr inbounds nuw ptr, ptr %393, i64 %indvars.iv.i46
+  %396 = load ptr, ptr %395, align 8
+  %397 = trunc nuw i64 %indvars.iv.i46 to i32
+  tail call void @_ZN13G1CardSetHowl15iterate_cardsetI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvPvjRT_P22G1CardSetConfiguration(ptr noundef nonnull align 8 dereferenceable(24) %388, ptr noundef %396, i32 noundef %397, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull %390)
   %indvars.iv.next.i47 = add nuw nsw i64 %indvars.iv.i46, 1
-  %399 = load i32, ptr %392, align 8
-  %400 = zext i32 %399 to i64
-  %401 = icmp samesign ult i64 %indvars.iv.next.i47, %400
-  br i1 %401, label %395, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, !llvm.loop !58
+  %398 = load i32, ptr %391, align 8
+  %399 = zext i32 %398 to i64
+  %400 = icmp samesign ult i64 %indvars.iv.next.i47, %399
+  br i1 %400, label %394, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, !llvm.loop !58
 
 default.unreachable54:                            ; preds = %3
   unreachable
 
-_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit: ; preds = %395, %340, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i25, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i, %344, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37, %349, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40, %251, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i28, %256, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i31, %121, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i16, %140, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i19, %7, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i, %26, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i, %380, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, %171, %57
+_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit: ; preds = %394, %339, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i25, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i, %343, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i37, %348, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i40, %251, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i28, %256, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i31, %121, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i16, %140, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i19, %7, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i, %26, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i, %379, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, %171, %57
   ret void
 }
 
@@ -8159,83 +8159,83 @@ _ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i44: ; preds = %28
   %337 = getelementptr i8, ptr %336, i64 %331
   %338 = getelementptr i8, ptr %337, i64 %332
   %339 = getelementptr inbounds nuw i64, ptr %338, i64 %334
-  %340 = icmp ugt i32 %323, 7
-  br i1 %340, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
+  %.not.i.i.i48 = icmp ult i32 %323, 8
+  br i1 %.not.i.i.i48, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %311, %.loopexit.i.i.i
-  %.023.i.i.i = phi ptr [ %349, %.loopexit.i.i.i ], [ %338, %311 ]
-  %341 = load i64, ptr %.023.i.i.i, align 8
-  switch i64 %341, label %.preheader.i.i.i [
-    i64 -1, label %342
+  %.023.i.i.i = phi ptr [ %348, %.loopexit.i.i.i ], [ %338, %311 ]
+  %340 = load i64, ptr %.023.i.i.i, align 8
+  switch i64 %340, label %.preheader.i.i.i [
+    i64 -1, label %341
     i64 0, label %.loopexit.i.i.i
   ]
 
-342:                                              ; preds = %.lr.ph.i.i.i
+341:                                              ; preds = %.lr.ph.i.i.i
   store i64 0, ptr %.023.i.i.i, align 8
   br label %.loopexit.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %346
-  %.01822.i.i.i = phi i64 [ %348, %346 ], [ 0, %.lr.ph.i.i.i ]
-  %.01921.i.i.i = phi ptr [ %347, %346 ], [ %.023.i.i.i, %.lr.ph.i.i.i ]
-  %343 = load i8, ptr %.01921.i.i.i, align 1
-  %344 = icmp eq i8 %343, -1
-  br i1 %344, label %345, label %346
+.preheader.i.i.i:                                 ; preds = %.lr.ph.i.i.i, %345
+  %.01822.i.i.i = phi i64 [ %347, %345 ], [ 0, %.lr.ph.i.i.i ]
+  %.01921.i.i.i = phi ptr [ %346, %345 ], [ %.023.i.i.i, %.lr.ph.i.i.i ]
+  %342 = load i8, ptr %.01921.i.i.i, align 1
+  %343 = icmp eq i8 %342, -1
+  br i1 %343, label %344, label %345
 
-345:                                              ; preds = %.preheader.i.i.i
+344:                                              ; preds = %.preheader.i.i.i
   store i8 0, ptr %.01921.i.i.i, align 1
-  br label %346
+  br label %345
 
-346:                                              ; preds = %345, %.preheader.i.i.i
-  %347 = getelementptr inbounds nuw i8, ptr %.01921.i.i.i, i64 1
-  %348 = add nuw nsw i64 %.01822.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %348, 8
+345:                                              ; preds = %344, %.preheader.i.i.i
+  %346 = getelementptr inbounds nuw i8, ptr %.01921.i.i.i, i64 1
+  %347 = add nuw nsw i64 %.01822.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %347, 8
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.preheader.i.i.i, !llvm.loop !55
 
-.loopexit.i.i.i:                                  ; preds = %346, %342, %.lr.ph.i.i.i
-  %349 = getelementptr inbounds nuw i8, ptr %.023.i.i.i, i64 8
-  %350 = icmp ult ptr %349, %339
-  br i1 %350, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, !llvm.loop !56
+.loopexit.i.i.i:                                  ; preds = %345, %341, %.lr.ph.i.i.i
+  %348 = getelementptr inbounds nuw i8, ptr %.023.i.i.i, i64 8
+  %349 = icmp ult ptr %348, %339
+  br i1 %349, label %.lr.ph.i.i.i, label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, !llvm.loop !56
 
 _ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i: ; preds = %.loopexit.i.i.i
   %.pre.i.i = load i64, ptr %330, align 8
   br label %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
 
 _ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i:   ; preds = %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i, %311
-  %351 = phi i64 [ %.pre.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i ], [ %331, %311 ]
-  %352 = getelementptr inbounds nuw i8, ptr %324, i64 96
-  %353 = load i64, ptr %352, align 8
-  %354 = add i64 %353, %333
-  store i64 %354, ptr %352, align 8
-  %355 = getelementptr inbounds nuw i8, ptr %324, i64 16
-  %356 = load ptr, ptr %355, align 8
-  %357 = add i64 %351, %332
-  %358 = getelementptr inbounds nuw i8, ptr %356, i64 40
-  %359 = load i8, ptr %358, align 8
-  %360 = zext i8 %359 to i64
-  %361 = lshr i64 %357, %360
-  %362 = add nsw i64 %333, -1
-  %363 = add i64 %362, %357
-  %364 = lshr i64 %363, %360
-  %.not7.i.i.i = icmp ugt i64 %361, %364
+  %350 = phi i64 [ %.pre.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.loopexit.i.i ], [ %331, %311 ]
+  %351 = getelementptr inbounds nuw i8, ptr %324, i64 96
+  %352 = load i64, ptr %351, align 8
+  %353 = add i64 %352, %333
+  store i64 %353, ptr %351, align 8
+  %354 = getelementptr inbounds nuw i8, ptr %324, i64 16
+  %355 = load ptr, ptr %354, align 8
+  %356 = add i64 %350, %332
+  %357 = getelementptr inbounds nuw i8, ptr %355, i64 40
+  %358 = load i8, ptr %357, align 8
+  %359 = zext i8 %358 to i64
+  %360 = lshr i64 %356, %359
+  %361 = add nsw i64 %333, -1
+  %362 = add i64 %361, %356
+  %363 = lshr i64 %362, %359
+  %.not7.i.i.i = icmp ugt i64 %360, %363
   br i1 %.not7.i.i.i, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %.lr.ph.i5.i.i
 
 .lr.ph.i5.i.i:                                    ; preds = %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i
-  %365 = getelementptr inbounds nuw i8, ptr %356, i64 24
-  br label %366
+  %364 = getelementptr inbounds nuw i8, ptr %355, i64 24
+  br label %365
 
-366:                                              ; preds = %366, %.lr.ph.i5.i.i
-  %.08.i.i.i = phi i64 [ %361, %.lr.ph.i5.i.i ], [ %369, %366 ]
-  %367 = load ptr, ptr %365, align 8
-  %368 = getelementptr inbounds i8, ptr %367, i64 %.08.i.i.i
-  store i8 1, ptr %368, align 1
-  %369 = add i64 %.08.i.i.i, 1
-  %.not.i.i.i48 = icmp ugt i64 %369, %364
-  br i1 %.not.i.i.i48, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %366, !llvm.loop !57
+365:                                              ; preds = %365, %.lr.ph.i5.i.i
+  %.08.i.i.i = phi i64 [ %360, %.lr.ph.i5.i.i ], [ %368, %365 ]
+  %366 = load ptr, ptr %364, align 8
+  %367 = getelementptr inbounds i8, ptr %366, i64 %.08.i.i.i
+  store i8 1, ptr %367, align 1
+  %368 = add i64 %.08.i.i.i, 1
+  %.not.i6.i.i = icmp ugt i64 %368, %363
+  br i1 %.not.i6.i.i, label %_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit, label %365, !llvm.loop !57
 
 default.unreachable53:                            ; preds = %5
   unreachable
 
-_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit: ; preds = %366, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i30, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i, %275, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i41, %280, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i44, %220, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i33, %225, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i36, %123, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i21, %128, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i24, %25, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i, %30, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, %159, %61, %256
+_ZN18G1CardSetInlinePtr7iterateI24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEEEvRT_j.exit: ; preds = %365, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i30, %_ZN24G1ContainerCardsOrRangesIN20G1MergeHeapRootsTask21G1MergeCardSetClosureEEclEj.exit.i, %275, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i41, %280, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i44, %220, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i33, %225, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i36, %123, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i21, %128, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i24, %25, %_ZNK15G1CollectedHeap17region_at_or_nullEj.exit.i.i.i.i, %30, %_ZNK17G1RemSetScanState25contains_cards_to_processEj.exit.i.i.i, %_ZN11G1CardTable16mark_range_dirtyEmm.exit.i.i, %159, %61, %256
   ret void
 }
 

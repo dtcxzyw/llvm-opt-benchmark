@@ -2975,7 +2975,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl19collectTiedOperandsEPN4llvm12Machi
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i: ; preds = %1192, %.lr.ph.split.i.i
   %.lcssa.i.i.pn.i.i = phi i64 [ %1186, %.lr.ph.split.i.i ], [ %1195, %1192 ]
-  %1199 = icmp eq i64 %.lcssa.i.i.pn.i.i, %1184
+  %1199 = icmp samesign eq i64 %.lcssa.i.i.pn.i.i, %1184
   br i1 %1199, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i, label %1200
 
 1200:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i
@@ -8014,7 +8014,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIjNS_11SmallVectorISt4pairIjjELj4EEELj4
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250: ; preds = %3589, %.lr.ph.split.i.i243
   %.lcssa.i.i.pn.i.i251 = phi i64 [ %3583, %.lr.ph.split.i.i243 ], [ %3592, %3589 ]
-  %3596 = icmp eq i64 %.lcssa.i.i.pn.i.i251, %3581
+  %3596 = icmp samesign eq i64 %.lcssa.i.i.pn.i.i251, %3581
   br i1 %3596, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.i234, label %3597
 
 3597:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i250
@@ -8919,7 +8919,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_125TwoAddressInstructionImpl24remov
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i: ; preds = %27, %.lr.ph.split.i
   %.lcssa.i.i.pn.i = phi i64 [ %21, %.lr.ph.split.i ], [ %30, %27 ]
-  %34 = icmp eq i64 %.lcssa.i.i.pn.i, %19
+  %34 = icmp samesign eq i64 %.lcssa.i.i.pn.i, %19
   br i1 %34, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit, label %35
 
 35:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i
@@ -9407,7 +9407,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i: ; preds = %211, %.lr.ph.split.i.i.i
   %.lcssa.i.i.pn.i.i.i = phi i64 [ %205, %.lr.ph.split.i.i.i ], [ %214, %211 ]
-  %218 = icmp eq i64 %.lcssa.i.i.pn.i.i.i, %203
+  %218 = icmp samesign eq i64 %.lcssa.i.i.pn.i.i.i, %203
   br i1 %218, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit.thread.i.i, label %219
 
 219:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i.i
@@ -9462,7 +9462,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i: ; preds = %235, %.lr.ph.split.i68.i.i
   %.lcssa.i.i.pn.i76.i.i = phi i64 [ %229, %.lr.ph.split.i68.i.i ], [ %238, %235 ]
-  %242 = icmp eq i64 %.lcssa.i.i.pn.i76.i.i, %227
+  %242 = icmp samesign eq i64 %.lcssa.i.i.pn.i76.i.i, %227
   br i1 %242, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit77.i.i, label %243
 
 243:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i75.i.i
@@ -9522,7 +9522,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i: ; preds = %261, %.lr.ph.split.i83.i.i
   %.lcssa.i.i.pn.i91.i.i = phi i64 [ %255, %.lr.ph.split.i83.i.i ], [ %264, %261 ]
-  %268 = icmp eq i64 %.lcssa.i.i.pn.i91.i.i, %253
+  %268 = icmp samesign eq i64 %.lcssa.i.i.pn.i91.i.i, %253
   br i1 %268, label %_ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_6detail12DenseMapPairIS0_S0_EEEE.exit92.i.i, label %269
 
 269:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i90.i.i
@@ -10143,7 +10143,7 @@ _ZN12_GLOBAL__N_125TwoAddressInstructionImpl18commuteInstructionEPN4llvm12Machin
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i54.i: ; preds = %529, %.lr.ph.split.i.i47.i
   %.lcssa.i.i.pn.i.i55.i = phi i64 [ %523, %.lr.ph.split.i.i47.i ], [ %532, %529 ]
-  %536 = icmp eq i64 %.lcssa.i.i.pn.i.i55.i, %521
+  %536 = icmp samesign eq i64 %.lcssa.i.i.pn.i.i55.i, %521
   br i1 %536, label %.thread, label %537
 
 537:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i54.i
@@ -11084,7 +11084,7 @@ _ZNK12_GLOBAL__N_125TwoAddressInstructionImpl8isKilledERN4llvm12MachineInstrENS1
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i: ; preds = %974, %.lr.ph.split.i.i
   %.lcssa.i.i.pn.i.i = phi i64 [ %968, %.lr.ph.split.i.i ], [ %977, %974 ]
-  %981 = icmp eq i64 %.lcssa.i.i.pn.i.i, %966
+  %981 = icmp samesign eq i64 %.lcssa.i.i.pn.i.i, %966
   br i1 %981, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl23isProfitableToConv3AddrEN4llvm8RegisterES2_.exit.thread, label %982
 
 982:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i.i
@@ -11141,7 +11141,7 @@ _ZL12getMappedRegN4llvm8RegisterERNS_8DenseMapIS0_S0_NS_12DenseMapInfoIS0_vEENS_
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i24.i: ; preds = %1000, %.lr.ph.split.i17.i
   %.lcssa.i.i.pn.i25.i = phi i64 [ %994, %.lr.ph.split.i17.i ], [ %1003, %1000 ]
-  %1007 = icmp eq i64 %.lcssa.i.i.pn.i25.i, %992
+  %1007 = icmp samesign eq i64 %.lcssa.i.i.pn.i25.i, %992
   br i1 %1007, label %_ZN12_GLOBAL__N_125TwoAddressInstructionImpl23isProfitableToConv3AddrEN4llvm8RegisterES2_.exit.thread, label %1008
 
 1008:                                             ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8RegisterES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E4findERKS2_.exit.i24.i

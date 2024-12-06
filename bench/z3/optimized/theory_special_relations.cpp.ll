@@ -968,7 +968,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIP5trailLb0EjE3endEv.exit.i.i:          ; preds = %if.end.i.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %retval.0.i.i.i.i = phi i64 [ %12, %if.end.i.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %cmp.not6.i.i = icmp eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
+  %cmp.not6.i.i = icmp samesign eq i64 %retval.0.i.i.i.i, %idx.ext.i.i
   br i1 %cmp.not6.i.i, label %while.end.i.i, label %while.body.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6vectorIP5trailLb0EjE3endEv.exit.i.i
@@ -9979,7 +9979,7 @@ if.end.i.i:                                       ; preds = %entry
 
 _ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit: ; preds = %entry, %if.end.i.i
   %retval.0.i.i = phi i64 [ %2, %if.end.i.i ], [ 0, %entry ]
-  %cmp.not6 = icmp eq i64 %retval.0.i.i, %idx.ext
+  %cmp.not6 = icmp samesign eq i64 %retval.0.i.i, %idx.ext
   br i1 %cmp.not6, label %while.end, label %_Z7deallocIN3smt24theory_special_relations4atomEEvPT_.exit.lr.ph
 
 _Z7deallocIN3smt24theory_special_relations4atomEEvPT_.exit.lr.ph: ; preds = %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit
@@ -10320,7 +10320,7 @@ if.end.i.i.i:                                     ; preds = %_ZNK6vectorIjLb0EjE
 
 _ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit.i: ; preds = %if.end.i.i.i, %_ZNK6vectorIjLb0EjE4sizeEv.exit
   %retval.0.i.i.i = phi i64 [ %10, %if.end.i.i.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit ]
-  %cmp.not6.i = icmp eq i64 %retval.0.i.i.i, %idx.ext.i
+  %cmp.not6.i = icmp samesign eq i64 %retval.0.i.i.i, %idx.ext.i
   br i1 %cmp.not6.i, label %while.end.i, label %_Z7deallocIN3smt24theory_special_relations4atomEEvPT_.exit.lr.ph.i
 
 _Z7deallocIN3smt24theory_special_relations4atomEEvPT_.exit.lr.ph.i: ; preds = %_ZN6vectorIPN3smt24theory_special_relations4atomELb0EjE3endEv.exit.i

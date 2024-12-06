@@ -697,7 +697,7 @@ define void @_ZN10FilterDirtC2Ev(ptr noundef nonnull align 8 dereferenceable(80)
 
 ._crit_edge.i.i.i:                                ; preds = %.lr.ph.i.i.i
   %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.021.i.i.i.add
-  %48 = icmp eq i64 %.021.i.i.i.add, 8
+  %48 = icmp samesign eq i64 %.021.i.i.i.add, 8
   br i1 %48, label %49, label %._crit_edge.i.i.i.thread
 
 49:                                               ; preds = %._crit_edge.i.i.i

@@ -25171,7 +25171,7 @@ thread-pre-split9336:                             ; preds = %.thread-pre-split93
   %14424 = zext i8 %14423 to i64
   %14425 = or disjoint i64 %14421, %14424
   %14426 = getelementptr inbounds nuw i8, ptr %14417, i64 %14425
-  %14427 = icmp eq i64 %14425, 0
+  %14427 = icmp samesign eq i64 %14425, 0
   br i1 %14427, label %14438, label %14428
 
 14428:                                            ; preds = %14416

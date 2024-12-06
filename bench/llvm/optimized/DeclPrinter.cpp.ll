@@ -940,7 +940,7 @@ define dso_local void @_ZN5clang4Decl10printGroupEPPS0_jRN4llvm11raw_ostreamERKN
   %spec.select.idx = select i1 %.not.fr, i64 0, i64 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
-  %.not2331 = icmp eq i64 %spec.select.idx, %.idx
+  %.not2331 = icmp samesign eq i64 %spec.select.idx, %.idx
   br i1 %.not2331, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
