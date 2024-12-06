@@ -14608,8 +14608,7 @@ rb_array_len.exit.i92.thread:                     ; preds = %185
   %195 = lshr i64 %190, 15
   %196 = and i64 %195, 127
   %197 = icmp ne i64 %196, 0
-  %.not.i94211 = icmp sgt i64 %196, %130
-  %or.cond.i95212 = and i1 %182, %.not.i94211
+  %or.cond.i95212 = icmp ugt i64 %196, %130
   %or.cond173213 = select i1 %197, i1 %or.cond.i95212, i1 false
   br i1 %or.cond173213, label %.thread214, label %rb_ary_elt.exit99
 
