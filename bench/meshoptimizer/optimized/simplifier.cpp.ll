@@ -430,16 +430,16 @@ for.body40.i:                                     ; preds = %for.cond.loopexit.i
   br i1 %cmp43.i, label %if.then44.i, label %if.else122.i
 
 if.then44.i:                                      ; preds = %for.body40.i
-  %arrayidx45.i = getelementptr inbounds i32, ptr %call.i128, i64 %i37.0118.i
+  %arrayidx45.i = getelementptr inbounds nuw i32, ptr %call.i128, i64 %i37.0118.i
   %42 = load i32, ptr %arrayidx45.i, align 4
   %conv46.i = zext i32 %42 to i64
   %cmp47.i = icmp eq i64 %i37.0118.i, %conv46.i
   br i1 %cmp47.i, label %if.then48.i, label %if.else67.i
 
 if.then48.i:                                      ; preds = %if.then44.i
-  %arrayidx49.i179 = getelementptr inbounds i32, ptr %call.i159, i64 %i37.0118.i
+  %arrayidx49.i179 = getelementptr inbounds nuw i32, ptr %call.i159, i64 %i37.0118.i
   %43 = load i32, ptr %arrayidx49.i179, align 4
-  %arrayidx50.i = getelementptr inbounds i32, ptr %call.i151, i64 %i37.0118.i
+  %arrayidx50.i = getelementptr inbounds nuw i32, ptr %call.i151, i64 %i37.0118.i
   %44 = load i32, ptr %arrayidx50.i, align 4
   %cmp51.i = icmp eq i32 %43, -1
   %cmp52.i = icmp eq i32 %44, -1
@@ -447,7 +447,7 @@ if.then48.i:                                      ; preds = %if.then44.i
   br i1 %or.cond.i, label %if.then53.i, label %if.else55.i
 
 if.then53.i:                                      ; preds = %if.then48.i
-  %arrayidx54.i = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx54.i = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   store i8 0, ptr %arrayidx54.i, align 1
   br label %for.inc128.i
 
@@ -457,7 +457,7 @@ if.else55.i:                                      ; preds = %if.then48.i
   %conv59.i = zext i32 %44 to i64
   %cmp60.not.i = icmp eq i64 %i37.0118.i, %conv59.i
   %or.cond108.i = select i1 %cmp57.not.i180, i1 true, i1 %cmp60.not.i
-  %arrayidx64.i181 = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx64.i181 = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   br i1 %or.cond108.i, label %if.else63.i, label %if.then61.i
 
 if.then61.i:                                      ; preds = %if.else55.i
@@ -476,9 +476,9 @@ if.else67.i:                                      ; preds = %if.then44.i
   br i1 %cmp72.i, label %if.then73.i, label %if.else118.i
 
 if.then73.i:                                      ; preds = %if.else67.i
-  %arrayidx75.i = getelementptr inbounds i32, ptr %call.i159, i64 %i37.0118.i
+  %arrayidx75.i = getelementptr inbounds nuw i32, ptr %call.i159, i64 %i37.0118.i
   %46 = load i32, ptr %arrayidx75.i, align 4
-  %arrayidx76.i = getelementptr inbounds i32, ptr %call.i151, i64 %i37.0118.i
+  %arrayidx76.i = getelementptr inbounds nuw i32, ptr %call.i151, i64 %i37.0118.i
   %47 = load i32, ptr %arrayidx76.i, align 4
   %arrayidx78.i = getelementptr inbounds nuw i32, ptr %call.i159, i64 %conv46.i
   %48 = load i32, ptr %arrayidx78.i, align 4
@@ -528,22 +528,22 @@ land.lhs.true104.i:                               ; preds = %if.then98.i
   br i1 %cmp109.i, label %if.then110.i, label %if.else112.i
 
 if.then110.i:                                     ; preds = %land.lhs.true104.i
-  %arrayidx111.i = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx111.i = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   store i8 2, ptr %arrayidx111.i, align 1
   br label %for.inc128.i
 
 if.else112.i:                                     ; preds = %land.lhs.true104.i, %if.then98.i
-  %arrayidx113.i = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx113.i = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   store i8 4, ptr %arrayidx113.i, align 1
   br label %for.inc128.i
 
 if.else115.i:                                     ; preds = %land.lhs.true92.i, %land.lhs.true87.i, %land.lhs.true82.i, %if.then73.i
-  %arrayidx116.i = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx116.i = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   store i8 4, ptr %arrayidx116.i, align 1
   br label %for.inc128.i
 
 if.else118.i:                                     ; preds = %if.else67.i
-  %arrayidx119.i = getelementptr inbounds i8, ptr %call.i144, i64 %i37.0118.i
+  %arrayidx119.i = getelementptr inbounds nuw i8, ptr %call.i144, i64 %i37.0118.i
   store i8 4, ptr %arrayidx119.i, align 1
   br label %for.inc128.i
 

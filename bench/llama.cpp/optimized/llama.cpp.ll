@@ -53313,7 +53313,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -73993,7 +73993,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -76547,8 +76547,8 @@ while.body.i.i.i.i:                               ; preds = %if.end.split.i.i.i,
   %add.ptr2.val.i.i.i.i = load float, ptr %3, align 4
   %cmp.i.i.i.i.i.i = fcmp ogt float %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i.i.i.i, i64 12, i1 false)
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i.i.i.i1517
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !459
@@ -76565,8 +76565,8 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %add10.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
-  %add.ptr13.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i.i
-  %add.ptr14.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr13.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i.i.i.i, i64 12, i1 false)
   br label %if.end16.i.i.i.i
 
@@ -76585,14 +76585,14 @@ land.rhs.i.i.i.i.i:                               ; preds = %while.body.i.i.i.i.
   %__holeIndex.addr.06.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %land.rhs.lr.ph.i.i.i.i.i ], [ %__parent.07.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__parent.07.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.06.i.i.i.i.i, -1
   %__parent.07.i.i.i.i.i = sdiv i64 %__parent.07.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i.i
   %5 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 4
   %add.ptr.val.i.i.i.i.i = load float, ptr %5, align 4
   %cmp.i.i.i.i.i.i.i = fcmp ogt float %add.ptr.val.i.i.i.i.i, %4
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i.i, i64 12, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.07.i.i.i.i.i, %div17.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i", !llvm.loop !460
@@ -76600,7 +76600,7 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i": ; preds = %while.body.i.i.i.i.i, %land.rhs.i.i.i.i.i, %if.end16.i.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i.i, %if.end16.i.i.i.i ], [ %__holeIndex.addr.06.i.i.i.i.i, %land.rhs.i.i.i.i.i ], [ %__parent.07.i.i.i.i.i, %while.body.i.i.i.i.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload10.i.i.i to i32
-  %add.ptr5.i.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
+  %add.ptr5.i.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i.i, ptr %add.ptr5.i.i.i.i.i, align 4
   %add.ptr5.sroa_idx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i.i.i.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i.i, ptr %add.ptr5.sroa_idx.i.i.i.i.i, align 4
@@ -76611,14 +76611,14 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 if.end8.split.lr.ph.i.i.i:                        ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i.i"
   %sub12.i52.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr13.i53.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i52.i.i.i
-  %add.ptr14.i54.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %div7.i.i.i.i
+  %add.ptr13.i53.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i52.i.i.i
+  %add.ptr14.i54.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %div7.i.i.i.i
   br label %if.end8.split.i.i.i
 
 if.end8.split.i.i.i:                              ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i", %if.end8.split.lr.ph.i.i.i
   %__parent.03.i.i.i = phi i64 [ %div17.i.i.i, %if.end8.split.lr.ph.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i" ]
   %dec.i.i.i = add nsw i64 %__parent.03.i.i.i, -1
-  %add.ptr13.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %dec.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %dec.i.i.i
   %__value.sroa.0.0.copyload14.i.i.i = load i64, ptr %add.ptr13.i.i.i, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i.i = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i, align 4
@@ -76636,8 +76636,8 @@ while.body.i55.i.i.i:                             ; preds = %if.end8.split.i.i.i
   %add.ptr2.val.i61.i.i.i = load float, ptr %7, align 4
   %cmp.i.i.i62.i.i.i = fcmp ogt float %add.ptr.val.i60.i.i.i, %add.ptr2.val.i61.i.i.i
   %spec.select.i63.i.i.i = select i1 %cmp.i.i.i62.i.i.i, i64 %sub1.i59.i.i.i, i64 %mul.i58.i.i.i
-  %add.ptr3.i64.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i63.i.i.i
-  %add.ptr4.i65.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i56.i.i.i
+  %add.ptr3.i64.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i63.i.i.i
+  %add.ptr4.i65.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i56.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i65.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i64.i.i.i, i64 12, i1 false)
   %cmp.i66.i.i.i = icmp slt i64 %spec.select.i63.i.i.i, %div.i.i.i.i1517
   br i1 %cmp.i66.i.i.i, label %while.body.i55.i.i.i, label %while.end.i21.i.i.i, !llvm.loop !459
@@ -76667,14 +76667,14 @@ land.rhs.i.i36.i.i.i:                             ; preds = %while.body.i.i43.i.
   %__holeIndex.addr.06.i.i37.i.i.i = phi i64 [ %__holeIndex.addr.1.i26.i.i.i, %land.rhs.lr.ph.i.i35.i.i.i ], [ %__parent.07.i.i39.i.i.i, %while.body.i.i43.i.i.i ]
   %__parent.07.in.i.i38.i.i.i = add nsw i64 %__holeIndex.addr.06.i.i37.i.i.i, -1
   %__parent.07.i.i39.i.i.i = sdiv i64 %__parent.07.in.i.i38.i.i.i, 2
-  %add.ptr.i.i40.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i39.i.i.i
+  %add.ptr.i.i40.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i39.i.i.i
   %9 = getelementptr i8, ptr %add.ptr.i.i40.i.i.i, i64 4
   %add.ptr.val.i.i41.i.i.i = load float, ptr %9, align 4
   %cmp.i.i.i.i42.i.i.i = fcmp ogt float %add.ptr.val.i.i41.i.i.i, %8
   br i1 %cmp.i.i.i.i42.i.i.i, label %while.body.i.i43.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i"
 
 while.body.i.i43.i.i.i:                           ; preds = %land.rhs.i.i36.i.i.i
-  %add.ptr2.i.i44.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i37.i.i.i
+  %add.ptr2.i.i44.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i37.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i44.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i40.i.i.i, i64 12, i1 false)
   %cmp.i.i45.not.i.i.i = icmp slt i64 %__parent.07.i.i39.i.i.i, %__parent.03.i.i.i
   br i1 %cmp.i.i45.not.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i", label %land.rhs.i.i36.i.i.i, !llvm.loop !460
@@ -76682,7 +76682,7 @@ while.body.i.i43.i.i.i:                           ; preds = %land.rhs.i.i36.i.i.
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i.i": ; preds = %while.body.i.i43.i.i.i, %land.rhs.i.i36.i.i.i, %if.end16.i25.i.i.i
   %__holeIndex.addr.0.lcssa.i.i30.i.i.i = phi i64 [ %__holeIndex.addr.1.i26.i.i.i, %if.end16.i25.i.i.i ], [ %__holeIndex.addr.06.i.i37.i.i.i, %land.rhs.i.i36.i.i.i ], [ %__parent.07.i.i39.i.i.i, %while.body.i.i43.i.i.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i31.i.i.i = trunc i64 %__value.sroa.0.0.copyload14.i.i.i to i32
-  %add.ptr5.i.i32.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30.i.i.i
+  %add.ptr5.i.i32.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30.i.i.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i31.i.i.i, ptr %add.ptr5.i.i32.i.i.i, align 4
   %add.ptr5.sroa_idx.i.i33.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32.i.i.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i.i, ptr %add.ptr5.sroa_idx.i.i33.i.i.i, align 4
@@ -76720,8 +76720,8 @@ while.body.i.i.i52.i:                             ; preds = %while.body.i.i, %wh
   %add.ptr2.val.i.i.i58.i = load float, ptr %11, align 4
   %cmp.i.i.i.i.i59.i = fcmp ogt float %add.ptr.val.i.i.i57.i, %add.ptr2.val.i.i.i58.i
   %spec.select.i.i.i60.i = select i1 %cmp.i.i.i.i.i59.i, i64 %sub1.i.i.i56.i, i64 %mul.i.i.i55.i
-  %add.ptr3.i.i.i61.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i60.i
-  %add.ptr4.i.i.i62.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i53.i
+  %add.ptr3.i.i.i61.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i60.i
+  %add.ptr4.i.i.i62.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i53.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i.i.i62.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i.i.i61.i, i64 12, i1 false)
   %cmp.i.i.i63.i = icmp slt i64 %spec.select.i.i.i60.i, %div.i.i.i11.i
   br i1 %cmp.i.i.i63.i, label %while.body.i.i.i52.i, label %while.end.i.i.i13.i, !llvm.loop !459
@@ -76741,8 +76741,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i13.i
 if.end16.i.thread.i.i45.i:                        ; preds = %land.lhs.true.i.i.i.i
   %add10.i.i.i46.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i14.i, 1
   %sub12.i.i.i47.i = or disjoint i64 %add10.i.i.i46.i, 1
-  %add.ptr13.i.i.i48.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i47.i
-  %add.ptr14.i.i.i49.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i14.i
+  %add.ptr13.i.i.i48.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i47.i
+  %add.ptr14.i.i.i49.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i14.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i.i.i49.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i.i.i48.i, i64 12, i1 false)
   %__value.sroa.0.sroa.2.0.extract.shift.i.i2.i.i50.i = lshr i64 %__value.sroa.0.0.copyload.i.i4.i, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i51.i = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i2.i.i50.i to i32
@@ -76764,14 +76764,14 @@ land.rhs.i.i.i.i24.i:                             ; preds = %while.body.i.i.i.i3
   %__holeIndex.addr.06.i.i.i.i25.i = phi i64 [ %__holeIndex.addr.1.i5.i.i23.i, %land.rhs.lr.ph.i.i.i.i21.i ], [ %__parent.07.i.i.i.i27.i, %while.body.i.i.i.i39.i ]
   %__parent.07.in.i.i.i.i26.i = add nsw i64 %__holeIndex.addr.06.i.i.i.i25.i, -1
   %__parent.07.i.i.i.i27.i = sdiv i64 %__parent.07.in.i.i.i.i26.i, 2
-  %add.ptr.i.i.i.i28.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i27.i
+  %add.ptr.i.i.i.i28.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i27.i
   %13 = getelementptr i8, ptr %add.ptr.i.i.i.i28.i, i64 4
   %add.ptr.val.i.i.i.i29.i = load float, ptr %13, align 4
   %cmp.i.i.i.i.i.i30.i = fcmp ogt float %add.ptr.val.i.i.i.i29.i, %12
   br i1 %cmp.i.i.i.i.i.i30.i, label %while.body.i.i.i.i39.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i"
 
 while.body.i.i.i.i39.i:                           ; preds = %land.rhs.i.i.i.i24.i
-  %add.ptr2.i.i.i.i40.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25.i
+  %add.ptr2.i.i.i.i40.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i40.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i28.i, i64 12, i1 false)
   %cmp.i.i.i.i41.i = icmp sgt i64 %__holeIndex.addr.06.i.i.i.i25.i, 2
   br i1 %cmp.i.i.i.i41.i, label %land.rhs.i.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ20llama_sample_softmaxE3$_0EEEvT_S7_S7_RT0_.exit.i31.i", !llvm.loop !460
@@ -76780,7 +76780,7 @@ while.body.i.i.i.i39.i:                           ; preds = %land.rhs.i.i.i.i24.
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19.i, %if.end16.i.i.i17.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22.i, %land.rhs.i.i.i.i24.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22.i, %while.body.i.i.i.i39.i ]
   %__holeIndex.addr.0.lcssa.i.i.i.i33.i = phi i64 [ 0, %if.end16.i.i.i17.i ], [ %__parent.07.i.i.i.i27.i, %while.body.i.i.i.i39.i ], [ %__holeIndex.addr.06.i.i.i.i25.i, %land.rhs.i.i.i.i24.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34.i = trunc i64 %__value.sroa.0.0.copyload.i.i4.i to i32
-  %add.ptr5.i.i.i.i35.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i33.i
+  %add.ptr5.i.i.i.i35.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i33.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34.i, ptr %add.ptr5.i.i.i.i35.i, align 4
   %add.ptr5.sroa_idx.i.i.i.i36.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i.i.i35.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32.i, ptr %add.ptr5.sroa_idx.i.i.i.i36.i, align 4
@@ -77108,8 +77108,8 @@ while.body.i.i.i:                                 ; preds = %if.end.split.i.i, %
   %add.ptr2.val.i.i.i = load float, ptr %1, align 4
   %cmp.i.i.i.i.i = fcmp ogt float %add.ptr.val.i.i.i, %add.ptr2.val.i.i.i
   %spec.select.i.i.i = select i1 %cmp.i.i.i.i.i, i64 %sub1.i.i.i, i64 %mul.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i
-  %add.ptr4.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i
+  %add.ptr4.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i.i.i, i64 12, i1 false)
   %cmp.i.i.i = icmp slt i64 %spec.select.i.i.i, %div.i.i.i
   br i1 %cmp.i.i.i, label %while.body.i.i.i, label %while.end.i.i.i, !llvm.loop !471
@@ -77126,8 +77126,8 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then9.i.i.i:                                   ; preds = %while.end.i.i.i
   %add10.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i, 1
   %sub12.i.i.i = or disjoint i64 %add10.i.i.i, 1
-  %add.ptr13.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i
-  %add.ptr14.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i
+  %add.ptr14.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i.i.i, i64 12, i1 false)
   br label %if.end16.i.i.i
 
@@ -77146,14 +77146,14 @@ land.rhs.i.i.i.i:                                 ; preds = %while.body.i.i.i.i,
   %__holeIndex.addr.06.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i, %land.rhs.lr.ph.i.i.i.i ], [ %__parent.07.i.i.i.i, %while.body.i.i.i.i ]
   %__parent.07.in.i.i.i.i = add nsw i64 %__holeIndex.addr.06.i.i.i.i, -1
   %__parent.07.i.i.i.i = sdiv i64 %__parent.07.in.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i
   %3 = getelementptr i8, ptr %add.ptr.i.i.i.i, i64 4
   %add.ptr.val.i.i.i.i = load float, ptr %3, align 4
   %cmp.i.i.i.i.i.i = fcmp ogt float %add.ptr.val.i.i.i.i, %2
   br i1 %cmp.i.i.i.i.i.i, label %while.body.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i"
 
 while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
-  %add.ptr2.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i, i64 12, i1 false)
   %cmp.i.i.i.i = icmp sgt i64 %__parent.07.i.i.i.i, %div17.i.i
   br i1 %cmp.i.i.i.i, label %land.rhs.i.i.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i", !llvm.loop !472
@@ -77161,7 +77161,7 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i": ; preds = %while.body.i.i.i.i, %land.rhs.i.i.i.i, %if.end16.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.i.i = phi i64 [ %__holeIndex.addr.1.i.i.i, %if.end16.i.i.i ], [ %__parent.07.i.i.i.i, %while.body.i.i.i.i ], [ %__holeIndex.addr.06.i.i.i.i, %land.rhs.i.i.i.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i = trunc i64 %__value.sroa.0.0.copyload10.i.i to i32
-  %add.ptr5.i.i.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr5.i.i.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i, ptr %add.ptr5.i.i.i.i, align 4
   %add.ptr5.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i.i.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i, ptr %add.ptr5.sroa_idx.i.i.i.i, align 4
@@ -77172,14 +77172,14 @@ while.body.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i
 
 if.end8.split.lr.ph.i.i:                          ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit.i.i"
   %sub12.i52.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr13.i53.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i52.i.i
-  %add.ptr14.i54.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %div7.i.i.i
+  %add.ptr13.i53.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i52.i.i
+  %add.ptr14.i54.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %div7.i.i.i
   br label %if.end8.split.i.i
 
 if.end8.split.i.i:                                ; preds = %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i", %if.end8.split.lr.ph.i.i
   %__parent.03.i.i = phi i64 [ %div17.i.i, %if.end8.split.lr.ph.i.i ], [ %dec.i.i, %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i" ]
   %dec.i.i = add nsw i64 %__parent.03.i.i, -1
-  %add.ptr13.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %dec.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload14.i.i = load i64, ptr %add.ptr13.i.i, align 4
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i = load float, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i, align 4
@@ -77197,8 +77197,8 @@ while.body.i55.i.i:                               ; preds = %if.end8.split.i.i, 
   %add.ptr2.val.i61.i.i = load float, ptr %5, align 4
   %cmp.i.i.i62.i.i = fcmp ogt float %add.ptr.val.i60.i.i, %add.ptr2.val.i61.i.i
   %spec.select.i63.i.i = select i1 %cmp.i.i.i62.i.i, i64 %sub1.i59.i.i, i64 %mul.i58.i.i
-  %add.ptr3.i64.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i63.i.i
-  %add.ptr4.i65.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i56.i.i
+  %add.ptr3.i64.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i63.i.i
+  %add.ptr4.i65.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i56.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i65.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i64.i.i, i64 12, i1 false)
   %cmp.i66.i.i = icmp slt i64 %spec.select.i63.i.i, %div.i.i.i
   br i1 %cmp.i66.i.i, label %while.body.i55.i.i, label %while.end.i21.i.i, !llvm.loop !471
@@ -77228,14 +77228,14 @@ land.rhs.i.i36.i.i:                               ; preds = %while.body.i.i43.i.
   %__holeIndex.addr.06.i.i37.i.i = phi i64 [ %__holeIndex.addr.1.i26.i.i, %land.rhs.lr.ph.i.i35.i.i ], [ %__parent.07.i.i39.i.i, %while.body.i.i43.i.i ]
   %__parent.07.in.i.i38.i.i = add nsw i64 %__holeIndex.addr.06.i.i37.i.i, -1
   %__parent.07.i.i39.i.i = sdiv i64 %__parent.07.in.i.i38.i.i, 2
-  %add.ptr.i.i40.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i39.i.i
+  %add.ptr.i.i40.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i39.i.i
   %7 = getelementptr i8, ptr %add.ptr.i.i40.i.i, i64 4
   %add.ptr.val.i.i41.i.i = load float, ptr %7, align 4
   %cmp.i.i.i.i42.i.i = fcmp ogt float %add.ptr.val.i.i41.i.i, %6
   br i1 %cmp.i.i.i.i42.i.i, label %while.body.i.i43.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i"
 
 while.body.i.i43.i.i:                             ; preds = %land.rhs.i.i36.i.i
-  %add.ptr2.i.i44.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i37.i.i
+  %add.ptr2.i.i44.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i37.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i44.i.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i40.i.i, i64 12, i1 false)
   %cmp.i.i45.not.i.i = icmp slt i64 %__parent.07.i.i39.i.i, %__parent.03.i.i
   br i1 %cmp.i.i45.not.i.i, label %"_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i", label %land.rhs.i.i36.i.i, !llvm.loop !472
@@ -77243,7 +77243,7 @@ while.body.i.i43.i.i:                             ; preds = %land.rhs.i.i36.i.i
 "_ZSt13__adjust_heapIP16llama_token_datalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_T0_S8_T1_T2_.exit67.i.i": ; preds = %while.body.i.i43.i.i, %land.rhs.i.i36.i.i, %if.end16.i25.i.i
   %__holeIndex.addr.0.lcssa.i.i30.i.i = phi i64 [ %__holeIndex.addr.1.i26.i.i, %if.end16.i25.i.i ], [ %__parent.07.i.i39.i.i, %while.body.i.i43.i.i ], [ %__holeIndex.addr.06.i.i37.i.i, %land.rhs.i.i36.i.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i31.i.i = trunc i64 %__value.sroa.0.0.copyload14.i.i to i32
-  %add.ptr5.i.i32.i.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30.i.i
+  %add.ptr5.i.i32.i.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i30.i.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i31.i.i, ptr %add.ptr5.i.i32.i.i, align 4
   %add.ptr5.sroa_idx.i.i33.i.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i32.i.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i28.i.i, ptr %add.ptr5.sroa_idx.i.i33.i.i, align 4
@@ -77268,8 +77268,8 @@ for.body.lr.ph.i:                                 ; preds = %"_ZSt11__make_heapI
   %cmp8.i.i4161.i = icmp eq i64 %sub6.i.i.i, 0
   %or.cond62.i = select i1 %cmp5.i.i19.i, i1 %cmp8.i.i4161.i, i1 false
   %sub12.i.i43.i = or disjoint i64 %sub6.i.i.i, 1
-  %add.ptr13.i.i44.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i.i43.i
-  %add.ptr14.i.i45.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %div7.i.i40.i
+  %add.ptr13.i.i44.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i.i43.i
+  %add.ptr14.i.i45.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %div7.i.i40.i
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.lr.ph.i
@@ -77298,8 +77298,8 @@ while.body.i.i46.i:                               ; preds = %if.then.i, %while.b
   %add.ptr2.val.i.i52.i = load float, ptr %11, align 4
   %cmp.i.i.i.i53.i = fcmp ogt float %add.ptr.val.i.i51.i, %add.ptr2.val.i.i52.i
   %spec.select.i.i54.i = select i1 %cmp.i.i.i.i53.i, i64 %sub1.i.i50.i, i64 %mul.i.i49.i
-  %add.ptr3.i.i55.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i54.i
-  %add.ptr4.i.i56.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i47.i
+  %add.ptr3.i.i55.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i54.i
+  %add.ptr4.i.i56.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i47.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i.i56.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i.i55.i, i64 12, i1 false)
   %cmp.i.i57.i = icmp slt i64 %spec.select.i.i54.i, %div.i.i14.i
   br i1 %cmp.i.i57.i, label %while.body.i.i46.i, label %while.end.i.i16.i, !llvm.loop !471
@@ -77339,14 +77339,14 @@ land.rhs.i.i.i24.i:                               ; preds = %while.body.i.i.i37.
   %__holeIndex.addr.06.i.i.i25.i = phi i64 [ %__holeIndex.addr.1.i5.i.i, %land.rhs.lr.ph.i.i.i23.i ], [ %__parent.07.i.i.i27.i, %while.body.i.i.i37.i ]
   %__parent.07.in.i.i.i26.i = add nsw i64 %__holeIndex.addr.06.i.i.i25.i, -1
   %__parent.07.i.i.i27.i = sdiv i64 %__parent.07.in.i.i.i26.i, 2
-  %add.ptr.i.i.i28.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i27.i
+  %add.ptr.i.i.i28.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i27.i
   %13 = getelementptr i8, ptr %add.ptr.i.i.i28.i, i64 4
   %add.ptr.val.i.i.i29.i = load float, ptr %13, align 4
   %cmp.i.i.i.i.i30.i = fcmp ogt float %add.ptr.val.i.i.i29.i, %12
   br i1 %cmp.i.i.i.i.i30.i, label %while.body.i.i.i37.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i"
 
 while.body.i.i.i37.i:                             ; preds = %land.rhs.i.i.i24.i
-  %add.ptr2.i.i.i38.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i25.i
+  %add.ptr2.i.i.i38.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i25.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i38.i, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i28.i, i64 12, i1 false)
   %cmp.i.i.i39.i = icmp sgt i64 %__holeIndex.addr.06.i.i.i25.i, 2
   br i1 %cmp.i.i.i39.i, label %land.rhs.i.i.i24.i, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i", !llvm.loop !472
@@ -77355,7 +77355,7 @@ while.body.i.i.i37.i:                             ; preds = %land.rhs.i.i.i24.i
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i22.i, %if.end16.i.i20.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i2266.i, %if.end16.i.i20.thread.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i, %land.rhs.i.i.i24.i ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i, %while.body.i.i.i37.i ]
   %__holeIndex.addr.0.lcssa.i.i.i32.i = phi i64 [ 0, %if.end16.i.i20.i ], [ 0, %if.end16.i.i20.thread.i ], [ %__parent.07.i.i.i27.i, %while.body.i.i.i37.i ], [ %__holeIndex.addr.06.i.i.i25.i, %land.rhs.i.i.i24.i ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i33.i = trunc i64 %__value.sroa.0.0.copyload.i.i to i32
-  %add.ptr5.i.i.i34.i = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i32.i
+  %add.ptr5.i.i.i34.i = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i32.i
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i33.i, ptr %add.ptr5.i.i.i34.i, align 4
   %add.ptr5.sroa_idx.i.i.i35.i = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i.i34.i, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i, ptr %add.ptr5.sroa_idx.i.i.i35.i, align 4
@@ -77398,8 +77398,8 @@ while.body.i.i.i52:                               ; preds = %while.body.i, %whil
   %add.ptr2.val.i.i.i58 = load float, ptr %15, align 4
   %cmp.i.i.i.i.i59 = fcmp ogt float %add.ptr.val.i.i.i57, %add.ptr2.val.i.i.i58
   %spec.select.i.i.i60 = select i1 %cmp.i.i.i.i.i59, i64 %sub1.i.i.i56, i64 %mul.i.i.i55
-  %add.ptr3.i.i.i61 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i60
-  %add.ptr4.i.i.i62 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i53
+  %add.ptr3.i.i.i61 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %spec.select.i.i.i60
+  %add.ptr4.i.i.i62 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.024.i.i.i53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr4.i.i.i62, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr3.i.i.i61, i64 12, i1 false)
   %cmp.i.i.i63 = icmp slt i64 %spec.select.i.i.i60, %div.i.i.i11
   br i1 %cmp.i.i.i63, label %while.body.i.i.i52, label %while.end.i.i.i13, !llvm.loop !471
@@ -77419,8 +77419,8 @@ land.lhs.true.i.i.i:                              ; preds = %while.end.i.i.i13
 if.end16.i.thread.i.i45:                          ; preds = %land.lhs.true.i.i.i
   %add10.i.i.i46 = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i14, 1
   %sub12.i.i.i47 = or disjoint i64 %add10.i.i.i46, 1
-  %add.ptr13.i.i.i48 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i47
-  %add.ptr14.i.i.i49 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i14
+  %add.ptr13.i.i.i48 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %sub12.i.i.i47
+  %add.ptr14.i.i.i49 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr14.i.i.i49, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr13.i.i.i48, i64 12, i1 false)
   %__value.sroa.0.sroa.2.0.extract.shift.i.i2.i.i50 = lshr i64 %__value.sroa.0.0.copyload.i.i4, 32
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i3.i.i51 = trunc nuw i64 %__value.sroa.0.sroa.2.0.extract.shift.i.i2.i.i50 to i32
@@ -77442,14 +77442,14 @@ land.rhs.i.i.i.i24:                               ; preds = %while.body.i.i.i.i3
   %__holeIndex.addr.06.i.i.i.i25 = phi i64 [ %__holeIndex.addr.1.i5.i.i23, %land.rhs.lr.ph.i.i.i.i21 ], [ %__parent.07.i.i.i.i27, %while.body.i.i.i.i39 ]
   %__parent.07.in.i.i.i.i26 = add nsw i64 %__holeIndex.addr.06.i.i.i.i25, -1
   %__parent.07.i.i.i.i27 = sdiv i64 %__parent.07.in.i.i.i.i26, 2
-  %add.ptr.i.i.i.i28 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i27
+  %add.ptr.i.i.i.i28 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__parent.07.i.i.i.i27
   %17 = getelementptr i8, ptr %add.ptr.i.i.i.i28, i64 4
   %add.ptr.val.i.i.i.i29 = load float, ptr %17, align 4
   %cmp.i.i.i.i.i.i30 = fcmp ogt float %add.ptr.val.i.i.i.i29, %16
   br i1 %cmp.i.i.i.i.i.i30, label %while.body.i.i.i.i39, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31"
 
 while.body.i.i.i.i39:                             ; preds = %land.rhs.i.i.i.i24
-  %add.ptr2.i.i.i.i40 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25
+  %add.ptr2.i.i.i.i40 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %add.ptr2.i.i.i.i40, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i.i.i28, i64 12, i1 false)
   %cmp.i.i.i.i41 = icmp sgt i64 %__holeIndex.addr.06.i.i.i.i25, 2
   br i1 %cmp.i.i.i.i41, label %land.rhs.i.i.i.i24, label %"_ZSt10__pop_heapIP16llama_token_dataN9__gnu_cxx5__ops15_Iter_comp_iterIZ18llama_sample_top_kE3$_0EEEvT_S7_S7_RT0_.exit.i31", !llvm.loop !472
@@ -77458,7 +77458,7 @@ while.body.i.i.i.i39:                             ; preds = %land.rhs.i.i.i.i24
   %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32 = phi i32 [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i.i.i19, %if.end16.i.i.i17 ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22, %land.rhs.i.i.i.i24 ], [ %__value.sroa.0.sroa.2.0.extract.trunc.i.i7.i.i22, %while.body.i.i.i.i39 ]
   %__holeIndex.addr.0.lcssa.i.i.i.i33 = phi i64 [ 0, %if.end16.i.i.i17 ], [ %__parent.07.i.i.i.i27, %while.body.i.i.i.i39 ], [ %__holeIndex.addr.06.i.i.i.i25, %land.rhs.i.i.i.i24 ]
   %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34 = trunc i64 %__value.sroa.0.0.copyload.i.i4 to i32
-  %add.ptr5.i.i.i.i35 = getelementptr inbounds %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i33
+  %add.ptr5.i.i.i.i35 = getelementptr inbounds nuw %struct.llama_token_data, ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i33
   store i32 %__value.sroa.0.sroa.0.0.extract.trunc.i.i.i.i34, ptr %add.ptr5.i.i.i.i35, align 4
   %add.ptr5.sroa_idx.i.i.i.i36 = getelementptr inbounds nuw i8, ptr %add.ptr5.i.i.i.i35, i64 4
   store i32 %__value.sroa.0.sroa.2.0.extract.trunc.i.i6.i.i32, ptr %add.ptr5.sroa_idx.i.i.i.i36, align 4

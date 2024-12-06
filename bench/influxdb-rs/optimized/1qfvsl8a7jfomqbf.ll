@@ -801,7 +801,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer13with_capacity17h599cdfd44654158
 64:                                               ; preds = %58
   %65 = load ptr, ptr %.sroa.528.0..sroa_idx, align 8, !alias.scope !83, !nonnull !4
   %66 = add nsw i64 %38, -1
-  %67 = getelementptr inbounds [0 x i8], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [0 x i8], ptr %65, i64 0, i64 %66
   %68 = trunc i64 %33 to i8
   %69 = and i8 %68, 7
   %notmask16.i = shl nsw i8 -1, %69
@@ -14023,7 +14023,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit": ; preds = %55
-  %66 = getelementptr inbounds i64, ptr %.32.val, i64 %0
+  %66 = getelementptr inbounds nuw i64, ptr %.32.val, i64 %0
   %67 = load i64, ptr %66, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   store i64 %67, ptr %25, align 8
@@ -14093,7 +14093,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit53": ; preds = %81
-  %95 = getelementptr inbounds i64, ptr %.val49, i64 %0
+  %95 = getelementptr inbounds nuw i64, ptr %.val49, i64 %0
   %96 = load i64, ptr %95, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20)
   %97 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -14139,7 +14139,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit54": ; preds = %100
-  %114 = getelementptr inbounds i64, ptr %.val47, i64 %0
+  %114 = getelementptr inbounds nuw i64, ptr %.val47, i64 %0
   %115 = load i64, ptr %114, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
@@ -14189,7 +14189,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h166974ba8117d7c3E.exit55": ; preds = %117
-  %131 = getelementptr inbounds i64, ptr %.val, i64 %0
+  %131 = getelementptr inbounds nuw i64, ptr %.val, i64 %0
   %132 = load i64, ptr %131, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %47)
@@ -14645,7 +14645,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h71a74b3f88162488E.exit": ; preds = %37
-  %48 = getelementptr inbounds i64, ptr %.32.val, i64 %0
+  %48 = getelementptr inbounds nuw i64, ptr %.32.val, i64 %0
   %49 = load i64, ptr %48, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   store i64 %49, ptr %23, align 8
@@ -14792,7 +14792,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h71a74b3f88162488E.exit55": ; preds = %92
-  %106 = getelementptr inbounds i64, ptr %.val, i64 %0
+  %106 = getelementptr inbounds nuw i64, ptr %.val, i64 %0
   %107 = load i64, ptr %106, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %32)
@@ -15053,7 +15053,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbfda1496c6619f5aE.exit": ; preds = %37
-  %48 = getelementptr inbounds i64, ptr %.32.val, i64 %0
+  %48 = getelementptr inbounds nuw i64, ptr %.32.val, i64 %0
   %49 = load i64, ptr %48, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   store i64 %49, ptr %23, align 8
@@ -15123,7 +15123,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbfda1496c6619f5aE.exit58": ; preds = %63
-  %77 = getelementptr inbounds i64, ptr %.val54, i64 %0
+  %77 = getelementptr inbounds nuw i64, ptr %.val54, i64 %0
   %78 = load i64, ptr %77, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
   %79 = icmp sgt i64 %78, -1
@@ -15167,7 +15167,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbfda1496c6619f5aE.exit59": ; preds = %80
-  %94 = getelementptr inbounds i64, ptr %.val52, i64 %0
+  %94 = getelementptr inbounds nuw i64, ptr %.val52, i64 %0
   %95 = load i64, ptr %94, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14)
   %96 = icmp sgt i64 %95, -1
@@ -15211,7 +15211,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17hbfda1496c6619f5aE.exit61": ; preds = %97
-  %111 = getelementptr inbounds i64, ptr %.val, i64 %0
+  %111 = getelementptr inbounds nuw i64, ptr %.val, i64 %0
   %112 = load i64, ptr %111, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   %113 = icmp sgt i64 %112, -1
@@ -15493,7 +15493,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h30c19f8316bca409E.exit": ; preds = %37
-  %48 = getelementptr inbounds i32, ptr %.32.val, i64 %0
+  %48 = getelementptr inbounds nuw i32, ptr %.32.val, i64 %0
   %49 = load i32, ptr %48, align 4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22)
   store i32 %49, ptr %23, align 4
@@ -15640,7 +15640,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h30c19f8316bca409E.exit55": ; preds = %92
-  %106 = getelementptr inbounds i32, ptr %.val, i64 %0
+  %106 = getelementptr inbounds nuw i32, ptr %.val, i64 %0
   %107 = load i32, ptr %106, align 4, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   %108 = sext i32 %107 to i64
@@ -15876,7 +15876,7 @@ define internal fastcc noundef zeroext i1 @"_ZN97_$LT$arrow_array..array..primit
   unreachable
 
 "_ZN11arrow_array5array15primitive_array23PrimitiveArray$LT$T$GT$5value17h6b6a63067ee325a1E.exit": ; preds = %11
-  %22 = getelementptr inbounds double, ptr %.32.val, i64 %0
+  %22 = getelementptr inbounds nuw double, ptr %.32.val, i64 %0
   %23 = load double, ptr %22, align 8, !noundef !4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   store double %23, ptr %7, align 8

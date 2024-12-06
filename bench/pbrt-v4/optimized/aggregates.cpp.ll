@@ -2691,7 +2691,7 @@ if.end.i.i.i.i:                                   ; preds = %if.then.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i, %if.end.i.i.i.i
   %__parent.0.i.i.i.i = phi i64 [ %div9.i.i.i.i, %if.end.i.i.i.i ], [ %dec.i.i.i.i, %while.body.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i.i, i64 %__parent.0.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i.i, i64 %__parent.0.i.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0.call.i.i, i64 noundef %__parent.0.i.i.i.i, i64 noundef %sub.ptr.div.i.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i.i, i32 %retval.0.i)
   %cmp7.i.i.i.i = icmp eq i64 %__parent.0.i.i.i.i, 0
   %dec.i.i.i.i = add nsw i64 %__parent.0.i.i.i.i, -1
@@ -4636,7 +4636,7 @@ if.end.i.i.i:                                     ; preds = %if.then.i
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first.addr.0.call.i, i64 %__parent.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_T2_"(ptr noundef %__first.addr.0.call.i, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i, ptr noundef nonnull byval(%"struct.pbrt::BVHPrimitive") align 8 %add.ptr.i.i.i, i32 %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
   %dec.i.i.i = add nsw i64 %__parent.0.i.i.i, -1
@@ -15639,9 +15639,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__secondChild.036 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_2EclIPSD_SQ_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.036, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %mul
   %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub2
+  %add.ptr3 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub2
   %bounds.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %bounds.i.i.i, align 8
   %pMax.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
@@ -15700,8 +15700,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i:       ; preds = %while.body
   %add.i.i1910.i.i = fadd float %mul.i.i2.i159.i.i, %mul.i.i.i65.sink.i.i
   %cmp.i.i = fcmp olt float %retval.0.i.sroa.speculated11.i.i, %add.i.i1910.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub2, i64 %mul
-  %add.ptr4 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %spec.select
-  %add.ptr5 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.036
+  %add.ptr4 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4, i64 32, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !134
@@ -15721,8 +15721,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr14, i64 32, i1 false)
   br label %if.end17
 
@@ -15759,7 +15759,7 @@ land.rhs.lr.ph.split.us.i:                        ; preds = %land.rhs.lr.ph.i
 land.rhs.us.i:                                    ; preds = %while.body.us.i, %land.rhs.lr.ph.split.us.i
   %__parent.05.us.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.us.i ], [ %__parent.0.us.i, %while.body.us.i ]
   %__holeIndex.addr.04.us.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.us.i ], [ %__parent.05.us.i, %while.body.us.i ]
-  %add.ptr.us.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us.i
+  %add.ptr.us.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us.i
   %bounds.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.us.i = load <2 x float>, ptr %bounds.i.i.i.us.i, align 8
   %pMax.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 20
@@ -15773,7 +15773,7 @@ land.rhs.us.i:                                    ; preds = %while.body.us.i, %l
   br i1 %cmp.i.i.us.i, label %while.body.us.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.us.i:                                  ; preds = %land.rhs.us.i
-  %add.ptr2.us.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us.i
+  %add.ptr2.us.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.us.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.us.i, i64 32, i1 false)
   %__parent.0.in.us.i = add nsw i64 %__parent.05.us.i, -1
   %__parent.0.us.i = sdiv i64 %__parent.0.in.us.i, 2
@@ -15791,7 +15791,7 @@ land.rhs.lr.ph.split.us8.i:                       ; preds = %land.rhs.lr.ph.i
 land.rhs.us9.i:                                   ; preds = %while.body.us25.i, %land.rhs.lr.ph.split.us8.i
   %__parent.05.us10.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.us8.i ], [ %__parent.0.us28.i, %while.body.us25.i ]
   %__holeIndex.addr.04.us11.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.us8.i ], [ %__parent.05.us10.i, %while.body.us25.i ]
-  %add.ptr.us12.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us10.i
+  %add.ptr.us12.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us10.i
   %2 = getelementptr inbounds nuw i8, ptr %add.ptr.us12.i, i64 12
   %t.sroa.0.4.vec.extract.i.i.i.i.us.i = load float, ptr %2, align 4
   %mul2.i.i.i.i.i.us.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i, 5.000000e-01
@@ -15803,7 +15803,7 @@ land.rhs.us9.i:                                   ; preds = %while.body.us25.i, 
   br i1 %cmp.i.i.us24.i, label %while.body.us25.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.us25.i:                                ; preds = %land.rhs.us9.i
-  %add.ptr2.us26.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us11.i
+  %add.ptr2.us26.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.us26.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.us12.i, i64 32, i1 false)
   %__parent.0.in.us27.i = add nsw i64 %__parent.05.us10.i, -1
   %__parent.0.us28.i = sdiv i64 %__parent.0.in.us27.i, 2
@@ -15819,7 +15819,7 @@ land.rhs.lr.ph.split.i:                           ; preds = %land.rhs.lr.ph.i
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.split.i
   %__parent.05.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.i ], [ %__parent.0.i, %while.body.i ]
   %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.i ], [ %__parent.05.i, %while.body.i ]
-  %add.ptr.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.i
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i, align 8
   %mul3.i.i.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i, 5.000000e-01
@@ -15831,7 +15831,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr2.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
   %__parent.0.in.i = add nsw i64 %__parent.05.i, -1
   %__parent.0.i = sdiv i64 %__parent.0.in.i, 2
@@ -15840,7 +15840,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 "_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_2EEEvT_T0_SS_T1_RT2_.exit": ; preds = %land.rhs.us9.i, %while.body.us25.i, %land.rhs.us.i, %while.body.us.i, %land.rhs.i, %while.body.i, %if.end17
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %while.body.i ], [ %__holeIndex.addr.04.us.i, %land.rhs.us.i ], [ %__parent.05.us.i, %while.body.us.i ], [ %__holeIndex.addr.04.us11.i, %land.rhs.us9.i ], [ %__parent.05.us10.i, %while.body.us25.i ]
-  %add.ptr5.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr5.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr5.i, align 8
   %agg.tmp24.sroa.4.0.add.ptr5.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr5.i, i64 8
   store <2 x float> %agg.tmp.sroa.2.0.copyload, ptr %agg.tmp24.sroa.4.0.add.ptr5.i.sroa_idx, align 8
@@ -15868,9 +15868,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__secondChild.036 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4pbrt12BVHAggregate14buildRecursiveERNS2_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanINS2_12BVHPrimitiveEEEPSt6atomicIiESH_RSt6vectorINS2_9PrimitiveESaISJ_EEE3$_3EclIPSD_SQ_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__secondChild.036, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %mul
   %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub2
+  %add.ptr3 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub2
   %bounds.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i = load <2 x float>, ptr %bounds.i.i.i, align 8
   %pMax.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 20
@@ -15929,8 +15929,8 @@ _ZN4pbrt6Tuple3INS_6Point3EfEixEi.exit.i.i:       ; preds = %while.body
   %add.i.i1910.i.i = fadd float %mul.i.i2.i159.i.i, %mul.i.i.i65.sink.i.i
   %cmp.i.i = fcmp olt float %retval.0.i.sroa.speculated11.i.i, %add.i.i1910.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub2, i64 %mul
-  %add.ptr4 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %spec.select
-  %add.ptr5 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.036
+  %add.ptr4 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %spec.select
+  %add.ptr5 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.036
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr5, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr4, i64 32, i1 false)
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !136
@@ -15950,8 +15950,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__secondChild.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr14, i64 32, i1 false)
   br label %if.end17
 
@@ -15988,7 +15988,7 @@ land.rhs.lr.ph.split.us.i:                        ; preds = %land.rhs.lr.ph.i
 land.rhs.us.i:                                    ; preds = %while.body.us.i, %land.rhs.lr.ph.split.us.i
   %__parent.05.us.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.us.i ], [ %__parent.0.us.i, %while.body.us.i ]
   %__holeIndex.addr.04.us.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.us.i ], [ %__parent.05.us.i, %while.body.us.i ]
-  %add.ptr.us.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us.i
+  %add.ptr.us.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us.i
   %bounds.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 8
   %agg.tmp.sroa.0.0.copyload.i.i.i.us.i = load <2 x float>, ptr %bounds.i.i.i.us.i, align 8
   %pMax.i.i.i.us.i = getelementptr inbounds nuw i8, ptr %add.ptr.us.i, i64 20
@@ -16002,7 +16002,7 @@ land.rhs.us.i:                                    ; preds = %while.body.us.i, %l
   br i1 %cmp.i.i.us.i, label %while.body.us.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.us.i:                                  ; preds = %land.rhs.us.i
-  %add.ptr2.us.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us.i
+  %add.ptr2.us.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.us.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.us.i, i64 32, i1 false)
   %__parent.0.in.us.i = add nsw i64 %__parent.05.us.i, -1
   %__parent.0.us.i = sdiv i64 %__parent.0.in.us.i, 2
@@ -16020,7 +16020,7 @@ land.rhs.lr.ph.split.us8.i:                       ; preds = %land.rhs.lr.ph.i
 land.rhs.us9.i:                                   ; preds = %while.body.us25.i, %land.rhs.lr.ph.split.us8.i
   %__parent.05.us10.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.us8.i ], [ %__parent.0.us28.i, %while.body.us25.i ]
   %__holeIndex.addr.04.us11.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.us8.i ], [ %__parent.05.us10.i, %while.body.us25.i ]
-  %add.ptr.us12.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us10.i
+  %add.ptr.us12.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.us10.i
   %2 = getelementptr inbounds nuw i8, ptr %add.ptr.us12.i, i64 12
   %t.sroa.0.4.vec.extract.i.i.i.i.us.i = load float, ptr %2, align 4
   %mul2.i.i.i.i.i.us.i = fmul float %t.sroa.0.4.vec.extract.i.i.i.i.us.i, 5.000000e-01
@@ -16032,7 +16032,7 @@ land.rhs.us9.i:                                   ; preds = %while.body.us25.i, 
   br i1 %cmp.i.i.us24.i, label %while.body.us25.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.us25.i:                                ; preds = %land.rhs.us9.i
-  %add.ptr2.us26.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us11.i
+  %add.ptr2.us26.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.us11.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.us26.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.us12.i, i64 32, i1 false)
   %__parent.0.in.us27.i = add nsw i64 %__parent.05.us10.i, -1
   %__parent.0.us28.i = sdiv i64 %__parent.0.in.us27.i, 2
@@ -16048,7 +16048,7 @@ land.rhs.lr.ph.split.i:                           ; preds = %land.rhs.lr.ph.i
 land.rhs.i:                                       ; preds = %while.body.i, %land.rhs.lr.ph.split.i
   %__parent.05.i = phi i64 [ %__parent.02.i, %land.rhs.lr.ph.split.i ], [ %__parent.0.i, %while.body.i ]
   %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.split.i ], [ %__parent.05.i, %while.body.i ]
-  %add.ptr.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__parent.05.i
   %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   %agg.tmp.sroa.2.0.copyload.i.i.i.i = load float, ptr %agg.tmp.sroa.2.0.pMin.sroa_idx.i.i.i.i, align 8
   %mul3.i.i.i.i.i.i = fmul float %agg.tmp.sroa.2.0.copyload.i.i.i.i, 5.000000e-01
@@ -16060,7 +16060,7 @@ land.rhs.i:                                       ; preds = %while.body.i, %land
   br i1 %cmp.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr2.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.04.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i, i64 32, i1 false)
   %__parent.0.in.i = add nsw i64 %__parent.05.i, -1
   %__parent.0.i = sdiv i64 %__parent.0.in.i, 2
@@ -16069,7 +16069,7 @@ while.body.i:                                     ; preds = %land.rhs.i
 
 "_ZSt11__push_heapIPN4pbrt12BVHPrimitiveElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS8_4spanIS1_EEPSt6atomicIiESJ_RSt6vectorINS0_9PrimitiveESaISL_EEE3$_3EEEvT_T0_SS_T1_RT2_.exit": ; preds = %land.rhs.us9.i, %while.body.us25.i, %land.rhs.us.i, %while.body.us.i, %land.rhs.i, %while.body.i, %if.end17
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end17 ], [ %__holeIndex.addr.04.i, %land.rhs.i ], [ %__parent.05.i, %while.body.i ], [ %__holeIndex.addr.04.us.i, %land.rhs.us.i ], [ %__parent.05.us.i, %while.body.us.i ], [ %__holeIndex.addr.04.us11.i, %land.rhs.us9.i ], [ %__parent.05.us10.i, %while.body.us25.i ]
-  %add.ptr5.i = getelementptr inbounds %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr5.i = getelementptr inbounds nuw %"struct.pbrt::BVHPrimitive", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   store i64 %agg.tmp.sroa.0.0.copyload, ptr %add.ptr5.i, align 8
   %agg.tmp24.sroa.4.0.add.ptr5.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr5.i, i64 8
   store <2 x float> %agg.tmp.sroa.2.0.copyload, ptr %agg.tmp24.sroa.4.0.add.ptr5.i.sroa_idx, align 8

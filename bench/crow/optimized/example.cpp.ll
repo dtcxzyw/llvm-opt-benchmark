@@ -64928,7 +64928,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal
   %21 = and i64 %.fr, 4
   %22 = icmp eq i64 %21, 0
   %23 = or disjoint i64 %17, 1
-  %24 = getelementptr inbounds i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %18
   br i1 %22, label %.split, label %.split.us
 
@@ -65669,7 +65669,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(pt
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !91
-  %52 = getelementptr inbounds i32, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !93
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !92
@@ -77992,7 +77992,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorISt8functionIFNSt7__cxx1112basic
 
 52:                                               ; preds = %51, %.loopexit
   store ptr %32, ptr %0, align 8, !tbaa !122
-  %53 = getelementptr inbounds %"class.std::function.143", ptr %33, i64 %1
+  %53 = getelementptr inbounds nuw %"class.std::function.143", ptr %33, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !124
   %54 = getelementptr inbounds nuw %"class.std::function.143", ptr %32, i64 %30
   store ptr %54, ptr %12, align 8, !tbaa !1551
@@ -78090,7 +78090,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPN4crow6detail10task_timerESaIS
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !126
-  %52 = getelementptr inbounds ptr, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw ptr, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !1034
   %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !1561
@@ -96854,7 +96854,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIPcSaIS0_EE17_M_default_appendEm
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !836
-  %52 = getelementptr inbounds ptr, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw ptr, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !838
   %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !853
@@ -111394,7 +111394,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
   %109 = load i64, ptr %108, align 8, !tbaa !10, !noalias !2138
   %110 = call i64 @llvm.umin.i64(i64 %109, i64 %104)
-  %111 = getelementptr inbounds [16 x %"class.asio::const_buffer"], ptr %6, i64 0, i64 %103
+  %111 = getelementptr inbounds nuw [16 x %"class.asio::const_buffer"], ptr %6, i64 0, i64 %103
   store ptr %107, ptr %111, align 8, !tbaa !28, !alias.scope !2138
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   store i64 %110, ptr %112, align 8, !tbaa !10, !alias.scope !2138
@@ -111967,7 +111967,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4asio6detail21write_buffer_sequenc
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %113 = load i64, ptr %112, align 8, !tbaa !10, !noalias !2160
   %114 = call i64 @llvm.umin.i64(i64 %113, i64 %108)
-  %115 = getelementptr inbounds [16 x %"class.asio::const_buffer"], ptr %8, i64 0, i64 %107
+  %115 = getelementptr inbounds nuw [16 x %"class.asio::const_buffer"], ptr %8, i64 0, i64 %107
   store ptr %111, ptr %115, align 8, !tbaa !28, !alias.scope !2160
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   store i64 %114, ptr %116, align 8, !tbaa !10, !alias.scope !2160
@@ -112800,7 +112800,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail8write_opINS_19basic_stream_s
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !10, !noalias !2176
   %55 = tail call i64 @llvm.umin.i64(i64 %54, i64 %50)
-  %56 = getelementptr inbounds [16 x %"class.asio::const_buffer"], ptr %5, i64 0, i64 %49
+  %56 = getelementptr inbounds nuw [16 x %"class.asio::const_buffer"], ptr %5, i64 0, i64 %49
   store ptr %52, ptr %56, align 8, !tbaa !28, !alias.scope !2176
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %55, ptr %57, align 8, !tbaa !10, !alias.scope !2176

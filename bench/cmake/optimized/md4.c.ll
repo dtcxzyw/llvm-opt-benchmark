@@ -53,16 +53,17 @@ MD4_Update.exit:                                  ; preds = %3, %15
   %28 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %23
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %28, i8 0, i64 %25, i1 false)
   %29 = call fastcc ptr @body(ptr noundef nonnull %4, ptr noundef nonnull %22, i64 noundef 64)
+  %.pre.i = load i32, ptr %4, align 4
   br label %MD4_Final.exit
 
 MD4_Final.exit:                                   ; preds = %MD4_Update.exit, %27
+  %30 = phi i32 [ %.pre.i, %27 ], [ %.pre, %MD4_Update.exit ]
   %.064.i = phi i64 [ 0, %27 ], [ %23, %MD4_Update.exit ]
   %.0.i3 = phi i64 [ 64, %27 ], [ %25, %MD4_Update.exit ]
-  %30 = getelementptr inbounds [64 x i8], ptr %22, i64 0, i64 %.064.i
-  %31 = add nsw i64 %.0.i3, -8
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %30, i8 0, i64 %31, i1 false)
-  %32 = load i32, ptr %4, align 4
-  %33 = shl i32 %32, 3
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 0, i64 %.064.i
+  %32 = add nsw i64 %.0.i3, -8
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 0, i64 %32, i1 false)
+  %33 = shl i32 %30, 3
   store i32 %33, ptr %4, align 4
   %34 = and i32 %33, 248
   %35 = zext nneg i32 %34 to i64

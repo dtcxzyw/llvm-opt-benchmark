@@ -14089,14 +14089,14 @@ if.then:                                          ; preds = %while.body
   %0 = and i64 %sub.ptr.sub169, 4
   %cmp5.i.i.i.i = icmp eq i64 %0, 0
   %sub12.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr13.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i.i.i
+  %add.ptr13.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub12.i.i.i.i
   %add.ptr14.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %div9.i.i.i
   %vector_.i.i14.i.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.sroa.0.0.copyload, i64 8
   br label %while.body.i.i.i
 
 while.body.i.i.i:                                 ; preds = %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_T0_SP_T1_T2_.exit.i.i.i", %if.then
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.then ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_T0_SP_T1_T2_.exit.i.i.i" ]
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__parent.0.i.i.i
   %1 = load i32, ptr %add.ptr.i.i.i, align 4
   %cmp23.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i136138.i.i.i
   br i1 %cmp23.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i
@@ -14105,9 +14105,9 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %__secondChild.024.i.i.i.i = phi i64 [ %23, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.thread.i.i.i" ], [ %__parent.0.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__secondChild.024.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub1.i.i.i.i
   %add.ptr.val.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %add.ptr2.val.i.i.i.i = load i32, ptr %add.ptr2.i.i.i.i, align 4
   %cmp.i12.i.i.i = icmp eq i32 %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
@@ -14232,9 +14232,9 @@ if.then16.i73.i.i.i:                              ; preds = %if.end10.i60.i.i.i
 
 "_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.thread.i.i.i": ; preds = %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.thread114.i.i.i", %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.i.i.i", %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit40.i47.i.i.i, %if.then8.i29.i74.i.i.i, %if.then4.i32.i78.i.i.i, %while.body.i.i.i.i
   %23 = phi i64 [ %sub1.i.i.i.i, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.thread114.i.i.i" ], [ %mul.i.i.i.i, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit99.i.i.i" ], [ %mul.i.i.i.i, %while.body.i.i.i.i ], [ %mul.i.i.i.i, %if.then8.i29.i74.i.i.i ], [ %mul.i.i.i.i, %if.then4.i32.i78.i.i.i ], [ %mul.i.i.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit40.i47.i.i.i ]
-  %add.ptr3.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %23
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %23
   %24 = load i32, ptr %add.ptr3.i.i.i.i, align 4
-  %add.ptr4.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.024.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.024.i.i.i.i
   store i32 %24, ptr %add.ptr4.i.i.i.i, align 4
   %cmp.i.i.i.i = icmp slt i64 %23, %div.i136138.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !123
@@ -14401,7 +14401,7 @@ if.then16.i.i.i.i:                                ; preds = %if.end10.i.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit.while.body.i.i_crit_edge.i.i.i", %41
   %49 = phi i32 [ %.pre.i.i.i, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit.while.body.i.i_crit_edge.i.i.i" ], [ %add.ptr.val.i.i.i.i.i, %41 ]
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.014.i.i.i.i.i
   store i32 %49, ptr %add.ptr2.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.015.i.i.i.i.i, %__parent.0.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS5_17SelectivityVectorERKNS5_11ArrayVectorERKNS5_10BaseVectorEbRNS5_4exec7EvalCtxEbENK3$_0clEiEUlRiSL_E_EEEvT_T0_SP_T1_T2_.exit.i.i.i", !llvm.loop !124
@@ -14432,9 +14432,9 @@ while.body.i.i25:                                 ; preds = %while.body.i.i, %"_
   %__secondChild.024.i.i = phi i64 [ %76, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117.thread" ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %__first, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %mul.i.i
   %sub1.i.i = or disjoint i64 %add.i.i, 1
-  %add.ptr2.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub1.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub1.i.i
   %add.ptr.val.i.i = load i32, ptr %add.ptr.i.i, align 4
   %add.ptr2.val.i.i = load i32, ptr %add.ptr2.i.i, align 4
   %cmp.i30 = icmp eq i32 %add.ptr.val.i.i, %add.ptr2.val.i.i
@@ -14576,9 +14576,9 @@ if.then16.i91:                                    ; preds = %if.end10.i78
 
 "_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117.thread": ; preds = %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit40.i65, %if.then4.i32.i96, %if.then8.i29.i92, %while.body.i.i25, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117", %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117.thread136"
   %76 = phi i64 [ %sub1.i.i, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117.thread136" ], [ %mul.i.i, %"_ZZZN8facebook5velox9functions12_GLOBAL__N_112sortElementsERKNS0_17SelectivityVectorERKNS0_11ArrayVectorERKNS0_10BaseVectorEbRNS0_4exec7EvalCtxEbENK3$_0clEiENKUlRiSG_E_clESG_SG_.exit117" ], [ %mul.i.i, %while.body.i.i25 ], [ %mul.i.i, %if.then8.i29.i92 ], [ %mul.i.i, %if.then4.i32.i96 ], [ %mul.i.i, %_ZNK8facebook5velox13DecodedVector8isNullAtEi.exit40.i65 ]
-  %add.ptr3.i.i = getelementptr inbounds i32, ptr %__first, i64 %76
+  %add.ptr3.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %76
   %77 = load i32, ptr %add.ptr3.i.i, align 4
-  %add.ptr4.i.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.024.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.024.i.i
   store i32 %77, ptr %add.ptr4.i.i, align 4
   %cmp.i.i27 = icmp slt i64 %76, %div.i.i
   br i1 %cmp.i.i27, label %while.body.i.i25, label %while.end.i.i, !llvm.loop !123
@@ -14598,9 +14598,9 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
 if.then9.i.i24:                                   ; preds = %land.lhs.true.i.i
   %add10.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
-  %add.ptr13.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub12.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub12.i.i
   %79 = load i32, ptr %add.ptr13.i.i, align 4
-  %add.ptr14.i.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.0.lcssa.i.i
   store i32 %79, ptr %add.ptr14.i.i, align 4
   br label %if.end16.i.i
 
@@ -25126,7 +25126,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -25178,7 +25178,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -25680,7 +25680,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -25732,7 +25732,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIiEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -28248,7 +28248,7 @@ if.end6.split.preheader:                          ; preds = %if.end6.split.lr.ph
 if.end6.split.us:                                 ; preds = %if.end6.split.lr.ph, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end6.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i8, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i8, ptr %__first, i64 %dec.us
   %6 = load i8, ptr %add.ptr10.us, align 1
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -28300,7 +28300,7 @@ _ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end6.split:                                    ; preds = %if.end6.split.preheader, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end6.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i8, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %__first, i64 %dec
   %11 = load i8, ptr %add.ptr10, align 1
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -28795,7 +28795,7 @@ if.end6.split.preheader:                          ; preds = %if.end6.split.lr.ph
 if.end6.split.us:                                 ; preds = %if.end6.split.lr.ph, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end6.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i8, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i8, ptr %__first, i64 %dec.us
   %6 = load i8, ptr %add.ptr10.us, align 1
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -28847,7 +28847,7 @@ _ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0
 if.end6.split:                                    ; preds = %if.end6.split.preheader, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPalaN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIaEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end6.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i8, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i8, ptr %__first, i64 %dec
   %11 = load i8, ptr %add.ptr10, align 1
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -31372,7 +31372,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i16, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i16, ptr %__first, i64 %dec.us
   %7 = load i16, ptr %add.ptr10.us, align 2
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -31424,7 +31424,7 @@ _ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i16, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i16, ptr %__first, i64 %dec
   %12 = load i16, ptr %add.ptr10, align 2
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -31926,7 +31926,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i16, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i16, ptr %__first, i64 %dec.us
   %7 = load i16, ptr %add.ptr10.us, align 2
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -31978,7 +31978,7 @@ _ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPslsN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIsEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i16, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i16, ptr %__first, i64 %dec
   %12 = load i16, ptr %add.ptr10, align 2
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -34503,7 +34503,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i64, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i64, ptr %__first, i64 %dec.us
   %7 = load i64, ptr %add.ptr10.us, align 8
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -34555,7 +34555,7 @@ _ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i64, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i64, ptr %__first, i64 %dec
   %12 = load i64, ptr %add.ptr10, align 8
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -35057,7 +35057,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i64, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i64, ptr %__first, i64 %dec.us
   %7 = load i64, ptr %add.ptr10.us, align 8
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -35109,7 +35109,7 @@ _ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPlllN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIlEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i64, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i64, ptr %__first, i64 %dec
   %12 = load i64, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -37821,7 +37821,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit64.us
   %__parent.069.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit64.us ], [ %div17, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.069.us, -1
-  %add.ptr13.us = getelementptr inbounds i128, ptr %__first, i64 %dec.us
+  %add.ptr13.us = getelementptr inbounds nuw i128, ptr %__first, i64 %dec.us
   %7 = load i128, ptr %add.ptr13.us, align 16
   %cmp24.i20.not.us = icmp sgt i64 %__parent.069.us, %div.i6567
   br i1 %cmp24.i20.not.us, label %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit64.us, label %while.body.i52.us
@@ -37873,7 +37873,7 @@ _ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit64
   %__parent.069 = phi i64 [ %dec, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit64 ], [ %div17, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.069, -1
-  %add.ptr13 = getelementptr inbounds i128, ptr %__first, i64 %dec
+  %add.ptr13 = getelementptr inbounds nuw i128, ptr %__first, i64 %dec
   %12 = load i128, ptr %add.ptr13, align 16
   %cmp24.i20.not = icmp sgt i64 %__parent.069, %div.i6567
   br i1 %cmp24.i20.not, label %while.end.i21, label %while.body.i52
@@ -38562,7 +38562,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0_S8_T1_T2_.exit64.us
   %__parent.069.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0_S8_T1_T2_.exit64.us ], [ %div17, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.069.us, -1
-  %add.ptr13.us = getelementptr inbounds i128, ptr %__first, i64 %dec.us
+  %add.ptr13.us = getelementptr inbounds nuw i128, ptr %__first, i64 %dec.us
   %7 = load i128, ptr %add.ptr13.us, align 16
   %cmp23.i20.not.us = icmp sgt i64 %__parent.069.us, %div.i6567
   br i1 %cmp23.i20.not.us, label %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0_S8_T1_T2_.exit64.us, label %while.body.i52.us
@@ -38614,7 +38614,7 @@ _ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0_S8_T1_T2_.exit64
   %__parent.069 = phi i64 [ %dec, %_ZSt13__adjust_heapIPnlnN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterInEEEEvT_T0_S8_T1_T2_.exit64 ], [ %div17, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.069, -1
-  %add.ptr13 = getelementptr inbounds i128, ptr %__first, i64 %dec
+  %add.ptr13 = getelementptr inbounds nuw i128, ptr %__first, i64 %dec
   %12 = load i128, ptr %add.ptr13, align 16
   %cmp23.i20.not = icmp sgt i64 %__parent.069, %div.i6567
   br i1 %cmp23.i20.not, label %while.end.i21, label %while.body.i52
@@ -41139,7 +41139,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds float, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw float, ptr %__first, i64 %dec.us
   %7 = load float, ptr %add.ptr10.us, align 4
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -41191,7 +41191,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds float, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw float, ptr %__first, i64 %dec
   %12 = load float, ptr %add.ptr10, align 4
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -41693,7 +41693,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds float, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw float, ptr %__first, i64 %dec.us
   %7 = load float, ptr %add.ptr10.us, align 4
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -41745,7 +41745,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIfEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds float, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw float, ptr %__first, i64 %dec
   %12 = load float, ptr %add.ptr10, align 4
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -44270,7 +44270,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds double, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw double, ptr %__first, i64 %dec.us
   %7 = load double, ptr %add.ptr10.us, align 8
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -44322,7 +44322,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds double, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw double, ptr %__first, i64 %dec
   %12 = load double, ptr %add.ptr10, align 8
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42
@@ -44824,7 +44824,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds double, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw double, ptr %__first, i64 %dec.us
   %7 = load double, ptr %add.ptr10.us, align 8
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -44876,7 +44876,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIdEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds double, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw double, ptr %__first, i64 %dec
   %12 = load double, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -47027,7 +47027,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.019.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div17.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.019.i.i, -1
-  %add.ptr13.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first, i64 %dec.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload14.i.i = load i64, ptr %add.ptr13.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i, align 8
@@ -48076,7 +48076,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.019.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div17.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.019.i.i, -1
-  %add.ptr13.i.i = getelementptr inbounds %"struct.facebook::velox::StringView", ptr %__first, i64 %dec.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw %"struct.facebook::velox::StringView", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload14.i.i = load i64, ptr %add.ptr13.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i, align 8
@@ -53434,7 +53434,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN8facebook5velox9TimestampElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit74
   %__parent.080 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN8facebook5velox9TimestampElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit74 ]
   %dec = add nsw i64 %__parent.080, -1
-  %add.ptr13 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %__first, i64 %dec
+  %add.ptr13 = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load i64, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8
@@ -54243,7 +54243,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN8facebook5velox9TimestampElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_T0_SB_T1_T2_.exit74
   %__parent.080 = phi i64 [ %div17, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPN8facebook5velox9TimestampElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS2_EEEEvT_T0_SB_T1_T2_.exit74 ]
   %dec = add nsw i64 %__parent.080, -1
-  %add.ptr13 = getelementptr inbounds %"struct.facebook::velox::Timestamp", ptr %__first, i64 %dec
+  %add.ptr13 = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload14 = load i64, ptr %add.ptr13, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15 = getelementptr inbounds nuw i8, ptr %add.ptr13, i64 8
   %__value.sroa.2.0.copyload16 = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx15, align 8

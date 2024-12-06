@@ -33549,7 +33549,7 @@ while.body.i.i.i.i.us:                            ; preds = %_ZN4pbrt18ImageChan
   %__parent.0.i.i.i.i.us = phi i64 [ %dec.i.i.i.i.us, %_ZN4pbrt18ImageChannelValuesD2Ev.exit40.i.i.i.i.us ], [ %div9.i.i.i.i.us, %if.end.i.i.i.i.us ]
   %719 = mul i64 %indvar.i.i.i.i.us, -48
   %scevgep.i.i.i.i.us = getelementptr i8, ptr %718, i64 %719
-  %add.ptr.i.i.i.i1174.us = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first.addr.0.call.i.i.us, i64 %__parent.0.i.i.i.i.us
+  %add.ptr.i.i.i.i1174.us = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first.addr.0.call.i.i.us, i64 %__parent.0.i.i.i.i.us
   %720 = load i64, ptr %add.ptr.i.i.i.i1174.us, align 8
   %721 = inttoptr i64 %720 to ptr
   store ptr %721, ptr %__value.i.i.i.i.sroa.0, align 8
@@ -70761,9 +70761,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.033 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESG_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.033, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %sub1
+  %add.ptr2 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %sub1
   %nStored.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 40
   %0 = load i64, ptr %nStored.i.i.i.i, align 8
   %cmp5.not.i.i.i = icmp eq i64 %0, 0
@@ -70820,8 +70820,8 @@ for.body.i7.i.i:                                  ; preds = %for.body.i7.i.i, %f
   %div.i16.i.i = fdiv float %sum.0.lcssa.i14.i.i, %conv5.i15.i.i
   %cmp.i.i = fcmp olt float %div.i.i.i, %div.i16.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.033
+  %add.ptr3 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.033
   %call.i = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr3)
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !365
@@ -70841,8 +70841,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %call.i23 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr14)
   br label %if.end18
 
@@ -70894,7 +70894,7 @@ land.rhs.i:                                       ; preds = %call.i.i.noexc, %la
   %__holeIndex.addr.04.i = phi i64 [ %__holeIndex.addr.1, %land.rhs.lr.ph.i ], [ %__parent.05.i, %call.i.i.noexc ]
   %__parent.05.in.i = add nsw i64 %__holeIndex.addr.04.i, -1
   %__parent.05.i = sdiv i64 %__parent.05.in.i, 2
-  %add.ptr.i = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__parent.05.i
+  %add.ptr.i = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__parent.05.i
   %nStored.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 40
   %16 = load i64, ptr %nStored.i.i.i.i.i, align 8
   %cmp5.not.i.i.i.i = icmp eq i64 %16, 0
@@ -70950,7 +70950,7 @@ for.body.i7.i.i.i:                                ; preds = %for.body.i7.i.i.i, 
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i"
-  %add.ptr2.i = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.04.i
   %call.i.i25 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i)
           to label %call.i.i.noexc unwind label %lpad.loopexit
 
@@ -70960,7 +70960,7 @@ call.i.i.noexc:                                   ; preds = %while.body.i
 
 while.end.i:                                      ; preds = %call.i.i.noexc, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i", %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %_ZN4pbrt18ImageChannelValuesC2EOS0_.exit ], [ %__holeIndex.addr.04.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZ7convertSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EEE3$_1EclIPN4pbrt18ImageChannelValuesESF_EEbT_RT0_.exit.i" ], [ %__parent.05.i, %call.i.i.noexc ]
-  %add.ptr6.i = getelementptr inbounds %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr6.i = getelementptr inbounds nuw %"struct.pbrt::ImageChannelValues", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i
   %call.i10.i26 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZN4pbrt13InlinedVectorIfLi4EN4pstd3pmr21polymorphic_allocatorIfEEEaSEOS5_(ptr noundef nonnull align 8 dereferenceable(48) %add.ptr6.i, ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp)
           to label %invoke.cont unwind label %lpad.loopexit.split-lp
 

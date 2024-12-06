@@ -18563,7 +18563,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4394
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !4365
   %.sroa.0.012.i.i = and i64 %59, %143
-  %144 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %144, align 1, !noalias !4406
   %145 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -18576,7 +18576,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %147 = add i64 %.sroa.7.015.i.i, 16
   %148 = add i64 %147, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %148, %59
-  %149 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i8
+  %149 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %149, align 1, !noalias !4406
   %150 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -18590,7 +18590,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = zext nneg i16 %152 to i64
   %154 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %153
   %155 = and i64 %154, %59
-  %156 = getelementptr inbounds i8, ptr %62, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %62, i64 %155
   %157 = load i8, ptr %156, align 1, !noalias !4413, !noundef !4
   %158 = icmp sgt i8 %157, -1
   br i1 %158, label %159, label %166
@@ -18607,7 +18607,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 166:                                              ; preds = %159, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %165, %159 ], [ %155, %._crit_edge.i.i ]
-  %167 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i7
+  %167 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i7
   %168 = lshr i64 %143, 57
   %169 = trunc nuw nsw i64 %168 to i8
   %170 = add nsw i64 %.0.i.i.i7, -16
@@ -18964,7 +18964,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4516
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !4482
   %.sroa.0.012.i.i = and i64 %60, %144
-  %145 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.012.i.i
+  %145 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %145, align 1, !noalias !4528
   %146 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %147 = bitcast <16 x i1> %146 to i16
@@ -18977,7 +18977,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %148 = add i64 %.sroa.7.015.i.i, 16
   %149 = add i64 %148, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %149, %60
-  %150 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i.i8
+  %150 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %150, align 1, !noalias !4528
   %151 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -18991,7 +18991,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %154 = zext nneg i16 %153 to i64
   %155 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %154
   %156 = and i64 %155, %60
-  %157 = getelementptr inbounds i8, ptr %63, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %63, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !4535, !noundef !4
   %159 = icmp sgt i8 %158, -1
   br i1 %159, label %160, label %167
@@ -19008,7 +19008,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 167:                                              ; preds = %160, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %166, %160 ], [ %156, %._crit_edge.i.i ]
-  %168 = getelementptr inbounds i8, ptr %63, i64 %.0.i.i.i7
+  %168 = getelementptr inbounds nuw i8, ptr %63, i64 %.0.i.i.i7
   %169 = lshr i64 %144, 57
   %170 = trunc nuw nsw i64 %169 to i8
   %171 = add nsw i64 %.0.i.i.i7, -16
@@ -19369,7 +19369,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4629
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !4603
   %.sroa.0.012.i.i = and i64 %62, %149
-  %150 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.012.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %150, align 1, !noalias !4641
   %151 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -19382,7 +19382,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = add i64 %.sroa.7.015.i.i, 16
   %154 = add i64 %153, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %154, %62
-  %155 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.0.i.i8
+  %155 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %155, align 1, !noalias !4641
   %156 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %157 = bitcast <16 x i1> %156 to i16
@@ -19396,7 +19396,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %159 = zext nneg i16 %158 to i64
   %160 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %159
   %161 = and i64 %160, %62
-  %162 = getelementptr inbounds i8, ptr %65, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %65, i64 %161
   %163 = load i8, ptr %162, align 1, !noalias !4648, !noundef !4
   %164 = icmp sgt i8 %163, -1
   br i1 %164, label %165, label %172
@@ -19413,7 +19413,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 172:                                              ; preds = %165, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %171, %165 ], [ %161, %._crit_edge.i.i ]
-  %173 = getelementptr inbounds i8, ptr %65, i64 %.0.i.i.i7
+  %173 = getelementptr inbounds nuw i8, ptr %65, i64 %.0.i.i.i7
   %174 = lshr i64 %149, 57
   %175 = trunc nuw nsw i64 %174 to i8
   %176 = add nsw i64 %.0.i.i.i7, -16
@@ -19774,7 +19774,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4742
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !4716
   %.sroa.0.012.i.i = and i64 %62, %149
-  %150 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.012.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %150, align 1, !noalias !4754
   %151 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -19787,7 +19787,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = add i64 %.sroa.7.015.i.i, 16
   %154 = add i64 %153, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %154, %62
-  %155 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.0.i.i8
+  %155 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %155, align 1, !noalias !4754
   %156 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %157 = bitcast <16 x i1> %156 to i16
@@ -19801,7 +19801,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %159 = zext nneg i16 %158 to i64
   %160 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %159
   %161 = and i64 %160, %62
-  %162 = getelementptr inbounds i8, ptr %65, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %65, i64 %161
   %163 = load i8, ptr %162, align 1, !noalias !4761, !noundef !4
   %164 = icmp sgt i8 %163, -1
   br i1 %164, label %165, label %172
@@ -19818,7 +19818,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 172:                                              ; preds = %165, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %171, %165 ], [ %161, %._crit_edge.i.i ]
-  %173 = getelementptr inbounds i8, ptr %65, i64 %.0.i.i.i7
+  %173 = getelementptr inbounds nuw i8, ptr %65, i64 %.0.i.i.i7
   %174 = lshr i64 %149, 57
   %175 = trunc nuw nsw i64 %174 to i8
   %176 = add nsw i64 %.0.i.i.i7, -16
@@ -20178,7 +20178,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4852
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !4827
   %.sroa.0.012.i.i = and i64 %64, %152
-  %153 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %153, align 1, !noalias !4864
   %154 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
@@ -20191,7 +20191,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %156 = add i64 %.sroa.7.015.i.i, 16
   %157 = add i64 %156, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %157, %64
-  %158 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %158 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %158, align 1, !noalias !4864
   %159 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %160 = bitcast <16 x i1> %159 to i16
@@ -20205,7 +20205,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = zext nneg i16 %161 to i64
   %163 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %162
   %164 = and i64 %163, %64
-  %165 = getelementptr inbounds i8, ptr %67, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %67, i64 %164
   %166 = load i8, ptr %165, align 1, !noalias !4871, !noundef !4
   %167 = icmp sgt i8 %166, -1
   br i1 %167, label %168, label %175
@@ -20222,7 +20222,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 175:                                              ; preds = %168, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %174, %168 ], [ %164, %._crit_edge.i.i ]
-  %176 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %176 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %177 = lshr i64 %152, 57
   %178 = trunc nuw nsw i64 %177 to i8
   %179 = add nsw i64 %.0.i.i.i6, -16
@@ -20583,7 +20583,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !4962
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !4937
   %.sroa.0.012.i.i = and i64 %64, %152
-  %153 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %153, align 1, !noalias !4974
   %154 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
@@ -20596,7 +20596,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %156 = add i64 %.sroa.7.015.i.i, 16
   %157 = add i64 %156, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %157, %64
-  %158 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %158 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %158, align 1, !noalias !4974
   %159 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %160 = bitcast <16 x i1> %159 to i16
@@ -20610,7 +20610,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = zext nneg i16 %161 to i64
   %163 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %162
   %164 = and i64 %163, %64
-  %165 = getelementptr inbounds i8, ptr %67, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %67, i64 %164
   %166 = load i8, ptr %165, align 1, !noalias !4981, !noundef !4
   %167 = icmp sgt i8 %166, -1
   br i1 %167, label %168, label %175
@@ -20627,7 +20627,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 175:                                              ; preds = %168, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %174, %168 ], [ %164, %._crit_edge.i.i ]
-  %176 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %176 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %177 = lshr i64 %152, 57
   %178 = trunc nuw nsw i64 %177 to i8
   %179 = add nsw i64 %.0.i.i.i6, -16
@@ -21006,7 +21006,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5087
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !5053
   %.sroa.0.012.i.i = and i64 %68, %161
-  %162 = getelementptr inbounds i8, ptr %71, i64 %.sroa.0.012.i.i
+  %162 = getelementptr inbounds nuw i8, ptr %71, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %162, align 1, !noalias !5099
   %163 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %164 = bitcast <16 x i1> %163 to i16
@@ -21019,7 +21019,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %165 = add i64 %.sroa.7.015.i.i, 16
   %166 = add i64 %165, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %166, %68
-  %167 = getelementptr inbounds i8, ptr %71, i64 %.sroa.0.0.i.i8
+  %167 = getelementptr inbounds nuw i8, ptr %71, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %167, align 1, !noalias !5099
   %168 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %169 = bitcast <16 x i1> %168 to i16
@@ -21033,7 +21033,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %171 = zext nneg i16 %170 to i64
   %172 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %171
   %173 = and i64 %172, %68
-  %174 = getelementptr inbounds i8, ptr %71, i64 %173
+  %174 = getelementptr inbounds nuw i8, ptr %71, i64 %173
   %175 = load i8, ptr %174, align 1, !noalias !5106, !noundef !4
   %176 = icmp sgt i8 %175, -1
   br i1 %176, label %177, label %184
@@ -21050,7 +21050,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 184:                                              ; preds = %177, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %183, %177 ], [ %173, %._crit_edge.i.i ]
-  %185 = getelementptr inbounds i8, ptr %71, i64 %.0.i.i.i7
+  %185 = getelementptr inbounds nuw i8, ptr %71, i64 %.0.i.i.i7
   %186 = lshr i64 %161, 57
   %187 = trunc nuw nsw i64 %186 to i8
   %188 = add nsw i64 %.0.i.i.i7, -16
@@ -21419,7 +21419,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5200
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5174
   %.sroa.0.012.i.i = and i64 %64, %156
-  %157 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %157 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %157, align 1, !noalias !5212
   %158 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %159 = bitcast <16 x i1> %158 to i16
@@ -21432,7 +21432,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %160 = add i64 %.sroa.7.015.i.i, 16
   %161 = add i64 %160, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %161, %64
-  %162 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i8
+  %162 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %162, align 1, !noalias !5212
   %163 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %164 = bitcast <16 x i1> %163 to i16
@@ -21446,7 +21446,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %166 = zext nneg i16 %165 to i64
   %167 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %166
   %168 = and i64 %167, %64
-  %169 = getelementptr inbounds i8, ptr %67, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %67, i64 %168
   %170 = load i8, ptr %169, align 1, !noalias !5219, !noundef !4
   %171 = icmp sgt i8 %170, -1
   br i1 %171, label %172, label %179
@@ -21463,7 +21463,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 179:                                              ; preds = %172, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %178, %172 ], [ %168, %._crit_edge.i.i ]
-  %180 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i7
+  %180 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i7
   %181 = lshr i64 %156, 57
   %182 = trunc nuw nsw i64 %181 to i8
   %183 = add nsw i64 %.0.i.i.i7, -16
@@ -21826,7 +21826,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5313
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5288
   %.sroa.0.012.i.i = and i64 %64, %156
-  %157 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %157 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %157, align 1, !noalias !5325
   %158 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %159 = bitcast <16 x i1> %158 to i16
@@ -21839,7 +21839,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %160 = add i64 %.sroa.7.015.i.i, 16
   %161 = add i64 %160, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %161, %64
-  %162 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %162 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %162, align 1, !noalias !5325
   %163 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %164 = bitcast <16 x i1> %163 to i16
@@ -21853,7 +21853,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %166 = zext nneg i16 %165 to i64
   %167 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %166
   %168 = and i64 %167, %64
-  %169 = getelementptr inbounds i8, ptr %67, i64 %168
+  %169 = getelementptr inbounds nuw i8, ptr %67, i64 %168
   %170 = load i8, ptr %169, align 1, !noalias !5332, !noundef !4
   %171 = icmp sgt i8 %170, -1
   br i1 %171, label %172, label %179
@@ -21870,7 +21870,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 179:                                              ; preds = %172, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %178, %172 ], [ %168, %._crit_edge.i.i ]
-  %180 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %180 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %181 = lshr i64 %156, 57
   %182 = trunc nuw nsw i64 %181 to i8
   %183 = add nsw i64 %.0.i.i.i6, -16
@@ -22223,7 +22223,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5426
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5400
   %.sroa.0.012.i.i = and i64 %59, %143
-  %144 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %144, align 1, !noalias !5438
   %145 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -22236,7 +22236,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %147 = add i64 %.sroa.7.015.i.i, 16
   %148 = add i64 %147, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %148, %59
-  %149 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i8
+  %149 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %149, align 1, !noalias !5438
   %150 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -22250,7 +22250,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = zext nneg i16 %152 to i64
   %154 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %153
   %155 = and i64 %154, %59
-  %156 = getelementptr inbounds i8, ptr %62, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %62, i64 %155
   %157 = load i8, ptr %156, align 1, !noalias !5445, !noundef !4
   %158 = icmp sgt i8 %157, -1
   br i1 %158, label %159, label %166
@@ -22267,7 +22267,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 166:                                              ; preds = %159, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %165, %159 ], [ %155, %._crit_edge.i.i ]
-  %167 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i7
+  %167 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i7
   %168 = lshr i64 %143, 57
   %169 = trunc nuw nsw i64 %168 to i8
   %170 = add nsw i64 %.0.i.i.i7, -16
@@ -22627,7 +22627,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5536
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5511
   %.sroa.0.012.i.i = and i64 %64, %152
-  %153 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %153, align 1, !noalias !5548
   %154 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
@@ -22640,7 +22640,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %156 = add i64 %.sroa.7.015.i.i, 16
   %157 = add i64 %156, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %157, %64
-  %158 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %158 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %158, align 1, !noalias !5548
   %159 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %160 = bitcast <16 x i1> %159 to i16
@@ -22654,7 +22654,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = zext nneg i16 %161 to i64
   %163 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %162
   %164 = and i64 %163, %64
-  %165 = getelementptr inbounds i8, ptr %67, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %67, i64 %164
   %166 = load i8, ptr %165, align 1, !noalias !5555, !noundef !4
   %167 = icmp sgt i8 %166, -1
   br i1 %167, label %168, label %175
@@ -22671,7 +22671,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 175:                                              ; preds = %168, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %174, %168 ], [ %164, %._crit_edge.i.i ]
-  %176 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %176 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %177 = lshr i64 %152, 57
   %178 = trunc nuw nsw i64 %177 to i8
   %179 = add nsw i64 %.0.i.i.i6, -16
@@ -23019,7 +23019,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5649
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5624
   %.sroa.0.012.i.i = and i64 %59, %143
-  %144 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %144, align 1, !noalias !5661
   %145 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -23032,7 +23032,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %147 = add i64 %.sroa.7.015.i.i, 16
   %148 = add i64 %147, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %148, %59
-  %149 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i7
+  %149 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %149, align 1, !noalias !5661
   %150 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -23046,7 +23046,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = zext nneg i16 %152 to i64
   %154 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %153
   %155 = and i64 %154, %59
-  %156 = getelementptr inbounds i8, ptr %62, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %62, i64 %155
   %157 = load i8, ptr %156, align 1, !noalias !5668, !noundef !4
   %158 = icmp sgt i8 %157, -1
   br i1 %158, label %159, label %166
@@ -23063,7 +23063,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 166:                                              ; preds = %159, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %165, %159 ], [ %155, %._crit_edge.i.i ]
-  %167 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i6
+  %167 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i6
   %168 = lshr i64 %143, 57
   %169 = trunc nuw nsw i64 %168 to i8
   %170 = add nsw i64 %.0.i.i.i6, -16
@@ -23426,7 +23426,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5759
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5734
   %.sroa.0.012.i.i = and i64 %64, %155
-  %156 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %156 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %156, align 1, !noalias !5771
   %157 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %158 = bitcast <16 x i1> %157 to i16
@@ -23439,7 +23439,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %159 = add i64 %.sroa.7.015.i.i, 16
   %160 = add i64 %159, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %160, %64
-  %161 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %161 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %161, align 1, !noalias !5771
   %162 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %163 = bitcast <16 x i1> %162 to i16
@@ -23453,7 +23453,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %165 = zext nneg i16 %164 to i64
   %166 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %165
   %167 = and i64 %166, %64
-  %168 = getelementptr inbounds i8, ptr %67, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %67, i64 %167
   %169 = load i8, ptr %168, align 1, !noalias !5778, !noundef !4
   %170 = icmp sgt i8 %169, -1
   br i1 %170, label %171, label %178
@@ -23470,7 +23470,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 178:                                              ; preds = %171, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %177, %171 ], [ %167, %._crit_edge.i.i ]
-  %179 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %179 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %180 = lshr i64 %155, 57
   %181 = trunc nuw nsw i64 %180 to i8
   %182 = add nsw i64 %.0.i.i.i6, -16
@@ -23823,7 +23823,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5875
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5849
   %.sroa.0.012.i.i = and i64 %59, %144
-  %145 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %145 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %145, align 1, !noalias !5887
   %146 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %147 = bitcast <16 x i1> %146 to i16
@@ -23836,7 +23836,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %148 = add i64 %.sroa.7.015.i.i, 16
   %149 = add i64 %148, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %149, %59
-  %150 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i8
+  %150 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %150, align 1, !noalias !5887
   %151 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -23850,7 +23850,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %154 = zext nneg i16 %153 to i64
   %155 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %154
   %156 = and i64 %155, %59
-  %157 = getelementptr inbounds i8, ptr %62, i64 %156
+  %157 = getelementptr inbounds nuw i8, ptr %62, i64 %156
   %158 = load i8, ptr %157, align 1, !noalias !5894, !noundef !4
   %159 = icmp sgt i8 %158, -1
   br i1 %159, label %160, label %167
@@ -23867,7 +23867,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 167:                                              ; preds = %160, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %166, %160 ], [ %156, %._crit_edge.i.i ]
-  %168 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i7
+  %168 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i7
   %169 = lshr i64 %144, 57
   %170 = trunc nuw nsw i64 %169 to i8
   %171 = add nsw i64 %.0.i.i.i7, -16
@@ -24227,7 +24227,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !5985
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !5960
   %.sroa.0.012.i.i = and i64 %64, %152
-  %153 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %153 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %153, align 1, !noalias !5997
   %154 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %155 = bitcast <16 x i1> %154 to i16
@@ -24240,7 +24240,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %156 = add i64 %.sroa.7.015.i.i, 16
   %157 = add i64 %156, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %157, %64
-  %158 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %158 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %158, align 1, !noalias !5997
   %159 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %160 = bitcast <16 x i1> %159 to i16
@@ -24254,7 +24254,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = zext nneg i16 %161 to i64
   %163 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %162
   %164 = and i64 %163, %64
-  %165 = getelementptr inbounds i8, ptr %67, i64 %164
+  %165 = getelementptr inbounds nuw i8, ptr %67, i64 %164
   %166 = load i8, ptr %165, align 1, !noalias !6004, !noundef !4
   %167 = icmp sgt i8 %166, -1
   br i1 %167, label %168, label %175
@@ -24271,7 +24271,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 175:                                              ; preds = %168, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %174, %168 ], [ %164, %._crit_edge.i.i ]
-  %176 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %176 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %177 = lshr i64 %152, 57
   %178 = trunc nuw nsw i64 %177 to i8
   %179 = add nsw i64 %.0.i.i.i6, -16
@@ -24633,7 +24633,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6098
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !6072
   %.sroa.0.012.i.i = and i64 %62, %149
-  %150 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.012.i.i
+  %150 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %150, align 1, !noalias !6110
   %151 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -24646,7 +24646,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = add i64 %.sroa.7.015.i.i, 16
   %154 = add i64 %153, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %154, %62
-  %155 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.0.i.i8
+  %155 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %155, align 1, !noalias !6110
   %156 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %157 = bitcast <16 x i1> %156 to i16
@@ -24660,7 +24660,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %159 = zext nneg i16 %158 to i64
   %160 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %159
   %161 = and i64 %160, %62
-  %162 = getelementptr inbounds i8, ptr %65, i64 %161
+  %162 = getelementptr inbounds nuw i8, ptr %65, i64 %161
   %163 = load i8, ptr %162, align 1, !noalias !6117, !noundef !4
   %164 = icmp sgt i8 %163, -1
   br i1 %164, label %165, label %172
@@ -24677,7 +24677,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 172:                                              ; preds = %165, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %171, %165 ], [ %161, %._crit_edge.i.i ]
-  %173 = getelementptr inbounds i8, ptr %65, i64 %.0.i.i.i7
+  %173 = getelementptr inbounds nuw i8, ptr %65, i64 %.0.i.i.i7
   %174 = lshr i64 %149, 57
   %175 = trunc nuw nsw i64 %174 to i8
   %176 = add nsw i64 %.0.i.i.i7, -16
@@ -25024,7 +25024,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6211
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !6186
   %.sroa.0.012.i.i = and i64 %59, %143
-  %144 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %144 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %144, align 1, !noalias !6223
   %145 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -25037,7 +25037,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %147 = add i64 %.sroa.7.015.i.i, 16
   %148 = add i64 %147, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %148, %59
-  %149 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i7
+  %149 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %149, align 1, !noalias !6223
   %150 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -25051,7 +25051,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %153 = zext nneg i16 %152 to i64
   %154 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %153
   %155 = and i64 %154, %59
-  %156 = getelementptr inbounds i8, ptr %62, i64 %155
+  %156 = getelementptr inbounds nuw i8, ptr %62, i64 %155
   %157 = load i8, ptr %156, align 1, !noalias !6230, !noundef !4
   %158 = icmp sgt i8 %157, -1
   br i1 %158, label %159, label %166
@@ -25068,7 +25068,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 166:                                              ; preds = %159, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %165, %159 ], [ %155, %._crit_edge.i.i ]
-  %167 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i6
+  %167 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i6
   %168 = lshr i64 %143, 57
   %169 = trunc nuw nsw i64 %168 to i8
   %170 = add nsw i64 %.0.i.i.i6, -16
@@ -25441,7 +25441,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6336
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %8), !noalias !6302
   %.sroa.0.012.i.i = and i64 %65, %158
-  %159 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.012.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %159, align 1, !noalias !6348
   %160 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %161 = bitcast <16 x i1> %160 to i16
@@ -25454,7 +25454,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %162 = add i64 %.sroa.7.015.i.i, 16
   %163 = add i64 %162, %.sroa.0.016.i.i
   %.sroa.0.0.i.i8 = and i64 %163, %65
-  %164 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i.i8
+  %164 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i.i8
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %164, align 1, !noalias !6348
   %165 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %166 = bitcast <16 x i1> %165 to i16
@@ -25468,7 +25468,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %168 = zext nneg i16 %167 to i64
   %169 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %168
   %170 = and i64 %169, %65
-  %171 = getelementptr inbounds i8, ptr %68, i64 %170
+  %171 = getelementptr inbounds nuw i8, ptr %68, i64 %170
   %172 = load i8, ptr %171, align 1, !noalias !6355, !noundef !4
   %173 = icmp sgt i8 %172, -1
   br i1 %173, label %174, label %181
@@ -25485,7 +25485,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 181:                                              ; preds = %174, %._crit_edge.i.i
   %.0.i.i.i7 = phi i64 [ %180, %174 ], [ %170, %._crit_edge.i.i ]
-  %182 = getelementptr inbounds i8, ptr %68, i64 %.0.i.i.i7
+  %182 = getelementptr inbounds nuw i8, ptr %68, i64 %.0.i.i.i7
   %183 = lshr i64 %158, 57
   %184 = trunc nuw nsw i64 %183 to i8
   %185 = add nsw i64 %.0.i.i.i7, -16
@@ -25832,7 +25832,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6446
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !6421
   %.sroa.0.012.i.i = and i64 %59, %142
-  %143 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %143 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %143, align 1, !noalias !6458
   %144 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %145 = bitcast <16 x i1> %144 to i16
@@ -25845,7 +25845,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %146 = add i64 %.sroa.7.015.i.i, 16
   %147 = add i64 %146, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %147, %59
-  %148 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i7
+  %148 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %148, align 1, !noalias !6458
   %149 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %150 = bitcast <16 x i1> %149 to i16
@@ -25859,7 +25859,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %152 = zext nneg i16 %151 to i64
   %153 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %152
   %154 = and i64 %153, %59
-  %155 = getelementptr inbounds i8, ptr %62, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %62, i64 %154
   %156 = load i8, ptr %155, align 1, !noalias !6465, !noundef !4
   %157 = icmp sgt i8 %156, -1
   br i1 %157, label %158, label %165
@@ -25876,7 +25876,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 165:                                              ; preds = %158, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %164, %158 ], [ %154, %._crit_edge.i.i ]
-  %166 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i6
+  %166 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i6
   %167 = lshr i64 %142, 57
   %168 = trunc nuw nsw i64 %167 to i8
   %169 = add nsw i64 %.0.i.i.i6, -16
@@ -26236,7 +26236,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6559
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !6534
   %.sroa.0.012.i.i = and i64 %64, %153
-  %154 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.012.i.i
+  %154 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %154, align 1, !noalias !6571
   %155 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %156 = bitcast <16 x i1> %155 to i16
@@ -26249,7 +26249,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %157 = add i64 %.sroa.7.015.i.i, 16
   %158 = add i64 %157, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %158, %64
-  %159 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i.i7
+  %159 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %159, align 1, !noalias !6571
   %160 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %161 = bitcast <16 x i1> %160 to i16
@@ -26263,7 +26263,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %163 = zext nneg i16 %162 to i64
   %164 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %163
   %165 = and i64 %164, %64
-  %166 = getelementptr inbounds i8, ptr %67, i64 %165
+  %166 = getelementptr inbounds nuw i8, ptr %67, i64 %165
   %167 = load i8, ptr %166, align 1, !noalias !6578, !noundef !4
   %168 = icmp sgt i8 %167, -1
   br i1 %168, label %169, label %176
@@ -26280,7 +26280,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 176:                                              ; preds = %169, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %175, %169 ], [ %165, %._crit_edge.i.i ]
-  %177 = getelementptr inbounds i8, ptr %67, i64 %.0.i.i.i6
+  %177 = getelementptr inbounds nuw i8, ptr %67, i64 %.0.i.i.i6
   %178 = lshr i64 %153, 57
   %179 = trunc nuw nsw i64 %178 to i8
   %180 = add nsw i64 %.0.i.i.i6, -16
@@ -26628,7 +26628,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !6669
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !6644
   %.sroa.0.012.i.i = and i64 %59, %142
-  %143 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.012.i.i
+  %143 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.012.i.i
   %.0.copyload.i1013.i.i = load <16 x i8>, ptr %143, align 1, !noalias !6681
   %144 = icmp slt <16 x i8> %.0.copyload.i1013.i.i, zeroinitializer
   %145 = bitcast <16 x i1> %144 to i16
@@ -26641,7 +26641,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %146 = add i64 %.sroa.7.015.i.i, 16
   %147 = add i64 %146, %.sroa.0.016.i.i
   %.sroa.0.0.i.i7 = and i64 %147, %59
-  %148 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i.i7
+  %148 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i.i7
   %.0.copyload.i10.i.i = load <16 x i8>, ptr %148, align 1, !noalias !6681
   %149 = icmp slt <16 x i8> %.0.copyload.i10.i.i, zeroinitializer
   %150 = bitcast <16 x i1> %149 to i16
@@ -26655,7 +26655,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
   %152 = zext nneg i16 %151 to i64
   %153 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %152
   %154 = and i64 %153, %59
-  %155 = getelementptr inbounds i8, ptr %62, i64 %154
+  %155 = getelementptr inbounds nuw i8, ptr %62, i64 %154
   %156 = load i8, ptr %155, align 1, !noalias !6688, !noundef !4
   %157 = icmp sgt i8 %156, -1
   br i1 %157, label %158, label %165
@@ -26672,7 +26672,7 @@ _ZN9hashbrown3raw13RawTableInner15allocation_info17h69bc70322dbad6adE.llvm.11083
 
 165:                                              ; preds = %158, %._crit_edge.i.i
   %.0.i.i.i6 = phi i64 [ %164, %158 ], [ %154, %._crit_edge.i.i ]
-  %166 = getelementptr inbounds i8, ptr %62, i64 %.0.i.i.i6
+  %166 = getelementptr inbounds nuw i8, ptr %62, i64 %.0.i.i.i6
   %167 = lshr i64 %142, 57
   %168 = trunc nuw nsw i64 %167 to i8
   %169 = add nsw i64 %.0.i.i.i6, -16
