@@ -1205,7 +1205,7 @@ if.then.i338.i.i:                                 ; preds = %while.body.i.i.i
   br i1 %tobool14.not.i.i.i, label %if.end22.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.then.i338.i.i
-  %arrayidx16.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i330.i.i, i64 %__bbegin_bkt.021.i.i.i
+  %arrayidx16.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i330.i.i, i64 %__bbegin_bkt.021.i.i.i
   store ptr %__p.022.i.i.i, ptr %arrayidx16.i.i.i, align 8
   br label %if.end22.i.i.i
 
@@ -1273,7 +1273,7 @@ _ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 if.end.i314.i.i:                                  ; preds = %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i, %call3.i.noexc.if.end.i314_crit_edge.i.i
   %100 = phi ptr [ %retval.0.i.i330.i.i, %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %.pre504.i.i, %call3.i.noexc.if.end.i314_crit_edge.i.i ]
   %__bkt.addr.0.i.i.i = phi i64 [ %rem.i.i.i.i324.i.i, %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %rem.i.i.i27.i.i.i, %call3.i.noexc.if.end.i314_crit_edge.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %100, i64 %__bkt.addr.0.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %100, i64 %__bkt.addr.0.i.i.i
   %101 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   %tobool.not.i.i315.i.i = icmp eq ptr %101, null
   br i1 %tobool.not.i.i315.i.i, label %if.else.i.i318.i.i, label %if.then.i.i316.i.i
@@ -1305,7 +1305,7 @@ if.then14.i.i.i.i:                                ; preds = %if.else.i.i318.i.i
 
 if.end.i.i320.i.i:                                ; preds = %if.then14.i.i.i.i, %if.else.i.i318.i.i
   %107 = phi ptr [ %.pre505.i.i, %if.then14.i.i.i.i ], [ %100, %if.else.i.i318.i.i ]
-  %arrayidx20.i.i.i.i = getelementptr inbounds ptr, ptr %107, i64 %__bkt.addr.0.i.i.i
+  %arrayidx20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %107, i64 %__bkt.addr.0.i.i.i
   store ptr %_M_before_begin.i.i.i.i.i, ptr %arrayidx20.i.i.i.i, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjdESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm.exit.i.i
 
@@ -2472,7 +2472,7 @@ if.then.i145.i.i:                                 ; preds = %while.body.i128.i.i
   br i1 %tobool14.not.i146.i.i, label %if.end22.i137.i.i, label %if.then15.i147.i.i
 
 if.then15.i147.i.i:                               ; preds = %if.then.i145.i.i
-  %arrayidx16.i148.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i125.i.i, i64 %__bbegin_bkt.021.i130.i.i
+  %arrayidx16.i148.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i125.i.i, i64 %__bbegin_bkt.021.i130.i.i
   store ptr %__p.022.i129.i.i, ptr %arrayidx16.i148.i.i, align 8
   br label %if.end22.i137.i.i
 
@@ -2540,7 +2540,7 @@ _ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEES
 if.end.i77.i.i:                                   ; preds = %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESaIS9_ENSt8__detail10_Select1stES6_S4_NSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i, %call3.i.noexc101.if.end.i77_crit_edge.i.i
   %266 = phi ptr [ %retval.0.i.i125.i.i, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESaIS9_ENSt8__detail10_Select1stES6_S4_NSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %.pre.i82.i, %call3.i.noexc101.if.end.i77_crit_edge.i.i ]
   %__bkt.addr.0.i78.i.i = phi i64 [ %rem.i.i.i.i100.i.i, %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESaIS9_ENSt8__detail10_Select1stES6_S4_NSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %rem.i.i.i.i.i.i.i78.i, %call3.i.noexc101.if.end.i77_crit_edge.i.i ]
-  %arrayidx.i.i79.i.i = getelementptr inbounds ptr, ptr %266, i64 %__bkt.addr.0.i78.i.i
+  %arrayidx.i.i79.i.i = getelementptr inbounds nuw ptr, ptr %266, i64 %__bkt.addr.0.i78.i.i
   %267 = load ptr, ptr %arrayidx.i.i79.i.i, align 8
   %tobool.not.i.i80.i.i = icmp eq ptr %267, null
   br i1 %tobool.not.i.i80.i.i, label %if.else.i.i84.i.i, label %if.then.i.i81.i83.i
@@ -2572,7 +2572,7 @@ if.then14.i.i87.i.i:                              ; preds = %if.else.i.i84.i.i
 
 if.end.i.i92.i.i:                                 ; preds = %if.then14.i.i87.i.i, %if.else.i.i84.i.i
   %273 = phi ptr [ %.pre272.i.i, %if.then14.i.i87.i.i ], [ %266, %if.else.i.i84.i.i ]
-  %arrayidx20.i.i93.i.i = getelementptr inbounds ptr, ptr %273, i64 %__bkt.addr.0.i78.i.i
+  %arrayidx20.i.i93.i.i = getelementptr inbounds nuw ptr, ptr %273, i64 %__bkt.addr.0.i78.i.i
   store ptr %_M_before_begin.i.i12.i.i.i, ptr %arrayidx20.i.i93.i.i, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEEESaIS9_ENSt8__detail10_Select1stES6_S4_NSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb0EEEm.exit.i.i
 
@@ -2758,7 +2758,7 @@ if.then.i114.i.i:                                 ; preds = %while.body.i.i103.i
   br i1 %tobool14.not.i.i115.i, label %if.end22.i.i110.i, label %if.then15.i.i116.i
 
 if.then15.i.i116.i:                               ; preds = %if.then.i114.i.i
-  %arrayidx16.i.i117.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i101.i, i64 %__bbegin_bkt.021.i.i105.i
+  %arrayidx16.i.i117.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i101.i, i64 %__bbegin_bkt.021.i.i105.i
   store ptr %__p.022.i.i104.i, ptr %arrayidx16.i.i117.i, align 8
   br label %if.end22.i.i110.i
 
@@ -2828,7 +2828,7 @@ _ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_M
 if.end.i.i86.i:                                   ; preds = %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i.i.i, %call3.i.noexc.if.end.i_crit_edge.i.i
   %305 = phi ptr [ %retval.0.i.i.i101.i, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %.pre273.i.i, %call3.i.noexc.if.end.i_crit_edge.i.i ]
   %__bkt.addr.0.i.i87.i = phi i64 [ %rem.i.i.i.i.i114.i, %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit.i.i.i ], [ %rem.i.i.i27.i92.i.i.i, %call3.i.noexc.if.end.i_crit_edge.i.i ]
-  %arrayidx.i.i.i88.i = getelementptr inbounds ptr, ptr %305, i64 %__bkt.addr.0.i.i87.i
+  %arrayidx.i.i.i88.i = getelementptr inbounds nuw ptr, ptr %305, i64 %__bkt.addr.0.i.i87.i
   %306 = load ptr, ptr %arrayidx.i.i.i88.i, align 8
   %tobool.not.i.i.i89.i = icmp eq ptr %306, null
   br i1 %tobool.not.i.i.i89.i, label %if.else.i.i65.i.i, label %if.then.i.i64.i.i
@@ -2837,7 +2837,7 @@ if.then.i.i64.i.i:                                ; preds = %if.end.i.i86.i
   %307 = load ptr, ptr %306, align 8
   store ptr %307, ptr %call5.i.i.i.i.i.i117.i.i.i, align 8
   %308 = load ptr, ptr %retval.0.i33.i.i.i.i, align 8
-  %arrayidx6.i.i.i.i = getelementptr inbounds ptr, ptr %308, i64 %__bkt.addr.0.i.i87.i
+  %arrayidx6.i.i.i.i = getelementptr inbounds nuw ptr, ptr %308, i64 %__bkt.addr.0.i.i87.i
   %309 = load ptr, ptr %arrayidx6.i.i.i.i, align 8
   store ptr %call5.i.i.i.i.i.i117.i.i.i, ptr %309, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm.exit.i.i
@@ -2864,7 +2864,7 @@ if.then14.i.i.i92.i:                              ; preds = %if.else.i.i65.i.i
 
 if.end.i.i68.i.i:                                 ; preds = %if.then14.i.i.i92.i, %if.else.i.i65.i.i
   %315 = load ptr, ptr %retval.0.i33.i.i.i.i, align 8
-  %arrayidx20.i.i.i95.i = getelementptr inbounds ptr, ptr %315, i64 %__bkt.addr.0.i.i87.i
+  %arrayidx20.i.i.i95.i = getelementptr inbounds nuw ptr, ptr %315, i64 %__bkt.addr.0.i.i87.i
   store ptr %_M_before_begin.i.i.i.i, ptr %arrayidx20.i.i.i95.i, align 8
   br label %_ZNSt10_HashtableIjjSaIjENSt8__detail9_IdentityESt8equal_toIjESt4hashIjENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS1_10_Hash_nodeIjLb0EEEm.exit.i.i
 
@@ -4605,7 +4605,7 @@ if.then.i72.i.i:                                  ; preds = %while.body.i.i.i
   br i1 %tobool14.not.i.i.i, label %if.end22.i.i.i, label %if.then15.i.i.i
 
 if.then15.i.i.i:                                  ; preds = %if.then.i72.i.i
-  %arrayidx16.i.i.i = getelementptr inbounds ptr, ptr %retval.0.i.i.i.i, i64 %__bbegin_bkt.021.i.i.i
+  %arrayidx16.i.i.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i.i.i, i64 %__bbegin_bkt.021.i.i.i
   store ptr %__p.022.i.i.i, ptr %arrayidx16.i.i.i, align 8
   br label %if.end22.i.i.i
 
@@ -9586,7 +9586,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -10538,7 +10538,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -10738,7 +10738,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

@@ -450,7 +450,7 @@ _ZN4llvm18StringTableBuilder8initSizeEv.exit:     ; preds = %._crit_edge, %switc
   br i1 %73, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread, label %_ZNK4llvm9StringRef9ends_withES0_.exit
 
 _ZNK4llvm9StringRef9ends_withES0_.exit:           ; preds = %72
-  %74 = getelementptr inbounds i8, ptr %.sroa.026.065, i64 %.sroa.3.064
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.026.065, i64 %.sroa.3.064
   %75 = sub nsw i64 0, %71
   %76 = getelementptr inbounds i8, ptr %74, i64 %75
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %76, ptr %68, i64 %71)

@@ -6731,7 +6731,7 @@ common.resume:                                    ; preds = %275, %194, %50, %13
   %76 = sub nuw i64 %67, %75
   %77 = udiv exact i64 %76, 24
   %.not.i.i.not.us.i = icmp ult i64 %.sroa.9.075.us.i, %77
-  %78 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.076.us.i, i64 %.sroa.9.075.us.i
+  %78 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.076.us.i, i64 %.sroa.9.075.us.i
   br i1 %.not.i.i.not.us.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread63.us.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread.i"
 
 79:                                               ; preds = %.lr.ph.split.us.i
@@ -6830,7 +6830,7 @@ common.resume:                                    ; preds = %275, %194, %50, %13
   %116 = sub nuw i64 %67, %115
   %117 = udiv exact i64 %116, 24
   %.not.i.i.not.i = icmp ult i64 %.sroa.9.075.i, %117
-  %118 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.076.i, i64 %.sroa.9.075.i
+  %118 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.076.i, i64 %.sroa.9.075.i
   br i1 %.not.i.i.not.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread63.i", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h63328ba02b0e4507E.exit.thread.i": ; preds = %114, %112, %79, %74

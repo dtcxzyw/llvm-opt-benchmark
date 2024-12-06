@@ -13972,7 +13972,7 @@ for.body64:                                       ; preds = %for.body, %for.body
 
 if.end72:                                         ; preds = %for.body64, %for.end.i.i.i249
   %arrayidx135 = getelementptr inbounds nuw [2 x ptr], ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 0, i64 %indvars.iv761
-  %arrayidx223 = getelementptr inbounds nuw [2 x ptr], ptr getelementptr inbounds (i8, ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 16), i64 0, i64 %indvars.iv761
+  %arrayidx223 = getelementptr inbounds nuw [2 x ptr], ptr getelementptr inbounds nuw (i8, ptr @__const._Z19BenchmarkAlgorithm8R14EASTLTest_RandRN2EA4StdC9StopwatchES4_.patternDescriptions, i64 16), i64 0, i64 %indvars.iv761
   br label %for.body.i.i.i.i266.preheader
 
 for.body.i.i.i.i266.preheader:                    ; preds = %if.end72, %for.inc232

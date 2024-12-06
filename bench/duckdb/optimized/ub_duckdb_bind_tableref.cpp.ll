@@ -65067,7 +65067,7 @@ for.body.i.i.i.i.i227:                            ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i227, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i233 = phi ptr [ %cond.i203, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i231, %for.body.i.i.i.i.i227 ]
-  %add.ptr62 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %__cur.0.lcssa.i.i.i.i.i233, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %__cur.0.lcssa.i.i.i.i.i233, i64 %__n
   %cmp.i.i.not18.i.i.i.i.i234 = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i.i.not18.i.i.i.i.i234, label %invoke.cont64, label %for.body.i.i.i.i.i235
 
@@ -65114,7 +65114,7 @@ lpad56.body:                                      ; preds = %lpad1.i.i.i.i215
   br i1 %cond, label %if.then66, label %if.then.i262
 
 if.then66:                                        ; preds = %lpad56.body
-  %add.ptr69 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %add.ptr54, i64 %__n
+  %add.ptr69 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %add.ptr54, i64 %__n
   br label %for.body.i.i.i250
 
 for.body.i.i.i250:                                ; preds = %for.body.i.i.i250, %if.then66

@@ -2472,7 +2472,7 @@ define internal fastcc noundef zeroext i1 @tcp_peer_recv_blocking(ptr noundef %0
 
 .lr.ph.split:                                     ; preds = %19, %.outer
   %.032.ph65 = phi i64 [ %84, %.outer ], [ 0, %19 ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 %.032.ph65
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.032.ph65
   %22 = sub nuw nsw i64 %3, %.032.ph65
   %23 = tail call i64 @recv(i32 noundef %1, ptr noundef nonnull %21, i64 noundef %22, i32 noundef 0) #13
   %24 = trunc i64 %23 to i32

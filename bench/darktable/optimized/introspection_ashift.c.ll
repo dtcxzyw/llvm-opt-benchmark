@@ -12642,8 +12642,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %150 = phi i64 [ 0, %147 ], [ %251, %149 ]
   %151 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %147 ], [ %252, %149 ]
   %152 = getelementptr inbounds float, ptr %44, <8 x i64> %151
-  %153 = getelementptr inbounds i8, <8 x ptr> %152, i64 4
-  %154 = getelementptr inbounds i8, <8 x ptr> %152, i64 8
+  %153 = getelementptr inbounds nuw i8, <8 x ptr> %152, i64 4
+  %154 = getelementptr inbounds nuw i8, <8 x ptr> %152, i64 8
   %155 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %152, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %156 = fmul reassoc nsz arcp contract afn <8 x float> %155, splat (float 0x3FDBE8A5E0000000)
   %157 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %153, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
@@ -12942,10 +12942,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @_do_get_structure_auto(ptr n
   %401 = phi i64 [ 0, %398 ], [ %457, %400 ]
   %402 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %398 ], [ %458, %400 ]
   %403 = getelementptr inbounds float, ptr %44, <8 x i64> %402
-  %404 = getelementptr inbounds i8, <8 x ptr> %403, i64 4
+  %404 = getelementptr inbounds nuw i8, <8 x ptr> %403, i64 4
   %405 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %404, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %406 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %403, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
-  %407 = getelementptr inbounds i8, <8 x ptr> %403, i64 8
+  %407 = getelementptr inbounds nuw i8, <8 x ptr> %403, i64 8
   %408 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %407, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %409 = extractelement <8 x ptr> %403, i64 0
   %410 = fmul reassoc nsz arcp contract afn <8 x float> %405, splat (float 0x3F60624DE0000000)
@@ -17346,10 +17346,10 @@ define internal fastcc void @region2rect(ptr nocapture noundef nonnull readonly 
   %63 = zext <4 x i32> %59 to <4 x i64>
   %64 = zext <4 x i32> %60 to <4 x i64>
   %65 = zext <4 x i32> %61 to <4 x i64>
-  %66 = getelementptr inbounds double, ptr %9, <4 x i64> %62
-  %67 = getelementptr inbounds double, ptr %9, <4 x i64> %63
-  %68 = getelementptr inbounds double, ptr %9, <4 x i64> %64
-  %69 = getelementptr inbounds double, ptr %9, <4 x i64> %65
+  %66 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %62
+  %67 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %63
+  %68 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %64
+  %69 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %65
   %70 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %66, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
   %71 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %67, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
   %72 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %68, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
@@ -17503,10 +17503,10 @@ define internal fastcc void @region2rect(ptr nocapture noundef nonnull readonly 
   %197 = zext <4 x i32> %193 to <4 x i64>
   %198 = zext <4 x i32> %194 to <4 x i64>
   %199 = zext <4 x i32> %195 to <4 x i64>
-  %200 = getelementptr inbounds double, ptr %9, <4 x i64> %196
-  %201 = getelementptr inbounds double, ptr %9, <4 x i64> %197
-  %202 = getelementptr inbounds double, ptr %9, <4 x i64> %198
-  %203 = getelementptr inbounds double, ptr %9, <4 x i64> %199
+  %200 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %196
+  %201 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %197
+  %202 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %198
+  %203 = getelementptr inbounds nuw double, ptr %9, <4 x i64> %199
   %204 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %200, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
   %205 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %201, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
   %206 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %202, i32 8, <4 x i1> splat (i1 true), <4 x double> poison), !tbaa !161
@@ -19291,14 +19291,14 @@ define internal fastcc void @ransac(ptr nocapture noundef readonly %0, ptr nocap
   %224 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %222, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %225 = fmul reassoc nsz arcp contract afn <8 x float> %223, %201
   %226 = fmul reassoc nsz arcp contract afn <8 x float> %224, %201
-  %227 = getelementptr inbounds i8, <8 x ptr> %221, i64 4
-  %228 = getelementptr inbounds i8, <8 x ptr> %222, i64 4
+  %227 = getelementptr inbounds nuw i8, <8 x ptr> %221, i64 4
+  %228 = getelementptr inbounds nuw i8, <8 x ptr> %222, i64 4
   %229 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %227, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %230 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %228, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %231 = fmul reassoc nsz arcp contract afn <8 x float> %229, %202
   %232 = fmul reassoc nsz arcp contract afn <8 x float> %230, %202
-  %233 = getelementptr inbounds i8, <8 x ptr> %221, i64 8
-  %234 = getelementptr inbounds i8, <8 x ptr> %222, i64 8
+  %233 = getelementptr inbounds nuw i8, <8 x ptr> %221, i64 8
+  %234 = getelementptr inbounds nuw i8, <8 x ptr> %222, i64 8
   %235 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %233, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %236 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %234, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !10
   %237 = fmul reassoc nsz arcp contract afn <8 x float> %235, %204
@@ -19687,7 +19687,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %166 = phi <4 x double> [ zeroinitializer, %134 ], [ %269, %158 ]
   %167 = phi <4 x double> [ zeroinitializer, %134 ], [ %268, %158 ]
   %168 = getelementptr inbounds %struct.dt_iop_ashift_line_t, ptr %5, <4 x i64> %160
-  %169 = getelementptr inbounds i8, <4 x ptr> %168, i64 36
+  %169 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 36
   %170 = call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %169, i32 4, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !200
   %171 = and <4 x i32> %170, %137
   %172 = icmp eq <4 x i32> %171, %139
@@ -19695,11 +19695,11 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %174 = icmp eq <4 x i32> %173, zeroinitializer
   %175 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %168, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !452, !noalias !455
   %176 = fmul reassoc nsz arcp contract afn <4 x float> %175, %141
-  %177 = getelementptr inbounds i8, <4 x ptr> %168, i64 4
+  %177 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 4
   %178 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %177, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !452, !noalias !455
   %179 = fmul reassoc nsz arcp contract afn <4 x float> %178, %143
   %180 = fadd reassoc nsz arcp contract afn <4 x float> %179, %176
-  %181 = getelementptr inbounds i8, <4 x ptr> %168, i64 8
+  %181 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 8
   %182 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %181, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !452, !noalias !455
   %183 = fmul reassoc nsz arcp contract afn <4 x float> %182, %145
   %184 = fadd reassoc nsz arcp contract afn <4 x float> %180, %183
@@ -19713,14 +19713,14 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %192 = fadd reassoc nsz arcp contract afn <4 x float> %191, %190
   %193 = fmul reassoc nsz arcp contract afn <4 x float> %182, %157
   %194 = fadd reassoc nsz arcp contract afn <4 x float> %192, %193
-  %195 = getelementptr inbounds i8, <4 x ptr> %168, i64 12
+  %195 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 12
   %196 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %195, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !457, !noalias !460
   %197 = fmul reassoc nsz arcp contract afn <4 x float> %196, %141
-  %198 = getelementptr inbounds i8, <4 x ptr> %168, i64 16
+  %198 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 16
   %199 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %198, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !457, !noalias !460
   %200 = fmul reassoc nsz arcp contract afn <4 x float> %199, %143
   %201 = fadd reassoc nsz arcp contract afn <4 x float> %200, %197
-  %202 = getelementptr inbounds i8, <4 x ptr> %168, i64 20
+  %202 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 20
   %203 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %202, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !10, !alias.scope !457, !noalias !460
   %204 = fmul reassoc nsz arcp contract afn <4 x float> %203, %145
   %205 = fadd reassoc nsz arcp contract afn <4 x float> %201, %204
@@ -19770,7 +19770,7 @@ define internal double @model_fitness(ptr nocapture noundef readonly %0, ptr noc
   %249 = fadd reassoc nsz arcp contract afn <4 x float> %244, %248
   %250 = fadd reassoc nsz arcp contract afn <4 x float> %249, %246
   %251 = fmul reassoc nsz arcp contract afn <4 x float> %242, %250
-  %252 = getelementptr inbounds i8, <4 x ptr> %168, i64 32
+  %252 = getelementptr inbounds nuw i8, <4 x ptr> %168, i64 32
   %253 = call <4 x float> @llvm.masked.gather.v4f32.v4p0(<4 x ptr> %252, i32 4, <4 x i1> %172, <4 x float> poison), !tbaa !411
   %254 = fmul reassoc nsz arcp contract afn <4 x float> %251, %251
   %255 = fmul reassoc nsz arcp contract afn <4 x float> %254, %253
@@ -20711,17 +20711,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %206 = select <8 x i1> %205, <8 x i32> splat (i32 7), <8 x i32> splat (i32 5)
   %207 = getelementptr inbounds %struct.dt_iop_ashift_line_t, ptr %182, <8 x i64> %191
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %197, <8 x ptr> %207, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %208 = getelementptr inbounds i8, <8 x ptr> %207, i64 4
+  %208 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 4
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %198, <8 x ptr> %208, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %209 = getelementptr inbounds i8, <8 x ptr> %207, i64 8
+  %209 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 8
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> splat (float 1.000000e+00), <8 x ptr> %209, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %210 = getelementptr inbounds i8, <8 x ptr> %207, i64 12
+  %210 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 12
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %199, <8 x ptr> %210, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %211 = getelementptr inbounds i8, <8 x ptr> %207, i64 16
+  %211 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 16
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %200, <8 x ptr> %211, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %212 = getelementptr inbounds i8, <8 x ptr> %207, i64 20
+  %212 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 20
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> splat (float 1.000000e+00), <8 x ptr> %212, i32 4, <8 x i1> splat (i1 true)), !tbaa !10
-  %213 = getelementptr inbounds i8, <8 x ptr> %207, i64 40
+  %213 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 40
   %214 = fsub reassoc nsz arcp contract afn <8 x float> %199, %197
   %215 = fmul reassoc nsz arcp contract afn <8 x float> %200, %197
   %216 = fmul reassoc nsz arcp contract afn <8 x float> %198, %199
@@ -20737,9 +20737,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %226 = select <8 x i1> %224, <8 x float> %225, <8 x float> splat (float 1.000000e+00)
   %227 = fmul reassoc nsz arcp contract afn <8 x float> %226, %203
   %228 = fmul reassoc nsz arcp contract afn <8 x float> %226, %214
-  %229 = getelementptr inbounds i8, <8 x ptr> %207, i64 44
+  %229 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 44
   %230 = fmul reassoc nsz arcp contract afn <8 x float> %226, %217
-  %231 = getelementptr inbounds i8, <8 x ptr> %207, i64 48
+  %231 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 48
   %232 = fmul reassoc nsz arcp contract afn <8 x float> %227, %227
   %233 = fmul reassoc nsz arcp contract afn <8 x float> %228, %228
   %234 = fadd reassoc nsz arcp contract afn <8 x float> %233, %232
@@ -20757,13 +20757,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @_draw_retrieve_lines_from_pa
   %243 = fmul reassoc nsz arcp contract afn <8 x float> %242, %242
   %244 = fadd reassoc nsz arcp contract afn <8 x float> %243, %219
   %245 = call reassoc nsz arcp contract afn <8 x float> @llvm.sqrt.v8f32(<8 x float> %244)
-  %246 = getelementptr inbounds i8, <8 x ptr> %207, i64 24
+  %246 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 24
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %245, <8 x ptr> %246, i32 4, <8 x i1> splat (i1 true)), !tbaa !194
-  %247 = getelementptr inbounds i8, <8 x ptr> %207, i64 28
+  %247 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 28
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> splat (float 1.000000e+00), <8 x ptr> %247, i32 4, <8 x i1> splat (i1 true)), !tbaa !410
-  %248 = getelementptr inbounds i8, <8 x ptr> %207, i64 32
+  %248 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 32
   call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> splat (float 1.000000e+00), <8 x ptr> %248, i32 4, <8 x i1> splat (i1 true)), !tbaa !411
-  %249 = getelementptr inbounds i8, <8 x ptr> %207, i64 36
+  %249 = getelementptr inbounds nuw i8, <8 x ptr> %207, i64 36
   call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %206, <8 x ptr> %249, i32 4, <8 x i1> splat (i1 true)), !tbaa !200
   %250 = zext <8 x i1> %205 to <8 x i32>
   %251 = add <8 x i32> %193, %250

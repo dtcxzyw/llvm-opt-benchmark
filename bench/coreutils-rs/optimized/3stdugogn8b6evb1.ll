@@ -3890,7 +3890,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i.i: ; preds = %368, %366
   br i1 %489, label %490, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i.i58.i
 
 490:                                              ; preds = %488
-  %491 = getelementptr inbounds i8, ptr %4, i64 %.1.i.i.i57.i
+  %491 = getelementptr inbounds nuw i8, ptr %4, i64 %.1.i.i.i57.i
   %492 = load i8, ptr %491, align 1, !alias.scope !481, !noalias !488, !noundef !4
   %493 = zext i8 %492 to i64
   %494 = shl nuw nsw i64 %.1.i.i.i57.i, 3

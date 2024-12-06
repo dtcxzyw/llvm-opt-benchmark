@@ -436,13 +436,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds i64, ptr %29, i64 %.sroa.5.0.copyload.i
-  %33 = getelementptr inbounds i64, ptr %29, i64 %30
+  %33 = getelementptr inbounds nuw i64, ptr %29, i64 %30
   %34 = sub nsw i64 %28, %.sroa.5.0.copyload.i
   %35 = shl nsw i64 %34, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr nonnull align 8 %32, i64 %35, i1 false), !alias.scope !62, !noalias !65
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %37 = getelementptr inbounds i64, ptr %36, i64 %.sroa.5.0.copyload.i
-  %38 = getelementptr inbounds i64, ptr %36, i64 %30
+  %38 = getelementptr inbounds nuw i64, ptr %36, i64 %30
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %37, i64 %35, i1 false), !alias.scope !69, !noalias !65
   br label %100
 
@@ -572,13 +572,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 87:                                               ; preds = %76
   %88 = add nuw nsw i64 %.sroa.726.0.i, 1
   %89 = getelementptr inbounds i64, ptr %86, i64 %.sroa.726.0.i
-  %90 = getelementptr inbounds i64, ptr %86, i64 %88
+  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %88
   %91 = sub nuw nsw i64 %85, %.sroa.726.0.i
   %92 = shl nuw nsw i64 %91, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %90, ptr nonnull align 8 %89, i64 %92, i1 false), !alias.scope !92, !noalias !88
   %93 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 96
   %94 = getelementptr inbounds i64, ptr %93, i64 %.sroa.726.0.i
-  %95 = getelementptr inbounds i64, ptr %93, i64 %88
+  %95 = getelementptr inbounds nuw i64, ptr %93, i64 %88
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %95, ptr nonnull align 8 %94, i64 %92, i1 false), !alias.scope !95, !noalias !88
   br label %105
 
@@ -1061,13 +1061,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 280:                                              ; preds = %273
   %281 = getelementptr inbounds i64, ptr %278, i64 %.sroa.7.0.i
-  %282 = getelementptr inbounds i64, ptr %278, i64 %279
+  %282 = getelementptr inbounds nuw i64, ptr %278, i64 %279
   %283 = sub nsw i64 %276, %.sroa.7.0.i
   %284 = shl nsw i64 %283, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %282, ptr nonnull align 8 %281, i64 %284, i1 false), !alias.scope !160, !noalias !157
   %285 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 96
   %286 = getelementptr inbounds i64, ptr %285, i64 %.sroa.7.0.i
-  %287 = getelementptr inbounds i64, ptr %285, i64 %279
+  %287 = getelementptr inbounds nuw i64, ptr %285, i64 %279
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %287, ptr nonnull align 8 %286, i64 %284, i1 false), !alias.scope !163, !noalias !157
   br label %288
 
@@ -1085,7 +1085,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 296:                                              ; preds = %288
   %297 = getelementptr inbounds ptr, ptr %293, i64 %279
-  %298 = getelementptr inbounds ptr, ptr %293, i64 %294
+  %298 = getelementptr inbounds nuw ptr, ptr %293, i64 %294
   %299 = sub nsw i64 %276, %.sroa.7.0.i
   %300 = shl nsw i64 %299, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %298, ptr nonnull align 8 %297, i64 %300, i1 false), !alias.scope !166, !noalias !157

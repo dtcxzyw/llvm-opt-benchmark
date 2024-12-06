@@ -2689,10 +2689,10 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1c5ab726e0637b5cE.exit: ; preds
   %.0.i = phi i64 [ %18, %17 ], [ %spec.select138.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17hc0612bab537eb0c3E.exit.i51.i" ]
   %22 = icmp ult i64 %.082.i, %.sroa.14.0107
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %.082.i
+  %23 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %.082.i
   %24 = icmp ult i64 %.0.i, %.sroa.14.0107
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %.0.i
+  %25 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %.0.i
   %.val.i.i.i = load i32, ptr %23, align 4, !alias.scope !360, !noalias !363, !noundef !4
   %.val5.i.i.i = load i32, ptr %25, align 4, !alias.scope !360, !noalias !363, !noundef !4
   %26 = icmp ult i32 %.val.i.i.i, %.val5.i.i.i
@@ -2730,7 +2730,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1c5ab726e0637b5cE.exit: ; preds
   %39 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %18
   %40 = icmp ult i64 %37, %.sroa.14.0107
   call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %37
+  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %37
   %.val.i.i15.i = load i32, ptr %39, align 4, !alias.scope !360, !noalias !377, !noundef !4
   %.val5.i.i16.i = load i32, ptr %41, align 4, !alias.scope !360, !noalias !377, !noundef !4
   %42 = icmp ult i32 %.val.i.i15.i, %.val5.i.i16.i
@@ -2765,7 +2765,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h1c5ab726e0637b5cE.exit: ; preds
   %54 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %19
   %55 = icmp ult i64 %51, %.sroa.14.0107
   call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %51
+  %56 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %51
   %.val.i.i32.i = load i32, ptr %54, align 4, !alias.scope !360, !noalias !391, !noundef !4
   %.val5.i.i33.i = load i32, ptr %56, align 4, !alias.scope !360, !noalias !391, !noundef !4
   %57 = icmp ult i32 %.val.i.i32.i, %.val5.i.i33.i

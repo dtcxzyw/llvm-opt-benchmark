@@ -301,7 +301,7 @@ if.then26:                                        ; preds = %if.end24
   %Xi28 = getelementptr inbounds nuw i8, ptr %ctx, i64 64
   %Htable30 = getelementptr inbounds nuw i8, ptr %ctx, i64 96
   tail call void %9(ptr noundef nonnull %Xi28, ptr noundef nonnull %Htable30, ptr noundef %aad.addr.0, i64 noundef %and) #6
-  %add.ptr = getelementptr inbounds i8, ptr %aad.addr.0, i64 %and
+  %add.ptr = getelementptr inbounds nuw i8, ptr %aad.addr.0, i64 %and
   %sub = and i64 %len.addr.0, 15
   br label %if.end32
 

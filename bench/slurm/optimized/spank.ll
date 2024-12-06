@@ -1365,7 +1365,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly
   %18 = and i16 %17, 8
   %.not.i = icmp eq i16 %18, 0
   %..i = select i1 %.not.i, i8 95, i8 %12
-  %19 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv16
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv16
   store i8 %..i, ptr %19, align 1
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %20 = icmp ugt i64 %5, %indvars.iv.next17
@@ -1402,7 +1402,7 @@ define internal fastcc noundef nonnull ptr @_opt_env_name(ptr nocapture readonly
   %36 = and i16 %35, 8
   %.not.i38 = icmp eq i16 %36, 0
   %..i39 = select i1 %.not.i38, i8 95, i8 %30
-  %37 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv23
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv23
   store i8 %..i39, ptr %37, align 1
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %38 = icmp ugt i64 %5, %indvars.iv.next24

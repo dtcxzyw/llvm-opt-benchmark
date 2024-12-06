@@ -2467,7 +2467,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
 
 17:                                               ; preds = %15
   %18 = add nsw i64 %13, -1
-  %19 = getelementptr inbounds [1024 x i8], ptr %11, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [1024 x i8], ptr %11, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %.not76 = icmp eq i8 %20, -68
   br i1 %.not76, label %21, label %93
@@ -2520,7 +2520,7 @@ define hidden i32 @mbedtls_rsa_rsassa_pss_verify_ext(ptr noundef %0, i32 noundef
   br i1 %48, label %93, label %49
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds i8, ptr %spec.select, i64 %spec.select91
+  %50 = getelementptr inbounds nuw i8, ptr %spec.select, i64 %spec.select91
   %51 = sub nsw i64 0, %44
   %52 = getelementptr inbounds i8, ptr %50, i64 %51
   %53 = getelementptr inbounds i8, ptr %52, i64 -1

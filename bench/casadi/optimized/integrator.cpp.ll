@@ -28419,7 +28419,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit:       ; preds = %_ZSt8_DestroyIPN6ca
   br i1 %315, label %.lr.ph1022, label %.loopexit781
 
 .lr.ph1022:                                       ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit
-  %451 = getelementptr inbounds %"class.std::vector.87", ptr %313, i64 %.0.i736
+  %451 = getelementptr inbounds nuw %"class.std::vector.87", ptr %313, i64 %.0.i736
   br label %452
 
 452:                                              ; preds = %.lr.ph1022, %_ZNSt6vectorIN6casadi2MXESaIS1_EED2Ev.exit336
@@ -28565,7 +28565,7 @@ _ZNSt6vectorIN6casadi2MXESaIS1_EEaSESt16initializer_listIS1_E.exit.preheader: ; 
   br i1 %315, label %.lr.ph1020, label %.loopexit781
 
 .lr.ph1020:                                       ; preds = %_ZNSt6vectorIN6casadi2MXESaIS1_EEaSESt16initializer_listIS1_E.exit.preheader
-  %482 = getelementptr inbounds %"class.std::vector.87", ptr %313, i64 %.0.i736
+  %482 = getelementptr inbounds nuw %"class.std::vector.87", ptr %313, i64 %.0.i736
   br label %483
 
 483:                                              ; preds = %.lr.ph1020, %_ZNSt6vectorIN6casadi2MXESaIS1_EEaSESt16initializer_listIS1_E.exit342.preheader
@@ -29153,7 +29153,7 @@ _ZN6casadi10Integrator8grid_outEx.exit:           ; preds = %622, %621, %619, %6
   unreachable
 
 _ZNK6casadi16FunctionInternal12sparsity_outEx.exit.i438: ; preds = %.lr.ph1048
-  %651 = getelementptr inbounds %"class.casadi::Sparsity", ptr %644, i64 %.0.i432741745
+  %651 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %644, i64 %.0.i432741745
   %652 = invoke noundef i64 @_ZNK6casadi8Sparsity5numelEv(ptr noundef nonnull align 8 dereferenceable(8) %651)
           to label %_ZNK6casadi16FunctionInternal9numel_outEx.exit unwind label %.loopexit.split-lp755.loopexit
 
@@ -29350,7 +29350,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit458:        ; preds = %_ZNSt6vectorIxSaIxE
 
 ._crit_edge1049:                                  ; preds = %._crit_edge1045, %637
   %723 = load ptr, ptr %68, align 8
-  %724 = getelementptr inbounds %"class.casadi::MX", ptr %723, i64 %.0.i432741745
+  %724 = getelementptr inbounds nuw %"class.casadi::MX", ptr %723, i64 %.0.i432741745
   %725 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %724)
           to label %.noexc459 unwind label %.loopexit.split-lp755.loopexit.split-lp.loopexit
 

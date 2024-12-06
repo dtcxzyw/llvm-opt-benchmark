@@ -48272,7 +48272,7 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
 
 5:                                                ; preds = %3
   %6 = add nsw i64 %2, -5
-  %7 = getelementptr inbounds i8, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = icmp eq i8 %8, 45
   br i1 %9, label %10, label %.thread
@@ -48289,7 +48289,7 @@ define internal i64 @parser_encode_length(ptr nocapture readnone %0, ptr noundef
 
 .thread:                                          ; preds = %5, %10, %14
   %16 = add nsw i64 %2, -4
-  %17 = getelementptr inbounds i8, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 45
   br i1 %19, label %20, label %32

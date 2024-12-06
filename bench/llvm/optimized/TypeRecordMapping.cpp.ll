@@ -9335,7 +9335,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPN4llvm9EnumEntryItEEN9__gnu_cxx5_
 
 24:                                               ; preds = %_ZSt13__adjust_heapIPN4llvm9EnumEntryItEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_T0_SD_T1_T2_.exit.i, %13
   %.0.i = phi i64 [ %16, %13 ], [ %47, %_ZSt13__adjust_heapIPN4llvm9EnumEntryItEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_T0_SD_T1_T2_.exit.i ]
-  %25 = getelementptr inbounds %"struct.llvm::EnumEntry.62", ptr %0, i64 %.0.i
+  %25 = getelementptr inbounds nuw %"struct.llvm::EnumEntry.62", ptr %0, i64 %.0.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
   %26 = icmp slt i64 %.0.i, %18
@@ -9964,7 +9964,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPN4llvm9EnumEntryIhEEN9__gnu_cxx5_
 
 24:                                               ; preds = %_ZSt13__adjust_heapIPN4llvm9EnumEntryIhEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_T0_SD_T1_T2_.exit.i, %13
   %.0.i = phi i64 [ %16, %13 ], [ %47, %_ZSt13__adjust_heapIPN4llvm9EnumEntryIhEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS2_S8_EEEEvT_T0_SD_T1_T2_.exit.i ]
-  %25 = getelementptr inbounds %"struct.llvm::EnumEntry.70", ptr %0, i64 %.0.i
+  %25 = getelementptr inbounds nuw %"struct.llvm::EnumEntry.70", ptr %0, i64 %.0.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(40) %25, i64 40, i1 false)
   %26 = icmp slt i64 %.0.i, %18

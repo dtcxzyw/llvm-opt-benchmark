@@ -2273,7 +2273,7 @@ define internal fastcc void @_check_for_notify(ptr noundef nonnull %0, i64 nound
   br i1 %.not68, label %46, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds %struct.pmix_info, ptr %.pre82.pre83, i64 %.2
+  %43 = getelementptr inbounds nuw %struct.pmix_info, ptr %.pre82.pre83, i64 %.2
   %44 = tail call i32 @PMIx_Info_xfer(ptr noundef %43, ptr noundef nonnull %.156) #16
   %45 = add nuw nsw i64 %.2, 1
   %.pre82.pre = load ptr, ptr %25, align 8
@@ -2286,7 +2286,7 @@ define internal fastcc void @_check_for_notify(ptr noundef nonnull %0, i64 nound
   br i1 %.not69, label %51, label %47
 
 47:                                               ; preds = %46
-  %48 = getelementptr inbounds %struct.pmix_info, ptr %.pre82, i64 %.3
+  %48 = getelementptr inbounds nuw %struct.pmix_info, ptr %.pre82, i64 %.3
   %49 = tail call i32 @PMIx_Info_xfer(ptr noundef %48, ptr noundef nonnull %.1) #16
   %50 = add nuw nsw i64 %.3, 1
   %.pre = load ptr, ptr %25, align 8
@@ -2295,7 +2295,7 @@ define internal fastcc void @_check_for_notify(ptr noundef nonnull %0, i64 nound
 51:                                               ; preds = %47, %46
   %52 = phi ptr [ %.pre, %47 ], [ %.pre82, %46 ]
   %.4 = phi i64 [ %50, %47 ], [ %.3, %46 ]
-  %53 = getelementptr inbounds %struct.pmix_info, ptr %52, i64 %.4
+  %53 = getelementptr inbounds nuw %struct.pmix_info, ptr %52, i64 %.4
   %54 = tail call i32 @PMIx_Info_load(ptr noundef %53, ptr noundef nonnull @.str.29, ptr noundef null, i16 noundef zeroext 1) #16
   %55 = load ptr, ptr %25, align 8
   %56 = load i64, ptr %33, align 8

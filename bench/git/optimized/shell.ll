@@ -344,7 +344,7 @@ land.lhs.true28:                                  ; preds = %if.then25
 
 if.end36:                                         ; preds = %land.lhs.true28, %if.then25
   %len.0 = phi i64 [ 0, %if.then25 ], [ %spec.select, %land.lhs.true28 ]
-  %arrayidx37 = getelementptr inbounds i8, ptr %call12, i64 %len.0
+  %arrayidx37 = getelementptr inbounds nuw i8, ptr %call12, i64 %len.0
   store i8 0, ptr %arrayidx37, align 1
   br label %if.end38
 

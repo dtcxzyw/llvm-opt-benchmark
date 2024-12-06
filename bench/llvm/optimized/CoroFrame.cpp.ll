@@ -28833,16 +28833,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %15, %.split.i.i.i ]
   %21 = shl i64 %.034.i.i.i.i, 1
   %22 = add i64 %21, 2
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %24 = or disjoint i64 %21, 1
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %24
   %.val29.i.i.i.i = load ptr, ptr %23, align 8
   %.val30.i.i.i.i = load ptr, ptr %25, align 8
   %26 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i) #19
   %spec.select.i.i.i.i = select i1 %26, i64 %24, i64 %22
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i.i
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
   store ptr %28, ptr %29, align 8
   %30 = icmp slt i64 %spec.select.i.i.i.i, %19
   br i1 %30, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !477
@@ -28859,9 +28859,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 35:                                               ; preds = %._crit_edge.i.i.i.i
   %36 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw ptr, ptr %0, i64 %37
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %39, ptr %40, align 8
   br label %41
 
@@ -28881,7 +28881,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 
 45:                                               ; preds = %.lr.ph.i.i.i.i.i
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %46, ptr %47, align 8
   %48 = icmp sgt i64 %.04.i.i.i.i.i, %15
   br i1 %48, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit.i.i.i", !llvm.loop !478
@@ -28898,14 +28898,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 
 .split15.preheader.i.i.i:                         ; preds = %.split15.lr.ph.i.i.i
   %51 = or disjoint i64 %14, 1
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %51
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %33
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %33
   br label %.split15.i.i.i
 
 .split15.us.i.i.i:                                ; preds = %.split15.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.us.i.i.i"
   %.038.us.i.i.i = phi i64 [ %54, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.us.i.i.i" ], [ %15, %.split15.lr.ph.i.i.i ]
   %54 = add nsw i64 %.038.us.i.i.i, -1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
   %56 = load ptr, ptr %55, align 8
   %.not.us.i.i.i = icmp sgt i64 %.038.us.i.i.i, %19
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.us.i.i.i", label %.lr.ph.i27.us.i.i.i
@@ -28914,16 +28914,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %.034.i28.us.i.i.i = phi i64 [ %spec.select.i31.us.i.i.i, %.lr.ph.i27.us.i.i.i ], [ %54, %.split15.us.i.i.i ]
   %57 = shl i64 %.034.i28.us.i.i.i, 1
   %58 = add i64 %57, 2
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
   %60 = or disjoint i64 %57, 1
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
   %.val29.i29.us.i.i.i = load ptr, ptr %59, align 8
   %.val30.i30.us.i.i.i = load ptr, ptr %61, align 8
   %62 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i29.us.i.i.i, ptr noundef %.val30.i30.us.i.i.i) #19
   %spec.select.i31.us.i.i.i = select i1 %62, i64 %60, i64 %58
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i31.us.i.i.i
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i31.us.i.i.i
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %.034.i28.us.i.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i28.us.i.i.i
   store ptr %64, ptr %65, align 8
   %66 = icmp slt i64 %spec.select.i31.us.i.i.i, %19
   br i1 %66, label %.lr.ph.i27.us.i.i.i, label %.lr.ph.i.i22.us.i.i.i, !llvm.loop !477
@@ -28939,7 +28939,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 
 69:                                               ; preds = %.lr.ph.i.i22.us.i.i.i
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.us.i.i.i
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.us.i.i.i
   store ptr %70, ptr %71, align 8
   %.not37.us.i.i.i = icmp slt i64 %.04.i.i25.us.i.i.i, %.038.us.i.i.i
   br i1 %.not37.us.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.us.i.i.i", label %.lr.ph.i.i22.us.i.i.i, !llvm.loop !478
@@ -28954,7 +28954,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.i.i.i", %.split15.preheader.i.i.i
   %.038.i.i.i = phi i64 [ %74, %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.i.i.i" ], [ %15, %.split15.preheader.i.i.i ]
   %74 = add nsw i64 %.038.i.i.i, -1
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %74
   %76 = load ptr, ptr %75, align 8
   %.not.i.i.i = icmp sgt i64 %.038.i.i.i, %19
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -28963,16 +28963,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %.034.i28.i.i.i = phi i64 [ %spec.select.i31.i.i.i, %.lr.ph.i27.i.i.i ], [ %74, %.split15.i.i.i ]
   %77 = shl i64 %.034.i28.i.i.i, 1
   %78 = add i64 %77, 2
-  %79 = getelementptr inbounds ptr, ptr %0, i64 %78
+  %79 = getelementptr inbounds nuw ptr, ptr %0, i64 %78
   %80 = or disjoint i64 %77, 1
-  %81 = getelementptr inbounds ptr, ptr %0, i64 %80
+  %81 = getelementptr inbounds nuw ptr, ptr %0, i64 %80
   %.val29.i29.i.i.i = load ptr, ptr %79, align 8
   %.val30.i30.i.i.i = load ptr, ptr %81, align 8
   %82 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i29.i.i.i, ptr noundef %.val30.i30.i.i.i) #19
   %spec.select.i31.i.i.i = select i1 %82, i64 %80, i64 %78
-  %83 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i31.i.i.i
+  %83 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i31.i.i.i
   %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds ptr, ptr %0, i64 %.034.i28.i.i.i
+  %85 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i28.i.i.i
   store ptr %84, ptr %85, align 8
   %86 = icmp slt i64 %spec.select.i31.i.i.i, %19
   br i1 %86, label %.lr.ph.i27.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !477
@@ -29003,7 +29003,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 
 93:                                               ; preds = %.lr.ph.i.i22.i.i.i
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %94, ptr %95, align 8
   %.not37.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.038.i.i.i
   br i1 %.not37.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sinkSpillUsesAfterCoroBeginRNS0_8FunctionERKN12_GLOBAL__N_113FrameDataInfoEPNS0_13CoroBeginInstEE3$_0EEEvT_T0_SI_T1_T2_.exit32.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !478
@@ -29036,16 +29036,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
   %.034.i.i.i18.i = phi i64 [ %spec.select.i.i.i21.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i5.i ]
   %107 = shl i64 %.034.i.i.i18.i, 1
   %108 = add i64 %107, 2
-  %109 = getelementptr inbounds ptr, ptr %0, i64 %108
+  %109 = getelementptr inbounds nuw ptr, ptr %0, i64 %108
   %110 = or disjoint i64 %107, 1
-  %111 = getelementptr inbounds ptr, ptr %0, i64 %110
+  %111 = getelementptr inbounds nuw ptr, ptr %0, i64 %110
   %.val29.i.i.i19.i = load ptr, ptr %109, align 8
   %.val30.i.i.i20.i = load ptr, ptr %111, align 8
   %112 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %3, ptr noundef %.val29.i.i.i19.i, ptr noundef %.val30.i.i.i20.i) #19
   %spec.select.i.i.i21.i = select i1 %112, i64 %110, i64 %108
-  %113 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i21.i
+  %113 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i21.i
   %114 = load ptr, ptr %113, align 8
-  %115 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i18.i
+  %115 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i18.i
   store ptr %114, ptr %115, align 8
   %116 = icmp slt i64 %spec.select.i.i.i21.i, %105
   br i1 %116, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i6.i, !llvm.loop !477
@@ -29065,9 +29065,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 123:                                              ; preds = %119
   %124 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %125 = or disjoint i64 %124, 1
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %125
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %125
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %127, ptr %128, align 8
   br label %129
 
@@ -30579,7 +30579,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_110AllocaInf
 
 43:                                               ; preds = %_ZN12_GLOBAL__N_110AllocaInfoD2Ev.exit25.i.i.i, %34
   %.013.i.i.i = phi i64 [ %37, %34 ], [ %78, %_ZN12_GLOBAL__N_110AllocaInfoD2Ev.exit25.i.i.i ]
-  %44 = getelementptr inbounds %"struct.(anonymous namespace)::AllocaInfo", ptr %0, i64 %.013.i.i.i
+  %44 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AllocaInfo", ptr %0, i64 %.013.i.i.i
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %46, align 8
@@ -31213,7 +31213,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_110AllocaInfoEl
   br i1 %53, label %54, label %"_ZSt11__push_heapIPN12_GLOBAL__N_110AllocaInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_T0_SJ_T1_RT2_.exit"
 
 54:                                               ; preds = %.lr.ph.i
-  %55 = getelementptr inbounds %"struct.(anonymous namespace)::AllocaInfo", ptr %0, i64 %.0133.i
+  %55 = getelementptr inbounds nuw %"struct.(anonymous namespace)::AllocaInfo", ptr %0, i64 %.0133.i
   %56 = call fastcc noundef nonnull align 8 dereferenceable(33) ptr @_ZN12_GLOBAL__N_110AllocaInfoaSEOS0_(ptr noundef nonnull align 8 dereferenceable(33) %55, ptr noundef nonnull align 8 dereferenceable(33) %50)
   %57 = icmp sgt i64 %.04.i, %1
   br i1 %57, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_110AllocaInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_16FrameTypeBuilder18addFieldForAllocasERKN4llvm8FunctionERNS0_13FrameDataInfoERNS7_4coro5ShapeEE3$_1EEEvT_T0_SJ_T1_RT2_.exit", !llvm.loop !496

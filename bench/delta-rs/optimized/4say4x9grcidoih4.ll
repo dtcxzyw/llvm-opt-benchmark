@@ -153710,10 +153710,10 @@ define internal fastcc void @_ZN14deltalake_core6kernel8snapshot5parse19collect_
   unreachable
 
 "_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17hd54aee5e1d6072c3E.exit.i": ; preds = %16
-  %20 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %14
+  %20 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %14
   %21 = load i32, ptr %20, align 4, !noalias !36779, !noundef !24
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds [0 x i32], ptr %10, i64 0, i64 %1
+  %23 = getelementptr inbounds nuw [0 x i32], ptr %10, i64 0, i64 %1
   %24 = load i32, ptr %23, align 4, !noalias !36779, !noundef !24
   %25 = sext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %.0.val, i64 24

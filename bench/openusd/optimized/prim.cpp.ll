@@ -41820,7 +41820,7 @@ _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInter
 
 _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__7SdfPathESt6vectorIS6_SaIS6_EEEENS6_12FastLessThanEE15median_of_threeERKSB_mmm.exit20: ; preds = %48, %50, %53, %55
   %58 = phi i64 [ %52, %50 ], [ %57, %55 ], [ %42, %48 ], [ %42, %53 ]
-  %59 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %8, i64 %22
+  %59 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %8, i64 %22
   %60 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %8, i64 %40
   %.0.copyload.i.i.i21 = load i64, ptr %59, align 4
   %.0.copyload.i2.i.i22 = load i64, ptr %60, align 4

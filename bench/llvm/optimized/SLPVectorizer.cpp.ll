@@ -39089,15 +39089,15 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %11, %.split.i.i.i ]
   %16 = shl i64 %.030.i.i.i.i, 1
   %17 = add i64 %16, 2
-  %18 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %17
   %19 = or disjoint i64 %16, 1
-  %20 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %19
   %.val.i.i.i.i = load i32, ptr %18, align 4
   %.val29.i.i.i.i = load i32, ptr %20, align 4
   %21 = icmp sgt i32 %.val.i.i.i.i, %.val29.i.i.i.i
   %spec.select.i.i.i.i = select i1 %21, i64 %19, i64 %17
-  %22 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %spec.select.i.i.i.i
-  %23 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.030.i.i.i.i
+  %22 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %spec.select.i.i.i.i
+  %23 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.030.i.i.i.i
   %24 = load i32, ptr %22, align 4
   store i32 %24, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -39119,8 +39119,8 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
 33:                                               ; preds = %._crit_edge.i.i.i.i
   %34 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %35
-  %37 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.0.lcssa.i.i.i.i
+  %36 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %35
+  %37 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.0.lcssa.i.i.i.i
   %38 = load i32, ptr %36, align 4
   store i32 %38, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 4
@@ -39145,7 +39145,7 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   br i1 %45, label %46, label %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit.i.i.i"
 
 46:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %47 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.0133.i.i.i.i.i
+  %47 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.0133.i.i.i.i.i
   store i32 %.val.i.i.i.i.i, ptr %47, align 4
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %49 = load i32, ptr %48, align 4
@@ -39170,8 +39170,8 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
 
 .split16.preheader.i.i.i:                         ; preds = %.split16.lr.ph.i.i.i
   %55 = or disjoint i64 %10, 1
-  %56 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %55
-  %57 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %31
+  %56 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %55
+  %57 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %31
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   br label %.split16.i.i.i
@@ -39179,7 +39179,7 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
 .split16.us.i.i.i:                                ; preds = %.split16.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %60, %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.us.i.i.i" ], [ %11, %.split16.lr.ph.i.i.i ]
   %60 = add nsw i64 %.06.us.i.i.i, -1
-  %61 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %60
+  %61 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %60
   %.sroa.02.0.copyload17.us.i.i.i = load i64, ptr %61, align 4
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %14
   br i1 %.not.us.i.i.i, label %._crit_edge.i19.us.thread.i.i.i, label %.lr.ph.i31.us.i.i.i
@@ -39192,15 +39192,15 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   %.030.i32.us.i.i.i = phi i64 [ %spec.select.i35.us.i.i.i, %.lr.ph.i31.us.i.i.i ], [ %60, %.split16.us.i.i.i ]
   %62 = shl i64 %.030.i32.us.i.i.i, 1
   %63 = add i64 %62, 2
-  %64 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %63
   %65 = or disjoint i64 %62, 1
-  %66 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %65
+  %66 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %65
   %.val.i33.us.i.i.i = load i32, ptr %64, align 4
   %.val29.i34.us.i.i.i = load i32, ptr %66, align 4
   %67 = icmp sgt i32 %.val.i33.us.i.i.i, %.val29.i34.us.i.i.i
   %spec.select.i35.us.i.i.i = select i1 %67, i64 %65, i64 %63
-  %68 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %spec.select.i35.us.i.i.i
-  %69 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.030.i32.us.i.i.i
+  %68 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %spec.select.i35.us.i.i.i
+  %69 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.030.i32.us.i.i.i
   %70 = load i32, ptr %68, align 4
   store i32 %70, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 4
@@ -39224,7 +39224,7 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   br i1 %76, label %77, label %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.us.i.i.i"
 
 77:                                               ; preds = %.lr.ph.i.i26.us.i.i.i
-  %78 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.0133.i.i27.us.i.i.i
+  %78 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.0133.i.i27.us.i.i.i
   store i32 %.val.i.i30.us.i.i.i, ptr %78, align 4
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %80 = load i32, ptr %79, align 4
@@ -39248,7 +39248,7 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
 .split16.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.i.i.i", %.split16.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %85, %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.i.i.i" ], [ %11, %.split16.preheader.i.i.i ]
   %85 = add nsw i64 %.06.i.i.i, -1
-  %86 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %85
+  %86 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %85
   %.sroa.02.0.copyload17.i.i.i = load i64, ptr %86, align 4
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %14
   br i1 %.not.i.i.i, label %._crit_edge.i19.i.i.i, label %.lr.ph.i31.i.i.i
@@ -39257,15 +39257,15 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   %.030.i32.i.i.i = phi i64 [ %spec.select.i35.i.i.i, %.lr.ph.i31.i.i.i ], [ %85, %.split16.i.i.i ]
   %87 = shl i64 %.030.i32.i.i.i, 1
   %88 = add i64 %87, 2
-  %89 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %88
+  %89 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %88
   %90 = or disjoint i64 %87, 1
-  %91 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %90
   %.val.i33.i.i.i = load i32, ptr %89, align 4
   %.val29.i34.i.i.i = load i32, ptr %91, align 4
   %92 = icmp sgt i32 %.val.i33.i.i.i, %.val29.i34.i.i.i
   %spec.select.i35.i.i.i = select i1 %92, i64 %90, i64 %88
-  %93 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %spec.select.i35.i.i.i
-  %94 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.030.i32.i.i.i
+  %93 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %spec.select.i35.i.i.i
+  %94 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.030.i32.i.i.i
   %95 = load i32, ptr %93, align 4
   store i32 %95, ptr %94, align 4
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
@@ -39303,7 +39303,7 @@ _ZN4llvm11SmallVectorISt4pairIiiELj6EEC2ERKS3_.exit.i: ; preds = %5, %2
   br i1 %106, label %107, label %"_ZSt13__adjust_heapIPSt4pairIiiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS6_8ArrayRefIPNS6_5ValueEEEjRKNS8_8EdgeInfoEE3$_7EEEvT_T0_SJ_T1_T2_.exit36.i.i.i"
 
 107:                                              ; preds = %.lr.ph.i.i26.i.i.i
-  %108 = getelementptr inbounds %"struct.std::pair.659", ptr %7, i64 %.0133.i.i27.i.i.i
+  %108 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %7, i64 %.0133.i.i27.i.i.i
   store i32 %.val.i.i30.i.i.i, ptr %108, align 4
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %110 = load i32, ptr %109, align 4
@@ -39530,7 +39530,7 @@ define internal fastcc void @"_ZNSt14priority_queueISt4pairIiiEN4llvm11SmallVect
   br i1 %12, label %13, label %"_ZSt9push_heapIPSt4pairIiiEZN4llvm13slpvectorizer7BoUpSLP13buildTree_recENS3_8ArrayRefIPNS3_5ValueEEEjRKNS5_8EdgeInfoEE3$_7EvT_SE_T0_.exit"
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds %"struct.std::pair.659", ptr %5, i64 %.0133.i.i
+  %14 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %5, i64 %.0133.i.i
   store i32 %.val.i.i, ptr %14, align 4
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %16 = load i32, ptr %15, align 4
@@ -39580,15 +39580,15 @@ define internal fastcc void @"_ZNSt14priority_queueISt4pairIiiEN4llvm11SmallVect
   %.030.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ 0, %5 ]
   %19 = shl i64 %.030.i.i.i, 1
   %20 = add i64 %19, 2
-  %21 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %20
   %22 = or disjoint i64 %19, 1
-  %23 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %22
   %.val.i.i.i = load i32, ptr %21, align 4
   %.val29.i.i.i = load i32, ptr %23, align 4
   %24 = icmp sgt i32 %.val.i.i.i, %.val29.i.i.i
   %spec.select.i.i.i = select i1 %24, i64 %22, i64 %20
-  %25 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %spec.select.i.i.i
-  %26 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %.030.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %spec.select.i.i.i
+  %26 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %.030.i.i.i
   %27 = load i32, ptr %25, align 4
   store i32 %27, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -39613,8 +39613,8 @@ define internal fastcc void @"_ZNSt14priority_queueISt4pairIiiEN4llvm11SmallVect
 38:                                               ; preds = %34
   %39 = shl nsw i64 %.0.lcssa.i.i.i, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %40
-  %42 = getelementptr inbounds %"struct.std::pair.659", ptr %2, i64 %.0.lcssa.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %40
+  %42 = getelementptr inbounds nuw %"struct.std::pair.659", ptr %2, i64 %.0.lcssa.i.i.i
   %43 = load i32, ptr %41, align 4
   store i32 %43, ptr %42, align 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -191064,7 +191064,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN4llvm13slpvector
 
 24:                                               ; preds = %_ZNSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS0_11SmallVectorIS_IjS4_ELj3EEEED2Ev.exit16.i.i.i, %16
   %.013.i.i.i = phi i64 [ %19, %16 ], [ %39, %_ZNSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS0_11SmallVectorIS_IjS4_ELj3EEEED2Ev.exit16.i.i.i ]
-  %25 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %.013.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %.013.i.i.i
   %26 = load ptr, ptr %25, align 8
   store ptr %26, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -191316,9 +191316,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm13slpvectorize
   %.029 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.029, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %12
   %.val = load ptr, ptr %11, align 8
   %.val28 = load ptr, ptr %13, align 8
   %14 = getelementptr i8, ptr %.val, i64 224
@@ -191327,8 +191327,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm13slpvectorize
   %.val28.val = load i32, ptr %15, align 8
   %16 = icmp sgt i32 %.val.val, %.val28.val
   %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %.029
+  %17 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %.029
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -191352,8 +191352,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm13slpvectorize
 30:                                               ; preds = %26
   %31 = shl nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %.0.lcssa
+  %33 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %32
+  %34 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %.0.lcssa
   %35 = load ptr, ptr %33, align 8
   store ptr %35, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -191395,7 +191395,7 @@ _ZNSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS0_11SmallVectorIS_IjS4_ELj
   br i1 %51, label %52, label %"_ZSt11__push_heapIPSt4pairIPN4llvm13slpvectorizer7BoUpSLP9TreeEntryENS1_11SmallVectorIS0_IjS5_ELj3EEEElS9_N9__gnu_cxx5__ops14_Iter_comp_valIZNS3_18reorderBottomToTopEbE3$_3EEEvT_T0_SH_T1_RT2_.exit"
 
 52:                                               ; preds = %.lr.ph.i
-  %53 = getelementptr inbounds %"struct.std::pair.514", ptr %0, i64 %.0133.i
+  %53 = getelementptr inbounds nuw %"struct.std::pair.514", ptr %0, i64 %.0133.i
   store ptr %.val.i, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -209369,7 +209369,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__
 .split15.i.i.i:                                   ; preds = %.split.i.i.i, %.split15.i.i.i
   %.018.i.i.i = phi i64 [ %19, %.split15.i.i.i ], [ %16, %.split.i.i.i ]
   %19 = add nsw i64 %.018.i.i.i, -1
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %14, ptr noundef %21, ptr readonly %3)
   %22 = icmp eq i64 %19, 0
@@ -209630,9 +209630,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__
   %.034 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EclIPPNS2_11InstructionESA_EEbT_T0_.exit" ]
   %11 = shl i64 %.034, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %14
   %.val29 = load ptr, ptr %13, align 8
   %.val30 = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %9, align 8
@@ -209659,9 +209659,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EclIPPNS2_11InstructionESA_EEbT_T0_.exit": ; preds = %24, %28
   %.0.i.i = phi i1 [ %27, %24 ], [ %29, %28 ]
   %spec.select = select i1 %.0.i.i, i64 %14, i64 %12
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
   store ptr %31, ptr %32, align 8
   %33 = icmp slt i64 %spec.select, %7
   br i1 %33, label %10, label %._crit_edge, !llvm.loop !2695
@@ -209681,9 +209681,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__
 40:                                               ; preds = %36
   %41 = shl nsw i64 %.0.lcssa, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %42
   %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %44, ptr %45, align 8
   br label %46
 
@@ -209725,7 +209725,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__
 
 64:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EclIPPNS2_11InstructionES9_EEbT_RT0_.exit.i", %59
   %65 = load ptr, ptr %51, align 8
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %65, ptr %66, align 8
   %67 = icmp sgt i64 %.04.i, %1
   br i1 %67, label %50, label %"_ZSt11__push_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNKS0_13slpvectorizer7BoUpSLP12getSpillCostEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", !llvm.loop !2696
@@ -215680,9 +215680,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val.i.i.i.i, i64 224
@@ -215691,9 +215691,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i.i.i.i = load i32, ptr %26, align 8
   %27 = icmp slt i32 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2744
@@ -215710,9 +215710,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -215738,7 +215738,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit.i.i.i"
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %50, align 8
   %51 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %51, label %45, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit.i.i.i", !llvm.loop !2745
@@ -215755,14 +215755,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %54 = or disjoint i64 %13, 1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %57, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %57 = add nsw i64 %.06.us.i.i.i, -1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i", label %.lr.ph.i27.us.i.i.i
@@ -215771,9 +215771,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i28.us.i.i.i = phi i64 [ %spec.select.i33.us.i.i.i, %.lr.ph.i27.us.i.i.i ], [ %57, %.split14.us.i.i.i ]
   %60 = shl i64 %.030.i28.us.i.i.i, 1
   %61 = add i64 %60, 2
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
   %.val.i29.us.i.i.i = load ptr, ptr %62, align 8
   %.val29.i30.us.i.i.i = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val.i29.us.i.i.i, i64 224
@@ -215782,9 +215782,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i32.us.i.i.i = load i32, ptr %66, align 8
   %67 = icmp slt i32 %.val.val.i31.us.i.i.i, %.val29.val.i32.us.i.i.i
   %spec.select.i33.us.i.i.i = select i1 %67, i64 %63, i64 %61
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.us.i.i.i
+  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.us.i.i.i
   store ptr %69, ptr %70, align 8
   %71 = icmp slt i64 %spec.select.i33.us.i.i.i, %18
   br i1 %71, label %.lr.ph.i27.us.i.i.i, label %._crit_edge.i16.us.i.i.i, !llvm.loop !2744
@@ -215806,7 +215806,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %76, label %77, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i"
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
   store ptr %.val.i.i24.us.i.i.i, ptr %78, align 8
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i", label %73, !llvm.loop !2745
@@ -215821,7 +215821,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %81, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %81 = add nsw i64 %.06.i.i.i, -1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i27.i.i.i
@@ -215830,9 +215830,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i28.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i27.i.i.i ], [ %81, %.split14.i.i.i ]
   %84 = shl i64 %.030.i28.i.i.i, 1
   %85 = add i64 %84, 2
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %87 = or disjoint i64 %84, 1
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %87
   %.val.i29.i.i.i = load ptr, ptr %86, align 8
   %.val29.i30.i.i.i = load ptr, ptr %88, align 8
   %89 = getelementptr i8, ptr %.val.i29.i.i.i, i64 224
@@ -215841,9 +215841,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i32.i.i.i = load i32, ptr %90, align 8
   %91 = icmp slt i32 %.val.val.i31.i.i.i, %.val29.val.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %91, i64 %87, i64 %85
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.i.i.i
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.i.i.i
   store ptr %93, ptr %94, align 8
   %95 = icmp slt i64 %spec.select.i33.i.i.i, %18
   br i1 %95, label %.lr.ph.i27.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !2744
@@ -215880,7 +215880,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %104, label %105, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.i.i.i"
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %106, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_4EEEvT_T0_SM_T1_T2_.exit34.i.i.i", label %101, !llvm.loop !2745
@@ -215913,9 +215913,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i.i.i20.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %118 = shl i64 %.030.i.i.i20.i, 1
   %119 = add i64 %118, 2
-  %120 = getelementptr inbounds ptr, ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %121 = or disjoint i64 %118, 1
-  %122 = getelementptr inbounds ptr, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %0, i64 %121
   %.val.i.i.i21.i = load ptr, ptr %120, align 8
   %.val29.i.i.i22.i = load ptr, ptr %122, align 8
   %123 = getelementptr i8, ptr %.val.i.i.i21.i, i64 224
@@ -215924,9 +215924,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i.i.i24.i = load i32, ptr %124, align 8
   %125 = icmp slt i32 %.val.val.i.i.i23.i, %.val29.val.i.i.i24.i
   %spec.select.i.i.i25.i = select i1 %125, i64 %121, i64 %119
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i25.i
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i25.i
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i20.i
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i20.i
   store ptr %127, ptr %128, align 8
   %129 = icmp slt i64 %spec.select.i.i.i25.i, %116
   br i1 %129, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i6.i, !llvm.loop !2744
@@ -215946,9 +215946,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 136:                                              ; preds = %132
   %137 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %138 = or disjoint i64 %137, 1
-  %139 = getelementptr inbounds ptr, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %0, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %140, ptr %141, align 8
   br label %142
 
@@ -216417,9 +216417,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val.i.i.i.i, i64 224
@@ -216428,9 +216428,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i.i.i.i = load i32, ptr %26, align 8
   %27 = icmp slt i32 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !2754
@@ -216447,9 +216447,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -216475,7 +216475,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit.i.i.i"
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %50, align 8
   %51 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %51, label %45, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit.i.i.i", !llvm.loop !2755
@@ -216492,14 +216492,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %54 = or disjoint i64 %13, 1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %57, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %57 = add nsw i64 %.06.us.i.i.i, -1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i", label %.lr.ph.i27.us.i.i.i
@@ -216508,9 +216508,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i28.us.i.i.i = phi i64 [ %spec.select.i33.us.i.i.i, %.lr.ph.i27.us.i.i.i ], [ %57, %.split14.us.i.i.i ]
   %60 = shl i64 %.030.i28.us.i.i.i, 1
   %61 = add i64 %60, 2
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
   %.val.i29.us.i.i.i = load ptr, ptr %62, align 8
   %.val29.i30.us.i.i.i = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val.i29.us.i.i.i, i64 224
@@ -216519,9 +216519,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i32.us.i.i.i = load i32, ptr %66, align 8
   %67 = icmp slt i32 %.val.val.i31.us.i.i.i, %.val29.val.i32.us.i.i.i
   %spec.select.i33.us.i.i.i = select i1 %67, i64 %63, i64 %61
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.us.i.i.i
+  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.us.i.i.i
   store ptr %69, ptr %70, align 8
   %71 = icmp slt i64 %spec.select.i33.us.i.i.i, %18
   br i1 %71, label %.lr.ph.i27.us.i.i.i, label %._crit_edge.i16.us.i.i.i, !llvm.loop !2754
@@ -216543,7 +216543,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %76, label %77, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i"
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
   store ptr %.val.i.i24.us.i.i.i, ptr %78, align 8
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.us.i.i.i", label %73, !llvm.loop !2755
@@ -216558,7 +216558,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %81, %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %81 = add nsw i64 %.06.i.i.i, -1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i27.i.i.i
@@ -216567,9 +216567,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i28.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i27.i.i.i ], [ %81, %.split14.i.i.i ]
   %84 = shl i64 %.030.i28.i.i.i, 1
   %85 = add i64 %84, 2
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %87 = or disjoint i64 %84, 1
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %87
   %.val.i29.i.i.i = load ptr, ptr %86, align 8
   %.val29.i30.i.i.i = load ptr, ptr %88, align 8
   %89 = getelementptr i8, ptr %.val.i29.i.i.i, i64 224
@@ -216578,9 +216578,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i32.i.i.i = load i32, ptr %90, align 8
   %91 = icmp slt i32 %.val.val.i31.i.i.i, %.val29.val.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %91, i64 %87, i64 %85
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.i.i.i
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.i.i.i
   store ptr %93, ptr %94, align 8
   %95 = icmp slt i64 %spec.select.i33.i.i.i, %18
   br i1 %95, label %.lr.ph.i27.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !2754
@@ -216617,7 +216617,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   br i1 %104, label %105, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.i.i.i"
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %106, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13slpvectorizer7BoUpSLP9TreeEntryElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_35isGatherShuffledSingleRegisterEntryES5_NS0_8ArrayRefIPNS0_5ValueEEENS0_15MutableArrayRefIiEERNS0_15SmallVectorImplIS5_EEjbE3$_5EEEvT_T0_SM_T1_T2_.exit34.i.i.i", label %101, !llvm.loop !2755
@@ -216650,9 +216650,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.030.i.i.i20.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %118 = shl i64 %.030.i.i.i20.i, 1
   %119 = add i64 %118, 2
-  %120 = getelementptr inbounds ptr, ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %121 = or disjoint i64 %118, 1
-  %122 = getelementptr inbounds ptr, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %0, i64 %121
   %.val.i.i.i21.i = load ptr, ptr %120, align 8
   %.val29.i.i.i22.i = load ptr, ptr %122, align 8
   %123 = getelementptr i8, ptr %.val.i.i.i21.i, i64 224
@@ -216661,9 +216661,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
   %.val29.val.i.i.i24.i = load i32, ptr %124, align 8
   %125 = icmp slt i32 %.val.val.i.i.i23.i, %.val29.val.i.i.i24.i
   %spec.select.i.i.i25.i = select i1 %125, i64 %121, i64 %119
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i25.i
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i25.i
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i20.i
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i20.i
   store ptr %127, ptr %128, align 8
   %129 = icmp slt i64 %spec.select.i.i.i25.i, %116
   br i1 %129, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i6.i, !llvm.loop !2754
@@ -216683,9 +216683,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13slpvectorizer7Bo
 136:                                              ; preds = %132
   %137 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %138 = or disjoint i64 %137, 1
-  %139 = getelementptr inbounds ptr, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %0, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %140, ptr %141, align 8
   br label %142
 
@@ -225276,7 +225276,7 @@ _ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_com
 .split15.us:                                      ; preds = %.split15.lr.ph, %_ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_T0_SD_T1_T2_.exit29.us
   %.035.us = phi i64 [ %52, %_ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_T0_SD_T1_T2_.exit29.us ], [ %10, %.split15.lr.ph ]
   %52 = add nsw i64 %.035.us, -1
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
   %54 = load ptr, ptr %53, align 8
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.035.us, %14
@@ -225330,7 +225330,7 @@ _ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_com
 .split15:                                         ; preds = %.split15.preheader, %_ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_T0_SD_T1_T2_.exit29
   %.035 = phi i64 [ %75, %_ZSt13__adjust_heapIPPN4llvm17InsertElementInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_S8_EEEEvT_T0_SD_T1_T2_.exit29 ], [ %10, %.split15.preheader ]
   %75 = add nsw i64 %.035, -1
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.035, %14
@@ -225923,7 +225923,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm15DomTreeNodeBaseI
 .split14.i.i.i:                                   ; preds = %.split.i.i.i, %.split14.i.i.i
   %.01.i.i.i = phi i64 [ %17, %.split14.i.i.i ], [ %14, %.split.i.i.i ]
   %17 = add nsw i64 %.01.i.i.i, -1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_T0_SF_T1_T2_"(ptr noundef nonnull %0, i64 noundef %17, i64 noundef %12, ptr noundef %19)
   %20 = icmp eq i64 %17, 0
@@ -226086,18 +226086,18 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm15DomTreeNodeBaseINS0
   %.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.030, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   %13 = tail call noundef i32 @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE11getDFSNumInEv(ptr noundef nonnull align 8 dereferenceable(80) %.val) #25
   %14 = tail call noundef i32 @_ZNK4llvm15DomTreeNodeBaseINS_10BasicBlockEE11getDFSNumInEv(ptr noundef nonnull align 8 dereferenceable(80) %.val29) #25
   %15 = icmp ult i32 %13, %14
   %spec.select = select i1 %15, i64 %11, i64 %9
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %.030
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030
   store ptr %17, ptr %18, align 8
   %19 = icmp slt i64 %spec.select, %6
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !2859
@@ -226117,9 +226117,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm15DomTreeNodeBaseINS0
 26:                                               ; preds = %22
   %27 = shl nsw i64 %.0.lcssa, 1
   %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %30, ptr %31, align 8
   br label %32
 
@@ -226141,7 +226141,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm15DomTreeNodeBaseINS0
 
 38:                                               ; preds = %.lr.ph.i
   %39 = load ptr, ptr %34, align 8
-  %40 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %40 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %39, ptr %40, align 8
   %41 = icmp sgt i64 %.04.i, %1
   br i1 %41, label %.lr.ph.i, label %"_ZSt11__push_heapIPPKN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13slpvectorizer7BoUpSLP22optimizeGatherSequenceEvE3$_1EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !2860

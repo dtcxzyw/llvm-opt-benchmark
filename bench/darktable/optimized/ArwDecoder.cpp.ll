@@ -5901,7 +5901,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %403 = or disjoint i64 %398, 1
   %404 = icmp ult i64 %403, %161
   call void @llvm.assume(i1 %404)
-  %405 = getelementptr inbounds i16, ptr %301, i64 %403
+  %405 = getelementptr inbounds nuw i16, ptr %301, i64 %403
   %406 = load i16, ptr %405, align 2, !tbaa !53
   %407 = or disjoint i64 %399, 1
   %408 = icmp samesign ult i64 %407, %162
@@ -5916,7 +5916,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %414 = or disjoint i64 %398, 3
   %415 = icmp ult i64 %414, %161
   call void @llvm.assume(i1 %415)
-  %416 = getelementptr inbounds i16, ptr %301, i64 %414
+  %416 = getelementptr inbounds nuw i16, ptr %301, i64 %414
   %417 = load i16, ptr %416, align 2, !tbaa !53
   %418 = getelementptr inbounds nuw i16, ptr %314, i64 %407
   store i16 %417, ptr %418, align 2, !tbaa !53
@@ -5930,7 +5930,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %425 = or disjoint i64 %420, 1
   %426 = icmp ult i64 %425, %161
   call void @llvm.assume(i1 %426)
-  %427 = getelementptr inbounds i16, ptr %301, i64 %425
+  %427 = getelementptr inbounds nuw i16, ptr %301, i64 %425
   %428 = load i16, ptr %427, align 2, !tbaa !53
   %429 = or disjoint i64 %421, 1
   %430 = icmp samesign ult i64 %429, %162
@@ -5945,7 +5945,7 @@ define hidden void @_ZN8rawspeed10ArwDecoder16PostProcessLJpegEv(ptr nocapture n
   %436 = or disjoint i64 %420, 3
   %437 = icmp ult i64 %436, %161
   call void @llvm.assume(i1 %437)
-  %438 = getelementptr inbounds i16, ptr %301, i64 %436
+  %438 = getelementptr inbounds nuw i16, ptr %301, i64 %436
   %439 = load i16, ptr %438, align 2, !tbaa !53
   %440 = getelementptr inbounds nuw i16, ptr %314, i64 %429
   store i16 %439, ptr %440, align 2, !tbaa !53

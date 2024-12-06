@@ -229,7 +229,7 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8: ; preds = %"
   br i1 %55, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i": ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4, i64 %.0.sroa.speculated.i23
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4, i64 %.0.sroa.speculated.i23
   %57 = load i8, ptr %56, align 1, !alias.scope !21, !noundef !8
   %58 = icmp sgt i8 %57, -65
   %59 = sub nuw i64 %.sroa.4.0.i.i3, %.0.sroa.speculated.i23
@@ -246,7 +246,7 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8: ; preds = %"
 
 "_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread29": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i", %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit"
   %62 = phi i64 [ %60, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit" ], [ %59, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i" ]
-  %63 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4, i64 %.0.sroa.speculated.i23
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4, i64 %.0.sroa.speculated.i23
   %64 = insertvalue { ptr, i64 } poison, ptr %63, 0
   %65 = insertvalue { ptr, i64 } %64, i64 %62, 1
   ret { ptr, i64 } %65

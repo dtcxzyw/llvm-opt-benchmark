@@ -66296,7 +66296,7 @@ entry:
   %add11.i.i.i = add nsw i64 %add6.i.i.i, %div4.zext.i.i.i
   %rem12.i.i.i = srem i64 %add11.i.i.i, 7
   %add13.i.i.i = add nsw i64 %rem12.i.i.i, 6
-  %arrayidx14.i.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i.i
+  %arrayidx14.i.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i.i
   %4 = load i32, ptr %arrayidx14.i.i.i, align 4
   br label %for.cond.i.i
 

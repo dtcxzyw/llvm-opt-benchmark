@@ -12811,7 +12811,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairINSt7__cxx1112basic_str
 
 21:                                               ; preds = %21, %15
   %.013.i.i18 = phi i64 [ %18, %15 ], [ %26, %21 ]
-  %22 = getelementptr inbounds %"struct.std::pair.2567", ptr %0, i64 %.013.i.i18
+  %22 = getelementptr inbounds nuw %"struct.std::pair.2567", ptr %0, i64 %.013.i.i18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %22) #23
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i64, ptr %23, align 8

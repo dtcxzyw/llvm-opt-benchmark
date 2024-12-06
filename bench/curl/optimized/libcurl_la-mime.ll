@@ -3475,7 +3475,7 @@ sw.epilog36:                                      ; preds = %qp_lookahead_eol.ex
   %len.0 = phi i64 [ 3, %sw.default34 ], [ 3, %sw.default31 ], [ 2, %sw.bb29 ], [ 3, %sw.default ], [ 1, %qp_lookahead_eol.exit ], [ 1, %while.body ], [ 1, %if.end6.i ], [ 1, %land.lhs.true11.i ]
   %consumed.0 = phi i64 [ 1, %sw.default34 ], [ 1, %sw.default31 ], [ 2, %sw.bb29 ], [ 1, %sw.default ], [ 1, %qp_lookahead_eol.exit ], [ 1, %while.body ], [ 1, %if.end6.i ], [ 1, %land.lhs.true11.i ]
   %sub = add nsw i64 %len.0, -1
-  %arrayidx37 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 %sub
+  %arrayidx37 = getelementptr inbounds nuw [4 x i8], ptr %buf, i64 0, i64 %sub
   %14 = load i8, ptr %arrayidx37, align 1
   %cmp39.not = icmp eq i8 %14, 10
   br i1 %cmp39.not, label %if.end59, label %if.then
@@ -3541,12 +3541,12 @@ if.then62:                                        ; preds = %if.end59
 if.end66:                                         ; preds = %if.end59
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ptr.0105, ptr noundef nonnull align 4 dereferenceable(1) %buf, i64 %len.1, i1 false)
   %add68 = add i64 %len.1, %cursize.0106
-  %add.ptr = getelementptr inbounds i8, ptr %ptr.0105, i64 %len.1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %ptr.0105, i64 %len.1
   %sub69 = sub nuw i64 %size.addr.0104, %len.1
   %20 = load i64, ptr %encstate, align 8
   %add71 = add i64 %20, %len.1
   %sub72 = add nsw i64 %len.1, -1
-  %arrayidx73 = getelementptr inbounds [4 x i8], ptr %buf, i64 0, i64 %sub72
+  %arrayidx73 = getelementptr inbounds nuw [4 x i8], ptr %buf, i64 0, i64 %sub72
   %21 = load i8, ptr %arrayidx73, align 1
   %cmp75 = icmp eq i8 %21, 10
   %spec.store.select = select i1 %cmp75, i64 0, i64 %add71

@@ -238,7 +238,7 @@ define void @_ZN14cranelift_isle7overlap5check17h7a4f5035b685ee0bE(ptr nocapture
   %114 = ptrtoint ptr %113 to i64
   %115 = ptrtoint ptr %112 to i64
   %116 = sub nuw i64 %114, %115
-  %117 = getelementptr inbounds i8, ptr %112, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 %116
   store ptr %112, ptr %43, align 8, !noalias !7
   store ptr %117, ptr %78, align 8, !noalias !7
   %118 = getelementptr inbounds nuw i8, ptr %109, i64 200

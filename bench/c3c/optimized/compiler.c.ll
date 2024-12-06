@@ -350,7 +350,7 @@ define dso_local ptr @build_base_name() local_unnamed_addr #7 {
 
 ._crit_edge:                                      ; preds = %12, %9, %2
   %.0.lcssa = phi i64 [ 0, %2 ], [ %.013, %9 ], [ 0, %12 ]
-  %14 = getelementptr inbounds i8, ptr %.pre, i64 %.0.lcssa
+  %14 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.0.lcssa
   br label %15
 
 15:                                               ; preds = %0, %._crit_edge
@@ -804,7 +804,7 @@ define dso_local void @compiler_compile() local_unnamed_addr #0 {
 
 ._crit_edge.i.i:                                  ; preds = %119, %116, %109
   %.0.lcssa.i.i = phi i64 [ 0, %109 ], [ %.013.i.i, %116 ], [ 0, %119 ]
-  %121 = getelementptr inbounds i8, ptr %.pre.i.i, i64 %.0.lcssa.i.i
+  %121 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 %.0.lcssa.i.i
   br label %build_base_name.exit.i
 
 build_base_name.exit.i:                           ; preds = %._crit_edge.i.i, %107
@@ -859,7 +859,7 @@ static_lib_name.exit:                             ; preds = %build_base_name.exi
 
 ._crit_edge.i.i240:                               ; preds = %137, %134, %127
   %.0.lcssa.i.i241 = phi i64 [ 0, %127 ], [ %.013.i.i237, %134 ], [ 0, %137 ]
-  %139 = getelementptr inbounds i8, ptr %.pre.i.i234, i64 %.0.lcssa.i.i241
+  %139 = getelementptr inbounds nuw i8, ptr %.pre.i.i234, i64 %.0.lcssa.i.i241
   br label %build_base_name.exit.i229
 
 build_base_name.exit.i229:                        ; preds = %._crit_edge.i.i240, %125
@@ -1539,7 +1539,7 @@ define internal fastcc ptr @exe_name() unnamed_addr #0 {
 
 ._crit_edge:                                      ; preds = %17, %14, %5
   %.0.lcssa = phi i64 [ 0, %5 ], [ %.017, %14 ], [ 0, %17 ]
-  %19 = getelementptr inbounds i8, ptr %.pre, i64 %.0.lcssa
+  %19 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.0.lcssa
   br label %20
 
 20:                                               ; preds = %0, %2, %._crit_edge

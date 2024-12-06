@@ -5093,11 +5093,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights(ptr n
   %597 = fadd reassoc nsz arcp contract afn <8 x float> %595, %596
   %598 = fadd reassoc nsz arcp contract afn <8 x float> %597, %582
   %599 = getelementptr inbounds float, ptr %215, <8 x i64> %534
-  %600 = getelementptr inbounds i8, <8 x ptr> %599, i64 4
+  %600 = getelementptr inbounds nuw i8, <8 x ptr> %599, i64 4
   %601 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %600, i32 4, <8 x i1> %531, <8 x float> poison), !tbaa !14, !alias.scope !239, !noalias !250
   %602 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %599, i32 4, <8 x i1> %531, <8 x float> poison), !tbaa !14, !alias.scope !239, !noalias !250
   %603 = fadd reassoc nsz arcp contract afn <8 x float> %602, %601
-  %604 = getelementptr inbounds i8, <8 x ptr> %599, i64 8
+  %604 = getelementptr inbounds nuw i8, <8 x ptr> %599, i64 8
   %605 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %604, i32 4, <8 x i1> %531, <8 x float> poison), !tbaa !14, !alias.scope !239, !noalias !250
   %606 = fadd reassoc nsz arcp contract afn <8 x float> %603, %605
   %607 = fmul reassoc nsz arcp contract afn <8 x float> %606, %192
@@ -5107,7 +5107,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights(ptr n
   %611 = fadd reassoc nsz arcp contract afn <8 x float> %607, %610
   %612 = fmul reassoc nsz arcp contract afn <8 x float> %605, %194
   %613 = fadd reassoc nsz arcp contract afn <8 x float> %607, %612
-  %614 = getelementptr inbounds i8, <8 x ptr> %599, i64 12
+  %614 = getelementptr inbounds nuw i8, <8 x ptr> %599, i64 12
   %615 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %614, i32 4, <8 x i1> %531, <8 x float> poison), !tbaa !14, !alias.scope !239, !noalias !250
   %616 = fmul reassoc nsz arcp contract afn <8 x float> %615, %194
   %617 = fadd reassoc nsz arcp contract afn <8 x float> %616, %607
@@ -5369,11 +5369,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @reconstruct_highlights(ptr n
   %818 = shl <8 x i64> %745, splat (i64 4)
   %819 = getelementptr i8, ptr %215, <8 x i64> %818
   %820 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %819, i32 4, <8 x i1> %742, <8 x float> zeroinitializer), !tbaa !14, !alias.scope !257, !noalias !268
-  %821 = getelementptr inbounds i8, <8 x ptr> %819, i64 4
+  %821 = getelementptr inbounds nuw i8, <8 x ptr> %819, i64 4
   %822 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %821, i32 4, <8 x i1> %742, <8 x float> zeroinitializer), !tbaa !14, !alias.scope !257, !noalias !268
-  %823 = getelementptr inbounds i8, <8 x ptr> %819, i64 8
+  %823 = getelementptr inbounds nuw i8, <8 x ptr> %819, i64 8
   %824 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %823, i32 4, <8 x i1> %742, <8 x float> zeroinitializer), !tbaa !14, !alias.scope !257, !noalias !268
-  %825 = getelementptr inbounds i8, <8 x ptr> %819, i64 12
+  %825 = getelementptr inbounds nuw i8, <8 x ptr> %819, i64 12
   %826 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %825, i32 4, <8 x i1> %742, <8 x float> zeroinitializer), !tbaa !14, !alias.scope !257, !noalias !268
   %827 = fadd reassoc nsz arcp contract afn <8 x float> %803, %820
   %828 = fadd reassoc nsz arcp contract afn <8 x float> %827, %805

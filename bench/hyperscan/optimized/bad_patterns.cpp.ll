@@ -17731,7 +17731,7 @@ _ZNSt6vectorI15BadPatternParamSaIS0_EE17_S_check_init_lenEmRKS1_.exit: ; preds =
 
 _ZNSt12_Vector_baseI15BadPatternParamSaIS0_EE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorI15BadPatternParamSaIS0_EE17_S_check_init_lenEmRKS1_.exit
   store ptr null, ptr %this, align 8
-  %add.ptr25 = getelementptr inbounds i8, ptr null, i64 %sub.ptr.sub.i.i.i
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr null, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage26 = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr25, ptr %_M_end_of_storage26, align 8
   br label %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK15BadPatternParamSt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit
@@ -17739,7 +17739,7 @@ _ZNSt12_Vector_baseI15BadPatternParamSaIS0_EE11_M_allocateEm.exit.thread: ; pred
 for.body.i.i.i.i.preheader:                       ; preds = %_ZNSt6vectorI15BadPatternParamSaIS0_EE17_S_check_init_lenEmRKS1_.exit
   %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %sub.ptr.sub.i.i.i) #27
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i.i.i
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %add.ptr, ptr %_M_end_of_storage, align 8
   br label %for.body.i.i.i.i

@@ -261,7 +261,7 @@ define i64 @QDLDL_factor(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 76:                                               ; preds = %.lr.ph173, %._crit_edge170
   %.2135172.in = phi i64 [ %.1139, %.lr.ph173 ], [ %.2135172, %._crit_edge170 ]
   %.2135172 = add nsw i64 %.2135172.in, -1
-  %77 = getelementptr inbounds i64, ptr %12, i64 %.2135172
+  %77 = getelementptr inbounds nuw i64, ptr %12, i64 %.2135172
   %78 = load i64, ptr %77, align 8
   %79 = getelementptr inbounds i64, ptr %16, i64 %78
   %80 = load i64, ptr %79, align 8
@@ -385,9 +385,9 @@ define void @QDLDL_Ltsolve(i64 noundef %0, ptr nocapture noundef readonly %1, pt
 .lr.ph27:                                         ; preds = %5, %._crit_edge
   %.020.in24 = phi i64 [ %.02025, %._crit_edge ], [ %0, %5 ]
   %.02025 = add nsw i64 %.020.in24, -1
-  %7 = getelementptr inbounds double, ptr %4, i64 %.02025
+  %7 = getelementptr inbounds nuw double, ptr %4, i64 %.02025
   %8 = load double, ptr %7, align 8
-  %9 = getelementptr inbounds i64, ptr %1, i64 %.02025
+  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %.02025
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds nuw i64, ptr %1, i64 %.020.in24
   %12 = load i64, ptr %11, align 8
@@ -475,9 +475,9 @@ define void @QDLDL_solve(i64 noundef %0, ptr nocapture noundef readonly %1, ptr 
 .lr.ph27.i:                                       ; preds = %.lr.ph, %._crit_edge.i
   %.020.in24.i = phi i64 [ %.02025.i, %._crit_edge.i ], [ %0, %.lr.ph ]
   %.02025.i = add nsw i64 %.020.in24.i, -1
-  %33 = getelementptr inbounds double, ptr %5, i64 %.02025.i
+  %33 = getelementptr inbounds nuw double, ptr %5, i64 %.02025.i
   %34 = load double, ptr %33, align 8
-  %35 = getelementptr inbounds i64, ptr %1, i64 %.02025.i
+  %35 = getelementptr inbounds nuw i64, ptr %1, i64 %.02025.i
   %36 = load i64, ptr %35, align 8
   %37 = getelementptr inbounds nuw i64, ptr %1, i64 %.020.in24.i
   %38 = load i64, ptr %37, align 8

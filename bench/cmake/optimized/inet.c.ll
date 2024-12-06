@@ -600,7 +600,7 @@ inet_pton4.exit:                                  ; preds = %17, %28, %32, %11, 
   %.ptr81.i = getelementptr i8, ptr %.065.ptr.ptr.le.i, i64 1
   store i8 %84, ptr %.065.ptr.ptr.le.i, align 1
   %85 = trunc i32 %.062.i to i8
-  %.add.i = add nsw i64 %.065.idx.ph105.i, 2
+  %.add.i = add nuw nsw i64 %.065.idx.ph105.i, 2
   store i8 %85, ptr %.ptr81.i, align 1
   br label %.outer103.i, !llvm.loop !10
 

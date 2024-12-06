@@ -433,7 +433,7 @@ if.end10:                                         ; preds = %if.then7, %if.end6
   br i1 %aligned, label %if.then12, label %if.else
 
 if.then12:                                        ; preds = %if.end10
-  %add.ptr = getelementptr inbounds i8, ptr %block_head.1, i64 %bytes
+  %add.ptr = getelementptr inbounds nuw i8, ptr %block_head.1, i64 %bytes
   %aligned_alloc_ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 2248
   store ptr %add.ptr, ptr %aligned_alloc_ptr_, align 8
   %add.ptr13 = getelementptr inbounds i8, ptr %block_head.1, i64 %size.1
@@ -687,7 +687,7 @@ if.end10.i:                                       ; preds = %if.then7.i, %if.end
   %block_head.1.i = phi ptr [ %call5.i, %if.end6.i ], [ %call9.i, %if.then7.i ]
   %sub.i = sub i64 %size.1.i, %bytes
   store i64 %sub.i, ptr %alloc_bytes_remaining_, align 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %block_head.1.i, i64 %bytes
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %block_head.1.i, i64 %bytes
   store ptr %add.ptr.i, ptr %aligned_alloc_ptr_, align 8
   %add.ptr13.i = getelementptr inbounds i8, ptr %block_head.1.i, i64 %size.1.i
   %unaligned_alloc_ptr_.i = getelementptr inbounds nuw i8, ptr %this, i64 2240

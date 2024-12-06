@@ -269,7 +269,7 @@ if.end20.i:                                       ; preds = %if.end.i
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.021 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %pos.i.021
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %pos.i.021
   %9 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %9, %value
   br i1 %cmp30.i, label %_ZN6google8protobuf8internal19ValidateEnumInlinedEiPKj.exit, label %if.end32.i

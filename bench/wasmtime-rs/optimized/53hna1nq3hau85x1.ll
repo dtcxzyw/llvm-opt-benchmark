@@ -4050,7 +4050,7 @@ common.resume:                                    ; preds = %191, %127, %2401
   %616 = xor i64 %.011.i.i, -1
   %617 = add nsw i64 %612, %616
   %618 = getelementptr inbounds nuw [0 x { i32, i32, i16, i8, [1 x i8] }], ptr %.sink3.i861, i64 0, i64 %.011.i.i
-  %619 = getelementptr inbounds [0 x { i32, i32, i16, i8, [1 x i8] }], ptr %615, i64 0, i64 %617
+  %619 = getelementptr inbounds nuw [0 x { i32, i32, i16, i8, [1 x i8] }], ptr %615, i64 0, i64 %617
   br label %620
 
 620:                                              ; preds = %620, %.lr.ph.preheader.i.i
@@ -4099,7 +4099,7 @@ _ZN4core3ptr19swap_nonoverlapping17h1633903daa7d06f2E.exit.i.i: ; preds = %620
   %640 = xor i64 %.011.i.i878, -1
   %641 = add nsw i64 %636, %640
   %642 = getelementptr inbounds nuw [0 x { { i32, i32 }, i32 }], ptr %.sink3.i, i64 0, i64 %.011.i.i878
-  %643 = getelementptr inbounds [0 x { { i32, i32 }, i32 }], ptr %639, i64 0, i64 %641
+  %643 = getelementptr inbounds nuw [0 x { { i32, i32 }, i32 }], ptr %639, i64 0, i64 %641
   br label %644
 
 644:                                              ; preds = %644, %.lr.ph.preheader.i.i877

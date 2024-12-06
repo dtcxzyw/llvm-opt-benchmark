@@ -1861,7 +1861,7 @@ _ZNKSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stE
 54:                                               ; preds = %50, %_ZNKSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread
   %.0.i13 = phi i64 [ %53, %50 ], [ %42, %_ZNKSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS1_m.exit.thread ]
   %55 = load ptr, ptr %0, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.0.i13
+  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0.i13
   %57 = load ptr, ptr %56, align 8
   %.not.i.i14 = icmp eq ptr %57, null
   br i1 %.not.i.i14, label %61, label %58
@@ -1894,7 +1894,7 @@ _ZNKSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stE
 
 71:                                               ; preds = %64, %61
   %72 = phi ptr [ %.pre, %64 ], [ %55, %61 ]
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %.0.i13
+  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %.0.i13
   store ptr %62, ptr %73, align 8
   br label %74
 
@@ -1991,7 +1991,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stES
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8
   br label %31
 

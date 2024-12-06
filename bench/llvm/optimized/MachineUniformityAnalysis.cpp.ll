@@ -10526,7 +10526,7 @@ _ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15Machin
 .split14.us:                                      ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit27.us
   %.033.us = phi i64 [ %60, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit27.us ], [ %10, %.split14.lr.ph ]
   %60 = add nsw i64 %.033.us, -1
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.us = icmp sgt i64 %.033.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit27.us, label %.lr.ph.i24.us
@@ -10589,7 +10589,7 @@ _ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15Machin
 .split14:                                         ; preds = %.split14.preheader, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit27
   %.033 = phi i64 [ %91, %_ZSt13__adjust_heapIPPKN4llvm12GenericCycleINS0_17GenericSSAContextINS0_15MachineFunctionEEEEElS7_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_29GenericUniformityAnalysisImplIS4_E24analyzeControlDivergenceERKNS0_12MachineInstrEEUlS7_S7_E_EEEvT_T0_SK_T1_T2_.exit27 ], [ %10, %.split14.preheader ]
   %91 = add nsw i64 %.033, -1
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not = icmp sgt i64 %.033, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i24

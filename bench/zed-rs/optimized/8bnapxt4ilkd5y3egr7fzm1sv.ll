@@ -6982,7 +6982,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h855bc6a872b
 25:                                               ; preds = %22
   %26 = add i32 %.sroa.019.077, -1
   %27 = lshr i64 %.sroa.12.078, 3
-  %.idx.i = shl nsw i64 %27, 7
+  %.idx.i = shl nuw nsw i64 %27, 7
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph85, i64 %.idx.i
   %.idx1.i = mul i64 %27, 224
   %29 = getelementptr inbounds i8, ptr %.sroa.0.0.ph85, i64 %.idx1.i

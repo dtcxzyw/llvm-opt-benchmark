@@ -10191,7 +10191,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h83a143c641a0f4afE.llvm.141725207587391485
   %332 = xor i64 %.011.i.i, -1
   %333 = add nsw i64 %328, %332
   %334 = getelementptr inbounds nuw [0 x ptr], ptr %.val92, i64 0, i64 %.011.i.i
-  %335 = getelementptr inbounds [0 x ptr], ptr %331, i64 0, i64 %333
+  %335 = getelementptr inbounds nuw [0 x ptr], ptr %331, i64 0, i64 %333
   %336 = load ptr, ptr %334, align 8, !alias.scope !2445, !noalias !2443, !nonnull !14, !noundef !14
   %337 = load ptr, ptr %335, align 8, !alias.scope !2448, !noalias !2440, !nonnull !14, !noundef !14
   store ptr %337, ptr %334, align 8, !alias.scope !2445, !noalias !2443
@@ -14126,7 +14126,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17h83a143c641a0f4afE.llvm.141725207587391485
   %374 = xor i64 %.011.i.i, -1
   %375 = add nsw i64 %370, %374
   %376 = getelementptr inbounds nuw [0 x ptr], ptr %.val75, i64 0, i64 %.011.i.i
-  %377 = getelementptr inbounds [0 x ptr], ptr %373, i64 0, i64 %375
+  %377 = getelementptr inbounds nuw [0 x ptr], ptr %373, i64 0, i64 %375
   %378 = load ptr, ptr %376, align 8, !alias.scope !3195, !noalias !3193, !nonnull !14, !noundef !14
   %379 = load ptr, ptr %377, align 8, !alias.scope !3198, !noalias !3190, !nonnull !14, !noundef !14
   store ptr %379, ptr %376, align 8, !alias.scope !3195, !noalias !3193

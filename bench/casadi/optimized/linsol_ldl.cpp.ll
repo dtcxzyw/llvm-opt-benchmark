@@ -1358,13 +1358,13 @@ _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit: ; preds = %.loopexit40.i, %._c
   %52 = phi i64 [ %50, %.loopexit.i ], [ %.pre55.i, %.lr.ph52.preheader.i ]
   %.1.in50.i = phi i64 [ %.151.i, %.loopexit.i ], [ %47, %.lr.ph52.preheader.i ]
   %.151.i = add nsw i64 %.1.in50.i, -1
-  %53 = getelementptr inbounds i64, ptr %12, i64 %.151.i
+  %53 = getelementptr inbounds nuw i64, ptr %12, i64 %.151.i
   %54 = load i64, ptr %53, align 8
   %.not38.not46.i = icmp sgt i64 %52, %54
   br i1 %.not38.not46.i, label %.lr.ph48.i, label %.loopexit.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph52.i
-  %55 = getelementptr inbounds double, ptr %6, i64 %.151.i
+  %55 = getelementptr inbounds nuw double, ptr %6, i64 %.151.i
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph48.i

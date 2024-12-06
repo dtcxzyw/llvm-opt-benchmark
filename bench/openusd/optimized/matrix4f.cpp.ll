@@ -4228,7 +4228,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds float, ptr %0, i64 %60
   %62 = sext i32 %56 to i64
-  %63 = getelementptr inbounds float, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw float, ptr %61, i64 %62
   %64 = load float, ptr %63, align 4
   %65 = fsub float %18, %64
   %66 = shl nuw nsw i32 %58, 2
@@ -4245,7 +4245,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   %77 = fmul float %76, 5.000000e-01
   %78 = getelementptr inbounds nuw [3 x float], ptr %2, i64 0, i64 %16
   store float %77, ptr %78, align 4
-  %79 = getelementptr inbounds float, ptr %15, i64 %62
+  %79 = getelementptr inbounds nuw float, ptr %15, i64 %62
   %80 = load float, ptr %79, align 4
   %81 = getelementptr inbounds nuw float, ptr %61, i64 %16
   %82 = load float, ptr %81, align 4
@@ -4264,7 +4264,7 @@ define { <2 x float>, <2 x float> } @_ZNK32pxrInternal_v0_24__pxrReserved__10GfM
   store float %92, ptr %93, align 4
   %94 = getelementptr inbounds nuw float, ptr %61, i64 %69
   %95 = load float, ptr %94, align 4
-  %96 = getelementptr inbounds float, ptr %68, i64 %62
+  %96 = getelementptr inbounds nuw float, ptr %68, i64 %62
   %97 = load float, ptr %96, align 4
   %98 = fsub float %95, %97
   %99 = fdiv float %98, %84

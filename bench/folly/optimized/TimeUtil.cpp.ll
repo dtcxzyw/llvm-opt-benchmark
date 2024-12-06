@@ -324,7 +324,7 @@ cleanup.action34.i:                               ; preds = %ehcleanup31.i, %_ZN
 
 if.end36.i:                                       ; preds = %invoke.cont18.i
   %sub.i = add nsw i64 %call19.i, -1
-  %arrayidx.i = getelementptr inbounds [512 x i8], ptr %buf.i, i64 0, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds nuw [512 x i8], ptr %buf.i, i64 0, i64 %sub.i
   %16 = load i8, ptr %arrayidx.i, align 1, !tbaa !22
   %cmp37.not.i = icmp eq i8 %16, 10
   br i1 %cmp37.not.i, label %if.end44.i, label %if.then38.i

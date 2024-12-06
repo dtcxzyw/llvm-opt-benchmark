@@ -3296,13 +3296,13 @@ if.end13.i:                                       ; preds = %if.then9.i
   %conv15.i = trunc nuw i64 %sub.i to i8
   %arrayidx16.i = getelementptr inbounds i8, ptr %call2.i, i64 %start.022.i
   store i8 %conv15.i, ptr %arrayidx16.i, align 1
-  %add17.i = add nuw i64 %i.021.i, 1
+  %add17.i = add nuw nsw i64 %i.021.i, 1
   br label %for.inc.i
 
 if.else.i:                                        ; preds = %lor.lhs.false.i
   %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %i.021.i
   store i8 %0, ptr %gep.i, align 1
-  %.pre.i = add nuw i64 %i.021.i, 1
+  %.pre.i = add nuw nsw i64 %i.021.i, 1
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.else.i, %if.end13.i

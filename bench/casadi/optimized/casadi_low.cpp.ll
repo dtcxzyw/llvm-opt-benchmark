@@ -1752,7 +1752,7 @@ _ZNK6casadi6MXNode3depEx.exit8:                   ; preds = %21
 
 51:                                               ; preds = %47
   %52 = add nsw i64 %30, -1
-  %53 = getelementptr inbounds double, ptr %25, i64 %52
+  %53 = getelementptr inbounds nuw double, ptr %25, i64 %52
   %54 = load double, ptr %53, align 8
   %55 = fcmp ogt double %24, %54
   br i1 %55, label %56, label %.preheader52.i.outer

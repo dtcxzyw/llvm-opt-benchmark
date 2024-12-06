@@ -1968,21 +1968,21 @@ while.body.i:                                     ; preds = %if.then71, %if.end.
   %pBufferCurrent.0.ptr12.i = phi ptr [ %pBufferCurrent.0.ptr.i, %if.end.i ], [ %formatBuffer, %if.then71 ]
   %pFormat.addr.011.i = phi ptr [ %incdec.ptr1.i181, %if.end.i ], [ %32, %if.then71 ]
   %pBufferCurrent.0.idx10.i = phi i64 [ %pBufferCurrent.1.idx.i, %if.end.i ], [ 0, %if.then71 ]
-  %pBufferCurrent.0.add.i = add nsw i64 %pBufferCurrent.0.idx10.i, 1
+  %pBufferCurrent.0.add.i = add nuw nsw i64 %pBufferCurrent.0.idx10.i, 1
   store i8 %34, ptr %pBufferCurrent.0.ptr12.i, align 1
   %incdec.ptr1.i181 = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i, i64 1
   %cmp2.i = icmp eq i8 %34, 37
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %incdec.ptr.ptr.i = getelementptr inbounds i8, ptr %formatBuffer, i64 %pBufferCurrent.0.add.i
-  %incdec.ptr.add.i = add nsw i64 %pBufferCurrent.0.idx10.i, 2
+  %incdec.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %formatBuffer, i64 %pBufferCurrent.0.add.i
+  %incdec.ptr.add.i = add nuw nsw i64 %pBufferCurrent.0.idx10.i, 2
   store i8 35, ptr %incdec.ptr.ptr.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %pBufferCurrent.1.idx.i = phi i64 [ %incdec.ptr.add.i, %if.then.i ], [ %pBufferCurrent.0.add.i, %while.body.i ]
-  %pBufferCurrent.0.ptr.i = getelementptr inbounds i8, ptr %formatBuffer, i64 %pBufferCurrent.1.idx.i
+  %pBufferCurrent.0.ptr.i = getelementptr inbounds nuw i8, ptr %formatBuffer, i64 %pBufferCurrent.1.idx.i
   %35 = load i8, ptr %incdec.ptr1.i181, align 1
   %tobool.i = icmp ne i8 %35, 0
   %cmp.i182 = icmp slt i64 %pBufferCurrent.1.idx.i, 254
@@ -3643,21 +3643,21 @@ while.body.i936:                                  ; preds = %if.then323, %if.end
   %pBufferCurrent.0.ptr12.i937 = phi ptr [ %pBufferCurrent.0.ptr.i945, %if.end.i943 ], [ %formatBuffer318, %if.then323 ]
   %pFormat.addr.011.i938 = phi ptr [ %incdec.ptr1.i941, %if.end.i943 ], [ %202, %if.then323 ]
   %pBufferCurrent.0.idx10.i939 = phi i64 [ %pBufferCurrent.1.idx.i944, %if.end.i943 ], [ 0, %if.then323 ]
-  %pBufferCurrent.0.add.i940 = add nsw i64 %pBufferCurrent.0.idx10.i939, 1
+  %pBufferCurrent.0.add.i940 = add nuw nsw i64 %pBufferCurrent.0.idx10.i939, 1
   store i8 %204, ptr %pBufferCurrent.0.ptr12.i937, align 1
   %incdec.ptr1.i941 = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i938, i64 1
   %cmp2.i942 = icmp eq i8 %204, 37
   br i1 %cmp2.i942, label %if.then.i953, label %if.end.i943
 
 if.then.i953:                                     ; preds = %while.body.i936
-  %incdec.ptr.ptr.i954 = getelementptr inbounds i8, ptr %formatBuffer318, i64 %pBufferCurrent.0.add.i940
-  %incdec.ptr.add.i955 = add nsw i64 %pBufferCurrent.0.idx10.i939, 2
+  %incdec.ptr.ptr.i954 = getelementptr inbounds nuw i8, ptr %formatBuffer318, i64 %pBufferCurrent.0.add.i940
+  %incdec.ptr.add.i955 = add nuw nsw i64 %pBufferCurrent.0.idx10.i939, 2
   store i8 35, ptr %incdec.ptr.ptr.i954, align 1
   br label %if.end.i943
 
 if.end.i943:                                      ; preds = %if.then.i953, %while.body.i936
   %pBufferCurrent.1.idx.i944 = phi i64 [ %incdec.ptr.add.i955, %if.then.i953 ], [ %pBufferCurrent.0.add.i940, %while.body.i936 ]
-  %pBufferCurrent.0.ptr.i945 = getelementptr inbounds i8, ptr %formatBuffer318, i64 %pBufferCurrent.1.idx.i944
+  %pBufferCurrent.0.ptr.i945 = getelementptr inbounds nuw i8, ptr %formatBuffer318, i64 %pBufferCurrent.1.idx.i944
   %205 = load i8, ptr %incdec.ptr1.i941, align 1
   %tobool.i946 = icmp ne i8 %205, 0
   %cmp.i947 = icmp slt i64 %pBufferCurrent.1.idx.i944, 254
@@ -3701,21 +3701,21 @@ while.body.i958:                                  ; preds = %if.then340, %if.end
   %pBufferCurrent.0.ptr12.i959 = phi ptr [ %pBufferCurrent.0.ptr.i967, %if.end.i965 ], [ %formatBuffer335, %if.then340 ]
   %pFormat.addr.011.i960 = phi ptr [ %incdec.ptr1.i963, %if.end.i965 ], [ %209, %if.then340 ]
   %pBufferCurrent.0.idx10.i961 = phi i64 [ %pBufferCurrent.1.idx.i966, %if.end.i965 ], [ 0, %if.then340 ]
-  %pBufferCurrent.0.add.i962 = add nsw i64 %pBufferCurrent.0.idx10.i961, 1
+  %pBufferCurrent.0.add.i962 = add nuw nsw i64 %pBufferCurrent.0.idx10.i961, 1
   store i8 %211, ptr %pBufferCurrent.0.ptr12.i959, align 1
   %incdec.ptr1.i963 = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i960, i64 1
   %cmp2.i964 = icmp eq i8 %211, 37
   br i1 %cmp2.i964, label %if.then.i975, label %if.end.i965
 
 if.then.i975:                                     ; preds = %while.body.i958
-  %incdec.ptr.ptr.i976 = getelementptr inbounds i8, ptr %formatBuffer335, i64 %pBufferCurrent.0.add.i962
-  %incdec.ptr.add.i977 = add nsw i64 %pBufferCurrent.0.idx10.i961, 2
+  %incdec.ptr.ptr.i976 = getelementptr inbounds nuw i8, ptr %formatBuffer335, i64 %pBufferCurrent.0.add.i962
+  %incdec.ptr.add.i977 = add nuw nsw i64 %pBufferCurrent.0.idx10.i961, 2
   store i8 35, ptr %incdec.ptr.ptr.i976, align 1
   br label %if.end.i965
 
 if.end.i965:                                      ; preds = %if.then.i975, %while.body.i958
   %pBufferCurrent.1.idx.i966 = phi i64 [ %incdec.ptr.add.i977, %if.then.i975 ], [ %pBufferCurrent.0.add.i962, %while.body.i958 ]
-  %pBufferCurrent.0.ptr.i967 = getelementptr inbounds i8, ptr %formatBuffer335, i64 %pBufferCurrent.1.idx.i966
+  %pBufferCurrent.0.ptr.i967 = getelementptr inbounds nuw i8, ptr %formatBuffer335, i64 %pBufferCurrent.1.idx.i966
   %212 = load i8, ptr %incdec.ptr1.i963, align 1
   %tobool.i968 = icmp ne i8 %212, 0
   %cmp.i969 = icmp slt i64 %pBufferCurrent.1.idx.i966, 254
@@ -4315,21 +4315,21 @@ while.body.i:                                     ; preds = %if.then86, %if.end.
   %pBufferCurrent.0.ptr12.i = phi ptr [ %pBufferCurrent.0.ptr.i, %if.end.i ], [ %buffer, %if.then86 ]
   %pFormat.addr.011.i = phi ptr [ %incdec.ptr1.i, %if.end.i ], [ %18, %if.then86 ]
   %pBufferCurrent.0.idx10.i = phi i64 [ %pBufferCurrent.1.idx.i, %if.end.i ], [ 0, %if.then86 ]
-  %pBufferCurrent.0.add.i = add nsw i64 %pBufferCurrent.0.idx10.i, 1
+  %pBufferCurrent.0.add.i = add nuw nsw i64 %pBufferCurrent.0.idx10.i, 1
   store i8 %20, ptr %pBufferCurrent.0.ptr12.i, align 1
   %incdec.ptr1.i = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i, i64 1
   %cmp2.i = icmp eq i8 %20, 37
   br i1 %cmp2.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %while.body.i
-  %incdec.ptr.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %pBufferCurrent.0.add.i
-  %incdec.ptr.add.i = add nsw i64 %pBufferCurrent.0.idx10.i, 2
+  %incdec.ptr.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %pBufferCurrent.0.add.i
+  %incdec.ptr.add.i = add nuw nsw i64 %pBufferCurrent.0.idx10.i, 2
   store i8 35, ptr %incdec.ptr.ptr.i, align 1
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %while.body.i
   %pBufferCurrent.1.idx.i = phi i64 [ %incdec.ptr.add.i, %if.then.i ], [ %pBufferCurrent.0.add.i, %while.body.i ]
-  %pBufferCurrent.0.ptr.i = getelementptr inbounds i8, ptr %buffer, i64 %pBufferCurrent.1.idx.i
+  %pBufferCurrent.0.ptr.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %pBufferCurrent.1.idx.i
   %21 = load i8, ptr %incdec.ptr1.i, align 1
   %tobool.i = icmp ne i8 %21, 0
   %cmp.i = icmp slt i64 %pBufferCurrent.1.idx.i, 254
@@ -4805,21 +4805,21 @@ while.body.i327:                                  ; preds = %if.then.i270, %if.e
   %pBufferCurrent.0.ptr12.i328 = phi ptr [ %pBufferCurrent.0.ptr.i336, %if.end.i334 ], [ %formatBuffer.i, %if.then.i270 ]
   %pFormat.addr.011.i329 = phi ptr [ %incdec.ptr1.i332, %if.end.i334 ], [ %79, %if.then.i270 ]
   %pBufferCurrent.0.idx10.i330 = phi i64 [ %pBufferCurrent.1.idx.i335, %if.end.i334 ], [ 0, %if.then.i270 ]
-  %pBufferCurrent.0.add.i331 = add nsw i64 %pBufferCurrent.0.idx10.i330, 1
+  %pBufferCurrent.0.add.i331 = add nuw nsw i64 %pBufferCurrent.0.idx10.i330, 1
   store i8 %81, ptr %pBufferCurrent.0.ptr12.i328, align 1, !noalias !106
   %incdec.ptr1.i332 = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i329, i64 1
   %cmp2.i333 = icmp eq i8 %81, 37
   br i1 %cmp2.i333, label %if.then.i343, label %if.end.i334
 
 if.then.i343:                                     ; preds = %while.body.i327
-  %incdec.ptr.ptr.i344 = getelementptr inbounds i8, ptr %formatBuffer.i, i64 %pBufferCurrent.0.add.i331
-  %incdec.ptr.add.i345 = add nsw i64 %pBufferCurrent.0.idx10.i330, 2
+  %incdec.ptr.ptr.i344 = getelementptr inbounds nuw i8, ptr %formatBuffer.i, i64 %pBufferCurrent.0.add.i331
+  %incdec.ptr.add.i345 = add nuw nsw i64 %pBufferCurrent.0.idx10.i330, 2
   store i8 35, ptr %incdec.ptr.ptr.i344, align 1, !noalias !106
   br label %if.end.i334
 
 if.end.i334:                                      ; preds = %if.then.i343, %while.body.i327
   %pBufferCurrent.1.idx.i335 = phi i64 [ %incdec.ptr.add.i345, %if.then.i343 ], [ %pBufferCurrent.0.add.i331, %while.body.i327 ]
-  %pBufferCurrent.0.ptr.i336 = getelementptr inbounds i8, ptr %formatBuffer.i, i64 %pBufferCurrent.1.idx.i335
+  %pBufferCurrent.0.ptr.i336 = getelementptr inbounds nuw i8, ptr %formatBuffer.i, i64 %pBufferCurrent.1.idx.i335
   %82 = load i8, ptr %incdec.ptr1.i332, align 1, !noalias !106
   %tobool.i337 = icmp ne i8 %82, 0
   %cmp.i338 = icmp slt i64 %pBufferCurrent.1.idx.i335, 254
@@ -4860,21 +4860,21 @@ while.body.i348:                                  ; preds = %if.then.i276, %if.e
   %pBufferCurrent.0.ptr12.i349 = phi ptr [ %pBufferCurrent.0.ptr.i357, %if.end.i355 ], [ %formatBuffer.i271, %if.then.i276 ]
   %pFormat.addr.011.i350 = phi ptr [ %incdec.ptr1.i353, %if.end.i355 ], [ %86, %if.then.i276 ]
   %pBufferCurrent.0.idx10.i351 = phi i64 [ %pBufferCurrent.1.idx.i356, %if.end.i355 ], [ 0, %if.then.i276 ]
-  %pBufferCurrent.0.add.i352 = add nsw i64 %pBufferCurrent.0.idx10.i351, 1
+  %pBufferCurrent.0.add.i352 = add nuw nsw i64 %pBufferCurrent.0.idx10.i351, 1
   store i8 %88, ptr %pBufferCurrent.0.ptr12.i349, align 1, !noalias !109
   %incdec.ptr1.i353 = getelementptr inbounds nuw i8, ptr %pFormat.addr.011.i350, i64 1
   %cmp2.i354 = icmp eq i8 %88, 37
   br i1 %cmp2.i354, label %if.then.i364, label %if.end.i355
 
 if.then.i364:                                     ; preds = %while.body.i348
-  %incdec.ptr.ptr.i365 = getelementptr inbounds i8, ptr %formatBuffer.i271, i64 %pBufferCurrent.0.add.i352
-  %incdec.ptr.add.i366 = add nsw i64 %pBufferCurrent.0.idx10.i351, 2
+  %incdec.ptr.ptr.i365 = getelementptr inbounds nuw i8, ptr %formatBuffer.i271, i64 %pBufferCurrent.0.add.i352
+  %incdec.ptr.add.i366 = add nuw nsw i64 %pBufferCurrent.0.idx10.i351, 2
   store i8 35, ptr %incdec.ptr.ptr.i365, align 1, !noalias !109
   br label %if.end.i355
 
 if.end.i355:                                      ; preds = %if.then.i364, %while.body.i348
   %pBufferCurrent.1.idx.i356 = phi i64 [ %incdec.ptr.add.i366, %if.then.i364 ], [ %pBufferCurrent.0.add.i352, %while.body.i348 ]
-  %pBufferCurrent.0.ptr.i357 = getelementptr inbounds i8, ptr %formatBuffer.i271, i64 %pBufferCurrent.1.idx.i356
+  %pBufferCurrent.0.ptr.i357 = getelementptr inbounds nuw i8, ptr %formatBuffer.i271, i64 %pBufferCurrent.1.idx.i356
   %89 = load i8, ptr %incdec.ptr1.i353, align 1, !noalias !109
   %tobool.i358 = icmp ne i8 %89, 0
   %cmp.i359 = icmp slt i64 %pBufferCurrent.1.idx.i356, 254

@@ -722,7 +722,7 @@ reverseLutFromBitmap.exit:                        ; preds = %while.cond.preheade
   br i1 %cmp42, label %return, label %if.end45
 
 if.end45:                                         ; preds = %reverseLutFromBitmap.exit
-  %add.ptr46 = getelementptr inbounds i8, ptr %src, i64 %nBytes.0
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %src, i64 %nBytes.0
   %add.ptr46.val = load i32, ptr %add.ptr46, align 1
   %conv49 = zext i32 %add.ptr46.val to i64
   %add50 = add nuw nsw i64 %add41, %conv49
@@ -731,7 +731,7 @@ if.end45:                                         ; preds = %reverseLutFromBitma
 
 if.end54:                                         ; preds = %if.end45
   %6 = load ptr, ptr %scratch_buffer_1, align 8
-  %add.ptr56 = getelementptr inbounds i8, ptr %src, i64 %add41
+  %add.ptr56 = getelementptr inbounds nuw i8, ptr %src, i64 %add41
   %div102 = lshr i64 %outsz, 1
   %call58 = tail call i32 @internal_huf_decompress(ptr noundef %decode, ptr noundef nonnull %add.ptr56, i64 noundef %conv49, ptr noundef %6, i64 noundef %div102, ptr noundef nonnull %0, i64 noundef %call) #5
   %cmp59.not = icmp eq i32 %call58, 0

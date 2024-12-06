@@ -668,7 +668,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %19
   %.01417.us = phi i64 [ %.014.us, %19 ], [ %.01416, %.lr.ph ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds %struct.tng_molecule, ptr %10, i64 %.01417.us
+  %11 = getelementptr inbounds nuw %struct.tng_molecule, ptr %10, i64 %.01417.us
   store ptr %11, ptr %3, align 8
   %12 = load i8, ptr %1, align 1
   %13 = icmp eq i8 %12, 0
@@ -689,7 +689,7 @@ define range(i32 0, 2) i32 @tng_molecule_find(ptr nocapture noundef readonly %0,
 .lr.ph.split:                                     ; preds = %.lr.ph, %33
   %.01417 = phi i64 [ %.014, %33 ], [ %.01416, %.lr.ph ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds %struct.tng_molecule, ptr %21, i64 %.01417
+  %22 = getelementptr inbounds nuw %struct.tng_molecule, ptr %21, i64 %.01417
   store ptr %22, ptr %3, align 8
   %23 = load i8, ptr %1, align 1
   %24 = icmp eq i8 %23, 0
@@ -1749,7 +1749,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %struct.tng_chain, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw %struct.tng_chain, ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8
   %13 = load i8, ptr %2, align 1
   %14 = icmp eq i8 %13, 0
@@ -1770,7 +1770,7 @@ define range(i32 0, 2) i32 @tng_molecule_chain_find(ptr nocapture noundef readno
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.tng_chain, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw %struct.tng_chain, ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8
   %24 = load i8, ptr %2, align 1
   %25 = icmp eq i8 %24, 0
@@ -1920,7 +1920,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %struct.tng_atom, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw %struct.tng_atom, ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8
   %13 = load i8, ptr %2, align 1
   %14 = icmp eq i8 %13, 0
@@ -1941,7 +1941,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr nocapture noundef readnon
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.tng_atom, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw %struct.tng_atom, ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8
   %24 = load i8, ptr %2, align 1
   %25 = icmp eq i8 %24, 0
@@ -2035,7 +2035,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
   %.01417.us = phi i64 [ %.014.us, %20 ], [ %.01416, %.lr.ph ]
   %11 = load ptr, ptr %9, align 8
-  %12 = getelementptr inbounds %struct.tng_residue, ptr %11, i64 %.01417.us
+  %12 = getelementptr inbounds nuw %struct.tng_residue, ptr %11, i64 %.01417.us
   store ptr %12, ptr %4, align 8
   %13 = load i8, ptr %2, align 1
   %14 = icmp eq i8 %13, 0
@@ -2056,7 +2056,7 @@ define range(i32 0, 2) i32 @tng_chain_residue_find(ptr nocapture noundef readnon
 .lr.ph.split:                                     ; preds = %.lr.ph, %35
   %.01417 = phi i64 [ %.014, %35 ], [ %.01416, %.lr.ph ]
   %22 = load ptr, ptr %9, align 8
-  %23 = getelementptr inbounds %struct.tng_residue, ptr %22, i64 %.01417
+  %23 = getelementptr inbounds nuw %struct.tng_residue, ptr %22, i64 %.01417
   store ptr %23, ptr %4, align 8
   %24 = load i8, ptr %2, align 1
   %25 = icmp eq i8 %24, 0
@@ -7662,7 +7662,7 @@ define range(i32 0, 3) i32 @tng_implicit_num_particles_set(ptr nocapture noundef
 .lr.ph.split.us.i:                                ; preds = %20, %.lr.ph.i
   %.01417.us.i.in = phi i64 [ %.01417.us.i, %20 ], [ %11, %.lr.ph.i ]
   %.01417.us.i = add nsw i64 %.01417.us.i.in, -1
-  %15 = getelementptr inbounds %struct.tng_molecule, ptr %14, i64 %.01417.us.i
+  %15 = getelementptr inbounds nuw %struct.tng_molecule, ptr %14, i64 %.01417.us.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(17) @.str.15, ptr noundef nonnull dereferenceable(1) %17) #25
@@ -27981,7 +27981,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
 
 .lr.ph.split.i.us:                                ; preds = %.lr.ph.split.i.preheader, %33
   %.01417.i.us = phi i64 [ %.014.i.us, %33 ], [ %.01416.i, %.lr.ph.split.i.preheader ]
-  %29 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.i.us
+  %29 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.i.us
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = icmp eq i64 %22, %31
@@ -27996,12 +27996,12 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
   br i1 %28, label %.lr.ph.split.us.i.preheader.split.us, label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i.preheader.split.us:             ; preds = %.lr.ph.split.us.i.preheader
-  %35 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01416.i
+  %35 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01416.i
   br label %tng_molecule_chain_find.exit.thread.loopexit
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %41
   %.01417.us.i = phi i64 [ %.014.us.i, %41 ], [ %.01416.i, %.lr.ph.split.us.i.preheader ]
-  %36 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.us.i
+  %36 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.us.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %38) #25
@@ -28015,7 +28015,7 @@ define range(i32 0, 3) i32 @tng_util_molecule_particles_set(ptr nocapture nounde
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %52
   %.01417.i = phi i64 [ %.014.i, %52 ], [ %.01416.i, %.lr.ph.split.i.preheader ]
-  %43 = getelementptr inbounds %struct.tng_chain, ptr %26, i64 %.01417.i
+  %43 = getelementptr inbounds nuw %struct.tng_chain, ptr %26, i64 %.01417.i
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %45) #25
@@ -28091,7 +28091,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 
 .lr.ph.split.i45.us:                              ; preds = %.lr.ph.split.i45.preheader, %78
   %.01417.i46.us = phi i64 [ %.014.i47.us, %78 ], [ %.01416.i44, %.lr.ph.split.i45.preheader ]
-  %74 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.i46.us
+  %74 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.i46.us
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i64, ptr %75, align 8
   %77 = icmp eq i64 %65, %76
@@ -28106,12 +28106,12 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
   br i1 %73, label %.lr.ph.split.us.i48.preheader.split.us, label %.lr.ph.split.us.i48
 
 .lr.ph.split.us.i48.preheader.split.us:           ; preds = %.lr.ph.split.us.i48.preheader
-  %80 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01416.i44
+  %80 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01416.i44
   br label %tng_chain_residue_find.exit.thread.loopexit
 
 .lr.ph.split.us.i48:                              ; preds = %.lr.ph.split.us.i48.preheader, %86
   %.01417.us.i49 = phi i64 [ %.014.us.i50, %86 ], [ %.01416.i44, %.lr.ph.split.us.i48.preheader ]
-  %81 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.us.i49
+  %81 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.us.i49
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8
   %84 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %83) #25
@@ -28125,7 +28125,7 @@ tng_molecule_chain_find.exit.thread:              ; preds = %tng_molecule_chain_
 
 .lr.ph.split.i45:                                 ; preds = %.lr.ph.split.i45.preheader, %97
   %.01417.i46 = phi i64 [ %.014.i47, %97 ], [ %.01416.i44, %.lr.ph.split.i45.preheader ]
-  %88 = getelementptr inbounds %struct.tng_residue, ptr %71, i64 %.01417.i46
+  %88 = getelementptr inbounds nuw %struct.tng_residue, ptr %71, i64 %.01417.i46
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
   %91 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) %90) #25

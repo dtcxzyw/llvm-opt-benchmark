@@ -149555,7 +149555,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 %1
-  %20 = getelementptr inbounds i8, ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %19, ptr %14, align 8, !tbaa !2664
   store ptr %20, ptr %7, align 8, !tbaa !2665
   br label %38
@@ -149567,7 +149567,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
   br i1 %or.cond34, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %10, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %26 = sub nsw i64 0, %1
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store ptr %27, ptr %14, align 8, !tbaa !2664
@@ -149586,7 +149586,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 %32
-  %37 = getelementptr inbounds i8, ptr %10, i64 %13
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %36, ptr %14, align 8, !tbaa !2664
   store ptr %37, ptr %7, align 8, !tbaa !2665
   br label %38
@@ -165571,7 +165571,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPcN9__gnu_cxx5__ops15_Iter_le
 
 .split.us:                                        ; preds = %8, %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
   %.013.us = phi i64 [ %42, %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us ], [ %10, %8 ]
-  %19 = getelementptr inbounds i8, ptr %0, i64 %.013.us
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.013.us
   %20 = load i8, ptr %19, align 1, !tbaa !24
   %21 = icmp slt i64 %.013.us, %12
   br i1 %21, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
@@ -165623,7 +165623,7 @@ _ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %.013 = phi i64 [ %70, %_ZSt13__adjust_heapIPclcN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit ], [ %10, %.split.preheader ]
-  %43 = getelementptr inbounds i8, ptr %0, i64 %.013
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %.013
   %44 = load i8, ptr %43, align 1, !tbaa !24
   %45 = icmp slt i64 %.013, %12
   br i1 %45, label %.lr.ph.i, label %._crit_edge.i

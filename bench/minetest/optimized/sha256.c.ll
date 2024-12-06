@@ -1401,7 +1401,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %n.0 = phi i64 [ 0, %if.then ], [ %inc, %entry ]
-  %add.ptr2 = getelementptr inbounds i8, ptr %data, i64 %n.0
+  %add.ptr2 = getelementptr inbounds nuw i8, ptr %data, i64 %n.0
   %sub3 = sub nuw nsw i64 56, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr2, i8 0, i64 %sub3, i1 false)
   %Nh = getelementptr inbounds nuw i8, ptr %c, i64 36
@@ -1539,7 +1539,7 @@ if.then.i:                                        ; preds = %SHA256_Update.exit
 
 if.end.i7:                                        ; preds = %if.then.i, %SHA256_Update.exit
   %n.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i5, %SHA256_Update.exit ]
-  %add.ptr2.i = getelementptr inbounds i8, ptr %data.i, i64 %n.0.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %data.i, i64 %n.0.i
   %sub3.i = sub nuw nsw i64 56, %n.0.i
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr2.i, i8 0, i64 %sub3.i, i1 false)
   %Nh.i8 = getelementptr inbounds nuw i8, ptr %c, i64 36

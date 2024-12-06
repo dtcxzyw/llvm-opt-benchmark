@@ -1899,7 +1899,7 @@ uv__fs_write.exit.thread.i:                       ; preds = %uv__fs_write.exit.u
 .critedge.i.i:                                    ; preds = %844
   %850 = getelementptr inbounds %struct.uv_buf_t, ptr %843, i64 %.023.i.i
   %851 = load ptr, ptr %850, align 8
-  %852 = getelementptr inbounds i8, ptr %851, i64 %.01522.i.i
+  %852 = getelementptr inbounds nuw i8, ptr %851, i64 %.01522.i.i
   store ptr %852, ptr %850, align 8
   %853 = getelementptr inbounds nuw i8, ptr %850, i64 8
   %854 = sub nuw i64 %846, %.01522.i.i

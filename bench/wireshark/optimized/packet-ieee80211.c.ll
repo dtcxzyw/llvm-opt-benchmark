@@ -43873,7 +43873,7 @@ dissect_ieee80211_mgt.exit:                       ; preds = %.lr.ph.split.us.i40
   %1586 = load i16, ptr %1585, align 2
   %1587 = and i16 %1586, 8
   %1588 = icmp eq i16 %1587, 0
-  %1589 = load i16, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
+  %1589 = load i16, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
   %switch.i = icmp ult i16 %1589, 4
   %or.cond.i1315 = select i1 %1588, i1 %switch.i, i1 false
   br i1 %or.cond.i1315, label %1590, label %try_scan_ft_assoc_keys.exit
@@ -43992,17 +43992,17 @@ dissect_ieee80211_mgt.exit:                       ; preds = %.lr.ph.split.us.i40
   %1682 = trunc i64 %1681 to i16
   %1683 = getelementptr inbounds nuw i8, ptr %6, i64 122
   store i16 %1682, ptr %1683, align 2
-  %1684 = load i16, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
+  %1684 = load i16, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 72), align 8
   %1685 = trunc i16 %1684 to i8
   store i8 %1685, ptr %6, align 8
   %1686 = getelementptr inbounds nuw i8, ptr %6, i64 124
-  %1687 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 8), align 8
+  %1687 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 8), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %1686, ptr noundef nonnull align 1 dereferenceable(6) %1687, i64 6, i1 false)
   %1688 = getelementptr inbounds nuw i8, ptr %6, i64 130
-  %1689 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
+  %1689 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 32), align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %1688, ptr noundef nonnull align 1 dereferenceable(6) %1689, i64 6, i1 false)
   %1690 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %1691 = load ptr, ptr getelementptr inbounds (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
+  %1691 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @dissect_ieee80211_common.whdrs, i64 56), align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1690, ptr noundef nonnull align 1 dereferenceable(6) %1691, i64 6, i1 false)
   %1692 = call i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #22
   %1693 = icmp eq i32 %1692, -1

@@ -9688,7 +9688,7 @@ define hidden void @_ZN10ockam_abac4eval14eval_predicate17h18c8519ae3fb36e0E(ptr
   %19 = sub nuw i64 %12, %18
   %20 = lshr exact i64 %19, 5
   %.not.i.i.i = icmp ult i64 %.sroa.11.0, %20
-  %21 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
+  %21 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
   br i1 %.not.i.i.i, label %select.unfold.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 select.unfold.i:                                  ; preds = %17, %15
@@ -9706,7 +9706,7 @@ select.unfold.i:                                  ; preds = %17, %15
   %26 = sub nuw i64 %12, %25
   %27 = lshr exact i64 %26, 5
   %.not.i.i15.i.not = icmp ult i64 %.sroa.21.0, %27
-  %28 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
+  %28 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
   br i1 %.not.i.i15.i.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit": ; preds = %22, %24
@@ -9864,7 +9864,7 @@ define hidden void @_ZN10ockam_abac4eval14eval_predicate17h3b7e989ee34d7d5aE(ptr
   %19 = sub nuw i64 %12, %18
   %20 = lshr exact i64 %19, 5
   %.not.i.i.i = icmp ult i64 %.sroa.11.0, %20
-  %21 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
+  %21 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
   br i1 %.not.i.i.i, label %select.unfold.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 select.unfold.i:                                  ; preds = %17, %15
@@ -9882,7 +9882,7 @@ select.unfold.i:                                  ; preds = %17, %15
   %26 = sub nuw i64 %12, %25
   %27 = lshr exact i64 %26, 5
   %.not.i.i15.i.not = icmp ult i64 %.sroa.21.0, %27
-  %28 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
+  %28 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
   br i1 %.not.i.i15.i.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit": ; preds = %22, %24
@@ -10041,7 +10041,7 @@ define hidden void @_ZN10ockam_abac4eval14eval_predicate17h9e7820b1dd2f26e8E(ptr
   %19 = sub nuw i64 %12, %18
   %20 = lshr exact i64 %19, 5
   %.not.i.i.i = icmp ult i64 %.sroa.11.0, %20
-  %21 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
+  %21 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.041.0, i64 %.sroa.11.0
   br i1 %.not.i.i.i, label %select.unfold.i, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 select.unfold.i:                                  ; preds = %17, %15
@@ -10059,7 +10059,7 @@ select.unfold.i:                                  ; preds = %17, %15
   %26 = sub nuw i64 %12, %25
   %27 = lshr exact i64 %26, 5
   %.not.i.i15.i.not = icmp ult i64 %.sroa.21.0, %27
-  %28 = getelementptr inbounds { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
+  %28 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %.sroa.14.0, i64 %.sroa.21.0
   br i1 %.not.i.i15.i.not, label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit", label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit.thread"
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he980aac81395a065E.exit": ; preds = %22, %24
@@ -12322,7 +12322,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   %541 = xor i64 %.011.i.i, -1
   %542 = add nsw i64 %537, %541
   %543 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %536, i64 0, i64 %.011.i.i
-  %544 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %540, i64 0, i64 %542
+  %544 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %540, i64 0, i64 %542
   call void @llvm.experimental.noalias.scope.decl(metadata !1715)
   call void @llvm.experimental.noalias.scope.decl(metadata !1718)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
@@ -12654,7 +12654,7 @@ _ZN10ockam_abac6parser13ident_pattern17hdb12897b9694b045E.exit317: ; preds = %34
   %645 = xor i64 %.011.i.i402, -1
   %646 = add nsw i64 %641, %645
   %647 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %640, i64 0, i64 %.011.i.i402
-  %648 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %644, i64 0, i64 %646
+  %648 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %644, i64 0, i64 %646
   call void @llvm.experimental.noalias.scope.decl(metadata !1762)
   call void @llvm.experimental.noalias.scope.decl(metadata !1765)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
@@ -12865,7 +12865,7 @@ select.unfold:                                    ; preds = %135, %select.unfold
   %707 = xor i64 %.011.i.i426, -1
   %708 = add nsw i64 %703, %707
   %709 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %702, i64 0, i64 %.011.i.i426
-  %710 = getelementptr inbounds [0 x { i8, [31 x i8] }], ptr %706, i64 0, i64 %708
+  %710 = getelementptr inbounds nuw [0 x { i8, [31 x i8] }], ptr %706, i64 0, i64 %708
   call void @llvm.experimental.noalias.scope.decl(metadata !1787)
   call void @llvm.experimental.noalias.scope.decl(metadata !1790)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)

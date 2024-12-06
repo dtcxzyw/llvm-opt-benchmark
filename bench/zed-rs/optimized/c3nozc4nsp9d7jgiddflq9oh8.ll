@@ -372,7 +372,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %50 = zext i32 %48 to i64
   %51 = getelementptr inbounds nuw i8, ptr %32, i64 272
   %52 = add nsw i64 %50, -1
-  %53 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %51, i64 0, i64 %52
+  %53 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %51, i64 0, i64 %52
   %54 = load ptr, ptr %53, align 8, !alias.scope !68, !noalias !69, !nonnull !11, !align !74, !noundef !11
   %55 = load ptr, ptr %54, align 8, !noalias !75, !nonnull !11, !noundef !11
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4480
@@ -403,7 +403,7 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
 
 70:                                               ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 24
-  %72 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %71, i64 0, i64 %62
+  %72 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %71, i64 0, i64 %62
   %73 = getelementptr inbounds nuw i8, ptr %32, i64 544
   %74 = load i8, ptr %73, align 8, !range !67, !alias.scope !61, !noalias !77, !noundef !11
   %75 = trunc nuw i8 %74 to i1

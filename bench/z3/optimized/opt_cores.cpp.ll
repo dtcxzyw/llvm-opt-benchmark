@@ -10777,7 +10777,7 @@ if.end.i.i.i:                                     ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %_ZN3opt13weighted_coreD2Ev.exit51.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %_ZN3opt13weighted_coreD2Ev.exit51.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %__parent.0.i.i.i
   %0 = load ptr, ptr %add.ptr.i.i.i, align 8
   store ptr null, ptr %add.ptr.i.i.i, align 8
   %m_weight3.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
@@ -11455,9 +11455,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.027 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores14disjoint_coresEvE3$_0EclIPNS2_13weighted_coreES8_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.027, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %sub1
+  %add.ptr2 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %sub1
   %add.ptr.val = load ptr, ptr %add.ptr, align 8
   %add.ptr2.val = load ptr, ptr %add.ptr2, align 8
   %cmp.i.i.i = icmp eq ptr %add.ptr.val, null
@@ -11482,8 +11482,8 @@ if.end.i2.i.i:                                    ; preds = %_ZNK6vectorIP4exprL
   %retval.0.i4.i.i = phi i32 [ %1, %if.end.i2.i.i ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i, %retval.0.i4.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.027
+  %add.ptr3 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.027
   %call5 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3opt13weighted_coreaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr3) #19
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !73
@@ -11503,8 +11503,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %call16 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3opt13weighted_coreaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr14) #19
   br label %if.end18
 
@@ -11570,7 +11570,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %if.end.i.i.i.i, %la
   br i1 %cmp.i.i.i23, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i
-  %add.ptr2.i = getelementptr inbounds %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.opt::weighted_core", ptr %__first, i64 %__holeIndex.addr.04.i
   %call3.i = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZN3opt13weighted_coreaSEOS0_(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr.i) #19
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !74
@@ -13390,16 +13390,16 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %__secondChild.025.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div13.i.i.i, %if.then ]
   %add.i.i.i.i = shl i64 %__secondChild.025.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i.i.i
   %sub2.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub2.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub2.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr3.val.i.i.i.i = load ptr, ptr %add.ptr3.i.i.i.i, align 8
   %call.i.i.i.i.i = call fastcc noundef zeroext i1 @"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_"(ptr %__comp.coerce, ptr noundef %add.ptr.val.i.i.i.i, ptr noundef %add.ptr3.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr4.i.i.i.i, align 8
-  %add.ptr5.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.025.i.i.i.i
+  %add.ptr5.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.025.i.i.i.i
   store ptr %1, ptr %add.ptr5.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i235237.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !89
@@ -13416,9 +13416,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
   %add11.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub13.i.i.i.i = or disjoint i64 %add11.i.i.i.i, 1
-  %add.ptr14.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub13.i.i.i.i
   %3 = load ptr, ptr %add.ptr14.i.i.i.i, align 8
-  %add.ptr15.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
+  %add.ptr15.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   store ptr %3, ptr %add.ptr15.i.i.i.i, align 8
   br label %if.end17.i.i.i.i
 
@@ -13438,7 +13438,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %4, ptr %add.ptr2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div13.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !90
@@ -13476,14 +13476,14 @@ if.end8.split.lr.ph.i.i.i:                        ; preds = %"_ZSt13__adjust_hea
   %m_kind.i1.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 28
   %m_ptr.i4.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i, i64 32
   %sub13.i42.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr14.i43.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i42.i.i.i
-  %add.ptr15.i44.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %div8.i.i.i.i
+  %add.ptr14.i43.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub13.i42.i.i.i
+  %add.ptr15.i44.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %div8.i.i.i.i
   br label %if.end8.split.i.i.i
 
 if.end8.split.i.i.i:                              ; preds = %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i", %if.end8.split.lr.ph.i.i.i
   %__parent.0247.i.i.i = phi i64 [ %div13.i.i.i, %if.end8.split.lr.ph.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i" ]
   %dec.i.i.i = add nsw i64 %__parent.0247.i.i.i, -1
-  %add.ptr11.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
+  %add.ptr11.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr11.i.i.i, align 8
   %cmp24.i16.not.i.i.i = icmp sgt i64 %__parent.0247.i.i.i, %div.i235237.i.i.i
   br i1 %cmp24.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i45.i.i.i
@@ -13492,9 +13492,9 @@ while.body.i45.i.i.i:                             ; preds = %if.end8.split.i.i.i
   %__secondChild.025.i46.i.i.i = phi i64 [ %spec.select.i55.i.i.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit97.i.i.i" ], [ %dec.i.i.i, %if.end8.split.i.i.i ]
   %add.i47.i.i.i = shl i64 %__secondChild.025.i46.i.i.i, 1
   %mul.i48.i.i.i = add i64 %add.i47.i.i.i, 2
-  %add.ptr.i49.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i48.i.i.i
+  %add.ptr.i49.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i48.i.i.i
   %sub2.i50.i.i.i = or disjoint i64 %add.i47.i.i.i, 1
-  %add.ptr3.i51.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub2.i50.i.i.i
+  %add.ptr3.i51.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub2.i50.i.i.i
   %add.ptr.val.i52.i.i.i = load ptr, ptr %add.ptr.i49.i.i.i, align 8
   %add.ptr3.val.i53.i.i.i = load ptr, ptr %add.ptr3.i51.i.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i190.i.i.i)
@@ -13729,9 +13729,9 @@ if.else.i.i.i.i72.i.i.i:                          ; preds = %land.lhs.true.i.i.i
 "_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit97.i.i.i": ; preds = %if.else.i.i.i.i72.i.i.i, %if.else.i.i.i.i.i.i87.i.i.i, %if.then.i.i.i.i.i.i95.i.i.i
   %retval.0.i.i.i.i74.i.i.i = phi i1 [ %call5.i.i.i.i73.i.i.i, %if.else.i.i.i.i72.i.i.i ], [ %cmp.i.i.i.i.i.i96.i.i.i, %if.then.i.i.i.i.i.i95.i.i.i ], [ %cmp5.i.i.i.i.i.i89.i.i.i, %if.else.i.i.i.i.i.i87.i.i.i ]
   %spec.select.i55.i.i.i = select i1 %retval.0.i.i.i.i74.i.i.i, i64 %sub2.i50.i.i.i, i64 %mul.i48.i.i.i
-  %add.ptr4.i56.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i55.i.i.i
+  %add.ptr4.i56.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i55.i.i.i
   %33 = load ptr, ptr %add.ptr4.i56.i.i.i, align 8
-  %add.ptr5.i57.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.025.i46.i.i.i
+  %add.ptr5.i57.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.025.i46.i.i.i
   store ptr %33, ptr %add.ptr5.i57.i.i.i, align 8
   %cmp.i58.i.i.i = icmp slt i64 %spec.select.i55.i.i.i, %div.i235237.i.i.i
   br i1 %cmp.i58.i.i.i, label %while.body.i45.i.i.i, label %while.end.i17.i.i.i, !llvm.loop !89
@@ -13992,7 +13992,7 @@ if.else.i.i.i.i.i.i.i:                            ; preds = %land.lhs.true.i.i.i
 
 while.body.i.i33.i.i.i:                           ; preds = %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit.i.i.i", %if.else.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i.i
   %62 = load ptr, ptr %add.ptr.i.i30.i.i.i, align 8
-  %add.ptr2.i.i34.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i27.i.i.i
+  %add.ptr2.i.i34.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i27.i.i.i
   store ptr %62, ptr %add.ptr2.i.i34.i.i.i, align 8
   %cmp.i.i35.not.i.i.i = icmp slt i64 %__parent.05.i.i29.i.i.i, %__parent.0247.i.i.i
   br i1 %cmp.i.i35.not.i.i.i, label %"_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt5cores20check_sat_hill_climbERK10ref_vectorIS0_11ast_managerEE3$_0EEEvT_T0_SG_T1_T2_.exit59.i.i.i", label %land.rhs.i.i26.i.i.i, !llvm.loop !90
@@ -14049,9 +14049,9 @@ while.body.i.i.i109.i:                            ; preds = %while.body.i.i, %"_
   %__secondChild.025.i.i.i110.i = phi i64 [ %spec.select.i.i.i118.i, %"_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit42.i.i" ], [ 0, %while.body.i.i ]
   %add.i.i.i111.i = shl i64 %__secondChild.025.i.i.i110.i, 1
   %mul.i.i.i112.i = add i64 %add.i.i.i111.i, 2
-  %add.ptr.i.i.i113.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i.i112.i
+  %add.ptr.i.i.i113.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i.i112.i
   %sub2.i.i.i114.i = or disjoint i64 %add.i.i.i111.i, 1
-  %add.ptr3.i.i.i115.i = getelementptr inbounds ptr, ptr %__first, i64 %sub2.i.i.i114.i
+  %add.ptr3.i.i.i115.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub2.i.i.i114.i
   %add.ptr.val.i.i.i116.i = load ptr, ptr %add.ptr.i.i.i113.i, align 8
   %add.ptr3.val.i.i.i117.i = load ptr, ptr %add.ptr3.i.i.i115.i, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp.i137.i.i)
@@ -14286,9 +14286,9 @@ if.else.i.i.i.i17.i.i:                            ; preds = %land.lhs.true.i.i.i
 "_ZZN3opt5cores20check_sat_hill_climbERK10ref_vectorI4expr11ast_managerEENK3$_0clEPS2_S8_.exit42.i.i": ; preds = %if.else.i.i.i.i17.i.i, %if.else.i.i.i.i.i.i32.i.i, %if.then.i.i.i.i.i.i40.i.i
   %retval.0.i.i.i.i19.i.i = phi i1 [ %call5.i.i.i.i18.i.i, %if.else.i.i.i.i17.i.i ], [ %cmp.i.i.i.i.i.i41.i.i, %if.then.i.i.i.i.i.i40.i.i ], [ %cmp5.i.i.i.i.i.i34.i.i, %if.else.i.i.i.i.i.i32.i.i ]
   %spec.select.i.i.i118.i = select i1 %retval.0.i.i.i.i19.i.i, i64 %sub2.i.i.i114.i, i64 %mul.i.i.i112.i
-  %add.ptr4.i.i.i119.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i118.i
+  %add.ptr4.i.i.i119.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i.i118.i
   %92 = load ptr, ptr %add.ptr4.i.i.i119.i, align 8
-  %add.ptr5.i.i.i120.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.025.i.i.i110.i
+  %add.ptr5.i.i.i120.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.025.i.i.i110.i
   store ptr %92, ptr %add.ptr5.i.i.i120.i, align 8
   %cmp.i.i.i121.i = icmp slt i64 %spec.select.i.i.i118.i, %div.i.i.i15.i
   br i1 %cmp.i.i.i121.i, label %while.body.i.i.i109.i, label %while.end.i.i.i17.i, !llvm.loop !89
@@ -14308,9 +14308,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i17.i
 if.then10.i.i.i104.i:                             ; preds = %land.lhs.true.i.i.i.i
   %add11.i.i.i105.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i18.i, 1
   %sub13.i.i.i106.i = or disjoint i64 %add11.i.i.i105.i, 1
-  %add.ptr14.i.i.i107.i = getelementptr inbounds ptr, ptr %__first, i64 %sub13.i.i.i106.i
+  %add.ptr14.i.i.i107.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub13.i.i.i106.i
   %94 = load ptr, ptr %add.ptr14.i.i.i107.i, align 8
-  %add.ptr15.i.i.i108.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i18.i
+  %add.ptr15.i.i.i108.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i18.i
   store ptr %94, ptr %add.ptr15.i.i.i108.i, align 8
   br label %if.end17.i.i.i20.i
 

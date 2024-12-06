@@ -1646,7 +1646,7 @@ land.lhs.true61:                                  ; preds = %if.end56
 land.lhs.true65:                                  ; preds = %land.lhs.true61
   %chunkContents66 = getelementptr inbounds nuw i8, ptr %replacement, i64 48
   %19 = load ptr, ptr %chunkContents66, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %19, i64 %sub59
+  %arrayidx = getelementptr inbounds nuw i16, ptr %19, i64 %sub59
   %20 = load i16, ptr %arrayidx, align 2
   %cmp68 = icmp ult i16 %20, -9216
   br i1 %cmp68, label %if.then69, label %if.else71
@@ -13420,7 +13420,7 @@ if.end1772.thread1266:                            ; preds = %if.else1747
 do.body1752:                                      ; preds = %if.else1747
   %dec1753 = add nsw i64 %507, -1
   store i64 %dec1753, ptr %arrayidx1718, align 8
-  %arrayidx1754 = getelementptr inbounds i16, ptr %10, i64 %dec1753
+  %arrayidx1754 = getelementptr inbounds nuw i16, ptr %10, i64 %dec1753
   %514 = load i16, ptr %arrayidx1754, align 2
   %515 = and i16 %514, -1024
   %cmp1757 = icmp eq i16 %515, -9216
@@ -13588,7 +13588,7 @@ if.end1892.thread1271:                            ; preds = %if.else1867
 do.body1872:                                      ; preds = %if.else1867
   %dec1873 = add nsw i64 %547, -1
   store i64 %dec1873, ptr %arrayidx1837, align 8
-  %arrayidx1874 = getelementptr inbounds i16, ptr %10, i64 %dec1873
+  %arrayidx1874 = getelementptr inbounds nuw i16, ptr %10, i64 %dec1873
   %554 = load i16, ptr %arrayidx1874, align 2
   %555 = and i16 %554, -1024
   %cmp1877 = icmp eq i16 %555, -9216

@@ -49,7 +49,7 @@ define void @nx_start() #0 {
   br i1 %.not, label %3, label %4
 
 3:                                                ; preds = %.critedge
-  store ptr @g_idletcb, ptr getelementptr inbounds (i8, ptr @g_readytorun, i64 8), align 8
+  store ptr @g_idletcb, ptr getelementptr inbounds nuw (i8, ptr @g_readytorun, i64 8), align 8
   br label %6
 
 4:                                                ; preds = %.critedge

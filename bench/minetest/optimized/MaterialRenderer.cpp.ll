@@ -2292,7 +2292,7 @@ if.then.i80:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr5video24COpenGL3MaterialRenderer12SUniformInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i80, %_ZSt8_DestroyIPN3irr5video24COpenGL3MaterialRenderer12SUniformInfoES3_EvT_S5_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !43
-  %add.ptr36 = getelementptr inbounds %"struct.irr::video::COpenGL3MaterialRenderer::SUniformInfo", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw %"struct.irr::video::COpenGL3MaterialRenderer::SUniformInfo", ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !44
   %add.ptr39 = getelementptr inbounds nuw %"struct.irr::video::COpenGL3MaterialRenderer::SUniformInfo", ptr %call5.i.i.i, i64 %10
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !60

@@ -10485,7 +10485,7 @@ _ZN7mitsuba4math11legendre_pdIdEENSt3__14pairIT_S4_EEiS4_.exit87: ; preds = %.pr
   %127 = fptrunc double %102 to float
   %128 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
   store float %127, ptr %128, align 4
-  %129 = fneg contract float %127
+  %129 = fneg float %127
   %130 = getelementptr inbounds float, ptr %15, i64 %124
   store float %129, ptr %130, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -2714,7 +2714,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h1794f9bcfa816
           to label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit" unwind label %.loopexit.split-lp893.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit": ; preds = %815
-  %818 = getelementptr inbounds i16, ptr %.val431, i64 %798
+  %818 = getelementptr inbounds nuw i16, ptr %.val431, i64 %798
   %819 = extractvalue { i64, ptr } %817, 0
   %820 = extractvalue { i64, ptr } %817, 1
   %821 = icmp ne ptr %820, null
@@ -5259,7 +5259,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h0d0f82918c1cb
           to label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit" unwind label %.loopexit.split-lp891.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit": ; preds = %815
-  %818 = getelementptr inbounds i16, ptr %.val431, i64 %798
+  %818 = getelementptr inbounds nuw i16, ptr %.val431, i64 %798
   %819 = extractvalue { i64, ptr } %817, 0
   %820 = extractvalue { i64, ptr } %817, 1
   %821 = icmp ne ptr %820, null
@@ -7801,7 +7801,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h3c40084dfd2bc
           to label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit" unwind label %.loopexit.split-lp891.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 "_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h7f8e58c978de8214E.exit": ; preds = %815
-  %818 = getelementptr inbounds i16, ptr %.val431, i64 %798
+  %818 = getelementptr inbounds nuw i16, ptr %.val431, i64 %798
   %819 = extractvalue { i64, ptr } %817, 0
   %820 = extractvalue { i64, ptr } %817, 1
   %821 = icmp ne ptr %820, null

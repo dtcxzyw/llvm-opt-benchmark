@@ -4725,7 +4725,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 58:                                               ; preds = %._crit_edge
   %59 = zext nneg i32 %.0.lcssa to i64
   %60 = add nsw i64 %59, -3
-  %61 = getelementptr inbounds [256 x i16], ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.135, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [256 x i16], ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.135, i64 0, i64 %60
   %62 = load i16, ptr %61, align 2, !noundef !4
   %63 = zext i16 %62 to i64
   %64 = icmp ult i16 %62, 286
@@ -4776,7 +4776,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 89:                                               ; preds = %65, %80
   %90 = phi i64 [ %74, %65 ], [ %spec.select.i59, %80 ]
   %91 = phi i8 [ %75, %65 ], [ %82, %80 ]
-  %92 = getelementptr inbounds [256 x i8], ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.139, i64 0, i64 %60
+  %92 = getelementptr inbounds nuw [256 x i8], ptr @anon.7ecc79529f1de7be2adfd1f3f2725567.139, i64 0, i64 %60
   %93 = load i8, ptr %92, align 1, !noundef !4
   %94 = zext i8 %93 to i64
   %95 = icmp ult i8 %93, 17

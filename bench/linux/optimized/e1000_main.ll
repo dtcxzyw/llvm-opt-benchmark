@@ -10187,7 +10187,7 @@ define internal fastcc noundef zeroext i1 @e1000_tbi_should_accept(ptr noundef %
 100:                                              ; preds = %94, %89
   %101 = phi i64 [ 1656, %89 ], [ %96, %94 ]
   %102 = phi i64 [ 1, %89 ], [ -1, %94 ]
-  %103 = getelementptr inbounds i8, ptr %0, i64 %101
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 %101
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, %102
   store i64 %105, ptr %103, align 8

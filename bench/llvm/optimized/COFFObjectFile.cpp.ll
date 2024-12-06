@@ -5506,7 +5506,7 @@ _ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96: ; preds = %22
   %.058 = phi i1 [ true, %40 ], [ false, %29 ], [ false, %25 ], [ false, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
   %.057 = phi i64 [ %41, %40 ], [ 0, %29 ], [ 0, %25 ], [ 0, %_ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit96 ]
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %44 = getelementptr inbounds i8, ptr %.sroa.0187.0.copyload, i64 %.057
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0187.0.copyload, i64 %.057
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %45 = icmp ugt ptr %44, inttoptr (i64 -21 to ptr)
   %46 = ptrtoint ptr %44 to i64
@@ -5554,7 +5554,7 @@ _ZL9checkSizeN4llvm15MemoryBufferRefERSt10error_codem.exit100: ; preds = %58
 _ZN4llvm5ErrorD2Ev.exit101:                       ; preds = %58
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %62 = load ptr, ptr %18, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 %.057
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.057
   tail call fastcc void @_ZL9getObjectIN4llvm6object23coff_bigobj_file_headerEENS0_5ErrorERPKT_NS0_15MemoryBufferRefEPKvm(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %18, ptr noundef %63)
   %64 = load ptr, ptr %0, align 8
   %.not252 = icmp eq ptr %64, null
@@ -5614,7 +5614,7 @@ thread-pre-split:                                 ; preds = %55, %73, %_ZL9check
 
 82:                                               ; preds = %81
   %.sroa.2193.0.copyload = load i64, ptr %.sroa.1182.0..sroa_idx, align 8
-  %83 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload233.pre270.pre275, i64 %.2
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0204.0.copyload233.pre270.pre275, i64 %.2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !304)
   %84 = icmp ugt ptr %83, inttoptr (i64 -97 to ptr)
   %85 = ptrtoint ptr %83 to i64
@@ -5656,7 +5656,7 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i108: ; preds =
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink287
   store ptr %83, ptr %98, align 8
   %99 = load ptr, ptr %18, align 8
-  %100 = getelementptr inbounds i8, ptr %99, i64 %.2
+  %100 = getelementptr inbounds nuw i8, ptr %99, i64 %.2
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 %.sink285
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 %.sink284
   call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 1) ]
@@ -5727,7 +5727,7 @@ _ZN4llvm6object6Binary11checkOffsetENS_15MemoryBufferRefEmm.exit.i122..thread222
   %122 = phi ptr [ %66, %.thread226 ], [ %.pre, %._crit_edge ]
   %.sroa.0204.0.copyload233 = phi ptr [ %.sroa.0204.0.copyload233.pre, %.thread226 ], [ %.sroa.0204.0.copyload233.pre270, %._crit_edge ]
   %.3.ph = phi i64 [ %72, %.thread226 ], [ %.2, %._crit_edge ]
-  %123 = getelementptr inbounds i8, ptr %.sroa.0204.0.copyload233, i64 %.3.ph
+  %123 = getelementptr inbounds nuw i8, ptr %.sroa.0204.0.copyload233, i64 %.3.ph
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 44
   call void @llvm.assume(i1 true) [ "align"(ptr %124, i64 1) ]
   %.0.copyload.i.i.i2.i = load i32, ptr %124, align 1

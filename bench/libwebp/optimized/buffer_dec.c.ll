@@ -235,7 +235,7 @@ define hidden range(i32 0, 3) i32 @WebPAllocateDecBuffer(i32 noundef %0, i32 nou
   store i32 %.070.i, ptr %91, align 4
   %92 = getelementptr inbounds nuw i8, ptr %3, i64 72
   store i64 %.072.i, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %89, i64 %.072.i
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 %.072.i
   %94 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %93, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %3, i64 56

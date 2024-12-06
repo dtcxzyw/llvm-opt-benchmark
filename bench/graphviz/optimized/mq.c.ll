@@ -1356,7 +1356,7 @@ define internal fastcc noundef ptr @Multilevel_MQ_Clustering_establish(ptr nound
   br i1 %352, label %gv_recalloc.exit, label %gv_recalloc.exit.thread
 
 gv_recalloc.exit:                                 ; preds = %351
-  %353 = getelementptr inbounds i8, ptr %346, i64 %344
+  %353 = getelementptr inbounds nuw i8, ptr %346, i64 %344
   %354 = sub nuw nsw i64 %345, %344
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %353, i8 0, i64 %354, i1 false)
   %355 = call ptr @realloc(ptr noundef %30, i64 noundef range(i64 8, 17179869177) %345) #17
@@ -1375,7 +1375,7 @@ gv_recalloc.exit.thread:                          ; preds = %351
   unreachable
 
 362:                                              ; preds = %gv_recalloc.exit
-  %363 = getelementptr inbounds i8, ptr %355, i64 %344
+  %363 = getelementptr inbounds nuw i8, ptr %355, i64 %344
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %363, i8 0, i64 %354, i1 false)
   br label %gv_recalloc.exit476
 
@@ -1403,7 +1403,7 @@ gv_recalloc.exit476:                              ; preds = %gv_recalloc.exit.th
   br i1 %352, label %376, label %gv_recalloc.exit477
 
 376:                                              ; preds = %375
-  %377 = getelementptr inbounds i8, ptr %370, i64 %344
+  %377 = getelementptr inbounds nuw i8, ptr %370, i64 %344
   %378 = sub nuw nsw i64 %345, %344
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %377, i8 0, i64 %378, i1 false)
   br label %gv_recalloc.exit477

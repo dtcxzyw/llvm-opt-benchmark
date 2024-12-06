@@ -14,7 +14,7 @@ define range(i64 -2, 2) i64 @amd_l_valid(i64 noundef %0, i64 noundef %1, ptr nou
   br i1 %or.cond5, label %.loopexit50, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i64, ptr %2, i64 %1
+  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %1
   %10 = load i64, ptr %9, align 8
   %11 = load i64, ptr %2, align 8
   %12 = icmp ne i64 %11, 0

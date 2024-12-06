@@ -1378,7 +1378,7 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %wh
   %retval.i7.03337.i = phi i64 [ %add.i.i, %while.cond.i.preheader.i ], [ %retval.i7.03336.i, %while.body.i.i ]
   %pos.i.0.lcssa.i = phi i64 [ %add.i.i, %while.cond.i.preheader.i ], [ %sub.i.i, %while.body.i.i ]
   %v.addr.i14.0.lcssa.i = phi i64 [ %coerce.sroa.0.0.extract.trunc, %while.cond.i.preheader.i ], [ 0, %while.body.i.i ]
-  %arrayidx2.i.i = getelementptr inbounds [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i
+  %arrayidx2.i.i = getelementptr inbounds nuw [100 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %v.addr.i14.0.lcssa.i
   %3 = load i16, ptr %arrayidx2.i.i, align 2
   %cmp3.i.i = icmp eq i64 %pos.i.0.lcssa.i, 2
   br i1 %cmp3.i.i, label %if.then.i18.i, label %if.else.i.i

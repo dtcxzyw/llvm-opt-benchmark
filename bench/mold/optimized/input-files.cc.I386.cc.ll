@@ -23628,7 +23628,7 @@ cond.false23.i83:                                 ; preds = %cond.false17.i79
 
 _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPPN4mold3elf6SymbolINS6_4I386EEESt6vectorISA_SaISA_EEEEZZNS6_10SharedFileIS8_E12find_aliasesESA_ENKUlvE_clEvEUlSA_SA_E_E15median_of_threeERKSF_mmm.exit100: ; preds = %cond.true.i90, %cond.false.i94, %cond.false17.i79, %cond.false23.i83
   %cond35.i89 = phi i64 [ %cond.i99, %cond.false.i94 ], [ %cond31.i88, %cond.false23.i83 ], [ %mul7, %cond.true.i90 ], [ %mul7, %cond.false17.i79 ]
-  %arrayidx.i.i101 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i
+  %arrayidx.i.i101 = getelementptr inbounds nuw ptr, ptr %1, i64 %cond35.i
   %47 = load ptr, ptr %arrayidx.i.i101, align 8
   %arrayidx.i23.i102 = getelementptr inbounds ptr, ptr %1, i64 %cond35.i44
   %48 = load ptr, ptr %arrayidx.i23.i102, align 8

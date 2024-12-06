@@ -1239,7 +1239,7 @@ define hidden void @_ZN4core6escape14escape_unicode17hb8ceea5ed3df3c4bE(ptr dead
   %47 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %8
   store i8 92, ptr %47, align 1
   %48 = add nsw i64 %7, -1
-  %49 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %48
   store i8 117, ptr %49, align 1
   %50 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %7
   store i8 123, ptr %50, align 1

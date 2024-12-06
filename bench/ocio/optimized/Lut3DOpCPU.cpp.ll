@@ -1853,7 +1853,7 @@ for.cond151.preheader.us.i:                       ; preds = %for.end144.i, %for.
 
 if.then166.us.i:                                  ; preds = %for.cond151.for.end164_crit_edge.us.i
   %75 = load i64, ptr %arrayidx129.i, align 8
-  %arrayidx169.us.i = getelementptr inbounds [4 x i64], ptr %col_perm.i, i64 0, i64 %col_piv.2.us.i
+  %arrayidx169.us.i = getelementptr inbounds nuw [4 x i64], ptr %col_perm.i, i64 0, i64 %col_piv.2.us.i
   %76 = load i64, ptr %arrayidx169.us.i, align 8
   store i64 %76, ptr %arrayidx129.i, align 8
   store i64 %75, ptr %arrayidx169.us.i, align 8
@@ -1892,7 +1892,7 @@ if.end176.i:                                      ; preds = %for.inc173.us.i, %f
   br i1 %cmp177.not.i, label %for.body192.lr.ph.i, label %if.then178.i
 
 if.then178.i:                                     ; preds = %if.end176.i
-  %arrayidx181.i = getelementptr inbounds [4 x i64], ptr %row_perm.i, i64 0, i64 %piv.2.i
+  %arrayidx181.i = getelementptr inbounds nuw [4 x i64], ptr %row_perm.i, i64 0, i64 %piv.2.i
   %80 = load i64, ptr %arrayidx181.i, align 8
   store i64 %80, ptr %arrayidx127.i, align 8
   store i64 %67, ptr %arrayidx181.i, align 8

@@ -10894,7 +10894,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %23 = add nsw i64 %21, -1
-  %24 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %22, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8, !alias.scope !2077, !noalias !2078, !nonnull !5, !align !231, !noundef !5
   %26 = load ptr, ptr %25, align 8, !noalias !2083, !nonnull !5, !noundef !5
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4480
@@ -10925,7 +10925,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %43 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %42, i64 0, i64 %33
+  %43 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %42, i64 0, i64 %33
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %45 = load i8, ptr %44, align 8, !range !48, !alias.scope !2085, !noalias !2086, !noundef !5
   %46 = trunc nuw i8 %45 to i1
@@ -23296,7 +23296,7 @@ define internal fastcc { i32, i1 } @_ZN8language6buffer14BufferSnapshot23languag
 24:                                               ; preds = %22
   %25 = zext i32 %23 to i64
   %26 = add nsw i64 %25, -1
-  %27 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %16, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %16, i64 0, i64 %26
   %28 = load ptr, ptr %27, align 8, !alias.scope !4603, !noalias !4588, !nonnull !5, !align !231, !noundef !5
   %29 = load ptr, ptr %28, align 8, !noalias !4604, !nonnull !5, !noundef !5
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
@@ -23327,7 +23327,7 @@ define internal fastcc { i32, i1 } @_ZN8language6buffer14BufferSnapshot23languag
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 192
-  %44 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %43, i64 0, i64 %35
+  %44 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %43, i64 0, i64 %35
   %45 = load i64, ptr %44, align 8, !range !4, !noalias !4605, !noundef !5
   %trunc.i.i.i.i.i = trunc nuw i64 %45 to i1
   br i1 %trunc.i.i.i.i.i, label %.noexc6.i.i.i, label %.noexc4.i.i.i

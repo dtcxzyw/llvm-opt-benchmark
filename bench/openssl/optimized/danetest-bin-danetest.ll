@@ -313,7 +313,7 @@ for.body.i.i:                                     ; preds = %for.body.i, %for.in
   %f.013.i.i = phi ptr [ %incdec.ptr.i31.i, %for.inc.i.i ], [ @tlsa_import_rr.tlsa_fields, %for.body.i ]
   %parser.i.i = getelementptr inbounds nuw i8, ptr %f.013.i.i, i64 16
   %13 = load ptr, ptr %parser.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cp.014.i.i, i64 %len.015.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cp.014.i.i, i64 %len.015.i.i
   %call.i30.i = call i64 %13(ptr noundef %add.ptr.i.i, ptr noundef nonnull %12) #9
   %cmp.i.i = icmp slt i64 %call.i30.i, 1
   br i1 %cmp.i.i, label %if.then.i.i, label %for.inc.i.i

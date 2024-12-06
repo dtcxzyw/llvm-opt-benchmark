@@ -571,7 +571,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.threa
 75:                                               ; preds = %73
   %76 = zext i32 %74 to i64
   %77 = add nsw i64 %76, -1
-  %78 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %14, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %14, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8, !alias.scope !58, !noalias !59, !nonnull !22, !align !62, !noundef !22
   %80 = load ptr, ptr %79, align 8, !noalias !63, !nonnull !22, !noundef !22
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
@@ -628,7 +628,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.threa
 104:                                              ; preds = %102
   %105 = zext i32 %103 to i64
   %106 = add nsw i64 %105, -1
-  %107 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %14, i64 0, i64 %106
+  %107 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %14, i64 0, i64 %106
   %108 = load ptr, ptr %107, align 8, !alias.scope !67, !noalias !68, !nonnull !22, !align !62, !noundef !22
   %109 = load ptr, ptr %108, align 8, !noalias !71, !nonnull !22, !noundef !22
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
@@ -659,7 +659,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hce1a3268f670654dE.exit.threa
 
 "_ZN4core3ptr61drop_in_place$LT$core..option..Option$LT$rope..Chunks$GT$$GT$17h90ea539f8c01eb7dE.exit.i.i.i.i.i.i": ; preds = %91
   %123 = getelementptr inbounds nuw i8, ptr %80, i64 136
-  %124 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %123, i64 0, i64 %85
+  %124 = getelementptr inbounds nuw [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %123, i64 0, i64 %85
   call void @llvm.lifetime.start.p0(i64 448, ptr nonnull %6), !noalias !53
   %125 = call noundef align 8 dereferenceable(104) ptr @"_ZN76_$LT$language..buffer..BufferSnapshot$u20$as$u20$core..ops..deref..Deref$GT$5deref17ha0e77dc05ab79c69E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(360) %124)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5), !noalias !53

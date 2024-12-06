@@ -6717,7 +6717,7 @@ define noundef i32 @_ZNK13sentencepiece7unigram5Model9PieceToIdESt17basic_string
   %29 = xor i32 %25, %28
   %30 = zext nneg i32 %29 to i64
   %31 = xor i64 %.02349.i.i, %30
-  %32 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %31
+  %32 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, -2147483393
   %.not31.i.i = icmp eq i32 %34, %28
@@ -6743,7 +6743,7 @@ define noundef i32 @_ZNK13sentencepiece7unigram5Model9PieceToIdESt17basic_string
   %45 = xor i32 %43, %44
   %46 = zext nneg i32 %45 to i64
   %47 = xor i64 %.254.i.i, %46
-  %48 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %47
+  %48 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %47
   %49 = load i32, ptr %48, align 4
   %50 = and i32 %49, -2147483393
   %.not30.i.i = icmp eq i32 %50, %44
@@ -6768,7 +6768,7 @@ _ZNK5Darts15DoubleArrayImplIvvivE16exactMatchSearchIiEEvPKcRT_mm.exit: ; preds =
   %57 = shl nuw nsw i32 %54, %56
   %58 = zext nneg i32 %57 to i64
   %59 = xor i64 %.1.i.i, %58
-  %60 = getelementptr inbounds %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %59
+  %60 = getelementptr inbounds nuw %"class.Darts::Details::DoubleArrayUnit", ptr %17, i64 %59
   %61 = load i32, ptr %60, align 4
   %62 = and i32 %61, 2147483647
   br label %63

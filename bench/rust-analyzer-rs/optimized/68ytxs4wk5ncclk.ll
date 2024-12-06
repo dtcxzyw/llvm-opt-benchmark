@@ -1221,7 +1221,7 @@ default.unreachable:                              ; preds = %16
   %62 = sub nuw i64 %60, %61
   %63 = udiv exact i64 %62, 24
   %.not.i.not = icmp ult i64 %57, %63
-  %64 = getelementptr inbounds { i8, [23 x i8] }, ptr %.pre, i64 %57
+  %64 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.pre, i64 %57
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %storemerge.i = select i1 %.not.i.not, ptr %65, ptr %59
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !99
@@ -2763,7 +2763,7 @@ default.unreachable:                              ; preds = %10
   %53 = sub nuw i64 %51, %52
   %54 = udiv exact i64 %53, 24
   %.not.i.not.i = icmp ult i64 %49, %54
-  %55 = getelementptr inbounds { i8, [23 x i8] }, ptr %.sroa.04.0.copyload, i64 %49
+  %55 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %.sroa.04.0.copyload, i64 %49
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0d10ba534f373f94E.llvm.6150282900714191917.exit"
 

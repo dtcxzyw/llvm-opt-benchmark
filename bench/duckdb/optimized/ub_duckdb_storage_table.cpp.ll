@@ -104408,7 +104408,7 @@ if.then:                                          ; preds = %while.body
 
 while.cond.preheader.i.i.i:                       ; preds = %if.then
   %sub13.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr14.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %sub13.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub13.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %div19.i.i.i
   br label %while.cond.i.i.i
 
@@ -106056,7 +106056,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_14RowGroupWriterESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14RowGroupWriterESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !1824
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.1186", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1186", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !1825
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1186", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !2407
@@ -106457,7 +106457,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN6duck
 
 _ZNSt12_Vector_baseIN6duckdb17RowGroupWriteDataESaIS1_EE13_M_deallocateEPS1_m.exit74: ; preds = %if.then.i73, %_ZNSt6vectorIN6duckdb17RowGroupWriteDataESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1842
-  %add.ptr37 = getelementptr inbounds %"struct.duckdb::RowGroupWriteData", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"struct.duckdb::RowGroupWriteData", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1841
   %add.ptr40 = getelementptr inbounds nuw %"struct.duckdb::RowGroupWriteData", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !2423
@@ -112436,7 +112436,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorISt10sh
 
 _ZNSt12_Vector_baseISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE13_M_deallocateEPS3_m.exit74: ; preds = %if.then.i73, %_ZNSt6vectorISt10shared_ptrIN6duckdb10ColumnDataEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1230
-  %add.ptr37 = getelementptr inbounds %"class.std::shared_ptr.585", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::shared_ptr.585", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1232
   %add.ptr40 = getelementptr inbounds nuw %"class.std::shared_ptr.585", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1271
@@ -112714,7 +112714,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN6duck
 
 _ZNSt12_Vector_baseIN6duckdb15ColumnScanStateESaIS1_EE13_M_deallocateEPS1_m.exit74: ; preds = %if.then.i73, %_ZNSt6vectorIN6duckdb15ColumnScanStateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !422
-  %add.ptr37 = getelementptr inbounds %"struct.duckdb::ColumnScanState", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"struct.duckdb::ColumnScanState", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !423
   %add.ptr40 = getelementptr inbounds nuw %"struct.duckdb::ColumnScanState", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1943

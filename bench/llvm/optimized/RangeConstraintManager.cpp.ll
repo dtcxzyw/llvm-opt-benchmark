@@ -11661,7 +11661,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN5clang4ento5RangeElN9__gnu_cx
 .split17.i.i:                                     ; preds = %.split.i.i, %.split17.i.i
   %.022.i.i = phi i64 [ %14, %.split17.i.i ], [ %12, %.split.i.i ]
   %14 = add nsw i64 %.022.i.i, -1
-  %15 = getelementptr inbounds %"class.clang::ento::Range", ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw %"class.clang::ento::Range", ptr %0, i64 %14
   %.sroa.01.0.copyload18.i.i = load ptr, ptr %15, align 8
   %.sroa.22.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.22.0.copyload20.i.i = load ptr, ptr %.sroa.22.0..sroa_idx19.i.i, align 8
@@ -28933,14 +28933,14 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %.029.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %35, %.split.i.i ]
   %41 = shl i64 %.029.i.i.i, 1
   %42 = add i64 %41, 2
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %42
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %42
   %44 = or disjoint i64 %41, 1
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %44
   %46 = tail call fastcc noundef zeroext i1 @"_ZZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEENK3$_0clERKPKNS2_7SymExprESD_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %43, ptr noundef nonnull readonly align 8 dereferenceable(8) %45)
   %spec.select.i.i.i = select i1 %46, i64 %44, i64 %42
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i
   store ptr %48, ptr %49, align 8
   %50 = icmp slt i64 %spec.select.i.i.i, %39
   br i1 %50, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !728
@@ -28957,9 +28957,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
 55:                                               ; preds = %._crit_edge.i.i.i
   %56 = shl nsw i64 %.0.lcssa.i.i.i, 1
   %57 = or disjoint i64 %56, 1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %59, ptr %60, align 8
   br label %61
 
@@ -28980,7 +28980,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
 
 65:                                               ; preds = %.lr.ph.i.i.i.i
   %66 = load ptr, ptr %63, align 8
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i
   store ptr %66, ptr %67, align 8
   %68 = icmp sgt i64 %.04.i.i.i.i, %35
   br i1 %68, label %.lr.ph.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit.i.i", !llvm.loop !729
@@ -29015,14 +29015,14 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %89 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %90 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %91 = or disjoint i64 %34, 1
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
-  %93 = getelementptr inbounds ptr, ptr %0, i64 %53
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %91
+  %93 = getelementptr inbounds nuw ptr, ptr %0, i64 %53
   br label %.split14.i.i
 
 .split14.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit27.i.i", %.split14.lr.ph.i.i
   %.06.i.i = phi i64 [ %35, %.split14.lr.ph.i.i ], [ %94, %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit27.i.i" ]
   %94 = add nsw i64 %.06.i.i, -1
-  %95 = getelementptr inbounds ptr, ptr %0, i64 %94
+  %95 = getelementptr inbounds nuw ptr, ptr %0, i64 %94
   %96 = load ptr, ptr %95, align 8
   %.not.i.i = icmp sgt i64 %.06.i.i, %39
   br i1 %.not.i.i, label %._crit_edge.i16.i.i, label %.lr.ph.i24.i.i
@@ -29031,9 +29031,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %.029.i25.i.i = phi i64 [ %spec.select.i26.i.i, %.lr.ph.i24.i.i ], [ %94, %.split14.i.i ]
   %97 = shl i64 %.029.i25.i.i, 1
   %98 = add i64 %97, 2
-  %99 = getelementptr inbounds ptr, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw ptr, ptr %0, i64 %98
   %100 = or disjoint i64 %97, 1
-  %101 = getelementptr inbounds ptr, ptr %0, i64 %100
+  %101 = getelementptr inbounds nuw ptr, ptr %0, i64 %100
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %23)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %21)
@@ -29075,9 +29075,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %23)
   %spec.select.i26.i.i = select i1 %111, i64 %100, i64 %98
-  %112 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i26.i.i
+  %112 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i26.i.i
   %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds ptr, ptr %0, i64 %.029.i25.i.i
+  %114 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i25.i.i
   store ptr %113, ptr %114, align 8
   %115 = icmp slt i64 %spec.select.i26.i.i, %39
   br i1 %115, label %.lr.ph.i24.i.i, label %._crit_edge.i16.i.i, !llvm.loop !728
@@ -29146,7 +29146,7 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
 
 130:                                              ; preds = %.lr.ph.i.i20.i.i
   %131 = load ptr, ptr %120, align 8
-  %132 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i
+  %132 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i
   store ptr %131, ptr %132, align 8
   %.not5.i.i = icmp slt i64 %.04.i.i23.i.i, %.06.i.i
   br i1 %.not5.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4ento7SymExprElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZL8toStringB5cxx11N4llvm18IntrusiveRefCntPtrIKNS1_12ProgramStateEEEN12_GLOBAL__N_116EquivalenceClassEE3$_0EEEvT_T0_SJ_T1_T2_.exit27.i.i", label %.lr.ph.i.i20.i.i, !llvm.loop !729
@@ -29191,8 +29191,8 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %162 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %163 = or disjoint i64 %151, 1
-  %164 = getelementptr inbounds ptr, ptr %0, i64 %163
-  %165 = getelementptr inbounds ptr, ptr %0, i64 %152
+  %164 = getelementptr inbounds nuw ptr, ptr %0, i64 %163
+  %165 = getelementptr inbounds nuw ptr, ptr %0, i64 %152
   br label %166
 
 166:                                              ; preds = %209, %.lr.ph.i
@@ -29210,9 +29210,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %.029.i.i21.i = phi i64 [ %spec.select.i.i22.i, %.lr.ph.i.i20.i ], [ 0, %168 ]
   %171 = shl i64 %.029.i.i21.i, 1
   %172 = add i64 %171, 2
-  %173 = getelementptr inbounds ptr, ptr %0, i64 %172
+  %173 = getelementptr inbounds nuw ptr, ptr %0, i64 %172
   %174 = or disjoint i64 %171, 1
-  %175 = getelementptr inbounds ptr, ptr %0, i64 %174
+  %175 = getelementptr inbounds nuw ptr, ptr %0, i64 %174
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %13)
@@ -29254,9 +29254,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %15)
   %spec.select.i.i22.i = select i1 %185, i64 %174, i64 %172
-  %186 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i22.i
+  %186 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i22.i
   %187 = load ptr, ptr %186, align 8
-  %188 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i21.i
+  %188 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i21.i
   store ptr %187, ptr %188, align 8
   %189 = icmp slt i64 %spec.select.i.i22.i, %137
   br i1 %189, label %.lr.ph.i.i20.i, label %._crit_edge.i.i11.i, !llvm.loop !728
@@ -29386,9 +29386,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   %.029.i.i.i17 = phi i64 [ %spec.select.i.i.i18, %.lr.ph.i.i.i16 ], [ 0, %233 ]
   %243 = shl i64 %.029.i.i.i17, 1
   %244 = add i64 %243, 2
-  %245 = getelementptr inbounds ptr, ptr %0, i64 %244
+  %245 = getelementptr inbounds nuw ptr, ptr %0, i64 %244
   %246 = or disjoint i64 %243, 1
-  %247 = getelementptr inbounds ptr, ptr %0, i64 %246
+  %247 = getelementptr inbounds nuw ptr, ptr %0, i64 %246
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
@@ -29430,9 +29430,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   %spec.select.i.i.i18 = select i1 %257, i64 %246, i64 %244
-  %258 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i18
+  %258 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i18
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i17
+  %260 = getelementptr inbounds nuw ptr, ptr %0, i64 %.029.i.i.i17
   store ptr %259, ptr %260, align 8
   %261 = icmp slt i64 %spec.select.i.i.i18, %241
   br i1 %261, label %.lr.ph.i.i.i16, label %._crit_edge.i.i.i6, !llvm.loop !728
@@ -29452,9 +29452,9 @@ define internal fastcc void @"_ZSt14__partial_sortIPPKN5clang4ento7SymExprEN9__g
 268:                                              ; preds = %264
   %269 = shl nsw i64 %.0.lcssa.i.i.i7, 1
   %270 = or disjoint i64 %269, 1
-  %271 = getelementptr inbounds ptr, ptr %0, i64 %270
+  %271 = getelementptr inbounds nuw ptr, ptr %0, i64 %270
   %272 = load ptr, ptr %271, align 8
-  %273 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7
+  %273 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7
   store ptr %272, ptr %273, align 8
   br label %274
 

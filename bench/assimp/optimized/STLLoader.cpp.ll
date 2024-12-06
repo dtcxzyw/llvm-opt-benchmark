@@ -695,49 +695,49 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %if.end, %if.end47
   %sz2.0.idx124 = phi i64 [ 0, %if.end ], [ %sz2.1.idx, %if.end47 ]
-  %sz2.0.ptr = getelementptr inbounds i8, ptr %6, i64 %sz2.0.idx124
-  %sz2.0.add = add nsw i64 %sz2.0.idx124, 1
+  %sz2.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %sz2.0.idx124
+  %sz2.0.add = add nuw nsw i64 %sz2.0.idx124, 1
   %7 = load i8, ptr %sz2.0.ptr, align 1
   %cmp7 = icmp eq i8 %7, 67
   br i1 %cmp7, label %land.lhs.true, label %if.end47
 
 land.lhs.true:                                    ; preds = %while.body
-  %incdec.ptr.ptr = getelementptr inbounds i8, ptr %6, i64 %sz2.0.add
-  %incdec.ptr.add = add nsw i64 %sz2.0.idx124, 2
+  %incdec.ptr.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %sz2.0.add
+  %incdec.ptr.add = add nuw nsw i64 %sz2.0.idx124, 2
   %8 = load i8, ptr %incdec.ptr.ptr, align 1
   %cmp10 = icmp eq i8 %8, 79
   br i1 %cmp10, label %land.lhs.true11, label %if.end47
 
 land.lhs.true11:                                  ; preds = %land.lhs.true
-  %incdec.ptr8.ptr = getelementptr inbounds i8, ptr %6, i64 %incdec.ptr.add
-  %incdec.ptr8.add = add nsw i64 %sz2.0.idx124, 3
+  %incdec.ptr8.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %incdec.ptr.add
+  %incdec.ptr8.add = add nuw nsw i64 %sz2.0.idx124, 3
   %9 = load i8, ptr %incdec.ptr8.ptr, align 1
   %cmp14 = icmp eq i8 %9, 76
   br i1 %cmp14, label %land.lhs.true15, label %if.end47
 
 land.lhs.true15:                                  ; preds = %land.lhs.true11
-  %incdec.ptr12.ptr = getelementptr inbounds i8, ptr %6, i64 %incdec.ptr8.add
-  %incdec.ptr12.add = add nsw i64 %sz2.0.idx124, 4
+  %incdec.ptr12.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %incdec.ptr8.add
+  %incdec.ptr12.add = add nuw nsw i64 %sz2.0.idx124, 4
   %10 = load i8, ptr %incdec.ptr12.ptr, align 1
   %cmp18 = icmp eq i8 %10, 79
   br i1 %cmp18, label %land.lhs.true19, label %if.end47
 
 land.lhs.true19:                                  ; preds = %land.lhs.true15
-  %incdec.ptr16.ptr = getelementptr inbounds i8, ptr %6, i64 %incdec.ptr12.add
-  %incdec.ptr16.add = add nsw i64 %sz2.0.idx124, 5
+  %incdec.ptr16.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %incdec.ptr12.add
+  %incdec.ptr16.add = add nuw nsw i64 %sz2.0.idx124, 5
   %11 = load i8, ptr %incdec.ptr16.ptr, align 1
   %cmp22 = icmp eq i8 %11, 82
   br i1 %cmp22, label %land.lhs.true23, label %if.end47
 
 land.lhs.true23:                                  ; preds = %land.lhs.true19
-  %incdec.ptr20.ptr = getelementptr inbounds i8, ptr %6, i64 %incdec.ptr16.add
-  %incdec.ptr20.add = add nsw i64 %sz2.0.idx124, 6
+  %incdec.ptr20.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %incdec.ptr16.add
+  %incdec.ptr20.add = add nuw nsw i64 %sz2.0.idx124, 6
   %12 = load i8, ptr %incdec.ptr20.ptr, align 1
   %cmp26 = icmp eq i8 %12, 61
   br i1 %cmp26, label %if.then27, label %if.end47
 
 if.then27:                                        ; preds = %land.lhs.true23
-  %incdec.ptr24.ptr = getelementptr inbounds i8, ptr %6, i64 %incdec.ptr20.add
+  %incdec.ptr24.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %incdec.ptr20.add
   %call28 = tail call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   tail call void @_ZN6Assimp6Logger4infoEPKc(ptr noundef nonnull align 8 dereferenceable(12) %call28, ptr noundef nonnull @.str.26)
   %incdec.ptr29 = getelementptr inbounds nuw i8, ptr %incdec.ptr24.ptr, i64 1

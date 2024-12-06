@@ -6419,7 +6419,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   %3 = load i64, ptr %add.ptr.i.i.i.i.i, align 1
   store i64 %3, ptr %add.ptr2.i.i.i.i.i, align 1
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div13.i.i.i
@@ -6444,7 +6444,7 @@ if.end8.split.preheader.i.i.i:                    ; preds = %if.end8.split.lr.ph
 if.end8.split.us.i.i.i:                           ; preds = %if.end8.split.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.us.i.i.i"
   %__parent.05.us.i.i.i = phi i64 [ %dec.us.i.i.i, %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.us.i.i.i" ], [ %div13.i.i.i, %if.end8.split.lr.ph.i.i.i ]
   %dec.us.i.i.i = add nsw i64 %__parent.05.us.i.i.i, -1
-  %add.ptr11.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %dec.us.i.i.i
+  %add.ptr11.us.i.i.i = getelementptr inbounds nuw %struct.Entry, ptr %__first, i64 %dec.us.i.i.i
   %__value.sroa.0.0.copyload12.us.i.i.i = load i64, ptr %add.ptr11.us.i.i.i, align 1
   %cmp23.i16.not.us.i.i.i = icmp sgt i64 %__parent.05.us.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i16.not.us.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.us.i.i.i", label %while.body.i46.us.i.i.i
@@ -6481,7 +6481,7 @@ land.rhs.i.i27.us.i.i.i:                          ; preds = %while.body.i.i34.us
   br i1 %cmp.i.i.i.i33.us.i.i.i, label %while.body.i.i34.us.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.us.i.i.i"
 
 while.body.i.i34.us.i.i.i:                        ; preds = %land.rhs.i.i27.us.i.i.i
-  %add.ptr2.i.i35.us.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i28.us.i.i.i
+  %add.ptr2.i.i35.us.i.i.i = getelementptr inbounds nuw %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i28.us.i.i.i
   %5 = load i64, ptr %add.ptr.i.i31.us.i.i.i, align 1
   store i64 %5, ptr %add.ptr2.i.i35.us.i.i.i, align 1
   %cmp.i.i36.not.us.i.i.i = icmp slt i64 %__parent.05.i.i30.us.i.i.i, %__parent.05.us.i.i.i
@@ -6497,7 +6497,7 @@ while.body.i.i34.us.i.i.i:                        ; preds = %land.rhs.i.i27.us.i
 if.end8.split.i.i.i:                              ; preds = %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.i.i.i", %if.end8.split.preheader.i.i.i
   %__parent.05.i.i.i = phi i64 [ %dec.i.i.i, %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.i.i.i" ], [ %div13.i.i.i, %if.end8.split.preheader.i.i.i ]
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
-  %add.ptr11.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %dec.i.i.i
+  %add.ptr11.i.i.i = getelementptr inbounds nuw %struct.Entry, ptr %__first, i64 %dec.i.i.i
   %__value.sroa.0.0.copyload12.i.i.i = load i64, ptr %add.ptr11.i.i.i, align 1
   %cmp23.i16.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i16.not.i.i.i, label %while.end.i17.i.i.i, label %while.body.i46.i.i.i
@@ -6546,7 +6546,7 @@ land.rhs.i.i27.i.i.i:                             ; preds = %if.end16.i21.i.i.i,
   br i1 %cmp.i.i.i.i33.i.i.i, label %while.body.i.i34.i.i.i, label %"_ZSt13__adjust_heapIPZN4mold3elf23fixup_arm_exidx_sectionERNS1_7ContextINS1_5ARM32EEEE5EntrylS6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23fixup_arm_exidx_sectionES5_E3$_1EEEvT_T0_SE_T1_T2_.exit60.i.i.i"
 
 while.body.i.i34.i.i.i:                           ; preds = %land.rhs.i.i27.i.i.i
-  %add.ptr2.i.i35.i.i.i = getelementptr inbounds %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i28.i.i.i
+  %add.ptr2.i.i35.i.i.i = getelementptr inbounds nuw %struct.Entry, ptr %__first, i64 %__holeIndex.addr.04.i.i28.i.i.i
   %8 = load i64, ptr %add.ptr.i.i31.i.i.i, align 1
   store i64 %8, ptr %add.ptr2.i.i35.i.i.i, align 1
   %cmp.i.i36.not.i.i.i = icmp slt i64 %__parent.05.i.i30.i.i.i, %__parent.05.i.i.i
@@ -7346,7 +7346,7 @@ cond.false22.i42.i.i:                             ; preds = %cond.false16.i40.i.
 
 "_ZNK3tbb6detail2d116quick_sort_rangeIPZN4mold3elf23fixup_arm_exidx_sectionERNS4_7ContextINS4_5ARM32EEEE5EntryZNS4_23fixup_arm_exidx_sectionES8_E3$_1E15median_of_threeERKSA_mmm.exit51.i.i": ; preds = %cond.false22.i42.i.i, %cond.false16.i40.i.i, %cond.false.i48.i.i, %cond.true.i46.i.i
   %cond34.i45.i.i = phi i64 [ %cond.i50.i.i, %cond.false.i48.i.i ], [ %cond30.i44.i.i, %cond.false22.i42.i.i ], [ %mul7.i.i, %cond.true.i46.i.i ], [ %mul7.i.i, %cond.false16.i40.i.i ]
-  %arrayidx.i52.i.i = getelementptr inbounds %struct.Entry, ptr %1, i64 %cond34.i.i.i
+  %arrayidx.i52.i.i = getelementptr inbounds nuw %struct.Entry, ptr %1, i64 %cond34.i.i.i
   %arrayidx2.i53.i.i = getelementptr inbounds %struct.Entry, ptr %1, i64 %cond34.i26.i.i
   %arrayidx.val.i54.i.i = load i32, ptr %arrayidx.i52.i.i, align 1
   %arrayidx2.val.i55.i.i = load i32, ptr %arrayidx2.i53.i.i, align 1

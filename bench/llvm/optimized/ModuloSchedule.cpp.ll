@@ -2059,7 +2059,6 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
 
 57:                                               ; preds = %.lr.ph144, %._crit_edge
   %indvars.iv184 = phi i64 [ %indvars.iv, %.lr.ph144 ], [ %indvars.iv.next185, %._crit_edge ]
-  %indvars187 = trunc i64 %indvars.iv184 to i32
   %58 = load ptr, ptr %15, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %60 = load ptr, ptr %59, align 8
@@ -2068,9 +2067,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   br i1 %.not109141, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
-  %62 = sub nuw nsw i64 %indvars.iv, %indvars.iv184
-  %63 = sub nuw nsw i32 %53, %indvars187
-  %64 = trunc nuw nsw i64 %62 to i32
+  %62 = sub nsw i64 %indvars.iv, %indvars.iv184
+  %63 = trunc nuw nsw i64 %62 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv184 to i32
   br label %65
 
 65:                                               ; preds = %.lr.ph, %_ZN4llvm26MachineInstrBundleIteratorINS_12MachineInstrELb0EEppEv.exit
@@ -2399,15 +2398,14 @@ _ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i: ; preds = %228, %_
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit._crit_edge.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit._crit_edge.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit.i, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i
-  %.pre-phi.i = phi i32 [ %63, %_ZN4llvm14ModuloSchedule8getStageEPNS_12MachineInstrE.exit.i ], [ %64, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit.i ]
-  call void @_ZN4llvm22ModuloScheduleExpander17updateMemOperandsERNS_12MachineInstrES2_j(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(70) %108, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0100.0142, i32 noundef %.pre-phi.i)
+  call void @_ZN4llvm22ModuloScheduleExpander17updateMemOperandsERNS_12MachineInstrES2_j(ptr noundef nonnull readonly align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(70) %108, ptr noundef nonnull align 8 dereferenceable(70) %.sroa.0100.0142, i32 noundef %63)
   br label %_ZN4llvm22ModuloScheduleExpander19cloneAndChangeInstrEPNS_12MachineInstrEjj.exit
 
 _ZN4llvm22ModuloScheduleExpander19cloneAndChangeInstrEPNS_12MachineInstrEjj.exit: ; preds = %136, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit._crit_edge.i
   %.0.i = phi ptr [ %108, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_12MachineInstrESt4pairIjlENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEES3_S5_S7_SA_E4findEPKS2_.exit._crit_edge.i ], [ null, %136 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
-  call void @_ZN4llvm22ModuloScheduleExpander17updateInstructionEPNS_12MachineInstrEbjjPNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %.0.i, i1 noundef zeroext false, i32 noundef %53, i32 noundef %indvars187, ptr noundef %3)
+  call void @_ZN4llvm22ModuloScheduleExpander17updateInstructionEPNS_12MachineInstrEbjjPNS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %.0.i, i1 noundef zeroext false, i32 noundef %53, i32 noundef %64, ptr noundef %3)
   call void @_ZN4llvm12ilist_traitsINS_12MachineInstrEE13addNodeToListEPS1_(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef %.0.i) #18
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %56, align 8
   %241 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, -8
@@ -31050,7 +31048,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_
 .split19.i.i:                                     ; preds = %.split.i.i, %.split19.i.i
   %.024.i.i = phi i64 [ %16, %.split19.i.i ], [ %14, %.split.i.i ]
   %16 = add nsw i64 %.024.i.i, -1
-  %17 = getelementptr inbounds %"struct.std::pair.594", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.std::pair.594", ptr %0, i64 %16
   %.sroa.02.0.copyload20.i.i = load i64, ptr %17, align 8
   %.sroa.23.0..sroa_idx21.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.23.0.copyload22.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i, align 8

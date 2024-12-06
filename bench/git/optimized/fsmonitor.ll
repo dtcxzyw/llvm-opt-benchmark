@@ -736,7 +736,7 @@ for.end:                                          ; preds = %for.inc, %if.then12
   br i1 %cmp140, label %if.then142, label %if.end145
 
 if.then142:                                       ; preds = %for.end
-  %add.ptr143 = getelementptr inbounds i8, ptr %23, i64 %bol.2.lcssa
+  %add.ptr143 = getelementptr inbounds nuw i8, ptr %23, i64 %bol.2.lcssa
   call fastcc void @fsmonitor_refresh_callback(ptr noundef %istate, ptr noundef %add.ptr143)
   %inc144 = add nsw i32 %count.0.lcssa, 1
   br label %if.end145

@@ -2353,7 +2353,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefENSt7_
 
 18:                                               ; preds = %18, %.lr.ph._crit_edge
   %.013.i.i = phi i64 [ %15, %.lr.ph._crit_edge ], [ %21, %18 ]
-  %19 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.i.i
+  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %19, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %20) #10

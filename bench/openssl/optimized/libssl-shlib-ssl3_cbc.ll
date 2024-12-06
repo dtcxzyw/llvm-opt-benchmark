@@ -180,13 +180,13 @@ if.then165:                                       ; preds = %if.end163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %length_bytes, i8 0, i64 %sub167, i1 false)
   %shr = lshr i64 %bits.0, 24
   %conv168 = trunc i64 %shr to i8
-  %arrayidx170 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub167
+  %arrayidx170 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub167
   store i8 %conv168, ptr %arrayidx170, align 4
   %sub173 = add nsw i64 %md_length_size.0, -3
-  %arrayidx174 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub173
+  %arrayidx174 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub173
   store i8 %conv172, ptr %arrayidx174, align 1
   %sub177 = add nsw i64 %md_length_size.0, -2
-  %arrayidx178 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub177
+  %arrayidx178 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub177
   store i8 %conv176, ptr %arrayidx178, align 2
   br label %if.end199
 
@@ -195,20 +195,20 @@ if.else182:                                       ; preds = %if.end163
   %shr184 = lshr i64 %bits.0, 24
   %conv185 = trunc i64 %shr184 to i8
   %sub186 = add nsw i64 %md_length_size.0, -5
-  %arrayidx187 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub186
+  %arrayidx187 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub186
   store i8 %conv185, ptr %arrayidx187, align 1
   %sub190 = add nsw i64 %md_length_size.0, -6
-  %arrayidx191 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub190
+  %arrayidx191 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub190
   store i8 %conv172, ptr %arrayidx191, align 2
   %sub194 = add nsw i64 %md_length_size.0, -7
-  %arrayidx195 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub194
+  %arrayidx195 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub194
   store i8 %conv176, ptr %arrayidx195, align 1
   %sub197 = add nsw i64 %md_length_size.0, -8
   br label %if.end199
 
 if.end199:                                        ; preds = %if.else182, %if.then165
   %sub197.sink = phi i64 [ %sub197, %if.else182 ], [ %sub117, %if.then165 ]
-  %arrayidx198 = getelementptr inbounds [16 x i8], ptr %length_bytes, i64 0, i64 %sub197.sink
+  %arrayidx198 = getelementptr inbounds nuw [16 x i8], ptr %length_bytes, i64 0, i64 %sub197.sink
   store i8 %conv179, ptr %arrayidx198, align 1
   %cmp200.not = icmp eq i64 %k.0, 0
   br i1 %cmp200.not, label %if.end250, label %if.then202

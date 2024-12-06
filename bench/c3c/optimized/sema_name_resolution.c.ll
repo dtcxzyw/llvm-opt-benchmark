@@ -2041,7 +2041,7 @@ define dso_local noundef ptr @sema_find_label_symbol(ptr nocapture noundef reado
 
 15:                                               ; preds = %14
   %16 = add nsw i64 %.012, -1
-  %17 = getelementptr inbounds ptr, ptr %4, i64 %.012
+  %17 = getelementptr inbounds nuw ptr, ptr %4, i64 %.012
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %1

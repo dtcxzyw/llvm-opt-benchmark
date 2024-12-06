@@ -3923,7 +3923,7 @@ png_read_update_info.exit:                        ; preds = %12, %18, %19
   %88 = zext i32 %87 to i64
   %89 = mul nsw i64 %82, %88
   %90 = sub nsw i64 0, %89
-  %91 = getelementptr inbounds i8, ptr %79, i64 %90
+  %91 = getelementptr inbounds nuw i8, ptr %79, i64 %90
   br label %92
 
 92:                                               ; preds = %84, %77
@@ -4394,7 +4394,7 @@ png_read_update_info.exit:                        ; preds = %127, %128
   %174 = zext i32 %173 to i64
   %175 = mul i64 %spec.select228, %174
   %176 = sub i64 0, %175
-  %177 = getelementptr inbounds i8, ptr %164, i64 %176
+  %177 = getelementptr inbounds nuw i8, ptr %164, i64 %176
   br label %178
 
 178:                                              ; preds = %170, %162

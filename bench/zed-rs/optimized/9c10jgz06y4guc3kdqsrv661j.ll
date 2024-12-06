@@ -2120,7 +2120,7 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %36 = add nsw i64 %34, -1
-  %37 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8, !alias.scope !435, !noalias !438, !nonnull !4, !align !19, !noundef !4
   %39 = load ptr, ptr %38, align 8, !noalias !440, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -2147,7 +2147,7 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
 
 51:                                               ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %39, i64 56
-  %53 = getelementptr inbounds [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %52, i64 0, i64 %44
+  %53 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %52, i64 0, i64 %44
   br label %"_ZN4core3ptr108drop_in_place$LT$sum_tree..cursor..Cursor$LT$notifications..NotificationEntry$C$notifications..Count$GT$$GT$17h4f5adf44f15186fcE.exit9"
 
 .noexc7:                                          ; preds = %49
@@ -2235,7 +2235,7 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = add nsw i64 %29, -1
-  %32 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %30, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !alias.scope !459, !noalias !462, !nonnull !4, !align !19, !noundef !4
   %34 = load ptr, ptr %33, align 8, !noalias !464, !nonnull !4, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -2266,7 +2266,7 @@ define noundef align 8 dereferenceable_or_null(72) ptr @_ZN13notifications17Noti
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %48 = getelementptr inbounds [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %47, i64 0, i64 %39
+  %48 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %47, i64 0, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load i64, ptr %49, align 8, !noundef !4
   %51 = icmp eq i64 %50, %1

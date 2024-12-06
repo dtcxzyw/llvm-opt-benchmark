@@ -324,7 +324,7 @@ rbimpl_intern_const.exit58:                       ; preds = %.lr.ph.i56, %80
 
 87:                                               ; preds = %86, %rbimpl_intern_const.exit58
   %.5.idx = phi i64 [ %.4.add, %86 ], [ %.4.idx, %rbimpl_intern_const.exit58 ]
-  %.5.ptr.ptr = getelementptr inbounds i8, ptr %7, i64 %.5.idx
+  %.5.ptr.ptr = getelementptr inbounds nuw i8, ptr %7, i64 %.5.idx
   %88 = load i64, ptr %4, align 8
   %.pr.i59 = load i64, ptr @printf_test_call.rbimpl_id.22, align 8
   %.not4.i60 = icmp eq i64 %.pr.i59, 0

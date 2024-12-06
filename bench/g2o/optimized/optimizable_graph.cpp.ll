@@ -8673,7 +8673,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
   %46 = load ptr, ptr %0, align 8
   %47 = load ptr, ptr %4, align 8
   %spec.select = select i1 %3, ptr %47, ptr null
-  %48 = getelementptr inbounds double, ptr %46, i64 %36
+  %48 = getelementptr inbounds nuw double, ptr %46, i64 %36
   %49 = load double, ptr %48, align 8
   %50 = getelementptr inbounds nuw double, ptr %46, i64 %.1
   %51 = load double, ptr %50, align 8

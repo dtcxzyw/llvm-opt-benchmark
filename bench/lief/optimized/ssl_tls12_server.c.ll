@@ -755,7 +755,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 
 298:                                              ; preds = %296, %295, %290, %287
   %.0427.i = phi i64 [ %297, %296 ], [ %266, %287 ], [ %266, %290 ], [ %266, %295 ]
-  %299 = getelementptr inbounds i8, ptr %217, i64 %.0427.i
+  %299 = getelementptr inbounds nuw i8, ptr %217, i64 %.0427.i
   %300 = load i8, ptr %299, align 1
   %301 = zext i8 %300 to i64
   %302 = shl nuw nsw i64 %301, 8
@@ -783,7 +783,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
 314:                                              ; preds = %308
   %315 = getelementptr inbounds nuw i8, ptr %299, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1298, ptr noundef nonnull @.str.28, ptr noundef nonnull %315, i64 noundef %306) #11
-  %316 = getelementptr inbounds i8, ptr %217, i64 %310
+  %316 = getelementptr inbounds nuw i8, ptr %217, i64 %310
   %317 = load i8, ptr %316, align 1
   %318 = zext i8 %317 to i64
   %319 = add i8 %317, -1
@@ -822,7 +822,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br i1 %336, label %339, label %.thread.i
 
 .thread.i:                                        ; preds = %334
-  %337 = getelementptr inbounds i8, ptr %217, i64 %335
+  %337 = getelementptr inbounds nuw i8, ptr %217, i64 %335
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 2
   tail call void @mbedtls_debug_print_buf(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 1355, ptr noundef nonnull @.str.30, ptr noundef nonnull %338, i64 noundef 0) #11
   br label %._crit_edge.thread.i
@@ -838,7 +838,7 @@ define hidden i32 @mbedtls_ssl_handshake_server_step(ptr noundef %0) local_unnam
   br label %ssl_parse_client_hello.exit
 
 344:                                              ; preds = %339
-  %345 = getelementptr inbounds i8, ptr %217, i64 %335
+  %345 = getelementptr inbounds nuw i8, ptr %217, i64 %335
   %346 = load i8, ptr %345, align 1
   %347 = zext i8 %346 to i64
   %348 = shl nuw nsw i64 %347, 8

@@ -5318,8 +5318,8 @@ define dso_local void @lex_init() local_unnamed_addr #0 {
   store i32 1, ptr @base_yylineno, align 4
   store i16 0, ptr @preproc_tos, align 2
   store i8 1, ptr @stacked_if_value, align 16
-  store i8 1, ptr getelementptr inbounds (i8, ptr @stacked_if_value, i64 1), align 1
-  store i8 0, ptr getelementptr inbounds (i8, ptr @stacked_if_value, i64 2), align 2
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @stacked_if_value, i64 1), align 1
+  store i8 0, ptr getelementptr inbounds nuw (i8, ptr @stacked_if_value, i64 2), align 2
   %1 = load ptr, ptr @literalbuf, align 8
   %2 = icmp eq ptr %1, null
   br i1 %2, label %3, label %5

@@ -8732,7 +8732,7 @@ _ZSt13__adjust_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0
 .split15:                                         ; preds = %.split15.lr.ph, %_ZSt13__adjust_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_T2_.exit29
   %.0250 = phi i64 [ %12, %.split15.lr.ph ], [ %55, %_ZSt13__adjust_heapIPPN4llvm7DDGNodeElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_30AbstractDependenceGraphBuilderINS0_19DataDependenceGraphEE14createPiBlocksEvEUlS2_S2_E_EEEvT_T0_SD_T1_T2_.exit29 ]
   %55 = add nsw i64 %.0250, -1
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.0250, %16

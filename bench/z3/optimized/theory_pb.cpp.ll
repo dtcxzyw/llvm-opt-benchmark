@@ -29974,7 +29974,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZNSt4pairIN3sat7literalE8rationalED2Ev.exit46, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZNSt4pairIN3sat7literalE8rationalED2Ev.exit46 ]
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.0
   %0 = load i32, ptr %add.ptr, align 8
   store i32 %0, ptr %__value, align 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
@@ -43844,7 +43844,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
   %cmp24.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp24.i14.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54.us, label %while.body.i42.us
@@ -43896,7 +43896,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
   %cmp24.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp24.i14.not, label %while.end.i15, label %while.body.i42

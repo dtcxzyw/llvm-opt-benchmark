@@ -12473,7 +12473,7 @@ if.end.i.i27:                                     ; preds = %while.body
   %and.i.i.i = and i64 %sub.ptr.sub.i46.fr, 1
   %cmp16.i.i.i = icmp eq i64 %and.i.i.i, 0
   %sub24.i.i.i = or disjoint i64 %sub.i.i, 1
-  %add.ptr.i56.i.i.i = getelementptr inbounds i8, ptr %__first.coerce, i64 %sub24.i.i.i
+  %add.ptr.i56.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %sub24.i.i.i
   %add.ptr.i57.i.i.i = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 %div2324.i.i
   br i1 %cmp16.i.i.i, label %while.cond.i.i, label %while.cond.i.i.us
 

@@ -4603,7 +4603,7 @@ default.unreachable120:                           ; preds = %"_ZN5alloc3vec16Vec
   %95 = xor i64 %.011.i.i, -1
   %96 = add nsw i64 %91, %95
   %97 = getelementptr inbounds nuw [0 x i16], ptr %88, i64 0, i64 %.011.i.i
-  %98 = getelementptr inbounds [0 x i16], ptr %94, i64 0, i64 %96
+  %98 = getelementptr inbounds nuw [0 x i16], ptr %94, i64 0, i64 %96
   call void @llvm.experimental.noalias.scope.decl(metadata !882)
   call void @llvm.experimental.noalias.scope.decl(metadata !885)
   %99 = load i16, ptr %97, align 2, !alias.scope !887, !noalias !890, !noundef !7

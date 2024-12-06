@@ -2107,7 +2107,7 @@ if.then.i.i926.i:                                 ; preds = %if.end29.i.i
 if.end.i.i922.i:                                  ; preds = %if.then.i.i926.i, %if.end29.i.i
   %__bkt.addr.0.i.i.i = phi i64 [ %rem.i.i.i.i.i.i, %if.then.i.i926.i ], [ %rem.i.i.i36.i.i, %if.end29.i.i ]
   %201 = load ptr, ptr %add.ptr.i648.i, align 8
-  %arrayidx.i.i12.i.i = getelementptr inbounds ptr, ptr %201, i64 %__bkt.addr.0.i.i.i
+  %arrayidx.i.i12.i.i = getelementptr inbounds nuw ptr, ptr %201, i64 %__bkt.addr.0.i.i.i
   %202 = load ptr, ptr %arrayidx.i.i12.i.i, align 8
   %tobool.not.i.i13.i.i = icmp eq ptr %202, null
   br i1 %tobool.not.i.i13.i.i, label %if.else.i.i.i.i, label %if.then.i.i.i923.i
@@ -2139,7 +2139,7 @@ if.then14.i.i.i.i:                                ; preds = %if.else.i.i.i.i
 
 if.end.i.i18.i.i:                                 ; preds = %if.then14.i.i.i.i, %if.else.i.i.i.i
   %208 = phi ptr [ %.pre.i.i, %if.then14.i.i.i.i ], [ %201, %if.else.i.i.i.i ]
-  %arrayidx20.i.i.i.i = getelementptr inbounds ptr, ptr %208, i64 %__bkt.addr.0.i.i.i
+  %arrayidx20.i.i.i.i = getelementptr inbounds nuw ptr, ptr %208, i64 %__bkt.addr.0.i.i.i
   store ptr %_M_before_begin.i.i.i930.i, ptr %arrayidx20.i.i.i.i, align 8
   br label %cleanup.i.i
 
@@ -3675,7 +3675,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

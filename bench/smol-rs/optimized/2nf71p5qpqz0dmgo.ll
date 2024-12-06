@@ -512,7 +512,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %187 = sub nuw i64 %185, %186
   %188 = lshr exact i64 %187, 3
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i.i.i, %188
-  %189 = getelementptr inbounds ptr, ptr %180, i64 %.0.i.i.i.i.i.i.i.i
+  %189 = getelementptr inbounds nuw ptr, ptr %180, i64 %.0.i.i.i.i.i.i.i.i
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %storemerge.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %190, ptr %184
   store ptr %storemerge.i.i.i.i.i.i.i.i.i, ptr %.sroa.26.sroa.3.0..sroa.26.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !68, !noalias !55

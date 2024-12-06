@@ -2553,9 +2553,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1209 = shufflevector <32 x float> %1207, <32 x float> poison, <8 x i32> <i32 1, i32 5, i32 9, i32 13, i32 17, i32 21, i32 25, i32 29>
   %1210 = shufflevector <32 x float> %1207, <32 x float> poison, <8 x i32> <i32 2, i32 6, i32 10, i32 14, i32 18, i32 22, i32 26, i32 30>
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1208, <8 x ptr> %1206, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
-  %1211 = getelementptr inbounds i8, <8 x ptr> %1206, i64 4
+  %1211 = getelementptr inbounds nuw i8, <8 x ptr> %1206, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1209, <8 x ptr> %1211, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
-  %1212 = getelementptr inbounds i8, <8 x ptr> %1206, i64 8
+  %1212 = getelementptr inbounds nuw i8, <8 x ptr> %1206, i64 8
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %1210, <8 x ptr> %1212, i32 4, <8 x i1> splat (i1 true)), !tbaa !72, !alias.scope !121, !noalias !124
   %1213 = fadd reassoc nsz arcp contract afn <8 x float> %1209, %1208
   %1214 = fadd reassoc nsz arcp contract afn <8 x float> %1213, %1210

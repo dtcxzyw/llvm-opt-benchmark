@@ -8994,9 +8994,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %.035.i.i.i.i = phi i64 [ %31, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i.i.i" ], [ %16, %.split.i.i.i ]
   %22 = shl i64 %.035.i.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %25
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %.val30.i.i.i.i = load ptr, ptr %26, align 8
   %27 = icmp eq ptr %.val29.i.i.i.i, %.val30.i.i.i.i
@@ -9006,14 +9006,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %28 = load ptr, ptr %10, align 8
   %29 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %28, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i) #21
   %spec.select.i.i.i.i = select i1 %29, i64 %25, i64 %23
-  %.phi.trans.insert.i.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %.pre.i.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i.i.i", %.lr.ph.i.i.i.i
   %30 = phi ptr [ %.val29.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.pre.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i.i.i" ]
   %31 = phi i64 [ %23, %.lr.ph.i.i.i.i ], [ %spec.select.i.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i.i.i" ]
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.035.i.i.i.i
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.035.i.i.i.i
   store ptr %30, ptr %32, align 8
   %33 = icmp slt i64 %31, %20
   br i1 %33, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !92
@@ -9030,9 +9030,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 38:                                               ; preds = %._crit_edge.i.i.i.i
   %39 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -9057,7 +9057,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 
 50:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESD_EEbT_RT0_.exit.i.i.i.i.i"
   %51 = load ptr, ptr %46, align 8
-  %52 = getelementptr inbounds ptr, ptr %0, i64 %.0134.i.i.i.i.i
+  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0134.i.i.i.i.i
   store ptr %51, ptr %52, align 8
   %53 = icmp sgt i64 %.05.i.i.i.i.i, %16
   br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !93
@@ -9071,14 +9071,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 
 .split15.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i"
   %56 = or disjoint i64 %15, 1
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %56
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %36
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %36
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_1EEEvT_T0_SG_T1_T2_.exit37.i.i.i", %.split15.lr.ph.i.i.i
   %.044.i.i.i = phi i64 [ %16, %.split15.lr.ph.i.i.i ], [ %59, %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_1EEEvT_T0_SG_T1_T2_.exit37.i.i.i" ]
   %59 = add nsw i64 %.044.i.i.i, -1
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
   %61 = load ptr, ptr %60, align 8
   %.not.i.i.i = icmp sgt i64 %.044.i.i.i, %20
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i28.i.i.i
@@ -9087,9 +9087,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %.035.i29.i.i.i = phi i64 [ %71, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i36.i.i.i" ], [ %59, %.split15.i.i.i ]
   %62 = shl i64 %.035.i29.i.i.i, 1
   %63 = add i64 %62, 2
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
   %65 = or disjoint i64 %62, 1
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %65
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %65
   %.val29.i30.i.i.i = load ptr, ptr %64, align 8
   %.val30.i31.i.i.i = load ptr, ptr %66, align 8
   %67 = icmp eq ptr %.val29.i30.i.i.i, %.val30.i31.i.i.i
@@ -9099,14 +9099,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %68 = load ptr, ptr %10, align 8
   %69 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %68, ptr noundef %.val29.i30.i.i.i, ptr noundef %.val30.i31.i.i.i) #21
   %spec.select.i33.i.i.i = select i1 %69, i64 %65, i64 %63
-  %.phi.trans.insert.i34.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %.phi.trans.insert.i34.i.i.i = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %.pre.i35.i.i.i = load ptr, ptr %.phi.trans.insert.i34.i.i.i, align 8
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i36.i.i.i"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i36.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i32.i.i.i", %.lr.ph.i28.i.i.i
   %70 = phi ptr [ %.val29.i30.i.i.i, %.lr.ph.i28.i.i.i ], [ %.pre.i35.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i32.i.i.i" ]
   %71 = phi i64 [ %63, %.lr.ph.i28.i.i.i ], [ %spec.select.i33.i.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i32.i.i.i" ]
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %.035.i29.i.i.i
+  %72 = getelementptr inbounds nuw ptr, ptr %0, i64 %.035.i29.i.i.i
   store ptr %70, ptr %72, align 8
   %73 = icmp slt i64 %71, %20
   br i1 %73, label %.lr.ph.i28.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !92
@@ -9143,7 +9143,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 
 82:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESD_EEbT_RT0_.exit.i.i27.i.i.i"
   %83 = load ptr, ptr %78, align 8
-  %84 = getelementptr inbounds ptr, ptr %0, i64 %.0134.i.i23.i.i.i
+  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0134.i.i23.i.i.i
   store ptr %83, ptr %84, align 8
   %.not42.i.i.i = icmp slt i64 %.05.i.i25.i.i.i, %.044.i.i.i
   br i1 %.not42.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_1EEEvT_T0_SG_T1_T2_.exit37.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !93
@@ -9176,9 +9176,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %.035.i.i = phi i64 [ %105, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i20" ], [ 0, %.lr.ph.i5.i ]
   %96 = shl i64 %.035.i.i, 1
   %97 = add i64 %96, 2
-  %98 = getelementptr inbounds ptr, ptr %0, i64 %97
+  %98 = getelementptr inbounds nuw ptr, ptr %0, i64 %97
   %99 = or disjoint i64 %96, 1
-  %100 = getelementptr inbounds ptr, ptr %0, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %0, i64 %99
   %.val29.i.i17 = load ptr, ptr %98, align 8
   %.val30.i.i = load ptr, ptr %100, align 8
   %101 = icmp eq ptr %.val29.i.i17, %.val30.i.i
@@ -9188,14 +9188,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %102 = load ptr, ptr %10, align 8
   %103 = tail call noundef zeroext i1 @_ZNK4llvm17DominatorTreeBaseINS_10BasicBlockELb0EE17properlyDominatesEPKS1_S4_(ptr noundef nonnull align 8 dereferenceable(124) %102, ptr noundef %.val29.i.i17, ptr noundef %.val30.i.i) #21
   %spec.select.i.i = select i1 %103, i64 %99, i64 %97
-  %.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i
   %.pre.i.i19 = load ptr, ptr %.phi.trans.insert.i.i, align 8
   br label %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i20"
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread.i.i20": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i18", %.lr.ph.i.i16
   %104 = phi ptr [ %.val29.i.i17, %.lr.ph.i.i16 ], [ %.pre.i.i19, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i18" ]
   %105 = phi i64 [ %97, %.lr.ph.i.i16 ], [ %spec.select.i.i, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify17optimizeLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_1EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.i.i18" ]
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.035.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.035.i.i
   store ptr %104, ptr %106, align 8
   %107 = icmp slt i64 %105, %94
   br i1 %107, label %.lr.ph.i.i16, label %._crit_edge.i.i, !llvm.loop !92
@@ -9215,9 +9215,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 114:                                              ; preds = %110
   %115 = shl nsw i64 %.0.lcssa.i.i, 1
   %116 = or disjoint i64 %115, 1
-  %117 = getelementptr inbounds ptr, ptr %0, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %0, i64 %116
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %119 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
   store ptr %118, ptr %119, align 8
   br label %120
 
@@ -10543,7 +10543,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 .split15.i.i.i:                                   ; preds = %.split.i.i.i, %.split15.i.i.i
   %.018.i.i.i = phi i64 [ %19, %.split15.i.i.i ], [ %16, %.split.i.i.i ]
   %19 = add nsw i64 %.018.i.i.i, -1
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %14, ptr noundef %21, ptr readonly %3)
   %22 = icmp eq i64 %19, 0
@@ -10888,9 +10888,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__g
   %.040 = phi i64 [ %1, %.lr.ph ], [ %32, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread36" ]
   %11 = shl i64 %.040, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %14
   %.val29 = load ptr, ptr %13, align 8
   %.val30 = load ptr, ptr %15, align 8
   %16 = load ptr, ptr %9, align 8
@@ -10933,9 +10933,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %21
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread36": ; preds = %18, %30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread"
   %32 = phi i64 [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit.thread" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESE_EEbT_T0_.exit" ], [ %12, %30 ], [ %12, %18 ]
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %32
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.040
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.040
   store ptr %34, ptr %35, align 8
   %36 = icmp slt i64 %32, %7
   br i1 %36, label %10, label %._crit_edge, !llvm.loop !109
@@ -10955,9 +10955,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %21
 43:                                               ; preds = %39
   %44 = shl nsw i64 %.0.lcssa, 1
   %45 = or disjoint i64 %44, 1
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %45
+  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %45
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %47, ptr %48, align 8
   br label %49
 
@@ -11011,7 +11011,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %59
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESD_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPN4llvm4LoopERNS4_12SCEVExpanderEE3$_0EclIPPNS4_10BasicBlockESD_EEbT_RT0_.exit.i", %68, %52
   %70 = load ptr, ptr %53, align 8
-  %71 = getelementptr inbounds ptr, ptr %0, i64 %.0136.i
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0136.i
   store ptr %70, ptr %71, align 8
   %72 = icmp sgt i64 %.07.i, %1
   br i1 %72, label %52, label %"_ZSt11__push_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114IndVarSimplify18predicateLoopExitsEPNS0_4LoopERNS0_12SCEVExpanderEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !110

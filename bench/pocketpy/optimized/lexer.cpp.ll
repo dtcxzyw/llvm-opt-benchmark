@@ -1387,13 +1387,13 @@ _ZSt11lower_boundIPKjjET_S2_S2_RKT0_.exit.i:      ; preds = %_ZSt7advanceIPKjlEv
   br i1 %74, label %.thread, label %75
 
 75:                                               ; preds = %72
-  %76 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %73
+  %76 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeAE, i64 0, i64 %73
   %77 = load i32, ptr %76, align 4
   %.not.i = icmp ult i32 %.038.lcssa149, %77
   br i1 %.not.i, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit
 
 _ZN4pkpyL18is_unicode_Lo_charEj.exit:             ; preds = %75
-  %78 = getelementptr inbounds [476 x i32], ptr @_ZN4pkpyL9kLoRangeBE, i64 0, i64 %73
+  %78 = getelementptr inbounds nuw [476 x i32], ptr @_ZN4pkpyL9kLoRangeBE, i64 0, i64 %73
   %79 = load i32, ptr %78, align 4
   %.not134 = icmp ugt i32 %.038.lcssa149, %79
   br i1 %.not134, label %.thread, label %_ZN4pkpyL18is_unicode_Lo_charEj.exit.thread

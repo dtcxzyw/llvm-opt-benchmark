@@ -5495,7 +5495,7 @@ _ZN12_GLOBAL__N_120getSeparatorsForKindEPKN4llvm6RecordE.exit: ; preds = %_ZN4ll
 56:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %.sroa.010.050, i64 %.sroa.3.051, i1 false)
   %57 = load ptr, ptr %11, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 %.sroa.3.051
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.3.051
   store ptr %58, ptr %11, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit28
 

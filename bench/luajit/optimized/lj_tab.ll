@@ -2285,7 +2285,7 @@ land.lhs.true:                                    ; preds = %entry
   %array = getelementptr inbounds nuw i8, ptr %t, i64 16
   %1 = load i64, ptr %array, align 8
   %2 = inttoptr i64 %1 to ptr
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %2, i64 %hi.0
+  %arrayidx = getelementptr inbounds nuw %union.TValue, ptr %2, i64 %hi.0
   %3 = load i64, ptr %arrayidx, align 8
   %cmp2 = icmp eq i64 %3, -1
   br i1 %cmp2, label %while.cond.preheader, label %if.end18

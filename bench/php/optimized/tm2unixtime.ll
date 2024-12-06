@@ -728,7 +728,7 @@ do_range_limit.exit.i:                            ; preds = %149, %146
 
 .thread50.i:                                      ; preds = %175, %.lr.ph
   %179 = phi ptr [ @days_in_month, %.lr.ph ], [ %spec.select.i, %175 ]
-  %.in.i = getelementptr inbounds [13 x i32], ptr %179, i64 0, i64 %.039.i
+  %.in.i = getelementptr inbounds nuw [13 x i32], ptr %179, i64 0, i64 %.039.i
   %180 = load i32, ptr %.in.i, align 4
   %181 = sext i32 %180 to i64
   %182 = add nsw i64 %169, %181

@@ -2379,7 +2379,7 @@ do.body.2:                                        ; preds = %do.body.1
 
 if.end:                                           ; preds = %do.body.2, %do.body.1, %if.then, %entry
   %offset.1 = phi i64 [ 0, %entry ], [ %umax, %do.body.2 ], [ %umax, %do.body.1 ], [ %umax, %if.then ]
-  %add.ptr = getelementptr inbounds i8, ptr %str, i64 %offset.1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %str, i64 %offset.1
   %13 = ptrtoint ptr %add.ptr to i64
   %and3 = and i64 %13, 7
   %cmp4.not = icmp eq i64 %and3, 0

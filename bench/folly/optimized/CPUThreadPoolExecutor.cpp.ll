@@ -6707,7 +6707,7 @@ if.then.i226:                                     ; preds = %while.cond98
   %conv109 = zext nneg i8 %28 to i64
   %sub110 = add nsw i64 %conv109, -1
   %rawItems_.i.i.i216 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %29, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i217 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i216, i64 0, i64 %sub110
+  %arrayidx.i.i.i.i.i217 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i216, i64 0, i64 %sub110
   %cmp.i.i221 = icmp ult i8 %28, 17
   call void @llvm.assume(i1 %cmp.i.i221)
   %shr.i.i222 = lshr i64 %sub110, 1

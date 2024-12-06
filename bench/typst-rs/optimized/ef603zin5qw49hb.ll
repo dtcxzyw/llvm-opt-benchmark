@@ -5392,7 +5392,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %26 = sub nuw i64 %24, %25
   %27 = lshr exact i64 %26, 5
   %.not.i.not = icmp ult i64 %11, %27
-  %28 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %11
+  %28 = getelementptr inbounds nuw { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %11
   br i1 %.not.i.not, label %30, label %60
 
 29:                                               ; preds = %8
@@ -5586,7 +5586,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %28 = sub nuw i64 %26, %27
   %29 = lshr exact i64 %28, 5
   %.not.i.not = icmp ult i64 %12, %29
-  %30 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %12
+  %30 = getelementptr inbounds nuw { { [24 x i8], i8, [7 x i8] } }, ptr %.sroa.0.0.i, i64 %12
   br i1 %.not.i.not, label %32, label %63
 
 31:                                               ; preds = %8

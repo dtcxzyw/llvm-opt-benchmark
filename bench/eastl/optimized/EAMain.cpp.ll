@@ -315,7 +315,7 @@ for.body7.lr.ph:                                  ; preds = %for.body
 
 for.end:                                          ; preds = %for.body7.lr.ph, %for.body
   %c.0.lcssa = phi i64 [ 0, %for.body ], [ %umax, %for.body7.lr.ph ]
-  %arrayidx9 = getelementptr inbounds [1025 x i8], ptr %buffer, i64 0, i64 %c.0.lcssa
+  %arrayidx9 = getelementptr inbounds nuw [1025 x i8], ptr %buffer, i64 0, i64 %c.0.lcssa
   store i8 0, ptr %arrayidx9, align 1
   call void @_ZN2EA6EAMain8InternalL13ReportDefaultEPKc(ptr noundef nonnull %buffer)
   %add11 = add i64 %cond, %i.018

@@ -183,7 +183,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 3
   %.not.i.not.i = icmp ult i64 %7, %13
-  %14 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.pre, i64 %7
+  %14 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.pre, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %storemerge.i.i = select i1 %.not.i.not.i, ptr %15, ptr %9
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !5
@@ -354,7 +354,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %12 = sub nuw i64 %10, %11
   %13 = lshr exact i64 %12, 3
   %.not.i.not.i = icmp ult i64 %7, %13
-  %14 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload.pre, i64 %7
+  %14 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.pre, i64 %7
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %storemerge.i.i = select i1 %.not.i.not.i, ptr %15, ptr %9
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !57
@@ -606,7 +606,7 @@ define hidden noundef zeroext i1 @"_ZN100_$LT$core..iter..adapters..skip..Skip$L
   %41 = sub nuw i64 %39, %40
   %42 = lshr exact i64 %41, 5
   %.not.i.not = icmp ult i64 %35, %42
-  %43 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %38, i64 %35
+  %43 = getelementptr inbounds nuw { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %38, i64 %35
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %storemerge.i = select i1 %.not.i.not, ptr %44, ptr %37
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !146
@@ -1218,7 +1218,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 55:                                               ; preds = %8
-  %56 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload, i64 %9
+  %56 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload, i64 %9
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = add i64 %.sroa.10.0.copyload, %.sroa.7.0.copyload
   br label %._crit_edge.i
@@ -1702,7 +1702,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   resume { ptr, i32 } %eh.lpad-body.i.i.i
 
 55:                                               ; preds = %8
-  %56 = getelementptr inbounds ptr, ptr %.sroa.0.0.copyload, i64 %9
+  %56 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload, i64 %9
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = add i64 %.sroa.10.0.copyload, %.sroa.7.0.copyload
   br label %._crit_edge.i
@@ -27077,7 +27077,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.0 = select i1 %.not, ptr %10, ptr null

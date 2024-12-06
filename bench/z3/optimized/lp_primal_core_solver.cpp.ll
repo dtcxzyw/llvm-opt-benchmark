@@ -6867,7 +6867,7 @@ if.then:                                          ; preds = %while.body, %while.
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.015.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div13.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.015.i.i, -1
-  %add.ptr11.i.i = getelementptr inbounds i32, ptr %__first, i64 %dec.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.i.i
   %1 = load i32, ptr %add.ptr11.i.i, align 4
   tail call void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalS6_E14sort_non_basisEvEUljjE_EEEvT_T0_SB_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, i32 noundef %1, ptr %__comp.coerce)
   %cmp6.i.i = icmp eq i64 %dec.i.i, 0
@@ -15091,7 +15091,7 @@ if.then:                                          ; preds = %while.body, %while.
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.015.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div13.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.015.i.i, -1
-  %add.ptr11.i.i = getelementptr inbounds i32, ptr %__first, i64 %dec.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.i.i
   %1 = load i32, ptr %add.ptr11.i.i, align 4
   tail call void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN2lp21lp_primal_core_solverI8rationalNS4_12numeric_pairIS6_EEE14sort_non_basisEvEUljjE_EEEvT_T0_SD_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, i32 noundef %1, ptr %__comp.coerce)
   %cmp6.i.i = icmp eq i64 %dec.i.i, 0

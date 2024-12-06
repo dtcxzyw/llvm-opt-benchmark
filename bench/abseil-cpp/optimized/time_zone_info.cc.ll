@@ -1110,7 +1110,7 @@ entry:
   %add11 = add nsw i64 %add6, %div4.zext
   %rem12 = srem i64 %add11, 7
   %add13 = add nsw i64 %rem12, 6
-  %arrayidx14 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13
+  %arrayidx14 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13
   %4 = load i32, ptr %arrayidx14, align 4
   ret i32 %4
 }

@@ -839,7 +839,7 @@ mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread: ; preds = %30
   %44 = trunc i16 %43 to i8
   %45 = getelementptr inbounds nuw i8, ptr %.050.ptr72, i64 1
   store i8 %44, ptr %45, align 1
-  %.050.add = add nsw i64 %.050.idx70, 2
+  %.050.add = add nuw nsw i64 %.050.idx70, 2
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %47 = load ptr, ptr %46, align 8
   %48 = load i16, ptr %.04971, align 2
@@ -850,7 +850,7 @@ mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread: ; preds = %30
 mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %30, %.lr.ph, %mbedtls_ssl_conf_is_tls12_enabled.exit, %39, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread
   %.1.idx = phi i64 [ %.050.idx70, %mbedtls_ssl_tls12_named_group_is_ecdhe.exit.thread ], [ %.050.add, %39 ], [ %.050.idx70, %mbedtls_ssl_conf_is_tls12_enabled.exit ], [ %.050.idx70, %.lr.ph ], [ %.050.idx70, %30 ]
   %50 = getelementptr inbounds nuw i8, ptr %.04971, i64 2
-  %.050.ptr = getelementptr inbounds i8, ptr %1, i64 %.1.idx
+  %.050.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.1.idx
   %51 = load i16, ptr %50, align 2
   %.not55 = icmp eq i16 %51, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph, !llvm.loop !7

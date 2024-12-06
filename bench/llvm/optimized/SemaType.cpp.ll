@@ -45782,7 +45782,7 @@ _ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_i
 .split17.us:                                      ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit35.us
   %.041.us = phi i64 [ %48, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit35.us ], [ %10, %.split17.lr.ph ]
   %48 = add nsw i64 %.041.us, -1
-  %49 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %0, i64 %48
   %.sroa.02.0.copyload18.us = load i32, ptr %49, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.041.us, %13
@@ -45836,7 +45836,7 @@ _ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_i
 .split17:                                         ; preds = %.split17.preheader, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit35
   %.041 = phi i64 [ %67, %_ZSt13__adjust_heapIPN5clang14SourceLocationElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_17BeforeThanCompareIS1_EEEEEvT_T0_SA_T1_T2_.exit35 ], [ %10, %.split17.preheader ]
   %67 = add nsw i64 %.041, -1
-  %68 = getelementptr inbounds %"class.clang::SourceLocation", ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %0, i64 %67
   %.sroa.02.0.copyload18 = load i32, ptr %68, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.041, %13

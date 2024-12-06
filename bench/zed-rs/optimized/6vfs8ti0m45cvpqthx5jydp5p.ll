@@ -1228,7 +1228,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.12
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hd7af90c152e83db1E.exit": ; preds = %._crit_edge
   %.sroa.0.019.i = and i64 %67, %97
-  %123 = getelementptr inbounds i8, ptr %70, i64 %.sroa.0.019.i
+  %123 = getelementptr inbounds nuw i8, ptr %70, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %123, align 1, !noalias !199
   %124 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %125 = bitcast <16 x i1> %124 to i16
@@ -1241,7 +1241,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.12
   %126 = add i64 %.sroa.7.022.i, 16
   %127 = add i64 %126, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %127, %67
-  %128 = getelementptr inbounds i8, ptr %70, i64 %.sroa.0.0.i
+  %128 = getelementptr inbounds nuw i8, ptr %70, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %128, align 1, !noalias !199
   %129 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %130 = bitcast <16 x i1> %129 to i16
@@ -1255,7 +1255,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.12
   %132 = zext nneg i16 %131 to i64
   %133 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %132
   %134 = and i64 %133, %67
-  %135 = getelementptr inbounds i8, ptr %70, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %70, i64 %134
   %136 = load i8, ptr %135, align 1, !noalias !204, !noundef !14
   %137 = icmp sgt i8 %136, -1
   br i1 %137, label %138, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.1269278195741123570.exit
@@ -1276,7 +1276,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.1269
   %146 = trunc nuw nsw i64 %145 to i8
   %147 = add nsw i64 %.sroa.0.0.i12.i, -16
   %148 = and i64 %147, %67
-  %149 = getelementptr inbounds i8, ptr %70, i64 %.sroa.0.0.i12.i
+  %149 = getelementptr inbounds nuw i8, ptr %70, i64 %.sroa.0.0.i12.i
   store i8 %146, ptr %149, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %148
   store i8 %146, ptr %gep, align 1

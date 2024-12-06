@@ -9132,7 +9132,7 @@ if.end20.i:                                       ; preds = %if.end.i43
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i46
   %pos.i.0170 = phi i64 [ %add35.i, %if.end32.i46 ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i45, i64 %pos.i.0170
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i45, i64 %pos.i.0170
   %28 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %28, %conv22.i
   br i1 %cmp30.i, label %if.end32.i, label %if.end32.i46
@@ -9399,7 +9399,7 @@ if.end20.i:                                       ; preds = %if.end.i43
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i46
   %pos.i.0170 = phi i64 [ %add35.i, %if.end32.i46 ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i45, i64 %pos.i.0170
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i45, i64 %pos.i.0170
   %28 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %28, %conv22.i
   br i1 %cmp30.i, label %if.end32.i, label %if.end32.i46
@@ -10191,7 +10191,7 @@ if.end20.i:                                       ; preds = %if.end.i61
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.0196 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %gep, i64 %pos.i.0196
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %gep, i64 %pos.i.0196
   %27 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %27, %conv26.i
   br i1 %cmp30.i, label %if.end36.i, label %if.end32.i
@@ -10493,7 +10493,7 @@ if.end20.i:                                       ; preds = %if.end.i61
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.0198 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %gep, i64 %pos.i.0198
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %gep, i64 %pos.i.0198
   %26 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %26, %conv26.i
   br i1 %cmp30.i, label %if.end36.i, label %if.end32.i
@@ -18150,7 +18150,7 @@ if.end20.i:                                       ; preds = %if.end.i177
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.0261 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i179, i64 %pos.i.0261
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i179, i64 %pos.i.0261
   %47 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %47, %36
   br i1 %cmp30.i, label %if.else, label %if.end32.i
@@ -20503,7 +20503,7 @@ if.end20.i:                                       ; preds = %if.end.i177
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.0268 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i179, i64 %pos.i.0268
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i179, i64 %pos.i.0268
   %56 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %56, %45
   br i1 %cmp30.i, label %if.else, label %if.end32.i
@@ -21951,7 +21951,7 @@ if.end20.i:                                       ; preds = %if.end.i52
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.0183 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %gep, i64 %pos.i.0183
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %gep, i64 %pos.i.0183
   %28 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %28, %conv12
   br i1 %cmp30.i, label %if.end21, label %if.end32.i
@@ -24480,7 +24480,7 @@ if.end20.i:                                       ; preds = %if.end.i8
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.032 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %pos.i.032
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %pos.i.032
   %9 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %9, %value
   br i1 %cmp30.i, label %if.else, label %if.end32.i
@@ -41202,7 +41202,7 @@ if.end20.i:                                       ; preds = %if.end.i8
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.032 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %pos.i.032
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %pos.i.032
   %9 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %9, %value
   br i1 %cmp30.i, label %if.else, label %if.end32.i
@@ -41549,7 +41549,7 @@ if.end20.i:                                       ; preds = %if.end.i8
 
 while.body.i:                                     ; preds = %if.end20.i, %if.end32.i
   %pos.i.035 = phi i64 [ %add35.i, %if.end32.i ], [ 0, %if.end20.i ]
-  %arrayidx29.i = getelementptr inbounds i32, ptr %add.ptr.i, i64 %pos.i.035
+  %arrayidx29.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %pos.i.035
   %9 = load i32, ptr %arrayidx29.i, align 4
   %cmp30.i = icmp eq i32 %9, %value
   br i1 %cmp30.i, label %if.else, label %if.end32.i

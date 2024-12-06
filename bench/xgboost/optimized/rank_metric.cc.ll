@@ -6568,7 +6568,7 @@ _ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboos
 .split16.us:                                      ; preds = %.split16.lr.ph, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit33.us
   %.039.us = phi i64 [ %63, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit33.us ], [ %10, %.split16.lr.ph ]
   %63 = add nsw i64 %.039.us, -1
-  %64 = getelementptr inbounds %"struct.std::pair.128", ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %0, i64 %63
   %.sroa.02.0.copyload17.us = load i64, ptr %64, align 4
   %.not.us = icmp sgt i64 %.039.us, %13
   br i1 %.not.us, label %._crit_edge.i19.us.thread, label %.lr.ph.i30.us
@@ -6639,7 +6639,7 @@ _ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboos
 .split16:                                         ; preds = %.split16.preheader, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit33
   %.039 = phi i64 [ %92, %_ZSt13__adjust_heapIPSt4pairIfjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN7xgboost6metric7EvalAMS4EvalERKNS6_16HostDeviceVectorIfEERKNS6_8MetaInfoEEUlRKT_RKT0_E_EEEvSG_SJ_SJ_T1_T2_.exit33 ], [ %10, %.split16.preheader ]
   %92 = add nsw i64 %.039, -1
-  %93 = getelementptr inbounds %"struct.std::pair.128", ptr %0, i64 %92
+  %93 = getelementptr inbounds nuw %"struct.std::pair.128", ptr %0, i64 %92
   %.sroa.02.0.copyload17 = load i64, ptr %93, align 4
   %.not = icmp sgt i64 %.039, %13
   br i1 %.not, label %._crit_edge.i19, label %.lr.ph.i30

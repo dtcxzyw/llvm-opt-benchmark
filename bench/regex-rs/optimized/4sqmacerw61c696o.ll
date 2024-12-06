@@ -13534,7 +13534,7 @@ _ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a5
   br i1 %27, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %8, i64 %.0.i
+  %28 = getelementptr inbounds nuw i8, ptr %8, i64 %.0.i
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val10.i.i = load i64, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -13804,7 +13804,7 @@ _ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a5
   br i1 %35, label %_ZN14regex_automata4util11determinize5state4Repr18iter_nfa_state_ids17h54cfee1308856a8eE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %.val, i64 %.0.i.i
+  %36 = getelementptr inbounds nuw i8, ptr %.val, i64 %.0.i.i
   br label %40
 
 .invoke47:                                        ; preds = %_ZN14regex_automata4util11determinize5state11read_vari3217h9bc6c58a8c1d67c0E.exit.i, %_ZN14regex_automata4util11determinize5state4Repr18pattern_offset_end17he4051b6a50310c95E.exit.i

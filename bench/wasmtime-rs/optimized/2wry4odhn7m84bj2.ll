@@ -20087,10 +20087,10 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h8e4c1001a8c42097E.exit: ; preds
   %.0.i = phi i64 [ %19, %18 ], [ %spec.select138.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17ha497a9a16d25a92fE.exit.i51.i" ]
   %23 = icmp ult i64 %.082.i, %.sroa.14.0111
   call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %.082.i
+  %24 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %.082.i
   %25 = icmp ult i64 %.0.i, %.sroa.14.0111
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %.0.i
+  %26 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %.0.i
   %.val.i.i.i = load i64, ptr %24, align 8, !alias.scope !2916, !noalias !2919, !noundef !4
   %.val5.i.i.i = load i64, ptr %26, align 8, !alias.scope !2916, !noalias !2919, !noundef !4
   %27 = icmp ult i64 %.val.i.i.i, %.val5.i.i.i
@@ -20128,7 +20128,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h8e4c1001a8c42097E.exit: ; preds
   %40 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %19
   %41 = icmp ult i64 %38, %.sroa.14.0111
   call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %38
+  %42 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %38
   %.val.i.i15.i = load i64, ptr %40, align 8, !alias.scope !2916, !noalias !2933, !noundef !4
   %.val5.i.i16.i = load i64, ptr %42, align 8, !alias.scope !2916, !noalias !2933, !noundef !4
   %43 = icmp ult i64 %.val.i.i15.i, %.val5.i.i16.i
@@ -20163,7 +20163,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h8e4c1001a8c42097E.exit: ; preds
   %55 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %20
   %56 = icmp ult i64 %52, %.sroa.14.0111
   call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %52
+  %57 = getelementptr inbounds nuw { { i64, i64 }, i64 }, ptr %.sroa.0.0112, i64 %52
   %.val.i.i32.i = load i64, ptr %55, align 8, !alias.scope !2916, !noalias !2947, !noundef !4
   %.val5.i.i33.i = load i64, ptr %57, align 8, !alias.scope !2916, !noalias !2947, !noundef !4
   %58 = icmp ult i64 %.val.i.i32.i, %.val5.i.i33.i

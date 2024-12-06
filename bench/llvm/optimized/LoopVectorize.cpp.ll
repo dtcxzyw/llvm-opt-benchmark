@@ -94235,7 +94235,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN4llvm12VPRecipeB
 .split20.i.i.i:                                   ; preds = %.split.i.i.i, %.split20.i.i.i
   %.026.i.i.i = phi i64 [ %21, %.split20.i.i.i ], [ %19, %.split.i.i.i ]
   %21 = add nsw i64 %.026.i.i.i, -1
-  %22 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %21
   %.sroa.02.0.copyload21.i.i.i = load ptr, ptr %22, align 8
   %.sroa.23.0..sroa_idx22.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.23.0.copyload23.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx22.i.i.i, align 8
@@ -94421,13 +94421,13 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   %.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %6 ]
   %14 = shl i64 %.030, 1
   %15 = add i64 %14, 2
-  %16 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %15
   %17 = or disjoint i64 %14, 1
-  %18 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %17
   %19 = call fastcc noundef zeroext i1 @"_ZZN4llvm24LoopVectorizationPlanner22emitInvalidCostRemarksEPNS_25OptimizationRemarkEmitterEENK3$_0clERSt4pairIPNS_12VPRecipeBaseENS_12ElementCountEES9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %18)
   %spec.select = select i1 %19, i64 %17, i64 %15
-  %20 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %.030
+  %20 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %.030
   %22 = load ptr, ptr %20, align 8
   store ptr %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -94451,8 +94451,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
 32:                                               ; preds = %28
   %33 = shl nsw i64 %.0.lcssa, 1
   %34 = or disjoint i64 %33, 1
-  %35 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %.0.lcssa
+  %35 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %34
+  %36 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %.0.lcssa
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -94479,7 +94479,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm12VPRecipeBase
   br i1 %44, label %45, label %.critedge.loopexit.i
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds %"struct.std::pair.803", ptr %0, i64 %.01316.i
+  %46 = getelementptr inbounds nuw %"struct.std::pair.803", ptr %0, i64 %.01316.i
   %47 = load ptr, ptr %43, align 8
   store ptr %47, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8

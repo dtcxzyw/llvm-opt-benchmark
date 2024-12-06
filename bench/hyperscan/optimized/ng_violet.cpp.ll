@@ -29879,7 +29879,7 @@ if.end:                                           ; preds = %if.then.i.i.i45, %i
 
 if.then.i.i.i46:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 4 %first.coerce, i64 %sub.ptr.sub.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i46, %if.end
@@ -38020,7 +38020,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIm
 if.end.i.i.i.i.i162:                              ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit
   %cond.i160 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i160, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i163 = getelementptr inbounds i64, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i163 = getelementptr inbounds nuw i64, ptr %add.ptr54, i64 %__n
   %31 = load i64, ptr %__x, align 8
   %32 = add nuw nsw i64 %__n, 2305843009213693951
   %33 = and i64 %32, 2305843009213693951
@@ -46720,7 +46720,7 @@ if.end:                                           ; preds = %if.then.i.i.i38, %i
 
 if.then.i.i.i43:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 4 %first, i64 %sub.ptr.sub.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i43, %if.end

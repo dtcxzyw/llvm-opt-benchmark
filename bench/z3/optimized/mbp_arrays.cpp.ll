@@ -8961,7 +8961,7 @@ if.then:                                          ; preds = %while.body, %while.
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.022.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div20.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.022.i.i, -1
-  %add.ptr15.i.i = getelementptr inbounds %"struct.std::pair.86", ptr %__first, i64 %dec.i.i
+  %add.ptr15.i.i = getelementptr inbounds nuw %"struct.std::pair.86", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload16.i.i = load i32, ptr %add.ptr15.i.i, align 8
   %__value.sroa.3.0.add.ptr.sroa_idx18.i.i = getelementptr inbounds nuw i8, ptr %add.ptr15.i.i, i64 8
   %__value.sroa.3.0.copyload19.i.i = load ptr, ptr %__value.sroa.3.0.add.ptr.sroa_idx18.i.i, align 8
@@ -18669,7 +18669,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %invoke.cont, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %invoke.cont ]
-  %add.ptr = getelementptr inbounds %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %"struct.mbp::array_project_selects_util::idx_val", ptr %__first, i64 %__parent.0
   %0 = load i64, ptr %add.ptr, align 8
   store i64 %0, ptr %__value, align 8
   %m_nodes2.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8

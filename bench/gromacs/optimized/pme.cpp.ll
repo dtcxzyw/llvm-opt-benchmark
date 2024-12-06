@@ -9153,7 +9153,7 @@ _ZL19calc_next_lb_coeffsN3gmx8ArrayRefIfEENS0_IKfEE.exit237: ; preds = %_ZL19cal
   %975 = load i8, ptr %974, align 1
   %976 = trunc i8 %975 to i1
   %977 = select i1 %976, float %spec.select189, float 1.000000e+00
-  %978 = getelementptr inbounds [7 x float], ptr @_ZL15lb_scale_factor, i64 0, i64 %.0176435
+  %978 = getelementptr inbounds nuw [7 x float], ptr @_ZL15lb_scale_factor, i64 0, i64 %.0176435
   %979 = load float, ptr %978, align 4
   %980 = fmul float %977, %979
   store float %980, ptr %48, align 4

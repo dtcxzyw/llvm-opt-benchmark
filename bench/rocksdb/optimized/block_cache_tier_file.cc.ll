@@ -3273,7 +3273,7 @@ for.body.i:                                       ; preds = %land.rhs.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019.i, i64 %sub.i)
   %buf_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %buf_.i.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %8, i64 %start_off.020.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %8, i64 %start_off.020.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022.i, ptr align 1 %add.ptr.i, i64 %spec.select.i, i1 false)
   %sub15.i = sub i64 %pending_nbytes.019.i, %spec.select.i
   %add.ptr16.i = getelementptr inbounds i8, ptr %tmp.022.i, i64 %spec.select.i
@@ -3344,7 +3344,7 @@ for.body:                                         ; preds = %land.rhs
   %spec.select = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019, i64 %sub)
   %buf_.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %buf_.i, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %8, i64 %start_off.020
+  %add.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %start_off.020
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022, ptr align 1 %add.ptr, i64 %spec.select, i1 false)
   %sub15 = sub i64 %pending_nbytes.019, %spec.select
   %add.ptr16 = getelementptr inbounds i8, ptr %tmp.022, i64 %spec.select
@@ -4767,7 +4767,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
   %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %pending_nbytes.019.i.i, i64 %sub.i.i)
   %buf_.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %buf_.i.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %14, i64 %start_off.020.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %start_off.020.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %tmp.022.i.i, ptr align 1 %add.ptr.i.i, i64 %spec.select.i.i, i1 false)
   %sub15.i.i = sub i64 %pending_nbytes.019.i.i, %spec.select.i.i
   %add.ptr16.i.i = getelementptr inbounds i8, ptr %tmp.022.i.i, i64 %spec.select.i.i

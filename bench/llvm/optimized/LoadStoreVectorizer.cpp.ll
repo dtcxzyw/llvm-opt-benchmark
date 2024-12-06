@@ -14775,7 +14775,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_19ChainElemE
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i, %18
   %.013.i.i.i = phi i64 [ %21, %18 ], [ %34, %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i ]
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.i.i.i
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -15148,7 +15148,7 @@ _ZN12_GLOBAL__N_19ChainElemaSEOS0_.exit31:        ; preds = %36, %46, %49
   br i1 %62, label %63, label %.critedge.i
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
+  %64 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
   %65 = load ptr, ptr %61, align 8
   store ptr %65, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -16088,7 +16088,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_19ChainElemE
 
 24:                                               ; preds = %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i, %18
   %.013.i.i.i = phi i64 [ %21, %18 ], [ %34, %_ZN12_GLOBAL__N_19ChainElemD2Ev.exit19.i.i.i ]
-  %25 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.013.i.i.i
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -16687,7 +16687,7 @@ _ZNK4llvm5APIntneERKS0_.exit.i.i.i:               ; preds = %.lr.ph.i
   br i1 %95, label %96, label %.critedge.i.loopexit
 
 96:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122sortChainInOffsetOrderERN4llvm11SmallVectorINS2_9ChainElemELj1EEEE3$_0EclIPS5_S5_EEbT_RT0_.exit.i", %90
-  %97 = getelementptr inbounds %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
+  %97 = getelementptr inbounds nuw %"struct.(anonymous namespace)::ChainElem", ptr %0, i64 %.0133.i
   %98 = load ptr, ptr %80, align 8
   store ptr %98, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8

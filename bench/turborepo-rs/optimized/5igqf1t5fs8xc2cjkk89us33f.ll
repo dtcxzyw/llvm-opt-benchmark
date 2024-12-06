@@ -312,7 +312,7 @@ define hidden noundef align 4 dereferenceable_or_null(36) ptr @_RINvNtNtNtCs1Loa
   br i1 %.not.i.i.i.i, label %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipINtNtNtBe_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1K_.exit, label %.sink.split
 
 _RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipINtNtNtBe_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1K_.exit: ; preds = %17
-  %24 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %2, i64 %11
+  %24 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %2, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   br label %.sink.split
 
@@ -577,7 +577,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_RNvXs2U_NtNtCs1L
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null
@@ -613,7 +613,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_RNvXs32_NtNtCs1L
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null
@@ -997,7 +997,7 @@ _RNvXs0_NtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque8iter_mutINtB5_7IterMut
   %82 = sub nuw i64 %80, %81
   %83 = lshr exact i64 %82, 5
   %.not.i.i.i.i = icmp ult i64 %.sroa.0.0.i.i.i, %83
-  %84 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %65, i64 %.sroa.0.0.i.i.i
+  %84 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %65, i64 %.sroa.0.0.i.i.i
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %storemerge.i.i.i.i = select i1 %.not.i.i.i.i, ptr %85, ptr %79
   store ptr %storemerge.i.i.i.i, ptr %64, align 8, !alias.scope !230
@@ -1370,7 +1370,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB4_4TakeINtNtNtBa_5slice4i
   %124 = sub nuw i64 %122, %123
   %125 = lshr exact i64 %124, 5
   %.not.i.i12 = icmp ult i64 %.sroa.0.0, %125
-  %126 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %70, i64 %.sroa.0.0
+  %126 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %70, i64 %.sroa.0.0
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %storemerge.i.i = select i1 %.not.i.i12, ptr %127, ptr %121
   %.sroa.0.0.i.i13 = select i1 %.not.i.i12, ptr %126, ptr null
@@ -1386,7 +1386,7 @@ _RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters4takeINtB4_4TakeINtNtNtBa_5slice4i
   %134 = sub nuw i64 %132, %133
   %135 = lshr exact i64 %134, 5
   %.not.i2.i = icmp ult i64 %129, %135
-  %136 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %70, i64 %129
+  %136 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %70, i64 %129
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %storemerge.i3.i = select i1 %.not.i2.i, ptr %137, ptr %131
   store ptr %storemerge.i3.i, ptr %69, align 8, !alias.scope !340
@@ -1488,7 +1488,7 @@ _RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipIN
   br label %_RINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten17and_then_or_clearINtNtB4_4take4TakeINtNtB4_4skip4SkipINtNtNtB8_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEEQB29_NvYB16_NtNtNtB6_6traits8iterator8Iterator4nextEB2d_.llvm.18144538392194903364.exit.thread
 
 _RINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten17and_then_or_clearINtNtB4_4take4TakeINtNtB4_4skip4SkipINtNtNtB8_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEEQB29_NvYB16_NtNtNtB6_6traits8iterator8Iterator4nextEB2d_.llvm.18144538392194903364.exit: ; preds = %25
-  %31 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %13, i64 %20
+  %31 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %13, i64 %20
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   store ptr %32, ptr %2, align 8, !alias.scope !357
   br label %_RINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten17and_then_or_clearINtNtB4_4take4TakeINtNtB4_4skip4SkipINtNtNtB8_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEEQB29_NvYB16_NtNtNtB6_6traits8iterator8Iterator4nextEB2d_.llvm.18144538392194903364.exit9
@@ -1590,7 +1590,7 @@ _RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipIN
   br i1 %.not.i.i.i.i.i4, label %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipINtNtNtBe_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1K_.exit.i7, label %_RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipINtNtNtBe_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1K_.exit.thread.i5
 
 _RNvYNvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters4take4TakeINtNtBa_4skip4SkipINtNtNtBe_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEENtNtNtBc_6traits8iterator8Iterator4nextINtNtNtBe_3ops8function6FnOnceTQB5_EE9call_onceB1K_.exit.i7: ; preds = %74
-  %81 = getelementptr inbounds { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %59, i64 %68
+  %81 = getelementptr inbounds nuw { [6 x i32], i8, { { i8, [3 x i8] }, { i8, [3 x i8] }, i8 }, i8, [1 x i8] }, ptr %59, i64 %68
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 36
   store ptr %82, ptr %58, align 8, !alias.scope !397
   br label %_RINvNtNtNtCs1LoaDTb72WA_4core4iter8adapters7flatten17and_then_or_clearINtNtB4_4take4TakeINtNtB4_4skip4SkipINtNtNtB8_5slice4iter7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1004cell4CellEEEQB29_NvYB16_NtNtNtB6_6traits8iterator8Iterator4nextEB2d_.llvm.18144538392194903364.exit9
@@ -5408,7 +5408,7 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1004gridNtB2_4Grid17erase_all_fo
   %19 = sub nuw i64 %13, %18
   %20 = lshr exact i64 %19, 5
   %.not.i.not = icmp samesign ult i64 %.sroa.10.0, %20
-  %21 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.0, i64 %.sroa.10.0
+  %21 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %.sroa.0.0, i64 %.sroa.10.0
   br i1 %.not.i.not, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread11, label %_RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread
 
 _RNvXs32_NtNtCs1LoaDTb72WA_4core5slice4iterINtB6_7IterMutNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtBa_4iter6traits8iterator8Iterator4nextBW_.llvm.18144538392194903364.exit.thread: ; preds = %15, %17

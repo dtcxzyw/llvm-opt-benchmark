@@ -197,7 +197,7 @@ define hidden noundef i64 @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C
   %13 = sub nuw i64 %11, %12
   %14 = lshr exact i64 %13, 4
   %.not.i.not.i.i = icmp ult i64 %9, %14
-  %15 = getelementptr inbounds { ptr, i64 }, ptr %6, i64 %9
+  %15 = getelementptr inbounds nuw { ptr, i64 }, ptr %6, i64 %9
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   br i1 %.not.i.not.i.i, label %._crit_edge.i.i, label %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf420de0cd25dfac9E.exit"
 

@@ -769,7 +769,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_9ConstPool4No
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
   %71 = zext i1 %70 to i64
-  %72 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 %21
+  %72 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
   %73 = load i64, ptr %72, align 8, !tbaa !14
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr

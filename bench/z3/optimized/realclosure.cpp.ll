@@ -50886,7 +50886,7 @@ if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80
   %__parent.086 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN11realclosure9algebraicElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12rank_lt_procEEEEvT_T0_SA_T1_T2_.exit80 ]
   %dec = add nsw i64 %__parent.086, -1
-  %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %8 = load ptr, ptr %add.ptr10, align 8
   %cmp26.i14.not = icmp sgt i64 %__parent.086, %div.i8183
   br i1 %cmp26.i14.not, label %while.end.i15, label %while.body.i55

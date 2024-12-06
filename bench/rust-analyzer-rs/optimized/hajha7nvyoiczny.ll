@@ -57999,7 +57999,7 @@ _ZN6hir_ty5infer16InferenceContext18resolve_ty_shallow17h70ef0141bc38dcc8E.exit:
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$8split_at17h5612922a76407e38E.exit": ; preds = %355
-  %361 = getelementptr inbounds i32, ptr %184, i64 %.sroa.3.0.i73
+  %361 = getelementptr inbounds nuw i32, ptr %184, i64 %.sroa.3.0.i73
   %362 = sub nuw i64 %186, %.sroa.3.0.i73
   br label %369
 
@@ -59835,7 +59835,7 @@ _ZN6hir_ty19fold_tys_and_consts17haafce9ae70a60a16E.exit258: ; preds = %_ZN8chal
   unreachable
 
 959:                                              ; preds = %953
-  %960 = getelementptr inbounds i32, ptr %926, i64 %.sroa.3.0.i
+  %960 = getelementptr inbounds nuw i32, ptr %926, i64 %.sroa.3.0.i
   %961 = sub nuw i64 %928, %.sroa.3.0.i
   %962 = call i64 @llvm.usub.sat.i64(i64 %.sroa.3.0.i90, i64 %928)
   br label %963

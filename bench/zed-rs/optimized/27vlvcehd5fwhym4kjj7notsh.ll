@@ -8871,7 +8871,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
 160:                                              ; preds = %157
   %161 = zext i32 %158 to i64
   %162 = add nsw i64 %161, -1
-  %163 = getelementptr inbounds [0 x ptr], ptr %152, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [0 x ptr], ptr %152, i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8, !nonnull !10, !noundef !10
   %.sroa.07.0 = getelementptr inbounds nuw i8, ptr %164, i64 24
   invoke fastcc void @"_ZN60_$LT$text..FragmentSummary$u20$as$u20$core..clone..Clone$GT$5clone17hba97336b9046e4ccE"(ptr noalias nocapture noundef align 8 dereferenceable(200) %52, ptr noalias noundef readonly align 8 dereferenceable(200) %.sroa.07.0)
@@ -10278,7 +10278,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
 127:                                              ; preds = %123
   %128 = zext i32 %117 to i64
   %129 = add nsw i64 %128, -1
-  %130 = getelementptr inbounds [0 x ptr], ptr %111, i64 0, i64 %129
+  %130 = getelementptr inbounds nuw [0 x ptr], ptr %111, i64 0, i64 %129
   %131 = load ptr, ptr %130, align 8, !nonnull !10, !noundef !10
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i8, ptr %132, align 8, !range !43, !noundef !10
@@ -12692,7 +12692,7 @@ _ZN4core10intrinsics10typed_swap17h7829ea9bedf00e9bE.exit.i: ; preds = %357
 443:                                              ; preds = %441
   %444 = zext i32 %442 to i64
   %445 = add nsw i64 %444, -1
-  %446 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %143, i64 0, i64 %445
+  %446 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %143, i64 0, i64 %445
   %447 = load ptr, ptr %446, align 8, !alias.scope !4334, !noalias !4337, !nonnull !10, !align !221, !noundef !10
   %448 = load ptr, ptr %447, align 8, !noalias !4339, !nonnull !10, !noundef !10
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 16
@@ -12743,7 +12743,7 @@ _ZN4core10intrinsics10typed_swap17h7829ea9bedf00e9bE.exit.i: ; preds = %357
 
 .cont:                                            ; preds = %459
   %464 = getelementptr inbounds nuw i8, ptr %448, i64 32
-  %465 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %464, i64 0, i64 %453
+  %465 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %464, i64 0, i64 %453
   call void @llvm.experimental.noalias.scope.decl(metadata !4340)
   call void @llvm.experimental.noalias.scope.decl(metadata !4343)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %29), !noalias !4346
@@ -13545,7 +13545,7 @@ _ZN4core10intrinsics10typed_swap17h7829ea9bedf00e9bE.exit.i96: ; preds = %624
 702:                                              ; preds = %700
   %703 = zext i32 %701 to i64
   %704 = add nsw i64 %703, -1
-  %705 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %143, i64 0, i64 %704
+  %705 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %143, i64 0, i64 %704
   %706 = load ptr, ptr %705, align 8, !alias.scope !4632, !noalias !4635, !nonnull !10, !align !221, !noundef !10
   %707 = load ptr, ptr %706, align 8, !noalias !4637, !nonnull !10, !noundef !10
   %708 = getelementptr inbounds nuw i8, ptr %707, i64 16
@@ -13568,7 +13568,7 @@ _ZN4core10intrinsics10typed_swap17h7829ea9bedf00e9bE.exit.i96: ; preds = %624
 
 719:                                              ; preds = %717
   %720 = getelementptr inbounds nuw i8, ptr %707, i64 32
-  %721 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %720, i64 0, i64 %712
+  %721 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %720, i64 0, i64 %712
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h0843206f455fe389E.exit123"
 
 "_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h0843206f455fe389E.exit123": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h059adba601a165a0E.exit", %719

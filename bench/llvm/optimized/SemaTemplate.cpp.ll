@@ -17824,6 +17824,7 @@ _ZN5clang23LocalInstantiationScopeC2ERNS_4SemaEb.exit: ; preds = %.lr.ph.i.i.i.i
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
+  %indvars.iv = phi i32 [ 1, %.lr.ph.lr.ph ], [ %indvars.iv.next, %.outer.backedge ]
   %.0178.ph360 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.0178.ph.be, %.outer.backedge ]
   %.0182.ph359 = phi ptr [ %.ptr, %.lr.ph.lr.ph ], [ %.0182.ph.be, %.outer.backedge ]
   %131 = icmp ne i32 %.0178.ph360, %106
@@ -18131,6 +18132,7 @@ _ZNK5clang19TemplateArgumentLoc11getLocationEv.exit: ; preds = %250, %255
   %.0182.ph.be = phi ptr [ %464, %463 ], [ %.1183, %288 ]
   %.0178.ph.be = phi i32 [ %465, %463 ], [ %270, %288 ]
   %.not199355 = icmp eq ptr %.0182.ph.be, %.ptr370
+  %indvars.iv.next = add i32 %indvars.iv, 1
   br i1 %.not199355, label %.outer._crit_edge, label %.lr.ph, !llvm.loop !103
 
 289:                                              ; preds = %288
@@ -18163,19 +18165,19 @@ _ZNK5clang19TemplateArgumentLoc11getLocationEv.exit: ; preds = %250, %255
   br i1 %309, label %.lr.ph364.preheader, label %_ZN5clang4Sema11ContextRAIID2Ev.exit
 
 .lr.ph364.preheader:                              ; preds = %308
-  %310 = zext i32 %270 to i64
+  %310 = zext i32 %indvars.iv to i64
   br label %.lr.ph364
 
 .lr.ph364:                                        ; preds = %.lr.ph364.preheader, %.lr.ph364
-  %indvars.iv = phi i64 [ %310, %.lr.ph364.preheader ], [ %indvars.iv.next, %.lr.ph364 ]
+  %indvars.iv408 = phi i64 [ %310, %.lr.ph364.preheader ], [ %indvars.iv.next409, %.lr.ph364 ]
   %311 = load ptr, ptr %25, align 8
-  %312 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %311, i64 %indvars.iv
+  %312 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %311, i64 %indvars.iv408
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %312)
   %313 = load ptr, ptr %120, align 8
   call void @_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16TemplateArgumentE(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %41, ptr noundef nonnull align 8 dereferenceable(23096) %313, ptr noundef nonnull align 8 dereferenceable(24) %312) #24
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %41)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next409 to i32
   %exitcond.not = icmp eq i32 %lftr.wideiv, %106
   br i1 %exitcond.not, label %_ZN5clang4Sema11ContextRAIID2Ev.exit, label %.lr.ph364, !llvm.loop !110
 
@@ -18538,25 +18540,25 @@ _ZNK5clang19TemplateArgumentLoc18getTemplateNameLocEv.exit: ; preds = %_ZNK5clan
   br label %473
 
 473:                                              ; preds = %.lr.ph366, %477
-  %indvars.iv398 = phi i64 [ %472, %.lr.ph366 ], [ %indvars.iv.next399, %477 ]
+  %indvars.iv411 = phi i64 [ %472, %.lr.ph366 ], [ %indvars.iv.next412, %477 ]
   %474 = load ptr, ptr %25, align 8
-  %475 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %474, i64 %indvars.iv398
+  %475 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %474, i64 %indvars.iv411
   %476 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument15isPackExpansionEv(ptr noundef nonnull align 8 dereferenceable(24) %475) #24
   br i1 %476, label %477, label %.critedge.loopexit
 
 477:                                              ; preds = %473
-  %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
+  %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %478 = load ptr, ptr %25, align 8
-  %479 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %478, i64 %indvars.iv398
+  %479 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %478, i64 %indvars.iv411
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(24) %479)
   %480 = load ptr, ptr %471, align 8
   call void @_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16TemplateArgumentE(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %55, ptr noundef nonnull align 8 dereferenceable(23096) %480, ptr noundef nonnull align 8 dereferenceable(24) %479) #24
   call void @_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(24) %55)
-  %exitcond401.not = icmp eq i64 %indvars.iv.next399, %wide.trip.count
-  br i1 %exitcond401.not, label %.critedge.thread, label %473, !llvm.loop !111
+  %exitcond414.not = icmp eq i64 %indvars.iv.next412, %wide.trip.count
+  br i1 %exitcond414.not, label %.critedge.thread, label %473, !llvm.loop !111
 
 .critedge.loopexit:                               ; preds = %473
-  %481 = trunc nuw i64 %indvars.iv398 to i32
+  %481 = trunc nuw i64 %indvars.iv411 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %469, %467, %.outer._crit_edge

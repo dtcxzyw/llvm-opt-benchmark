@@ -5407,7 +5407,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i97: ; preds = %182
   %.sroa.4.0154 = phi i64 [ %198, %_ZN5rayon5slice9mergesort11insert_head17h9c722bca3f6f4e2bE.exit ], [ %27, %.lr.ph.preheader ]
   %198 = add i64 %.sroa.4.0154, -1
   %199 = sub nuw nsw i64 %1, %198
-  %200 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %0, i64 %198
+  %200 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %0, i64 %198
   %.val76 = load ptr, ptr %17, align 8, !nonnull !18, !noundef !18
   call void @llvm.experimental.noalias.scope.decl(metadata !1433)
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 24
@@ -5447,7 +5447,7 @@ _ZN4core3ptr19swap_nonoverlapping17h45446940a5c53ec3E.exit.i.i97: ; preds = %182
 
 211:                                              ; preds = %209
   %212 = add nsw i64 %.sroa.02.07.i, -1
-  %213 = getelementptr inbounds [0 x { { ptr, i64 }, i64 }], ptr %200, i64 0, i64 %212
+  %213 = getelementptr inbounds nuw [0 x { { ptr, i64 }, i64 }], ptr %200, i64 0, i64 %212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %213, ptr noundef nonnull align 8 dereferenceable(24) %207, i64 24, i1 false), !alias.scope !1433
   %exitcond.not.i = icmp eq i64 %206, %199
   br i1 %exitcond.not.i, label %.thread.i, label %.lr.ph.i

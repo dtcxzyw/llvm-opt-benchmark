@@ -5047,7 +5047,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   br i1 %98, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd71cfdd590b2a58E.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd71cfdd590b2a58E.exit.lr.ph"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd71cfdd590b2a58E.exit.lr.ph": ; preds = %96
-  %99 = getelementptr inbounds i32, ptr %38, i64 %91
+  %99 = getelementptr inbounds nuw i32, ptr %38, i64 %91
   %100 = zext i16 %.019 to i32
   %101 = zext i16 %.020 to i32
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 2260

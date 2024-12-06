@@ -1475,7 +1475,7 @@ ecp_comb_recode_scalar.exit.thread.i.i:           ; preds = %204
   %store_forwarded = phi i8 [ %load_initial, %.lr.ph.i.i.i.i.preheader ], [ %240, %.lr.ph.i.i.i.i ]
   %.153.i.i.i.i = phi i64 [ 1, %.lr.ph.i.i.i.i.preheader ], [ %243, %.lr.ph.i.i.i.i ]
   %.04552.i.i.i.i = phi i8 [ 0, %.lr.ph.i.i.i.i.preheader ], [ %239, %.lr.ph.i.i.i.i ]
-  %231 = getelementptr inbounds i8, ptr %12, i64 %.153.i.i.i.i
+  %231 = getelementptr inbounds nuw i8, ptr %12, i64 %.153.i.i.i.i
   %232 = load i8, ptr %231, align 1
   %233 = and i8 %232, %.04552.i.i.i.i
   %234 = xor i8 %232, %.04552.i.i.i.i
@@ -1555,7 +1555,7 @@ mpi_init_many.exit.i.i.i:                         ; preds = %247
   br i1 %.not38.i.i.i, label %260, label %.loopexit.i.i.i
 
 260:                                              ; preds = %.preheader.i.i.i
-  %261 = getelementptr inbounds i8, ptr %12, i64 %258
+  %261 = getelementptr inbounds nuw i8, ptr %12, i64 %258
   %262 = load i8, ptr %261, align 1
   %263 = call fastcc i32 @ecp_select_comb(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %.08.i, i8 noundef zeroext range(i8 2, 33) %111, i8 noundef zeroext %262)
   %.not39.i.i.i = icmp eq i32 %263, 0

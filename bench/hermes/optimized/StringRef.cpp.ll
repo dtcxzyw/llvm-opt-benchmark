@@ -616,7 +616,7 @@ if.then58:                                        ; preds = %for.cond12.for.end5
   br label %cleanup
 
 for.end63:                                        ; preds = %for.cond5, %for.cond12.for.end55_crit_edge.split.us, %for.cond5.us74, %for.cond12.for.end55_crit_edge.split.us.us.us, %for.cond5.for.end63_crit_edge.split.us, %for.cond5.preheader
-  %arrayidx64 = getelementptr inbounds i32, ptr %Row.0110, i64 %ToArray.coerce1
+  %arrayidx64 = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %ToArray.coerce1
   %27 = load i32, ptr %arrayidx64, align 4
   br label %cleanup
 
@@ -777,7 +777,7 @@ for.body.preheader:                               ; preds = %if.end15
   br label %for.body
 
 do.body42.preheader:                              ; preds = %for.body
-  %arrayidx47 = getelementptr inbounds i8, ptr %Str.coerce0, i64 %sub33
+  %arrayidx47 = getelementptr inbounds nuw i8, ptr %Str.coerce0, i64 %sub33
   %5 = load i8, ptr %arrayidx47, align 1
   br label %do.body42
 
@@ -798,7 +798,7 @@ for.body:                                         ; preds = %for.body.preheader,
 
 do.body42:                                        ; preds = %do.body42.preheader, %if.end61
   %Start.1 = phi ptr [ %add.ptr65, %if.end61 ], [ %add.ptr, %do.body42.preheader ]
-  %arrayidx44 = getelementptr inbounds i8, ptr %Start.1, i64 %sub33
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %Start.1, i64 %sub33
   %7 = load i8, ptr %arrayidx44, align 1
   %cmp49 = icmp eq i8 %7, %5
   br i1 %cmp49, label %if.then51, label %if.end61

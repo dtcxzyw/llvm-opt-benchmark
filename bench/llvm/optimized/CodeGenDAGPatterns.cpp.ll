@@ -46532,7 +46532,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPPN4llvm6RecordElN9__gnu_cxx5__
 .split14.i.i:                                     ; preds = %.split.i.i, %.split14.i.i
   %.016.i.i = phi i64 [ %15, %.split14.i.i ], [ %12, %.split.i.i ]
   %15 = add nsw i64 %.016.i.i, -1
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_10LessRecordEEEEvT_T0_SA_T1_T2_(ptr noundef nonnull %0, i64 noundef %15, i64 noundef %10, ptr noundef %17)
   %18 = icmp eq i64 %15, 0

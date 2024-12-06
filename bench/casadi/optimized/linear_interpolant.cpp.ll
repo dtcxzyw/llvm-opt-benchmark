@@ -3447,7 +3447,7 @@ _ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit: ; pre
 .lr.ph124:                                        ; preds = %_ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit, %.loopexit112
   %.097123.in = phi i64 [ %.097123, %.loopexit112 ], [ %1, %_ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit ]
   %.097123 = add nsw i64 %.097123.in, -1
-  %56 = getelementptr inbounds i64, ptr %14, i64 %.097123
+  %56 = getelementptr inbounds nuw i64, ptr %14, i64 %.097123
   %57 = load i64, ptr %56, align 8
   %.not103 = icmp eq i64 %57, 0
   br i1 %.not103, label %.preheader, label %.preheader113
@@ -3456,20 +3456,20 @@ _ZN6casadi26casadi_interpn_interpolateIdEEvPT_xPKxPKS1_S6_S4_S4_S2_x.exit: ; pre
   br i1 %20, label %.lr.ph, label %.loopexit112
 
 .lr.ph:                                           ; preds = %.preheader113
-  %58 = getelementptr inbounds double, ptr %12, i64 %.097123
+  %58 = getelementptr inbounds nuw double, ptr %12, i64 %.097123
   %59 = mul nsw i64 %.097123, %7
   %60 = getelementptr double, ptr %0, i64 %59
-  %61 = getelementptr inbounds double, ptr %9, i64 %.097123
+  %61 = getelementptr inbounds nuw double, ptr %9, i64 %.097123
   br label %66
 
 .preheader:                                       ; preds = %.lr.ph124
   br i1 %20, label %.lr.ph121, label %.loopexit112
 
 .lr.ph121:                                        ; preds = %.preheader
-  %62 = getelementptr inbounds double, ptr %12, i64 %.097123
+  %62 = getelementptr inbounds nuw double, ptr %12, i64 %.097123
   %63 = mul nsw i64 %.097123, %7
   %64 = getelementptr double, ptr %0, i64 %63
-  %65 = getelementptr inbounds double, ptr %9, i64 %.097123
+  %65 = getelementptr inbounds nuw double, ptr %9, i64 %.097123
   br label %77
 
 66:                                               ; preds = %.lr.ph, %66
@@ -7579,7 +7579,7 @@ define linkonce_odr hidden void @_ZN6casadi22casadi_interpn_weightsIdEEvxPKT_PKx
 
 43:                                               ; preds = %39
   %44 = add nsw i64 %21, -1
-  %45 = getelementptr inbounds double, ptr %17, i64 %44
+  %45 = getelementptr inbounds nuw double, ptr %17, i64 %44
   %46 = load double, ptr %45, align 8
   %47 = fcmp ogt double %14, %46
   br i1 %47, label %48, label %.preheader52.i.outer

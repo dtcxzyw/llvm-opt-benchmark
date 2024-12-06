@@ -32854,8 +32854,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 15:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !11134
   %16 = add nsw i64 %1, -1
-  %17 = getelementptr inbounds { { i32, [1 x i32] }, { { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %16
-  %18 = getelementptr inbounds { { i32, [1 x i32] }, { { i32, i32 }, { i32, i32 } } }, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw { { i32, [1 x i32] }, { { i32, i32 }, { i32, i32 } } }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw { { i32, [1 x i32] }, { { i32, i32 }, { i32, i32 } } }, ptr %4, i64 %16
   %19 = getelementptr i8, ptr %10, i64 -24
   br label %.lr.ph.i.i
 
@@ -33191,8 +33191,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !11217)
   %30 = getelementptr i8, ptr %19, i64 -64
   %31 = add nsw i64 %1, -1
-  %32 = getelementptr inbounds { i64, [7 x i64] }, ptr %13, i64 %31
-  %33 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %13, i64 %31
+  %33 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8

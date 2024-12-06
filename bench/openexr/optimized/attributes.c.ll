@@ -1002,7 +1002,7 @@ if.then48:                                        ; preds = %if.end45
 
 if.end55:                                         ; preds = %if.then48, %if.end45
   %ptr.1 = phi ptr [ %add.ptr54, %if.then48 ], [ %ptr.0, %if.end45 ]
-  %add.ptr56 = getelementptr inbounds i8, ptr %ptr.1, i64 %alignpad1.0
+  %add.ptr56 = getelementptr inbounds nuw i8, ptr %ptr.1, i64 %alignpad1.0
   br i1 %cmp9.not, label %if.end61, label %if.then59
 
 if.then59:                                        ; preds = %if.end55
@@ -1020,7 +1020,7 @@ if.then63:                                        ; preds = %if.end61
   br i1 %cmp19, label %if.then66, label %if.else68
 
 if.then66:                                        ; preds = %if.then63
-  %add.ptr67 = getelementptr inbounds i8, ptr %ptr.2, i64 %alignpad2.0
+  %add.ptr67 = getelementptr inbounds nuw i8, ptr %ptr.2, i64 %alignpad2.0
   store ptr %add.ptr67, ptr %data_ptr, align 8
   br label %return
 
@@ -1661,7 +1661,7 @@ if.then38.i:                                      ; preds = %if.end35.i
 
 if.end45.i:                                       ; preds = %if.then38.i, %if.end35.i
   %ptr.0.i = phi ptr [ %add.ptr44.i, %if.then38.i ], [ %add.ptr.i, %if.end35.i ]
-  %add.ptr56.i = getelementptr inbounds i8, ptr %ptr.0.i, i64 %alignpad1.0.i
+  %add.ptr56.i = getelementptr inbounds nuw i8, ptr %ptr.0.i, i64 %alignpad1.0.i
   br i1 %cmp9.not.i, label %if.end61.i, label %if.then59.i
 
 if.then59.i:                                      ; preds = %if.end45.i
@@ -1676,7 +1676,7 @@ if.end61.i:                                       ; preds = %if.then59.i, %if.en
   br i1 %tobool62.not.i, label %if.end45, label %if.then63.i
 
 if.then63.i:                                      ; preds = %if.end61.i
-  %add.ptr67.i = getelementptr inbounds i8, ptr %ptr.2.i, i64 %alignpad2.0.i
+  %add.ptr67.i = getelementptr inbounds nuw i8, ptr %ptr.2.i, i64 %alignpad2.0.i
   %.sink = select i1 %cmp19.i, ptr %add.ptr67.i, ptr null
   store ptr %.sink, ptr %data_ptr, align 8
   br label %if.end45
@@ -1838,7 +1838,7 @@ if.end61.i:                                       ; preds = %if.then59.i, %if.en
   br i1 %tobool62.not.i, label %if.end47, label %if.then63.i
 
 if.then63.i:                                      ; preds = %if.end61.i
-  %add.ptr67.i = getelementptr inbounds i8, ptr %ptr.2.i, i64 %alignpad2.0.i
+  %add.ptr67.i = getelementptr inbounds nuw i8, ptr %ptr.2.i, i64 %alignpad2.0.i
   %.sink = select i1 %cmp19.i, ptr %add.ptr67.i, ptr null
   store ptr %.sink, ptr %data_ptr, align 8
   br label %if.end47

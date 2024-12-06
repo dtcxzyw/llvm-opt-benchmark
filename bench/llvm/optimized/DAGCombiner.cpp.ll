@@ -173659,7 +173659,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111LoadedSli
 
 47:                                               ; preds = %47, %43
   %.0.i.i.i = phi i64 [ %46, %43 ], [ %50, %47 ]
-  %48 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.i.i.i
+  %48 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0.i.i.i
   call fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %44, ptr noundef nonnull byval(%"struct.(anonymous namespace)::LoadedSlice") align 8 %48)
   %49 = icmp eq i64 %.0.i.i.i, 0
   %50 = add nsw i64 %.0.i.i.i, -1
@@ -174206,7 +174206,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN12_GLOBAL__N_111LoadedSliceE
   br i1 %35, label %36, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
 36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0133.i
+  %37 = getelementptr inbounds nuw %"struct.(anonymous namespace)::LoadedSlice", ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false)
   %38 = icmp sgt i64 %.04.i, %1
   br i1 %38, label %.lr.ph.i, label %"_ZSt11__push_heapIPN12_GLOBAL__N_111LoadedSliceElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL20adjustCostForPairingRN4llvm15SmallVectorImplIS1_EERNS1_4CostEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !761
@@ -181561,7 +181561,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   br i1 %50, label %51, label %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0133.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %48, i64 16, i1 false)
   %53 = icmp sgt i64 %.04.i.i.i.i.i, %23
   br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !822
@@ -181584,7 +181584,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
 .split19.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit39.i.i.i", %.split19.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %23, %.split19.lr.ph.i.i.i ], [ %59, %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit39.i.i.i" ]
   %59 = add nsw i64 %.06.i.i.i, -1
-  %60 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %59
   %.sroa.02.0.copyload20.i.i.i = load ptr, ptr %60, align 8
   %.sroa.23.0..sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %60, i64 8
   %.sroa.23.0.copyload22.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx21.i.i.i, align 8
@@ -181634,7 +181634,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN12_GLOBAL__N_111DAGCombin
   br i1 %75, label %76, label %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit39.i.i.i"
 
 76:                                               ; preds = %.lr.ph.i.i29.i.i.i
-  %77 = getelementptr inbounds %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0133.i.i30.i.i.i
+  %77 = getelementptr inbounds nuw %"struct.(anonymous namespace)::DAGCombiner::MemOpLink", ptr %0, i64 %.0133.i.i30.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false)
   %.not5.i.i.i = icmp slt i64 %.04.i.i32.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPN12_GLOBAL__N_111DAGCombiner9MemOpLinkElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_22mergeConsecutiveStoresEPN4llvm11StoreSDNodeEE3$_0EEEvT_T0_SD_T1_T2_.exit39.i.i.i", label %.lr.ph.i.i29.i.i.i, !llvm.loop !822

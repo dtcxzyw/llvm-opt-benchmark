@@ -76501,7 +76501,7 @@ define void @_ZN4gpui8elements4list9ListState15bounds_for_item17h4b3d2b5ae808e6f
   %64 = zext i32 %62 to i64
   %65 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %66 = add nsw i64 %64, -1
-  %67 = getelementptr inbounds [0 x { ptr, i64, { i64, float, [1 x i32] } }], ptr %65, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, float, [1 x i32] } }], ptr %65, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !alias.scope !15395, !noalias !15398, !nonnull !9, !align !890, !noundef !9
   %69 = load ptr, ptr %68, align 8, !noalias !15400, !nonnull !9, !noundef !9
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 828
@@ -76538,7 +76538,7 @@ define void @_ZN4gpui8elements4list9ListState15bounds_for_item17h4b3d2b5ae808e6f
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %86 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %85, i64 0, i64 %76
+  %86 = getelementptr inbounds nuw [0 x { i32, [7 x i32] }], ptr %85, i64 0, i64 %76
   %87 = load i32, ptr %86, align 8, !range !1000, !noundef !9
   %trunc = trunc nuw i32 %87 to i1
   %88 = load i64, ptr %8, align 8
@@ -76924,7 +76924,7 @@ define internal fastcc void @_ZN4gpui8elements4list10StateInner12layout_items17h
 160:                                              ; preds = %158
   %161 = zext i32 %159 to i64
   %162 = add nsw i64 %161, -1
-  %163 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %143, i64 0, i64 %162
+  %163 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %143, i64 0, i64 %162
   %164 = load ptr, ptr %163, align 8, !alias.scope !15461, !noalias !15464, !nonnull !9, !align !890, !noundef !9
   %165 = load ptr, ptr %164, align 8, !noalias !15466, !nonnull !9, !noundef !9
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 828
@@ -76965,7 +76965,7 @@ define internal fastcc void @_ZN4gpui8elements4list10StateInner12layout_items17h
 
 182:                                              ; preds = %177
   %183 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  %184 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %183, i64 0, i64 %172
+  %184 = getelementptr inbounds nuw [0 x { i32, [7 x i32] }], ptr %183, i64 0, i64 %172
   %185 = load i64, ptr %72, align 8, !noundef !9
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %32)
   call void @llvm.experimental.noalias.scope.decl(metadata !15467)
@@ -77254,7 +77254,7 @@ _ZN4gpui8elements4list8ListItem16contains_focused17h1556a3b4636388e6E.exit.threa
 291:                                              ; preds = %289
   %292 = zext i32 %290 to i64
   %293 = add nsw i64 %292, -1
-  %294 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %278, i64 0, i64 %293
+  %294 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %278, i64 0, i64 %293
   %295 = load ptr, ptr %294, align 8, !alias.scope !15509, !noalias !15512, !nonnull !9, !align !890, !noundef !9
   %296 = load ptr, ptr %295, align 8, !noalias !15514, !nonnull !9, !noundef !9
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 828
@@ -77277,7 +77277,7 @@ _ZN4gpui8elements4list8ListItem16contains_focused17h1556a3b4636388e6E.exit.threa
 
 309:                                              ; preds = %307
   %310 = getelementptr inbounds nuw i8, ptr %296, i64 24
-  %311 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %310, i64 0, i64 %303
+  %311 = getelementptr inbounds nuw [0 x { i32, [7 x i32] }], ptr %310, i64 0, i64 %303
   %312 = load i32, ptr %311, align 8, !range !1000, !noundef !9
   %trunc56 = trunc nuw i32 %312 to i1
   br i1 %trunc56, label %313, label %318
@@ -77703,7 +77703,7 @@ _ZN4gpui8elements4list8ListItem12focus_handle17h602e3df496f1b0b9E.llvm.120180527
 464:                                              ; preds = %462
   %465 = zext i32 %463 to i64
   %466 = add nsw i64 %465, -1
-  %467 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %451, i64 0, i64 %466
+  %467 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %451, i64 0, i64 %466
   %468 = load ptr, ptr %467, align 8, !alias.scope !15633, !noalias !15636, !nonnull !9, !align !890, !noundef !9
   %469 = load ptr, ptr %468, align 8, !noalias !15638, !nonnull !9, !noundef !9
   %470 = getelementptr inbounds nuw i8, ptr %469, i64 828
@@ -77740,7 +77740,7 @@ _ZN4gpui8elements4list8ListItem12focus_handle17h602e3df496f1b0b9E.llvm.120180527
 
 484:                                              ; preds = %481
   %485 = getelementptr inbounds nuw i8, ptr %469, i64 24
-  %486 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %485, i64 0, i64 %476
+  %486 = getelementptr inbounds nuw [0 x { i32, [7 x i32] }], ptr %485, i64 0, i64 %476
   %487 = load i32, ptr %486, align 8, !range !1000, !alias.scope !15639, !noalias !15642, !noundef !9
   %trunc.i150 = trunc nuw i32 %487 to i1
   %.sroa.02.0.v.i151 = select i1 %trunc.i150, i64 16, i64 8
@@ -78793,7 +78793,7 @@ common.resume.i:                                  ; preds = %.body.i, %242, %238
 314:                                              ; preds = %312
   %315 = zext i32 %313 to i64
   %316 = add nsw i64 %315, -1
-  %317 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %294, i64 0, i64 %316
+  %317 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %294, i64 0, i64 %316
   %318 = load ptr, ptr %317, align 8, !alias.scope !15930, !noalias !15933, !nonnull !9, !align !890, !noundef !9
   %319 = load ptr, ptr %318, align 8, !noalias !15936, !nonnull !9, !noundef !9
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 828
@@ -78830,7 +78830,7 @@ common.resume.i:                                  ; preds = %.body.i, %242, %238
 
 334:                                              ; preds = %331
   %335 = getelementptr inbounds nuw i8, ptr %319, i64 24
-  %336 = getelementptr inbounds [0 x { i32, [7 x i32] }], ptr %335, i64 0, i64 %326
+  %336 = getelementptr inbounds nuw [0 x { i32, [7 x i32] }], ptr %335, i64 0, i64 %326
   %337 = load i32, ptr %336, align 8, !range !1000, !alias.scope !15937, !noalias !15940, !noundef !9
   %trunc.i42.i.i = trunc nuw i32 %337 to i1
   br i1 %trunc.i42.i.i, label %371, label %338
@@ -113408,11 +113408,11 @@ default.unreachable1.i.i:                         ; preds = %217
   store float %230, ptr %257, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) @anon.a22c35433011442b18091cbc43717a7e.639, i64 24, i1 false)
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %258, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 24), i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %258, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 24), i64 24, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 48), i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %259, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 48), i64 24, i1 false)
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %260, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 72), i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %260, ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @anon.a22c35433011442b18091cbc43717a7e.639, i64 72), i64 24, i1 false)
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 338
   store i8 0, ptr %261, align 2
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 304

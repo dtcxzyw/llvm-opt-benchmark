@@ -1853,7 +1853,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i.i.i.i.i", label %62
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i.i.i.i.i.i.i": ; preds = %57
-  %58 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
   %59 = load i8, ptr %58, align 1, !alias.scope !320, !noalias !318, !noundef !4
   %60 = icmp sgt i8 %59, -65
   %61 = sub nuw nsw i64 %2, %.sroa.8.0.ph.i.i.i.i.i.i
@@ -1899,7 +1899,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   br i1 %80, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i28.i.i.i.i.i.i", label %127
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.i29.i.i.i.i.i.i": ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.8.0.ph.i.i.i.i.i.i
   %82 = load i8, ptr %81, align 1, !alias.scope !336, !noalias !318, !noundef !4
   %83 = icmp sgt i8 %82, -65
   br i1 %83, label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i28.i.i.i.i.i.i", label %127
@@ -1913,7 +1913,7 @@ _ZN10serde_json3ser9Formatter12begin_string17h785f0624fd0eb9a2E.exit.i.i.i.i.i: 
   br i1 %85, label %128, label %127
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit7.i.i.i.i.i.i.i": ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.i28.i.i.i.i.i.i"
-  %86 = getelementptr inbounds i8, ptr %1, i64 %.sroa.8.0.i.i.i.i.i.i
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.8.0.i.i.i.i.i.i
   %87 = load i8, ptr %86, align 1, !alias.scope !341, !noalias !318, !noundef !4
   %88 = icmp sgt i8 %87, -65
   br i1 %88, label %128, label %127

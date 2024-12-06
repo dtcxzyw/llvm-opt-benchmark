@@ -6727,7 +6727,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN4llvm11SmallVect
 
 38:                                               ; preds = %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEED2Ev.exit16.i.i.i, %30
   %.013.i.i.i = phi i64 [ %33, %30 ], [ %53, %_ZNSt4pairImN4llvm11SmallVectorImLj6EEEED2Ev.exit16.i.i.i ]
-  %39 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %.013.i.i.i
+  %39 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %.013.i.i.i
   %40 = load i64, ptr %39, align 8
   store i64 %40, ptr %14, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -11479,12 +11479,12 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairImN4llvm11SmallVectorI
   %18 = shl i64 %.0240, 1
   %19 = add i64 %18, 2
   %20 = or disjoint i64 %18, 1
-  %21 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %19, i32 1
+  %21 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %19, i32 1
   %22 = load ptr, ptr %21, align 8, !noalias !231
   %23 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %21) #16, !noalias !231
   %24 = getelementptr inbounds i64, ptr %22, i64 %23
   %25 = load ptr, ptr %21, align 8, !noalias !234
-  %26 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %20, i32 1
+  %26 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %20, i32 1
   %27 = load ptr, ptr %26, align 8, !noalias !237
   %28 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %26) #16, !noalias !237
   %29 = getelementptr inbounds i64, ptr %27, i64 %28
@@ -12324,8 +12324,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_7memprof9FrameStatENS_12DenseMapInfoImvE
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_ST_EEbT_T0_.exit.thread159": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEENK3$_0clERKSG_SS_EUlmmE_EclISt16reverse_iteratorIPKmESZ_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_ST_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_ST_EEbT_T0_.exit.thread"
   %471 = phi i64 [ %20, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_ST_EEbT_T0_.exit.thread" ], [ %19, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_ST_EEbT_T0_.exit" ], [ %19, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEENK3$_0clERKSG_SS_EUlmmE_EclISt16reverse_iteratorIPKmESZ_EEbT_T0_.exit" ]
-  %472 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %471
-  %473 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %.0240
+  %472 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %471
+  %473 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %.0240
   %474 = load i64, ptr %472, align 8
   store i64 %474, ptr %473, align 8
   %475 = getelementptr inbounds nuw i8, ptr %472, i64 8
@@ -12349,8 +12349,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_7memprof9FrameStatENS_12DenseMapInfoImvE
 485:                                              ; preds = %481
   %486 = shl nsw i64 %.0.lcssa, 1
   %487 = or disjoint i64 %486, 1
-  %488 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %487
-  %489 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %.0.lcssa
+  %488 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %487
+  %489 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %.0.lcssa
   %490 = load i64, ptr %488, align 8
   store i64 %490, ptr %489, align 8
   %491 = getelementptr inbounds nuw i8, ptr %488, i64 8
@@ -12735,7 +12735,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_7memprof9FrameStatENS_12DenseMapInfoImvE
   br i1 %.not.i, label %"_ZSt11__push_heapIPSt4pairImN4llvm11SmallVectorImLj6EEEElS4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_7memprof25CallStackRadixTreeBuilder5buildEONS1_9MapVectorImS3_NS1_8DenseMapImjNS1_12DenseMapInfoImvEENS1_6detail12DenseMapPairImjEEEENS2_IS4_Lj0EEEEERKSI_RNSC_ImNS9_9FrameStatESE_NSG_ImSO_EEEEE3$_0EEEvT_T0_SV_T1_RT2_.exit", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_SG_EEbT_RT0_.exit.thread.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_SG_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEENK3$_0clERKSG_SS_EUlmmE_EclISt16reverse_iteratorIPKmESZ_EEbT_T0_.exit50.i", %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm7memprof25CallStackRadixTreeBuilder5buildEONS2_9MapVectorImNS2_11SmallVectorImLj6EEENS2_8DenseMapImjNS2_12DenseMapInfoImvEENS2_6detail12DenseMapPairImjEEEENS6_ISt4pairImS7_ELj0EEEEERKSE_RNS8_ImNS3_9FrameStatESA_NSC_ImSM_EEEEE3$_0EclIPSG_SG_EEbT_RT0_.exit.i"
-  %678 = getelementptr inbounds %"struct.std::pair.44", ptr %0, i64 %.01327.i
+  %678 = getelementptr inbounds nuw %"struct.std::pair.44", ptr %0, i64 %.01327.i
   %679 = load i64, ptr %505, align 8
   store i64 %679, ptr %678, align 8
   %680 = getelementptr inbounds nuw i8, ptr %678, i64 8

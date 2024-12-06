@@ -1727,7 +1727,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 _ZN3gmxL18forceGroupMtsLevelENS_8ArrayRefIKNS_8MtsLevelEEENS_14MtsForceGroupsE.exit103: ; preds = %324, %320
   %not..i102 = phi i64 [ 0, %320 ], [ %328, %324 ]
-  %329 = getelementptr inbounds %"struct.gmx::MtsLevel", ptr %321, i64 %not..i102, i32 1
+  %329 = getelementptr inbounds nuw %"struct.gmx::MtsLevel", ptr %321, i64 %not..i102, i32 1
   %330 = load i32, ptr %329, align 8
   %331 = getelementptr inbounds nuw i8, ptr %1, i64 576
   %332 = load ptr, ptr %331, align 8

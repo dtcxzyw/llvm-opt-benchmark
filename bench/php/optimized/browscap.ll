@@ -1238,7 +1238,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
 
 64:                                               ; preds = %60
   %65 = add nsw i64 %43, -1
-  %66 = getelementptr inbounds i8, ptr %42, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %42, i64 %65
   %67 = load i8, ptr %66, align 1
   %68 = sub nsw i64 0, %43
   %69 = getelementptr inbounds i8, ptr %45, i64 %68
@@ -1263,7 +1263,7 @@ define internal fastcc range(i32 0, 2) i32 @browser_reg_compare(ptr noundef %0, 
   br i1 %.not169, label %.thread, label %80
 
 80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %79, i64 %65
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %65
   %82 = load i8, ptr %81, align 1
   %83 = icmp eq i8 %67, %82
   br i1 %83, label %84, label %86

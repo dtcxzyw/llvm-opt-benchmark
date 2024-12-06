@@ -11973,7 +11973,7 @@ _ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7
 .split17:                                         ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36
   %.042 = phi i64 [ %10, %.split17.lr.ph ], [ %47, %_ZSt13__adjust_heapIPN3nix4AttrElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit36 ]
   %47 = add nsw i64 %.042, -1
-  %48 = getelementptr inbounds %"struct.nix::Attr", ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw %"struct.nix::Attr", ptr %0, i64 %47
   %.sroa.01.0.copyload18 = load i64, ptr %48, align 8
   %.sroa.22.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.22.0.copyload20 = load ptr, ptr %.sroa.22.0..sroa_idx19, align 8

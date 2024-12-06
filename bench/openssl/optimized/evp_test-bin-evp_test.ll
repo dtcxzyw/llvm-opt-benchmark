@@ -3219,7 +3219,7 @@ if.end31:                                         ; preds = %if.else21
   %add.ptr32 = getelementptr inbounds nuw i8, ptr %call28, i64 %out_misalign
   %add.ptr33 = getelementptr inbounds i8, ptr %add.ptr32, i64 %in_len.0
   %add.ptr34 = getelementptr inbounds nuw i8, ptr %add.ptr33, i64 64
-  %add.ptr35 = getelementptr inbounds i8, ptr %add.ptr34, i64 %add23
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %add.ptr34, i64 %add23
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end31, %if.end20
@@ -7154,7 +7154,7 @@ if.end45.i:                                       ; preds = %if.then40.i, %if.en
 
 if.then47.i:                                      ; preds = %if.end45.i
   %inc48.i = add nuw nsw i64 %params_n.3.i, 1
-  %arrayidx49.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.3.i
+  %arrayidx49.i = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.3.i
   %salt_len.i = getelementptr inbounds nuw i8, ptr %0, i64 120
   %13 = load i64, ptr %salt_len.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp50.i, ptr noundef nonnull @.str.323, ptr noundef nonnull %12, i64 noundef %13) #11
@@ -7170,7 +7170,7 @@ if.end52.i:                                       ; preds = %if.then47.i, %if.en
 
 if.then54.i:                                      ; preds = %if.end52.i
   %inc55.i = add nuw nsw i64 %params_n.4.i, 1
-  %arrayidx56.i = getelementptr inbounds [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.4.i
+  %arrayidx56.i = getelementptr inbounds nuw [21 x %struct.ossl_param_st], ptr %params.i, i64 0, i64 %params_n.4.i
   %iv_len.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load i64, ptr %iv_len.i, align 8
   call void @OSSL_PARAM_construct_octet_string(ptr nonnull sret(%struct.ossl_param_st) align 8 %tmp57.i, ptr noundef nonnull @.str.162, ptr noundef nonnull %14, i64 noundef %15) #11

@@ -55524,7 +55524,7 @@ _ZSt13__adjust_heapIPSt4pairIN15LiveDebugValues10ValueIDNumEN15TransferTracker18
 .split22:                                         ; preds = %.split22.lr.ph, %_ZSt13__adjust_heapIPSt4pairIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS5_SB_EEEEvT_T0_SG_T1_T2_.exit44
   %.050 = phi i64 [ %12, %.split22.lr.ph ], [ %66, %_ZSt13__adjust_heapIPSt4pairIN15LiveDebugValues10ValueIDNumEN15TransferTracker18LocationAndQualityEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS5_SB_EEEEvT_T0_SG_T1_T2_.exit44 ]
   %66 = add nsw i64 %.050, -1
-  %67 = getelementptr inbounds %"struct.std::pair.432", ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw %"struct.std::pair.432", ptr %0, i64 %66
   %.sroa.02.0.copyload23 = load i64, ptr %67, align 8
   %.sroa.23.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.23.0.copyload25 = load i32, ptr %.sroa.23.0..sroa_idx24, align 8
@@ -61926,7 +61926,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm17MachineBasicBloc
 .split15.i.i.i:                                   ; preds = %.split.i.i.i, %.split15.i.i.i
   %.018.i.i.i = phi i64 [ %20, %.split15.i.i.i ], [ %17, %.split.i.i.i ]
   %20 = add nsw i64 %.018.i.i.i, -1
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_T2_"(ptr noundef nonnull %0, i64 noundef %20, i64 noundef %15, ptr noundef %22, ptr readonly %3)
   %23 = icmp eq i64 %20, 0
@@ -62997,7 +62997,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
   br i1 %146, label %147, label %"_ZSt11__push_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_RT2_.exit"
 
 147:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERN4llvm17MachineBasicBlockERNS4_11SmallPtrSetIPKS5_Lj16EEERNS2_14FuncValueTableERNS4_11SmallVectorINS2_10ValueIDNumELj0EEEE3$_0EclIPS9_S9_EEbT_RT0_.exit.i"
-  %148 = getelementptr inbounds ptr, ptr %0, i64 %.0134.i
+  %148 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0134.i
   store ptr %.val14.i, ptr %148, align 8
   %149 = icmp sgt i64 %.05.i, %1
   br i1 %149, label %96, label %"_ZSt11__push_heapIPPKN4llvm17MachineBasicBlockElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZN15LiveDebugValues16InstrRefBasedLDV8mlocJoinERS1_RNS0_11SmallPtrSetIS3_Lj16EEERNS8_14FuncValueTableERNS0_11SmallVectorINS8_10ValueIDNumELj0EEEE3$_0EEEvT_T0_SN_T1_RT2_.exit", !llvm.loop !992
@@ -65147,7 +65147,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm17MachineBasicBlock
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
   %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %51 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %50, ptr %51, align 8
   %52 = icmp sgt i64 %.04.i.i.i.i.i, %19
   br i1 %52, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERS1_RNS0_8DenseMapIPKS1_PNS7_8DbgValueENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SE_EEEERNS0_11SmallPtrSetISC_Lj8EEERSD_E3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i", !llvm.loop !1006
@@ -65168,7 +65168,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm17MachineBasicBlock
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERS1_RNS0_8DenseMapIPKS1_PNS7_8DbgValueENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SE_EEEERNS0_11SmallPtrSetISC_Lj8EEERSD_E3$_0EEEvT_T0_ST_T1_T2_.exit32.i.i.i", %.split15.lr.ph.i.i.i
   %.0249.i.i.i = phi i64 [ %19, %.split15.lr.ph.i.i.i ], [ %58, %"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERS1_RNS0_8DenseMapIPKS1_PNS7_8DbgValueENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SE_EEEERNS0_11SmallPtrSetISC_Lj8EEERSD_E3$_0EEEvT_T0_ST_T1_T2_.exit32.i.i.i" ]
   %58 = add nsw i64 %.0249.i.i.i, -1
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i = icmp sgt i64 %.0249.i.i.i, %23
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -66285,7 +66285,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
 
 628:                                              ; preds = %"_ZZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERN4llvm17MachineBasicBlockERNS1_8DenseMapIPKS2_PNS_8DbgValueENS1_12DenseMapInfoIS6_vEENS1_6detail12DenseMapPairIS6_S8_EEEERNS1_11SmallPtrSetIS6_Lj8EEERS7_ENK3$_0clEPS2_SL_.exit.i.i.i"
   %629 = load ptr, ptr %425, align 8
-  %630 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %630 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %629, ptr %630, align 8
   %.not186.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.0249.i.i.i
   br i1 %.not186.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV8vlocJoinERS1_RNS0_8DenseMapIPKS1_PNS7_8DbgValueENS0_12DenseMapInfoISC_vEENS0_6detail12DenseMapPairISC_SE_EEEERNS0_11SmallPtrSetISC_Lj8EEERSD_E3$_0EEEvT_T0_ST_T1_T2_.exit32.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !1006
@@ -72431,7 +72431,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm15MachineFunction17Debug
 
 19:                                               ; preds = %19, %15
   %.0.i.i.i = phi i64 [ %18, %15 ], [ %22, %19 ]
-  %20 = getelementptr inbounds %"class.llvm::MachineFunction::DebugSubstitution", ptr %0, i64 %.0.i.i.i
+  %20 = getelementptr inbounds nuw %"class.llvm::MachineFunction::DebugSubstitution", ptr %0, i64 %.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 4 dereferenceable(20) %20, i64 20, i1 false)
   tail call void @_ZSt13__adjust_heapIPN4llvm15MachineFunction17DebugSubstitutionElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %16, ptr noundef nonnull byval(%"class.llvm::MachineFunction::DebugSubstitution") align 8 %5)
   %21 = icmp eq i64 %.0.i.i.i, 0
@@ -73546,7 +73546,7 @@ _ZSt13__adjust_heapIPSt4pairIjPN4llvm12MachineInstrEElS4_N9__gnu_cxx5__ops15_Ite
 .split21:                                         ; preds = %.split21.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjPN4llvm12MachineInstrEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SC_T1_T2_.exit38
   %.044 = phi i64 [ %10, %.split21.lr.ph ], [ %62, %_ZSt13__adjust_heapIPSt4pairIjPN4llvm12MachineInstrEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SC_T1_T2_.exit38 ]
   %62 = add nsw i64 %.044, -1
-  %63 = getelementptr inbounds %"struct.std::pair.444", ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.std::pair.444", ptr %0, i64 %62
   %.sroa.03.0.copyload22 = load i32, ptr %63, align 8
   %.sroa.3.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.3.0.copyload25 = load ptr, ptr %.sroa.3.0..sroa_idx24, align 8
@@ -78286,7 +78286,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN12_GLOBAL__N_19LDVSSAPhi
 
 53:                                               ; preds = %.lr.ph.i.i.i.i.i
   %54 = load ptr, ptr %50, align 8
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %54, ptr %55, align 8
   %56 = icmp sgt i64 %.04.i.i.i.i.i, %21
   br i1 %56, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS7_14FuncValueTableESE_RNS9_12MachineInstrEmE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !1084
@@ -78307,7 +78307,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN12_GLOBAL__N_19LDVSSAPhi
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS7_14FuncValueTableESE_RNS9_12MachineInstrEmE3$_0EEEvT_T0_SK_T1_T2_.exit36.i.i.i", %.split15.lr.ph.i.i.i
   %.0258.i.i.i = phi i64 [ %21, %.split15.lr.ph.i.i.i ], [ %62, %"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS7_14FuncValueTableESE_RNS9_12MachineInstrEmE3$_0EEEvT_T0_SK_T1_T2_.exit36.i.i.i" ]
   %62 = add nsw i64 %.0258.i.i.i, -1
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
   %64 = load ptr, ptr %63, align 8
   %.not.i.i.i = icmp sgt i64 %.0258.i.i.i, %25
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i29.i.i.i
@@ -79455,7 +79455,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_17MachineBasicBlockEjNS_12DenseMapInfoI
 
 651:                                              ; preds = %"_ZZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS_14FuncValueTableES6_RNS1_12MachineInstrEmENK3$_0clEPN12_GLOBAL__N_19LDVSSAPhiESC_.exit.i.i.i"
   %652 = load ptr, ptr %430, align 8
-  %653 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %653 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %652, ptr %653, align 8
   %.not195.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.0258.i.i.i
   br i1 %.not195.i.i.i, label %"_ZSt13__adjust_heapIPPN12_GLOBAL__N_19LDVSSAPhiElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN15LiveDebugValues16InstrRefBasedLDV18resolveDbgPHIsImplERN4llvm15MachineFunctionERKNS7_14FuncValueTableESE_RNS9_12MachineInstrEmE3$_0EEEvT_T0_SK_T1_T2_.exit36.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !1084

@@ -28003,7 +28003,7 @@ while.body.i96:                                   ; preds = %while.body.i96, %wh
 while.end.i100:                                   ; preds = %while.body.i96, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i
   %conv3033.i = phi i64 [ 1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %conv.i92, %while.body.i96 ]
   %__val.addr.0.lcssa.i101 = phi i64 [ %__value, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %div.i, %while.body.i96 ]
-  %arrayidx7.i = getelementptr inbounds [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i101
+  %arrayidx7.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i101
   %25 = load i8, ptr %arrayidx7.i, align 1
   br label %return.sink.split
 
@@ -33278,7 +33278,7 @@ while.body.i99:                                   ; preds = %while.body.i99, %wh
 while.end.i103:                                   ; preds = %while.body.i99, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i
   %conv3033.i = phi i64 [ 1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %conv.i95, %while.body.i99 ]
   %__val.addr.0.lcssa.i104 = phi i64 [ %__unsigned_val.0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %div.i, %while.body.i99 ]
-  %arrayidx7.i = getelementptr inbounds [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i104
+  %arrayidx7.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i104
   %25 = load i8, ptr %arrayidx7.i, align 1
   store i8 %25, ptr %__first.addr.0, align 1
   %add.ptr.i105 = getelementptr inbounds nuw i8, ptr %__first.addr.0, i64 %conv3033.i
@@ -39549,7 +39549,7 @@ while.body.i99:                                   ; preds = %while.body.i99, %wh
 while.end.i103:                                   ; preds = %while.body.i99, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i
   %conv3033.i = phi i64 [ 1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %conv.i95, %while.body.i99 ]
   %__val.addr.0.lcssa.i104 = phi i64 [ %__unsigned_val.0, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %div.i, %while.body.i99 ]
-  %arrayidx7.i = getelementptr inbounds [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i104
+  %arrayidx7.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i104
   %25 = load i8, ptr %arrayidx7.i, align 1
   store i8 %25, ptr %__first.addr.0, align 1
   %add.ptr.i105 = getelementptr inbounds nuw i8, ptr %__first.addr.0, i64 %conv3033.i
@@ -40927,7 +40927,7 @@ while.body.i96:                                   ; preds = %while.body.i96, %wh
 while.end.i100:                                   ; preds = %while.body.i96, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i
   %conv3033.i = phi i64 [ 1, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %conv.i92, %while.body.i96 ]
   %__val.addr.0.lcssa.i101 = phi i64 [ %__value, %_ZNSt8__detail14__to_chars_lenImEEjT_i.exit.thread.i ], [ %div.i, %while.body.i96 ]
-  %arrayidx7.i = getelementptr inbounds [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i101
+  %arrayidx7.i = getelementptr inbounds nuw [36 x i8], ptr @_ZZNSt8__detail10__to_charsImEESt15to_chars_resultPcS2_T_iE8__digits, i64 0, i64 %__val.addr.0.lcssa.i101
   %25 = load i8, ptr %arrayidx7.i, align 1
   br label %return.sink.split
 
@@ -43300,7 +43300,7 @@ if.end10:                                         ; preds = %if.end, %entry
   call void @llvm.assume(i1 %cmp21)
   %inc = add nuw nsw i64 %40, 1
   store i64 %inc, ptr %current, align 32
-  %arrayidx = getelementptr inbounds [32 x %"struct.(anonymous namespace)::utf8_codepoint"], ptr %codepoints_, i64 0, i64 %40
+  %arrayidx = getelementptr inbounds nuw [32 x %"struct.(anonymous namespace)::utf8_codepoint"], ptr %codepoints_, i64 0, i64 %40
   br label %return
 
 return:                                           ; preds = %if.then, %if.end10
@@ -43988,7 +43988,7 @@ if.end10:                                         ; preds = %_ZN12_GLOBAL__N_111
   call void @llvm.assume(i1 %cmp21)
   %inc = add nuw nsw i64 %65, 1
   store i64 %inc, ptr %current, align 32
-  %arrayidx = getelementptr inbounds [32 x %"struct.(anonymous namespace)::utf8_codepoint"], ptr %codepoints_, i64 0, i64 %65
+  %arrayidx = getelementptr inbounds nuw [32 x %"struct.(anonymous namespace)::utf8_codepoint"], ptr %codepoints_, i64 0, i64 %65
   br label %return
 
 return:                                           ; preds = %_ZN12_GLOBAL__N_111utf8_readerISiE15read_next_blockEv.exit.thread, %invoke.cont.i, %if.end10

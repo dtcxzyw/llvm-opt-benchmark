@@ -239,7 +239,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findES1_m(ptr nocapture no
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds i8, ptr %13, i64 %3
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %6
   %16 = getelementptr inbounds i8, ptr %1, i64 %2
   %17 = tail call noundef ptr @_ZSt8__searchIPKcS1_N9__gnu_cxx5__ops19_Iter_equal_to_iterEET_S5_S5_T0_S6_T1_(ptr noundef %14, ptr noundef nonnull %15, ptr noundef %1, ptr noundef %16)
@@ -269,7 +269,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece4findEcm(ptr nocapture noun
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds i8, ptr %8, i64 %2
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 %2
   %10 = sext i8 %1 to i32
   %11 = sub nuw nsw i64 %5, %2
   %12 = tail call noundef ptr @memchr(ptr noundef %9, i32 noundef %10, i64 noundef %11) #16
@@ -399,7 +399,7 @@ define noundef i64 @_ZNK6google8protobuf11StringPiece13find_first_ofES1_m(ptr no
 13:                                               ; preds = %12
   %14 = load i8, ptr %1, align 1
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 %3
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 %3
   %17 = sext i8 %14 to i32
   %18 = sub nuw nsw i64 %7, %3
   %19 = tail call noundef ptr @memchr(ptr noundef %16, i32 noundef %17, i64 noundef %18) #16

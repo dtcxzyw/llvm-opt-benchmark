@@ -11071,7 +11071,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -14954,7 +14954,7 @@ if.then23:                                        ; preds = %if.end20
   br i1 %tobool32.not, label %if.end43, label %if.then33
 
 if.then33:                                        ; preds = %if.then23
-  %arrayidx34 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
+  %arrayidx34 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.050
   store ptr %__p.051, ptr %arrayidx34, align 8
   br label %if.end43
 

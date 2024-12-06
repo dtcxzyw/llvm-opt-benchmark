@@ -87020,7 +87020,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i: ; p
   br i1 %or.cond.i, label %40, label %46
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds i64, ptr %31, i64 %.0.i
+  %41 = getelementptr inbounds nuw i64, ptr %31, i64 %.0.i
   %42 = load i64, ptr %41, align 8, !noalias !14978, !noundef !21
   %43 = icmp eq i64 %42, 0
   br i1 %43, label %46, label %47
@@ -120742,7 +120742,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i.
   br i1 %or.cond.i.i.i.i.i, label %566, label %570
 
 566:                                              ; preds = %561
-  %567 = getelementptr inbounds i64, ptr %557, i64 %.0.i.i.i.i.i
+  %567 = getelementptr inbounds nuw i64, ptr %557, i64 %.0.i.i.i.i.i
   %568 = load i64, ptr %567, align 8, !noalias !19722, !noundef !21
   %569 = icmp eq i64 %568, 0
   br i1 %569, label %570, label %573
@@ -121041,7 +121041,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i89.
   br i1 %or.cond.i.i92.i.i.i, label %680, label %685
 
 680:                                              ; preds = %675
-  %681 = getelementptr inbounds i64, ptr %671, i64 %.0.i.i91.i.i.i
+  %681 = getelementptr inbounds nuw i64, ptr %671, i64 %.0.i.i91.i.i.i
   %682 = load i64, ptr %681, align 8, !noalias !19754, !noundef !21
   %683 = icmp eq i64 %682, 0
   br i1 %683, label %685, label %688
@@ -121220,7 +121220,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i112
   br i1 %758, label %759, label %768
 
 759:                                              ; preds = %755
-  %760 = getelementptr inbounds i64, ptr %756, i64 %.061.i.i113.i.i.i
+  %760 = getelementptr inbounds nuw i64, ptr %756, i64 %.061.i.i113.i.i.i
   %761 = load i64, ptr %760, align 8, !noalias !19783, !noundef !21
   %762 = icmp ne i64 %761, 0
   %763 = icmp ult i64 %.0.i.i114.i.i.i, %757
@@ -121228,7 +121228,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i112
   br i1 %or.cond.i.i115.i.i.i, label %764, label %768
 
 764:                                              ; preds = %759
-  %765 = getelementptr inbounds i64, ptr %756, i64 %.0.i.i114.i.i.i
+  %765 = getelementptr inbounds nuw i64, ptr %756, i64 %.0.i.i114.i.i.i
   %766 = load i64, ptr %765, align 8, !noalias !19783, !noundef !21
   %767 = icmp eq i64 %766, 0
   br i1 %767, label %768, label %771

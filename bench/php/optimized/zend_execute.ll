@@ -2024,7 +2024,7 @@ define dso_local void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef %1
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %.pre
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %.pre
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
@@ -2070,7 +2070,7 @@ define dso_local void @zend_fetch_dimension_const(ptr noundef %0, ptr noundef %1
 50:                                               ; preds = %45
   %51 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds %struct._zval_struct, ptr %52, i64 %.pre
+  %53 = getelementptr inbounds nuw %struct._zval_struct, ptr %52, i64 %.pre
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i8, ptr %54, align 8
   %.not339 = icmp eq i8 %55, 0
@@ -29327,7 +29327,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_VAR_CONST_OP_DATA_CONST_HANDLE
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i64 %.0.i
+  %49 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %.0.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 8
   %.not92.i = icmp eq i8 %51, 0
@@ -29869,7 +29869,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_VAR_CONST_OP_DATA_TMP_HANDLER(
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i64 %.0.i
+  %49 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %.0.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 8
   %.not92.i = icmp eq i8 %51, 0
@@ -30414,7 +30414,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_VAR_CONST_OP_DATA_VAR_HANDLER(
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i64 %.0.i
+  %49 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %.0.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 8
   %.not92.i = icmp eq i8 %51, 0
@@ -31011,7 +31011,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_VAR_CONST_OP_DATA_CV_HANDLER(p
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds %struct._zval_struct, ptr %48, i64 %.0.i
+  %49 = getelementptr inbounds nuw %struct._zval_struct, ptr %48, i64 %.0.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i8, ptr %50, align 8
   %.not92.i = icmp eq i8 %51, 0
@@ -37487,7 +37487,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_CV_CONST_OP_DATA_CONST_HANDLER
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %.0.i
+  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %43, i64 %.0.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8
   %.not92.i = icmp eq i8 %46, 0
@@ -37993,7 +37993,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_CV_CONST_OP_DATA_TMP_HANDLER(p
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %.0.i
+  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %43, i64 %.0.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8
   %.not92.i = icmp eq i8 %46, 0
@@ -38502,7 +38502,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_CV_CONST_OP_DATA_VAR_HANDLER(p
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %.0.i
+  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %43, i64 %.0.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8
   %.not92.i = icmp eq i8 %46, 0
@@ -39063,7 +39063,7 @@ define internal noundef i32 @ZEND_ASSIGN_DIM_SPEC_CV_CONST_OP_DATA_CV_HANDLER(pt
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %.0.i
+  %44 = getelementptr inbounds nuw %struct._zval_struct, ptr %43, i64 %.0.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i8, ptr %45, align 8
   %.not92.i = icmp eq i8 %46, 0
@@ -97142,7 +97142,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %.0
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %.0
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
@@ -97339,7 +97339,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nou
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -97591,7 +97591,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER(ptr noundef
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -97813,7 +97813,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %.0
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %.0
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0
@@ -97986,7 +97986,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_TMPVAR_HANDLER(ptr noundef
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -98214,7 +98214,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CV_HANDLER(ptr noundef %0)
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %25
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %25
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -98574,7 +98574,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
 64:                                               ; preds = %57
   %65 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds i8, ptr %66, i64 %58
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 %58
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, %55
@@ -99424,7 +99424,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_UNUSED_CONST_HANDLER(ptr noun
 69:                                               ; preds = %62
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds i8, ptr %71, i64 %63
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %63
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %74, %60
@@ -100163,7 +100163,7 @@ _zval_undefined_op1.exit:                         ; preds = %19, %._crit_edge
 104:                                              ; preds = %97
   %105 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 %98
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %98
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %95
@@ -106273,7 +106273,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_TMPVAR_CONST_HANDLER(ptr nou
 59:                                               ; preds = %52
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 %53
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %53
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, %50
@@ -107111,7 +107111,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_UNUSED_CONST_HANDLER(ptr nou
 68:                                               ; preds = %61
   %69 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 %62
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 %62
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, %59
@@ -107822,7 +107822,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_CV_CONST_HANDLER(ptr noundef
 86:                                               ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 %80
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 %80
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, %77
@@ -162879,7 +162879,7 @@ define internal noundef i32 @ZEND_BIND_GLOBAL_SPEC_CV_CONST_HANDLER(ptr nocaptur
 
 22:                                               ; preds = %4
   %23 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 320), align 8
-  %24 = getelementptr inbounds i8, ptr %23, i64 %17
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 %17
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, %9
@@ -186422,7 +186422,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CONST_TMPVARCV_HANDLER(
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds %struct._zval_struct, ptr %34, i64 %19
+  %35 = getelementptr inbounds nuw %struct._zval_struct, ptr %34, i64 %19
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i8, ptr %36, align 8
   %38 = icmp eq i8 %37, 0
@@ -186575,7 +186575,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw %struct._zval_struct, ptr %42, i64 %18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 0
@@ -186791,7 +186791,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
 40:                                               ; preds = %35
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds %struct._zval_struct, ptr %42, i64 %18
+  %43 = getelementptr inbounds nuw %struct._zval_struct, ptr %42, i64 %18
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i8, ptr %44, align 8
   %46 = icmp eq i8 %45, 0
@@ -186987,7 +186987,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_CONST_HANDLER(ptr no
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %18
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -187139,7 +187139,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_TMPVARCV_HANDLER(ptr
 31:                                               ; preds = %26
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds %struct._zval_struct, ptr %33, i64 %18
+  %34 = getelementptr inbounds nuw %struct._zval_struct, ptr %33, i64 %18
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i8, ptr %35, align 8
   %37 = icmp eq i8 %36, 0
@@ -193708,7 +193708,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_W(ptr noundef %0,
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %.pre
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %.pre
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i8, ptr %24, align 8
   %.not93 = icmp eq i8 %25, 0
@@ -194674,7 +194674,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW_CONST(ptr noun
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds %struct._zval_struct, ptr %18, i64 %.0
+  %19 = getelementptr inbounds nuw %struct._zval_struct, ptr %18, i64 %.0
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i8, ptr %20, align 8
   %22 = icmp eq i8 %21, 0
@@ -195085,7 +195085,7 @@ define internal fastcc ptr @zend_fetch_dimension_address_inner_RW(ptr noundef %0
 20:                                               ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds %struct._zval_struct, ptr %22, i64 %14
+  %23 = getelementptr inbounds nuw %struct._zval_struct, ptr %22, i64 %14
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i8, ptr %24, align 8
   %26 = icmp eq i8 %25, 0
@@ -201836,7 +201836,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0,
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %31, i64 %23
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 0
@@ -202479,7 +202479,7 @@ define internal fastcc void @zend_fetch_dimension_address_W(ptr nocapture nounde
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %.pre11
+  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %.pre11
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
   %.not279 = icmp eq i8 %50, 0
@@ -202967,7 +202967,7 @@ define internal fastcc void @zend_fetch_dimension_address_RW(ptr nocapture nound
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %39
+  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 0
@@ -203490,7 +203490,7 @@ define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture 
 29:                                               ; preds = %24
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %31, i64 %23
+  %32 = getelementptr inbounds nuw %struct._zval_struct, ptr %31, i64 %23
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i8, ptr %33, align 8
   %35 = icmp eq i8 %34, 0
@@ -204067,7 +204067,7 @@ define internal fastcc void @zend_fetch_dimension_address_UNSET(ptr nocapture no
 45:                                               ; preds = %40
   %46 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds %struct._zval_struct, ptr %47, i64 %39
+  %48 = getelementptr inbounds nuw %struct._zval_struct, ptr %47, i64 %39
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i8, ptr %49, align 8
   %51 = icmp eq i8 %50, 0
@@ -204514,7 +204514,7 @@ define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture n
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds %struct._zval_struct, ptr %29, i64 %21
+  %30 = getelementptr inbounds nuw %struct._zval_struct, ptr %29, i64 %21
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i8, ptr %31, align 8
   %33 = icmp eq i8 %32, 0

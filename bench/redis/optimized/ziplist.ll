@@ -3279,7 +3279,7 @@ if.end:                                           ; preds = %entry
 
 if.end4:                                          ; preds = %if.end
   %sub = add nsw i64 %size, -1
-  %arrayidx = getelementptr inbounds i8, ptr %zl, i64 %sub
+  %arrayidx = getelementptr inbounds nuw i8, ptr %zl, i64 %sub
   %1 = load i8, ptr %arrayidx, align 1
   %cmp6.not = icmp eq i8 %1, -1
   br i1 %cmp6.not, label %if.end9, label %return

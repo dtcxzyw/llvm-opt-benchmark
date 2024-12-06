@@ -1620,7 +1620,7 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
   br i1 %or.cond219.us, label %65, label %68
 
 65:                                               ; preds = %64
-  %66 = getelementptr inbounds ptr, ptr %1, i64 %.0182253.us
+  %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0182253.us
   %67 = load ptr, ptr %66, align 8
   br label %68
 

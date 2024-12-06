@@ -5912,7 +5912,7 @@ define linkonce_odr hidden void @_ZN5Eigen11EigenSolverINS_6MatrixIdLin1ELin1ELi
   %20 = tail call i64 @llvm.smax.i64(i64 %.0252548, i64 1)
   %.sroa.speculated498 = add nsw i64 %20, -1
   %21 = sub nsw i64 %11, %.sroa.speculated498
-  %22 = getelementptr inbounds double, ptr %19, i64 %.sroa.speculated498
+  %22 = getelementptr inbounds nuw double, ptr %19, i64 %.sroa.speculated498
   %23 = icmp eq i64 %11, %.sroa.speculated498
   br i1 %23, label %_ZNK5Eigen9DenseBaseINS_12CwiseUnaryOpINS_8internal13scalar_abs_opIdEEKNS_5BlockINS5_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb1EEELi1ELin1ELb0EEEEEE3sumEv.exit, label %24
 

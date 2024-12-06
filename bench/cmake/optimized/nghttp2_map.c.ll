@@ -516,7 +516,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr nocapture nounde
   br i1 %52, label %._crit_edge, label %53
 
 53:                                               ; preds = %.lr.ph51
-  %54 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %43, i64 %.03550
+  %54 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %43, i64 %.03550
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %42, i64 16, i1 false)
   store i32 0, ptr %42, align 8
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 4

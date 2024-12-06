@@ -1998,7 +1998,7 @@ cdf_check_stream_offset.exit.i:                   ; preds = %67
 cdf_get_property_info_pos.exit:                   ; preds = %76
   %81 = getelementptr inbounds i8, ptr %54, i64 %64
   %.0.copyload.i = load i32, ptr %81, align 1
-  %82 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.0121201, i64 %.0122200
+  %82 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.0121201, i64 %.0122200
   store i32 %.0.copyload.i, ptr %82, align 8
   %83 = ptrtoint ptr %80 to i64
   %84 = sub i64 %31, %83
@@ -2141,7 +2141,7 @@ cdf_copy_info.exit179:                            ; preds = %115
   br i1 %142, label %cdf_get_property_info_pos.exit.thread, label %143
 
 143:                                              ; preds = %137
-  %144 = getelementptr inbounds %struct.cdf_property_info_t, ptr %.1, i64 %.1123199, i32 2
+  %144 = getelementptr inbounds nuw %struct.cdf_property_info_t, ptr %.1, i64 %.1123199, i32 2
   store i32 %.0.copyload.i180, ptr %144, align 8
   %145 = getelementptr inbounds i8, ptr %80, i64 %135
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8

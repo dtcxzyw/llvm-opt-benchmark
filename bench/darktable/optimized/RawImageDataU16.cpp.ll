@@ -1232,7 +1232,7 @@ define hidden void @_ZN8rawspeed15RawImageDataU1615scaleBlackWhiteEv(ptr noundef
   %.reass23 = add nuw i64 %255, %invariant.op22
   %260 = icmp ule i64 %.reass23, %77
   tail call void @llvm.assume(i1 %260)
-  %261 = getelementptr inbounds i16, ptr %130, i64 %.reass23
+  %261 = getelementptr inbounds nuw i16, ptr %130, i64 %.reass23
   %262 = load i16, ptr %261, align 2, !tbaa !98
   %263 = zext i16 %262 to i32
   %264 = tail call i32 @llvm.smin.i32(i32 %256, i32 %263)

@@ -322,7 +322,7 @@ define hidden void @_ZNK8rawspeed10RawDecoder18decodeUncompressedEPKNS_7TiffIFDE
 56:                                               ; preds = %54, %54
   %57 = mul nuw nsw i64 %50, 12
   %58 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %57) #29
-  %59 = getelementptr inbounds %"struct.rawspeed::RawDecoder::RawSlice", ptr %58, i64 %50
+  %59 = getelementptr inbounds nuw %"struct.rawspeed::RawDecoder::RawSlice", ptr %58, i64 %50
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %63
 
@@ -1467,7 +1467,7 @@ define hidden void @_ZN8rawspeed10RawDecoder11setMetaDataEPKNS_14CameraMetaDataE
   %323 = load i32, ptr %322, align 4, !tbaa !31
   %324 = icmp ult i64 %321, %207
   tail call void @llvm.assume(i1 %324)
-  %325 = getelementptr inbounds i32, ptr %179, i64 %321
+  %325 = getelementptr inbounds nuw i32, ptr %179, i64 %321
   store i32 %323, ptr %325, align 4, !tbaa !31
   %326 = add nuw nsw i64 %293, 8
   %327 = icmp eq i64 %326, %208

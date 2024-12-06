@@ -27678,7 +27678,7 @@ define hidden void @_ZN4exif4util5read817hbb2beb5a6ef12243E(ptr noalias nocaptur
 30:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.023.i.i, ptr nonnull readonly align 1 %11, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !6049, !noalias !6053
   %31 = sub nuw i64 %9, %.0.sroa.speculated.i.i.i.i.i
-  %32 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i.i
   store ptr %32, ptr %1, align 8, !alias.scope !6008, !noalias !6009
   store i64 %31, ptr %5, align 8, !alias.scope !6008, !noalias !6009
   %.not.i.i = icmp eq i64 %9, 0
@@ -27701,7 +27701,7 @@ define hidden void @_ZN4exif4util5read817hbb2beb5a6ef12243E(ptr noalias nocaptur
   %38 = phi ptr [ %21, %34 ], [ %21, %.thread20.i.i ], [ %32, %30 ], [ %17, %.thread.i.i.i ]
   %.0.sroa.speculated.i.i.sink.i19.i.i = phi i64 [ %.0.sroa.speculated.i.i4.i.i.i.i.i, %34 ], [ 1, %.thread20.i.i ], [ %.0.sroa.speculated.i.i.i.i.i, %30 ], [ 1, %.thread.i.i.i ]
   %39 = sub nuw nsw i64 %.sroa.4.022.i.i, %.0.sroa.speculated.i.i.sink.i19.i.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.023.i.i, i64 %.0.sroa.speculated.i.i.sink.i19.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i.i, i64 %.0.sroa.speculated.i.i.sink.i19.i.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$GT$17h8a8c12242add9861E.llvm.16978709814855407318.exit.i", label %8
 
@@ -27806,7 +27806,7 @@ define hidden void @_ZN4exif4util6read1617h0c201aec4f9f7936E(ptr noalias nocaptu
 30:                                               ; preds = %13
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.023.i.i, ptr nonnull readonly align 1 %11, i64 %.0.sroa.speculated.i.i.i.i.i, i1 false), !alias.scope !6137, !noalias !6141
   %31 = sub nuw i64 %9, %.0.sroa.speculated.i.i.i.i.i
-  %32 = getelementptr inbounds i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %11, i64 %.0.sroa.speculated.i.i.i.i.i
   store ptr %32, ptr %1, align 8, !alias.scope !6096, !noalias !6097
   store i64 %31, ptr %5, align 8, !alias.scope !6096, !noalias !6097
   %.not.i.i = icmp eq i64 %9, 0
@@ -27829,7 +27829,7 @@ define hidden void @_ZN4exif4util6read1617h0c201aec4f9f7936E(ptr noalias nocaptu
   %38 = phi ptr [ %21, %34 ], [ %21, %.thread20.i.i ], [ %32, %30 ], [ %17, %.thread.i.i.i ]
   %.0.sroa.speculated.i.i.sink.i19.i.i = phi i64 [ %.0.sroa.speculated.i.i4.i.i.i.i.i, %34 ], [ 1, %.thread20.i.i ], [ %.0.sroa.speculated.i.i.i.i.i, %30 ], [ 1, %.thread.i.i.i ]
   %39 = sub nuw nsw i64 %.sroa.4.022.i.i, %.0.sroa.speculated.i.i.sink.i19.i.i
-  %40 = getelementptr inbounds i8, ptr %.sroa.0.023.i.i, i64 %.0.sroa.speculated.i.i.sink.i19.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.023.i.i, i64 %.0.sroa.speculated.i.i.sink.i19.i.i
   %41 = icmp eq i64 %39, 0
   br i1 %41, label %42, label %8
 

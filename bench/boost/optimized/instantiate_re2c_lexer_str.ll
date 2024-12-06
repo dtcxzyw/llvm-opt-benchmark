@@ -40926,7 +40926,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcN
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
 194:                                              ; preds = %155
-  %195 = getelementptr inbounds i8, ptr %.lcssa248, i64 %158
+  %195 = getelementptr inbounds nuw i8, ptr %.lcssa248, i64 %158
   %196 = load i8, ptr %195, align 1, !tbaa !11
   %197 = icmp eq i8 %157, 13
   %198 = icmp eq i8 %196, 92
@@ -81463,7 +81463,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKc
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEiPNS2_7ScannerIT_EE.exit.thread
 
 194:                                              ; preds = %155
-  %195 = getelementptr inbounds i8, ptr %.lcssa248, i64 %158
+  %195 = getelementptr inbounds nuw i8, ptr %.lcssa248, i64 %158
   %196 = load i8, ptr %195, align 1, !tbaa !11
   %197 = icmp eq i8 %157, 13
   %198 = icmp eq i8 %196, 92

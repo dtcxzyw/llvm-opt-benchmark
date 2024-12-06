@@ -6010,7 +6010,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit: ; preds = %29, %.thread.i, %.thread14.i
   %52 = phi i64 [ %34, %.thread.i ], [ %50, %.thread14.i ], [ 0, %29 ]
   %53 = load ptr, ptr %7, align 8
-  %54 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %53, i64 %52
   %55 = load i32, ptr %54, align 8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %105
@@ -6930,7 +6930,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit: ; preds = %41, %.thread.i, %.thread14.i
   %64 = phi i64 [ %46, %.thread.i ], [ %62, %.thread14.i ], [ 0, %41 ]
   %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %65, i64 %64
   %67 = load i32, ptr %66, align 8
   %.not33 = icmp eq i32 %67, 0
   br i1 %.not33, label %37, label %68
@@ -7200,7 +7200,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit: ; preds = %46, %.thread.i, %.thread14.i
   %69 = phi i64 [ %51, %.thread.i ], [ %67, %.thread14.i ], [ 0, %46 ]
   %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %70, i64 %69
   %72 = load i32, ptr %71, align 8
   %73 = icmp eq i32 %72, 0
   br i1 %73, label %74, label %153
@@ -11519,7 +11519,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm3cfg6UpdateIPNS0_17Machi
 
 22:                                               ; preds = %22, %16
   %.0.i.i = phi i64 [ %21, %16 ], [ %25, %22 ]
-  %23 = getelementptr inbounds %"class.llvm::cfg::Update", ptr %0, i64 %.0.i.i
+  %23 = getelementptr inbounds nuw %"class.llvm::cfg::Update", ptr %0, i64 %.0.i.i
   %.sroa.01.0.copyload.i.i = load ptr, ptr %23, align 8
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8
@@ -14030,7 +14030,7 @@ _ZN4llvm15SmallVectorImplIPNS_14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBa
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit: ; preds = %19, %.thread.i, %.thread14.i
   %42 = phi i64 [ %24, %.thread.i ], [ %40, %.thread14.i ], [ 0, %19 ]
   %43 = load ptr, ptr %14, align 8
-  %44 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4
   %47 = zext i32 %46 to i64
@@ -14288,7 +14288,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit56: ; preds = %162, %.thread.i49, %.thread14.i54
   %185 = phi i64 [ %167, %.thread.i49 ], [ %183, %.thread14.i54 ], [ 0, %162 ]
   %186 = load ptr, ptr %68, align 8
-  %187 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %186, i64 %185
+  %187 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %186, i64 %185
   %188 = load i32, ptr %187, align 8
   %.not = icmp ugt i32 %188, %159
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 16
@@ -14379,7 +14379,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %34 = phi ptr [ %15, %.thread.i ], [ %31, %.thread14.i ], [ %9, %8 ]
   %35 = phi i64 [ %14, %.thread.i ], [ %32, %.thread14.i ], [ 0, %8 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %36, i64 %35, i32 4
+  %37 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %36, i64 %35, i32 4
   store ptr %4, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %0) #17
@@ -14465,7 +14465,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit.thr
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE7getIDomEPS3_.exit: ; preds = %54, %.thread.i.i, %.thread14.i.i
   %77 = phi i64 [ %59, %.thread.i.i ], [ %75, %.thread14.i.i ], [ 0, %54 ]
   %78 = load ptr, ptr %42, align 8
-  %79 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %78, i64 %77, i32 4
+  %79 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %78, i64 %77, i32 4
   %80 = load ptr, ptr %79, align 8
   %81 = tail call noundef ptr @_ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE15getNodeForBlockEPS3_RS4_(ptr noundef nonnull align 8 dereferenceable(4136) %0, ptr noundef %80, ptr noundef nonnull align 8 dereferenceable(124) %1)
   %82 = tail call noundef ptr @_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE10createNodeEPS1_PNS_15DomTreeNodeBaseIS1_EE(ptr noundef nonnull align 8 dereferenceable(124) %1, ptr noundef %44, ptr noundef %81)
@@ -14888,7 +14888,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %41 = phi ptr [ %22, %.thread.i ], [ %38, %.thread14.i ], [ %16, %15 ]
   %42 = phi i64 [ %21, %.thread.i ], [ %39, %.thread14.i ], [ 0, %15 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
   store i32 %4, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14961,7 +14961,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit36: ; preds = %58, %.thread.i29, %.thread14.i34
   %81 = phi i64 [ %63, %.thread.i29 ], [ %79, %.thread14.i34 ], [ 0, %58 ]
   %82 = load ptr, ptr %45, align 8
-  %83 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #17
   %86 = add i64 %85, 1
@@ -16148,7 +16148,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EPFbS2_S2_EEEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SF_SF_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -17775,7 +17775,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %40 = phi ptr [ %21, %.thread.i.i ], [ %37, %.thread14.i.i ], [ %15, %14 ]
   %41 = phi i64 [ %20, %.thread.i.i ], [ %38, %.thread14.i.i ], [ 0, %14 ]
   %42 = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %42, i64 %41, i32 4
+  %43 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %42, i64 %41, i32 4
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noundef ptr @_ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE15getNodeForBlockEPS3_RS4_(ptr noundef nonnull align 8 dereferenceable(4136) %0, ptr noundef %44, ptr noundef nonnull align 8 dereferenceable(124) %2)
   %46 = tail call noundef ptr @_ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE10createNodeEPS1_PNS_15DomTreeNodeBaseIS1_EE(ptr noundef nonnull align 8 dereferenceable(124) %2, ptr noundef %1, ptr noundef %45)
@@ -19355,7 +19355,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %42 = phi ptr [ %23, %.thread.i ], [ %39, %.thread14.i ], [ %17, %16 ]
   %43 = phi i64 [ %22, %.thread.i ], [ %40, %.thread14.i ], [ 0, %16 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
+  %45 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
   store i32 %5, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -19430,7 +19430,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %61, %.thread.i28, %.thread14.i33
   %84 = phi i64 [ %66, %.thread.i28 ], [ %82, %.thread14.i33 ], [ 0, %61 ]
   %85 = load ptr, ptr %46, align 8
-  %86 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %85, i64 %84
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #17
   %89 = add i64 %88, 1
@@ -19672,7 +19672,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_28ComputeUnreachableDominatorsERSA_PNSB_15BatchUpdateInfoES2_PNS0_15DomTreeNodeBaseIS1_EERNS0_15SmallVectorImplISt4pairIS2_SI_EEEEUlS2_S2_E_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SP_SP_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -22515,7 +22515,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %42 = phi ptr [ %23, %.thread.i ], [ %39, %.thread14.i ], [ %17, %16 ]
   %43 = phi i64 [ %22, %.thread.i ], [ %40, %.thread14.i ], [ 0, %16 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
+  %45 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
   store i32 %5, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -22589,7 +22589,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %60, %.thread.i28, %.thread14.i33
   %83 = phi i64 [ %65, %.thread.i28 ], [ %81, %.thread14.i33 ], [ 0, %60 ]
   %84 = load ptr, ptr %46, align 8
-  %85 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %84, i64 %83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
   %88 = add i64 %87, 1
@@ -22834,7 +22834,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %34 = phi ptr [ %15, %.thread.i ], [ %31, %.thread14.i ], [ %9, %8 ]
   %35 = phi i64 [ %14, %.thread.i ], [ %32, %.thread14.i ], [ 0, %8 ]
   %36 = load ptr, ptr %34, align 8
-  %37 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %36, i64 %35, i32 4
+  %37 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %36, i64 %35, i32 4
   store ptr %4, ptr %37, align 8
   %38 = load ptr, ptr %0, align 8
   %39 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(528) %0) #17
@@ -22920,7 +22920,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE7getNodeEPKS1_.exit: ; 
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit22: ; preds = %55, %.thread.i15, %.thread14.i20
   %78 = phi i64 [ %60, %.thread.i15 ], [ %76, %.thread14.i20 ], [ 0, %55 ]
   %79 = load ptr, ptr %42, align 8
-  %80 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %79, i64 %78, i32 4
+  %80 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %79, i64 %78, i32 4
   %81 = load ptr, ptr %80, align 8
   %.not.i.i23 = icmp eq ptr %81, null
   br i1 %.not.i.i23, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.thread.i25, label %_ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.exit.i24
@@ -22986,7 +22986,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_15DeleteReachableERSA_PNSB_15BatchUpdateInfoEPNS0_15DomTreeNodeBaseIS1_EESI_EUlS2_S2_E_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SK_SK_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -24554,7 +24554,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %41 = phi ptr [ %22, %.thread.i ], [ %38, %.thread14.i ], [ %16, %15 ]
   %42 = phi i64 [ %21, %.thread.i ], [ %39, %.thread14.i ], [ 0, %15 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
   store i32 %4, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24627,7 +24627,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %58, %.thread.i28, %.thread14.i33
   %81 = phi i64 [ %63, %.thread.i28 ], [ %79, %.thread14.i33 ], [ 0, %58 ]
   %82 = load ptr, ptr %45, align 8
-  %83 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #17
   %86 = add i64 %85, 1
@@ -24860,7 +24860,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %42 = phi ptr [ %23, %.thread.i ], [ %39, %.thread14.i ], [ %17, %16 ]
   %43 = phi i64 [ %22, %.thread.i ], [ %40, %.thread14.i ], [ 0, %16 ]
   %44 = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
+  %45 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %44, i64 %43, i32 1
   store i32 %5, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -24934,7 +24934,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %60, %.thread.i28, %.thread14.i33
   %83 = phi i64 [ %65, %.thread.i28 ], [ %81, %.thread14.i33 ], [ 0, %60 ]
   %84 = load ptr, ptr %46, align 8
-  %85 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %84, i64 %83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #17
   %88 = add i64 %87, 1
@@ -25326,7 +25326,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_17DeleteUnreachableERSA_PNSB_15BatchUpdateInfoEPNS0_15DomTreeNodeBaseIS1_EEEUlS2_S2_E_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SK_SK_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -26862,7 +26862,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_17DeleteUnreachableERSA_PNSB_15BatchUpdateInfoEPNS0_15DomTreeNodeBaseIS1_EEEUlS2_S2_E0_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SK_SK_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -29980,7 +29980,7 @@ _ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__
 .split14.us:                                      ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS2_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS4_S4_E_EEEvT_T0_SJ_T1_T2_.exit27.us
   %.033.us = phi i64 [ %60, %_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS2_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS4_S4_E_EEEvT_T0_SJ_T1_T2_.exit27.us ], [ %10, %.split14.lr.ph ]
   %60 = add nsw i64 %.033.us, -1
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.us = icmp sgt i64 %.033.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS2_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS4_S4_E_EEEvT_T0_SJ_T1_T2_.exit27.us, label %.lr.ph.i24.us
@@ -30043,7 +30043,7 @@ _ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__
 .split14:                                         ; preds = %.split14.preheader, %_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS2_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS4_S4_E_EEEvT_T0_SJ_T1_T2_.exit27
   %.033 = phi i64 [ %91, %_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS2_Lb0EEEE16VerifyDFSNumbersERKSC_EUlS4_S4_E_EEEvT_T0_SJ_T1_T2_.exit27 ], [ %10, %.split14.preheader ]
   %91 = add nsw i64 %.033, -1
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %91
   %93 = load ptr, ptr %92, align 8
   %.not = icmp sgt i64 %.033, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i24
@@ -30181,7 +30181,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %41 = phi ptr [ %22, %.thread.i ], [ %38, %.thread14.i ], [ %16, %15 ]
   %42 = phi i64 [ %21, %.thread.i ], [ %39, %.thread14.i ], [ 0, %15 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
   store i32 %4, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -30254,7 +30254,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %58, %.thread.i28, %.thread14.i33
   %81 = phi i64 [ %63, %.thread.i28 ], [ %79, %.thread14.i33 ], [ 0, %58 ]
   %82 = load ptr, ptr %45, align 8
-  %83 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #17
   %86 = add i64 %85, 1
@@ -30460,7 +30460,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_20verifyParentPropertyERKSA_EUlS2_S2_E_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SG_SG_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -32028,7 +32028,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
   %41 = phi ptr [ %22, %.thread.i ], [ %38, %.thread14.i ], [ %16, %15 ]
   %42 = phi i64 [ %21, %.thread.i ], [ %39, %.thread14.i ], [ 0, %15 ]
   %43 = load ptr, ptr %41, align 8
-  %44 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
+  %44 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %43, i64 %42, i32 1
   store i32 %4, ptr %44, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -32101,7 +32101,7 @@ _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBl
 _ZN4llvm14DomTreeBuilder11SemiNCAInfoINS_17DominatorTreeBaseINS_17MachineBasicBlockELb0EEEE11getNodeInfoEPS3_.exit35: ; preds = %58, %.thread.i28, %.thread14.i33
   %81 = phi i64 [ %63, %.thread.i28 ], [ %79, %.thread14.i33 ], [ 0, %58 ]
   %82 = load ptr, ptr %45, align 8
-  %83 = getelementptr inbounds %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.llvm::DomTreeBuilder::SemiNCAInfo<llvm::DominatorTreeBase<MachineBasicBlock, false>>::InfoRec", ptr %82, i64 %81
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %84) #17
   %86 = add i64 %85, 1
@@ -32307,7 +32307,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm17MachineBasicBl
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm17MachineBasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EZNSB_21verifySiblingPropertyERKSA_EUlS2_S2_E_EEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SG_SG_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0

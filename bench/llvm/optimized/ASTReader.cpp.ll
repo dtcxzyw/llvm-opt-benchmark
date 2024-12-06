@@ -147655,7 +147655,7 @@ _ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18
 .split16.us:                                      ; preds = %.split16.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18ContinuousRangeMapIjiLj2EE7CompareEEEEvT_T0_SC_T1_T2_.exit33.us
   %.039.us = phi i64 [ %62, %_ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18ContinuousRangeMapIjiLj2EE7CompareEEEEvT_T0_SC_T1_T2_.exit33.us ], [ %10, %.split16.lr.ph ]
   %62 = add nsw i64 %.039.us, -1
-  %63 = getelementptr inbounds %"struct.std::pair.1500", ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.std::pair.1500", ptr %0, i64 %62
   %.sroa.02.0.copyload17.us = load i64, ptr %63, align 4
   %.not.us = icmp sgt i64 %.039.us, %13
   br i1 %.not.us, label %._crit_edge.i19.us.thread, label %.lr.ph.i30.us
@@ -147725,7 +147725,7 @@ _ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18
 .split16:                                         ; preds = %.split16.preheader, %_ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18ContinuousRangeMapIjiLj2EE7CompareEEEEvT_T0_SC_T1_T2_.exit33
   %.039 = phi i64 [ %90, %_ZSt13__adjust_heapIPSt4pairIjiElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN5clang18ContinuousRangeMapIjiLj2EE7CompareEEEEvT_T0_SC_T1_T2_.exit33 ], [ %10, %.split16.preheader ]
   %90 = add nsw i64 %.039, -1
-  %91 = getelementptr inbounds %"struct.std::pair.1500", ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.std::pair.1500", ptr %0, i64 %90
   %.sroa.02.0.copyload17 = load i64, ptr %91, align 4
   %.not = icmp sgt i64 %.039, %13
   br i1 %.not, label %._crit_edge.i19, label %.lr.ph.i30

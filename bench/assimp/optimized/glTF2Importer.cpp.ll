@@ -70591,7 +70591,7 @@ _ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit56:
 for.body5:                                        ; preds = %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit56, %for.inc
   %j.0254 = phi i64 [ %inc, %for.inc ], [ 0, %_ZN9rapidjson19GenericStringBufferINS_4UTF8IcEENS_12CrtAllocatorEE3PutEc.exit56 ]
   %15 = load ptr, ptr %t.0257, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %15, i64 %j.0254
+  %arrayidx = getelementptr inbounds nuw i8, ptr %15, i64 %j.0254
   %16 = load i8, ptr %arrayidx, align 1
   switch i8 %16, label %if.else11 [
     i8 126, label %if.then
@@ -98234,7 +98234,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

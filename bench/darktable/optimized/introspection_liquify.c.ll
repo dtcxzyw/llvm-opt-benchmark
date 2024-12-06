@@ -1305,9 +1305,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @_distort_xtransform(ptr noca
   %168 = select <8 x i1> %167, <8 x i1> %165, <8 x i1> zeroinitializer
   %169 = select <8 x i1> %168, <8 x i1> %166, <8 x i1> zeroinitializer
   %170 = zext <8 x i32> %158 to <8 x i64>
-  %171 = getelementptr inbounds { float, float }, ptr %91, <8 x i64> %170
+  %171 = getelementptr inbounds nuw { float, float }, ptr %91, <8 x i64> %170
   %172 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %171, i32 4, <8 x i1> %169, <8 x float> poison)
-  %173 = getelementptr inbounds i8, <8 x ptr> %171, i64 4
+  %173 = getelementptr inbounds nuw i8, <8 x ptr> %171, i64 4
   %174 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %173, i32 4, <8 x i1> %169, <8 x float> poison)
   %175 = fmul reassoc nsz arcp contract afn <8 x float> %172, %135
   %176 = fmul reassoc nsz arcp contract afn <8 x float> %174, %135

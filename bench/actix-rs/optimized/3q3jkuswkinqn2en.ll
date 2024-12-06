@@ -341,7 +341,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f6
   %44 = load i16, ptr %29, align 1, !alias.scope !69, !noalias !70
   %45 = add nsw i64 %31, -1
   %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds [0 x i8], ptr %29, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw [0 x i8], ptr %29, i64 0, i64 %45
   %48 = load i8, ptr %47, align 1, !alias.scope !61, !noalias !66, !noundef !4
   %49 = zext i8 %48 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
@@ -851,7 +851,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   %21 = load i16, ptr %4, align 1, !alias.scope !151, !noalias !158
   %22 = add nsw i64 %6, -1
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %22
   %25 = load i8, ptr %24, align 1, !alias.scope !153, !noalias !156, !noundef !4
   %26 = zext i8 %25 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i
@@ -2196,7 +2196,7 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8.i: ; preds = 
   br i1 %56, label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i", label %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.thread.i"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i": ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i, i64 %.0.sroa.speculated.i23.i
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i, i64 %.0.sroa.speculated.i23.i
   %58 = load i8, ptr %57, align 1, !alias.scope !375, !noundef !4
   %59 = icmp sgt i8 %58, -65
   %60 = sub nuw i64 %.sroa.4.0.i.i3.i, %.0.sroa.speculated.i23.i
@@ -2217,7 +2217,7 @@ _ZN4http3uri4path12PathAndQuery4path17h196169f74ad29859E.exit.i.i8.i: ; preds = 
   %.sroa.0.0.i.i4.i17 = phi ptr [ %.sroa.0.0.i.i4.i, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.sroa.0.0.i.i4.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ @anon.2c6cd919f5e2d791ec1f2903047be799.4.llvm.10116804099265645101, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
   %.0.sroa.speculated.i23.i12 = phi i64 [ %.0.sroa.speculated.i23.i11, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %.0.sroa.speculated.i23.i, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
   %63 = phi i64 [ %61, %"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17hf6cdd76e6e44ad9cE.exit.i" ], [ %60, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.i.i" ], [ 0, %_ZN4http3uri3Uri8has_path17hc131679067bcc539E.exit.i.i.i ]
-  %64 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i4.i17, i64 %.0.sroa.speculated.i23.i12
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i4.i17, i64 %.0.sroa.speculated.i23.i12
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN11actix_files8path_buf11PathBufWrap10parse_path17hec1a22edd47e4ef5E(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 %64, i64 noundef %63, i1 noundef zeroext false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)

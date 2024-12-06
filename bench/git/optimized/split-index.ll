@@ -552,7 +552,7 @@ if.then6:                                         ; preds = %if.end
 
 if.end9:                                          ; preds = %if.end
   %4 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %4, i64 %pos
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %pos
   %5 = load ptr, ptr %arrayidx, align 8
   %ce_flags = getelementptr inbounds nuw i8, ptr %5, i64 56
   %6 = load i32, ptr %ce_flags, align 8
@@ -627,7 +627,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   %1 = load ptr, ptr %data, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %pos
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %1, i64 %pos
   %2 = load ptr, ptr %arrayidx, align 8
   %ce_flags = getelementptr inbounds nuw i8, ptr %2, i64 56
   %3 = load i32, ptr %ce_flags, align 8

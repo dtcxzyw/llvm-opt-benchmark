@@ -7720,7 +7720,7 @@ define void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..o
   %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %7, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   br label %36
 
 36:                                               ; preds = %38, %30

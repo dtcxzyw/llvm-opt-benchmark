@@ -34215,7 +34215,7 @@ default.unreachable:                              ; preds = %82
   unreachable
 
 110:                                              ; preds = %98
-  %111 = getelementptr inbounds [0 x i8], ptr %.pre, i64 0, i64 %102
+  %111 = getelementptr inbounds nuw [0 x i8], ptr %.pre, i64 0, i64 %102
   %112 = load i8, ptr %111, align 1, !alias.scope !4254, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic13get_predictor17heffafe2d87fabaa7E.exit
 
@@ -34293,12 +34293,12 @@ default.unreachable:                              ; preds = %82
   br i1 %157, label %161, label %.invoke, !prof !447
 
 158:                                              ; preds = %148
-  %159 = getelementptr inbounds [0 x i8], ptr %.pre, i64 0, i64 %150
+  %159 = getelementptr inbounds nuw [0 x i8], ptr %.pre, i64 0, i64 %150
   %160 = load i8, ptr %159, align 1, !alias.scope !4254, !noundef !19
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit.i"
 
 161:                                              ; preds = %152
-  %162 = getelementptr inbounds [0 x i8], ptr %.pre, i64 0, i64 %156
+  %162 = getelementptr inbounds nuw [0 x i8], ptr %.pre, i64 0, i64 %156
   %163 = load i8, ptr %162, align 1, !alias.scope !4254, !noundef !19
   %164 = mul nuw nsw i64 %62, %84
   %165 = add nuw nsw i64 %164, %indvars.iv
@@ -34315,7 +34315,7 @@ default.unreachable:                              ; preds = %82
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw [0 x i8], ptr %.pre, i64 0, i64 %167
   %174 = load i8, ptr %173, align 1, !alias.scope !4254, !noundef !19
-  %175 = getelementptr inbounds [0 x i8], ptr %.pre, i64 0, i64 %170
+  %175 = getelementptr inbounds nuw [0 x i8], ptr %.pre, i64 0, i64 %170
   %176 = load i8, ptr %175, align 1, !alias.scope !4254, !noundef !19
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17he2ec3fd6191bb3d2E.exit.i"
 

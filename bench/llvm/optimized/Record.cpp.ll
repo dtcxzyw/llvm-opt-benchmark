@@ -26256,7 +26256,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm6RecordElN9__gnu_cx
 .split14.i.i.i:                                   ; preds = %.split.i.i.i, %.split14.i.i.i
   %.01.i.i.i = phi i64 [ %31, %.split14.i.i.i ], [ %28, %.split.i.i.i ]
   %31 = add nsw i64 %.01.i.i.i, -1
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %31
   %33 = load ptr, ptr %32, align 8
   call fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SF_T1_T2_"(ptr noundef nonnull %0, i64 noundef %31, i64 noundef %26, ptr noundef %33)
   %34 = icmp eq i64 %31, 0
@@ -26528,9 +26528,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cx
   %.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %12 = shl i64 %.030, 1
   %13 = add i64 %12, 2
-  %14 = getelementptr inbounds ptr, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
   %15 = or disjoint i64 %12, 1
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
   %.val = load ptr, ptr %14, align 8
   %.val29 = load ptr, ptr %16, align 8
   %.val.val = load ptr, ptr %.val, align 8, !noalias !592
@@ -26552,9 +26552,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cx
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   %spec.select = select i1 %25, i64 %15, i64 %13
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %.030
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030
   store ptr %27, ptr %28, align 8
   %29 = icmp slt i64 %spec.select, %10
   br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !601
@@ -26574,9 +26574,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cx
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -26613,7 +26613,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm6RecordElS2_N9__gnu_cx
 
 54:                                               ; preds = %.lr.ph.i
   %55 = load ptr, ptr %44, align 8
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %55, ptr %56, align 8
   %57 = icmp sgt i64 %.04.i, %1
   br i1 %57, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN4llvm6RecordElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_11RecordRecTy3getERNS0_12RecordKeeperENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SF_T1_RT2_.exit", !llvm.loop !611

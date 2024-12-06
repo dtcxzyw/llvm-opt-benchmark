@@ -8673,7 +8673,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit83:             ; preds = %71, %73, %75, %77
 
 119:                                              ; preds = %.lr.ph, %114
   %.idx168 = phi i64 [ %118, %114 ], [ 0, %.lr.ph ]
-  %120 = getelementptr inbounds i8, ptr %109, i64 %.idx168
+  %120 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx168
   %121 = sext i32 %112 to i64
   %.idx167 = shl nsw i64 %121, 2
   %122 = getelementptr inbounds i8, ptr %109, i64 %.idx167
@@ -8938,7 +8938,7 @@ _ZSt4findIPiiET_S1_S1_RKT0_.exit:                 ; preds = %127, %_ZSt4findIPii
 
 250:                                              ; preds = %.lr.ph205, %245
   %.idx166 = phi i64 [ %249, %245 ], [ 0, %.lr.ph205 ]
-  %251 = getelementptr inbounds i8, ptr %240, i64 %.idx166
+  %251 = getelementptr inbounds nuw i8, ptr %240, i64 %.idx166
   %252 = sext i32 %243 to i64
   %.idx = shl nsw i64 %252, 2
   %253 = getelementptr inbounds i8, ptr %240, i64 %.idx

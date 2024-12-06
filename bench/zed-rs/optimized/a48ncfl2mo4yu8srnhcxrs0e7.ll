@@ -3215,7 +3215,7 @@ define noundef zeroext i1 @_ZN4text6anchor6Anchor8is_valid17h681be9f7d6ae77a6E(p
   %63 = zext i32 %61 to i64
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %65 = add nsw i64 %63, -1
-  %66 = getelementptr inbounds [0 x { ptr, i64, { ptr, i64 } }], ptr %64, i64 0, i64 %65
+  %66 = getelementptr inbounds nuw [0 x { ptr, i64, { ptr, i64 } }], ptr %64, i64 0, i64 %65
   %67 = load ptr, ptr %66, align 8, !alias.scope !609, !noalias !612, !nonnull !16, !align !17, !noundef !16
   %68 = load ptr, ptr %67, align 8, !noalias !614, !nonnull !16, !noundef !16
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16

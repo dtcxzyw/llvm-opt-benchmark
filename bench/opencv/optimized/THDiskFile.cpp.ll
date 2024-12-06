@@ -1371,10 +1371,10 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 .lr.ph:                                           ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115, %.lr.ph
   %.088127 = phi i64 [ %69, %.lr.ph ], [ %55, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115 ]
   %69 = add nsw i64 %.088127, -1
-  %70 = getelementptr inbounds i32, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw i32, ptr %1, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds i64, ptr %1, i64 %69
+  %73 = getelementptr inbounds nuw i64, ptr %1, i64 %69
   store i64 %72, ptr %73, align 8
   %74 = icmp samesign ugt i64 %.088127, 1
   br i1 %74, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, !llvm.loop !9
@@ -1407,11 +1407,11 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit115: ; preds = %._crit_edge.us.i11
 .lr.ph129:                                        ; preds = %82, %.lr.ph129
   %.084128 = phi i64 [ %85, %.lr.ph129 ], [ %83, %82 ]
   %85 = add nsw i64 %.084128, -1
-  %.idx = shl nsw i64 %85, 3
-  %86 = getelementptr inbounds i8, ptr %77, i64 %.idx
+  %.idx = shl nuw nsw i64 %85, 3
+  %86 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx
   %87 = load i32, ptr %86, align 4
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i64, ptr %1, i64 %85
+  %89 = getelementptr inbounds nuw i64, ptr %1, i64 %85
   store i64 %88, ptr %89, align 8
   %90 = icmp samesign ugt i64 %.084128, 1
   br i1 %90, label %.lr.ph129, label %._crit_edge, !llvm.loop !10

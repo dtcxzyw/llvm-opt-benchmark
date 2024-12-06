@@ -8816,7 +8816,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds [4 x i32], ptr %45, i64 0, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183
@@ -9759,7 +9759,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds [4 x i32], ptr %45, i64 0, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183
@@ -10705,7 +10705,7 @@ define internal fastcc noundef i64 @_ZN6brotli3enc17brotli_bit_stream21process_c
   br i1 %.not159, label %195, label %196
 
 189:                                              ; preds = %184
-  %190 = getelementptr inbounds [4 x i32], ptr %49, i64 0, i64 %185
+  %190 = getelementptr inbounds nuw [4 x i32], ptr %49, i64 0, i64 %185
   %191 = load i32, ptr %190, align 4, !noundef !62
   %192 = sext i32 %191 to i64
   %193 = add i64 %182, %192
@@ -11878,7 +11878,7 @@ define internal fastcc void @_ZN6brotli3enc17brotli_bit_stream21process_command_
   br i1 %.not159, label %186, label %187
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds [4 x i32], ptr %45, i64 0, i64 %176
+  %181 = getelementptr inbounds nuw [4 x i32], ptr %45, i64 0, i64 %176
   %182 = load i32, ptr %181, align 4, !noundef !62
   %183 = sext i32 %182 to i64
   %184 = add i64 %173, %183

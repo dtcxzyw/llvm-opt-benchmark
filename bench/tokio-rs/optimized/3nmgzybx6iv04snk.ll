@@ -3057,13 +3057,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i128, ptr %15, i64 %.sroa.421.0.copyload
-  %47 = getelementptr inbounds i128, ptr %15, i64 %44
+  %47 = getelementptr inbounds nuw i128, ptr %15, i64 %44
   %48 = sub nsw i64 %43, %.sroa.421.0.copyload
   %49 = shl nsw i64 %48, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %47, ptr nonnull align 8 %46, i64 %49, i1 false), !alias.scope !797, !noalias !800
   %50 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %51 = getelementptr inbounds { ptr, ptr }, ptr %50, i64 %.sroa.421.0.copyload
-  %52 = getelementptr inbounds { ptr, ptr }, ptr %50, i64 %44
+  %52 = getelementptr inbounds nuw { ptr, ptr }, ptr %50, i64 %44
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %51, i64 %49, i1 false), !alias.scope !805, !noalias !808
   br label %119
 
@@ -3189,13 +3189,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 103:                                              ; preds = %94
   %104 = add nuw nsw i64 %.sroa.725.0.i.i, 1
   %105 = getelementptr inbounds i128, ptr %.sroa.06.0.i.i, i64 %.sroa.725.0.i.i
-  %106 = getelementptr inbounds i128, ptr %.sroa.06.0.i.i, i64 %104
+  %106 = getelementptr inbounds nuw i128, ptr %.sroa.06.0.i.i, i64 %104
   %107 = sub nuw nsw i64 %102, %.sroa.725.0.i.i
   %108 = shl nuw nsw i64 %107, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %106, ptr nonnull align 8 %105, i64 %108, i1 false), !alias.scope !845, !noalias !840
   %109 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i, i64 176
   %110 = getelementptr inbounds { ptr, ptr }, ptr %109, i64 %.sroa.725.0.i.i
-  %111 = getelementptr inbounds { ptr, ptr }, ptr %109, i64 %104
+  %111 = getelementptr inbounds nuw { ptr, ptr }, ptr %109, i64 %104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %111, ptr nonnull align 8 %110, i64 %108, i1 false), !alias.scope !848, !noalias !851
   br label %125
 
@@ -3687,13 +3687,13 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 
 317:                                              ; preds = %311
   %318 = getelementptr inbounds i128, ptr %spec.select.i.i, i64 %.sroa.7.0.i.i
-  %319 = getelementptr inbounds i128, ptr %spec.select.i.i, i64 %316
+  %319 = getelementptr inbounds nuw i128, ptr %spec.select.i.i, i64 %316
   %320 = sub nsw i64 %314, %.sroa.7.0.i.i
   %321 = shl nsw i64 %320, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %319, ptr nonnull align 8 %318, i64 %321, i1 false), !alias.scope !966, !noalias !962
   %322 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 176
   %323 = getelementptr inbounds { ptr, ptr }, ptr %322, i64 %.sroa.7.0.i.i
-  %324 = getelementptr inbounds { ptr, ptr }, ptr %322, i64 %316
+  %324 = getelementptr inbounds nuw { ptr, ptr }, ptr %322, i64 %316
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %324, ptr nonnull align 8 %323, i64 %321, i1 false), !alias.scope !969, !noalias !972
   br label %325
 
@@ -3713,7 +3713,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
 
 334:                                              ; preds = %325
   %335 = getelementptr inbounds ptr, ptr %331, i64 %316
-  %336 = getelementptr inbounds ptr, ptr %331, i64 %332
+  %336 = getelementptr inbounds nuw ptr, ptr %331, i64 %332
   %337 = sub nsw i64 %314, %.sroa.7.0.i.i
   %338 = shl nsw i64 %337, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %336, ptr nonnull align 8 %335, i64 %338, i1 false), !alias.scope !974, !noalias !977

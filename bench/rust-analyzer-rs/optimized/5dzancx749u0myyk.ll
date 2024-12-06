@@ -4823,7 +4823,7 @@ define hidden void @"_ZN4core3ptr126drop_in_place$LT$alloc..vec..drain..Drain$LT
   %32 = load ptr, ptr %31, align 8, !noalias !1935, !nonnull !25, !noundef !25
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %27, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr104drop_in_place$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$17h6110d649ce4e24b8E.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24, !noalias !1935
 
@@ -46406,7 +46406,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %32 = load ptr, ptr %31, align 8, !nonnull !25, !noundef !25
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %27, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr104drop_in_place$LT$$u5b$tt..TokenTree$LT$span..SpanData$LT$span..hygiene..SyntaxContextId$GT$$GT$$u5d$$GT$17h6110d649ce4e24b8E.llvm.10606712881621943088"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24
 

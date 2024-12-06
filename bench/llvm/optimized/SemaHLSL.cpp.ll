@@ -54999,7 +54999,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN5clang7VarDeclEP
 .split19.i.i.i:                                   ; preds = %.split.i.i.i, %.split19.i.i.i
   %.01.i.i.i = phi i64 [ %18, %.split19.i.i.i ], [ %16, %.split.i.i.i ]
   %18 = add nsw i64 %.01.i.i.i, -1
-  %19 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %18
   %.sroa.02.0.copyload20.i.i.i = load ptr, ptr %19, align 8
   %.sroa.23.0..sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.23.0.copyload22.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i.i, align 8
@@ -55235,8 +55235,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN5clang7VarDeclEPNS1
   %21 = add nsw i32 %20, %.val30.val32
   %22 = icmp ult i32 %19, %21
   %spec.select = select i1 %22, i64 %11, i64 %10
-  %23 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select
-  %24 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.033
+  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select
+  %24 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.033
   %25 = load ptr, ptr %23, align 8
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -55261,8 +55261,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN5clang7VarDeclEPNS1
 36:                                               ; preds = %32
   %37 = shl nsw i64 %.0.lcssa, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %39 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %38
+  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.lcssa
   %41 = load ptr, ptr %39, align 8
   store ptr %41, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -55302,7 +55302,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN5clang7VarDeclEPNS1
   br i1 %58, label %59, label %"_ZSt11__push_heapIPSt4pairIPN5clang7VarDeclEPNS1_18HLSLPackOffsetAttrEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_8SemaHLSL17ActOnFinishBufferEPNS1_4DeclENS1_14SourceLocationEE3$_0EEEvT_T0_SI_T1_RT2_.exit"
 
 59:                                               ; preds = %49
-  %60 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0133.i
+  %60 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i
   %61 = load ptr, ptr %50, align 8
   store ptr %61, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8

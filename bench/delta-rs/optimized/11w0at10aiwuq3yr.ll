@@ -2994,7 +2994,7 @@ define internal fastcc void @_ZN10num_bigint7biguint7BigUint13from_bytes_be17h66
   %17 = xor i64 %.011.i.i, -1
   %18 = add nsw i64 %13, %17
   %19 = getelementptr inbounds nuw [0 x i8], ptr %11, i64 0, i64 %.011.i.i
-  %20 = getelementptr inbounds [0 x i8], ptr %16, i64 0, i64 %18
+  %20 = getelementptr inbounds nuw [0 x i8], ptr %16, i64 0, i64 %18
   %21 = load i8, ptr %19, align 1, !alias.scope !404, !noalias !402, !noundef !12
   %22 = load i8, ptr %20, align 1, !alias.scope !407, !noalias !399, !noundef !12
   store i8 %22, ptr %19, align 1, !alias.scope !404, !noalias !402
@@ -23534,7 +23534,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.
 
 "_ZN4core4iter6traits8iterator8Iterator12try_for_each4call28_$u7b$$u7b$closure$u7d$$u7d$17h1e629c851ec59eedE.exit.i.i": ; preds = %58, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hab5db7216d2f3d64E.exit.i.i.i.i.i.i.i.i.i"
   %59 = phi i64 [ %37, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hab5db7216d2f3d64E.exit.i.i.i.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, %58 ]
-  %60 = getelementptr inbounds i8, ptr %3, i64 %.1.i.i.i.i.i.i.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.i.i.i.i.i.i.i.i.i.i
   %61 = load ptr, ptr %14, align 8, !alias.scope !6140, !noalias !6134, !nonnull !12, !noundef !12
   %62 = getelementptr inbounds i8, ptr %61, i64 %59
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %62, ptr nonnull readonly align 1 %60, i64 %54, i1 false), !noalias !6141
@@ -23848,7 +23848,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.
 
 74:                                               ; preds = %73
   %75 = add nsw i64 %.1.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %76 = getelementptr inbounds i8, ptr %4, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %4, i64 %75
   store i8 45, ptr %76, align 1, !alias.scope !6359, !noalias !6354
   br label %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i8$GT$5write17h5558e49094185ec8E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
 
@@ -23867,7 +23867,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h44a11688ca4787a7E.exit.i.i.i.
 
 82:                                               ; preds = %81, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i8$GT$5write17h5558e49094185ec8E.exit.i.i.i.i.i.i.i.i.i.i.i.i"
   %83 = phi i64 [ %56, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i8$GT$5write17h5558e49094185ec8E.exit.i.i.i.i.i.i.i.i.i.i.i.i" ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %81 ]
-  %84 = getelementptr inbounds i8, ptr %4, i64 %.2.i.i.i.i.i.i.i.i.i.i.i.i.i
+  %84 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i.i.i.i.i.i.i.i.i.i.i.i.i
   %85 = load ptr, ptr %52, align 8, !alias.scope !6378, !noalias !6372, !nonnull !12, !noundef !12
   %86 = getelementptr inbounds i8, ptr %85, i64 %83
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr nonnull readonly align 1 %84, i64 %77, i1 false), !noalias !6379
@@ -103430,7 +103430,7 @@ define hidden void @_ZN14deltalake_core6kernel8snapshot11log_segment10LogSegment
   %119 = xor i64 %.011.i.i, -1
   %120 = add nsw i64 %115, %119
   %121 = getelementptr inbounds nuw [0 x { { i64, ptr, {} }, i64 }], ptr %113, i64 0, i64 %.011.i.i
-  %122 = getelementptr inbounds [0 x { { i64, ptr, {} }, i64 }], ptr %118, i64 0, i64 %120
+  %122 = getelementptr inbounds nuw [0 x { { i64, ptr, {} }, i64 }], ptr %118, i64 0, i64 %120
   br label %123
 
 123:                                              ; preds = %123, %.lr.ph.preheader.i.i

@@ -13266,7 +13266,7 @@ define hidden noundef range(i64 0, 288230376151711744) i64 @_ZN4core5slice4sort6
 
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %12, 8
+  %.idx = shl nuw nsw i64 %12, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %12, 448
   %14 = getelementptr inbounds i8, ptr %0, i64 %.idx1
@@ -14023,7 +14023,7 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb0912457718
   call void @llvm.experimental.noalias.scope.decl(metadata !3975)
   call void @llvm.experimental.noalias.scope.decl(metadata !3978)
   %24 = lshr i64 %.sroa.12.0112, 3
-  %.idx.i = shl nsw i64 %24, 8
+  %.idx.i = shl nuw nsw i64 %24, 8
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph119, i64 %.idx.i
   %.idx1.i = mul i64 %24, 448
   %26 = getelementptr inbounds i8, ptr %.sroa.0.0.ph119, i64 %.idx1.i

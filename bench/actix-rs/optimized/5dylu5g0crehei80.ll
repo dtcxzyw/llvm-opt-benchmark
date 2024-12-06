@@ -4355,7 +4355,7 @@ define internal fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$
   br i1 %26, label %27, label %_ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds i8, ptr %1, i64 %.1.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.i.i
   %29 = load i8, ptr %28, align 1, !alias.scope !655, !noalias !650, !noundef !7
   %30 = zext i8 %29 to i64
   %31 = shl nuw nsw i64 %.1.i.i, 3
@@ -4474,7 +4474,7 @@ _ZN4core4hash3sip9u8to64_le17hafb73875f3c80924E.exit.i: ; preds = %27, %25
   %95 = add i64 %.1.i16.i, %.09.lcssa.i
   %96 = icmp ult i64 %95, %2
   tail call void @llvm.assume(i1 %96)
-  %97 = getelementptr inbounds i8, ptr %1, i64 %95
+  %97 = getelementptr inbounds nuw i8, ptr %1, i64 %95
   %98 = load i8, ptr %97, align 1, !alias.scope !664, !noalias !650, !noundef !7
   %99 = zext i8 %98 to i64
   %100 = shl nuw nsw i64 %.1.i16.i, 3

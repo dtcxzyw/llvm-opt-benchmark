@@ -149,7 +149,7 @@ do.end.thread:                                    ; preds = %do.body
 
 land.rhs43:                                       ; preds = %do.body
   %dec40 = add nsw i64 %posi.4, -1
-  %add.ptr44 = getelementptr inbounds i8, ptr %call, i64 %dec40
+  %add.ptr44 = getelementptr inbounds nuw i8, ptr %call, i64 %dec40
   %7 = load i8, ptr %add.ptr44, align 1
   %cmp47 = icmp slt i8 %7, -64
   br i1 %cmp47, label %do.body, label %do.end, !llvm.loop !7

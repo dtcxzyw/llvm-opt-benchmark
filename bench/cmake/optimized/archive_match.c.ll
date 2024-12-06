@@ -3002,7 +3002,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_owner_id(ptr noundef %0, ptr n
 36:                                               ; preds = %._crit_edge
   %37 = add nuw nsw i64 %20, 1
   store i64 %37, ptr %4, align 8
-  %38 = getelementptr inbounds i64, ptr %35, i64 %20
+  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %20
   store i64 %2, ptr %38, align 8
   br label %50
 

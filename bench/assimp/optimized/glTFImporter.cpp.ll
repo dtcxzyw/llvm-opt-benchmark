@@ -51129,7 +51129,7 @@ land.rhs81:                                       ; preds = %for.body75, %while.
   %arrayidx83 = getelementptr inbounds nuw i64, ptr %30, i64 %y.050
   %31 = load i64, ptr %arrayidx83, align 8
   %sub85 = add nsw i64 %y.050, -1
-  %arrayidx86 = getelementptr inbounds i64, ptr %30, i64 %sub85
+  %arrayidx86 = getelementptr inbounds nuw i64, ptr %30, i64 %sub85
   %32 = load i64, ptr %arrayidx86, align 8
   %cmp87 = icmp slt i64 %31, %32
   br i1 %cmp87, label %while.body, label %for.inc101.loopexit
@@ -51139,7 +51139,7 @@ while.body:                                       ; preds = %land.rhs81
   store i64 %31, ptr %arrayidx86, align 8
   %33 = load ptr, ptr %m_visitedVertices, align 8
   %arrayidx95 = getelementptr inbounds nuw i64, ptr %33, i64 %y.050
-  %arrayidx98 = getelementptr inbounds i64, ptr %33, i64 %sub85
+  %arrayidx98 = getelementptr inbounds nuw i64, ptr %33, i64 %sub85
   %34 = load i64, ptr %arrayidx95, align 8
   %35 = load i64, ptr %arrayidx98, align 8
   store i64 %35, ptr %arrayidx95, align 8

@@ -8349,7 +8349,7 @@ get_ls_tile_buffer.exit.us.us:                    ; preds = %98, %99
   store ptr %.sink, ptr %100, align 8
   %101 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %3, i64 %indvars.iv146, i64 %indvars.iv151, i32 1
   store i64 %93, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %94, i64 %93
+  %102 = getelementptr inbounds nuw i8, ptr %94, i64 %93
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %exitcond150.not = icmp eq i64 %indvars.iv.next147, %wide.trip.count149
   br i1 %exitcond150.not, label %._crit_edge.split.us.us, label %72, !llvm.loop !78
@@ -8535,7 +8535,7 @@ get_ls_tile_buffer.exit:                          ; preds = %.thread54.i, %.thre
   store ptr %.sink177, ptr %182, align 8
   %183 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %3, i64 %indvars.iv155, i64 %indvars.iv160, i32 1
   store i64 %.0455162.sink.i, ptr %183, align 8
-  %184 = getelementptr inbounds i8, ptr %181, i64 %.05359.i
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 %.05359.i
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %exitcond159.not = icmp eq i64 %indvars.iv.next156, %wide.trip.count158
   br i1 %exitcond159.not, label %._crit_edge.split, label %143, !llvm.loop !78
@@ -8669,7 +8669,7 @@ get_ls_tile_buffer.exit112:                       ; preds = %.thread54.i110, %.t
   store ptr %.sink179, ptr %243, align 8
   %244 = getelementptr inbounds [64 x %struct.TileBufferDec], ptr %3, i64 %indvars.iv166, i64 %192, i32 1
   store i64 %.0455162.sink.i101, ptr %244, align 8
-  %245 = getelementptr inbounds i8, ptr %242, i64 %.05359.i102
+  %245 = getelementptr inbounds nuw i8, ptr %242, i64 %.05359.i102
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169
   br i1 %exitcond170.not, label %.loopexit, label %204, !llvm.loop !80
@@ -14315,7 +14315,7 @@ get_sqr_tx_size.exit.i:                           ; preds = %129, %125
 txfm_partition_context.exit:                      ; preds = %102, %get_sqr_tx_size.exit.i
   %.0.i115 = phi i64 [ %140, %get_sqr_tx_size.exit.i ], [ 0, %102 ]
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 11654
-  %142 = getelementptr inbounds [21 x [3 x i16]], ptr %141, i64 0, i64 %.0.i115
+  %142 = getelementptr inbounds nuw [21 x [3 x i16]], ptr %141, i64 0, i64 %.0.i115
   %143 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %144 = tail call i32 @od_ec_decode_cdf_q15(ptr noundef nonnull %143, ptr noundef nonnull %142, i32 noundef range(i32 1, 257) 2) #16
   %145 = getelementptr inbounds nuw i8, ptr %6, i64 56

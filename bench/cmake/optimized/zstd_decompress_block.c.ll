@@ -1249,7 +1249,7 @@ define dso_local i64 @ZSTD_decompressBlock_internal(ptr noundef %0, ptr noundef 
 
 20:                                               ; preds = %16, %.thread
   %21 = phi i64 [ %.mux85, %.thread ], [ %spec.select, %16 ]
-  %22 = getelementptr inbounds i8, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 29904
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %22 to i64
@@ -8035,7 +8035,7 @@ define internal fastcc void @ZSTD_safecopy(ptr noundef %0, ptr noundef %1, ptr n
   %48 = ptrtoint ptr %.1138 to i64
   %49 = ptrtoint ptr %.1140 to i64
   %50 = sub i64 %48, %49
-  %51 = getelementptr inbounds i8, ptr %.1138, i64 %.0100
+  %51 = getelementptr inbounds nuw i8, ptr %.1138, i64 %.0100
   %52 = icmp slt i64 %50, 16
   %or.cond = select i1 %17, i1 %52, i1 false
   br i1 %or.cond, label %.preheader157, label %56

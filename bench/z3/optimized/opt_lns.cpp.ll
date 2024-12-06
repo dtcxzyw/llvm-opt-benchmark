@@ -4232,7 +4232,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit37.i.i.i, %if.then
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.then ], [ %dec.i.i.i, %_ZN10ref_vectorI4expr11ast_managerED2Ev.exit37.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %__parent.0.i.i.i
   %2 = load i64, ptr %add.ptr.i.i.i, align 8
   %m_nodes2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %3 = load ptr, ptr %m_nodes2.i.i.i.i.i, align 8
@@ -4627,8 +4627,8 @@ if.end.i.i3.i.i:                                  ; preds = %_ZNK15ref_vector_co
   %retval.0.i.i5.i.i = phi i32 [ %3, %if.end.i.i3.i.i ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i.i ]
   %cmp.i.i = icmp ult i32 %retval.0.i.i.i.i, %retval.0.i.i5.i.i
   %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.026
+  %add.ptr3 = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.026
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr3) #15
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !25
@@ -4648,8 +4648,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.0.lcssa
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr14) #15
   br label %if.end18
 
@@ -4699,7 +4699,7 @@ if.end.i.i3.i.i.i:                                ; preds = %_ZNK15ref_vector_co
   br i1 %cmp.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN3opt3lns11relax_coresEvE3$_0EclIP10ref_vectorI4expr11ast_managerESA_EEbT_RT0_.exit.i"
-  %add.ptr2.i = getelementptr inbounds %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %class.ref_vector, ptr %__first, i64 %__holeIndex.addr.04.i
   tail call void @_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #15
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !26

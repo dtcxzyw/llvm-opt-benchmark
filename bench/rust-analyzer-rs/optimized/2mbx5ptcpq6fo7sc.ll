@@ -76185,7 +76185,7 @@ common.resume:                                    ; preds = %89, %55
   %77 = sub nuw i64 %75, %76
   %78 = lshr exact i64 %77, 4
   %.not.i.i.i.i.i.i = icmp ult i64 %69, %78
-  %79 = getelementptr inbounds { i8, [7 x i8], ptr }, ptr %66, i64 %69
+  %79 = getelementptr inbounds nuw { i8, [7 x i8], ptr }, ptr %66, i64 %69
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h99f316c6e36a9b63E.exit.i.i.i.i"
 
 select.unfold.i.i.i.i:                            ; preds = %73, %70

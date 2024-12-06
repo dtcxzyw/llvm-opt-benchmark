@@ -2562,7 +2562,7 @@ for.cond.cleanup.unr-lcssa:                       ; preds = %for.inc.1, %for.bod
   br i1 %lcmp.mod.not, label %for.cond.cleanup, label %for.body.epil
 
 for.body.epil:                                    ; preds = %for.cond.cleanup.unr-lcssa
-  %arrayidx.epil = getelementptr inbounds i8, ptr %17, i64 %i.0264.unr
+  %arrayidx.epil = getelementptr inbounds nuw i8, ptr %17, i64 %i.0264.unr
   %20 = load i8, ptr %arrayidx.epil, align 1, !tbaa !20
   %cmp20.epil = icmp eq i8 %20, 46
   %conv21.epil = trunc nuw i64 %i.0264.unr to i32

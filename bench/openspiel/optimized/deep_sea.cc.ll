@@ -1838,7 +1838,7 @@ define void @_ZNK10open_spiel8deep_sea12DeepSeaState7RewardsEv(ptr dead_on_unwin
   %13 = zext i32 %8 to i64
   %14 = add nsw i64 %13, -1
   %15 = sdiv i64 %14, 64
-  %16 = getelementptr inbounds i64, ptr %6, i64 %15
+  %16 = getelementptr inbounds nuw i64, ptr %6, i64 %15
   %17 = and i64 %14, -9223372036854775745
   %18 = icmp ugt i64 %17, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %18, i64 -8, i64 0

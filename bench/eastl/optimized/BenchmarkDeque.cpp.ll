@@ -7195,7 +7195,7 @@ land.lhs.true.i.i96.i:                            ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp2.i.i97.i, label %if.then.i.i100.i, label %cond.true.i.i98.i
 
 if.then.i.i100.i:                                 ; preds = %land.lhs.true.i.i96.i
-  %add.ptr.i.i101.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0167.i
+  %add.ptr.i.i101.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0167.i
   br label %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit102.i
 
 cond.true.i.i98.i:                                ; preds = %land.lhs.true.i.i96.i
@@ -7277,7 +7277,7 @@ land.lhs.true.i.i154.i:                           ; preds = %_ZStplRKSt15_Deque_
   br i1 %cmp2.i.i155.i, label %if.then.i.i158.i, label %cond.true.i.i156.i
 
 if.then.i.i158.i:                                 ; preds = %land.lhs.true.i.i154.i
-  %add.ptr.i.i159.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i
+  %add.ptr.i.i159.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i
   br label %_ZStplRKSt15_Deque_iteratorIN12_GLOBAL__N_19ValuePairERS1_PS1_El.exit160.i
 
 cond.true.i.i156.i:                               ; preds = %land.lhs.true.i.i154.i
@@ -8101,7 +8101,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit71.i
   br i1 %cmp.i.i79.i, label %if.then.i.i96.i, label %if.else.i.i80.i
 
 if.then.i.i96.i:                                  ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit71.i
-  %add.ptr.i.i98.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0162.i
+  %add.ptr.i.i98.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0162.i
   br label %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit99.i
 
 if.else.i.i80.i:                                  ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit71.i
@@ -8163,7 +8163,7 @@ _ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit127.
   br i1 %cmp.i.i135.i, label %if.then.i.i152.i, label %if.else.i.i136.i
 
 if.then.i.i152.i:                                 ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit127.i
-  %add.ptr.i.i154.i = getelementptr inbounds %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i
+  %add.ptr.i.i154.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::ValuePair", ptr %0, i64 %position.addr.0.lcssa.i
   br label %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit155.i
 
 if.else.i.i136.i:                                 ; preds = %_ZNK5eastl13DequeIteratorIN12_GLOBAL__N_19ValuePairEPS2_RS2_Lj128EEplEl.exit127.i

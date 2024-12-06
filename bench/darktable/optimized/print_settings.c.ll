@@ -5622,11 +5622,11 @@ define noundef range(i32 0, 2) i32 @set_params(ptr nocapture noundef readonly %0
   %.offs = add nsw <4 x i64> %.idx, splat (i64 40)
   %109 = getelementptr inbounds i8, ptr %68, <4 x i64> %.offs
   tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %105, <4 x ptr> %109, i32 8, <4 x i1> splat (i1 true)), !tbaa !178, !alias.scope !179, !noalias !182
-  %110 = getelementptr inbounds i8, <4 x ptr> %109, i64 4
+  %110 = getelementptr inbounds nuw i8, <4 x ptr> %109, i64 4
   tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %106, <4 x ptr> %110, i32 4, <4 x i1> splat (i1 true)), !tbaa !184, !alias.scope !179, !noalias !182
-  %111 = getelementptr inbounds i8, <4 x ptr> %109, i64 8
+  %111 = getelementptr inbounds nuw i8, <4 x ptr> %109, i64 8
   tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %107, <4 x ptr> %111, i32 8, <4 x i1> splat (i1 true)), !tbaa !185, !alias.scope !179, !noalias !182
-  %112 = getelementptr inbounds i8, <4 x ptr> %109, i64 12
+  %112 = getelementptr inbounds nuw i8, <4 x ptr> %109, i64 12
   tail call void @llvm.masked.scatter.v4f32.v4p0(<4 x float> %108, <4 x ptr> %112, i32 4, <4 x i1> splat (i1 true)), !tbaa !186, !alias.scope !179, !noalias !182
   %113 = add nuw nsw i64 %100, 4
   %114 = add <4 x i64> %101, splat (i64 4)
@@ -6296,19 +6296,19 @@ define noalias noundef ptr @get_params(ptr nocapture noundef readonly %0, ptr no
   %264 = add <8 x i32> %259, splat (i32 4)
   %265 = sext <8 x i32> %264 to <8 x i64>
   %266 = getelementptr inbounds i8, ptr %89, <8 x i64> %265
-  %267 = getelementptr inbounds i8, <8 x ptr> %262, i64 4
+  %267 = getelementptr inbounds nuw i8, <8 x ptr> %262, i64 4
   %268 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %267, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison)
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %268, <8 x ptr> %266, i32 1, <8 x i1> splat (i1 true)), !alias.scope !199, !noalias !200
   %269 = add <8 x i32> %259, splat (i32 8)
   %270 = sext <8 x i32> %269 to <8 x i64>
   %271 = getelementptr inbounds i8, ptr %89, <8 x i64> %270
-  %272 = getelementptr inbounds i8, <8 x ptr> %262, i64 8
+  %272 = getelementptr inbounds nuw i8, <8 x ptr> %262, i64 8
   %273 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %272, i32 8, <8 x i1> splat (i1 true), <8 x i32> poison)
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %273, <8 x ptr> %271, i32 1, <8 x i1> splat (i1 true)), !alias.scope !201, !noalias !202
   %274 = add <8 x i32> %259, splat (i32 12)
   %275 = sext <8 x i32> %274 to <8 x i64>
   %276 = getelementptr inbounds i8, ptr %89, <8 x i64> %275
-  %277 = getelementptr inbounds i8, <8 x ptr> %262, i64 12
+  %277 = getelementptr inbounds nuw i8, <8 x ptr> %262, i64 12
   %278 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %277, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison)
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %278, <8 x ptr> %276, i32 1, <8 x i1> splat (i1 true)), !alias.scope !202
   %279 = add nuw nsw i64 %257, 8

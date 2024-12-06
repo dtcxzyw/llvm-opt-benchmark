@@ -3606,7 +3606,7 @@ define internal fastcc noundef nonnull ptr @ossl_strerror(i64 noundef %0, ptr no
   br i1 %8, label %9, label %14
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds i8, ptr %1, i64 %6
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %6
   %11 = sub nuw nsw i64 %7, %6
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 1
   store i8 58, ptr %10, align 1

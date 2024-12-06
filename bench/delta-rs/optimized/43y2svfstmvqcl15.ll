@@ -1597,9 +1597,9 @@ define internal fastcc noundef zeroext i1 @"_ZN103_$LT$arrow_array..array..list_
   unreachable
 
 "_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17h24385a996141d71cE.exit": ; preds = %12
-  %16 = getelementptr inbounds [0 x i64], ptr %6, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw [0 x i64], ptr %6, i64 0, i64 %10
   %17 = load i64, ptr %16, align 8, !noalias !54, !noundef !5
-  %18 = getelementptr inbounds [0 x i64], ptr %6, i64 0, i64 %1
+  %18 = getelementptr inbounds nuw [0 x i64], ptr %6, i64 0, i64 %1
   %19 = load i64, ptr %18, align 8, !noalias !54, !noundef !5
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = sub i64 %17, %19
@@ -1689,10 +1689,10 @@ define internal fastcc noundef zeroext i1 @"_ZN103_$LT$arrow_array..array..list_
   unreachable
 
 "_ZN11arrow_array5array10list_array34GenericListArray$LT$OffsetSize$GT$5value17hd54aee5e1d6072c3E.exit": ; preds = %12
-  %16 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %10
+  %16 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %10
   %17 = load i32, ptr %16, align 4, !noalias !73, !noundef !5
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds [0 x i32], ptr %6, i64 0, i64 %1
+  %19 = getelementptr inbounds nuw [0 x i32], ptr %6, i64 0, i64 %1
   %20 = load i32, ptr %19, align 4, !noalias !73, !noundef !5
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24

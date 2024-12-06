@@ -12161,7 +12161,7 @@ _ZN3std2fs11OpenOptions4open17hebf7f92c6dcec5ebE.llvm.6082948530530484711.exit.i
   br label %.body419
 
 342:                                              ; preds = %338
-  %343 = getelementptr inbounds { { { { { { i64, ptr }, i64 } } } }, { i64, ptr }, { i64, [2 x i64] } }, ptr %.sroa.0696.0, i64 %.sroa.15.0
+  %343 = getelementptr inbounds nuw { { { { { { i64, ptr }, i64 } } } }, { i64, ptr }, { i64, [2 x i64] } }, ptr %.sroa.0696.0, i64 %.sroa.15.0
   %344 = add i64 %.sroa.10.0, %.sroa.15.0
   br label %.thread845
 

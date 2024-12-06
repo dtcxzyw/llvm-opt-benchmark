@@ -4719,7 +4719,7 @@ opal_pointer_array_get_item.exit132:              ; preds = %166, %173
   br i1 %or.cond, label %193, label %196
 
 193:                                              ; preds = %191
-  %194 = getelementptr inbounds [4 x %struct.iovec], ptr %9, i64 0, i64 %.1
+  %194 = getelementptr inbounds nuw [4 x %struct.iovec], ptr %9, i64 0, i64 %.1
   store ptr %7, ptr %194, align 16
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   store i64 %119, ptr %195, align 8

@@ -7135,7 +7135,7 @@ while.cond:                                       ; preds = %land.rhs, %if.then
 
 land.rhs:                                         ; preds = %while.cond
   %9 = add nsw i64 %indvars.iv, -1
-  %add.ptr.i = getelementptr inbounds i32, ptr %3, i64 %9
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %3, i64 %9
   %10 = load i32, ptr %add.ptr.i, align 4, !tbaa !69
   %call6 = tail call i32 @iswspace(i32 noundef %10) #27
   %tobool7.not = icmp eq i32 %call6, 0
@@ -7496,7 +7496,7 @@ if.end110:                                        ; preds = %for.inc105, %for.in
   %49 = phi ptr [ %.pre, %if.end55 ], [ %40, %if.then92 ], [ %40, %invoke.cont76 ], [ %40, %for.inc105.us ], [ %40, %for.inc105 ]
   %word_end.1 = phi i32 [ %prefix_end.1, %if.end55 ], [ %word_end.0.lcssa, %if.then92 ], [ %word_end.0.lcssa, %invoke.cont76 ], [ %word_end.0.lcssa, %for.inc105.us ], [ %word_end.0.lcssa, %for.inc105 ]
   %replacement_index.2 = phi i64 [ 0, %if.end55 ], [ %rem, %if.then92 ], [ 0, %invoke.cont76 ], [ 0, %for.inc105.us ], [ 0, %for.inc105 ]
-  %add.ptr.i263 = getelementptr inbounds %"class.std::__cxx11::basic_string.32", ptr %49, i64 %replacement_index.2
+  %add.ptr.i263 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.32", ptr %49, i64 %replacement_index.2
   %conv113 = zext i32 %word_end.1 to i64
   %cmp115 = icmp ugt i64 %4, %conv113
   br i1 %cmp115, label %land.lhs.true, label %if.end122

@@ -15431,7 +15431,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66.us
   %__parent.071.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.071.us, -1
-  %add.ptr11.us = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 4
   %cmp25.i16.not.us = icmp sgt i64 %__parent.071.us, %div.i6769
   br i1 %cmp25.i16.not.us, label %while.end.i17.us.thread, label %while.body.i52.us
@@ -15502,7 +15502,7 @@ _ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66
   %__parent.071 = phi i64 [ %dec, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog17compare_size_procEEEEvT_T0_SA_T1_T2_.exit66 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.071, -1
-  %add.ptr11 = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
   %cmp25.i16.not = icmp sgt i64 %__parent.071, %div.i6769
   br i1 %cmp25.i16.not, label %while.end.i17, label %while.body.i52

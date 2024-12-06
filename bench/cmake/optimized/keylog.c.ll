@@ -110,7 +110,7 @@ define dso_local noundef zeroext i1 @Curl_tls_keylog_write_line(ptr noundef read
 
 16:                                               ; preds = %13, %9
   %.0 = phi i64 [ %14, %13 ], [ %7, %9 ]
-  %17 = getelementptr inbounds [256 x i8], ptr %2, i64 0, i64 %.0
+  %17 = getelementptr inbounds nuw [256 x i8], ptr %2, i64 0, i64 %.0
   store i8 0, ptr %17, align 1
   %18 = call i32 @fputs(ptr noundef nonnull %2, ptr noundef nonnull %3)
   br label %19

@@ -12599,7 +12599,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf1c5d2b0b672054aE.exit.i.i91: ; preds = %198
   %.sroa.4.0163 = phi i64 [ %205, %.lr.ph ], [ %212, %_ZN5rayon5slice9mergesort11insert_head17h79e8b84a62f3197cE.exit ]
   %212 = add i64 %.sroa.4.0163, -1
   %213 = sub nuw nsw i64 %1, %212
-  %214 = getelementptr inbounds { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %0, i64 %212
+  %214 = getelementptr inbounds nuw { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }, ptr %0, i64 %212
   call void @llvm.experimental.noalias.scope.decl(metadata !2869)
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 96
   call void @llvm.experimental.noalias.scope.decl(metadata !2872)
@@ -12796,7 +12796,7 @@ _ZN4core3ops8function2Fn4call17h6bb8e15ee9dfeb00E.exit.i.i: ; preds = %"_ZN106_$
   br i1 %exitcond.not.i, label %299, label %297, !prof !2918
 
 297:                                              ; preds = %295
-  %298 = getelementptr inbounds [0 x { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }], ptr %214, i64 0, i64 %296
+  %298 = getelementptr inbounds nuw [0 x { { i8, [15 x i8] }, { { i8, [23 x i8] } }, { i8, [23 x i8] }, { i32, { { i32, i32 }, i16, [1 x i16] }, { { { i32, i32 }, i16, [1 x i16] }, {} } }, i8, i8, [2 x i8] }], ptr %214, i64 0, i64 %296
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %298, ptr noundef nonnull align 8 dereferenceable(96) %260, i64 96, i1 false), !alias.scope !2869
   %exitcond16.not.i = icmp eq i64 %259, %213
   br i1 %exitcond16.not.i, label %.thread.i, label %258
@@ -16796,7 +16796,7 @@ define hidden void @_ZN8smol_str4Repr12new_on_stack17h8acd87efcbf0801bE.llvm.347
   unreachable
 
 44:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit6.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i"
-  %45 = getelementptr inbounds i8, ptr @anon.a39d7e32b45b33e489c44911516ec98b.440, i64 %31
+  %45 = getelementptr inbounds nuw i8, ptr @anon.a39d7e32b45b33e489c44911516ec98b.440, i64 %31
   store i8 25, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %.sroa.47.0..sroa_idx, align 8

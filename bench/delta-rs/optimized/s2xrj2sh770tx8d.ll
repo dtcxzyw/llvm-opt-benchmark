@@ -121758,7 +121758,7 @@ default.unreachable761:                           ; preds = %81
   %337 = lshr i64 %.val1.i.i.i, 1
   %338 = icmp ult i64 %173, %337
   call void @llvm.assume(i1 %338)
-  %339 = getelementptr inbounds i16, ptr %.val.i.i.i, i64 %173
+  %339 = getelementptr inbounds nuw i16, ptr %.val.i.i.i, i64 %173
   %340 = load i16, ptr %339, align 2, !noalias !34091, !noundef !4
   %341 = add i64 %333, 1
   store i64 %341, ptr %.sroa.238.0..sroa_idx, align 8, !alias.scope !33953, !noalias !33963

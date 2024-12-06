@@ -349,7 +349,7 @@ if.end:                                           ; preds = %entry
   %1 = load i64, ptr %hash2, align 8, !tbaa !7
   %div = udiv i64 %length, 96
   %add.ptr.idx1 = mul nuw i64 %div, 96
-  %add.ptr = getelementptr inbounds i8, ptr %message, i64 %add.ptr.idx1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %message, i64 %add.ptr.idx1
   %cmp1507 = icmp sgt i64 %add.ptr.idx1, 0
   br i1 %cmp1507, label %while.body, label %while.end
 
@@ -958,7 +958,7 @@ if.end59:                                         ; preds = %if.then42, %if.end3
   %length.addr.0 = phi i64 [ %length, %if.end37 ], [ %sub57, %if.then42 ]
   %div = udiv i64 %length.addr.0, 96
   %add.ptr60.idx1 = mul nuw i64 %div, 96
-  %add.ptr60 = getelementptr inbounds i8, ptr %u.sroa.0.0, i64 %add.ptr60.idx1
+  %add.ptr60 = getelementptr inbounds nuw i8, ptr %u.sroa.0.0, i64 %add.ptr60.idx1
   %add.ptr60.idx.neg = mul i64 %div, 160
   %sub61 = add i64 %add.ptr60.idx.neg, %length.addr.0
   %conv62 = trunc i64 %sub61 to i8

@@ -883,7 +883,7 @@ if.end.i28:                                       ; preds = %if.else.i, %if.then
   %shl.i29 = shl nuw nsw i64 %shr.i.i, %conv1.i.i.i.i
   %e_addr.i = getelementptr inbounds nuw i8, ptr %call5, i64 8
   %15 = load ptr, ptr %e_addr.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %15, i64 %shl.i29
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %15, i64 %shl.i29
   store ptr %add.ptr.i, ptr %e_addr.i, align 8
   br label %arena_cache_oblivious_randomize.exit
 

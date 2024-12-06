@@ -9169,7 +9169,7 @@ lor.lhs.false:                                    ; preds = %if.end
   br i1 %cmp15, label %if.then22, label %lor.lhs.false16
 
 lor.lhs.false16:                                  ; preds = %lor.lhs.false
-  %arrayidx18 = getelementptr inbounds i8, ptr %cond.i, i64 %add
+  %arrayidx18 = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add
   %16 = load i8, ptr %arrayidx18, align 1, !tbaa !116
   %idxprom19 = zext i8 %16 to i64
   %arrayidx20 = getelementptr inbounds nuw [256 x i32], ptr @_ZN6duckdb4Blob7HEX_MAPE, i64 0, i64 %idxprom19
@@ -9832,7 +9832,7 @@ for.end:                                          ; preds = %for.body, %entry
   br i1 %cmp41, label %if.then, label %if.end87
 
 if.then:                                          ; preds = %for.end
-  %arrayidx42 = getelementptr inbounds i8, ptr %cond.i, i64 %i.0.lcssa
+  %arrayidx42 = getelementptr inbounds nuw i8, ptr %cond.i, i64 %i.0.lcssa
   %20 = load i8, ptr %arrayidx42, align 1, !tbaa !116
   %21 = lshr i8 %20, 2
   %idxprom46 = zext nneg i8 %21 to i64
@@ -36728,7 +36728,7 @@ _ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i: ; preds = %_Z
 if.then5.i:                                       ; preds = %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i.thread
   %add.i328 = phi i64 [ %add.i326, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i.thread ], [ %add.i, %_ZN6duckdb20IntervalToStringCast18FormatSignedNumberElPcRm.exit.i ]
   %inc6.i = add nuw nsw i64 %add.i328, 1
-  %arrayidx7.i = getelementptr inbounds i8, ptr %buffer, i64 %add.i328
+  %arrayidx7.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %add.i328
   store i8 115, ptr %arrayidx7.i, align 1, !tbaa !116
   br label %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit
 
@@ -36743,7 +36743,7 @@ _ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit.thread: ; p
 
 if.then2.i90:                                     ; preds = %_ZN6duckdb20IntervalToStringCast19FormatIntervalValueEiPcRmPKcm.exit
   %inc.i91 = add nuw nsw i64 %length.1, 1
-  %arrayidx.i92 = getelementptr inbounds i8, ptr %buffer, i64 %length.1
+  %arrayidx.i92 = getelementptr inbounds nuw i8, ptr %buffer, i64 %length.1
   store i8 32, ptr %arrayidx.i92, align 1, !tbaa !116
   br label %if.end3.i93
 
@@ -36781,7 +36781,7 @@ _ZN6duckdb13NumericHelper14UnsignedLengthImEEiT_.exit.i.i101: ; preds = %if.else
   %add55.i.i.i114 = add nuw nsw i64 %add52.i.i.i113, %conv48.i.i.i107
   %sub4.i.i115 = add nuw nsw i64 %add55.i.i.i114, %conv51.i.i.i109
   %add.i.i116 = add nuw nsw i64 %sub4.i.i115, %conv54.i.i.i111
-  %add.ptr.i.i117 = getelementptr inbounds i8, ptr %buffer, i64 %add.i.i116
+  %add.ptr.i.i117 = getelementptr inbounds nuw i8, ptr %buffer, i64 %add.i.i116
   %cmp31.i.i.i118 = icmp samesign ugt i64 %sub3.i.i96, 99
   br i1 %cmp31.i.i.i118, label %while.body.i.i.i148, label %while.end.i.i.i119
 
@@ -122327,7 +122327,7 @@ if.then.i77:                                      ; preds = %_ZNSt6vectorIlSaIlE
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit78: ; preds = %if.then.i77, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !399
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !398
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !2139

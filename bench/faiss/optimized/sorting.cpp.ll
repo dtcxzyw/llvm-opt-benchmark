@@ -373,7 +373,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPmlN9__gnu_cxx5__ops15_Iter_
   br i1 %53, label %54, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i
 
 54:                                               ; preds = %48
-  %55 = getelementptr inbounds i64, ptr %0, i64 %.0134.i.i.i.i.i
+  %55 = getelementptr inbounds nuw i64, ptr %0, i64 %.0134.i.i.i.i.i
   store i64 %.val14.i.i.i.i.i, ptr %55, align 8
   %56 = icmp sgt i64 %.05.i.i.i.i.i, %15
   br i1 %56, label %48, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !11
@@ -397,7 +397,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
 .split15.us.i.i.i:                                ; preds = %.split15.lr.ph.i.i.i, %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.us.i.i.i
   %.038.us.i.i.i = phi i64 [ %62, %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.us.i.i.i ], [ %15, %.split15.lr.ph.i.i.i ]
   %62 = add nsw i64 %.038.us.i.i.i, -1
-  %63 = getelementptr inbounds i64, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw i64, ptr %0, i64 %62
   %64 = load i64, ptr %63, align 8
   %.not.us.i.i.i = icmp sgt i64 %.038.us.i.i.i, %19
   br i1 %.not.us.i.i.i, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.us.i.i.i, label %.lr.ph.i27.us.i.i.i
@@ -441,7 +441,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
   br i1 %85, label %86, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.us.i.i.i
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds i64, ptr %0, i64 %.0134.i.i23.us.i.i.i
+  %87 = getelementptr inbounds nuw i64, ptr %0, i64 %.0134.i.i23.us.i.i.i
   store i64 %.val14.i.i26.us.i.i.i, ptr %87, align 8
   %.not37.us.i.i.i = icmp slt i64 %.05.i.i25.us.i.i.i, %.038.us.i.i.i
   br i1 %.not37.us.i.i.i, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.us.i.i.i, label %80, !llvm.loop !11
@@ -456,7 +456,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
 .split15.i.i.i:                                   ; preds = %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.i.i.i, %.split15.preheader.i.i.i
   %.038.i.i.i = phi i64 [ %90, %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.i.i.i ], [ %15, %.split15.preheader.i.i.i ]
   %90 = add nsw i64 %.038.i.i.i, -1
-  %91 = getelementptr inbounds i64, ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw i64, ptr %0, i64 %90
   %92 = load i64, ptr %91, align 8
   %.not.i.i.i = icmp sgt i64 %.038.i.i.i, %19
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -515,7 +515,7 @@ _ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_1
   br i1 %117, label %118, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.i.i.i
 
 118:                                              ; preds = %112
-  %119 = getelementptr inbounds i64, ptr %0, i64 %.0134.i.i23.i.i.i
+  %119 = getelementptr inbounds nuw i64, ptr %0, i64 %.0134.i.i23.i.i.i
   store i64 %.val14.i.i26.i.i.i, ptr %119, align 8
   %.not37.i.i.i = icmp slt i64 %.05.i.i25.i.i.i, %.038.i.i.i
   br i1 %.not37.i.i.i, label %_ZSt13__adjust_heapIPmlmN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12_GLOBAL__N_117ArgsortComparatorEEEEvT_T0_S9_T1_T2_.exit32.i.i.i, label %112, !llvm.loop !11

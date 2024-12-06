@@ -4310,7 +4310,7 @@ _ZN12_GLOBAL__N_124CommentASTToXMLConverter16visitFullCommentEPKN5clang8comments
 1271:                                             ; preds = %1270
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %1262, ptr align 1 %.sroa.0370.1, i64 %.sroa.12.1, i1 false)
   %1272 = load ptr, ptr %610, align 8
-  %1273 = getelementptr inbounds i8, ptr %1272, i64 %.sroa.12.1
+  %1273 = getelementptr inbounds nuw i8, ptr %1272, i64 %.sroa.12.1
   store ptr %1273, ptr %610, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 

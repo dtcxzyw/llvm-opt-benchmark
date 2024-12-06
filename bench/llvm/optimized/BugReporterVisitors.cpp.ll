@@ -14697,7 +14697,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN5clang8CFGBlockElN9__
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN5clang8CFGBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm14DomTreeBuilder11SemiNCAInfoINS7_17DominatorTreeBaseIS1_Lb1EEEE6runDFSILb0EPFbS2_S2_EEEjS2_jT0_jPKNS7_8DenseMapIS2_jNS7_12DenseMapInfoIS2_vEENS7_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SG_SG_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -16867,7 +16867,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN5clang8CFGBlockElN9__
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN5clang8CFGBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm14DomTreeBuilder11SemiNCAInfoINS7_17DominatorTreeBaseIS1_Lb1EEEE6runDFSILb1EPFbS2_S2_EEEjS2_jT0_jPKNS7_8DenseMapIS2_jNS7_12DenseMapInfoIS2_vEENS7_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SG_SG_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0
@@ -24538,7 +24538,7 @@ _ZN12_GLOBAL__N_118NoStoreFuncVisitor23prettyPrintFirstElementEN4llvm9StringRefE
 124:                                              ; preds = %_ZN12_GLOBAL__N_118NoStoreFuncVisitor23prettyPrintFirstElementEN4llvm9StringRefEbiRNS1_19raw_svector_ostreamE.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %116, ptr noundef nonnull align 1 dereferenceable(1) %.sroa.042.2.i, i64 %.sroa.4.2.i, i1 false)
   %125 = load ptr, ptr %28, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 %.sroa.4.2.i
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %.sroa.4.2.i
   store ptr %126, ptr %28, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit.i
 

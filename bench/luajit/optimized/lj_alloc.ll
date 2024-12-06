@@ -1036,7 +1036,7 @@ if.else310:                                       ; preds = %if.else306
 if.end319:                                        ; preds = %if.else306, %if.else299, %if.else310
   %I301.0 = phi i64 [ %add317, %if.else310 ], [ 0, %if.else299 ], [ 31, %if.else306 ]
   %treebins320 = getelementptr inbounds nuw i8, ptr %msp, i64 584
-  %arrayidx321 = getelementptr inbounds [32 x ptr], ptr %treebins320, i64 0, i64 %I301.0
+  %arrayidx321 = getelementptr inbounds nuw [32 x ptr], ptr %treebins320, i64 0, i64 %I301.0
   %index322 = getelementptr inbounds nuw i8, ptr %p.0, i64 56
   store i64 %I301.0, ptr %index322, align 8
   %child323 = getelementptr inbounds nuw i8, ptr %p.0, i64 32
@@ -1592,7 +1592,7 @@ if.else5.i:                                       ; preds = %if.else.i122
 if.end10.i:                                       ; preds = %if.else5.i, %if.else.i122, %land.lhs.true136
   %idx.0.i = phi i64 [ %add9.i, %if.else5.i ], [ 0, %land.lhs.true136 ], [ 31, %if.else.i122 ]
   %treebins.i126 = getelementptr inbounds nuw i8, ptr %msp, i64 584
-  %arrayidx.i127 = getelementptr inbounds [32 x ptr], ptr %treebins.i126, i64 0, i64 %idx.0.i
+  %arrayidx.i127 = getelementptr inbounds nuw [32 x ptr], ptr %treebins.i126, i64 0, i64 %idx.0.i
   %41 = load ptr, ptr %arrayidx.i127, align 8
   %cmp11.not.i = icmp eq ptr %41, null
   br i1 %cmp11.not.i, label %if.end46.i, label %if.then13.i
@@ -1934,7 +1934,7 @@ if.else236.i:                                     ; preds = %if.else232.i
 
 if.end247.i:                                      ; preds = %if.else236.i, %if.else232.i, %if.else223.i
   %I225.0.i = phi i64 [ %add245.i, %if.else236.i ], [ 0, %if.else223.i ], [ 31, %if.else232.i ]
-  %arrayidx249.i = getelementptr inbounds [32 x ptr], ptr %treebins.i126, i64 0, i64 %I225.0.i
+  %arrayidx249.i = getelementptr inbounds nuw [32 x ptr], ptr %treebins.i126, i64 0, i64 %I225.0.i
   %index250.i = getelementptr inbounds nuw i8, ptr %add.ptr.i139, i64 56
   store i64 %I225.0.i, ptr %index250.i, align 8
   %child251.i = getelementptr inbounds nuw i8, ptr %add.ptr.i139, i64 32
@@ -2517,7 +2517,7 @@ if.else163.i.i:                                   ; preds = %if.else159.i.i
 if.end172.i.i:                                    ; preds = %if.else163.i.i, %if.else159.i.i, %if.else151.i.i
   %I154.0.i.i = phi i64 [ %add170.i.i, %if.else163.i.i ], [ 0, %if.else151.i.i ], [ 31, %if.else159.i.i ]
   %treebins173.i.i = getelementptr inbounds nuw i8, ptr %msp, i64 584
-  %arrayidx174.i.i = getelementptr inbounds [32 x ptr], ptr %treebins173.i.i, i64 0, i64 %I154.0.i.i
+  %arrayidx174.i.i = getelementptr inbounds nuw [32 x ptr], ptr %treebins173.i.i, i64 0, i64 %I154.0.i.i
   %index175.i.i = getelementptr inbounds nuw i8, ptr %add.ptr17.i64.i, i64 56
   store i64 %I154.0.i.i, ptr %index175.i.i, align 8
   %child176.i.i = getelementptr inbounds nuw i8, ptr %add.ptr17.i64.i, i64 32
@@ -2751,7 +2751,7 @@ if.else60.i.i:                                    ; preds = %if.else56.i.i
 if.end69.i.i:                                     ; preds = %if.else60.i.i, %if.else56.i.i, %if.else50.i.i
   %I51.0.i.i = phi i64 [ %add67.i.i, %if.else60.i.i ], [ 0, %if.else50.i.i ], [ 31, %if.else56.i.i ]
   %treebins.i78.i = getelementptr inbounds nuw i8, ptr %msp, i64 584
-  %arrayidx70.i.i = getelementptr inbounds [32 x ptr], ptr %treebins.i78.i, i64 0, i64 %I51.0.i.i
+  %arrayidx70.i.i = getelementptr inbounds nuw [32 x ptr], ptr %treebins.i78.i, i64 0, i64 %I51.0.i.i
   %index.i79.i = getelementptr inbounds nuw i8, ptr %128, i64 56
   store i64 %I51.0.i.i, ptr %index.i79.i, align 8
   %treemap.i80.i = getelementptr inbounds nuw i8, ptr %msp, i64 4
@@ -3098,7 +3098,7 @@ if.else96:                                        ; preds = %if.else92
 
 if.end105:                                        ; preds = %if.else92, %if.else87, %if.else96
   %I.0 = phi i64 [ %add103, %if.else96 ], [ 0, %if.else87 ], [ 31, %if.else92 ]
-  %arrayidx107 = getelementptr inbounds [32 x ptr], ptr %treebins, i64 0, i64 %I.0
+  %arrayidx107 = getelementptr inbounds nuw [32 x ptr], ptr %treebins, i64 0, i64 %I.0
   %index108 = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 56
   store i64 %I.0, ptr %index108, align 8
   %child109 = getelementptr inbounds nuw i8, ptr %add.ptr9, i64 32

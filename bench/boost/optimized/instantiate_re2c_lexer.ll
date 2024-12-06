@@ -40926,7 +40926,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit217.th
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread
 
 196:                                              ; preds = %157
-  %197 = getelementptr inbounds i8, ptr %.lcssa245, i64 %160
+  %197 = getelementptr inbounds nuw i8, ptr %.lcssa245, i64 %160
   %198 = load i8, ptr %197, align 1, !tbaa !11
   %199 = icmp eq i8 %159, 13
   %200 = icmp eq i8 %198, 92
@@ -81463,7 +81463,7 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit217.t
   br label %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread
 
 196:                                              ; preds = %157
-  %197 = getelementptr inbounds i8, ptr %.lcssa245, i64 %160
+  %197 = getelementptr inbounds nuw i8, ptr %.lcssa245, i64 %160
   %198 = load i8, ptr %197, align 1, !tbaa !11
   %199 = icmp eq i8 %159, 13
   %200 = icmp eq i8 %198, 92

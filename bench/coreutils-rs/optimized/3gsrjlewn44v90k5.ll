@@ -781,7 +781,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17hefe41de548988e59E.exit.threa
   %30 = sub nuw i64 %28, %29
   %31 = udiv exact i64 %30, 24
   %.not.i.i.i.i.i.i = icmp ult i64 %22, %31
-  %32 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %22
+  %32 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %19, i64 %22
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heeed092ce413ce78E.exit.i.i.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heeed092ce413ce78E.exit.i.i.i.i": ; preds = %26

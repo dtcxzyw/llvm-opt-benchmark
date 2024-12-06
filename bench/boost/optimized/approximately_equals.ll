@@ -143711,7 +143711,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 %1
-  %20 = getelementptr inbounds i8, ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %19, ptr %14, align 8, !tbaa !2468
   store ptr %20, ptr %7, align 8, !tbaa !2469
   br label %38
@@ -143723,7 +143723,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
   br i1 %or.cond34, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %10, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %26 = sub nsw i64 0, %1
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store ptr %27, ptr %14, align 8, !tbaa !2468
@@ -143742,7 +143742,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 %32
-  %37 = getelementptr inbounds i8, ptr %10, i64 %13
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %36, ptr %14, align 8, !tbaa !2468
   store ptr %37, ptr %7, align 8, !tbaa !2469
   br label %38
@@ -151884,9 +151884,9 @@ _ZN5boost14multiprecision8bit_testINS0_8backends15cpp_int_backendILm0ELm0ELNS0_1
 
 558:                                              ; preds = %556
   %.015.i.i.i.i.i.i = add nsw i64 %.015.in.i.i.i.i.i.i, -1
-  %559 = getelementptr inbounds i64, ptr %551, i64 %.015.i.i.i.i.i.i
+  %559 = getelementptr inbounds nuw i64, ptr %551, i64 %.015.i.i.i.i.i.i
   %560 = load i64, ptr %559, align 8, !tbaa !1539
-  %561 = getelementptr inbounds i64, ptr %555, i64 %.015.i.i.i.i.i.i
+  %561 = getelementptr inbounds nuw i64, ptr %555, i64 %.015.i.i.i.i.i.i
   %562 = load i64, ptr %561, align 8, !tbaa !1539
   %.not19.i.i.i.i.i.i = icmp eq i64 %560, %562
   br i1 %.not19.i.i.i.i.i.i, label %556, label %563, !llvm.loop !2552
@@ -153584,9 +153584,9 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_
 
 42:                                               ; preds = %40
   %.015.i.i.i = add nsw i64 %.015.in.i.i.i, -1
-  %43 = getelementptr inbounds i64, ptr %12, i64 %.015.i.i.i
+  %43 = getelementptr inbounds nuw i64, ptr %12, i64 %.015.i.i.i
   %44 = load i64, ptr %43, align 8, !tbaa !1539
-  %45 = getelementptr inbounds i64, ptr %39, i64 %.015.i.i.i
+  %45 = getelementptr inbounds nuw i64, ptr %39, i64 %.015.i.i.i
   %46 = load i64, ptr %45, align 8, !tbaa !1539
   %.not19.i.i.i = icmp eq i64 %44, %46
   br i1 %.not19.i.i.i, label %40, label %47, !llvm.loop !2552
@@ -153663,9 +153663,9 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_
 
 82:                                               ; preds = %80
   %.015.i.i.i24 = add nsw i64 %.015.in.i.i.i23, -1
-  %83 = getelementptr inbounds i64, ptr %73, i64 %.015.i.i.i24
+  %83 = getelementptr inbounds nuw i64, ptr %73, i64 %.015.i.i.i24
   %84 = load i64, ptr %83, align 8, !tbaa !1539
-  %85 = getelementptr inbounds i64, ptr %79, i64 %.015.i.i.i24
+  %85 = getelementptr inbounds nuw i64, ptr %79, i64 %.015.i.i.i24
   %86 = load i64, ptr %85, align 8, !tbaa !1539
   %.not19.i.i.i25 = icmp eq i64 %84, %86
   br i1 %.not19.i.i.i25, label %80, label %87, !llvm.loop !2552
@@ -153738,9 +153738,9 @@ _ZNK5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_
 
 119:                                              ; preds = %117
   %.015.i.i.i34 = add nsw i64 %.015.in.i.i.i33, -1
-  %120 = getelementptr inbounds i64, ptr %110, i64 %.015.i.i.i34
+  %120 = getelementptr inbounds nuw i64, ptr %110, i64 %.015.i.i.i34
   %121 = load i64, ptr %120, align 8, !tbaa !1539
-  %122 = getelementptr inbounds i64, ptr %116, i64 %.015.i.i.i34
+  %122 = getelementptr inbounds nuw i64, ptr %116, i64 %.015.i.i.i34
   %123 = load i64, ptr %122, align 8, !tbaa !1539
   %.not19.i.i.i35 = icmp eq i64 %121, %123
   br i1 %.not19.i.i.i35, label %117, label %124, !llvm.loop !2552
@@ -153815,9 +153815,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14multiprecisionltINS0_8
 
 32:                                               ; preds = %30
   %.015.i.i.i.i.i = add nsw i64 %.015.in.i.i.i.i.i, -1
-  %33 = getelementptr inbounds i64, ptr %23, i64 %.015.i.i.i.i.i
+  %33 = getelementptr inbounds nuw i64, ptr %23, i64 %.015.i.i.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !1539
-  %35 = getelementptr inbounds i64, ptr %29, i64 %.015.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i64, ptr %29, i64 %.015.i.i.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !1539
   %.not19.i.i.i.i.i = icmp eq i64 %34, %36
   br i1 %.not19.i.i.i.i.i, label %30, label %37, !llvm.loop !2552
@@ -153908,9 +153908,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost14multiprecisiongeINS0_6
 
 32:                                               ; preds = %30
   %.015.i.i.i.i.i = add nsw i64 %.015.in.i.i.i.i.i, -1
-  %33 = getelementptr inbounds i64, ptr %23, i64 %.015.i.i.i.i.i
+  %33 = getelementptr inbounds nuw i64, ptr %23, i64 %.015.i.i.i.i.i
   %34 = load i64, ptr %33, align 8, !tbaa !1539
-  %35 = getelementptr inbounds i64, ptr %29, i64 %.015.i.i.i.i.i
+  %35 = getelementptr inbounds nuw i64, ptr %29, i64 %.015.i.i.i.i.i
   %36 = load i64, ptr %35, align 8, !tbaa !1539
   %.not19.i.i.i.i.i = icmp eq i64 %34, %36
   br i1 %.not19.i.i.i.i.i, label %30, label %37, !llvm.loop !2552
@@ -157808,9 +157808,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 86:                                               ; preds = %84
   %.015.i = add nsw i64 %.015.in.i, -1
-  %87 = getelementptr inbounds i64, ptr %77, i64 %.015.i
+  %87 = getelementptr inbounds nuw i64, ptr %77, i64 %.015.i
   %88 = load i64, ptr %87, align 8, !tbaa !1539
-  %89 = getelementptr inbounds i64, ptr %83, i64 %.015.i
+  %89 = getelementptr inbounds nuw i64, ptr %83, i64 %.015.i
   %90 = load i64, ptr %89, align 8, !tbaa !1539
   %.not19.i = icmp eq i64 %88, %90
   br i1 %.not19.i, label %84, label %91, !llvm.loop !2552
@@ -160965,9 +160965,9 @@ _ZN5boost14multiprecision8backends15cpp_int_backendILm0ELm0ELNS0_16cpp_integer_t
 
 301:                                              ; preds = %299
   %.015.i = add nsw i64 %.015.in.i, -1
-  %302 = getelementptr inbounds i64, ptr %294, i64 %.015.i
+  %302 = getelementptr inbounds nuw i64, ptr %294, i64 %.015.i
   %303 = load i64, ptr %302, align 8, !tbaa !1539
-  %304 = getelementptr inbounds i64, ptr %298, i64 %.015.i
+  %304 = getelementptr inbounds nuw i64, ptr %298, i64 %.015.i
   %305 = load i64, ptr %304, align 8, !tbaa !1539
   %.not19.i = icmp eq i64 %303, %305
   br i1 %.not19.i, label %299, label %306, !llvm.loop !2552
@@ -161833,9 +161833,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 687:                                              ; preds = %685
   %.015.i.i.i = add nsw i64 %.015.in.i.i.i, -1
-  %688 = getelementptr inbounds i64, ptr %680, i64 %.015.i.i.i
+  %688 = getelementptr inbounds nuw i64, ptr %680, i64 %.015.i.i.i
   %689 = load i64, ptr %688, align 8, !tbaa !1539
-  %690 = getelementptr inbounds i64, ptr %684, i64 %.015.i.i.i
+  %690 = getelementptr inbounds nuw i64, ptr %684, i64 %.015.i.i.i
   %691 = load i64, ptr %690, align 8, !tbaa !1539
   %.not19.i.i.i = icmp eq i64 %689, %691
   br i1 %.not19.i.i.i, label %685, label %692, !llvm.loop !2552
@@ -162016,9 +162016,9 @@ _ZN5boost14multiprecision8backends12cpp_int_baseILm0ELm18446744073709551615ELNS0
 
 758:                                              ; preds = %756
   %.015.i429 = add nsw i64 %.015.in.i428, -1
-  %759 = getelementptr inbounds i64, ptr %751, i64 %.015.i429
+  %759 = getelementptr inbounds nuw i64, ptr %751, i64 %.015.i429
   %760 = load i64, ptr %759, align 8, !tbaa !1539
-  %761 = getelementptr inbounds i64, ptr %755, i64 %.015.i429
+  %761 = getelementptr inbounds nuw i64, ptr %755, i64 %.015.i429
   %762 = load i64, ptr %761, align 8, !tbaa !1539
   %.not19.i430 = icmp eq i64 %760, %762
   br i1 %.not19.i430, label %756, label %763, !llvm.loop !2552
@@ -166122,9 +166122,9 @@ _ZN5boost14multiprecision8backends13cpp_bin_floatILj100ELNS1_15digit_base_typeE1
 
 154:                                              ; preds = %.preheader.i.i.i
   %.015.i.i.i = add nsw i64 %.015.in.i.i.i, -1
-  %155 = getelementptr inbounds i64, ptr %1, i64 %.015.i.i.i
+  %155 = getelementptr inbounds nuw i64, ptr %1, i64 %.015.i.i.i
   %156 = load i64, ptr %155, align 8, !tbaa !1539
-  %157 = getelementptr inbounds i64, ptr %2, i64 %.015.i.i.i
+  %157 = getelementptr inbounds nuw i64, ptr %2, i64 %.015.i.i.i
   %158 = load i64, ptr %157, align 8, !tbaa !1539
   %.not19.i.i.i = icmp eq i64 %156, %158
   br i1 %.not19.i.i.i, label %.preheader.i.i.i, label %159, !llvm.loop !2661
@@ -167657,9 +167657,9 @@ define linkonce_odr hidden void @_ZN5boost14multiprecision8backends17subtract_un
 
 22:                                               ; preds = %.preheader.i
   %.015.i = add nsw i64 %.015.in.i, -1
-  %23 = getelementptr inbounds i64, ptr %1, i64 %.015.i
+  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %.015.i
   %24 = load i64, ptr %23, align 8, !tbaa !1539
-  %25 = getelementptr inbounds i64, ptr %2, i64 %.015.i
+  %25 = getelementptr inbounds nuw i64, ptr %2, i64 %.015.i
   %26 = load i64, ptr %25, align 8, !tbaa !1539
   %.not19.i = icmp eq i64 %24, %26
   br i1 %.not19.i, label %.preheader.i, label %27, !llvm.loop !2668
@@ -168312,9 +168312,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail7overlay
 
 58:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i
   %.015.i.i.i.i.i.i.i.i = add nsw i64 %.015.in.i.i.i.i.i.i.i.i, -1
-  %59 = getelementptr inbounds i64, ptr %4, i64 %.015.i.i.i.i.i.i.i.i
+  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %.015.i.i.i.i.i.i.i.i
   %60 = load i64, ptr %59, align 8, !tbaa !1539
-  %61 = getelementptr inbounds i64, ptr %5, i64 %.015.i.i.i.i.i.i.i.i
+  %61 = getelementptr inbounds nuw i64, ptr %5, i64 %.015.i.i.i.i.i.i.i.i
   %62 = load i64, ptr %61, align 8, !tbaa !1539
   %.not19.i.i.i.i.i.i.i.i = icmp eq i64 %60, %62
   br i1 %.not19.i.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, label %63, !llvm.loop !2661
@@ -168381,9 +168381,9 @@ _ZN5boost8geometry4math6detail16equals_by_policyINS_14multiprecision6numberINS4_
 
 88:                                               ; preds = %.preheader.i.i.i.i.i.i.i.i23
   %.015.i.i.i.i.i.i.i.i25 = add nsw i64 %.015.in.i.i.i.i.i.i.i.i24, -1
-  %89 = getelementptr inbounds i64, ptr %6, i64 %.015.i.i.i.i.i.i.i.i25
+  %89 = getelementptr inbounds nuw i64, ptr %6, i64 %.015.i.i.i.i.i.i.i.i25
   %90 = load i64, ptr %89, align 8, !tbaa !1539
-  %91 = getelementptr inbounds i64, ptr %7, i64 %.015.i.i.i.i.i.i.i.i25
+  %91 = getelementptr inbounds nuw i64, ptr %7, i64 %.015.i.i.i.i.i.i.i.i25
   %92 = load i64, ptr %91, align 8, !tbaa !1539
   %.not19.i.i.i.i.i.i.i.i26 = icmp eq i64 %90, %92
   br i1 %.not19.i.i.i.i.i.i.i.i26, label %.preheader.i.i.i.i.i.i.i.i23, label %93, !llvm.loop !2661

@@ -977,7 +977,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h42bf2ca27083ea24E.exit: ; p
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 1
   %.not.i.not.i = icmp ult i64 %.sroa.0.0, %28
-  %29 = getelementptr inbounds i16, ptr %15, i64 %.sroa.0.0
+  %29 = getelementptr inbounds nuw i16, ptr %15, i64 %.sroa.0.0
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %storemerge.i.i = select i1 %.not.i.not.i, ptr %30, ptr %24
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !137
@@ -19792,7 +19792,7 @@ define internal fastcc void @"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h6c20b000b9986d91E.exit.i": ; preds = %19, %15
   %20 = or disjoint i8 %.sroa.0.0, 48
   %21 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2761, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds i8, ptr %21, i64 %17
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %17
   store i8 %20, ptr %22, align 1
   %23 = add nuw nsw i64 %17, 1
   store i64 %23, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !2761
@@ -21577,8 +21577,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !3593)
   %30 = getelementptr i8, ptr %19, i64 -64
   %31 = add nsw i64 %1, -1
-  %32 = getelementptr inbounds { i64, [7 x i64] }, ptr %13, i64 %31
-  %33 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %13, i64 %31
+  %33 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -22093,8 +22093,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 71:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3823
   %72 = add nsw i64 %1, -1
-  %73 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
-  %74 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
+  %73 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
+  %74 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
   %75 = getelementptr { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %7
   %76 = getelementptr i8, ptr %75, i64 -40
   br label %.lr.ph.i.i
@@ -23717,7 +23717,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   unreachable
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
+  %185 = getelementptr inbounds nuw i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
   %.not4.i.i = icmp eq i64 %.sroa.09.0.i, %.sroa.9.0.i
   br i1 %.not4.i.i, label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h341bccd1d8f34257E.exit.i, label %.lr.ph.preheader.i.i
 
@@ -23767,8 +23767,8 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h341bccd1d8f342
 197:                                              ; preds = %196
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4330)
   %198 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %199 = getelementptr inbounds i64, ptr %6, i64 %198
-  %200 = getelementptr inbounds i64, ptr %.sroa.0.0.lcssa, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %6, i64 %198
+  %200 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.lcssa, i64 %198
   %201 = getelementptr i8, ptr %13, i64 -8
   br label %.lr.ph.i20.i
 
@@ -23961,7 +23961,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17hd8b8e26f02bb2052E.exit20.i: ; 
 281:                                              ; preds = %.lr.ph
   %282 = add nsw i32 %.sroa.020.082, -1
   %283 = lshr i64 %.sroa.11.084, 3
-  %.idx.i = shl nsw i64 %283, 5
+  %.idx.i = shl nuw nsw i64 %283, 5
   %284 = getelementptr inbounds nuw i8, ptr %.sroa.0.085, i64 %.idx.i
   %.idx1.i = mul i64 %283, 56
   %285 = getelementptr inbounds i8, ptr %.sroa.0.085, i64 %.idx1.i

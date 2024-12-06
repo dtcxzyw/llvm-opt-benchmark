@@ -387,7 +387,7 @@ _ZN4futf4Byte8classify17heed726cb392d1081E.exit104: ; preds = %5, %121
   %103 = add nuw nsw i64 %.093, 1
   %104 = icmp ult i64 %102, %2
   tail call void @llvm.assume(i1 %104)
-  %105 = getelementptr inbounds i8, ptr %1, i64 %102
+  %105 = getelementptr inbounds nuw i8, ptr %1, i64 %102
   %106 = load i8, ptr %105, align 1, !noundef !18
   %107 = and i8 %106, -64
   switch i8 %107, label %119 [
@@ -396,7 +396,7 @@ _ZN4futf4Byte8classify17heed726cb392d1081E.exit104: ; preds = %5, %121
   ]
 
 108:                                              ; preds = %101
-  %109 = getelementptr inbounds i8, ptr %1, i64 %102
+  %109 = getelementptr inbounds nuw i8, ptr %1, i64 %102
   %110 = and i8 %106, -8
   %111 = icmp eq i8 %110, -16
   br i1 %111, label %select.unfold165, label %112
@@ -474,7 +474,7 @@ select.unfold165:                                 ; preds = %115, %108, %112
   %136 = and i8 %106, 31
   %137 = zext nneg i8 %136 to i32
   %138 = shl nuw nsw i32 %137, 6
-  %139 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %139 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
   %140 = load i8, ptr %139, align 1, !alias.scope !43, !noalias !46, !noundef !18
   %141 = and i8 %140, 63
   %142 = zext nneg i8 %141 to i32
@@ -486,7 +486,7 @@ select.unfold165:                                 ; preds = %115, %108, %112
   %146 = and i8 %106, 15
   %147 = zext nneg i8 %146 to i32
   %148 = shl nuw nsw i32 %147, 12
-  %149 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %149 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
   %150 = load i8, ptr %149, align 1, !alias.scope !43, !noalias !46, !noundef !18
   %151 = and i8 %150, 63
   %152 = zext nneg i8 %151 to i32
@@ -504,7 +504,7 @@ select.unfold165:                                 ; preds = %115, %108, %112
   %162 = and i8 %106, 7
   %163 = zext nneg i8 %162 to i32
   %164 = shl nuw nsw i32 %163, 18
-  %165 = getelementptr inbounds i8, ptr %1, i64 %.0
+  %165 = getelementptr inbounds nuw i8, ptr %1, i64 %.0
   %166 = load i8, ptr %165, align 1, !alias.scope !43, !noalias !46, !noundef !18
   %167 = and i8 %166, 63
   %168 = zext nneg i8 %167 to i32

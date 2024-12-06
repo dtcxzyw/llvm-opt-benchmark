@@ -3251,7 +3251,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit244: ; preds = %132, %135
 
 165:                                              ; preds = %161
   %166 = add nsw i64 %.1201, 325
-  %167 = getelementptr inbounds [634 x i64], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE11mantissa_64, i64 0, i64 %166
+  %167 = getelementptr inbounds nuw [634 x i64], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE11mantissa_64, i64 0, i64 %166
   %168 = load i64, ptr %167, align 8
   %169 = mul nsw i64 %.1201, 217706
   %170 = ashr i64 %169, 16
@@ -3272,7 +3272,7 @@ _ZN18fast_double_parserL18parse_float_strtodEPKcPd.exit244: ; preds = %132, %135
   br i1 %or.cond228, label %184, label %200
 
 184:                                              ; preds = %165
-  %185 = getelementptr inbounds [634 x i64], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12mantissa_128, i64 0, i64 %166
+  %185 = getelementptr inbounds nuw [634 x i64], ptr @_ZZN18fast_double_parser16compute_float_64ElmbPbE12mantissa_128, i64 0, i64 %166
   %186 = load i64, ptr %185, align 8
   %187 = zext i64 %186 to i128
   %188 = mul nuw i128 %187, %174

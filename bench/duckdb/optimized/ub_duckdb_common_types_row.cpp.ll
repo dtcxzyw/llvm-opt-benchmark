@@ -40466,7 +40466,7 @@ unreachable.i.i.i.i.i:                            ; preds = %invoke.cont8.i.i.i.
 lpad.body:                                        ; preds = %lpad7.i.i.i.i.i
   %14 = extractvalue { ptr, i32 } %11, 0
   %15 = tail call ptr @__cxa_begin_catch(ptr %14) #29
-  %add.ptr28 = getelementptr inbounds %"struct.duckdb::TupleDataVectorFormat", ptr %add.ptr, i64 %__n
+  %add.ptr28 = getelementptr inbounds nuw %"struct.duckdb::TupleDataVectorFormat", ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %lpad.body
@@ -40507,7 +40507,7 @@ if.then.i102:                                     ; preds = %_ZSt8_DestroyIPN6du
 
 _ZNSt12_Vector_baseIN6duckdb21TupleDataVectorFormatESaIS1_EE13_M_deallocateEPS1_m.exit103: ; preds = %if.then.i102, %_ZSt8_DestroyIPN6duckdb21TupleDataVectorFormatES1_EvT_S3_RSaIT0_E.exit100
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !288
-  %add.ptr45 = getelementptr inbounds %"struct.duckdb::TupleDataVectorFormat", ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw %"struct.duckdb::TupleDataVectorFormat", ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !289
   %add.ptr48 = getelementptr inbounds nuw %"struct.duckdb::TupleDataVectorFormat", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8, !tbaa !868
@@ -45372,7 +45372,7 @@ if.then.i89:                                      ; preds = %_ZNSt6vectorIN6duck
 
 _ZNSt12_Vector_baseIN6duckdb12BufferHandleESaIS1_EE13_M_deallocateEPS1_m.exit90: ; preds = %if.then.i89, %_ZNSt6vectorIN6duckdb12BufferHandleESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !292
-  %add.ptr37 = getelementptr inbounds %"class.duckdb::BufferHandle", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.duckdb::BufferHandle", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !293
   %add.ptr40 = getelementptr inbounds nuw %"class.duckdb::BufferHandle", ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !421

@@ -6084,7 +6084,7 @@ if.end10.split.preheader:                         ; preds = %if.end10.split.lr.p
 if.end10.split.us:                                ; preds = %if.end10.split.lr.ph, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit73.us
   %__parent.078.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit73.us ], [ %div15, %if.end10.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.078.us, -1
-  %add.ptr12.us = getelementptr inbounds %"class.sat::literal", ptr %__first, i64 %dec.us
+  %add.ptr12.us = getelementptr inbounds nuw %"class.sat::literal", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload13.us = load i32, ptr %add.ptr12.us, align 4
   %agg.tmp5.sroa.0.0.copyload14.us = load ptr, ptr %__comp, align 8
   %cmp23.i18.not.us = icmp sgt i64 %__parent.078.us, %div.i7476
@@ -6159,7 +6159,7 @@ _ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12
 if.end10.split:                                   ; preds = %if.end10.split.preheader, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit73
   %__parent.078 = phi i64 [ %dec, %_ZSt13__adjust_heapIPN3sat7literalElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12asymm_branch12compare_leftEEEEvT_T0_SA_T1_T2_.exit73 ], [ %div15, %if.end10.split.preheader ]
   %dec = add nsw i64 %__parent.078, -1
-  %add.ptr12 = getelementptr inbounds %"class.sat::literal", ptr %__first, i64 %dec
+  %add.ptr12 = getelementptr inbounds nuw %"class.sat::literal", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload13 = load i32, ptr %add.ptr12, align 4
   %agg.tmp5.sroa.0.0.copyload14 = load ptr, ptr %__comp, align 8
   %cmp23.i18.not = icmp sgt i64 %__parent.078, %div.i7476

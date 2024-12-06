@@ -3430,7 +3430,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h3904759c4
   %21 = add i32 %.sroa.020.0117, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !982)
   %22 = lshr i64 %.sroa.11.0119, 3
-  %.idx.i = shl nsw i64 %22, 7
+  %.idx.i = shl nuw nsw i64 %22, 7
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.0120, i64 %.idx.i
   %.idx1.i = mul i64 %22, 224
   %24 = getelementptr inbounds i8, ptr %.sroa.0.0120, i64 %.idx1.i

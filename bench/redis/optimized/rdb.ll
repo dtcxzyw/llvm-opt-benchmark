@@ -12264,7 +12264,7 @@ do.end84:                                         ; preds = %do.body79, %if.end8
 
 if.end85:                                         ; preds = %if.end74
   %51 = load ptr, ptr %rdb_loading_ctx, align 8
-  %add.ptr87 = getelementptr inbounds %struct.redisDb, ptr %51, i64 %48
+  %add.ptr87 = getelementptr inbounds nuw %struct.redisDb, ptr %51, i64 %48
   br label %while.body.backedge
 
 if.then91:                                        ; preds = %rdbLoadType.exit

@@ -6378,7 +6378,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.015.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div13.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.015.i.i, -1
-  %add.ptr11.i.i = getelementptr inbounds %class.aig_lit, ptr %__first, i64 %dec.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw %class.aig_lit, ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload12.i.i = load ptr, ptr %add.ptr11.i.i, align 8
   tail call void @_ZSt13__adjust_heapIP7aig_litlS0_N9__gnu_cxx5__ops15_Iter_comp_iterI10aig_lit_ltEEEvT_T0_S8_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, ptr %__value.sroa.0.0.copyload12.i.i)
   %cmp6.i.i = icmp eq i64 %dec.i.i, 0

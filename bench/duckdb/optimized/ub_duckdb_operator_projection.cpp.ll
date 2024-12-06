@@ -12451,7 +12451,7 @@ lpad:                                             ; preds = %invoke.cont
           catch ptr null
   %9 = extractvalue { ptr, i32 } %8, 0
   %10 = tail call ptr @__cxa_begin_catch(ptr %9) #22
-  %add.ptr28 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %add.ptr, i64 %__n
+  %add.ptr28 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %add.ptr, i64 %__n
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb19UnifiedVectorFormatEEEvT_S5_(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr28)
           to label %if.then.i93 unwind label %lpad30
 
@@ -12480,7 +12480,7 @@ if.then.i95:                                      ; preds = %try.cont
 
 _ZNSt12_Vector_baseIN6duckdb19UnifiedVectorFormatESaIS1_EE13_M_deallocateEPS1_m.exit96: ; preds = %if.then.i95, %try.cont
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !355
-  %add.ptr45 = getelementptr inbounds %"struct.duckdb::UnifiedVectorFormat", ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !354
   %add.ptr48 = getelementptr inbounds nuw %"struct.duckdb::UnifiedVectorFormat", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8, !tbaa !481

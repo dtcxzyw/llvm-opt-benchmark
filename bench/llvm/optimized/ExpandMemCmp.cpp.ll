@@ -2263,7 +2263,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i54.i.i.i: ; p
   store i16 257, ptr %118, align 8
   %954 = call noundef ptr @_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(128) %68, i32 noundef 33, ptr noundef nonnull %.0.i.i.i.i.i.i, ptr noundef %953, ptr noundef nonnull align 8 dereferenceable(34) %10)
   %955 = load ptr, ptr %93, align 8
-  %956 = add nuw i64 %indvars.iv.i.i.i, 1
+  %956 = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %957 = and i64 %956, 4294967295
   %958 = load ptr, ptr %64, align 8
   %959 = getelementptr inbounds nuw ptr, ptr %958, i64 %957

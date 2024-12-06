@@ -432,7 +432,7 @@ define hidden void @"_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$9split_off17hd5be9af
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hc168049529e83ff9E.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haad289dfe8cb706fE.exit"
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %22 = sub nuw nsw i64 %15, %18
-  %23 = getelementptr inbounds i8, ptr %21, i64 %18
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 %18
   call void @_ZN4core3ptr19swap_nonoverlapping17h93a20e6c534d4445E.llvm.10107124358432276917(ptr noundef nonnull align 1 %23, ptr noundef nonnull align 1 %13, i64 noundef %22), !noalias !92
   %24 = trunc nuw nsw i64 %22 to i16
   store i16 %24, ptr %5, align 2
@@ -1964,7 +1964,7 @@ define hidden void @_ZN15ockam_multiaddr9split_off17hbc66e5754c724a50E(ptr noali
 "_ZN7tinyvec8arrayvec17ArrayVec$LT$A$GT$9split_off17hd5be9afebb908fa0E.llvm.15521009673977008026.exit": ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17haad289dfe8cb706fE.exit.i"
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %35 = sub nuw nsw i64 %17, %23
-  %36 = getelementptr inbounds i8, ptr %34, i64 %23
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 %23
   call void @_ZN4core3ptr19swap_nonoverlapping17h93a20e6c534d4445E.llvm.10107124358432276917(ptr noundef nonnull align 1 %36, ptr noundef nonnull align 1 %20, i64 noundef %35), !noalias !569
   %37 = trunc nuw nsw i64 %35 to i16
   store i16 %37, ptr %8, align 2, !noalias !551

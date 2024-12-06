@@ -27636,7 +27636,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h503607754aad47f4E.exit.i.i.i:
   br i1 %or.cond.i.i.i, label %258, label %264
 
 258:                                              ; preds = %253
-  %259 = getelementptr inbounds i64, ptr %249, i64 %.0.i.i.i
+  %259 = getelementptr inbounds nuw i64, ptr %249, i64 %.0.i.i.i
   %260 = load i64, ptr %259, align 8, !noalias !5440, !noundef !4
   %261 = icmp eq i64 %260, 0
   br i1 %261, label %264, label %265

@@ -4225,7 +4225,7 @@ define hidden noundef range(i64 0, 288230376151711744) i64 @_ZN4core5slice4sort6
 
 5:                                                ; preds = %3
   %6 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %6, 8
+  %.idx = shl nuw nsw i64 %6, 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %6, 448
   %8 = getelementptr inbounds i8, ptr %0, i64 %.idx1
@@ -4292,7 +4292,7 @@ define hidden noundef range(i64 0, 288230376151711744) i64 @_ZN4core5slice4sort6
 
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %12, 8
+  %.idx = shl nuw nsw i64 %12, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %12, 448
   %14 = getelementptr inbounds i8, ptr %0, i64 %.idx1
@@ -5942,7 +5942,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 346:                                              ; preds = %344
   %347 = zext i32 %345 to i64
   %348 = add nsw i64 %347, -1
-  %349 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %348
+  %349 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %348
   %350 = load ptr, ptr %349, align 8, !alias.scope !1910, !noalias !1913, !nonnull !7, !align !340, !noundef !7
   %351 = load ptr, ptr %350, align 8, !noalias !1915, !nonnull !7, !noundef !7
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 16
@@ -5987,7 +5987,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 
 367:                                              ; preds = %362
   %368 = getelementptr inbounds nuw i8, ptr %351, i64 232
-  %369 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %368, i64 0, i64 %356
+  %369 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %368, i64 0, i64 %356
   invoke fastcc void @"_ZN53_$LT$text..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17hd9e845c4229b46f7E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %49, ptr noalias noundef readonly align 8 dereferenceable(152) %369)
           to label %370 unwind label %213
 
@@ -6470,7 +6470,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 510:                                              ; preds = %508
   %511 = zext i32 %509 to i64
   %512 = add nsw i64 %511, -1
-  %513 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %512
+  %513 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %512
   %514 = load ptr, ptr %513, align 8, !alias.scope !2057, !noalias !2060, !nonnull !7, !align !340, !noundef !7
   %515 = load ptr, ptr %514, align 8, !noalias !2062, !nonnull !7, !noundef !7
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 16
@@ -6523,7 +6523,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 
 533:                                              ; preds = %526
   %534 = getelementptr inbounds nuw i8, ptr %515, i64 232
-  %535 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %534, i64 0, i64 %520
+  %535 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %534, i64 0, i64 %520
   invoke fastcc void @"_ZN53_$LT$text..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17hd9e845c4229b46f7E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %68, ptr noalias noundef readonly align 8 dereferenceable(152) %535)
           to label %536 unwind label %.critedge145.thread487.loopexit.split-lp.loopexit
 
@@ -6636,7 +6636,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 574:                                              ; preds = %572
   %575 = zext i32 %573 to i64
   %576 = add nsw i64 %575, -1
-  %577 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %576
+  %577 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %576
   %578 = load ptr, ptr %577, align 8, !alias.scope !2068, !noalias !2071, !nonnull !7, !align !340, !noundef !7
   %579 = load ptr, ptr %578, align 8, !noalias !2073, !nonnull !7, !noundef !7
   %580 = getelementptr inbounds nuw i8, ptr %579, i64 16
@@ -6664,7 +6664,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 
 593:                                              ; preds = %589
   %594 = getelementptr inbounds nuw i8, ptr %579, i64 232
-  %595 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %594, i64 0, i64 %584
+  %595 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %594, i64 0, i64 %584
   invoke fastcc void @"_ZN53_$LT$text..Fragment$u20$as$u20$core..clone..Clone$GT$5clone17hd9e845c4229b46f7E"(ptr noalias nocapture noundef align 8 dereferenceable(152) %64, ptr noalias noundef readonly align 8 dereferenceable(152) %595)
           to label %596 unwind label %.critedge145.thread487.loopexit.split-lp.loopexit
 
@@ -6813,7 +6813,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 645:                                              ; preds = %643
   %646 = zext i32 %644 to i64
   %647 = add nsw i64 %646, -1
-  %648 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %647
+  %648 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %647
   %649 = load ptr, ptr %648, align 8, !alias.scope !2096, !noalias !2099, !nonnull !7, !align !340, !noundef !7
   %650 = load ptr, ptr %649, align 8, !noalias !2101, !nonnull !7, !noundef !7
   %651 = getelementptr inbounds nuw i8, ptr %650, i64 16
@@ -6836,7 +6836,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 
 662:                                              ; preds = %660
   %663 = getelementptr inbounds nuw i8, ptr %650, i64 232
-  %664 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %663, i64 0, i64 %655
+  %664 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %663, i64 0, i64 %655
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h405cea17a66747baE.exit212"
 
 665:                                              ; preds = %591, %732
@@ -7099,7 +7099,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 746:                                              ; preds = %744
   %747 = zext i32 %745 to i64
   %748 = add nsw i64 %747, -1
-  %749 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %748
+  %749 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %225, i64 0, i64 %748
   %750 = load ptr, ptr %749, align 8, !alias.scope !2153, !noalias !2156, !nonnull !7, !align !340, !noundef !7
   %751 = load ptr, ptr %750, align 8, !noalias !2158, !nonnull !7, !noundef !7
   %752 = getelementptr inbounds nuw i8, ptr %751, i64 16
@@ -7174,7 +7174,7 @@ define hidden void @_ZN4text6Buffer16apply_local_edit17heebc67e85f4e9dbaE.llvm.5
 
 784:                                              ; preds = %761
   %785 = getelementptr inbounds nuw i8, ptr %751, i64 232
-  %786 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %785, i64 0, i64 %756
+  %786 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %785, i64 0, i64 %756
   call void @llvm.experimental.noalias.scope.decl(metadata !2167)
   %787 = invoke noundef align 8 dereferenceable_or_null(200) ptr @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$12item_summary17h8a068bcb0b853994E.llvm.3702776065181997029"(ptr noalias noundef nonnull readonly align 8 dereferenceable(552) %73, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.86b3b9c5b9af00b453517720bd58fde0.62)
           to label %.noexc237 unwind label %.critedge145.thread487.loopexit

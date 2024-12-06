@@ -112620,7 +112620,7 @@ _ZNSt10_HashtableIjSt4pairIKjN13sentencepiece14unicode_script10ScriptTypeEESaIS5
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 

@@ -1699,14 +1699,14 @@ ic_strlen.exit.thread:                            ; preds = %6
   %.0124173 = phi i64 [ %.2126, %40 ], [ 0, %.preheader168 ]
   %.0127172 = phi i64 [ %.2129, %40 ], [ -1, %.preheader168 ]
   %.0130171 = phi i64 [ %.2132, %40 ], [ -1, %.preheader168 ]
-  %15 = getelementptr inbounds i8, ptr %1, i64 %.1175
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.1175
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, %4
   br i1 %17, label %18, label %25
 
 18:                                               ; preds = %.lr.ph
   %19 = add nuw nsw i64 %.1175, 1
-  %20 = getelementptr inbounds i8, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 %19
   %21 = load i8, ptr %20, align 1
   %.not139 = icmp eq i8 %21, 0
   br i1 %.not139, label %25, label %22
@@ -2243,7 +2243,7 @@ sbuf_append_char.exit:                            ; preds = %39, %42
 
 sbuf_string.exit:                                 ; preds = %48, %55
   %.0.i.i = phi ptr [ null, %48 ], [ %spec.select.i.i, %55 ]
-  %58 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.033
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %.033
   %59 = call zeroext i1 %50(ptr noundef %58, i64 noundef %49) #32
   br i1 %59, label %65, label %60
 
@@ -4288,7 +4288,7 @@ bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph60.i
   %14 = add nsw i64 %12, -1
   store i64 %14, ptr %11, align 8
   %15 = load ptr, ptr %9, align 8
-  %.sroa.7.0..sroa_idx36.us.i = getelementptr inbounds %struct.tag_s, ptr %15, i64 %14, i32 1
+  %.sroa.7.0..sroa_idx36.us.i = getelementptr inbounds nuw %struct.tag_s, ptr %15, i64 %14, i32 1
   %.sroa.7.i.sroa.0.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx36.us.i, align 8
   br label %bbcode_style_close.exit
 
@@ -5995,7 +5995,7 @@ sbuf_len.exit:                                    ; preds = %1
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %22
   %.01219.i = phi i64 [ %.1.i, %22 ], [ 0, %.lr.ph.i.preheader ]
   %10 = load i32, ptr %0, align 8
-  %11 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.01219.i
+  %11 = getelementptr inbounds nuw i8, ptr %spec.select.i.i, i64 %.01219.i
   %12 = sub nsw i64 %6, %.01219.i
   %13 = tail call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %12, i64 0)
   %14 = tail call i64 @write(i32 noundef %10, ptr noundef nonnull %11, i64 noundef %13) #32
@@ -9958,7 +9958,7 @@ str_limit_to_length.exit:                         ; preds = %.lr.ph.i, %14
 36:                                               ; preds = %28
   store ptr %34, ptr %0, align 8
   store i64 %spec.select34.i, ptr %18, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 %spec.select34.i
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 %spec.select34.i
   store i8 0, ptr %37, align 1
   %38 = load ptr, ptr %0, align 8
   %39 = load i64, ptr %7, align 8
@@ -10024,7 +10024,7 @@ bbcode_tag_pop.exit.us:                           ; preds = %.lr.ph60.split.us
   %10 = add nsw i64 %6, -1
   store i64 %10, ptr %5, align 8
   %11 = load ptr, ptr %0, align 8
-  %12 = getelementptr inbounds %struct.tag_s, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw %struct.tag_s, ptr %11, i64 %10
   %.sroa.0.0.copyload34.us = load ptr, ptr %12, align 8
   %.sroa.7.0..sroa_idx36.us = getelementptr inbounds nuw i8, ptr %12, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx36.us, i64 32, i1 false)
@@ -10043,7 +10043,7 @@ bbcode_tag_pop.exit:                              ; preds = %.lr.ph60.split
   %15 = add nsw i64 %13, -1
   store i64 %15, ptr %5, align 8
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds %struct.tag_s, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw %struct.tag_s, ptr %16, i64 %15
   %.sroa.0.0.copyload34 = load ptr, ptr %17, align 8
   %.sroa.7.0..sroa_idx36 = getelementptr inbounds nuw i8, ptr %17, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7.0..sroa_idx36, i64 32, i1 false)
@@ -11675,7 +11675,7 @@ ic_strlen.exit:                                   ; preds = %3, %6
 30:                                               ; preds = %22
   store ptr %28, ptr %0, align 8
   store i64 %spec.select34.i, ptr %10, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 %spec.select34.i
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 %spec.select34.i
   store i8 0, ptr %31, align 1
   %32 = load ptr, ptr %0, align 8
   %33 = load i64, ptr %12, align 8
@@ -11742,7 +11742,7 @@ ic_strlen.exit:                                   ; preds = %3, %6
 68:                                               ; preds = %60
   store ptr %66, ptr %0, align 8
   store i64 %spec.select34.i43, ptr %10, align 8
-  %69 = getelementptr inbounds i8, ptr %66, i64 %spec.select34.i43
+  %69 = getelementptr inbounds nuw i8, ptr %66, i64 %spec.select34.i43
   store i8 0, ptr %69, align 1
   %70 = load ptr, ptr %0, align 8
   %71 = load i64, ptr %12, align 8
@@ -12283,7 +12283,7 @@ bbcode_tag_pop.exit.us.i.i:                       ; preds = %80
   %91 = add nsw i64 %89, -1
   store i64 %91, ptr %88, align 8
   %92 = load ptr, ptr %87, align 8
-  %.sroa.7.0..sroa_idx36.us.i.i = getelementptr inbounds %struct.tag_s, ptr %92, i64 %91, i32 1
+  %.sroa.7.0..sroa_idx36.us.i.i = getelementptr inbounds nuw %struct.tag_s, ptr %92, i64 %91, i32 1
   %.sroa.7.i.sroa.0.0.copyload.i = load i64, ptr %.sroa.7.0..sroa_idx36.us.i.i, align 8
   br label %edit_write_prompt.exit
 
@@ -16809,7 +16809,7 @@ bbcode_tag_pop.exit.us.i:                         ; preds = %.lr.ph60.i
   %45 = add nsw i64 %43, -1
   store i64 %45, ptr %42, align 8
   %46 = load ptr, ptr %41, align 8
-  %.sroa.7.0..sroa_idx36.us.i = getelementptr inbounds %struct.tag_s, ptr %46, i64 %45, i32 1
+  %.sroa.7.0..sroa_idx36.us.i = getelementptr inbounds nuw %struct.tag_s, ptr %46, i64 %45, i32 1
   %.sroa.7.i.sroa.0.0.copyload = load i64, ptr %.sroa.7.0..sroa_idx36.us.i, align 8
   br label %bbcode_style_close.exit
 
@@ -16840,7 +16840,7 @@ tty_code_pop.exit.thread:                         ; preds = %3
   %12 = add nsw i64 %10, -1
   store i64 %12, ptr %9, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %14 = getelementptr inbounds [32 x i32], ptr %13, i64 0, i64 %12
+  %14 = getelementptr inbounds nuw [32 x i32], ptr %13, i64 0, i64 %12
   %15 = load i32, ptr %14, align 4
   br label %.sink.split
 
@@ -17412,7 +17412,7 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
 
 140:                                              ; preds = %138
   %141 = add nsw i64 %.060.us.i, -1
-  %142 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %141
+  %142 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %141
   %143 = load i8, ptr %142, align 16
   %144 = icmp ne i8 %143, %131
   %145 = icmp ne i64 %.060.us.i, 1
@@ -17421,7 +17421,7 @@ ic_strlen.exit65.us.i:                            ; preds = %126, %ic_strlen.exi
 
 146:                                              ; preds = %140
   %147 = add nsw i64 %.060.us.i, -2
-  %148 = getelementptr inbounds [65 x %struct.brace_s], ptr %8, i64 0, i64 %147
+  %148 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %8, i64 0, i64 %147
   %149 = load i8, ptr %148, align 16
   %150 = icmp eq i8 %149, %131
   br i1 %150, label %.thread.i, label %153
@@ -19395,7 +19395,7 @@ str_limit_to_length.exit.i.i:                     ; preds = %sbuf_append.exit.i,
 450:                                              ; preds = %442
   store ptr %448, ptr %423, align 8
   store i64 %spec.select34.i.i.i, ptr %430, align 8
-  %451 = getelementptr inbounds i8, ptr %448, i64 %spec.select34.i.i.i
+  %451 = getelementptr inbounds nuw i8, ptr %448, i64 %spec.select34.i.i.i
   store i8 0, ptr %451, align 1
   %452 = load ptr, ptr %423, align 8
   %453 = load i64, ptr %429, align 8
@@ -19491,7 +19491,7 @@ sbuf_append.exit.i.thread.i:                      ; preds = %sbuf_insert_at_n.ex
 498:                                              ; preds = %490
   store ptr %496, ptr %471, align 8
   store i64 %spec.select34.i.i335.i, ptr %478, align 8
-  %499 = getelementptr inbounds i8, ptr %496, i64 %spec.select34.i.i335.i
+  %499 = getelementptr inbounds nuw i8, ptr %496, i64 %spec.select34.i.i335.i
   store i8 0, ptr %499, align 1
   %500 = load ptr, ptr %471, align 8
   %501 = load i64, ptr %477, align 8
@@ -19585,7 +19585,7 @@ editor_append_completion3.exit.thread.i:          ; preds = %sbuf_insert_at_n.ex
 544:                                              ; preds = %536
   store ptr %542, ptr %517, align 8
   store i64 %spec.select34.i.i317.i, ptr %524, align 8
-  %545 = getelementptr inbounds i8, ptr %542, i64 %spec.select34.i.i317.i
+  %545 = getelementptr inbounds nuw i8, ptr %542, i64 %spec.select34.i.i317.i
   store i8 0, ptr %545, align 1
   %546 = load ptr, ptr %517, align 8
   %547 = load i64, ptr %523, align 8
@@ -20303,7 +20303,7 @@ str_limit_to_length.exit.i415.i:                  ; preds = %sbuf_append.exit215
 837:                                              ; preds = %829
   store ptr %835, ptr %810, align 8
   store i64 %spec.select34.i.i422.i, ptr %817, align 8
-  %838 = getelementptr inbounds i8, ptr %835, i64 %spec.select34.i.i422.i
+  %838 = getelementptr inbounds nuw i8, ptr %835, i64 %spec.select34.i.i422.i
   store i8 0, ptr %838, align 1
   %839 = load ptr, ptr %810, align 8
   %840 = load i64, ptr %816, align 8
@@ -20398,7 +20398,7 @@ editor_append_completion2.exit.thread.i:          ; preds = %sbuf_insert_at_n.ex
 884:                                              ; preds = %876
   store ptr %882, ptr %857, align 8
   store i64 %spec.select34.i.i440.i, ptr %864, align 8
-  %885 = getelementptr inbounds i8, ptr %882, i64 %spec.select34.i.i440.i
+  %885 = getelementptr inbounds nuw i8, ptr %882, i64 %spec.select34.i.i440.i
   store i8 0, ptr %885, align 1
   %886 = load ptr, ptr %857, align 8
   %887 = load i64, ptr %863, align 8
@@ -20508,7 +20508,7 @@ str_limit_to_length.exit.i451.i:                  ; preds = %sbuf_append.exit221
 932:                                              ; preds = %924
   store ptr %930, ptr %905, align 8
   store i64 %spec.select34.i.i458.i, ptr %912, align 8
-  %933 = getelementptr inbounds i8, ptr %930, i64 %spec.select34.i.i458.i
+  %933 = getelementptr inbounds nuw i8, ptr %930, i64 %spec.select34.i.i458.i
   store i8 0, ptr %933, align 1
   %934 = load ptr, ptr %905, align 8
   %935 = load i64, ptr %911, align 8
@@ -20972,7 +20972,7 @@ bbcode_tag_pop.exit.us.i.i.i:                     ; preds = %1117
   %1150 = add nsw i64 %1148, -1
   store i64 %1150, ptr %1147, align 8
   %1151 = load ptr, ptr %1146, align 8
-  %.sroa.7.0..sroa_idx36.us.i.i.i = getelementptr inbounds %struct.tag_s, ptr %1151, i64 %1150, i32 1
+  %.sroa.7.0..sroa_idx36.us.i.i.i = getelementptr inbounds nuw %struct.tag_s, ptr %1151, i64 %1150, i32 1
   %.sroa.7.i.sroa.0.0.copyload.i.i = load i64, ptr %.sroa.7.0..sroa_idx36.us.i.i.i, align 8
   br label %edit_write_prompt.exit.i
 
@@ -22168,7 +22168,7 @@ tty_cpop.exit.thread:                             ; preds = %3
   %10 = add nsw i64 %8, -1
   store i64 %10, ptr %7, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 0, i64 %10
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 0, i64 %10
   %13 = load i8, ptr %12, align 1
   store i8 %13, ptr %1, align 1
   br label %tty_readc_blocking.exit
@@ -22204,7 +22204,7 @@ tty_cpop.exit.thread.i26:                         ; preds = %24
   %27 = add nsw i64 %25, -1
   store i64 %27, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %29 = getelementptr inbounds [32 x i8], ptr %28, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 0, i64 %27
   %30 = load i8, ptr %29, align 1
   store i8 %30, ptr %1, align 1
   br label %tty_readc_blocking.exit
@@ -22254,7 +22254,7 @@ tty_cpop.exit.thread.i30:                         ; preds = %54
   %57 = add nsw i64 %55, -1
   store i64 %57, ptr %7, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %59 = getelementptr inbounds [32 x i8], ptr %58, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 0, i64 %57
   %60 = load i8, ptr %59, align 1
   store i8 %60, ptr %1, align 1
   br label %tty_readc_blocking.exit
@@ -23663,7 +23663,7 @@ str_next_ofs.exit.thread.i:                       ; preds = %41, %.lr.ph.split.s
 
 58:                                               ; preds = %.critedge.i
   %59 = load ptr, ptr %9, align 8
-  %60 = getelementptr inbounds i8, ptr %1, i64 %.083.i
+  %60 = getelementptr inbounds nuw i8, ptr %1, i64 %.083.i
   %61 = icmp eq ptr %59, null
   br i1 %61, label %sbuf_append_n.exit.i, label %62
 
@@ -23683,7 +23683,7 @@ sbuf_append_n.exit.i:                             ; preds = %62, %58
   br i1 %67, label %160, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds i8, ptr %1, i64 %.1.i
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 %.1.i
   %70 = load i8, ptr %69, align 1
   %71 = icmp slt i8 %70, 0
   br i1 %71, label %72, label %99
@@ -24146,7 +24146,7 @@ define internal fastcc noundef zeroext i1 @term_get_cursor_pos(ptr nocapture nou
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %29
   %.01219.i.i.i = phi i64 [ %.1.i.i.i, %29 ], [ 0, %.lr.ph.i.i.i.preheader ]
   %19 = load i32, ptr %0, align 8
-  %20 = getelementptr inbounds i8, ptr @.str.279, i64 %.01219.i.i.i
+  %20 = getelementptr inbounds nuw i8, ptr @.str.279, i64 %.01219.i.i.i
   %21 = sub nsw i64 4, %.01219.i.i.i
   %22 = tail call i64 @write(i32 noundef %19, ptr noundef nonnull %20, i64 noundef %21) #32
   %23 = icmp sgt i64 %22, 0
@@ -25953,7 +25953,7 @@ ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit
 
 28:                                               ; preds = %26
   %29 = add nsw i64 %.050.us, -1
-  %30 = getelementptr inbounds [65 x %struct.brace_s], ptr %5, i64 0, i64 %29
+  %30 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %5, i64 0, i64 %29
   %31 = load i8, ptr %30, align 16
   %.not59.us = icmp eq i8 %31, %19
   br i1 %.not59.us, label %32, label %..loopexit_crit_edge.us
@@ -25963,7 +25963,7 @@ ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit
   br i1 %33, label %39, label %34
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds [65 x %struct.brace_s], ptr %5, i64 0, i64 %29, i32 1
+  %35 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %5, i64 0, i64 %29, i32 1
   %36 = load i8, ptr %35, align 1
   %37 = trunc i8 %36 to i1
   %38 = add nuw nsw i64 %.048.us, 1
@@ -25971,7 +25971,7 @@ ic_strlen.exit62.us:                              ; preds = %13, %ic_strlen.exit
   br label %..loopexit_crit_edge.us
 
 39:                                               ; preds = %32
-  %40 = getelementptr inbounds [65 x %struct.brace_s], ptr %5, i64 0, i64 %29, i32 2
+  %40 = getelementptr inbounds nuw [65 x %struct.brace_s], ptr %5, i64 0, i64 %29, i32 2
   %41 = load i64, ptr %40, align 8
   %42 = add nsw i64 %41, 1
   br label %..loopexit_crit_edge.us

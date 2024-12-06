@@ -170,7 +170,7 @@ define internal fastcc range(i64 -9223372036854775807, -9223372036854775808) i64
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 160
   %41 = load ptr, ptr %40, align 8
   call void @free(ptr noundef %41) #8
-  %42 = getelementptr inbounds i8, ptr %.379, i64 %.054
+  %42 = getelementptr inbounds nuw i8, ptr %.379, i64 %.054
   %43 = call noalias ptr @strdup(ptr noundef nonnull %42) #8
   store ptr %43, ptr %40, align 8
   br label %44

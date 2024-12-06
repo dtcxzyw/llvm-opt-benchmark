@@ -1391,7 +1391,7 @@ define hidden void @"_ZN100_$LT$arrow_array..types..GenericBinaryType$LT$O$GT$$u
 15:                                               ; preds = %3
   %16 = lshr i64 %9, 2
   %17 = add nsw i64 %16, -1
-  %18 = getelementptr inbounds [0 x i32], ptr %11, i64 0, i64 %17
+  %18 = getelementptr inbounds nuw [0 x i32], ptr %11, i64 0, i64 %17
   %19 = load i32, ptr %18, align 4, !noundef !7
   %20 = sext i32 %19 to i64
   store i64 %20, ptr %7, align 8
@@ -63259,7 +63259,7 @@ define internal fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h2f56d157093d20
   %20 = load i16, ptr %.8.val, align 1, !alias.scope !13465, !noalias !13466
   %21 = add nsw i64 %.16.val, -1
   %22 = zext i16 %20 to i64
-  %23 = getelementptr inbounds [0 x i8], ptr %.8.val, i64 0, i64 %21
+  %23 = getelementptr inbounds nuw [0 x i8], ptr %.8.val, i64 0, i64 %21
   %24 = load i8, ptr %23, align 1, !alias.scope !13452, !noalias !13459, !noundef !7
   %25 = zext i8 %24 to i64
   br label %_ZN5ahash10operations10read_small17h1185dd673f944a0dE.exit.i.i.i
@@ -116250,7 +116250,7 @@ _ZN4core3ptr19swap_nonoverlapping17hb2d3d954a977b581E.exit: ; preds = %_ZN4core3
   %169 = load i16, ptr %.val3.i12, align 1, !alias.scope !25586, !noalias !25587
   %170 = add nsw i64 %.val4.i13, -1
   %171 = zext i16 %169 to i64
-  %172 = getelementptr inbounds [0 x i8], ptr %.val3.i12, i64 0, i64 %170
+  %172 = getelementptr inbounds nuw [0 x i8], ptr %.val3.i12, i64 0, i64 %170
   %173 = load i8, ptr %172, align 1, !alias.scope !25573, !noalias !25580, !noundef !7
   %174 = zext i8 %173 to i64
   br label %_ZN5ahash10operations10read_small17h1185dd673f944a0dE.exit.i.i.i.i

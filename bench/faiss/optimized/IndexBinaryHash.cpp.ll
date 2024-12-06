@@ -922,7 +922,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
 111:                                              ; preds = %.noexc._crit_edge, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i
   %112 = phi ptr [ %.0.i.i24, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre, %.noexc._crit_edge ]
   %.0.i = phi i64 [ %110, %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %40, %.noexc._crit_edge ]
-  %113 = getelementptr inbounds ptr, ptr %112, i64 %.0.i
+  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %.0.i
   %114 = load ptr, ptr %113, align 8
   %.not.i.i23 = icmp eq ptr %114, null
   br i1 %.not.i.i23, label %120, label %115
@@ -931,7 +931,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
   %116 = load ptr, ptr %114, align 8
   store ptr %116, ptr %56, align 8
   %117 = load ptr, ptr %37, align 8
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %.0.i
+  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %.0.i
   %119 = load ptr, ptr %118, align 8
   store ptr %56, ptr %119, align 8
   br label %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit
@@ -957,7 +957,7 @@ _ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stES
 
 131:                                              ; preds = %124, %120
   %132 = load ptr, ptr %37, align 8
-  %133 = getelementptr inbounds ptr, ptr %132, i64 %.0.i
+  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %.0.i
   store ptr %121, ptr %133, align 8
   br label %_ZNSt10_HashtableIlSt4pairIKlSt6vectorIlSaIlEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIlESt4hashIlENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb0EEEm.exit
 

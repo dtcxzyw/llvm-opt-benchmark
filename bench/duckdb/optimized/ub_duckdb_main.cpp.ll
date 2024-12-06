@@ -92815,7 +92815,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22ExpressionExecutorInfoESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22ExpressionExecutorInfoESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !1870
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.1737", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1737", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !1871
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1737", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !1876
@@ -93243,7 +93243,7 @@ if.then.i73.i.i:                                  ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_22ExpressionExecutorInfoESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i.i: ; preds = %if.then.i73.i.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_22ExpressionExecutorInfoESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i.i
   store ptr %call5.i.i.i.i.i122, ptr %executors_info43, align 8, !tbaa !1870
-  %add.ptr37.i.i = getelementptr inbounds %"class.duckdb::unique_ptr.1737", ptr %add.ptr.i.i121, i64 %sub.i
+  %add.ptr37.i.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1737", ptr %add.ptr.i.i121, i64 %sub.i
   store ptr %add.ptr37.i.i, ptr %_M_finish.i116, align 8, !tbaa !1871
   %add.ptr40.i.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1737", ptr %call5.i.i.i.i.i122, i64 %40
   store ptr %add.ptr40.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !1876

@@ -9832,7 +9832,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -10458,7 +10458,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -11727,15 +11727,15 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %__holeIndex.addr.025.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div21.i.i.i, %if.then ]
   %add.i.i.i.i = shl i64 %__holeIndex.addr.025.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %mul.i.i.i.i
   %sub2.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr3.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub2.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub2.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr3.val.i.i.i.i = load ptr, ptr %add.ptr3.i.i.i.i, align 8
   %call.i.i.i.i.i.i.i.i = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %__comp.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.val.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr3.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i.i.i.i, i64 %sub2.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr5.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr5.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr5.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr4.i.i.i.i, i64 12, i1 false)
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i6971.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !66
@@ -11752,8 +11752,8 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then10.i.i.i.i:                                ; preds = %while.end.i.i.i.i
   %add11.i.i.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub13.i.i.i.i = or disjoint i64 %add11.i.i.i.i, 1
-  %add.ptr14.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub13.i.i.i.i
-  %add.ptr15.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub13.i.i.i.i
+  %add.ptr15.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr15.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr14.i.i.i.i, i64 12, i1 false)
   br label %if.end17.i.i.i.i
 
@@ -11772,7 +11772,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end17.i.i.i.i, %
   br i1 %call.i.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr2.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr.i.i.i.i.i, i64 12, i1 false)
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div21.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !67
@@ -11788,14 +11788,14 @@ while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
 
 if.end9.split.lr.ph.i.i.i:                        ; preds = %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit.i.i.i"
   %sub13.i51.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr14.i52.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub13.i51.i.i.i
-  %add.ptr15.i53.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %div8.i.i.i.i
+  %add.ptr14.i52.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub13.i51.i.i.i
+  %add.ptr15.i53.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %div8.i.i.i.i
   br label %if.end9.split.i.i.i
 
 if.end9.split.i.i.i:                              ; preds = %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit68.i.i.i", %if.end9.split.lr.ph.i.i.i
   %__parent.073.i.i.i = phi i64 [ %div21.i.i.i, %if.end9.split.lr.ph.i.i.i ], [ %dec.i.i.i, %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit68.i.i.i" ]
   %dec.i.i.i = add nsw i64 %__parent.073.i.i.i, -1
-  %add.ptr15.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %dec.i.i.i
+  %add.ptr15.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %dec.i.i.i
   %__value.sroa.0.0.copyload16.i.i.i = load ptr, ptr %add.ptr15.i.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx17.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr15.i.i.i, i64 8
   %__value.sroa.2.0.copyload18.i.i.i = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx17.i.i.i, align 8
@@ -11806,15 +11806,15 @@ while.body.i54.i.i.i:                             ; preds = %if.end9.split.i.i.i
   %__holeIndex.addr.025.i55.i.i.i = phi i64 [ %spec.select.i64.i.i.i, %while.body.i54.i.i.i ], [ %dec.i.i.i, %if.end9.split.i.i.i ]
   %add.i56.i.i.i = shl i64 %__holeIndex.addr.025.i55.i.i.i, 1
   %mul.i57.i.i.i = add i64 %add.i56.i.i.i, 2
-  %add.ptr.i58.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %mul.i57.i.i.i
+  %add.ptr.i58.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %mul.i57.i.i.i
   %sub2.i59.i.i.i = or disjoint i64 %add.i56.i.i.i, 1
-  %add.ptr3.i60.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub2.i59.i.i.i
+  %add.ptr3.i60.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub2.i59.i.i.i
   %add.ptr.val.i61.i.i.i = load ptr, ptr %add.ptr.i58.i.i.i, align 8
   %add.ptr3.val.i62.i.i.i = load ptr, ptr %add.ptr3.i60.i.i.i, align 8
   %call.i.i.i.i.i63.i.i.i = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %__comp.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.val.i61.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr3.val.i62.i.i.i)
   %spec.select.i64.i.i.i = select i1 %call.i.i.i.i.i63.i.i.i, i64 %sub2.i59.i.i.i, i64 %mul.i57.i.i.i
-  %add.ptr4.i65.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i64.i.i.i
-  %add.ptr5.i66.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i55.i.i.i
+  %add.ptr4.i65.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i64.i.i.i
+  %add.ptr5.i66.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i55.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr5.i66.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr4.i65.i.i.i, i64 12, i1 false)
   %cmp.i67.i.i.i = icmp slt i64 %spec.select.i64.i.i.i, %div.i6971.i.i.i
   br i1 %cmp.i67.i.i.i, label %while.body.i54.i.i.i, label %while.end.i25.i.i.i, !llvm.loop !66
@@ -11844,7 +11844,7 @@ land.rhs.i.i35.i.i.i:                             ; preds = %if.end17.i29.i.i.i,
   br i1 %call.i.i.i.i.i.i41.i.i.i, label %while.body.i.i42.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit68.i.i.i"
 
 while.body.i.i42.i.i.i:                           ; preds = %land.rhs.i.i35.i.i.i
-  %add.ptr2.i.i43.i.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.04.i.i36.i.i.i
+  %add.ptr2.i.i43.i.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.04.i.i36.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr2.i.i43.i.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr.i.i39.i.i.i, i64 12, i1 false)
   %cmp.i.i44.not.i.i.i = icmp slt i64 %__parent.05.i.i38.i.i.i, %__parent.073.i.i.i
   br i1 %cmp.i.i44.not.i.i.i, label %"_ZSt13__adjust_heapIPN3nla7nex_powElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_11nex_creator13mul_to_powersER6vectorIS1_Lb1EjEE3$_1EEEvT_T0_SD_T1_T2_.exit68.i.i.i", label %land.rhs.i.i35.i.i.i, !llvm.loop !67
@@ -11880,15 +11880,15 @@ while.body.i.i16:                                 ; preds = %while.body.i.i, %wh
   %__holeIndex.addr.025.i.i = phi i64 [ %spec.select.i.i, %while.body.i.i16 ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__holeIndex.addr.025.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %mul.i.i
   %sub2.i.i = or disjoint i64 %add.i.i, 1
-  %add.ptr3.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub2.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub2.i.i
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr3.val.i.i = load ptr, ptr %add.ptr3.i.i, align 8
   %call.i.i.i.i.i.i17 = tail call noundef zeroext i1 @_ZNK3nla11nex_creator2gtERKNS_3nexES3_(ptr noundef nonnull align 8 dereferenceable(176) %__comp.coerce, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.val.i.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr3.val.i.i)
   %spec.select.i.i = select i1 %call.i.i.i.i.i.i17, i64 %sub2.i.i, i64 %mul.i.i
-  %add.ptr4.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i.i
-  %add.ptr5.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %spec.select.i.i
+  %add.ptr5.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.025.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr5.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr4.i.i, i64 12, i1 false)
   %cmp.i.i18 = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i18, label %while.body.i.i16, label %while.end.i.i, !llvm.loop !66
@@ -11908,8 +11908,8 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
 if.then10.i.i15:                                  ; preds = %land.lhs.true.i.i
   %add11.i.i = shl nsw i64 %__holeIndex.addr.0.lcssa.i.i, 1
   %sub13.i.i = or disjoint i64 %add11.i.i, 1
-  %add.ptr14.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %sub13.i.i
-  %add.ptr15.i.i = getelementptr inbounds %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %sub13.i.i
+  %add.ptr15.i.i = getelementptr inbounds nuw %"class.nla::nex_pow", ptr %__first, i64 %__holeIndex.addr.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %add.ptr15.i.i, ptr noundef nonnull align 8 dereferenceable(12) %add.ptr14.i.i, i64 12, i1 false)
   br label %if.end17.i.i
 

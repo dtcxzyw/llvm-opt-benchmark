@@ -1798,7 +1798,7 @@ define internal void @uv__signal_event(ptr nocapture noundef readonly %0, ptr no
   %.ph = phi i1 [ true, %.loopexit ], [ false, %3 ]
   %.031.ph = phi i64 [ 512, %.loopexit ], [ 0, %3 ]
   %.0.ph = phi i64 [ %.1, %.loopexit ], [ 0, %3 ]
-  %6 = getelementptr inbounds i8, ptr %4, i64 %.0.ph
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.0.ph
   %7 = sub nuw nsw i64 512, %.0.ph
   %.not50 = icmp eq i64 %.0.ph, 0
   br i1 %.not50, label %.outer.split.us, label %.outer.split

@@ -377,7 +377,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %66, %64, %71
   %90 = getelementptr inbounds i8, ptr %4, i64 %89
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %88, ptr align 1 %90, i64 %84, i1 false)
   %91 = load ptr, ptr %9, align 8
-  %92 = getelementptr inbounds i64, ptr %91, i64 %.017
+  %92 = getelementptr inbounds nuw i64, ptr %91, i64 %.017
   %93 = load i64, ptr %92, align 8
   call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(72) %78, i64 noundef %93, ptr noundef %87)
   %94 = icmp samesign ugt i64 %.017.in26, 1

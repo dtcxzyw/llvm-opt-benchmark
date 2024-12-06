@@ -4593,7 +4593,7 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
   %.076114 = phi i32 [ %37, %.lr.ph117 ], [ %72, %._crit_edge112 ]
   %.077115 = add nsw i64 %.077115.in, -1
   %40 = load ptr, ptr %32, align 8
-  %41 = getelementptr inbounds i32, ptr %40, i64 %.077115
+  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %.077115
   %42 = load i32, ptr %41, align 4
   %43 = sub nsw i32 %.076114, %42
   %44 = icmp sgt i32 %43, 0
@@ -4602,13 +4602,13 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
 .lr.ph111:                                        ; preds = %39
   %45 = add nsw i32 %43, -1
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %10, i64 %.077115
+  %47 = getelementptr inbounds nuw i32, ptr %10, i64 %.077115
   br label %48
 
 48:                                               ; preds = %.lr.ph111, %48
   %.075109 = phi i64 [ %46, %.lr.ph111 ], [ %71, %48 ]
   %49 = load ptr, ptr %32, align 8
-  %50 = getelementptr inbounds i32, ptr %49, i64 %.077115
+  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %.077115
   %51 = load i32, ptr %50, align 4
   %52 = sext i32 %51 to i64
   %53 = load ptr, ptr %38, align 8
@@ -4620,7 +4620,7 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
   %59 = getelementptr i32, ptr %54, i64 %58
   store i32 %56, ptr %59, align 4
   %60 = load ptr, ptr %32, align 8
-  %61 = getelementptr inbounds i32, ptr %60, i64 %.077115
+  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %.077115
   %62 = load i32, ptr %61, align 4
   %63 = sext i32 %62 to i64
   %64 = load ptr, ptr %31, align 8
@@ -4637,19 +4637,19 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
 
 ._crit_edge112.loopexit:                          ; preds = %48
   %.pre121 = load ptr, ptr %32, align 8
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %.pre121, i64 %.077115
+  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre121, i64 %.077115
   %.pre122 = load i32, ptr %.phi.trans.insert, align 4
   br label %._crit_edge112
 
 ._crit_edge112:                                   ; preds = %._crit_edge112.loopexit, %39
   %72 = phi i32 [ %.pre122, %._crit_edge112.loopexit ], [ %42, %39 ]
   %73 = phi ptr [ %.pre121, %._crit_edge112.loopexit ], [ %40, %39 ]
-  %74 = getelementptr inbounds i32, ptr %73, i64 %.077115
-  %75 = getelementptr inbounds i32, ptr %10, i64 %.077115
+  %74 = getelementptr inbounds nuw i32, ptr %73, i64 %.077115
+  %75 = getelementptr inbounds nuw i32, ptr %10, i64 %.077115
   %76 = load i32, ptr %75, align 4
   store i32 %76, ptr %74, align 4
   %77 = load ptr, ptr %3, align 8
-  %78 = getelementptr inbounds i32, ptr %77, i64 %.077115
+  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %.077115
   store i32 %43, ptr %78, align 4
   %79 = icmp sgt i64 %.077115.in, 1
   br i1 %79, label %39, label %._crit_edge118, !llvm.loop !58
@@ -4662,10 +4662,10 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
 81:                                               ; preds = %._crit_edge118
   %82 = load ptr, ptr %32, align 8
   %83 = add nsw i64 %.pre123, -1
-  %84 = getelementptr inbounds i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = load ptr, ptr %3, align 8
-  %87 = getelementptr inbounds i32, ptr %86, i64 %83
+  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %83
   %88 = load i32, ptr %87, align 4
   %89 = add nsw i32 %88, %85
   %90 = load ptr, ptr %1, align 8
@@ -4749,17 +4749,17 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
 130:                                              ; preds = %.lr.ph101, %.loopexit
   %.07199.in = phi i64 [ %126, %.lr.ph101 ], [ %.07199, %.loopexit ]
   %.07199 = add nsw i64 %.07199.in, -1
-  %131 = getelementptr inbounds i32, ptr %102, i64 %.07199
+  %131 = getelementptr inbounds nuw i32, ptr %102, i64 %.07199
   %132 = load i32, ptr %131, align 4
   %133 = load ptr, ptr %128, align 8
-  %134 = getelementptr inbounds i32, ptr %133, i64 %.07199
+  %134 = getelementptr inbounds nuw i32, ptr %133, i64 %.07199
   %135 = load i32, ptr %134, align 4
   %136 = icmp sgt i32 %132, %135
   br i1 %136, label %137, label %.loopexit
 
 137:                                              ; preds = %130
   %138 = load ptr, ptr %3, align 8
-  %139 = getelementptr inbounds i32, ptr %138, i64 %.07199
+  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %.07199
   %140 = load i32, ptr %139, align 4
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %.lr.ph97.preheader, label %.loopexit
@@ -4773,7 +4773,7 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %.095 = phi i64 [ %163, %.lr.ph97 ], [ %143, %.lr.ph97.preheader ]
   %145 = load ptr, ptr %128, align 8
-  %146 = getelementptr inbounds i32, ptr %145, i64 %.07199
+  %146 = getelementptr inbounds nuw i32, ptr %145, i64 %.07199
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
   %149 = load ptr, ptr %129, align 8
@@ -4783,7 +4783,7 @@ define linkonce_odr hidden void @_ZN5Eigen12SparseMatrixIiLi1EiE19reserveInnerVe
   %153 = getelementptr i32, ptr %150, i64 %144
   store i32 %152, ptr %153, align 4
   %154 = load ptr, ptr %128, align 8
-  %155 = getelementptr inbounds i32, ptr %154, i64 %.07199
+  %155 = getelementptr inbounds nuw i32, ptr %154, i64 %.07199
   %156 = load i32, ptr %155, align 4
   %157 = sext i32 %156 to i64
   %158 = load ptr, ptr %124, align 8

@@ -13421,7 +13421,7 @@ _ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7
 .split14:                                         ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit39
   %.046 = phi i64 [ %10, %.split14.lr.ph ], [ %72, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit39 ]
   %72 = add nsw i64 %.046, -1
-  %73 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %72
   %.sroa.01.0.copyload15 = load i64, ptr %73, align 4
   %.not = icmp sgt i64 %.046, %13
   br i1 %.not, label %._crit_edge.i17, label %.lr.ph.i33

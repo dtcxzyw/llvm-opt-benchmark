@@ -7733,8 +7733,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort19bidirectional
   %4 = getelementptr i64, ptr %0, i64 %3
   %5 = getelementptr i8, ptr %4, i64 -8
   %6 = add nsw i64 %1, -1
-  %7 = getelementptr inbounds i64, ptr %0, i64 %6
-  %8 = getelementptr inbounds i64, ptr %2, i64 %6
+  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw i64, ptr %2, i64 %6
   %9 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %9)
   %10 = getelementptr i8, ptr %.0.val, i64 8
@@ -10070,8 +10070,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h42
   call void @llvm.experimental.noalias.scope.decl(metadata !2917)
   %66 = getelementptr i8, ptr %51, i64 -24
   %67 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %68 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %67
-  %69 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.0.0.ph.lcssa85, i64 %67
+  %68 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %67
+  %69 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.0.0.ph.lcssa85, i64 %67
   %70 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 8

@@ -3717,7 +3717,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm4SCEVElN9__gnu_cxx
 .split14.i.i.i:                                   ; preds = %.split.i.i.i, %.split14.i.i.i
   %.01.i.i.i = phi i64 [ %17, %.split14.i.i.i ], [ %14, %.split.i.i.i ]
   %17 = add nsw i64 %.01.i.i.i, -1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %0, i64 noundef %17, i64 noundef %12, ptr noundef %19)
   %20 = icmp eq i64 %17, 0
@@ -4057,9 +4057,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx
   %.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_SE_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -4094,9 +4094,9 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %16, %.lr.ph
   %.0.i4.i.i = phi i32 [ %26, %23 ], [ 1, %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i ]
   %27 = icmp sgt i32 %.0.i.i.i, %.0.i4.i.i
   %spec.select = select i1 %27, i64 %11, i64 %9
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.032
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select, %6
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !70
@@ -4116,9 +4116,9 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %16, %.lr.ph
 38:                                               ; preds = %34
   %39 = shl nsw i64 %.0.lcssa, 1
   %40 = or disjoint i64 %39, 1
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %42, ptr %43, align 8
   br label %44
 
@@ -4138,7 +4138,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i:        ; preds = %16, %.lr.ph
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %56
   %.04.us.i = phi i64 [ %.0.us.i, %56 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.us.i = phi i64 [ %.04.us.i, %56 ], [ %.128, %.lr.ph.i ]
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.04.us.i
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.us.i
   %.val.us.i = load ptr, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %.val.us.i, i64 24
   %50 = load i16, ptr %49, align 8
@@ -4155,7 +4155,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i:   ; preds = %.lr.ph.split.us.i
   br i1 %55, label %56, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 56:                                               ; preds = %_ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %.0133.us.i
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.us.i
   store ptr %.val.us.i, ptr %57, align 8
   %.0.in.us.i = add nsw i64 %.04.us.i, -1
   %.0.us.i = sdiv i64 %.0.in.us.i, 2
@@ -4165,7 +4165,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.us.i:   ; preds = %.lr.ph.split.us.i
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %72
   %.04.i = phi i64 [ %.0.i, %72 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.i = phi i64 [ %.04.i, %72 ], [ %.128, %.lr.ph.i ]
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %.04.i
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %.04.i
   %.val.i = load ptr, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
   %61 = load i16, ptr %60, align 8
@@ -4197,7 +4197,7 @@ _ZL13numberOfTermsPKN4llvm4SCEVE.exit.i.i.i:      ; preds = %63, %.lr.ph.split.i
   br i1 %71, label %72, label %"_ZSt11__push_heapIPPKN4llvm4SCEVElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_19findArrayDimensionsERNS0_15ScalarEvolutionERNS0_15SmallVectorImplIS3_EESC_S3_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 72:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm19findArrayDimensionsERNS2_15ScalarEvolutionERNS2_15SmallVectorImplIPKNS2_4SCEVEEESA_S8_E3$_0EclIPS8_S8_EEbT_RT0_.exit.i"
-  %73 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %.val.i, ptr %73, align 8
   %.0.in.i = add nsw i64 %.04.i, -1
   %.0.i = sdiv i64 %.0.in.i, 2

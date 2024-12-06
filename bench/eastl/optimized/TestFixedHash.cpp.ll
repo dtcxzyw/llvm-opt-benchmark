@@ -37032,7 +37032,7 @@ _ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_all
 .noexc875:                                        ; preds = %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i, %entry.if.end_crit_edge.i2518
   %618 = phi ptr [ %603, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %.pre.i2520, %entry.if.end_crit_edge.i2518 ]
   %n.addr.0.i2521 = phi i64 [ %rem.i.i.i2532, %_ZN5eastl9hashtableIK18InstanceRenderDataNS_4pairIS2_jEENS_25fixed_hashtable_allocatorILm12ELm56ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS2_EENS_4hashIS2_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %rem.i.i.i.i.zext.i.i, %entry.if.end_crit_edge.i2518 ]
-  %arrayidx.i2523 = getelementptr inbounds ptr, ptr %618, i64 %n.addr.0.i2521
+  %arrayidx.i2523 = getelementptr inbounds nuw ptr, ptr %618, i64 %n.addr.0.i2521
   %619 = load ptr, ptr %arrayidx.i2523, align 8, !noalias !660
   store ptr %619, ptr %mpNext.i15.i.i.i.i865, align 8, !noalias !660
   store ptr %result.0.i.i.i.i.i.i864, ptr %arrayidx.i2523, align 8, !noalias !660
@@ -40694,11 +40694,11 @@ delete.notnull.i.i.i.i.i112:                      ; preds = %if.then.i.i.i106
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit.i: ; preds = %call.i.i.noexc._ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit.i_crit_edge, %.noexc
   %32 = phi ptr [ %retval.0.i.i.i, %.noexc ], [ %.pre, %call.i.i.noexc._ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit.i_crit_edge ]
   %n.addr.0.i.i = phi i64 [ %rem.i.i.i.i, %.noexc ], [ %rem.i.i.i65, %call.i.i.noexc._ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit.i_crit_edge ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %32, i64 %n.addr.0.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %32, i64 %n.addr.0.i.i
   %33 = load ptr, ptr %arrayidx.i.i, align 8, !noalias !834
   store ptr %33, ptr %mpNext.i.i62, align 8, !noalias !834
   %34 = load ptr, ptr %mpBucketArray.i66, align 8, !noalias !834
-  %arrayidx8.i.i = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i.i
   store ptr %result.0.i.i.i, ptr %arrayidx8.i.i, align 8, !noalias !834
   %35 = load i64, ptr %mnElementCount.i.i, align 8, !noalias !834
   %inc.i.i = add i64 %35, 1
@@ -77366,17 +77366,17 @@ _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %entry.if.end_crit_edge.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i
   %29 = phi ptr [ %13, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %.pre.i, %entry.if.end_crit_edge.i ]
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE8DoRehashEm.exit.i ], [ %rem.i.i.i.i.i, %entry.if.end_crit_edge.i ]
-  %arrayidx.i = getelementptr inbounds ptr, ptr %29, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %29, i64 %n.addr.0.i
   %30 = load ptr, ptr %arrayidx.i, align 8, !noalias !2705
   store ptr %30, ptr %mpNext.i15.i.i.i, align 8, !noalias !2705
   %31 = load ptr, ptr %mpBucketArray.i.i.i, align 8, !noalias !2705
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %31, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %31, i64 %n.addr.0.i
   store ptr %result.0.i.i.i.i.i, ptr %arrayidx8.i, align 8, !noalias !2705
   %32 = load i64, ptr %mnElementCount.i, align 8, !noalias !2705
   %inc.i = add i64 %32, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2705
   %33 = load ptr, ptr %mpBucketArray.i.i.i, align 8, !noalias !2705
-  %add.ptr.i = getelementptr inbounds ptr, ptr %33, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %33, i64 %n.addr.0.i
   br label %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEET_OS3_PNS_9enable_ifIXsrSN_5valueEvE4typeE.exit
 
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE13DoInsertValueINS_17integral_constantIbLb1EEEEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEET_OS3_PNS_9enable_ifIXsrSN_5valueEvE4typeE.exit: ; preds = %for.body.i.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm11ELm16ELm10ELm4ELm0ELb0ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -82401,18 +82401,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2720
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2720
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2720
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2720
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2720
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2720
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2720
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2720
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -82470,17 +82470,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2723
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2723
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2723
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2723
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2723
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2723
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2723
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2723
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -82825,18 +82825,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2732
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2732
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2732
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2732
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2732
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2732
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2732
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2732
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -82894,17 +82894,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2735
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2735
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2735
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2735
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2735
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2735
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2735
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2735
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -83002,11 +83002,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2738
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   %14 = load ptr, ptr %arrayidx.i, align 8, !noalias !2738
   store ptr %14, ptr %mpNext.i, align 8, !noalias !2738
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !2738
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !2738
   %16 = load i64, ptr %mnElementCount.i, align 8, !noalias !2738
   %inc.i = add i64 %16, 1
@@ -83044,7 +83044,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %21 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %21, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %21, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -84607,18 +84607,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2756
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2756
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2756
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2756
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2756
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2756
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2756
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2756
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -84676,17 +84676,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2759
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2759
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2759
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2759
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2759
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2759
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2759
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2759
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -85031,18 +85031,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2768
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2768
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2768
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2768
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2768
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2768
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2768
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2768
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -85100,17 +85100,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2771
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2771
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2771
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2771
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2771
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2771
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2771
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2771
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -85208,11 +85208,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2774
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   %14 = load ptr, ptr %arrayidx.i, align 8, !noalias !2774
   store ptr %14, ptr %mpNext.i, align 8, !noalias !2774
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !2774
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !2774
   %16 = load i64, ptr %mnElementCount.i, align 8, !noalias !2774
   %inc.i = add i64 %16, 1
@@ -85250,7 +85250,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %21 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %21, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %21, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -91391,18 +91391,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2864
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2864
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2864
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2864
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2864
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2864
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2864
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2864
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -91463,17 +91463,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit ]
   %23 = load ptr, ptr %mpBucketArray, align 8, !noalias !2867
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %23, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %23, i64 %n.addr.0.i24
   %24 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2867
   store ptr %24, ptr %mpNext.i16, align 8, !noalias !2867
   %25 = load ptr, ptr %mpBucketArray, align 8, !noalias !2867
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %25, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %25, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2867
   %26 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2867
   %inc.i29 = add i64 %26, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2867
   %27 = load ptr, ptr %mpBucketArray, align 8, !noalias !2867
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %27, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %27, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -91825,18 +91825,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2876
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2876
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2876
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2876
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2876
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2876
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2876
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2876
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -91897,17 +91897,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit ]
   %23 = load ptr, ptr %mpBucketArray, align 8, !noalias !2879
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %23, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %23, i64 %n.addr.0.i24
   %24 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2879
   store ptr %24, ptr %mpNext.i16, align 8, !noalias !2879
   %25 = load ptr, ptr %mpBucketArray, align 8, !noalias !2879
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %25, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %25, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2879
   %26 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2879
   %inc.i29 = add i64 %26, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2879
   %27 = load ptr, ptr %mpBucketArray, align 8, !noalias !2879
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %27, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %27, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -92008,11 +92008,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %14 = load ptr, ptr %mpBucketArray, align 8, !noalias !2882
-  %arrayidx.i = getelementptr inbounds ptr, ptr %14, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %14, i64 %n.addr.0.i
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !2882
   store ptr %15, ptr %mpNext.i, align 8, !noalias !2882
   %16 = load ptr, ptr %mpBucketArray, align 8, !noalias !2882
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %16, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %16, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !2882
   %17 = load i64, ptr %mnElementCount.i, align 8, !noalias !2882
   %inc.i = add i64 %17, 1
@@ -92053,7 +92053,7 @@ return:                                           ; preds = %if.else.i.i.i, %if.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %if.else.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %if.else.i.i.i ]
   %23 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %23, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -93310,18 +93310,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2900
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2900
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2900
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2900
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2900
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2900
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2900
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2900
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -93382,17 +93382,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit ]
   %23 = load ptr, ptr %mpBucketArray, align 8, !noalias !2903
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %23, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %23, i64 %n.addr.0.i24
   %24 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2903
   store ptr %24, ptr %mpNext.i16, align 8, !noalias !2903
   %25 = load ptr, ptr %mpBucketArray, align 8, !noalias !2903
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %25, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %25, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2903
   %26 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2903
   %inc.i29 = add i64 %26, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2903
   %27 = load ptr, ptr %mpBucketArray, align 8, !noalias !2903
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %27, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %27, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1E15MallocAllocatorEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -93744,18 +93744,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2912
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2912
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2912
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2912
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2912
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2912
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2912
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2912
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -93816,17 +93816,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %23 = load ptr, ptr %mpBucketArray, align 8, !noalias !2915
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %23, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %23, i64 %n.addr.0.i24
   %24 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2915
   store ptr %24, ptr %mpNext.i16, align 8, !noalias !2915
   %25 = load ptr, ptr %mpBucketArray, align 8, !noalias !2915
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %25, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %25, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2915
   %26 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2915
   %inc.i29 = add i64 %26, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2915
   %27 = load ptr, ptr %mpBucketArray, align 8, !noalias !2915
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %27, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %27, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -93927,11 +93927,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %14 = load ptr, ptr %mpBucketArray, align 8, !noalias !2918
-  %arrayidx.i = getelementptr inbounds ptr, ptr %14, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %14, i64 %n.addr.0.i
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !2918
   store ptr %15, ptr %mpNext.i, align 8, !noalias !2918
   %16 = load ptr, ptr %mpBucketArray, align 8, !noalias !2918
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %16, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %16, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !2918
   %17 = load i64, ptr %mnElementCount.i, align 8, !noalias !2918
   %inc.i = add i64 %17, 1
@@ -93972,7 +93972,7 @@ return:                                           ; preds = %if.else.i.i.i, %if.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %if.else.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableI1ANS_4pairIKS1_S1_EENS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %if.else.i.i.i ]
   %23 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %23, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -95515,18 +95515,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2933
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2933
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2933
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2933
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2933
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2933
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2933
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2933
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -95584,17 +95584,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS3_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS3_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2936
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2936
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2936
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2936
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2936
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2936
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2936
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2936
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -96865,18 +96865,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %8 = load ptr, ptr %mpBucketArray, align 8, !noalias !2949
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %8, i64 %n.addr.0.i
   %9 = load ptr, ptr %arrayidx.i, align 8, !noalias !2949
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 64
   store ptr %9, ptr %mpNext.i15, align 64, !noalias !2949
   %10 = load ptr, ptr %mpBucketArray, align 8, !noalias !2949
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %10, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %10, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2949
   %11 = load i64, ptr %mnElementCount.i, align 8, !noalias !2949
   %inc.i = add i64 %11, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2949
   %12 = load ptr, ptr %mpBucketArray, align 8, !noalias !2949
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %12, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -96933,17 +96933,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKS1_EEEPNS_9hash_nodeIS1_Lb0EEEDpOT_.exit ]
   %20 = load ptr, ptr %mpBucketArray, align 8, !noalias !2952
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i24
   %21 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2952
   store ptr %21, ptr %mpNext.i16, align 64, !noalias !2952
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2952
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2952
   %23 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2952
   %inc.i29 = add i64 %23, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2952
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2952
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI7Align64S1_NS_25fixed_hashtable_allocatorILm3ELm128ELm1ELm64ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -97573,18 +97573,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2963
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2963
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2963
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2963
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2963
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2963
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2963
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2963
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -97642,17 +97642,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2966
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2966
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2966
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2966
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2966
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2966
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2966
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2966
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKi1AEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -97944,18 +97944,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2972
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2972
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2972
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2972
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2972
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2972
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2972
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2972
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -98013,17 +98013,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2975
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2975
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2975
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2975
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2975
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2975
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2975
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2975
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableI1ANS_4pairIKS1_iEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS2_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS3_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -98121,11 +98121,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2978
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   %14 = load ptr, ptr %arrayidx.i, align 8, !noalias !2978
   store ptr %14, ptr %mpNext.i, align 8, !noalias !2978
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !2978
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !2978
   %16 = load i64, ptr %mnElementCount.i, align 8, !noalias !2978
   %inc.i = add i64 %16, 1
@@ -98163,7 +98163,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm4ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %21 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %21, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %21, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -98454,18 +98454,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2982
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2982
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2982
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2982
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2982
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2982
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2982
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2982
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -98523,17 +98523,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2985
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2985
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2985
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2985
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2985
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2985
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2985
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2985
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -98714,18 +98714,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2990
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2990
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2990
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2990
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2990
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2990
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2990
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2990
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -98783,17 +98783,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !2993
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !2993
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !2993
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !2993
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !2993
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !2993
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !2993
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !2993
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -98864,18 +98864,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !2997
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !2997
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !2997
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !2997
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !2997
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !2997
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !2997
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !2997
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -98933,17 +98933,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3000
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3000
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !3000
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3000
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3000
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3000
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3000
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !3000
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -99149,11 +99149,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %12 = load ptr, ptr %mpBucketArray, align 8, !noalias !3005
-  %arrayidx.i = getelementptr inbounds ptr, ptr %12, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %12, i64 %n.addr.0.i
   %13 = load ptr, ptr %arrayidx.i, align 8, !noalias !3005
   store ptr %13, ptr %mpNext.i, align 8, !noalias !3005
   %14 = load ptr, ptr %mpBucketArray, align 8, !noalias !3005
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %14, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %14, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3005
   %15 = load i64, ptr %mnElementCount.i, align 8, !noalias !3005
   %inc.i = add i64 %15, 1
@@ -99191,7 +99191,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ %pNode.addr.05.i, %if.else ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableI1AS1_NS_25fixed_hashtable_allocatorILm101ELm16ELm100ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ 0, %if.else ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %20 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %20, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -99698,18 +99698,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !3014
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !3014
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !3014
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !3014
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3014
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !3014
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3014
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !3014
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -99767,17 +99767,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3017
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3017
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !3017
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3017
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3017
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3017
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3017
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !3017
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm1ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -99848,18 +99848,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !3021
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !3021
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !3021
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !3021
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3021
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !3021
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3021
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !3021
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -99917,17 +99917,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOi.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3024
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3024
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !3024
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3024
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3024
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3024
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3024
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !3024
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm3ELm16ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -100108,18 +100108,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !3030
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !3030
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !3030
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !3030
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3030
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !3030
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3030
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !3030
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -100177,17 +100177,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3033
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3033
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !3033
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3033
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3033
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3033
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3033
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !3033
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm12ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -100588,18 +100588,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !3041
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !3041
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !3041
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !3041
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3041
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !3041
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3041
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !3041
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -100660,17 +100660,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS3_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS3_.exit ]
   %23 = load ptr, ptr %mpBucketArray, align 8, !noalias !3044
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %23, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %23, i64 %n.addr.0.i24
   %24 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3044
   store ptr %24, ptr %mpNext.i16, align 8, !noalias !3044
   %25 = load ptr, ptr %mpBucketArray, align 8, !noalias !3044
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %25, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %25, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3044
   %26 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3044
   %inc.i29 = add i64 %26, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3044
   %27 = load ptr, ptr %mpBucketArray, align 8, !noalias !3044
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %27, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %27, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKiiEENS_25fixed_hashtable_allocatorILm101ELm16ELm64ELm4ELm0ELb1E15MallocAllocatorEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit
@@ -101084,18 +101084,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !3051
-  %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   %16 = load ptr, ptr %arrayidx.i, align 8, !noalias !3051
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 32
   store ptr %16, ptr %mpNext.i15, align 8, !noalias !3051
   %17 = load ptr, ptr %mpBucketArray, align 8, !noalias !3051
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %17, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %17, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3051
   %18 = load i64, ptr %mnElementCount.i, align 8, !noalias !3051
   %inc.i = add i64 %18, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3051
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3051
-  %add.ptr.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -101178,17 +101178,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit ]
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3054
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   %35 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3054
   store ptr %35, ptr %mpNext.i17, align 8, !noalias !3054
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3054
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3054
   %37 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3054
   %inc.i30 = add i64 %37, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3054
   %38 = load ptr, ptr %mpBucketArray, align 8, !noalias !3054
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %38, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %38, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -101419,11 +101419,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3057
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3057
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3057
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3057
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3057
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3057
   %inc.i = add i64 %22, 1
@@ -101476,7 +101476,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %29 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %29, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %29, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -101590,11 +101590,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3060
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3060
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3060
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3060
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3060
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3060
   %inc.i = add i64 %22, 1
@@ -101647,7 +101647,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %29 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %29, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %29, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -101762,11 +101762,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3063
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3063
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3063
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3063
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3063
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3063
   %inc.i = add i64 %22, 1
@@ -101822,7 +101822,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %31 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %31, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %31, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -101937,11 +101937,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3066
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3066
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3066
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3066
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3066
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3066
   %inc.i = add i64 %22, 1
@@ -101984,7 +101984,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %28 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %28, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -102073,18 +102073,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !3069
-  %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   %16 = load ptr, ptr %arrayidx.i, align 8, !noalias !3069
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 32
   store ptr %16, ptr %mpNext.i15, align 8, !noalias !3069
   %17 = load ptr, ptr %mpBucketArray, align 8, !noalias !3069
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %17, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %17, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3069
   %18 = load i64, ptr %mnElementCount.i, align 8, !noalias !3069
   %inc.i = add i64 %18, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3069
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3069
-  %add.ptr.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -102166,17 +102166,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3072
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   %35 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3072
   store ptr %35, ptr %mpNext.i17, align 8, !noalias !3072
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3072
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3072
   %37 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3072
   %inc.i30 = add i64 %37, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3072
   %38 = load ptr, ptr %mpBucketArray, align 8, !noalias !3072
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %38, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %38, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -102476,18 +102476,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !3077
-  %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   %16 = load ptr, ptr %arrayidx.i, align 8, !noalias !3077
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 32
   store ptr %16, ptr %mpNext.i15, align 8, !noalias !3077
   %17 = load ptr, ptr %mpBucketArray, align 8, !noalias !3077
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %17, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %17, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3077
   %18 = load i64, ptr %mnElementCount.i, align 8, !noalias !3077
   %inc.i = add i64 %18, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3077
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3077
-  %add.ptr.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -102570,17 +102570,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeEOS4_.exit ]
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3080
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   %35 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3080
   store ptr %35, ptr %mpNext.i17, align 8, !noalias !3080
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3080
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3080
   %37 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3080
   %inc.i30 = add i64 %37, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3080
   %38 = load ptr, ptr %mpBucketArray, align 8, !noalias !3080
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %38, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %38, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -102811,11 +102811,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3083
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3083
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3083
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3083
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3083
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3083
   %inc.i = add i64 %22, 1
@@ -102868,7 +102868,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %29 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %29, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %29, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -102982,11 +102982,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3086
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3086
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3086
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3086
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3086
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3086
   %inc.i = add i64 %22, 1
@@ -103039,7 +103039,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %29 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %29, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %29, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -103154,11 +103154,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3089
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3089
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3089
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3089
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3089
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3089
   %inc.i = add i64 %22, 1
@@ -103214,7 +103214,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %31 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %31, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %31, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -103329,11 +103329,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3092
-  %arrayidx.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   %20 = load ptr, ptr %arrayidx.i, align 8, !noalias !3092
   store ptr %20, ptr %mpNext.i, align 8, !noalias !3092
   %21 = load ptr, ptr %mpBucketArray, align 8, !noalias !3092
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %21, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %21, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3092
   %22 = load i64, ptr %mnElementCount.i, align 8, !noalias !3092
   %inc.i = add i64 %22, 1
@@ -103376,7 +103376,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeINS_4pairIKi10TestObjectEELb0EED2Ev.exit.i ], [ 0, %if.then.i.i.i ], [ 0, %delete.notnull.i.i.i.i ]
   %28 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %28, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %mpBucket.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %mpBucket.i.i.i, align 8
@@ -103465,18 +103465,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %15 = load ptr, ptr %mpBucketArray, align 8, !noalias !3095
-  %arrayidx.i = getelementptr inbounds ptr, ptr %15, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %15, i64 %n.addr.0.i
   %16 = load ptr, ptr %arrayidx.i, align 8, !noalias !3095
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 32
   store ptr %16, ptr %mpNext.i15, align 8, !noalias !3095
   %17 = load ptr, ptr %mpBucketArray, align 8, !noalias !3095
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %17, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %17, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3095
   %18 = load i64, ptr %mnElementCount.i, align 8, !noalias !3095
   %inc.i = add i64 %18, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3095
   %19 = load ptr, ptr %mpBucketArray, align 8, !noalias !3095
-  %add.ptr.i = getelementptr inbounds ptr, ptr %19, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %19, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -103558,17 +103558,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS4_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3098
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   %35 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3098
   store ptr %35, ptr %mpNext.i17, align 8, !noalias !3098
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3098
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3098
   %37 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3098
   %inc.i30 = add i64 %37, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3098
   %38 = load ptr, ptr %mpBucketArray, align 8, !noalias !3098
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %38, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %38, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -104295,11 +104295,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %18 = load ptr, ptr %mpBucketArray, align 8, !noalias !3106
-  %arrayidx.i = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   %19 = load ptr, ptr %arrayidx.i, align 8, !noalias !3106
   store ptr %19, ptr %mpNext.i, align 8, !noalias !3106
   %20 = load ptr, ptr %mpBucketArray, align 8, !noalias !3106
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3106
   %21 = load i64, ptr %mnElementCount.i, align 8, !noalias !3106
   %inc.i = add i64 %21, 1
@@ -104352,7 +104352,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i3.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i ], [ 0, %if.then.i.i3.i ], [ 0, %delete.notnull.i.i.i.i ]
   %28 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %28, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -104548,18 +104548,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %14 = load ptr, ptr %mpBucketArray, align 8, !noalias !3111
-  %arrayidx.i = getelementptr inbounds ptr, ptr %14, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %14, i64 %n.addr.0.i
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !3111
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 24
   store ptr %15, ptr %mpNext.i15, align 8, !noalias !3111
   %16 = load ptr, ptr %mpBucketArray, align 8, !noalias !3111
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %16, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %16, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3111
   %17 = load i64, ptr %mnElementCount.i, align 8, !noalias !3111
   %inc.i16 = add i64 %17, 1
   store i64 %inc.i16, ptr %mnElementCount.i, align 8, !noalias !3111
   %18 = load ptr, ptr %mpBucketArray, align 8, !noalias !3111
-  %add.ptr.i = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -104638,17 +104638,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit ]
   %32 = load ptr, ptr %mpBucketArray, align 8, !noalias !3114
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %32, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %32, i64 %n.addr.0.i25
   %33 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3114
   store ptr %33, ptr %mpNext.i17, align 8, !noalias !3114
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3114
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3114
   %35 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3114
   %inc.i30 = add i64 %35, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3114
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3114
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -104969,11 +104969,11 @@ if.then.i:                                        ; preds = %if.then
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then ]
   %18 = load ptr, ptr %mpBucketArray, align 8, !noalias !3119
-  %arrayidx.i = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   %19 = load ptr, ptr %arrayidx.i, align 8, !noalias !3119
   store ptr %19, ptr %mpNext.i, align 8, !noalias !3119
   %20 = load ptr, ptr %mpBucketArray, align 8, !noalias !3119
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3119
   %21 = load i64, ptr %mnElementCount.i, align 8, !noalias !3119
   %inc.i = add i64 %21, 1
@@ -105026,7 +105026,7 @@ return:                                           ; preds = %delete.notnull.i.i.
   %pNode.addr.05.i.lcssa.sink = phi ptr [ %result.0.i.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ %pNode.addr.05.i, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i ], [ %pNode.addr.05.i, %if.then.i.i3.i ], [ %pNode.addr.05.i, %delete.notnull.i.i.i.i ]
   %.sink = phi i8 [ 1, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit ], [ 0, %_ZN5eastl9hash_nodeI10TestObjectLb0EED2Ev.exit.i ], [ 0, %if.then.i.i3.i ], [ 0, %delete.notnull.i.i.i.i ]
   %28 = load ptr, ptr %mpBucketArray, align 8
-  %add.ptr = getelementptr inbounds ptr, ptr %28, i64 %rem.i.i.sink
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %28, i64 %rem.i.i.sink
   store ptr %pNode.addr.05.i.lcssa.sink, ptr %agg.result, align 8
   %ref.tmp.sroa.2.0.agg.result.sroa_idx = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %add.ptr, ptr %ref.tmp.sroa.2.0.agg.result.sroa_idx, align 8
@@ -105222,18 +105222,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %14 = load ptr, ptr %mpBucketArray, align 8, !noalias !3124
-  %arrayidx.i = getelementptr inbounds ptr, ptr %14, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %14, i64 %n.addr.0.i
   %15 = load ptr, ptr %arrayidx.i, align 8, !noalias !3124
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 24
   store ptr %15, ptr %mpNext.i15, align 8, !noalias !3124
   %16 = load ptr, ptr %mpBucketArray, align 8, !noalias !3124
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %16, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %16, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3124
   %17 = load i64, ptr %mnElementCount.i, align 8, !noalias !3124
   %inc.i16 = add i64 %17, 1
   store i64 %inc.i16, ptr %mnElementCount.i, align 8, !noalias !3124
   %18 = load ptr, ptr %mpBucketArray, align 8, !noalias !3124
-  %add.ptr.i = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -105312,17 +105312,17 @@ if.then.i34:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit, %if.then.i34
   %n.addr.0.i25 = phi i64 [ %rem.i.i.i36, %if.then.i34 ], [ %rem.i.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeEOS1_.exit ]
   %32 = load ptr, ptr %mpBucketArray, align 8, !noalias !3127
-  %arrayidx.i27 = getelementptr inbounds ptr, ptr %32, i64 %n.addr.0.i25
+  %arrayidx.i27 = getelementptr inbounds nuw ptr, ptr %32, i64 %n.addr.0.i25
   %33 = load ptr, ptr %arrayidx.i27, align 8, !noalias !3127
   store ptr %33, ptr %mpNext.i17, align 8, !noalias !3127
   %34 = load ptr, ptr %mpBucketArray, align 8, !noalias !3127
-  %arrayidx8.i29 = getelementptr inbounds ptr, ptr %34, i64 %n.addr.0.i25
+  %arrayidx8.i29 = getelementptr inbounds nuw ptr, ptr %34, i64 %n.addr.0.i25
   store ptr %result.0.i.i, ptr %arrayidx8.i29, align 8, !noalias !3127
   %35 = load i64, ptr %mnElementCount.i21, align 8, !noalias !3127
   %inc.i30 = add i64 %35, 1
   store i64 %inc.i30, ptr %mnElementCount.i21, align 8, !noalias !3127
   %36 = load ptr, ptr %mpBucketArray, align 8, !noalias !3127
-  %add.ptr.i31 = getelementptr inbounds ptr, ptr %36, i64 %n.addr.0.i25
+  %add.ptr.i31 = getelementptr inbounds nuw ptr, ptr %36, i64 %n.addr.0.i25
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit, %_ZN5eastl9hashtableI10TestObjectS1_NS_25fixed_hashtable_allocatorILm8ELm32ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIS1_EENS_8equal_toIS1_EENS_4hashIS1_EENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIS1_Lb1ELb0EEEbEERKS1_mmPNS_9hash_nodeIS1_Lb0EEE.exit
@@ -109252,17 +109252,17 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESO_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i8, %if.then.i ], [ %rem.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESO_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %18 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3157
-  %arrayidx.i6 = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %arrayidx.i6 = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   %19 = load ptr, ptr %arrayidx.i6, align 8, !noalias !3157
   store ptr %19, ptr %mpNext.i, align 8, !noalias !3157
   %20 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3157
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3157
   %21 = load i64, ptr %mnElementCount.i, align 8, !noalias !3157
   %inc.i = add i64 %21, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3157
   %22 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3157
-  %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -109384,17 +109384,17 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSM_IJOS3_EEEEEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i8, %if.then.i ], [ %rem.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSM_IJOS3_EEEEEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %20 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3163
-  %arrayidx.i6 = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx.i6 = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   %21 = load ptr, ptr %arrayidx.i6, align 8, !noalias !3163
   store ptr %21, ptr %mpNext.i, align 8, !noalias !3163
   %22 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3163
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3163
   %23 = load i64, ptr %mnElementCount.i, align 8, !noalias !3163
   %inc.i = add i64 %23, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3163
   %24 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3163
-  %add.ptr.i = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm2ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -109796,17 +109796,17 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESO_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i8, %if.then.i ], [ %rem.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEESO_EEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %18 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3181
-  %arrayidx.i6 = getelementptr inbounds ptr, ptr %18, i64 %n.addr.0.i
+  %arrayidx.i6 = getelementptr inbounds nuw ptr, ptr %18, i64 %n.addr.0.i
   %19 = load ptr, ptr %arrayidx.i6, align 8, !noalias !3181
   store ptr %19, ptr %mpNext.i, align 8, !noalias !3181
   %20 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3181
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3181
   %21 = load i64, ptr %mnElementCount.i, align 8, !noalias !3181
   %inc.i = add i64 %21, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3181
   %22 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3181
-  %add.ptr.i = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -109928,17 +109928,17 @@ if.then.i:                                        ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSM_IJOS3_EEEEEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i8, %if.then.i ], [ %rem.i.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJRKNS_21piecewise_construct_tENS_5tupleIJOiEEENSM_IJOS3_EEEEEEPNS_9hash_nodeIS4_Lb0EEEDpOT_.exit ]
   %20 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3187
-  %arrayidx.i6 = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i
+  %arrayidx.i6 = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i
   %21 = load ptr, ptr %arrayidx.i6, align 8, !noalias !3187
   store ptr %21, ptr %mpNext.i, align 8, !noalias !3187
   %22 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3187
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i
   store ptr %result.0.i.i, ptr %arrayidx8.i, align 8, !noalias !3187
   %23 = load i64, ptr %mnElementCount.i, align 8, !noalias !3187
   %inc.i = add i64 %23, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3187
   %24 = load ptr, ptr %mpBucketArray.i, align 8, !noalias !3187
-  %add.ptr.i = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i
   br label %return
 
 return:                                           ; preds = %for.body.i.i, %_ZN5eastl9hashtableIiNS_4pairIKi10TestObjectEENS_25fixed_hashtable_allocatorILm8ELm40ELm32ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS4_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS4_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS4_Lb0EEE.exit
@@ -111302,18 +111302,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %9 = load ptr, ptr %mpBucketArray, align 8, !noalias !3198
-  %arrayidx.i = getelementptr inbounds ptr, ptr %9, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %9, i64 %n.addr.0.i
   %10 = load ptr, ptr %arrayidx.i, align 8, !noalias !3198
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 8
   store ptr %10, ptr %mpNext.i15, align 8, !noalias !3198
   %11 = load ptr, ptr %mpBucketArray, align 8, !noalias !3198
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %11, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %11, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3198
   %12 = load i64, ptr %mnElementCount.i, align 8, !noalias !3198
   %inc.i = add i64 %12, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3198
   %13 = load ptr, ptr %mpBucketArray, align 8, !noalias !3198
-  %add.ptr.i = getelementptr inbounds ptr, ptr %13, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %13, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -111371,17 +111371,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE14DoAllocateNodeIJKiEEEPNS_9hash_nodeIiLb0EEEDpOT_.exit ]
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3201
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   %23 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3201
   store ptr %23, ptr %mpNext.i16, align 8, !noalias !3201
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3201
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3201
   %25 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3201
   %inc.i29 = add i64 %25, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3201
   %26 = load ptr, ptr %mpBucketArray, align 8, !noalias !3201
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %26, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %26, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit, %_ZN5eastl9hashtableIiiNS_25fixed_hashtable_allocatorILm13ELm16ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_8use_selfIiEENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb0ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS_4pairINS_18hashtable_iteratorIiLb1ELb0EEEbEERKimmPNS_9hash_nodeIiLb0EEE.exit
@@ -111561,18 +111561,18 @@ if.then.i:                                        ; preds = %if.then4
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %if.then4, %if.then.i
   %n.addr.0.i = phi i64 [ %rem.i.i.i, %if.then.i ], [ %rem.i.i, %if.then4 ]
   %8 = load ptr, ptr %mpBucketArray, align 8, !noalias !3204
-  %arrayidx.i = getelementptr inbounds ptr, ptr %8, i64 %n.addr.0.i
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %8, i64 %n.addr.0.i
   %9 = load ptr, ptr %arrayidx.i, align 8, !noalias !3204
   %mpNext.i15 = getelementptr inbounds nuw i8, ptr %pNodeNew, i64 16
   store ptr %9, ptr %mpNext.i15, align 8, !noalias !3204
   %10 = load ptr, ptr %mpBucketArray, align 8, !noalias !3204
-  %arrayidx8.i = getelementptr inbounds ptr, ptr %10, i64 %n.addr.0.i
+  %arrayidx8.i = getelementptr inbounds nuw ptr, ptr %10, i64 %n.addr.0.i
   store ptr %pNodeNew, ptr %arrayidx8.i, align 8, !noalias !3204
   %11 = load i64, ptr %mnElementCount.i, align 8, !noalias !3204
   %inc.i = add i64 %11, 1
   store i64 %inc.i, ptr %mnElementCount.i, align 8, !noalias !3204
   %12 = load ptr, ptr %mpBucketArray, align 8, !noalias !3204
-  %add.ptr.i = getelementptr inbounds ptr, ptr %12, i64 %n.addr.0.i
+  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %12, i64 %n.addr.0.i
   br label %return
 
 if.else:                                          ; preds = %if.then
@@ -111629,17 +111629,17 @@ if.then.i33:                                      ; preds = %_ZN5eastl9hashtable
 _ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit: ; preds = %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit, %if.then.i33
   %n.addr.0.i24 = phi i64 [ %rem.i.i.i35, %if.then.i33 ], [ %rem.i.i, %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE14DoAllocateNodeIJKS3_EEEPNS_9hash_nodeIS3_Lb0EEEDpOT_.exit ]
   %20 = load ptr, ptr %mpBucketArray, align 8, !noalias !3207
-  %arrayidx.i26 = getelementptr inbounds ptr, ptr %20, i64 %n.addr.0.i24
+  %arrayidx.i26 = getelementptr inbounds nuw ptr, ptr %20, i64 %n.addr.0.i24
   %21 = load ptr, ptr %arrayidx.i26, align 8, !noalias !3207
   store ptr %21, ptr %mpNext.i16, align 8, !noalias !3207
   %22 = load ptr, ptr %mpBucketArray, align 8, !noalias !3207
-  %arrayidx8.i28 = getelementptr inbounds ptr, ptr %22, i64 %n.addr.0.i24
+  %arrayidx8.i28 = getelementptr inbounds nuw ptr, ptr %22, i64 %n.addr.0.i24
   store ptr %result.0.i.i, ptr %arrayidx8.i28, align 8, !noalias !3207
   %23 = load i64, ptr %mnElementCount.i20, align 8, !noalias !3207
   %inc.i29 = add i64 %23, 1
   store i64 %inc.i29, ptr %mnElementCount.i20, align 8, !noalias !3207
   %24 = load ptr, ptr %mpBucketArray, align 8, !noalias !3207
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %24, i64 %n.addr.0.i24
+  %add.ptr.i30 = getelementptr inbounds nuw ptr, ptr %24, i64 %n.addr.0.i24
   br label %return
 
 return:                                           ; preds = %for.body.i, %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb1ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit, %_ZN5eastl9hashtableIiNS_4pairIKidEENS_25fixed_hashtable_allocatorILm13ELm24ELm11ELm8ELm0ELb1ENS_9allocatorEEENS_9use_firstIS3_EENS_8equal_toIiEENS_4hashIiEENS_17mod_range_hashingENS_19default_ranged_hashENS_19prime_rehash_policyELb0ELb1ELb1EE18DoInsertUniqueNodeILb0ENS_17integral_constantIbLb1EEETnPNS_9enable_ifIXsrT0_5valueEvE4typeELPv0EEENS1_INS_18hashtable_iteratorIS3_Lb0ELb0EEEbEERS2_mmPNS_9hash_nodeIS3_Lb0EEE.exit

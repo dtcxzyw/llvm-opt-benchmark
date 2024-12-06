@@ -8535,7 +8535,7 @@ define hidden void @_ZN4text14BufferSnapshot29anchored_edits_since_in_range17h27
   %81 = zext i32 %79 to i64
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %83 = add nsw i64 %81, -1
-  %84 = getelementptr inbounds [0 x { ptr, i64, { ptr, { i64, i64 } } }], ptr %82, i64 0, i64 %83
+  %84 = getelementptr inbounds nuw [0 x { ptr, i64, { ptr, { i64, i64 } } }], ptr %82, i64 0, i64 %83
   %85 = load ptr, ptr %84, align 8, !alias.scope !2076, !noalias !2079, !nonnull !4, !align !17, !noundef !4
   %86 = load ptr, ptr %85, align 8, !noalias !2081, !nonnull !4, !noundef !4
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
@@ -8566,7 +8566,7 @@ define hidden void @_ZN4text14BufferSnapshot29anchored_edits_since_in_range17h27
 
 98:                                               ; preds = %96
   %99 = getelementptr inbounds nuw i8, ptr %86, i64 232
-  %100 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %99, i64 0, i64 %91
+  %100 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %99, i64 0, i64 %91
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %102 = load i64, ptr %101, align 8, !noundef !4
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 80
@@ -10082,7 +10082,7 @@ define hidden void @"_ZN83_$LT$text..Edits$LT$D$C$F$GT$$u20$as$u20$core..iter..t
 54:                                               ; preds = %52
   %55 = zext i32 %53 to i64
   %56 = add nsw i64 %55, -1
-  %57 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %22, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %22, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8, !alias.scope !2278, !noalias !2274, !nonnull !4, !align !17, !noundef !4
   %59 = load ptr, ptr %58, align 8, !noalias !2276, !nonnull !4, !noundef !4
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -10113,7 +10113,7 @@ define hidden void @"_ZN83_$LT$text..Edits$LT$D$C$F$GT$$u20$as$u20$core..iter..t
 
 73:                                               ; preds = %70
   %74 = getelementptr inbounds nuw i8, ptr %59, i64 232
-  %75 = getelementptr inbounds [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %74, i64 0, i64 %64
+  %75 = getelementptr inbounds nuw [0 x { { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, { { { [4 x i64] }, i64 } }, { i32, i16, [1 x i16] }, i64, i64, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i8, [7 x i8] }], ptr %74, i64 0, i64 %64
   %76 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !2279)

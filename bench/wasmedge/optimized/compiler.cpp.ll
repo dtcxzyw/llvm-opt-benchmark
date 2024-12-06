@@ -36739,7 +36739,7 @@ _ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEES
 55:                                               ; preds = %51, %_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread
   %.0.i13 = phi i64 [ %54, %51 ], [ %43, %_ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread ]
   %56 = load ptr, ptr %0, align 8
-  %57 = getelementptr inbounds ptr, ptr %56, i64 %.0.i13
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.0.i13
   %58 = load ptr, ptr %57, align 8
   %.not.i.i14 = icmp eq ptr %58, null
   br i1 %.not.i.i14, label %62, label %59
@@ -36772,7 +36772,7 @@ _ZNKSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEES
 
 72:                                               ; preds = %65, %62
   %73 = phi ptr [ %.pre, %65 ], [ %56, %62 ]
-  %74 = getelementptr inbounds ptr, ptr %73, i64 %.0.i13
+  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %.0.i13
   store ptr %63, ptr %74, align 8
   br label %75
 
@@ -36860,7 +36860,7 @@ _ZNSt10_HashtableIN8WasmEdge7ErrCode5ValueESt4pairIKS2_NS0_4LLVM10BasicBlockEESa
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8
   br label %31
 

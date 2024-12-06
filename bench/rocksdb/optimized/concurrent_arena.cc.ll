@@ -630,7 +630,7 @@ if.end61:                                         ; preds = %cleanup.thread, %if
   br i1 %cmp65, label %if.then66, label %if.else
 
 if.then66:                                        ; preds = %if.end61
-  %add.ptr = getelementptr inbounds i8, ptr %57, i64 %bytes
+  %add.ptr = getelementptr inbounds nuw i8, ptr %57, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_67, align 8
   br label %cleanup74
 
@@ -973,7 +973,7 @@ if.end59:                                         ; preds = %cleanup.thread, %if
   br i1 %cmp63, label %if.then64, label %if.else
 
 if.then64:                                        ; preds = %if.end59
-  %add.ptr = getelementptr inbounds i8, ptr %61, i64 %bytes
+  %add.ptr = getelementptr inbounds nuw i8, ptr %61, i64 %bytes
   store ptr %add.ptr, ptr %free_begin_65, align 8
   br label %cleanup72
 

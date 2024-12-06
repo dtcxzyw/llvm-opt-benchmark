@@ -12676,7 +12676,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %657, %549, %397
   %.12745.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ 2, %.thread.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.127.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %497 ]
   %507 = add nsw i64 %.12745.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
   %508 = trunc nuw i16 %.02546.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i to i8
-  %509 = getelementptr inbounds i8, ptr %17, i64 %507
+  %509 = getelementptr inbounds nuw i8, ptr %17, i64 %507
   %510 = or disjoint i8 %508, 48
   store i8 %510, ptr %509, align 1, !alias.scope !3557, !noalias !3551
   br label %511
@@ -12687,7 +12687,7 @@ common.resume.i.i.i.i.i.i.i:                      ; preds = %657, %549, %397
 
 512:                                              ; preds = %511
   %513 = add nsw i64 %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -1
-  %514 = getelementptr inbounds i8, ptr %17, i64 %513
+  %514 = getelementptr inbounds nuw i8, ptr %17, i64 %513
   store i8 45, ptr %514, align 1, !alias.scope !3557, !noalias !3551
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$i16$GT$5write17hd392026bd2e8bfbeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i"
 

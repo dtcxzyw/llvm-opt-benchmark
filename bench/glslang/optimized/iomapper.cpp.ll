@@ -19469,7 +19469,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_strin
   %87 = getelementptr inbounds nuw i8, ptr %56, i64 48
   store i64 %.09.lcssa.i.i, ptr %87, align 8
   %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %.0.i15
+  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %.0.i15
   %90 = load ptr, ptr %89, align 8
   %.not.i.i16 = icmp eq ptr %90, null
   br i1 %.not.i.i16, label %94, label %91
@@ -19501,7 +19501,7 @@ _ZNSt8__detail12_NodeBuilderINS_9_IdentityEE8_S_buildIRKNSt7__cxx1112basic_strin
 
 103:                                              ; preds = %97, %94
   %104 = phi ptr [ %.pre, %97 ], [ %88, %94 ]
-  %105 = getelementptr inbounds ptr, ptr %104, i64 %.0.i15
+  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.0.i15
   store ptr %95, ptr %105, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_SaIS7_ENSt8__detail9_IdentityESt8equal_toIS7_ESt4hashIS7_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb1ELb1ELb1EEEE12_Scoped_nodeD2Ev.exit
 

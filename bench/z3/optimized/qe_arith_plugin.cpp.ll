@@ -30769,7 +30769,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_T0_SB_T1_T2_.exit58
   %__parent.0136 = phi i64 [ %div13, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN2qe13arith_qe_util6mul_ltEEEEvT_T0_SB_T1_T2_.exit58 ]
   %dec = add nsw i64 %__parent.0136, -1
-  %add.ptr11 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %9 = load ptr, ptr %add.ptr11, align 8
   %cmp23.i18.not = icmp sgt i64 %__parent.0136, %div.i132134
   br i1 %cmp23.i18.not, label %while.end.i19, label %while.body.i46

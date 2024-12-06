@@ -822,7 +822,7 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
 104:                                              ; preds = %.lr.ph
   store ptr inttoptr (i64 -1 to ptr), ptr %102, align 8
   %105 = load ptr, ptr %41, align 8
-  %106 = getelementptr inbounds ptr, ptr %105, i64 %90
+  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %90
   store ptr inttoptr (i64 -1 to ptr), ptr %106, align 8
   br label %107
 
@@ -833,7 +833,7 @@ _ZNK4llvm12MachineInstr22hasExtraSrcRegAllocReqENS0_9QueryTypeE.exit: ; preds = 
 
 ._crit_edge:                                      ; preds = %107, %89
   %109 = load ptr, ptr %41, align 8
-  %110 = getelementptr inbounds ptr, ptr %109, i64 %90
+  %110 = getelementptr inbounds nuw ptr, ptr %109, i64 %90
   %111 = load ptr, ptr %110, align 8
   %.not52 = icmp eq ptr %111, inttoptr (i64 -1 to ptr)
   br i1 %.not52, label %123, label %112

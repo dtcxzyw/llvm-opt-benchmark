@@ -5643,7 +5643,7 @@ if.end.i4933:                                     ; preds = %for.body.i4929
   br i1 %cmp.i4927.not, label %for.body.i4929, label %if.then.i3931, !llvm.loop !22
 
 if.end.i4620:                                     ; preds = %if.end23.i4508
-  %add.ptr3.i4623 = getelementptr inbounds i8, ptr %s.i4491.0, i64 %len.i4492.0
+  %add.ptr3.i4623 = getelementptr inbounds nuw i8, ptr %s.i4491.0, i64 %len.i4492.0
   %add.ptr4.i4624 = getelementptr inbounds i8, ptr %add.ptr3.i4623, i64 -8
   %cmp26.i46282739 = icmp sgt i64 %len.i4492.0, 8
   br i1 %cmp26.i46282739, label %for.body28.i4634, label %cmpForward.exit4665
@@ -5916,7 +5916,7 @@ if.end.i4819:                                     ; preds = %for.body.i4814
   br i1 %cmp.i4812.not, label %for.body.i4814, label %if.then.i3972, !llvm.loop !25
 
 if.end.i4760:                                     ; preds = %if.end23.i4457
-  %add.ptr3.i4763 = getelementptr inbounds i8, ptr %s.i4444.0, i64 %len.i4445.0
+  %add.ptr3.i4763 = getelementptr inbounds nuw i8, ptr %s.i4444.0, i64 %len.i4445.0
   %add.ptr4.i4764 = getelementptr inbounds i8, ptr %add.ptr3.i4763, i64 -8
   %cmp7.i47822758 = icmp sgt i64 %len.i4445.0, 8
   br i1 %cmp7.i47822758, label %for.body.i4788, label %cmpForward.exit4805

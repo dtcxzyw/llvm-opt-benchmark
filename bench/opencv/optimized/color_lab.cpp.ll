@@ -5076,14 +5076,14 @@ _ZN2cvL14allocSingletonIsEEPT_m.exit.i:           ; preds = %743
   %778 = getelementptr inbounds nuw i16, ptr %546, i64 %777
   %779 = load i16, ptr %778, align 2
   %780 = add nuw nsw i64 %771, 8
-  %781 = getelementptr inbounds i16, ptr %744, i64 %780
+  %781 = getelementptr inbounds nuw i16, ptr %744, i64 %780
   store i16 %779, ptr %781, align 2
   %782 = add nuw nsw i32 %770, 2
   %783 = zext nneg i32 %782 to i64
   %784 = getelementptr inbounds nuw i16, ptr %546, i64 %783
   %785 = load i16, ptr %784, align 2
   %786 = add nuw nsw i64 %771, 16
-  %787 = getelementptr inbounds i16, ptr %744, i64 %786
+  %787 = getelementptr inbounds nuw i16, ptr %744, i64 %786
   store i16 %785, ptr %787, align 2
   %788 = getelementptr inbounds nuw i16, ptr %766, i64 %772
   %789 = load i16, ptr %788, align 2
@@ -5091,11 +5091,11 @@ _ZN2cvL14allocSingletonIsEEPT_m.exit.i:           ; preds = %743
   store i16 %789, ptr %790, align 2
   %791 = getelementptr inbounds nuw i16, ptr %766, i64 %777
   %792 = load i16, ptr %791, align 2
-  %793 = getelementptr inbounds i16, ptr %745, i64 %780
+  %793 = getelementptr inbounds nuw i16, ptr %745, i64 %780
   store i16 %792, ptr %793, align 2
   %794 = getelementptr inbounds nuw i16, ptr %766, i64 %783
   %795 = load i16, ptr %794, align 2
-  %796 = getelementptr inbounds i16, ptr %745, i64 %786
+  %796 = getelementptr inbounds nuw i16, ptr %745, i64 %786
   store i16 %795, ptr %796, align 2
   br i1 %765, label %764, label %797, !llvm.loop !152
 

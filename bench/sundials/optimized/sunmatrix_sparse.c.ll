@@ -608,7 +608,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   br label %._crit_edge281
 
 ._crit_edge281:                                   ; preds = %.lr.ph280.preheader, %.preheader257
-  %92 = getelementptr inbounds i64, ptr %11, i64 %.2299
+  %92 = getelementptr inbounds nuw i64, ptr %11, i64 %.2299
   %93 = load i64, ptr %92, align 8
   %94 = icmp slt i64 %93, %.0246296
   br i1 %94, label %.lr.ph284, label %._crit_edge285
@@ -631,7 +631,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   br i1 %exitcond338.not, label %._crit_edge285, label %.lr.ph284
 
 ._crit_edge285:                                   ; preds = %.lr.ph284, %._crit_edge281
-  %105 = getelementptr inbounds i64, ptr %18, i64 %.2299
+  %105 = getelementptr inbounds nuw i64, ptr %18, i64 %.2299
   %106 = load i64, ptr %105, align 8
   %107 = getelementptr inbounds nuw i64, ptr %18, i64 %.2.in298
   %108 = load i64, ptr %107, align 8
@@ -663,7 +663,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   %.8291.in = phi i64 [ %.8291, %130 ], [ %.0248, %.preheader256 ]
   %.1240290 = phi i64 [ %.2241, %130 ], [ %.0239297, %.preheader256 ]
   %.8291 = add nsw i64 %.8291.in, -1
-  %121 = getelementptr inbounds i64, ptr %24, i64 %.8291
+  %121 = getelementptr inbounds nuw i64, ptr %24, i64 %.8291
   %122 = load i64, ptr %121, align 8
   %123 = icmp sgt i64 %122, 0
   br i1 %123, label %124, label %130
@@ -672,7 +672,7 @@ define noundef i32 @SUNMatScaleAdd_Sparse(double noundef %0, ptr nocapture nound
   %125 = add nsw i64 %.1240290, -1
   %126 = getelementptr inbounds i64, ptr %13, i64 %125
   store i64 %.8291, ptr %126, align 8
-  %127 = getelementptr inbounds double, ptr %25, i64 %.8291
+  %127 = getelementptr inbounds nuw double, ptr %25, i64 %.8291
   %128 = load double, ptr %127, align 8
   %129 = getelementptr inbounds double, ptr %15, i64 %125
   store double %128, ptr %129, align 8
@@ -978,9 +978,9 @@ define noundef i32 @SUNMatScaleAddI_Sparse(double noundef %0, ptr nocapture noun
   %.0251325 = phi i64 [ %.3254.lcssa, %._crit_edge321 ], [ %53, %51 ]
   %.0256324 = phi i64 [ %105, %._crit_edge321 ], [ %27, %51 ]
   %.2327 = add nsw i64 %.2.in326, -1
-  %55 = getelementptr inbounds double, ptr %52, i64 %.2327
+  %55 = getelementptr inbounds nuw double, ptr %52, i64 %.2327
   store double 0.000000e+00, ptr %55, align 8
-  %56 = getelementptr inbounds i64, ptr %10, i64 %.2327
+  %56 = getelementptr inbounds nuw i64, ptr %10, i64 %.2327
   %57 = load i64, ptr %56, align 8
   %58 = icmp slt i64 %57, %.0256324
   br i1 %58, label %.lr.ph309.preheader, label %._crit_edge310

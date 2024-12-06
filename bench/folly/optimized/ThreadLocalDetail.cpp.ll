@@ -3479,7 +3479,7 @@ for.body.preheader:                               ; preds = %if.end10
 
 for.body.prol:                                    ; preds = %for.body.preheader
   %5 = load ptr, ptr %call, align 8, !tbaa !23
-  %node.prol = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %5, i64 %1, i32 3
+  %node.prol = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %5, i64 %1, i32 3
   %conv13.prol = trunc nuw i64 %1 to i32
   %bf.set5.i.prol = or i32 %conv13.prol, -2147483648
   store i32 %bf.set5.i.prol, ptr %node.prol, align 8

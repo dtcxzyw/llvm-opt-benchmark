@@ -34089,7 +34089,7 @@ _ZNSt17_Temporary_bufferISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPr
   %88 = load ptr, ptr %21, align 8
   store ptr %88, ptr %87, align 8
   call void @_ZSt27__stable_partition_adaptiveISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS4_EERS7_PS7_ES9_N9__gnu_cxx5__ops10_Iter_predISt11logical_notIS7_EEElET_SH_SH_T1_T2_T0_SJ_(ptr dead_on_unwind writable sret(%"struct.std::_Deque_iterator.186") align 8 %0, ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %60, ptr noundef %.sroa.7.0, i64 noundef %.sroa.215.0)
-  %89 = getelementptr inbounds %"class.std::unique_ptr.194", ptr %.sroa.7.0, i64 %.sroa.215.0
+  %89 = getelementptr inbounds nuw %"class.std::unique_ptr.194", ptr %.sroa.7.0, i64 %.sroa.215.0
   %.not4.i.i.i = icmp eq i64 %.sroa.215.0, 0
   br i1 %.not4.i.i.i, label %_ZNSt17_Temporary_bufferISt15_Deque_iteratorISt10unique_ptrIN4llvm2gi23OperandPredicateMatcherESt14default_deleteIS4_EERS7_PS7_ES7_ED2Ev.exit, label %.lr.ph.i.i.i4
 

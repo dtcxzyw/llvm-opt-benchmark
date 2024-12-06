@@ -83,7 +83,7 @@ define hidden range(i32 -1, 1) i32 @hwloc_ps_read_process(ptr noundef %0, ptr no
 
 37:                                               ; preds = %35
   %38 = add nsw i64 %32, -1
-  %39 = getelementptr inbounds [16 x i8], ptr %5, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 0, i64 %38
   %40 = load i8, ptr %39, align 1
   %41 = icmp eq i8 %40, 10
   br i1 %41, label %42, label %60

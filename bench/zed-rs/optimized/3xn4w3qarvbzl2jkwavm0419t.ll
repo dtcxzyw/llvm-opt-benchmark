@@ -2535,7 +2535,7 @@ define hidden { i64, ptr } @_ZN5prost8encoding13decode_varint17h47157dda86746f37
 
 129:                                              ; preds = %14
   %130 = add nsw i64 %.val1.i, -1
-  %131 = getelementptr inbounds [0 x i8], ptr %.val.i, i64 0, i64 %130
+  %131 = getelementptr inbounds nuw [0 x i8], ptr %.val.i, i64 0, i64 %130
   %132 = load i8, ptr %131, align 1, !noundef !5
   %133 = icmp sgt i8 %132, -1
   br i1 %133, label %19, label %134

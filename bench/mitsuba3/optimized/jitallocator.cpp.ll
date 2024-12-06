@@ -567,10 +567,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %43 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, <4 x i64> %39
   %44 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, <4 x i64> %40
   %45 = getelementptr inbounds %"class.asmjit::_abi_1_10::JitAllocatorPool", ptr %14, <4 x i64> %41
-  %46 = getelementptr inbounds i8, <4 x ptr> %42, i64 24
-  %47 = getelementptr inbounds i8, <4 x ptr> %43, i64 24
-  %48 = getelementptr inbounds i8, <4 x ptr> %44, i64 24
-  %49 = getelementptr inbounds i8, <4 x ptr> %45, i64 24
+  %46 = getelementptr inbounds nuw i8, <4 x ptr> %42, i64 24
+  %47 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 24
+  %48 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 24
+  %49 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 24
   %50 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %46, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
   %51 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %47, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
   %52 = tail call <4 x i32> @llvm.masked.gather.v4i32.v4p0(<4 x ptr> %48, i32 8, <4 x i1> splat (i1 true), <4 x i32> poison), !tbaa !67
@@ -583,10 +583,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %59 = add <4 x i64> %32, %55
   %60 = add <4 x i64> %33, %56
   %61 = add <4 x i64> %34, %57
-  %62 = getelementptr inbounds i8, <4 x ptr> %42, i64 32
-  %63 = getelementptr inbounds i8, <4 x ptr> %43, i64 32
-  %64 = getelementptr inbounds i8, <4 x ptr> %44, i64 32
-  %65 = getelementptr inbounds i8, <4 x ptr> %45, i64 32
+  %62 = getelementptr inbounds nuw i8, <4 x ptr> %42, i64 32
+  %63 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 32
+  %64 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 32
+  %65 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 32
   %66 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %62, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
   %67 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %63, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
   %68 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %64, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !68
@@ -667,10 +667,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %143 = add <4 x i64> %139, %27
   %144 = add <4 x i64> %140, %28
   %145 = add <4 x i64> %141, %29
-  %146 = getelementptr inbounds i8, <4 x ptr> %42, i64 40
-  %147 = getelementptr inbounds i8, <4 x ptr> %43, i64 40
-  %148 = getelementptr inbounds i8, <4 x ptr> %44, i64 40
-  %149 = getelementptr inbounds i8, <4 x ptr> %45, i64 40
+  %146 = getelementptr inbounds nuw i8, <4 x ptr> %42, i64 40
+  %147 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 40
+  %148 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 40
+  %149 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 40
   %150 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %146, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
   %151 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %147, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
   %152 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %148, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !74
@@ -683,10 +683,10 @@ define dso_local void @_ZNK6asmjit9_abi_1_1012JitAllocator10statisticsEv(ptr dea
   %159 = add <4 x i64> %155, %36
   %160 = add <4 x i64> %156, %37
   %161 = add <4 x i64> %157, %38
-  %162 = getelementptr inbounds i8, <4 x ptr> %42, i64 48
-  %163 = getelementptr inbounds i8, <4 x ptr> %43, i64 48
-  %164 = getelementptr inbounds i8, <4 x ptr> %44, i64 48
-  %165 = getelementptr inbounds i8, <4 x ptr> %45, i64 48
+  %162 = getelementptr inbounds nuw i8, <4 x ptr> %42, i64 48
+  %163 = getelementptr inbounds nuw i8, <4 x ptr> %43, i64 48
+  %164 = getelementptr inbounds nuw i8, <4 x ptr> %44, i64 48
+  %165 = getelementptr inbounds nuw i8, <4 x ptr> %45, i64 48
   %166 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %162, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
   %167 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %163, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
   %168 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %164, i32 8, <4 x i1> splat (i1 true), <4 x i64> poison), !tbaa !69
@@ -2353,7 +2353,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
   %71 = zext i1 %70 to i64
-  %72 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 %21
+  %72 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
   %73 = load i64, ptr %72, align 8, !tbaa !51
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr
@@ -2801,7 +2801,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17JitAllocato
   %234 = phi i64 [ %228, %227 ], [ %248, %.preheader ]
   %235 = phi ptr [ %221, %227 ], [ %244, %.preheader ]
   %236 = phi i64 [ %230, %227 ], [ %250, %.preheader ]
-  %237 = getelementptr inbounds [2 x i64], ptr %235, i64 0, i64 %234
+  %237 = getelementptr inbounds nuw [2 x i64], ptr %235, i64 0, i64 %234
   %238 = and i64 %236, 1
   %239 = or disjoint i64 %238, %19
   store i64 %239, ptr %237, align 8, !tbaa !51

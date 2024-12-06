@@ -892,7 +892,7 @@ define hidden i32 @mbedtls_asn1_write_named_bitstring(ptr nocapture noundef %0, 
 
 41:                                               ; preds = %40
   %42 = add nsw i64 %30, -1
-  %43 = getelementptr inbounds i8, ptr %2, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %2, i64 %42
   %44 = load i8, ptr %43, align 1
   %45 = trunc i64 %32 to i32
   %notmask.i = shl nsw i32 -1, %45
@@ -964,7 +964,7 @@ define hidden i32 @mbedtls_asn1_write_bitstring(ptr nocapture noundef %0, ptr no
 
 17:                                               ; preds = %16
   %18 = add nsw i64 %6, -1
-  %19 = getelementptr inbounds i8, ptr %2, i64 %18
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = trunc i64 %8 to i32
   %notmask = shl nsw i32 -1, %21

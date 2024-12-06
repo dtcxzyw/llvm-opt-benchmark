@@ -5099,7 +5099,7 @@ define noundef ptr @_ZN4pkpy2VM9py_importENS_3StrEb(ptr noundef nonnull align 8 
   %107 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %108 = add nsw i64 %107, -1
   %109 = sdiv i64 %108, 64
-  %110 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %109
+  %110 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %109
   %111 = and i64 %108, -9223372036854775745
   %112 = icmp ugt i64 %111, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %112, i64 -8, i64 0

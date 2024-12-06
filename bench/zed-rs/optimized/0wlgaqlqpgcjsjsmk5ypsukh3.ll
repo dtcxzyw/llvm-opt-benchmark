@@ -5005,7 +5005,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 131:                                              ; preds = %129
   %132 = zext i32 %130 to i64
   %133 = add nsw i64 %132, -1
-  %134 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %43, i64 0, i64 %133
+  %134 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %43, i64 0, i64 %133
   %135 = load ptr, ptr %134, align 8, !alias.scope !1230, !noalias !1215, !nonnull !29, !align !30, !noundef !29
   %136 = load ptr, ptr %135, align 8, !noalias !1231, !nonnull !29, !noundef !29
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -5042,7 +5042,7 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 
 149:                                              ; preds = %147
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 192
-  %151 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %150, i64 0, i64 %142
+  %151 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %150, i64 0, i64 %142
   %152 = load i64, ptr %151, align 8, !range !506, !noalias !1232, !noundef !29
   %trunc.i.i.i.i.i.i.i.i = trunc nuw i64 %152 to i1
   %.pre114 = load ptr, ptr %12, align 8, !alias.scope !1233, !noalias !1234

@@ -3240,7 +3240,7 @@ if.end69:                                         ; preds = %if.end62, %if.then3
   %21 = trunc i32 %10 to i8
   %22 = and i8 %21, 63
   %conv72 = or disjoint i8 %22, -128
-  %arrayidx74 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.0
+  %arrayidx74 = getelementptr inbounds nuw [8 x i8], ptr %code_unit8, i64 0, i64 %offset.0
   store i8 %conv72, ptr %arrayidx74, align 1
   br label %if.end127
 
@@ -3317,7 +3317,7 @@ if.end120:                                        ; preds = %if.end113, %if.then
   %32 = trunc i32 %4 to i8
   %33 = and i8 %32, 63
   %conv123 = or disjoint i8 %33, -128
-  %arrayidx125 = getelementptr inbounds [8 x i8], ptr %code_unit8, i64 0, i64 %offset.2
+  %arrayidx125 = getelementptr inbounds nuw [8 x i8], ptr %code_unit8, i64 0, i64 %offset.2
   store i8 %conv123, ptr %arrayidx125, align 1
   br label %if.end127
 

@@ -426,7 +426,7 @@ define dso_local range(i64 1, 0) i64 @HUF_readStats_wksp(ptr noundef %0, i64 nou
 67:                                               ; preds = %60
   %68 = sub nuw nsw i32 32, %64
   %69 = trunc nuw nsw i32 %68 to i8
-  %70 = getelementptr inbounds i8, ptr %0, i64 %.078.i
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.078.i
   store i8 %69, ptr %70, align 1
   %71 = zext nneg i32 %68 to i64
   %72 = getelementptr inbounds nuw i32, ptr %2, i64 %71

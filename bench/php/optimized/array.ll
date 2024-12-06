@@ -11029,7 +11029,7 @@ define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr %73, align 8
-  %82 = getelementptr inbounds %struct._zval_struct, ptr %81, i64 %75
+  %82 = getelementptr inbounds nuw %struct._zval_struct, ptr %81, i64 %75
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load i32, ptr %84, align 8
@@ -11153,7 +11153,7 @@ define noundef zeroext i1 @php_array_data_shuffle(ptr nocapture readonly %0, ptr
 
 141:                                              ; preds = %140
   %142 = load ptr, ptr %134, align 8
-  %143 = getelementptr inbounds %struct._zval_struct, ptr %142, i64 %136
+  %143 = getelementptr inbounds nuw %struct._zval_struct, ptr %142, i64 %136
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %146 = load i32, ptr %145, align 8

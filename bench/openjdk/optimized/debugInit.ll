@@ -206,7 +206,7 @@ define range(i32 -1, 1) i32 @Agent_OnLoad(ptr noundef %0, ptr noundef %1, ptr no
 31:                                               ; preds = %3, %22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(584) @get_gdata.s, i8 0, i64 584, i1 false)
   store ptr @get_gdata.s, ptr @gdata, align 8
-  store i8 1, ptr getelementptr inbounds (i8, ptr @get_gdata.s, i64 576), align 8
+  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @get_gdata.s, i64 576), align 8
   store ptr %0, ptr getelementptr inbounds nuw (i8, ptr @get_gdata.s, i64 8), align 8
   store i1 false, ptr @vmInitialized, align 1
   store volatile i8 0, ptr getelementptr inbounds nuw (i8, ptr @get_gdata.s, i64 16), align 8

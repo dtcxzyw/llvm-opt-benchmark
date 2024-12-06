@@ -2570,7 +2570,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h77d80a43744b5a15E.exit.thread: ;
   %29 = xor i64 %.sroa.0.08.i.i, -1
   %30 = add nsw i64 %25, %29
   %31 = getelementptr inbounds nuw [0 x i64], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %32 = getelementptr inbounds [0 x i64], ptr %28, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw [0 x i64], ptr %28, i64 0, i64 %30
   %33 = load i64, ptr %31, align 8, !alias.scope !271, !noalias !269, !noundef !7
   %34 = load i64, ptr %32, align 8, !alias.scope !274, !noalias !266
   store i64 %34, ptr %31, align 8, !alias.scope !271, !noalias !269

@@ -10610,7 +10610,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i.i: ;
   br i1 %or.cond.i.i, label %559, label %566
 
 559:                                              ; preds = %554
-  %560 = getelementptr inbounds i64, ptr %550, i64 %.0.i.i
+  %560 = getelementptr inbounds nuw i64, ptr %550, i64 %.0.i.i
   %561 = load i64, ptr %560, align 8, !noalias !2905, !noundef !5
   %562 = icmp eq i64 %561, 0
   br i1 %562, label %566, label %567
@@ -10978,7 +10978,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i.i648
   br i1 %or.cond.i.i651, label %693, label %699
 
 693:                                              ; preds = %688
-  %694 = getelementptr inbounds i64, ptr %684, i64 %.0.i.i650
+  %694 = getelementptr inbounds nuw i64, ptr %684, i64 %.0.i.i650
   %695 = load i64, ptr %694, align 8, !noalias !2965, !noundef !5
   %696 = icmp eq i64 %695, 0
   br i1 %696, label %699, label %700
@@ -12978,7 +12978,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h2ba7508275f7e78aE.exit.i: ; p
   br i1 %or.cond.i, label %44, label %50
 
 44:                                               ; preds = %39
-  %45 = getelementptr inbounds i64, ptr %35, i64 %.0.i
+  %45 = getelementptr inbounds nuw i64, ptr %35, i64 %.0.i
   %46 = load i64, ptr %45, align 8, !noalias !3228, !noundef !5
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %50, label %51

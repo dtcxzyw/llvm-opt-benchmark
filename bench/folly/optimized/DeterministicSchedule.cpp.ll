@@ -644,7 +644,7 @@ if.then.i74.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN5folly4test15DSchedTimestampESaIS2_EE13_M_deallocateEPS2_m.exit75.i: ; preds = %if.then.i74.i, %_ZNSt6vectorIN5folly4test15DSchedTimestampESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !26
-  %add.ptr37.i = getelementptr inbounds %"class.folly::test::DSchedTimestamp", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.folly::test::DSchedTimestamp", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !24
   %add.ptr40.i = getelementptr inbounds nuw %"class.folly::test::DSchedTimestamp", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !38

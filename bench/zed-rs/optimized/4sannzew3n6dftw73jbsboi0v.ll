@@ -6168,7 +6168,7 @@ define hidden noundef range(i64 0, 288230376151711744) i64 @_ZN4core5slice4sort6
 
 11:                                               ; preds = %3
   %12 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %12, 8
+  %.idx = shl nuw nsw i64 %12, 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %12, 448
   %14 = getelementptr inbounds i8, ptr %0, i64 %.idx1
@@ -25973,7 +25973,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 57:                                               ; preds = %._crit_edge
   %58 = zext nneg i32 %.sroa.0.0.lcssa to i64
   %59 = add nsw i64 %58, -3
-  %60 = getelementptr inbounds [256 x i16], ptr @anon.5d5545f4084c4a159beaed369202426b.389, i64 0, i64 %59
+  %60 = getelementptr inbounds nuw [256 x i16], ptr @anon.5d5545f4084c4a159beaed369202426b.389, i64 0, i64 %59
   %61 = load i16, ptr %60, align 2, !noundef !4
   %62 = zext i16 %61 to i64
   %63 = icmp ult i16 %61, 286
@@ -26023,7 +26023,7 @@ define internal fastcc noundef ptr @"_ZN8fdeflate8compress19Compressor$LT$W$GT$9
 87:                                               ; preds = %64, %79
   %88 = phi i64 [ %73, %64 ], [ %.sroa.07.0.i49, %79 ]
   %89 = phi i8 [ %74, %64 ], [ %81, %79 ]
-  %90 = getelementptr inbounds [256 x i8], ptr @anon.5d5545f4084c4a159beaed369202426b.393, i64 0, i64 %59
+  %90 = getelementptr inbounds nuw [256 x i8], ptr @anon.5d5545f4084c4a159beaed369202426b.393, i64 0, i64 %59
   %91 = load i8, ptr %90, align 1, !noundef !4
   %92 = zext i8 %91 to i64
   %93 = icmp ult i8 %91, 17

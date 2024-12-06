@@ -38497,9 +38497,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %.033.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %23, %.split.i.i.i ]
   %28 = shl i64 %.033.i.i.i.i, 1
   %29 = add i64 %28, 2
-  %30 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %29
   %31 = or disjoint i64 %28, 1
-  %32 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %31
   %.val.i.i.i.i = load i64, ptr %30, align 8
   %33 = getelementptr i8, ptr %30, i64 8
   %.val30.i.i.i.i = load i64, ptr %33, align 8
@@ -38511,8 +38511,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %36 = icmp ugt i64 %.val.i.i.i.i, %.val31.i.i.i.i
   %.0.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i, i1 %36, i1 %35
   %spec.select.i.i.i.i = select i1 %.0.i.i.i.i.i.i, i64 %31, i64 %29
-  %37 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i.i
-  %38 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i.i
+  %37 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i.i.i
+  %38 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %37, i64 16, i1 false)
   %39 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !500
@@ -38529,8 +38529,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 44:                                               ; preds = %._crit_edge.i.i.i.i
   %45 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %46
-  %48 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %47 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %46
+  %48 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false)
   br label %49
 
@@ -38554,7 +38554,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   br i1 %.0.i.i.i.i.i.i.i, label %55, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 55:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %56 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i.i
+  %56 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
   %57 = icmp sgt i64 %.04.i.i.i.i.i, %23
   br i1 %57, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !501
@@ -38570,14 +38570,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 
 .split19.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
   %60 = or disjoint i64 %22, 1
-  %61 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %60
-  %62 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %42
+  %61 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %60
+  %62 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %42
   br label %.split19.i.i.i
 
 .split19.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit46.i.i.i", %.split19.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %23, %.split19.lr.ph.i.i.i ], [ %63, %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit46.i.i.i" ]
   %63 = add nsw i64 %.06.i.i.i, -1
-  %64 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %63
   %.sroa.02.0.copyload20.i.i.i = load i64, ptr %64, align 8
   %.sroa.23.0..sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %64, i64 8
   %.sroa.23.0.copyload22.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx21.i.i.i, align 8
@@ -38588,9 +38588,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %.033.i38.i.i.i = phi i64 [ %spec.select.i45.i.i.i, %.lr.ph.i37.i.i.i ], [ %63, %.split19.i.i.i ]
   %65 = shl i64 %.033.i38.i.i.i, 1
   %66 = add i64 %65, 2
-  %67 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %66
   %68 = or disjoint i64 %65, 1
-  %69 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %68
+  %69 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %68
   %.val.i39.i.i.i = load i64, ptr %67, align 8
   %70 = getelementptr i8, ptr %67, i64 8
   %.val30.i40.i.i.i = load i64, ptr %70, align 8
@@ -38602,8 +38602,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %73 = icmp ugt i64 %.val.i39.i.i.i, %.val31.i41.i.i.i
   %.0.i.i.i44.i.i.i = select i1 %.not.i.i.i43.i.i.i, i1 %73, i1 %72
   %spec.select.i45.i.i.i = select i1 %.0.i.i.i44.i.i.i, i64 %68, i64 %66
-  %74 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %spec.select.i45.i.i.i
-  %75 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.033.i38.i.i.i
+  %74 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i45.i.i.i
+  %75 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i38.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %74, i64 16, i1 false)
   %76 = icmp slt i64 %spec.select.i45.i.i.i, %26
   br i1 %76, label %.lr.ph.i37.i.i.i, label %._crit_edge.i24.i.i.i, !llvm.loop !500
@@ -38638,7 +38638,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   br i1 %.0.i.i.i.i36.i.i.i, label %84, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit46.i.i.i"
 
 84:                                               ; preds = %.lr.ph.i.i29.i.i.i
-  %85 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i30.i.i.i
+  %85 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0133.i.i30.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %80, i64 16, i1 false)
   %.not5.i.i.i = icmp slt i64 %.04.i.i32.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIP18InstrProfValueDatalS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL17updateIDTMetaDataRN4llvm11InstructionERKNS5_15SmallVectorImplIS0_EEmE3$_0EEEvT_T0_SF_T1_T2_.exit46.i.i.i", label %.lr.ph.i.i29.i.i.i, !llvm.loop !501
@@ -38674,9 +38674,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %.033.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i5.i ]
   %95 = shl i64 %.033.i.i, 1
   %96 = add i64 %95, 2
-  %97 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %96
+  %97 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %96
   %98 = or disjoint i64 %95, 1
-  %99 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %98
+  %99 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %98
   %.val.i.i = load i64, ptr %97, align 8
   %100 = getelementptr i8, ptr %97, i64 8
   %.val30.i.i = load i64, ptr %100, align 8
@@ -38688,8 +38688,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
   %103 = icmp ugt i64 %.val.i.i, %.val31.i.i
   %.0.i.i.i.i20 = select i1 %.not.i.i.i.i19, i1 %103, i1 %102
   %spec.select.i.i = select i1 %.0.i.i.i.i20, i64 %98, i64 %96
-  %104 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i
-  %105 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.033.i.i
+  %104 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %spec.select.i.i
+  %105 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.033.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(16) %104, i64 16, i1 false)
   %106 = icmp slt i64 %spec.select.i.i, %93
   br i1 %106, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !500
@@ -38709,8 +38709,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP18InstrProfValueDatalN9__g
 113:                                              ; preds = %109
   %114 = shl nsw i64 %.0.lcssa.i.i, 1
   %115 = or disjoint i64 %114, 1
-  %116 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %115
-  %117 = getelementptr inbounds %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i
+  %116 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %115
+  %117 = getelementptr inbounds nuw %struct.InstrProfValueData, ptr %0, i64 %.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %117, ptr noundef nonnull align 8 dereferenceable(16) %116, i64 16, i1 false)
   br label %118
 

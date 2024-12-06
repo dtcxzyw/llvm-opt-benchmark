@@ -464,7 +464,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor13decodeSegmentEj(ptr dead_on
   %137 = and i64 %133, 2147483648
   %138 = icmp eq i64 %137, 0
   tail call void @llvm.assume(i1 %138)
-  %139 = getelementptr inbounds i8, ptr %13, i64 %133
+  %139 = getelementptr inbounds nuw i8, ptr %13, i64 %133
   %140 = load i8, ptr %139, align 1
   %141 = and i8 %140, 15
   %142 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 0, i64 %132
@@ -914,7 +914,7 @@ define hidden void @_ZN8rawspeed17KodakDecompressor10decompressEv(ptr nocapture 
   %183 = and i64 %179, 2147483648
   %184 = icmp eq i64 %183, 0
   call void @llvm.assume(i1 %184)
-  %185 = getelementptr inbounds i8, ptr %61, i64 %179
+  %185 = getelementptr inbounds nuw i8, ptr %61, i64 %179
   %186 = load i8, ptr %185, align 1, !noalias !120
   %187 = and i8 %186, 15
   %188 = getelementptr inbounds nuw [512 x i8], ptr %2, i64 0, i64 %178

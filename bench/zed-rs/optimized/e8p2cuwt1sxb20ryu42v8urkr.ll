@@ -1790,7 +1790,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 18:                                               ; preds = %15
   %19 = zext i32 %17 to i64
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %9, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %9, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !alias.scope !478, !noalias !472, !nonnull !11, !align !38, !noundef !11
   %23 = load ptr, ptr %22, align 8, !noalias !479, !nonnull !11, !noundef !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -1823,7 +1823,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 192
-  %40 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
+  %40 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
   %41 = load i64, ptr %40, align 8, !range !22, !noalias !464, !noundef !11
   %trunc.i = trunc nuw i64 %41 to i1
   br i1 %trunc.i, label %54, label %43
@@ -25040,7 +25040,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
 19:                                               ; preds = %17
   %20 = zext i32 %18 to i64
   %21 = add nsw i64 %20, -1
-  %22 = getelementptr inbounds [0 x { i64, ptr, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } } }], ptr %10, i64 0, i64 %21
+  %22 = getelementptr inbounds nuw [0 x { i64, ptr, { { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } } } }], ptr %10, i64 0, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !alias.scope !6885, !noalias !6873, !nonnull !11, !align !38, !noundef !11
   %25 = load ptr, ptr %24, align 8, !noalias !6886, !nonnull !11, !noundef !11
@@ -25071,7 +25071,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %41 = getelementptr inbounds [0 x { { { i64, [3 x i64] }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } }, i64 }], ptr %40, i64 0, i64 %31
+  %41 = getelementptr inbounds nuw [0 x { { { i64, [3 x i64] }, { { { { ptr, ptr } }, {}, {} }, i8, i8, [6 x i8] }, { { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, { { { ptr, ptr } }, {}, {} }, { { { ptr, ptr } }, {}, {} } }, i64 }], ptr %40, i64 0, i64 %31
   %42 = load ptr, ptr %4, align 8, !alias.scope !6887, !noalias !6888, !nonnull !11, !align !38, !noundef !11
   tail call void @"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$14search_forward17hcb0ca6bf7cebfdc1E"(ptr noalias noundef nonnull align 8 dereferenceable(1912) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %42, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8d30d0a7d2f463ab8d140474c43893b3.97), !noalias !6888
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -35904,7 +35904,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
   %21 = zext i32 %19 to i64
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %23 = add nsw i64 %21, -1
-  %24 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %22, i64 0, i64 %23
+  %24 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %22, i64 0, i64 %23
   %25 = load ptr, ptr %24, align 8, !alias.scope !10215, !noalias !10216, !nonnull !11, !align !38, !noundef !11
   %26 = load ptr, ptr %25, align 8, !noalias !10221, !nonnull !11, !noundef !11
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4480
@@ -35935,7 +35935,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN4core6option
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %43 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %42, i64 0, i64 %33
+  %43 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %42, i64 0, i64 %33
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %45 = load i8, ptr %44, align 8, !range !376, !alias.scope !10223, !noalias !10224, !noundef !11
   %46 = trunc nuw i8 %45 to i1
@@ -86565,7 +86565,7 @@ define internal fastcc void @"_ZN8language14diagnostic_set13DiagnosticSet5range2
   %18 = zext i32 %16 to i64
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %20 = add nsw i64 %18, -1
-  %21 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %19, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %19, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !alias.scope !24489, !noalias !24492, !nonnull !11, !align !38, !noundef !11
   %23 = load ptr, ptr %22, align 8, !noalias !24494, !nonnull !11, !noundef !11
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4480
@@ -86596,7 +86596,7 @@ define internal fastcc void @"_ZN8language14diagnostic_set13DiagnosticSet5range2
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %40 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %39, i64 0, i64 %30
+  %40 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %39, i64 0, i64 %30
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %42 = load i8, ptr %41, align 8, !range !376, !noundef !11
   %43 = trunc nuw i8 %42 to i1
@@ -107864,7 +107864,7 @@ _ZN4core3ops8function2Fn4call17h9e9d84ddd0eb7cb7E.exit.i: ; preds = %201, %200, 
 262:                                              ; preds = %248
   %263 = add i64 %.sroa.03.0.i, -2
   %.not.i.not.i.i = icmp ult i64 %263, %249
-  %264 = getelementptr inbounds ptr, ptr %250, i64 %263
+  %264 = getelementptr inbounds nuw ptr, ptr %250, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   br i1 %.not.i.not.i.i, label %._crit_edge.i.preheader, label %.loopexit647
 

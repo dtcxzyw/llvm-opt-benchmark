@@ -5772,7 +5772,7 @@ define void @_ZN5Yosys17proc_self_dirnameB5cxx11Ev(ptr dead_on_unwind noalias wr
 
 11:                                               ; preds = %.preheader
   %12 = add nsw i64 %.0, -1
-  %13 = getelementptr inbounds [4096 x i8], ptr %2, i64 0, i64 %12
+  %13 = getelementptr inbounds nuw [4096 x i8], ptr %2, i64 0, i64 %12
   %14 = load i8, ptr %13, align 1
   %.not = icmp eq i8 %14, 47
   br i1 %.not, label %.critedge, label %.preheader, !llvm.loop !32

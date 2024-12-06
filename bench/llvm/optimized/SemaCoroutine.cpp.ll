@@ -11153,9 +11153,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %25 = load ptr, ptr %.val.i.i.i.i, align 8
@@ -11170,9 +11170,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i = lshr i64 %32, 32
   %33 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i.i.i.i
   %spec.select.i.i.i.i = select i1 %33, i64 %23, i64 %21
-  %34 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %34 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %35, ptr %36, align 8
   %37 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %37, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !49
@@ -11189,9 +11189,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 42:                                               ; preds = %._crit_edge.i.i.i.i
   %43 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %44 = or disjoint i64 %43, 1
-  %45 = getelementptr inbounds ptr, ptr %0, i64 %44
+  %45 = getelementptr inbounds nuw ptr, ptr %0, i64 %44
   %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %47 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %46, ptr %47, align 8
   br label %48
 
@@ -11220,7 +11220,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %61, align 8
   %62 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %62, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i", !llvm.loop !50
@@ -11234,14 +11234,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 
 .split14.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit.i.i.i"
   %65 = or disjoint i64 %13, 1
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %65
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %40
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %65
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %40
   br label %.split14.i.i.i
 
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i", %.split14.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %14, %.split14.lr.ph.i.i.i ], [ %68, %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i" ]
   %68 = add nsw i64 %.06.i.i.i, -1
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %68
   %70 = load ptr, ptr %69, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i27.i.i.i
@@ -11250,9 +11250,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.030.i28.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i27.i.i.i ], [ %68, %.split14.i.i.i ]
   %71 = shl i64 %.030.i28.i.i.i, 1
   %72 = add i64 %71, 2
-  %73 = getelementptr inbounds ptr, ptr %0, i64 %72
+  %73 = getelementptr inbounds nuw ptr, ptr %0, i64 %72
   %74 = or disjoint i64 %71, 1
-  %75 = getelementptr inbounds ptr, ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %74
   %.val.i29.i.i.i = load ptr, ptr %73, align 8
   %.val29.i30.i.i.i = load ptr, ptr %75, align 8
   %76 = load ptr, ptr %.val.i29.i.i.i, align 8
@@ -11267,9 +11267,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i = lshr i64 %83, 32
   %84 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i31.i.i.i, %.sroa.1.0.extract.shift.i2.i.i.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %84, i64 %74, i64 %72
-  %85 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %85 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.i.i.i
+  %87 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.i.i.i
   store ptr %86, ptr %87, align 8
   %88 = icmp slt i64 %spec.select.i33.i.i.i, %18
   br i1 %88, label %.lr.ph.i27.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !49
@@ -11310,7 +11310,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   br i1 %102, label %103, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i"
 
 103:                                              ; preds = %.lr.ph.i.i20.i.i.i
-  %104 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %104 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %104, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPKN5clang4DeclElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_4Sema24checkFinalSuspendNoThrowEPKNS0_4StmtEE3$_0EEEvT_T0_SF_T1_T2_.exit34.i.i.i", label %.lr.ph.i.i20.i.i.i, !llvm.loop !50
@@ -11343,9 +11343,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.030.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i5.i ]
   %116 = shl i64 %.030.i.i, 1
   %117 = add i64 %116, 2
-  %118 = getelementptr inbounds ptr, ptr %0, i64 %117
+  %118 = getelementptr inbounds nuw ptr, ptr %0, i64 %117
   %119 = or disjoint i64 %116, 1
-  %120 = getelementptr inbounds ptr, ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %.val.i.i = load ptr, ptr %118, align 8
   %.val29.i.i18 = load ptr, ptr %120, align 8
   %121 = load ptr, ptr %.val.i.i, align 8
@@ -11360,9 +11360,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
   %.sroa.1.0.extract.shift.i2.i.i.i.i20 = lshr i64 %128, 32
   %129 = icmp samesign ult i64 %.sroa.1.0.extract.shift.i.i.i.i.i19, %.sroa.1.0.extract.shift.i2.i.i.i.i20
   %spec.select.i.i = select i1 %129, i64 %119, i64 %117
-  %130 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %130 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i
+  %132 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i
   store ptr %131, ptr %132, align 8
   %133 = icmp slt i64 %spec.select.i.i, %114
   br i1 %133, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !49
@@ -11382,9 +11382,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN5clang4DeclElN9__gnu_cx
 140:                                              ; preds = %136
   %141 = shl nsw i64 %.0.lcssa.i.i, 1
   %142 = or disjoint i64 %141, 1
-  %143 = getelementptr inbounds ptr, ptr %0, i64 %142
+  %143 = getelementptr inbounds nuw ptr, ptr %0, i64 %142
   %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %145 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
   store ptr %144, ptr %145, align 8
   br label %146
 

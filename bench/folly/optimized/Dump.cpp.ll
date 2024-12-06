@@ -1095,7 +1095,7 @@ while.body.i.i.i.i:                               ; preds = %for.body37.i, %whil
   %incdec.ptr.i810.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.cond.i.i.i.i ], [ %__begin332.i.sroa.0.0190, %for.body37.i ]
   %dec.i.i.i.i = add nsw i64 %83, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i, i64 -8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
   %84 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !50
   %cmp.i.not.i.i.i = icmp eq i8 %84, 0
   br i1 %cmp.i.not.i.i.i, label %while.cond.i.i.i.i, label %for.body37.i.backedge, !prof !41, !llvm.loop !94

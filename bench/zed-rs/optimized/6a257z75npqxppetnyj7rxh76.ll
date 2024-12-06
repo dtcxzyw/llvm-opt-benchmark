@@ -20424,7 +20424,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h1f89baada8e3699cE.exit.thread: ;
   %46 = xor i64 %.sroa.0.08.i.i, -1
   %47 = add nsw i64 %42, %46
   %48 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } } } }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %49 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } } } }], ptr %45, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } } } }], ptr %45, i64 0, i64 %47
   br label %50
 
 50:                                               ; preds = %50, %.lr.ph.preheader.i.i

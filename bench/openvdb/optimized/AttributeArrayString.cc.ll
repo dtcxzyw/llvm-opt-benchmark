@@ -8619,7 +8619,7 @@ cond.false23.i33:                                 ; preds = %cond.false17.i31
 
 _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEESt4lessIjEE15median_of_threeERKS9_mmm.exit42: ; preds = %cond.true.i37, %cond.false.i39, %cond.false17.i31, %cond.false23.i33
   %cond35.i36 = phi i64 [ %cond.i41, %cond.false.i39 ], [ %cond31.i35, %cond.false23.i33 ], [ %mul7, %cond.true.i37 ], [ %mul7, %cond.false17.i31 ]
-  %arrayidx.i.i43 = getelementptr inbounds i32, ptr %1, i64 %cond35.i
+  %arrayidx.i.i43 = getelementptr inbounds nuw i32, ptr %1, i64 %cond35.i
   %arrayidx.i23.i44 = getelementptr inbounds i32, ptr %1, i64 %cond35.i20
   %11 = load i32, ptr %arrayidx.i.i43, align 4
   %12 = load i32, ptr %arrayidx.i23.i44, align 4

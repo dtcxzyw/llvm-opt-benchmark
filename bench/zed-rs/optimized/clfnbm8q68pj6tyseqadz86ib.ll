@@ -4882,7 +4882,7 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core5slice4sort
 
 5:                                                ; preds = %3
   %6 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %6, 6
+  %.idx = shl nuw nsw i64 %6, 6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %6, 112
   %8 = getelementptr inbounds i8, ptr %0, i64 %.idx1
@@ -4966,7 +4966,7 @@ define hidden noundef range(i64 0, 1152921504606846976) i64 @_ZN4core5slice4sort
 
 5:                                                ; preds = %3
   %6 = lshr i64 %1, 3
-  %.idx = shl nsw i64 %6, 6
+  %.idx = shl nuw nsw i64 %6, 6
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %.idx1 = mul i64 %6, 112
   %8 = getelementptr inbounds i8, ptr %0, i64 %.idx1

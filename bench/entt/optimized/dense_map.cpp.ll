@@ -74149,7 +74149,7 @@ cleanup.cont735:                                  ; preds = %_ZNKSt14default_del
   %sub.i.i.i.i3269 = add nsw i64 %sub.ptr.div.i.i.i.i.i3268, -1
   %and.i.i.i.i3270 = and i64 %sub.i.i.i.i3269, %sub742
   %422 = load ptr, ptr %packed.i, align 8, !tbaa !40
-  %add.ptr.i.i.i.i.i3272 = getelementptr inbounds i64, ptr %421, i64 %and.i.i.i.i3270
+  %add.ptr.i.i.i.i.i3272 = getelementptr inbounds nuw i64, ptr %421, i64 %and.i.i.i.i3270
   br label %for.cond.i.i.i3273
 
 for.cond.i.i.i3273:                               ; preds = %for.body.i.i.i3277, %cleanup.cont735
@@ -108424,7 +108424,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit79: ; preds = %if.then.i78, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !33
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !55
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !99
@@ -125227,7 +125227,7 @@ if.then.i79:                                      ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseImN4test18throwing_allocatorImEEE13_M_deallocateEPmm.exit: ; preds = %if.then.i79, %_ZNSt6vectorImN4test18throwing_allocatorImEEE11_S_relocateEPmS4_S4_RS2_.exit
   store ptr %call.i.i, ptr %add.ptr.i, align 8, !tbaa !696
-  %add.ptr45 = getelementptr inbounds i64, ptr %add.ptr26, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw i64, ptr %add.ptr26, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !694
   %add.ptr49 = getelementptr inbounds nuw i64, ptr %call.i.i, i64 %4
   store ptr %add.ptr49, ptr %_M_end_of_storage, align 8, !tbaa !1137
@@ -126570,7 +126570,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i95
 
 _ZNSt12_Vector_baseImNSt3pmr21polymorphic_allocatorImEEE13_M_deallocateEPmm.exit: ; preds = %if.then.i95, %try.cont
   store ptr %call.i.i.i.i, ptr %add.ptr.i, align 8, !tbaa !806
-  %add.ptr52 = getelementptr inbounds i64, ptr %add.ptr26, i64 %__n
+  %add.ptr52 = getelementptr inbounds nuw i64, ptr %add.ptr26, i64 %__n
   store ptr %add.ptr52, ptr %_M_finish.i, align 8, !tbaa !832
   %add.ptr56 = getelementptr inbounds nuw i64, ptr %call.i.i.i.i, i64 %4
   store ptr %add.ptr56, ptr %_M_end_of_storage, align 8, !tbaa !807

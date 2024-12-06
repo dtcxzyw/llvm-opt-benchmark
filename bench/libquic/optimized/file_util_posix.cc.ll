@@ -2531,7 +2531,7 @@ for.cond.i:                                       ; preds = %do.end.i
 
 do.body.preheader.i:                              ; preds = %if.end, %for.cond.i
   %bytes_written_total.013.i = phi i64 [ %add.i, %for.cond.i ], [ 0, %if.end ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %bytes_written_total.013.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %data, i64 %bytes_written_total.013.i
   %sub.i = sub nsw i64 %conv.i, %bytes_written_total.013.i
   br label %do.body.i
 
@@ -2585,7 +2585,7 @@ entry:
 
 do.body.preheader:                                ; preds = %entry, %do.end
   %bytes_written_total.013 = phi i64 [ %add, %do.end ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %bytes_written_total.013
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %bytes_written_total.013
   %sub = sub nsw i64 %conv, %bytes_written_total.013
   br label %do.body
 
@@ -2672,7 +2672,7 @@ for.cond.i:                                       ; preds = %do.end.i
 
 do.body.preheader.i:                              ; preds = %if.end, %for.cond.i
   %bytes_written_total.013.i = phi i64 [ %add.i, %for.cond.i ], [ 0, %if.end ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %data, i64 %bytes_written_total.013.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %data, i64 %bytes_written_total.013.i
   %sub.i = sub nsw i64 %conv.i, %bytes_written_total.013.i
   br label %do.body.i
 

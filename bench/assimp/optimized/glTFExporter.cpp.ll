@@ -36772,7 +36772,7 @@ land.rhs81:                                       ; preds = %for.body75, %while.
   %arrayidx83 = getelementptr inbounds nuw i64, ptr %30, i64 %y.050
   %31 = load i64, ptr %arrayidx83, align 8
   %sub85 = add nsw i64 %y.050, -1
-  %arrayidx86 = getelementptr inbounds i64, ptr %30, i64 %sub85
+  %arrayidx86 = getelementptr inbounds nuw i64, ptr %30, i64 %sub85
   %32 = load i64, ptr %arrayidx86, align 8
   %cmp87 = icmp slt i64 %31, %32
   br i1 %cmp87, label %while.body, label %for.inc101.loopexit
@@ -36782,7 +36782,7 @@ while.body:                                       ; preds = %land.rhs81
   store i64 %31, ptr %arrayidx86, align 8
   %33 = load ptr, ptr %m_visitedVertices, align 8
   %arrayidx95 = getelementptr inbounds nuw i64, ptr %33, i64 %y.050
-  %arrayidx98 = getelementptr inbounds i64, ptr %33, i64 %sub85
+  %arrayidx98 = getelementptr inbounds nuw i64, ptr %33, i64 %sub85
   %34 = load i64, ptr %arrayidx95, align 8
   %35 = load i64, ptr %arrayidx98, align 8
   store i64 %35, ptr %arrayidx95, align 8
@@ -64232,7 +64232,7 @@ if.then183:                                       ; preds = %for.end180
   %85 = load i64, ptr %arrayidx141, align 8
   %..i = call noundef i64 @llvm.smin.i64(i64 %84, i64 %85)
   %..i289 = call noundef i64 @llvm.smax.i64(i64 %84, i64 %85)
-  %arrayidx190 = getelementptr inbounds i64, ptr %0, i64 %c.1
+  %arrayidx190 = getelementptr inbounds nuw i64, ptr %0, i64 %c.1
   %86 = load i64, ptr %arrayidx190, align 8
   %sub191 = xor i64 %86, -1
   %cmp35.not.i = icmp eq i64 %nPred.3812, 0
@@ -68484,7 +68484,7 @@ land.rhs:                                         ; preds = %for.body101, %while
   %arrayidx108 = getelementptr inbounds nuw i64, ptr %44, i64 %y.0221
   %45 = load i64, ptr %arrayidx108, align 8
   %sub110 = add nsw i64 %y.0221, -1
-  %arrayidx111 = getelementptr inbounds i64, ptr %44, i64 %sub110
+  %arrayidx111 = getelementptr inbounds nuw i64, ptr %44, i64 %sub110
   %46 = load i64, ptr %arrayidx111, align 8
   %cmp112 = icmp slt i64 %45, %46
   br i1 %cmp112, label %while.body, label %for.inc125.loopexit
@@ -68494,7 +68494,7 @@ while.body:                                       ; preds = %land.rhs
   store i64 %45, ptr %arrayidx111, align 8
   %47 = load ptr, ptr %m_visitedVertices118, align 8
   %arrayidx119 = getelementptr inbounds nuw i64, ptr %47, i64 %y.0221
-  %arrayidx122 = getelementptr inbounds i64, ptr %47, i64 %sub110
+  %arrayidx122 = getelementptr inbounds nuw i64, ptr %47, i64 %sub110
   %48 = load i64, ptr %arrayidx119, align 8
   %49 = load i64, ptr %arrayidx122, align 8
   store i64 %49, ptr %arrayidx119, align 8
@@ -69684,7 +69684,7 @@ for.end68:                                        ; preds = %for.end68.loopexit,
 
 lor.lhs.false9.i:                                 ; preds = %for.end68
   %sub.i80 = add nsw i64 %sub.i, -2
-  %arrayidx10.i = getelementptr inbounds i64, ptr %ops, i64 %sub.i80
+  %arrayidx10.i = getelementptr inbounds nuw i64, ptr %ops, i64 %sub.i80
   %58 = load i64, ptr %arrayidx10.i, align 8
   %cmp11.not.i = icmp eq i64 %58, 1
   br i1 %cmp11.not.i, label %for.cond.preheader.i, label %if.else74
@@ -69951,7 +69951,7 @@ if.end.i175:                                      ; preds = %if.else102
 
 lor.lhs.false3.i178:                              ; preds = %if.end.i175
   %sub.i179 = add nsw i64 %sub.i, -2
-  %arrayidx4.i180 = getelementptr inbounds i64, ptr %ops, i64 %sub.i179
+  %arrayidx4.i180 = getelementptr inbounds nuw i64, ptr %ops, i64 %sub.i179
   %99 = load i64, ptr %arrayidx4.i180, align 8
   %cmp5.not.i181 = icmp eq i64 %99, 1
   br i1 %cmp5.not.i181, label %for.body.i182, label %lor.lhs.false3.i253
@@ -70021,7 +70021,7 @@ if.end.i212:                                      ; preds = %for.body.i182, %if.
 
 lor.lhs.false3.i215:                              ; preds = %if.end.i212
   %sub.i216 = add nsw i64 %sub.i, -2
-  %arrayidx4.i217 = getelementptr inbounds i64, ptr %ops, i64 %sub.i216
+  %arrayidx4.i217 = getelementptr inbounds nuw i64, ptr %ops, i64 %sub.i216
   %109 = load i64, ptr %arrayidx4.i217, align 8
   %cmp5.not.i218 = icmp eq i64 %109, 1
   br i1 %cmp5.not.i218, label %for.body.i219, label %if.end.i283
@@ -70293,7 +70293,7 @@ if.else137:                                       ; preds = %for.body.i318, %if.
 
 lor.lhs.false9.i356:                              ; preds = %if.else137
   %sub.i357 = add nsw i64 %sub.i, -2
-  %arrayidx10.i358 = getelementptr inbounds i64, ptr %ops, i64 %sub.i357
+  %arrayidx10.i358 = getelementptr inbounds nuw i64, ptr %ops, i64 %sub.i357
   %147 = load i64, ptr %arrayidx10.i358, align 8
   %cmp11.not.i359 = icmp eq i64 %147, 1
   br i1 %cmp11.not.i359, label %for.cond.preheader.i360, label %if.else144

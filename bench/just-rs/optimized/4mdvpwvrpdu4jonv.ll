@@ -16783,7 +16783,7 @@ _ZN4just5token5Token6lexeme17he5b315321a8bd9e1E.exit: ; preds = %"_ZN4core3str21
   %236 = sub nuw i64 %208, %235
   %237 = lshr exact i64 %236, 5
   %.not.i.i194.not = icmp ult i64 %.sroa.10226.0, %237
-  %238 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, ptr }, ptr %.sroa.0222.0, i64 %.sroa.10226.0
+  %238 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, ptr }, ptr %.sroa.0222.0, i64 %.sroa.10226.0
   br i1 %.not.i.i194.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06ee858091203e3bE.exit.thread253", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h06ee858091203e3bE.exit.thread"
 
 239:                                              ; preds = %.loopexit267, %.loopexit.split-lp268, %.body197

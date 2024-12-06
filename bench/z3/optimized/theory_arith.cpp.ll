@@ -314950,7 +314950,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59.us
   %__parent.064.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.064.us, -1
-  %add.ptr10.us = getelementptr inbounds ptr, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.us
   %8 = load ptr, ptr %add.ptr10.us, align 8
   %cmp23.i14.not.us = icmp sgt i64 %__parent.064.us, %div.i6062
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59.us, label %while.body.i45.us
@@ -315010,7 +315010,7 @@ _ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__o
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59
   %__parent.064 = phi i64 [ %dec, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_6mi_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.064, -1
-  %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %14 = load ptr, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.064, %div.i6062
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i45
@@ -324220,7 +324220,7 @@ if.then:                                          ; preds = %while.body
 if.end7.split.i.i:                                ; preds = %if.then, %if.end7.split.i.i
   %__parent.013.i.i = phi i64 [ %dec.i.i, %if.end7.split.i.i ], [ %div11.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.013.i.i, -1
-  %add.ptr10.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i
+  %add.ptr10.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i
   %1 = load ptr, ptr %add.ptr10.i.i, align 8
   tail call void @_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_5i_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, ptr noundef %1)
   %cmp5.i.i = icmp eq i64 %dec.i.i, 0
@@ -329207,7 +329207,7 @@ if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_7inf_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59
   %__parent.0133 = phi i64 [ %div11, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPPN3smt12theory_arithINS0_7inf_extEE4atomElS5_N9__gnu_cxx5__ops15_Iter_comp_iterINS3_13compare_atomsEEEEvT_T0_SD_T1_T2_.exit59 ]
   %dec = add nsw i64 %__parent.0133, -1
-  %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %8 = load ptr, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.0133, %div.i129131
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i45

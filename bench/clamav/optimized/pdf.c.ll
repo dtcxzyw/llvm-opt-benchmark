@@ -4364,7 +4364,7 @@ pdf_readint.exit:                                 ; preds = %372
   %383 = call i64 @llvm.smax.i64(i64 %377, i64 1024)
   %spec.store.select = add nsw i64 %383, -1024
   %384 = load ptr, ptr %260, align 8
-  %385 = getelementptr inbounds i8, ptr %384, i64 %spec.store.select
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 %spec.store.select
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.113, i64 noundef %spec.store.select, i64 noundef %377) #23
   %386 = sub nsw i64 %377, %spec.store.select
   call fastcc void @pdf_parse_trailer(ptr noundef %0, ptr noundef %385, i64 noundef %386)
@@ -9421,7 +9421,7 @@ define internal fastcc void @compute_hash_r6(i64 %.0.val, ptr nocapture noundef 
 30:                                               ; preds = %29, %30
   %indvars.iv = phi i64 [ 1, %29 ], [ %indvars.iv.next, %30 ]
   %31 = mul nuw nsw i64 %.142, %indvars.iv
-  %32 = getelementptr inbounds i8, ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %32, ptr nonnull align 16 %5, i64 %.142, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

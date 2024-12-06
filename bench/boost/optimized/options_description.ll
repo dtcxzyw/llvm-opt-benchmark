@@ -4325,7 +4325,7 @@ _ZN5boost15program_options19options_description3addENS_10shared_ptrINS0_18option
   %118 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %119 = add nsw i64 %118, -1
   %120 = sdiv i64 %119, 64
-  %121 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %120
+  %121 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %120
   %122 = and i64 %119, -9223372036854775745
   %123 = icmp ugt i64 %122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %123, i64 -8, i64 0

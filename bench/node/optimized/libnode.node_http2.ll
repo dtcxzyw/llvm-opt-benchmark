@@ -2464,7 +2464,7 @@ if.then21:                                        ; preds = %do.body18
   %arrayidx.i.i38 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %6 = load i32, ptr %arrayidx.i.i38, align 4
   %inc28 = add nuw nsw i64 %count.1, 1
-  %arrayidx29 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.1
+  %arrayidx29 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.1
   store i32 3, ptr %arrayidx29, align 4
   %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx29, i64 4
   store i32 %6, ptr %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx, align 4
@@ -2481,7 +2481,7 @@ if.then35:                                        ; preds = %do.body32
   %arrayidx.i.i42 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %8 = load i32, ptr %arrayidx.i.i42, align 4
   %inc42 = add nuw nsw i64 %count.2, 1
-  %arrayidx43 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.2
+  %arrayidx43 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.2
   store i32 4, ptr %arrayidx43, align 4
   %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx43, i64 4
   store i32 %8, ptr %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx, align 4
@@ -2498,7 +2498,7 @@ if.then49:                                        ; preds = %do.body46
   %arrayidx.i.i46 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %10 = load i32, ptr %arrayidx.i.i46, align 4
   %inc56 = add nuw nsw i64 %count.3, 1
-  %arrayidx57 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.3
+  %arrayidx57 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.3
   store i32 5, ptr %arrayidx57, align 4
   %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx57, i64 4
   store i32 %10, ptr %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx, align 4
@@ -2515,7 +2515,7 @@ if.then63:                                        ; preds = %do.body60
   %arrayidx.i.i50 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %12 = load i32, ptr %arrayidx.i.i50, align 4
   %inc70 = add nuw nsw i64 %count.4, 1
-  %arrayidx71 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.4
+  %arrayidx71 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.4
   store i32 6, ptr %arrayidx71, align 4
   %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx71, i64 4
   store i32 %12, ptr %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx, align 4
@@ -2532,7 +2532,7 @@ if.then77:                                        ; preds = %do.body74
   %arrayidx.i.i54 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %14 = load i32, ptr %arrayidx.i.i54, align 4
   %inc84 = add nuw nsw i64 %count.5, 1
-  %arrayidx85 = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.5
+  %arrayidx85 = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.5
   store i32 8, ptr %arrayidx85, align 4
   %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx85, i64 4
   store i32 %14, ptr %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx, align 4
@@ -2640,7 +2640,7 @@ if.then21.i:                                      ; preds = %do.body18.i
   %arrayidx.i.i38.i = getelementptr inbounds nuw i8, ptr %13, i64 16
   %14 = load i32, ptr %arrayidx.i.i38.i, align 4
   %inc28.i = add nuw nsw i64 %count.1.i, 1
-  %arrayidx29.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.1.i
+  %arrayidx29.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.1.i
   store i32 3, ptr %arrayidx29.i, align 8
   %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i, i64 4
   store i32 %14, ptr %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx.i, align 4
@@ -2657,7 +2657,7 @@ if.then35.i:                                      ; preds = %do.body32.i
   %arrayidx.i.i42.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %16 = load i32, ptr %arrayidx.i.i42.i, align 4
   %inc42.i = add nuw nsw i64 %count.2.i, 1
-  %arrayidx43.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.2.i
+  %arrayidx43.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.2.i
   store i32 4, ptr %arrayidx43.i, align 8
   %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx43.i, i64 4
   store i32 %16, ptr %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx.i, align 4
@@ -2674,7 +2674,7 @@ if.then49.i:                                      ; preds = %do.body46.i
   %arrayidx.i.i46.i = getelementptr inbounds nuw i8, ptr %17, i64 12
   %18 = load i32, ptr %arrayidx.i.i46.i, align 4
   %inc56.i = add nuw nsw i64 %count.3.i, 1
-  %arrayidx57.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.3.i
+  %arrayidx57.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.3.i
   store i32 5, ptr %arrayidx57.i, align 8
   %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx57.i, i64 4
   store i32 %18, ptr %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx.i, align 4
@@ -2691,7 +2691,7 @@ if.then63.i:                                      ; preds = %do.body60.i
   %arrayidx.i.i50.i = getelementptr inbounds nuw i8, ptr %19, i64 20
   %20 = load i32, ptr %arrayidx.i.i50.i, align 4
   %inc70.i = add nuw nsw i64 %count.4.i, 1
-  %arrayidx71.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.4.i
+  %arrayidx71.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.4.i
   store i32 6, ptr %arrayidx71.i, align 8
   %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx71.i, i64 4
   store i32 %20, ptr %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx.i, align 4
@@ -2708,7 +2708,7 @@ if.then77.i:                                      ; preds = %do.body74.i
   %arrayidx.i.i54.i = getelementptr inbounds nuw i8, ptr %21, i64 24
   %22 = load i32, ptr %arrayidx.i.i54.i, align 4
   %inc84.i = add nuw nsw i64 %count.5.i, 1
-  %arrayidx85.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.5.i
+  %arrayidx85.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries_14, i64 %count.5.i
   store i32 8, ptr %arrayidx85.i, align 8
   %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx85.i, i64 4
   store i32 %22, ptr %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx.i, align 4
@@ -3039,7 +3039,7 @@ if.then21.i:                                      ; preds = %do.body18.i
   %arrayidx.i.i38.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %arrayidx.i.i38.i, align 4
   %inc28.i = add nuw nsw i64 %count.1.i, 1
-  %arrayidx29.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.1.i
+  %arrayidx29.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.1.i
   store i32 3, ptr %arrayidx29.i, align 8
   %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx29.i, i64 4
   store i32 %4, ptr %ref.tmp25.sroa.2.0.arrayidx29.sroa_idx.i, align 4
@@ -3055,7 +3055,7 @@ if.then35.i:                                      ; preds = %do.body32.i
   %arrayidx.i.i42.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %arrayidx.i.i42.i, align 4
   %inc42.i = add nuw nsw i64 %count.2.i, 1
-  %arrayidx43.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.2.i
+  %arrayidx43.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.2.i
   store i32 4, ptr %arrayidx43.i, align 8
   %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx43.i, i64 4
   store i32 %5, ptr %ref.tmp39.sroa.2.0.arrayidx43.sroa_idx.i, align 4
@@ -3071,7 +3071,7 @@ if.then49.i:                                      ; preds = %do.body46.i
   %arrayidx.i.i46.i = getelementptr inbounds nuw i8, ptr %0, i64 12
   %6 = load i32, ptr %arrayidx.i.i46.i, align 4
   %inc56.i = add nuw nsw i64 %count.3.i, 1
-  %arrayidx57.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.3.i
+  %arrayidx57.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.3.i
   store i32 5, ptr %arrayidx57.i, align 8
   %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx57.i, i64 4
   store i32 %6, ptr %ref.tmp53.sroa.2.0.arrayidx57.sroa_idx.i, align 4
@@ -3087,7 +3087,7 @@ if.then63.i:                                      ; preds = %do.body60.i
   %arrayidx.i.i50.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %arrayidx.i.i50.i, align 4
   %inc70.i = add nuw nsw i64 %count.4.i, 1
-  %arrayidx71.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.4.i
+  %arrayidx71.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.4.i
   store i32 6, ptr %arrayidx71.i, align 8
   %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx71.i, i64 4
   store i32 %7, ptr %ref.tmp67.sroa.2.0.arrayidx71.sroa_idx.i, align 4
@@ -3103,7 +3103,7 @@ if.then77.i:                                      ; preds = %do.body74.i
   %arrayidx.i.i54.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %arrayidx.i.i54.i, align 4
   %inc84.i = add nuw nsw i64 %count.5.i, 1
-  %arrayidx85.i = getelementptr inbounds %struct.nghttp2_settings_entry, ptr %entries, i64 %count.5.i
+  %arrayidx85.i = getelementptr inbounds nuw %struct.nghttp2_settings_entry, ptr %entries, i64 %count.5.i
   store i32 8, ptr %arrayidx85.i, align 8
   %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx.i = getelementptr inbounds nuw i8, ptr %arrayidx85.i, i64 4
   store i32 %8, ptr %ref.tmp81.sroa.2.0.arrayidx85.sroa_idx.i, align 4

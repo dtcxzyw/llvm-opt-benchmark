@@ -2861,7 +2861,7 @@ _ZN7testing15AssertionResultD2Ev.exit41:          ; preds = %if.end35, %_ZNKSt14
   %add11.i.i = add nsw i64 %add6.i.i, %div4.zext.i.i
   %rem12.i.i = srem i64 %add11.i.i, 7
   %add13.i.i = add nsw i64 %rem12.i.i, 6
-  %arrayidx14.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
   %30 = load i32, ptr %arrayidx14.i.i, align 4
   store i32 %30, ptr %ref.tmp39, align 4
   switch i64 %rem12.i.i, label %if.end.i.i43 [
@@ -5140,7 +5140,7 @@ _ZN7testing15AssertionResultD2Ev.exit368:         ; preds = %if.end218, %_ZNKSt1
   %add11.i.i = add nsw i64 %add6.i.i, %div4.zext.i.i
   %rem12.i.i = srem i64 %add11.i.i, 7
   %add13.i.i = add nsw i64 %rem12.i.i, 6
-  %arrayidx14.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
   %159 = load i32, ptr %arrayidx14.i.i, align 4
   store i32 %159, ptr %ref.tmp222, align 4
   switch i64 %rem12.i.i, label %if.end.i.i371 [
@@ -6669,7 +6669,7 @@ _ZN7testing15AssertionResultD2Ev.exit774:         ; preds = %if.end470, %_ZNKSt1
   %add11.i.i796 = add nsw i64 %add6.i.i795, %div4.zext.i.i786
   %rem12.i.i797 = srem i64 %add11.i.i796, 7
   %add13.i.i798 = add nsw i64 %rem12.i.i797, 6
-  %arrayidx14.i.i799 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i798
+  %arrayidx14.i.i799 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i798
   %326 = load i32, ptr %arrayidx14.i.i799, align 4
   store i32 %326, ptr %ref.tmp474, align 4
   switch i64 %rem12.i.i797, label %if.end.i.i801 [
@@ -8240,7 +8240,7 @@ _ZN7testing15AssertionResultD2Ev.exit1228:        ; preds = %if.end751, %_ZNKSt1
   %add11.i.i1250 = add nsw i64 %add6.i.i1249, %div4.zext.i.i1240
   %rem12.i.i1251 = srem i64 %add11.i.i1250, 7
   %add13.i.i1252 = add nsw i64 %rem12.i.i1251, 6
-  %arrayidx14.i.i1253 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i1252
+  %arrayidx14.i.i1253 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i1252
   %494 = load i32, ptr %arrayidx14.i.i1253, align 4
   store i32 %494, ptr %ref.tmp755, align 4
   switch i64 %rem12.i.i1251, label %if.end.i.i1255 [
@@ -51957,7 +51957,7 @@ _ZN7testing15AssertionResultD2Ev.exit1240:        ; preds = %if.end918, %_ZNKSt1
   %add11.i.i = add nsw i64 %add6.i.i, %div4.zext.i.i
   %rem12.i.i = srem i64 %add11.i.i, 7
   %add13.i.i = add nsw i64 %rem12.i.i, 6
-  %arrayidx14.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
   %506 = load i32, ptr %arrayidx14.i.i, align 4
   store i32 %506, ptr %ref.tmp922, align 4
   switch i64 %rem12.i.i, label %if.end.i.i1243 [
@@ -53720,7 +53720,7 @@ _ZN7testing15AssertionResultD2Ev.exit1701:        ; preds = %if.end1215, %_ZNKSt
   %add11.i.i1723 = add nsw i64 %add6.i.i1722, %div4.zext.i.i1713
   %rem12.i.i1724 = srem i64 %add11.i.i1723, 7
   %add13.i.i1725 = add nsw i64 %rem12.i.i1724, 6
-  %arrayidx14.i.i1726 = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i1725
+  %arrayidx14.i.i1726 = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i1725
   %699 = load i32, ptr %arrayidx14.i.i1726, align 4
   store i32 %699, ptr %ref.tmp1219, align 4
   %cmp.i.i1727 = icmp eq i64 %rem12.i.i1724, 0

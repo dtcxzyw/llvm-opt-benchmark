@@ -28153,7 +28153,7 @@ while.body9.i:                                    ; preds = %if.end48, %while.bo
   %41 = load ptr, ptr %values_.i132, align 8
   %inc12.i = add nuw nsw i64 %40, 1
   store i64 %inc12.i, ptr %sorted_keys, align 8
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %41, i64 %40
+  %arrayidx13.i = getelementptr inbounds nuw ptr, ptr %41, i64 %40
   store ptr null, ptr %arrayidx13.i, align 8
   %42 = load i64, ptr %sorted_keys, align 8
   %cmp8.i = icmp ult i64 %42, %num_keys
@@ -38272,7 +38272,7 @@ while.body9.i:                                    ; preds = %_ZNSt6vectorIPN7roc
   %13 = load ptr, ptr %values_.i21, align 8
   %inc12.i = add nuw nsw i64 %12, 1
   store i64 %inc12.i, ptr %sorted_keys, align 8
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %13, i64 %12
+  %arrayidx13.i = getelementptr inbounds nuw ptr, ptr %13, i64 %12
   store ptr null, ptr %arrayidx13.i, align 8
   %14 = load i64, ptr %sorted_keys, align 8
   %cmp8.i = icmp ult i64 %14, %num_keys
@@ -87750,7 +87750,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

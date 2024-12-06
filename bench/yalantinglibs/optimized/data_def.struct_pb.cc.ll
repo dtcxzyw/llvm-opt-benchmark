@@ -2263,7 +2263,7 @@ if.end:                                           ; preds = %_ZN9struct_pb13Unkn
   br i1 %cmp.not, label %if.end13, label %_ZN9struct_pb8internal16serialize_varintEPcRmmm.exit363
 
 _ZN9struct_pb8internal16serialize_varintEPcRmmm.exit363: ; preds = %if.end
-  %arrayidx3.i356 = getelementptr inbounds i8, ptr %data, i64 %pos.0
+  %arrayidx3.i356 = getelementptr inbounds nuw i8, ptr %data, i64 %pos.0
   store i8 16, ptr %arrayidx3.i356, align 1
   %13 = load i32, ptr %mana, align 8
   %conv = sext i32 %13 to i64

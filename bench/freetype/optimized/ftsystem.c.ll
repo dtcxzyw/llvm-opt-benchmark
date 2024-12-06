@@ -48,7 +48,7 @@ define hidden range(i32 0, 82) i32 @FT_Stream_Open(ptr noundef %0, ptr noundef %
   %21 = phi i64 [ %36, %35 ], [ %19, %18 ]
   %.045 = phi i64 [ %.1, %35 ], [ 0, %18 ]
   %22 = load ptr, ptr %0, align 8
-  %23 = getelementptr inbounds i8, ptr %22, i64 %.045
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.045
   %24 = sub i64 %21, %.045
   %25 = tail call i64 @read(i32 noundef %5, ptr noundef %23, i64 noundef %24) #14
   %26 = icmp slt i64 %25, 1

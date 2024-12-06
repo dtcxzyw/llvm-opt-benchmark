@@ -1580,7 +1580,7 @@ define noundef ptr @cli_sanitize_filepath(ptr noundef %0, i64 noundef %1, ptr no
 
 13:                                               ; preds = %.lr.ph, %cli_max_calloc.exit.backedge
   %.06895 = phi i64 [ %.068.ph97, %.lr.ph ], [ %15, %cli_max_calloc.exit.backedge ]
-  %14 = getelementptr inbounds i8, ptr %0, i64 %.06895
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 %.06895
   %lhsc = load i8, ptr %14, align 1
   switch i8 %lhsc, label %.tail84.thread [
     i8 47, label %cli_max_calloc.exit.backedge

@@ -38798,7 +38798,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost16re_detail_10740010parser_bufIcSt11c
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 %1
-  %20 = getelementptr inbounds i8, ptr %14, i64 %11
+  %20 = getelementptr inbounds nuw i8, ptr %14, i64 %11
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %14, ptr noundef %19, ptr noundef %20)
   br label %38
 
@@ -38809,7 +38809,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost16re_detail_10740010parser_bufIcSt11c
   br i1 %or.cond32, label %44, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %11
   %26 = sub nsw i64 0, %1
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %14, ptr noundef %27, ptr noundef %25)
@@ -38827,7 +38827,7 @@ define linkonce_odr { i64, i64 } @_ZN5boost16re_detail_10740010parser_bufIcSt11c
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 %32
-  %37 = getelementptr inbounds i8, ptr %14, i64 %11
+  %37 = getelementptr inbounds nuw i8, ptr %14, i64 %11
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %14, ptr noundef %36, ptr noundef %37)
   br label %38
 

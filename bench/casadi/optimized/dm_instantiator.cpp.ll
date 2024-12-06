@@ -44411,13 +44411,13 @@ _ZN6casadi12casadi_qr_mvIdEEvPKxPKT_S5_PS3_x.exit65.us: ; preds = %._crit_edge45
   %56 = phi i64 [ %76, %.loopexit.i.us ], [ %.pre73.i.us, %.lr.ph71.preheader.i.us ]
   %.1.in69.i.us = phi i64 [ %.170.i.us, %.loopexit.i.us ], [ %53, %.lr.ph71.preheader.i.us ]
   %.170.i.us = add nsw i64 %.1.in69.i.us, -1
-  %57 = getelementptr inbounds i64, ptr %18, i64 %.170.i.us
+  %57 = getelementptr inbounds nuw i64, ptr %18, i64 %.170.i.us
   %58 = load i64, ptr %57, align 8
   %.not55.not64.i.us = icmp sgt i64 %56, %58
   br i1 %.not55.not64.i.us, label %.lr.ph67.i.us, label %.loopexit.i.us
 
 .lr.ph67.i.us:                                    ; preds = %.lr.ph71.i.us
-  %59 = getelementptr inbounds double, ptr %10, i64 %.170.i.us
+  %59 = getelementptr inbounds nuw double, ptr %10, i64 %.170.i.us
   br label %60
 
 60:                                               ; preds = %74, %.lr.ph67.i.us
@@ -46001,13 +46001,13 @@ _ZN6casadi14casadi_ldl_trsIdEEvPKxPKT_PS3_x.exit: ; preds = %.loopexit40.i, %._c
   %52 = phi i64 [ %50, %.loopexit.i ], [ %.pre55.i, %.lr.ph52.preheader.i ]
   %.1.in50.i = phi i64 [ %.151.i, %.loopexit.i ], [ %47, %.lr.ph52.preheader.i ]
   %.151.i = add nsw i64 %.1.in50.i, -1
-  %53 = getelementptr inbounds i64, ptr %12, i64 %.151.i
+  %53 = getelementptr inbounds nuw i64, ptr %12, i64 %.151.i
   %54 = load i64, ptr %53, align 8
   %.not38.not46.i = icmp sgt i64 %52, %54
   br i1 %.not38.not46.i, label %.lr.ph48.i, label %.loopexit.i
 
 .lr.ph48.i:                                       ; preds = %.lr.ph52.i
-  %55 = getelementptr inbounds double, ptr %6, i64 %.151.i
+  %55 = getelementptr inbounds nuw double, ptr %6, i64 %.151.i
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph48.i

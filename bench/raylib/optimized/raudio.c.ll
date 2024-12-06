@@ -8846,7 +8846,7 @@ ma_realloc.exit:                                  ; preds = %12
 33:                                               ; preds = %.lr.ph, %33
   %.036 = phi i64 [ %31, %.lr.ph ], [ %37, %33 ]
   %34 = load ptr, ptr %32, align 8
-  %35 = getelementptr inbounds %struct.ma_device_info, ptr %34, i64 %.036
+  %35 = getelementptr inbounds nuw %struct.ma_device_info, ptr %34, i64 %.036
   %36 = getelementptr i8, ptr %35, i64 -1544
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1544) %35, ptr noundef nonnull align 8 dereferenceable(1544) %36, i64 1544, i1 false)
   %37 = add nsw i64 %.036, -1

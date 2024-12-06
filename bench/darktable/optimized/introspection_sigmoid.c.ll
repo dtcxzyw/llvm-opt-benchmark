@@ -517,7 +517,7 @@ define hidden void @process_loglogistic_rgb_ratio(ptr nocapture noundef readonly
   %102 = fsub reassoc nsz arcp contract afn <8 x float> %83, %88
   %103 = fmul reassoc nsz arcp contract afn <8 x float> %95, %102
   %104 = fadd reassoc nsz arcp contract afn <8 x float> %103, %88
-  %105 = getelementptr inbounds i8, <8 x ptr> %78, i64 12
+  %105 = getelementptr inbounds nuw i8, <8 x ptr> %78, i64 12
   %106 = fadd reassoc nsz arcp contract afn <8 x float> %98, %101
   %107 = fadd reassoc nsz arcp contract afn <8 x float> %106, %104
   %108 = fmul reassoc nsz arcp contract afn <8 x float> %107, splat (float 0x3FD5555560000000)

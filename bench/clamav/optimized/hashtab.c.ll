@@ -1705,7 +1705,7 @@ cli_hashset_init_pool.exit.i:                     ; preds = %50, %33
 .lr.ph.i.i.i:                                     ; preds = %69, %95
   %.015.i.i.i = phi i64 [ %96, %95 ], [ 1, %69 ]
   %.01114.i.i.i = phi i64 [ %98, %95 ], [ %85, %69 ]
-  %93 = getelementptr inbounds i32, ptr %.sroa.0.0.i, i64 %.01114.i.i.i
+  %93 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.01114.i.i.i
   %94 = load i32, ptr %93, align 4
   %.not12.i.i.i = icmp eq i32 %94, %72
   br i1 %.not12.i.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i.i, label %95
@@ -1833,7 +1833,7 @@ cli_hashset_grow.exit:                            ; preds = %121, %125
 153:                                              ; preds = %156, %.lr.ph.i.i
   %.015.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %157, %156 ]
   %.01114.i.i = phi i64 [ %143, %.lr.ph.i.i ], [ %159, %156 ]
-  %154 = getelementptr inbounds i32, ptr %151, i64 %.01114.i.i
+  %154 = getelementptr inbounds nuw i32, ptr %151, i64 %.01114.i.i
   %155 = load i32, ptr %154, align 4
   %.not12.i.i = icmp eq i32 %155, %1
   br i1 %.not12.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i, label %156
@@ -1926,7 +1926,7 @@ define range(i32 0, 35) i32 @cli_hashset_removekey(ptr nocapture noundef %0, i32
 29:                                               ; preds = %32, %.lr.ph.i
   %.015.i = phi i64 [ 1, %.lr.ph.i ], [ %33, %32 ]
   %.01114.i = phi i64 [ %17, %.lr.ph.i ], [ %35, %32 ]
-  %30 = getelementptr inbounds i32, ptr %27, i64 %.01114.i
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.01114.i
   %31 = load i32, ptr %30, align 4
   %.not12.i = icmp eq i32 %31, %1
   br i1 %.not12.i, label %.cli_hashset_search.exit.loopexit_crit_edge, label %32
@@ -2019,7 +2019,7 @@ define zeroext i1 @cli_hashset_contains(ptr nocapture noundef readonly %0, i32 n
 29:                                               ; preds = %32, %.lr.ph.i
   %.015.i = phi i64 [ 1, %.lr.ph.i ], [ %33, %32 ]
   %.01114.i = phi i64 [ %17, %.lr.ph.i ], [ %35, %32 ]
-  %30 = getelementptr inbounds i32, ptr %27, i64 %.01114.i
+  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %.01114.i
   %31 = load i32, ptr %30, align 4
   %.not12.i = icmp eq i32 %31, %1
   br i1 %.not12.i, label %.cli_hashset_search.exit.loopexit_crit_edge, label %32
@@ -2114,7 +2114,7 @@ define range(i64 -1, 4294967296) i64 @cli_hashset_toarray(ptr nocapture noundef 
   %29 = getelementptr inbounds nuw i32, ptr %28, i64 %.01823
   %30 = load i32, ptr %29, align 4
   %31 = add nuw nsw i64 %.01724, 1
-  %32 = getelementptr inbounds i32, ptr %8, i64 %.01724
+  %32 = getelementptr inbounds nuw i32, ptr %8, i64 %.01724
   store i32 %30, ptr %32, align 4
   %.pre = load i32, ptr %9, align 8
   br label %33
@@ -2179,7 +2179,7 @@ define zeroext i1 @cli_hashset_contains_maybe_noalloc(ptr nocapture noundef read
 30:                                               ; preds = %34, %.lr.ph.i.i
   %.015.i.i = phi i64 [ 1, %.lr.ph.i.i ], [ %35, %34 ]
   %.01114.i.i = phi i64 [ %19, %.lr.ph.i.i ], [ %37, %34 ]
-  %31 = getelementptr inbounds i32, ptr %3, i64 %.01114.i.i
+  %31 = getelementptr inbounds nuw i32, ptr %3, i64 %.01114.i.i
   %32 = load i32, ptr %31, align 4
   %.not12.i.i = icmp eq i32 %32, %1
   br i1 %.not12.i.i, label %.cli_hashset_search.exit.loopexit_crit_edge.i, label %34

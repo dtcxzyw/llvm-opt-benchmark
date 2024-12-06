@@ -11525,7 +11525,7 @@ define linkonce_odr hidden void @_ZN6casadi19casadi_nd_boor_evalIdEEvPT_xPKS1_PK
 
 60:                                               ; preds = %56
   %61 = add nsw i64 %38, -1
-  %62 = getelementptr inbounds double, ptr %35, i64 %61
+  %62 = getelementptr inbounds nuw double, ptr %35, i64 %61
   %63 = load double, ptr %62, align 8
   %64 = fcmp ogt double %34, %63
   br i1 %64, label %65, label %.preheader52.i.outer
@@ -13624,7 +13624,7 @@ define linkonce_odr hidden noundef i64 @_ZN6casadi24casadi_nd_boor_dual_evalIdEE
 
 59:                                               ; preds = %55
   %60 = add nsw i64 %37, -1
-  %61 = getelementptr inbounds double, ptr %34, i64 %60
+  %61 = getelementptr inbounds nuw double, ptr %34, i64 %60
   %62 = load double, ptr %61, align 8
   %63 = fcmp ogt double %33, %62
   br i1 %63, label %64, label %.preheader52.i.outer

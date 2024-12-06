@@ -897,7 +897,7 @@ clear_flag.exit1012:                              ; preds = %354, %._crit_edge11
   br label %.lr.ph1182.preheader
 
 370:                                              ; preds = %367
-  %371 = getelementptr inbounds i64, ptr %8, i64 %365
+  %371 = getelementptr inbounds nuw i64, ptr %8, i64 %365
   %372 = load i64, ptr %371, align 8
   store i64 -1, ptr %371, align 8
   %.not9781178 = icmp eq i64 %372, -1

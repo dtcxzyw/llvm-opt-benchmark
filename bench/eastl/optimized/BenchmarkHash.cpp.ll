@@ -2147,7 +2147,7 @@ if.end.i2144:                                     ; preds = %call3.i2143.noexc.i
   %__bkt.addr.0.i = phi i64 [ %rem.i.i.i.i2158, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_E11HashString8IS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %rem.i.i.i.i1859, %call3.i2143.noexc.if.end.i2144_crit_edge ]
   %add.ptr.i2145 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i1872, i64 48
   store i64 %stringHash.0.lcssa.i.i.i, ptr %add.ptr.i2145, align 8
-  %arrayidx.i.i2146 = getelementptr inbounds ptr, ptr %234, i64 %__bkt.addr.0.i
+  %arrayidx.i.i2146 = getelementptr inbounds nuw ptr, ptr %234, i64 %__bkt.addr.0.i
   %235 = load ptr, ptr %arrayidx.i.i2146, align 8
   %tobool.not.i.i2147 = icmp eq ptr %235, null
   br i1 %tobool.not.i.i2147, label %if.else.i.i2150, label %if.then.i.i2148
@@ -2178,7 +2178,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i2150
 
 if.end.i.i2154:                                   ; preds = %if.then14.i.i, %if.else.i.i2150
   %241 = phi ptr [ %.pre2591, %if.then14.i.i ], [ %234, %if.else.i.i2150 ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %241, i64 %__bkt.addr.0.i
+  %arrayidx20.i.i = getelementptr inbounds nuw ptr, ptr %241, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i207, ptr %arrayidx20.i.i, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_jESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_E11HashString8IS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit
 
@@ -3960,7 +3960,7 @@ if.then3.i.i.i:                                   ; preds = %cond.end.i.i
   %arrayidx5.i.i.i = getelementptr inbounds nuw ptr, ptr %481, i64 %rem.i.i.i.i22.i
   store ptr %480, ptr %arrayidx5.i.i.i, align 8
   %.pre.i.i2029 = load ptr, ptr %stdMapUint32TO, align 8
-  %arrayidx7.i.phi.trans.insert.i.i = getelementptr inbounds ptr, ptr %.pre.i.i2029, i64 %__bkt.04450.i
+  %arrayidx7.i.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %.pre.i.i2029, i64 %__bkt.04450.i
   %.pre24.i.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i.i, align 8
   br label %if.end.i.i.i2030
 
@@ -3971,7 +3971,7 @@ if.end.i.i.i2030:                                 ; preds = %if.then3.i.i.i, %if
   %484 = phi ptr [ null, %if.then.i.i2027 ], [ %482, %if.then3.i.i.i ], [ null, %if.end13.thread.i2032 ]
   %485 = phi ptr [ %476, %if.then.i.i2027 ], [ %.pre24.i.i, %if.then3.i.i.i ], [ %469, %if.end13.thread.i2032 ]
   %486 = phi ptr [ %477, %if.then.i.i2027 ], [ %.pre.i.i2029, %if.then3.i.i.i ], [ %468, %if.end13.thread.i2032 ]
-  %arrayidx7.i.i.i = getelementptr inbounds ptr, ptr %486, i64 %__bkt.04451.i
+  %arrayidx7.i.i.i = getelementptr inbounds nuw ptr, ptr %486, i64 %__bkt.04451.i
   %cmp8.i.i.i = icmp eq ptr %_M_before_begin.i.i, %485
   br i1 %cmp8.i.i.i, label %if.then9.i.i.i, label %if.end11.i.i.i
 
@@ -7591,7 +7591,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 
@@ -9348,15 +9348,15 @@ if.then.i:                                        ; preds = %if.then17
 
 if.then3.i:                                       ; preds = %if.then.i
   %15 = load ptr, ptr %this, align 8
-  %arrayidx.i34 = getelementptr inbounds ptr, ptr %15, i64 %__n_bkt.0
+  %arrayidx.i34 = getelementptr inbounds nuw ptr, ptr %15, i64 %__n_bkt.0
   %16 = load ptr, ptr %arrayidx.i34, align 8
-  %arrayidx5.i = getelementptr inbounds ptr, ptr %15, i64 %__n_bkt.2
+  %arrayidx5.i = getelementptr inbounds nuw ptr, ptr %15, i64 %__n_bkt.2
   store ptr %16, ptr %arrayidx5.i, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then3.i, %if.then.i
   %17 = load ptr, ptr %this, align 8
-  %arrayidx7.i = getelementptr inbounds ptr, ptr %17, i64 %__n_bkt.0
+  %arrayidx7.i = getelementptr inbounds nuw ptr, ptr %17, i64 %__n_bkt.0
   %18 = load ptr, ptr %arrayidx7.i, align 8
   %cmp8.i = icmp eq ptr %_M_before_begin.i, %18
   br i1 %cmp8.i, label %if.then9.i, label %if.end11.i
@@ -9381,7 +9381,7 @@ for.end:                                          ; preds = %if.end18
 
 if.then25:                                        ; preds = %for.end
   %19 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 %__n_bkt.2
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %19, i64 %__n_bkt.2
   store ptr %__prev_n.0.i, ptr %arrayidx, align 8
   br label %if.end26
 

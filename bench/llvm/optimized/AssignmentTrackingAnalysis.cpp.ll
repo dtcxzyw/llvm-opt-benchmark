@@ -37523,7 +37523,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm13DebugVariableElN9_
 
 28:                                               ; preds = %28, %24
   %.0.i.i.i = phi i64 [ %27, %24 ], [ %31, %28 ]
-  %29 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.0.i.i.i
+  %29 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZL32buildOverlapMapAndRecordDeclaresRNS0_8FunctionEP22FunctionVarLocsBuilderRKNS0_8DenseSetISt4pairIPKNS0_15DILocalVariableEPKNS0_10DILocationEENS0_12DenseMapInfoISI_vEEEERNS0_8DenseMapIPKNS0_11InstructionENS0_11SmallVectorISB_INS0_10VariableIDENS0_2at14AssignmentInfoEELj1EEENSJ_ISR_vEENS0_6detail12DenseMapPairISR_SX_EEEERjE3$_2EEEvT_T0_S18_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %25, ptr noundef nonnull byval(%"class.llvm::DebugVariable") align 8 %29)
   %30 = icmp eq i64 %.0.i.i.i, 0
   %31 = add nsw i64 %.0.i.i.i, -1
@@ -37703,9 +37703,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
   %.045 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.045, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %11
   %13 = getelementptr i8, ptr %10, i64 8
   %.val = load i64, ptr %13, align 8
   %14 = getelementptr i8, ptr %10, i64 24
@@ -37721,8 +37721,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
   %.sroa.0.0.i.i7.i.i = select i1 %18, i64 %.val, i64 %_ZN4llvm13DebugVariable15DefaultFragmentE.val.i.i
   %19 = icmp ugt i64 %.sroa.0.0.i.i.i.i, %.sroa.0.0.i.i7.i.i
   %spec.select = select i1 %19, i64 %11, i64 %9
-  %20 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.045
+  %20 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.045
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false)
   %22 = icmp slt i64 %spec.select, %6
   br i1 %22, label %.lr.ph, label %._crit_edge, !llvm.loop !501
@@ -37742,8 +37742,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
 29:                                               ; preds = %25
   %30 = shl nsw i64 %.0.lcssa, 1
   %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %33, ptr noundef nonnull align 8 dereferenceable(40) %32, i64 40, i1 false)
   br label %34
 
@@ -37769,7 +37769,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %42
   %.04.us.i = phi i64 [ %.0.us.i, %42 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.us.i = phi i64 [ %.04.us.i, %42 ], [ %.127, %.lr.ph.i ]
-  %37 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.04.us.i
+  %37 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.04.us.i
   %38 = getelementptr i8, ptr %37, i64 8
   %.val.us.i = load i64, ptr %38, align 8
   %39 = getelementptr i8, ptr %37, i64 24
@@ -37781,7 +37781,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
   br i1 %41, label %42, label %"_ZSt11__push_heapIPN4llvm13DebugVariableElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL32buildOverlapMapAndRecordDeclaresRNS0_8FunctionEP22FunctionVarLocsBuilderRKNS0_8DenseSetISt4pairIPKNS0_15DILocalVariableEPKNS0_10DILocationEENS0_12DenseMapInfoISI_vEEEERNS0_8DenseMapIPKNS0_11InstructionENS0_11SmallVectorISB_INS0_10VariableIDENS0_2at14AssignmentInfoEELj1EEENSJ_ISR_vEENS0_6detail12DenseMapPairISR_SX_EEEERjE3$_2EEEvT_T0_S18_T1_RT2_.exit"
 
 42:                                               ; preds = %.lr.ph.split.us.i
-  %43 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.0133.us.i
+  %43 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.0133.us.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %43, ptr noundef nonnull align 8 dereferenceable(40) %37, i64 40, i1 false)
   %.0.in.us.i = add nsw i64 %.04.us.i, -1
   %.0.us.i = sdiv i64 %.0.in.us.i, 2
@@ -37791,7 +37791,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %51
   %.04.i = phi i64 [ %.0.i, %51 ], [ %.021013.i, %.lr.ph.i ]
   %.0133.i = phi i64 [ %.04.i, %51 ], [ %.127, %.lr.ph.i ]
-  %45 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.04.i
+  %45 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.04.i
   %46 = getelementptr i8, ptr %45, i64 8
   %.val.i = load i64, ptr %46, align 8
   %47 = getelementptr i8, ptr %45, i64 24
@@ -37803,7 +37803,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm13DebugVariableElS1_N9_
   br i1 %50, label %51, label %"_ZSt11__push_heapIPN4llvm13DebugVariableElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZL32buildOverlapMapAndRecordDeclaresRNS0_8FunctionEP22FunctionVarLocsBuilderRKNS0_8DenseSetISt4pairIPKNS0_15DILocalVariableEPKNS0_10DILocationEENS0_12DenseMapInfoISI_vEEEERNS0_8DenseMapIPKNS0_11InstructionENS0_11SmallVectorISB_INS0_10VariableIDENS0_2at14AssignmentInfoEELj1EEENSJ_ISR_vEENS0_6detail12DenseMapPairISR_SX_EEEERjE3$_2EEEvT_T0_S18_T1_RT2_.exit"
 
 51:                                               ; preds = %.lr.ph.split.i
-  %52 = getelementptr inbounds %"class.llvm::DebugVariable", ptr %0, i64 %.0133.i
+  %52 = getelementptr inbounds nuw %"class.llvm::DebugVariable", ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %52, ptr noundef nonnull align 8 dereferenceable(40) %45, i64 40, i1 false)
   %.0.in.i = add nsw i64 %.04.i, -1
   %.0.i = sdiv i64 %.0.in.i, 2

@@ -4208,7 +4208,7 @@ if.then60.i1707:                                  ; preds = %if.end49.i
   br label %if.end75.i
 
 if.then68.i:                                      ; preds = %if.end49.i
-  %arrayidx70.i = getelementptr inbounds i32, ptr %236, i64 %node_right.i.01463
+  %arrayidx70.i = getelementptr inbounds nuw i32, ptr %236, i64 %node_right.i.01463
   store i32 %prev_ix.i.0.in1465, ptr %arrayidx70.i, align 4
   %250 = load i64, ptr %privat25.i, align 8
   %and.i1718 = and i64 %250, %prev_ix.i.01466
@@ -4231,7 +4231,7 @@ if.end75.i:                                       ; preds = %if.then68.i, %if.th
 StoreAndFindMatchesH10.exit:                      ; preds = %if.then41.i, %if.then19.i
   %node_right.i.01463.lcssa1499.sink = phi i64 [ %node_right.i.01463, %if.then41.i ], [ %node_right.i.0.lcssa, %if.then19.i ]
   %.sink = phi i32 [ %246, %if.then41.i ], [ %238, %if.then19.i ]
-  %arrayidx47.i = getelementptr inbounds i32, ptr %236, i64 %node_right.i.01463.lcssa1499.sink
+  %arrayidx47.i = getelementptr inbounds nuw i32, ptr %236, i64 %node_right.i.01463.lcssa1499.sink
   store i32 %.sink, ptr %arrayidx47.i, align 4
   %inc.i581 = add nuw nsw i64 %i.i565.01473, 1
   %exitcond1483.not = icmp eq i64 %inc.i581, %cond.i.i576

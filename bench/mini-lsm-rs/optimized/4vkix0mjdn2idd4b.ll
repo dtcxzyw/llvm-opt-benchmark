@@ -6348,7 +6348,7 @@ _ZN4moka3cht3map6bucket4hash17h12f95d64d018f8fdE.exit: ; preds = %.noexc56
   br i1 %157, label %158, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds i8, ptr %5, i64 %.1.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i.i
   %160 = load i8, ptr %159, align 1, !alias.scope !2088, !noalias !2091, !noundef !14
   %161 = zext i8 %160 to i64
   %162 = shl nuw nsw i64 %.1.i.i, 3

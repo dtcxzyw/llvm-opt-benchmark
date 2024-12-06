@@ -2161,7 +2161,7 @@ for.cond156:                                      ; preds = %if.end134, %for.bod
 
 for.body159:                                      ; preds = %for.cond156
   %ii135.0 = add nsw i64 %ii135.0.in, -1
-  %arrayidx161 = getelementptr inbounds i8, ptr %37, i64 %ii135.0
+  %arrayidx161 = getelementptr inbounds nuw i8, ptr %37, i64 %ii135.0
   %40 = load i8, ptr %arrayidx161, align 1
   %cmp163.not = icmp eq i8 %40, -1
   br i1 %cmp163.not, label %for.cond156, label %if.end174, !llvm.loop !12

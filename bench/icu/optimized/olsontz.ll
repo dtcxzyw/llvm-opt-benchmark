@@ -1425,7 +1425,7 @@ cond.true.i105:                                   ; preds = %if.then20
 _ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit133: ; preds = %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread, %cond.true.i105
   %add10.i183 = phi i32 [ %add10.i, %cond.true.i105 ], [ %add10.i182, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
   %cond.i103 = phi i64 [ %49, %cond.true.i105 ], [ 1, %_ZNK6icu_7513OlsonTimeZone12zoneOffsetAtEs.exit.thread ]
-  %arrayidx6.i = getelementptr inbounds i32, ptr %20, i64 %cond.i103
+  %arrayidx6.i = getelementptr inbounds nuw i32, ptr %20, i64 %cond.i103
   %50 = load i32, ptr %arrayidx6.i, align 4
   %cmp29 = icmp ne i32 %50, 0
   %arrayidx.i121 = getelementptr inbounds nuw i8, ptr %19, i64 %indvars.iv.next
@@ -1546,7 +1546,7 @@ cond.true.i147:                                   ; preds = %if.end118, %_ZNK6ic
 _ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit152: ; preds = %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread, %cond.true.i147
   %cond.i144 = phi i64 [ %63, %cond.true.i147 ], [ 1, %_ZNK6icu_7513OlsonTimeZone11rawOffsetAtEs.exit.thread ]
   %64 = load ptr, ptr %typeOffsets.i99, align 8
-  %arrayidx6.i146 = getelementptr inbounds i32, ptr %64, i64 %cond.i144
+  %arrayidx6.i146 = getelementptr inbounds nuw i32, ptr %64, i64 %cond.i144
   br label %if.end133
 
 if.else128:                                       ; preds = %entry
@@ -1875,7 +1875,7 @@ cond.true.i19:                                    ; preds = %land.lhs.true21
 
 _ZNK6icu_7513OlsonTimeZone11dstOffsetAtEs.exit24: ; preds = %land.lhs.true21, %cond.true.i19
   %cond.i16 = phi i64 [ %27, %cond.true.i19 ], [ 1, %land.lhs.true21 ]
-  %arrayidx6.i18 = getelementptr inbounds i32, ptr %12, i64 %cond.i16
+  %arrayidx6.i18 = getelementptr inbounds nuw i32, ptr %12, i64 %cond.i16
   %28 = load i32, ptr %arrayidx6.i18, align 4
   %cmp25.not = icmp eq i32 %28, 0
   br i1 %cmp25.not, label %for.inc, label %return

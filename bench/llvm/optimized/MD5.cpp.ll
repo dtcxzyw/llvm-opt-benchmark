@@ -957,16 +957,17 @@ define dso_local void @_ZN4llvm3MD55finalERNS0_9MD5ResultE(ptr noundef nonnull a
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
+  %.pre = load i32, ptr %3, align 4
   br label %15
 
 15:                                               ; preds = %12, %2
+  %16 = phi i32 [ %.pre, %12 ], [ %4, %2 ]
   %.011 = phi i64 [ 0, %12 ], [ %8, %2 ]
   %.0 = phi i64 [ 64, %12 ], [ %10, %2 ]
-  %16 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %.011
-  %17 = add nsw i64 %.0, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
-  %18 = load i32, ptr %3, align 4
-  %19 = shl i32 %18, 3
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.011
+  %18 = add nsw i64 %.0, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %18, i1 false)
+  %19 = shl i32 %16, 3
   store i32 %19, ptr %3, align 4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %20, i64 1) ]
@@ -1019,16 +1020,17 @@ define dso_local { i64, i64 } @_ZN4llvm3MD55finalEv(ptr noundef nonnull align 4 
   %12 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %7
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %12, i8 0, i64 %9, i1 false)
   %13 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %6, i64 64)
+  %.pre.i = load i32, ptr %2, align 4
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %1, %11
+  %14 = phi i32 [ %.pre.i, %11 ], [ %3, %1 ]
   %.011.i = phi i64 [ 0, %11 ], [ %7, %1 ]
   %.0.i = phi i64 [ 64, %11 ], [ %9, %1 ]
-  %14 = getelementptr inbounds [64 x i8], ptr %6, i64 0, i64 %.011.i
-  %15 = add nsw i64 %.0.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %14, i8 0, i64 %15, i1 false)
-  %16 = load i32, ptr %2, align 4
-  %17 = shl i32 %16, 3
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 0, i64 %.011.i
+  %16 = add nsw i64 %.0.i, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 %16, i1 false)
+  %17 = shl i32 %14, 3
   store i32 %17, ptr %2, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %18, i64 1) ]
@@ -1067,16 +1069,17 @@ define dso_local { i64, i64 } @_ZN4llvm3MD56resultEv(ptr noundef nonnull align 4
   %13 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %13, i8 0, i64 %10, i1 false)
   %14 = tail call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr nonnull %7, i64 64)
+  %.pre.i.i = load i32, ptr %3, align 4
   br label %_ZN4llvm3MD55finalEv.exit
 
 _ZN4llvm3MD55finalEv.exit:                        ; preds = %1, %12
+  %15 = phi i32 [ %.pre.i.i, %12 ], [ %4, %1 ]
   %.011.i.i = phi i64 [ 0, %12 ], [ %8, %1 ]
   %.0.i.i = phi i64 [ 64, %12 ], [ %10, %1 ]
-  %15 = getelementptr inbounds [64 x i8], ptr %7, i64 0, i64 %.011.i.i
-  %16 = add nsw i64 %.0.i.i, -8
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %15, i8 0, i64 %16, i1 false)
-  %17 = load i32, ptr %3, align 4
-  %18 = shl i32 %17, 3
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %7, i64 0, i64 %.011.i.i
+  %17 = add nsw i64 %.0.i.i, -8
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %17, i1 false)
+  %18 = shl i32 %15, 3
   store i32 %18, ptr %3, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %19, i64 1) ]
@@ -1254,16 +1257,17 @@ _ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit:        ; preds = %24, %35
   %46 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 0, i64 %41
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %46, i8 0, i64 %43, i1 false)
   %47 = call noundef ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %3, ptr nonnull %40, i64 64)
+  %.pre.i = load i32, ptr %4, align 4
   br label %_ZN4llvm3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvm3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit, %45
+  %48 = phi i32 [ %.pre.i, %45 ], [ %37, %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit ]
   %.011.i = phi i64 [ 0, %45 ], [ %41, %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit ]
   %.0.i3 = phi i64 [ 64, %45 ], [ %43, %_ZN4llvm3MD56updateENS_8ArrayRefIhEE.exit ]
-  %48 = getelementptr inbounds [64 x i8], ptr %40, i64 0, i64 %.011.i
-  %49 = add nsw i64 %.0.i3, -8
-  call void @llvm.memset.p0.i64(ptr nonnull align 1 %48, i8 0, i64 %49, i1 false)
-  %50 = load i32, ptr %4, align 4
-  %51 = shl i32 %50, 3
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 0, i64 %.011.i
+  %50 = add nsw i64 %.0.i3, -8
+  call void @llvm.memset.p0.i64(ptr nonnull align 1 %49, i8 0, i64 %50, i1 false)
+  %51 = shl i32 %48, 3
   store i32 %51, ptr %4, align 4
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 80
   call void @llvm.assume(i1 true) [ "align"(ptr %52, i64 1) ]

@@ -56910,7 +56910,7 @@ _ZN5typst6layout4grid6layout8CellGrid4cell17hb2ec4616d3e359f5E.exit.i.i: ; preds
 269:                                              ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h823b8a2f76a99715E.exit.i.i"
   %270 = add i64 %.sroa.012.0300.i.i, -1
   %.not.i.not.i.i.i.i = icmp ult i64 %270, %233
-  %271 = getelementptr inbounds { i64, [3 x i64] }, ptr %232, i64 %270
+  %271 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %232, i64 %270
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 32
   br i1 %.not.i.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.loopexit194.i.i
 
@@ -67977,7 +67977,7 @@ default.unreachable52:                            ; preds = %95
           to label %158 unwind label %133
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %.sroa.16.0
+  %44 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.sroa.0.0, i64 %.sroa.16.0
   %45 = add i64 %.sroa.16.0, %.sroa.11.0
   br label %.thread11
 

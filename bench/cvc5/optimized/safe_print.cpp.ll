@@ -473,7 +473,7 @@ while.body.i7:                                    ; preds = %_ZN4cvc58internal10
   %rem.i8 = urem i64 %i.addr.016.i, 10
   %4 = trunc nuw nsw i64 %rem.i8 to i8
   %conv.i9 = or disjoint i8 %4, 48
-  %arrayidx4.i = getelementptr inbounds [20 x i8], ptr %buf.i6, i64 0, i64 %idx.0.i
+  %arrayidx4.i = getelementptr inbounds nuw [20 x i8], ptr %buf.i6, i64 0, i64 %idx.0.i
   store i8 %conv.i9, ptr %arrayidx4.i, align 1
   %div.i10 = udiv i64 %i.addr.016.i, 10
   %cmp2.i11 = icmp ugt i64 %i.addr.016.i, 9
@@ -515,7 +515,7 @@ while.body:                                       ; preds = %while.cond.preheade
   %rem = urem i64 %i.addr.016, 10
   %0 = trunc nuw nsw i64 %rem to i8
   %conv = or disjoint i8 %0, 48
-  %arrayidx4 = getelementptr inbounds [20 x i8], ptr %buf, i64 0, i64 %idx.0
+  %arrayidx4 = getelementptr inbounds nuw [20 x i8], ptr %buf, i64 0, i64 %idx.0
   store i8 %conv, ptr %arrayidx4, align 1
   %div = udiv i64 %i.addr.016, 10
   %cmp2 = icmp ugt i64 %i.addr.016, 9

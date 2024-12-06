@@ -3075,17 +3075,17 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %__secondChild.024.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div11.i.i.i, %if.then ]
   %add.i.i.i.i = shl i64 %__secondChild.024.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
   %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
   store ptr %1, ptr %add.ptr4.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !16
@@ -3102,9 +3102,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i.i.i
+  %add.ptr13.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i.i.i
   %3 = load ptr, ptr %add.ptr13.i.i.i.i, align 8
-  %add.ptr14.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   store ptr %3, ptr %add.ptr14.i.i.i.i, align 8
   br label %if.end16.i.i.i.i
 
@@ -3125,7 +3125,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %4, ptr %add.ptr2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div11.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !17
@@ -3139,14 +3139,14 @@ _ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help
 
 if.end7.split.lr.ph.i.i.i:                        ; preds = %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
   %sub12.i41.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr13.i42.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i41.i.i.i
-  %add.ptr14.i43.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %div7.i.i.i.i
+  %add.ptr13.i42.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i41.i.i.i
+  %add.ptr14.i43.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %div7.i.i.i.i
   br label %if.end7.split.i.i.i
 
 if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, %if.end7.split.lr.ph.i.i.i
   %__parent.05.i.i.i = phi i64 [ %div11.i.i.i, %if.end7.split.lr.ph.i.i.i ], [ %dec.i.i.i, %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i ]
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
-  %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
   %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
@@ -3155,9 +3155,9 @@ while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i
   %__secondChild.024.i45.i.i.i = phi i64 [ %spec.select.i55.i.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit72.i.i.i ], [ %dec.i.i.i, %if.end7.split.i.i.i ]
   %add.i46.i.i.i = shl i64 %__secondChild.024.i45.i.i.i, 1
   %mul.i47.i.i.i = add i64 %add.i46.i.i.i, 2
-  %add.ptr.i48.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i47.i.i.i
+  %add.ptr.i48.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i47.i.i.i
   %sub1.i49.i.i.i = or disjoint i64 %add.i46.i.i.i, 1
-  %add.ptr2.i50.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i49.i.i.i
+  %add.ptr2.i50.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i49.i.i.i
   %add.ptr.val.i51.i.i.i = load ptr, ptr %add.ptr.i48.i.i.i, align 8
   %add.ptr2.val.i52.i.i.i = load ptr, ptr %add.ptr2.i50.i.i.i, align 8
   %add.ptr.val.val.i53.i.i.i = load ptr, ptr %add.ptr.val.i51.i.i.i, align 8
@@ -3203,9 +3203,9 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit72.i.i.i: ; preds = %invoke.con
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i64.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i65.i.i.i)
   %spec.select.i55.i.i.i = select i1 %cmp.i.i71.i.i.i, i64 %sub1.i49.i.i.i, i64 %mul.i47.i.i.i
-  %add.ptr3.i56.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i55.i.i.i
+  %add.ptr3.i56.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i55.i.i.i
   %9 = load ptr, ptr %add.ptr3.i56.i.i.i, align 8
-  %add.ptr4.i57.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
+  %add.ptr4.i57.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
   store ptr %9, ptr %add.ptr4.i57.i.i.i, align 8
   %cmp.i58.i.i.i = icmp slt i64 %spec.select.i55.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i58.i.i.i, label %while.body.i44.i.i.i, label %while.end.i15.i.i.i, !llvm.loop !16
@@ -3272,7 +3272,7 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i: ; preds = %invoke.cont.
 
 while.body.i.i32.i.i.i:                           ; preds = %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit.i.i.i
   %14 = load ptr, ptr %add.ptr.i.i28.i.i.i, align 8
-  %add.ptr2.i.i33.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
+  %add.ptr2.i.i33.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
   store ptr %14, ptr %add.ptr2.i.i33.i.i.i, align 8
   %cmp.i.i34.not.i.i.i = icmp slt i64 %__parent.05.i.i27.i.i.i, %__parent.05.i.i.i
   br i1 %cmp.i.i34.not.i.i.i, label %_ZSt13__adjust_heapIPP10tactic_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ12help_tacticsvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, label %land.rhs.i.i24.i.i.i, !llvm.loop !17
@@ -3305,9 +3305,9 @@ while.body.i.i20:                                 ; preds = %while.body.i.i, %_Z
   %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %_ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit34 ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i
   %sub1.i.i = or disjoint i64 %add.i.i, 1
-  %add.ptr2.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr2.val.i.i = load ptr, ptr %add.ptr2.i.i, align 8
   %add.ptr.val.val.i.i = load ptr, ptr %add.ptr.val.i.i, align 8
@@ -3347,9 +3347,9 @@ _ZZ12help_tacticsvENK3cmpclEP10tactic_cmdS1_.exit34: ; preds = %invoke.cont.i30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i27)
   %spec.select.i.i = select i1 %cmp.i.i33, i64 %sub1.i.i, i64 %mul.i.i
-  %add.ptr3.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i
   %20 = load ptr, ptr %add.ptr3.i.i, align 8
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i
   store ptr %20, ptr %add.ptr4.i.i, align 8
   %cmp.i.i22 = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i22, label %while.body.i.i20, label %while.end.i.i, !llvm.loop !16
@@ -3369,9 +3369,9 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
 if.then9.i.i19:                                   ; preds = %land.lhs.true.i.i
   %add10.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
-  %add.ptr13.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i
   %22 = load ptr, ptr %add.ptr13.i.i, align 8
-  %add.ptr14.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
   store ptr %22, ptr %add.ptr14.i.i, align 8
   br label %if.end16.i.i
 
@@ -3924,17 +3924,17 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %__secondChild.024.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div11.i.i.i, %if.then ]
   %add.i.i.i.i = shl i64 %__secondChild.024.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
   %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
   store ptr %1, ptr %add.ptr4.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !25
@@ -3951,9 +3951,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i.i.i
+  %add.ptr13.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i.i.i
   %3 = load ptr, ptr %add.ptr13.i.i.i.i, align 8
-  %add.ptr14.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   store ptr %3, ptr %add.ptr14.i.i.i.i, align 8
   br label %if.end16.i.i.i.i
 
@@ -3974,7 +3974,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %4, ptr %add.ptr2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div11.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !26
@@ -3988,14 +3988,14 @@ _ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16
 
 if.end7.split.lr.ph.i.i.i:                        ; preds = %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
   %sub12.i41.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr13.i42.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i41.i.i.i
-  %add.ptr14.i43.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %div7.i.i.i.i
+  %add.ptr13.i42.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i41.i.i.i
+  %add.ptr14.i43.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %div7.i.i.i.i
   br label %if.end7.split.i.i.i
 
 if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, %if.end7.split.lr.ph.i.i.i
   %__parent.05.i.i.i = phi i64 [ %div11.i.i.i, %if.end7.split.lr.ph.i.i.i ], [ %dec.i.i.i, %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i ]
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
-  %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
   %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
@@ -4004,9 +4004,9 @@ while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i
   %__secondChild.024.i45.i.i.i = phi i64 [ %spec.select.i55.i.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit72.i.i.i ], [ %dec.i.i.i, %if.end7.split.i.i.i ]
   %add.i46.i.i.i = shl i64 %__secondChild.024.i45.i.i.i, 1
   %mul.i47.i.i.i = add i64 %add.i46.i.i.i, 2
-  %add.ptr.i48.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i47.i.i.i
+  %add.ptr.i48.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i47.i.i.i
   %sub1.i49.i.i.i = or disjoint i64 %add.i46.i.i.i, 1
-  %add.ptr2.i50.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i49.i.i.i
+  %add.ptr2.i50.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i49.i.i.i
   %add.ptr.val.i51.i.i.i = load ptr, ptr %add.ptr.i48.i.i.i, align 8
   %add.ptr2.val.i52.i.i.i = load ptr, ptr %add.ptr2.i50.i.i.i, align 8
   %add.ptr.val.val.i53.i.i.i = load ptr, ptr %add.ptr.val.i51.i.i.i, align 8
@@ -4052,9 +4052,9 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit72.i.i.i: ; preds = %in
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i64.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i65.i.i.i)
   %spec.select.i55.i.i.i = select i1 %cmp.i.i71.i.i.i, i64 %sub1.i49.i.i.i, i64 %mul.i47.i.i.i
-  %add.ptr3.i56.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i55.i.i.i
+  %add.ptr3.i56.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i55.i.i.i
   %9 = load ptr, ptr %add.ptr3.i56.i.i.i, align 8
-  %add.ptr4.i57.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
+  %add.ptr4.i57.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
   store ptr %9, ptr %add.ptr4.i57.i.i.i, align 8
   %cmp.i58.i.i.i = icmp slt i64 %spec.select.i55.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i58.i.i.i, label %while.body.i44.i.i.i, label %while.end.i15.i.i.i, !llvm.loop !25
@@ -4121,7 +4121,7 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i: ; preds = %invo
 
 while.body.i.i32.i.i.i:                           ; preds = %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit.i.i.i
   %14 = load ptr, ptr %add.ptr.i.i28.i.i.i, align 8
-  %add.ptr2.i.i33.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
+  %add.ptr2.i.i33.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
   store ptr %14, ptr %add.ptr2.i.i33.i.i.i, align 8
   %cmp.i.i34.not.i.i.i = icmp slt i64 %__parent.05.i.i27.i.i.i, %__parent.05.i.i.i
   br i1 %cmp.i.i34.not.i.i.i, label %_ZSt13__adjust_heapIPP14simplifier_cmdlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ16help_simplifiersvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, label %land.rhs.i.i24.i.i.i, !llvm.loop !26
@@ -4154,9 +4154,9 @@ while.body.i.i20:                                 ; preds = %while.body.i.i, %_Z
   %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %_ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit34 ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i
   %sub1.i.i = or disjoint i64 %add.i.i, 1
-  %add.ptr2.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr2.val.i.i = load ptr, ptr %add.ptr2.i.i, align 8
   %add.ptr.val.val.i.i = load ptr, ptr %add.ptr.val.i.i, align 8
@@ -4196,9 +4196,9 @@ _ZZ16help_simplifiersvENK3cmpclEP14simplifier_cmdS1_.exit34: ; preds = %invoke.c
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i27)
   %spec.select.i.i = select i1 %cmp.i.i33, i64 %sub1.i.i, i64 %mul.i.i
-  %add.ptr3.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i
   %20 = load ptr, ptr %add.ptr3.i.i, align 8
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i
   store ptr %20, ptr %add.ptr4.i.i, align 8
   %cmp.i.i22 = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i22, label %while.body.i.i20, label %while.end.i.i, !llvm.loop !25
@@ -4218,9 +4218,9 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
 if.then9.i.i19:                                   ; preds = %land.lhs.true.i.i
   %add10.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
-  %add.ptr13.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i
   %22 = load ptr, ptr %add.ptr13.i.i, align 8
-  %add.ptr14.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
   store ptr %22, ptr %add.ptr14.i.i, align 8
   br label %if.end16.i.i
 
@@ -4768,17 +4768,17 @@ while.body.i.i.i.i:                               ; preds = %if.then, %while.bod
   %__secondChild.024.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %while.body.i.i.i.i ], [ %div11.i.i.i, %if.then ]
   %add.i.i.i.i = shl i64 %__secondChild.024.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i.i.i
   %add.ptr.val.i.i.i.i = load ptr, ptr %add.ptr.i.i.i.i, align 8
   %add.ptr2.val.i.i.i.i = load ptr, ptr %add.ptr2.i.i.i.i, align 8
   %add.ptr.val.val.i.i.i.i = load ptr, ptr %add.ptr.val.i.i.i.i, align 8
   %call.i.i.i.i.i = call fastcc noundef zeroext i1 @_ZZ11help_probesvENK3cmpclEP10probe_infoS1_(ptr %add.ptr.val.val.i.i.i.i, ptr noundef readonly %add.ptr2.val.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %call.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i.i.i
   %1 = load ptr, ptr %add.ptr3.i.i.i.i, align 8
-  %add.ptr4.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i.i.i
   store ptr %1, ptr %add.ptr4.i.i.i.i, align 8
   %cmp.i.i.i.i = icmp slt i64 %spec.select.i.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %while.end.i.i.i.i, !llvm.loop !34
@@ -4795,9 +4795,9 @@ while.end.i.i.i.i:                                ; preds = %while.body.i.i.i.i,
 if.then9.i.i.i.i:                                 ; preds = %while.end.i.i.i.i
   %add10.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
-  %add.ptr13.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i.i.i
+  %add.ptr13.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i.i.i
   %3 = load ptr, ptr %add.ptr13.i.i.i.i, align 8
-  %add.ptr14.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   store ptr %3, ptr %add.ptr14.i.i.i.i, align 8
   br label %if.end16.i.i.i.i
 
@@ -4818,7 +4818,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
   %4 = load ptr, ptr %add.ptr.i.i.i.i.i, align 8
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i.i.i.i
   store ptr %4, ptr %add.ptr2.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.05.i.i.i.i.i, %div11.i.i.i
   br i1 %cmp.i.i.i.i.i, label %land.rhs.i.i.i.i.i, label %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i, !llvm.loop !35
@@ -4832,14 +4832,14 @@ _ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help
 
 if.end7.split.lr.ph.i.i.i:                        ; preds = %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit.i.i.i
   %sub12.i41.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr13.i42.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i41.i.i.i
-  %add.ptr14.i43.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %div7.i.i.i.i
+  %add.ptr13.i42.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i41.i.i.i
+  %add.ptr14.i43.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %div7.i.i.i.i
   br label %if.end7.split.i.i.i
 
 if.end7.split.i.i.i:                              ; preds = %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, %if.end7.split.lr.ph.i.i.i
   %__parent.05.i.i.i = phi i64 [ %div11.i.i.i, %if.end7.split.lr.ph.i.i.i ], [ %dec.i.i.i, %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i ]
   %dec.i.i.i = add nsw i64 %__parent.05.i.i.i, -1
-  %add.ptr10.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i.i
   %5 = load ptr, ptr %add.ptr10.i.i.i, align 8
   %cmp23.i14.not.i.i.i = icmp sgt i64 %__parent.05.i.i.i, %div.i13.i.i.i
   br i1 %cmp23.i14.not.i.i.i, label %while.end.i15.i.i.i, label %while.body.i44.i.i.i
@@ -4848,9 +4848,9 @@ while.body.i44.i.i.i:                             ; preds = %if.end7.split.i.i.i
   %__secondChild.024.i45.i.i.i = phi i64 [ %spec.select.i55.i.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit72.i.i.i ], [ %dec.i.i.i, %if.end7.split.i.i.i ]
   %add.i46.i.i.i = shl i64 %__secondChild.024.i45.i.i.i, 1
   %mul.i47.i.i.i = add i64 %add.i46.i.i.i, 2
-  %add.ptr.i48.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i47.i.i.i
+  %add.ptr.i48.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i47.i.i.i
   %sub1.i49.i.i.i = or disjoint i64 %add.i46.i.i.i, 1
-  %add.ptr2.i50.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i49.i.i.i
+  %add.ptr2.i50.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i49.i.i.i
   %add.ptr.val.i51.i.i.i = load ptr, ptr %add.ptr.i48.i.i.i, align 8
   %add.ptr2.val.i52.i.i.i = load ptr, ptr %add.ptr2.i50.i.i.i, align 8
   %add.ptr.val.val.i53.i.i.i = load ptr, ptr %add.ptr.val.i51.i.i.i, align 8
@@ -4896,9 +4896,9 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit72.i.i.i: ; preds = %invoke.cont
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i64.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i65.i.i.i)
   %spec.select.i55.i.i.i = select i1 %cmp.i.i71.i.i.i, i64 %sub1.i49.i.i.i, i64 %mul.i47.i.i.i
-  %add.ptr3.i56.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i55.i.i.i
+  %add.ptr3.i56.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i55.i.i.i
   %9 = load ptr, ptr %add.ptr3.i56.i.i.i, align 8
-  %add.ptr4.i57.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
+  %add.ptr4.i57.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i45.i.i.i
   store ptr %9, ptr %add.ptr4.i57.i.i.i, align 8
   %cmp.i58.i.i.i = icmp slt i64 %spec.select.i55.i.i.i, %div.i13.i.i.i
   br i1 %cmp.i58.i.i.i, label %while.body.i44.i.i.i, label %while.end.i15.i.i.i, !llvm.loop !34
@@ -4965,7 +4965,7 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i: ; preds = %invoke.cont.i
 
 while.body.i.i32.i.i.i:                           ; preds = %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit.i.i.i
   %14 = load ptr, ptr %add.ptr.i.i28.i.i.i, align 8
-  %add.ptr2.i.i33.i.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
+  %add.ptr2.i.i33.i.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__holeIndex.addr.04.i.i25.i.i.i
   store ptr %14, ptr %add.ptr2.i.i33.i.i.i, align 8
   %cmp.i.i34.not.i.i.i = icmp slt i64 %__parent.05.i.i27.i.i.i, %__parent.05.i.i.i
   br i1 %cmp.i.i34.not.i.i.i, label %_ZSt13__adjust_heapIPP10probe_infolS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZ11help_probesvE3cmpEEEvT_T0_S9_T1_T2_.exit59.i.i.i, label %land.rhs.i.i24.i.i.i, !llvm.loop !35
@@ -4998,9 +4998,9 @@ while.body.i.i20:                                 ; preds = %while.body.i.i, %_Z
   %__secondChild.024.i.i = phi i64 [ %spec.select.i.i, %_ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit34 ], [ 0, %while.body.i.i ]
   %add.i.i = shl i64 %__secondChild.024.i.i, 1
   %mul.i.i = add i64 %add.i.i, 2
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %__first, i64 %mul.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %mul.i.i
   %sub1.i.i = or disjoint i64 %add.i.i, 1
-  %add.ptr2.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub1.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub1.i.i
   %add.ptr.val.i.i = load ptr, ptr %add.ptr.i.i, align 8
   %add.ptr2.val.i.i = load ptr, ptr %add.ptr2.i.i, align 8
   %add.ptr.val.val.i.i = load ptr, ptr %add.ptr.val.i.i, align 8
@@ -5040,9 +5040,9 @@ _ZZ11help_probesvENK3cmpclEP10probe_infoS1_.exit34: ; preds = %invoke.cont.i30
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3.i26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i27)
   %spec.select.i.i = select i1 %cmp.i.i33, i64 %sub1.i.i, i64 %mul.i.i
-  %add.ptr3.i.i = getelementptr inbounds ptr, ptr %__first, i64 %spec.select.i.i
+  %add.ptr3.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %spec.select.i.i
   %20 = load ptr, ptr %add.ptr3.i.i, align 8
-  %add.ptr4.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.024.i.i
+  %add.ptr4.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.024.i.i
   store ptr %20, ptr %add.ptr4.i.i, align 8
   %cmp.i.i22 = icmp slt i64 %spec.select.i.i, %div.i.i
   br i1 %cmp.i.i22, label %while.body.i.i20, label %while.end.i.i, !llvm.loop !34
@@ -5062,9 +5062,9 @@ land.lhs.true.i.i:                                ; preds = %while.end.i.i
 if.then9.i.i19:                                   ; preds = %land.lhs.true.i.i
   %add10.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i, 1
   %sub12.i.i = or disjoint i64 %add10.i.i, 1
-  %add.ptr13.i.i = getelementptr inbounds ptr, ptr %__first, i64 %sub12.i.i
+  %add.ptr13.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %sub12.i.i
   %22 = load ptr, ptr %add.ptr13.i.i, align 8
-  %add.ptr14.i.i = getelementptr inbounds ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %__secondChild.0.lcssa.i.i
   store ptr %22, ptr %add.ptr14.i.i, align 8
   br label %if.end16.i.i
 

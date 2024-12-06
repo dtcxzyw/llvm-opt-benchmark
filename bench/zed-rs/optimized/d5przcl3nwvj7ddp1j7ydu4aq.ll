@@ -16718,7 +16718,7 @@ define hidden void @_ZN4core6escape14escape_unicode17h284b9d00be9d9dd5E(ptr dead
   %47 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %8
   store i8 92, ptr %47, align 1
   %48 = add nsw i64 %7, -1
-  %49 = getelementptr inbounds [10 x i8], ptr %3, i64 0, i64 %48
+  %49 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %48
   store i8 117, ptr %49, align 1
   %50 = getelementptr inbounds nuw [10 x i8], ptr %3, i64 0, i64 %7
   store i8 123, ptr %50, align 1
@@ -76502,7 +76502,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %118 = load i64, ptr %5, align 8, !alias.scope !17799, !noalias !17767, !noundef !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !17767
   %.sroa.0.019.i = and i64 %63, %118
-  %119 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.019.i
+  %119 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %119, align 1, !noalias !17802
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -76515,7 +76515,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %122 = add i64 %.sroa.7.022.i, 16
   %123 = add i64 %122, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %123, %63
-  %124 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i
+  %124 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %124, align 1, !noalias !17802
   %125 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %126 = bitcast <16 x i1> %125 to i16
@@ -76529,7 +76529,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %128 = zext nneg i16 %127 to i64
   %129 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %128
   %130 = and i64 %129, %63
-  %131 = getelementptr inbounds i8, ptr %66, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %66, i64 %130
   %132 = load i8, ptr %131, align 1, !noalias !17807, !noundef !9
   %133 = icmp sgt i8 %132, -1
   br i1 %133, label %134, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -76550,7 +76550,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %142 = trunc nuw nsw i64 %141 to i8
   %143 = add nsw i64 %.sroa.0.0.i12.i, -16
   %144 = and i64 %143, %63
-  %145 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i12.i
+  %145 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i12.i
   store i8 %142, ptr %145, align 1, !noalias !17763
   %gep = getelementptr i8, ptr %invariant.gep, i64 %144
   store i8 %142, ptr %gep, align 1, !noalias !17763
@@ -76759,7 +76759,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %89 = xor i64 %88, %87
   %90 = mul i64 %89, 5871781006564002453
   %.sroa.0.019.i = and i64 %90, %58
-  %91 = getelementptr inbounds i8, ptr %61, i64 %.sroa.0.019.i
+  %91 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %91, align 1, !noalias !17853
   %92 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %93 = bitcast <16 x i1> %92 to i16
@@ -76824,7 +76824,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %115 = add i64 %.sroa.7.022.i, 16
   %116 = add i64 %115, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %116, %58
-  %117 = getelementptr inbounds i8, ptr %61, i64 %.sroa.0.0.i
+  %117 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %117, align 1, !noalias !17853
   %118 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %119 = bitcast <16 x i1> %118 to i16
@@ -76838,7 +76838,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %121 = zext nneg i16 %120 to i64
   %122 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %121
   %123 = and i64 %122, %58
-  %124 = getelementptr inbounds i8, ptr %61, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %61, i64 %123
   %125 = load i8, ptr %124, align 1, !noalias !17869, !noundef !9
   %126 = icmp sgt i8 %125, -1
   br i1 %126, label %127, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -76859,7 +76859,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %135 = trunc nuw nsw i64 %134 to i8
   %136 = add nsw i64 %.sroa.0.0.i12.i, -16
   %137 = and i64 %136, %58
-  %138 = getelementptr inbounds i8, ptr %61, i64 %.sroa.0.0.i12.i
+  %138 = getelementptr inbounds nuw i8, ptr %61, i64 %.sroa.0.0.i12.i
   store i8 %135, ptr %138, align 1, !noalias !17858
   %gep = getelementptr i8, ptr %invariant.gep, i64 %137
   store i8 %135, ptr %gep, align 1, !noalias !17858
@@ -77064,7 +77064,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !17900, !noalias !17905, !noundef !9
   %85 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %61, %85
-  %86 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %86, align 1, !noalias !17912
   %87 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %88 = bitcast <16 x i1> %87 to i16
@@ -77133,7 +77133,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %113 = add i64 %.sroa.7.022.i, 16
   %114 = add i64 %113, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %114, %61
-  %115 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %115 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %115, align 1, !noalias !17912
   %116 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %117 = bitcast <16 x i1> %116 to i16
@@ -77147,7 +77147,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %119 = zext nneg i16 %118 to i64
   %120 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %119
   %121 = and i64 %120, %61
-  %122 = getelementptr inbounds i8, ptr %64, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 %121
   %123 = load i8, ptr %122, align 1, !noalias !17928, !noundef !9
   %124 = icmp sgt i8 %123, -1
   br i1 %124, label %125, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -77168,7 +77168,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %133 = trunc nuw nsw i64 %132 to i8
   %134 = add nsw i64 %.sroa.0.0.i12.i, -16
   %135 = and i64 %134, %61
-  %136 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %136 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %133, ptr %136, align 1, !noalias !17917
   %gep = getelementptr i8, ptr %invariant.gep, i64 %135
   store i8 %133, ptr %gep, align 1, !noalias !17917
@@ -77373,7 +77373,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !range !356, !alias.scope !17959, !noalias !17964, !noundef !9
   %85 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %61, %85
-  %86 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %86, align 1, !noalias !17971
   %87 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %88 = bitcast <16 x i1> %87 to i16
@@ -77442,7 +77442,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %113 = add i64 %.sroa.7.022.i, 16
   %114 = add i64 %113, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %114, %61
-  %115 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %115 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %115, align 1, !noalias !17971
   %116 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %117 = bitcast <16 x i1> %116 to i16
@@ -77456,7 +77456,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %119 = zext nneg i16 %118 to i64
   %120 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %119
   %121 = and i64 %120, %61
-  %122 = getelementptr inbounds i8, ptr %64, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 %121
   %123 = load i8, ptr %122, align 1, !noalias !17987, !noundef !9
   %124 = icmp sgt i8 %123, -1
   br i1 %124, label %125, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -77477,7 +77477,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %133 = trunc nuw nsw i64 %132 to i8
   %134 = add nsw i64 %.sroa.0.0.i12.i, -16
   %135 = and i64 %134, %61
-  %136 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %136 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %133, ptr %136, align 1, !noalias !17976
   %gep = getelementptr i8, ptr %invariant.gep, i64 %135
   store i8 %133, ptr %gep, align 1, !noalias !17976
@@ -77745,7 +77745,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %149 = mul i64 %148, 5871781006564002453
   %storemerge.i1.i.i.i.i.i = select i1 %142, i64 %149, i64 %146
   %.sroa.0.019.i = and i64 %storemerge.i1.i.i.i.i.i, %61
-  %150 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %150 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %150, align 1, !noalias !18040
   %151 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -77814,7 +77814,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %177 = add i64 %.sroa.7.022.i, 16
   %178 = add i64 %177, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %178, %61
-  %179 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %179 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %179, align 1, !noalias !18040
   %180 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %181 = bitcast <16 x i1> %180 to i16
@@ -77828,7 +77828,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %183 = zext nneg i16 %182 to i64
   %184 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %183
   %185 = and i64 %184, %61
-  %186 = getelementptr inbounds i8, ptr %64, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %64, i64 %185
   %187 = load i8, ptr %186, align 1, !noalias !18056, !noundef !9
   %188 = icmp sgt i8 %187, -1
   br i1 %188, label %189, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -77849,7 +77849,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %197 = trunc nuw nsw i64 %196 to i8
   %198 = add nsw i64 %.sroa.0.0.i12.i, -16
   %199 = and i64 %198, %61
-  %200 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %200 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %197, ptr %200, align 1, !noalias !18045
   %gep = getelementptr i8, ptr %invariant.gep, i64 %199
   store i8 %197, ptr %gep, align 1, !noalias !18045
@@ -78131,7 +78131,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %116 = mul i64 %115, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !18100
   %.sroa.0.019.i = and i64 %116, %60
-  %117 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %117 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %117, align 1, !noalias !18126
   %118 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %119 = bitcast <16 x i1> %118 to i16
@@ -78144,7 +78144,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %120 = add i64 %.sroa.7.022.i, 16
   %121 = add i64 %120, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %121, %60
-  %122 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %122 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %122, align 1, !noalias !18126
   %123 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %124 = bitcast <16 x i1> %123 to i16
@@ -78158,7 +78158,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %126 = zext nneg i16 %125 to i64
   %127 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %126
   %128 = and i64 %127, %60
-  %129 = getelementptr inbounds i8, ptr %63, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %63, i64 %128
   %130 = load i8, ptr %129, align 1, !noalias !18131, !noundef !9
   %131 = icmp sgt i8 %130, -1
   br i1 %131, label %132, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -78179,7 +78179,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %140 = trunc nuw nsw i64 %139 to i8
   %141 = add nsw i64 %.sroa.0.0.i12.i, -16
   %142 = and i64 %141, %60
-  %143 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %143 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %140, ptr %143, align 1, !noalias !18084
   %gep = getelementptr i8, ptr %invariant.gep, i64 %142
   store i8 %140, ptr %gep, align 1, !noalias !18084
@@ -79933,7 +79933,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !range !356, !alias.scope !18493, !noalias !18498, !noundef !9
   %79 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %55, %79
-  %80 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %80, align 1, !noalias !18505
   %81 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %82 = bitcast <16 x i1> %81 to i16
@@ -79993,7 +79993,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %100 = add i64 %.sroa.7.022.i, 16
   %101 = add i64 %100, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %101, %55
-  %102 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %102 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %102, align 1, !noalias !18505
   %103 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %104 = bitcast <16 x i1> %103 to i16
@@ -80007,7 +80007,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %106 = zext nneg i16 %105 to i64
   %107 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %106
   %108 = and i64 %107, %55
-  %109 = getelementptr inbounds i8, ptr %58, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %58, i64 %108
   %110 = load i8, ptr %109, align 1, !noalias !18521, !noundef !9
   %111 = icmp sgt i8 %110, -1
   br i1 %111, label %112, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -80028,7 +80028,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %120 = trunc nuw nsw i64 %119 to i8
   %121 = add nsw i64 %.sroa.0.0.i12.i, -16
   %122 = and i64 %121, %55
-  %123 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %123 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %120, ptr %123, align 1, !noalias !18510
   %gep = getelementptr i8, ptr %invariant.gep, i64 %122
   store i8 %120, ptr %gep, align 1, !noalias !18510
@@ -80772,7 +80772,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !18717
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !18670
   %.sroa.0.019.i = and i64 %65, %150
-  %151 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.019.i
+  %151 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %151, align 1, !noalias !18719
   %152 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %153 = bitcast <16 x i1> %152 to i16
@@ -80785,7 +80785,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %154 = add i64 %.sroa.7.022.i, 16
   %155 = add i64 %154, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %155, %65
-  %156 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i
+  %156 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %156, align 1, !noalias !18719
   %157 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %158 = bitcast <16 x i1> %157 to i16
@@ -80799,7 +80799,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %160 = zext nneg i16 %159 to i64
   %161 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %160
   %162 = and i64 %161, %65
-  %163 = getelementptr inbounds i8, ptr %68, i64 %162
+  %163 = getelementptr inbounds nuw i8, ptr %68, i64 %162
   %164 = load i8, ptr %163, align 1, !noalias !18724, !noundef !9
   %165 = icmp sgt i8 %164, -1
   br i1 %165, label %166, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -80820,7 +80820,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %174 = trunc nuw nsw i64 %173 to i8
   %175 = add nsw i64 %.sroa.0.0.i12.i, -16
   %176 = and i64 %175, %65
-  %177 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i12.i
+  %177 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i12.i
   store i8 %174, ptr %177, align 1, !noalias !18648
   %gep = getelementptr i8, ptr %invariant.gep, i64 %176
   store i8 %174, ptr %gep, align 1, !noalias !18648
@@ -81025,7 +81025,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !18755, !noalias !18760, !noundef !9
   %84 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %60, %84
-  %85 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %85, align 1, !noalias !18767
   %86 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %87 = bitcast <16 x i1> %86 to i16
@@ -81090,7 +81090,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %109 = add i64 %.sroa.7.022.i, 16
   %110 = add i64 %109, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %110, %60
-  %111 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %111 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %111, align 1, !noalias !18767
   %112 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %113 = bitcast <16 x i1> %112 to i16
@@ -81104,7 +81104,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %115 = zext nneg i16 %114 to i64
   %116 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %115
   %117 = and i64 %116, %60
-  %118 = getelementptr inbounds i8, ptr %63, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 %117
   %119 = load i8, ptr %118, align 1, !noalias !18783, !noundef !9
   %120 = icmp sgt i8 %119, -1
   br i1 %120, label %121, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -81125,7 +81125,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %129 = trunc nuw nsw i64 %128 to i8
   %130 = add nsw i64 %.sroa.0.0.i12.i, -16
   %131 = and i64 %130, %60
-  %132 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %132 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %129, ptr %132, align 1, !noalias !18772
   %gep = getelementptr i8, ptr %invariant.gep, i64 %131
   store i8 %129, ptr %gep, align 1, !noalias !18772
@@ -82113,7 +82113,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !18992
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6), !noalias !18966
   %.sroa.0.019.i = and i64 %61, %141
-  %142 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %142 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %142, align 1, !noalias !18994
   %143 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %144 = bitcast <16 x i1> %143 to i16
@@ -82126,7 +82126,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %145 = add i64 %.sroa.7.022.i, 16
   %146 = add i64 %145, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %146, %61
-  %147 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %147 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %147, align 1, !noalias !18994
   %148 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %149 = bitcast <16 x i1> %148 to i16
@@ -82140,7 +82140,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %151 = zext nneg i16 %150 to i64
   %152 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %151
   %153 = and i64 %152, %61
-  %154 = getelementptr inbounds i8, ptr %64, i64 %153
+  %154 = getelementptr inbounds nuw i8, ptr %64, i64 %153
   %155 = load i8, ptr %154, align 1, !noalias !18999, !noundef !9
   %156 = icmp sgt i8 %155, -1
   br i1 %156, label %157, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -82161,7 +82161,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %165 = trunc nuw nsw i64 %164 to i8
   %166 = add nsw i64 %.sroa.0.0.i12.i, -16
   %167 = and i64 %166, %61
-  %168 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %168 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %165, ptr %168, align 1, !noalias !18944
   %gep = getelementptr i8, ptr %invariant.gep, i64 %167
   store i8 %165, ptr %gep, align 1, !noalias !18944
@@ -83363,7 +83363,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %118 = load i64, ptr %5, align 8, !alias.scope !19271, !noalias !19233, !noundef !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !19233
   %.sroa.0.019.i = and i64 %57, %118
-  %119 = getelementptr inbounds i8, ptr %60, i64 %.sroa.0.019.i
+  %119 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %119, align 1, !noalias !19274
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -83376,7 +83376,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %122 = add i64 %.sroa.7.022.i, 16
   %123 = add i64 %122, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %123, %57
-  %124 = getelementptr inbounds i8, ptr %60, i64 %.sroa.0.0.i
+  %124 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %124, align 1, !noalias !19274
   %125 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %126 = bitcast <16 x i1> %125 to i16
@@ -83390,7 +83390,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %128 = zext nneg i16 %127 to i64
   %129 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %128
   %130 = and i64 %129, %57
-  %131 = getelementptr inbounds i8, ptr %60, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %60, i64 %130
   %132 = load i8, ptr %131, align 1, !noalias !19279, !noundef !9
   %133 = icmp sgt i8 %132, -1
   br i1 %133, label %134, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -83411,7 +83411,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %142 = trunc nuw nsw i64 %141 to i8
   %143 = add nsw i64 %.sroa.0.0.i12.i, -16
   %144 = and i64 %143, %57
-  %145 = getelementptr inbounds i8, ptr %60, i64 %.sroa.0.0.i12.i
+  %145 = getelementptr inbounds nuw i8, ptr %60, i64 %.sroa.0.0.i12.i
   store i8 %142, ptr %145, align 1, !noalias !19223
   %gep = getelementptr i8, ptr %invariant.gep, i64 %144
   store i8 %142, ptr %gep, align 1, !noalias !19223
@@ -83696,7 +83696,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %118 = load i64, ptr %5, align 8, !alias.scope !19343, !noalias !19311, !noundef !9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !19311
   %.sroa.0.019.i = and i64 %63, %118
-  %119 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.019.i
+  %119 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %119, align 1, !noalias !19346
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -83709,7 +83709,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %122 = add i64 %.sroa.7.022.i, 16
   %123 = add i64 %122, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %123, %63
-  %124 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i
+  %124 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %124, align 1, !noalias !19346
   %125 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %126 = bitcast <16 x i1> %125 to i16
@@ -83723,7 +83723,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %128 = zext nneg i16 %127 to i64
   %129 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %128
   %130 = and i64 %129, %63
-  %131 = getelementptr inbounds i8, ptr %66, i64 %130
+  %131 = getelementptr inbounds nuw i8, ptr %66, i64 %130
   %132 = load i8, ptr %131, align 1, !noalias !19351, !noundef !9
   %133 = icmp sgt i8 %132, -1
   br i1 %133, label %134, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -83744,7 +83744,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %142 = trunc nuw nsw i64 %141 to i8
   %143 = add nsw i64 %.sroa.0.0.i12.i, -16
   %144 = and i64 %143, %63
-  %145 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i12.i
+  %145 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i12.i
   store i8 %142, ptr %145, align 1, !noalias !19307
   %gep = getelementptr i8, ptr %invariant.gep, i64 %144
   store i8 %142, ptr %gep, align 1, !noalias !19307
@@ -84096,7 +84096,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !19441
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !19401
   %.sroa.0.019.i = and i64 %65, %148
-  %149 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.019.i
+  %149 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %149, align 1, !noalias !19443
   %150 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -84109,7 +84109,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %152 = add i64 %.sroa.7.022.i, 16
   %153 = add i64 %152, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %153, %65
-  %154 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i
+  %154 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %154, align 1, !noalias !19443
   %155 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %156 = bitcast <16 x i1> %155 to i16
@@ -84123,7 +84123,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %158 = zext nneg i16 %157 to i64
   %159 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %158
   %160 = and i64 %159, %65
-  %161 = getelementptr inbounds i8, ptr %68, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %68, i64 %160
   %162 = load i8, ptr %161, align 1, !noalias !19448, !noundef !9
   %163 = icmp sgt i8 %162, -1
   br i1 %163, label %164, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -84144,7 +84144,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %172 = trunc nuw nsw i64 %171 to i8
   %173 = add nsw i64 %.sroa.0.0.i12.i, -16
   %174 = and i64 %173, %65
-  %175 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i12.i
+  %175 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i12.i
   store i8 %172, ptr %175, align 1, !noalias !19379
   %gep = getelementptr i8, ptr %invariant.gep, i64 %174
   store i8 %172, ptr %gep, align 1, !noalias !19379
@@ -84435,7 +84435,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %122 = mul i64 %121, 5871781006564002453
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !19492
   %.sroa.0.019.i = and i64 %122, %63
-  %123 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.019.i
+  %123 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %123, align 1, !noalias !19518
   %124 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %125 = bitcast <16 x i1> %124 to i16
@@ -84448,7 +84448,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %126 = add i64 %.sroa.7.022.i, 16
   %127 = add i64 %126, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %127, %63
-  %128 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i
+  %128 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %128, align 1, !noalias !19518
   %129 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %130 = bitcast <16 x i1> %129 to i16
@@ -84462,7 +84462,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %132 = zext nneg i16 %131 to i64
   %133 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %132
   %134 = and i64 %133, %63
-  %135 = getelementptr inbounds i8, ptr %66, i64 %134
+  %135 = getelementptr inbounds nuw i8, ptr %66, i64 %134
   %136 = load i8, ptr %135, align 1, !noalias !19523, !noundef !9
   %137 = icmp sgt i8 %136, -1
   br i1 %137, label %138, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -84483,7 +84483,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %146 = trunc nuw nsw i64 %145 to i8
   %147 = add nsw i64 %.sroa.0.0.i12.i, -16
   %148 = and i64 %147, %63
-  %149 = getelementptr inbounds i8, ptr %66, i64 %.sroa.0.0.i12.i
+  %149 = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.0.0.i12.i
   store i8 %146, ptr %149, align 1, !noalias !19476
   %gep = getelementptr i8, ptr %invariant.gep, i64 %148
   store i8 %146, ptr %gep, align 1, !noalias !19476
@@ -84695,7 +84695,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %91 = xor i64 %90, %89
   %92 = mul i64 %91, 5871781006564002453
   %.sroa.0.019.i = and i64 %92, %60
-  %93 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %93 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %93, align 1, !noalias !19566
   %94 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %95 = bitcast <16 x i1> %94 to i16
@@ -84760,7 +84760,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %117 = add i64 %.sroa.7.022.i, 16
   %118 = add i64 %117, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %118, %60
-  %119 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %119 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %119, align 1, !noalias !19566
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -84774,7 +84774,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %123 = zext nneg i16 %122 to i64
   %124 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %123
   %125 = and i64 %124, %60
-  %126 = getelementptr inbounds i8, ptr %63, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %63, i64 %125
   %127 = load i8, ptr %126, align 1, !noalias !19582, !noundef !9
   %128 = icmp sgt i8 %127, -1
   br i1 %128, label %129, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -84795,7 +84795,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %137 = trunc nuw nsw i64 %136 to i8
   %138 = add nsw i64 %.sroa.0.0.i12.i, -16
   %139 = and i64 %138, %60
-  %140 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %140 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %137, ptr %140, align 1, !noalias !19571
   %gep = getelementptr i8, ptr %invariant.gep, i64 %139
   store i8 %137, ptr %gep, align 1, !noalias !19571
@@ -85378,7 +85378,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %143 = mul i64 %142, 5871781006564002453
   %storemerge.i1.i.i.i.i.i = select i1 %136, i64 %143, i64 %140
   %.sroa.0.019.i = and i64 %storemerge.i1.i.i.i.i.i, %55
-  %144 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %144 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %144, align 1, !noalias !19710
   %145 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -85438,7 +85438,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %164 = add i64 %.sroa.7.022.i, 16
   %165 = add i64 %164, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %165, %55
-  %166 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %166 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %166, align 1, !noalias !19710
   %167 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %168 = bitcast <16 x i1> %167 to i16
@@ -85452,7 +85452,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %170 = zext nneg i16 %169 to i64
   %171 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %170
   %172 = and i64 %171, %55
-  %173 = getelementptr inbounds i8, ptr %58, i64 %172
+  %173 = getelementptr inbounds nuw i8, ptr %58, i64 %172
   %174 = load i8, ptr %173, align 1, !noalias !19726, !noundef !9
   %175 = icmp sgt i8 %174, -1
   br i1 %175, label %176, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -85473,7 +85473,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %184 = trunc nuw nsw i64 %183 to i8
   %185 = add nsw i64 %.sroa.0.0.i12.i, -16
   %186 = and i64 %185, %55
-  %187 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %187 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %184, ptr %187, align 1, !noalias !19715
   %gep = getelementptr i8, ptr %invariant.gep, i64 %186
   store i8 %184, ptr %gep, align 1, !noalias !19715
@@ -86650,7 +86650,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17h7ec32422a12c02faE.exit": ; preds = %._crit_edge
   %.sroa.0.019.i = and i64 %62, %91
-  %117 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.019.i
+  %117 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %117, align 1, !noalias !19952
   %118 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %119 = bitcast <16 x i1> %118 to i16
@@ -86663,7 +86663,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %120 = add i64 %.sroa.7.022.i, 16
   %121 = add i64 %120, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %121, %62
-  %122 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.0.i
+  %122 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %122, align 1, !noalias !19952
   %123 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %124 = bitcast <16 x i1> %123 to i16
@@ -86677,7 +86677,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %126 = zext nneg i16 %125 to i64
   %127 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %126
   %128 = and i64 %127, %62
-  %129 = getelementptr inbounds i8, ptr %65, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %65, i64 %128
   %130 = load i8, ptr %129, align 1, !noalias !19957, !noundef !9
   %131 = icmp sgt i8 %130, -1
   br i1 %131, label %132, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -86698,7 +86698,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %140 = trunc nuw nsw i64 %139 to i8
   %141 = add nsw i64 %.sroa.0.0.i12.i, -16
   %142 = and i64 %141, %62
-  %143 = getelementptr inbounds i8, ptr %65, i64 %.sroa.0.0.i12.i
+  %143 = getelementptr inbounds nuw i8, ptr %65, i64 %.sroa.0.0.i12.i
   store i8 %140, ptr %143, align 1, !noalias !19934
   %gep = getelementptr i8, ptr %invariant.gep, i64 %142
   store i8 %140, ptr %gep, align 1, !noalias !19934
@@ -87195,7 +87195,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !range !356, !alias.scope !20047, !noalias !20052, !noundef !9
   %84 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %60, %84
-  %85 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %85, align 1, !noalias !20059
   %86 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %87 = bitcast <16 x i1> %86 to i16
@@ -87260,7 +87260,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %109 = add i64 %.sroa.7.022.i, 16
   %110 = add i64 %109, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %110, %60
-  %111 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %111 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %111, align 1, !noalias !20059
   %112 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %113 = bitcast <16 x i1> %112 to i16
@@ -87274,7 +87274,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %115 = zext nneg i16 %114 to i64
   %116 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %115
   %117 = and i64 %116, %60
-  %118 = getelementptr inbounds i8, ptr %63, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 %117
   %119 = load i8, ptr %118, align 1, !noalias !20075, !noundef !9
   %120 = icmp sgt i8 %119, -1
   br i1 %120, label %121, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -87295,7 +87295,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %129 = trunc nuw nsw i64 %128 to i8
   %130 = add nsw i64 %.sroa.0.0.i12.i, -16
   %131 = and i64 %130, %60
-  %132 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %132 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %129, ptr %132, align 1, !noalias !20064
   %gep = getelementptr i8, ptr %invariant.gep, i64 %131
   store i8 %129, ptr %gep, align 1, !noalias !20064
@@ -87812,7 +87812,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %91 = xor i64 %90, %89
   %92 = mul i64 %91, 5871781006564002453
   %.sroa.0.019.i = and i64 %92, %60
-  %93 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %93 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %93, align 1, !noalias !20188
   %94 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %95 = bitcast <16 x i1> %94 to i16
@@ -87877,7 +87877,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %117 = add i64 %.sroa.7.022.i, 16
   %118 = add i64 %117, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %118, %60
-  %119 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %119 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %119, align 1, !noalias !20188
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -87891,7 +87891,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %123 = zext nneg i16 %122 to i64
   %124 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %123
   %125 = and i64 %124, %60
-  %126 = getelementptr inbounds i8, ptr %63, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %63, i64 %125
   %127 = load i8, ptr %126, align 1, !noalias !20204, !noundef !9
   %128 = icmp sgt i8 %127, -1
   br i1 %128, label %129, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -87912,7 +87912,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %137 = trunc nuw nsw i64 %136 to i8
   %138 = add nsw i64 %.sroa.0.0.i12.i, -16
   %139 = and i64 %138, %60
-  %140 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %140 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %137, ptr %140, align 1, !noalias !20193
   %gep = getelementptr i8, ptr %invariant.gep, i64 %139
   store i8 %137, ptr %gep, align 1, !noalias !20193
@@ -88117,7 +88117,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !20235, !noalias !20240, !noundef !9
   %84 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %60, %84
-  %85 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %85 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %85, align 1, !noalias !20247
   %86 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %87 = bitcast <16 x i1> %86 to i16
@@ -88182,7 +88182,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %109 = add i64 %.sroa.7.022.i, 16
   %110 = add i64 %109, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %110, %60
-  %111 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %111 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %111, align 1, !noalias !20247
   %112 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %113 = bitcast <16 x i1> %112 to i16
@@ -88196,7 +88196,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %115 = zext nneg i16 %114 to i64
   %116 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %115
   %117 = and i64 %116, %60
-  %118 = getelementptr inbounds i8, ptr %63, i64 %117
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 %117
   %119 = load i8, ptr %118, align 1, !noalias !20263, !noundef !9
   %120 = icmp sgt i8 %119, -1
   br i1 %120, label %121, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -88217,7 +88217,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %129 = trunc nuw nsw i64 %128 to i8
   %130 = add nsw i64 %.sroa.0.0.i12.i, -16
   %131 = and i64 %130, %60
-  %132 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %132 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %129, ptr %132, align 1, !noalias !20252
   %gep = getelementptr i8, ptr %invariant.gep, i64 %131
   store i8 %129, ptr %gep, align 1, !noalias !20252
@@ -88422,7 +88422,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %86 = xor i64 %85, %84
   %87 = mul i64 %86, 5871781006564002453
   %.sroa.0.019.i = and i64 %87, %55
-  %88 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %88 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %88, align 1, !noalias !20309
   %89 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %90 = bitcast <16 x i1> %89 to i16
@@ -88482,7 +88482,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %108 = add i64 %.sroa.7.022.i, 16
   %109 = add i64 %108, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %109, %55
-  %110 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %110 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %110, align 1, !noalias !20309
   %111 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %112 = bitcast <16 x i1> %111 to i16
@@ -88496,7 +88496,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %114 = zext nneg i16 %113 to i64
   %115 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %114
   %116 = and i64 %115, %55
-  %117 = getelementptr inbounds i8, ptr %58, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %58, i64 %116
   %118 = load i8, ptr %117, align 1, !noalias !20325, !noundef !9
   %119 = icmp sgt i8 %118, -1
   br i1 %119, label %120, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -88517,7 +88517,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %128 = trunc nuw nsw i64 %127 to i8
   %129 = add nsw i64 %.sroa.0.0.i12.i, -16
   %130 = and i64 %129, %55
-  %131 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %131 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %128, ptr %131, align 1, !noalias !20314
   %gep = getelementptr i8, ptr %invariant.gep, i64 %130
   store i8 %128, ptr %gep, align 1, !noalias !20314
@@ -88711,7 +88711,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %78 = zext i16 %.val3.i to i64
   %79 = mul i64 %78, 5871781006564002453
   %.sroa.0.019.i = and i64 %79, %54
-  %80 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.019.i
+  %80 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %80, align 1, !noalias !20368
   %81 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %82 = bitcast <16 x i1> %81 to i16
@@ -88773,7 +88773,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %102 = add i64 %.sroa.7.022.i, 16
   %103 = add i64 %102, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %103, %54
-  %104 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i
+  %104 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %104, align 1, !noalias !20368
   %105 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %106 = bitcast <16 x i1> %105 to i16
@@ -88787,7 +88787,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %108 = zext nneg i16 %107 to i64
   %109 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %108
   %110 = and i64 %109, %54
-  %111 = getelementptr inbounds i8, ptr %57, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %57, i64 %110
   %112 = load i8, ptr %111, align 1, !noalias !20384, !noundef !9
   %113 = icmp sgt i8 %112, -1
   br i1 %113, label %114, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -88808,7 +88808,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %122 = trunc nuw nsw i64 %121 to i8
   %123 = add nsw i64 %.sroa.0.0.i12.i, -16
   %124 = and i64 %123, %54
-  %125 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i12.i
+  %125 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i12.i
   store i8 %122, ptr %125, align 1, !noalias !20373
   %gep = getelementptr i8, ptr %invariant.gep, i64 %124
   store i8 %122, ptr %gep, align 1, !noalias !20373
@@ -89306,7 +89306,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !20474, !noalias !20479, !noundef !9
   %79 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %55, %79
-  %80 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %80, align 1, !noalias !20486
   %81 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %82 = bitcast <16 x i1> %81 to i16
@@ -89366,7 +89366,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %100 = add i64 %.sroa.7.022.i, 16
   %101 = add i64 %100, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %101, %55
-  %102 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %102 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %102, align 1, !noalias !20486
   %103 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %104 = bitcast <16 x i1> %103 to i16
@@ -89380,7 +89380,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %106 = zext nneg i16 %105 to i64
   %107 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %106
   %108 = and i64 %107, %55
-  %109 = getelementptr inbounds i8, ptr %58, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %58, i64 %108
   %110 = load i8, ptr %109, align 1, !noalias !20502, !noundef !9
   %111 = icmp sgt i8 %110, -1
   br i1 %111, label %112, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -89401,7 +89401,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %120 = trunc nuw nsw i64 %119 to i8
   %121 = add nsw i64 %.sroa.0.0.i12.i, -16
   %122 = and i64 %121, %55
-  %123 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %123 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %120, ptr %123, align 1, !noalias !20491
   %gep = getelementptr i8, ptr %invariant.gep, i64 %122
   store i8 %120, ptr %gep, align 1, !noalias !20491
@@ -89611,7 +89611,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %90 = or disjoint i64 %88, %89
   %91 = mul i64 %90, 5871781006564002453
   %.sroa.0.019.i = and i64 %91, %60
-  %92 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %92 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %92, align 1, !noalias !20545
   %93 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %94 = bitcast <16 x i1> %93 to i16
@@ -89676,7 +89676,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %116 = add i64 %.sroa.7.022.i, 16
   %117 = add i64 %116, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %117, %60
-  %118 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %118 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %118, align 1, !noalias !20545
   %119 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %120 = bitcast <16 x i1> %119 to i16
@@ -89690,7 +89690,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %122 = zext nneg i16 %121 to i64
   %123 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %122
   %124 = and i64 %123, %60
-  %125 = getelementptr inbounds i8, ptr %63, i64 %124
+  %125 = getelementptr inbounds nuw i8, ptr %63, i64 %124
   %126 = load i8, ptr %125, align 1, !noalias !20561, !noundef !9
   %127 = icmp sgt i8 %126, -1
   br i1 %127, label %128, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -89711,7 +89711,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %136 = trunc nuw nsw i64 %135 to i8
   %137 = add nsw i64 %.sroa.0.0.i12.i, -16
   %138 = and i64 %137, %60
-  %139 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %139 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %136, ptr %139, align 1, !noalias !20550
   %gep = getelementptr i8, ptr %invariant.gep, i64 %138
   store i8 %136, ptr %gep, align 1, !noalias !20550
@@ -90542,7 +90542,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !20727, !noalias !20732, !noundef !9
   %85 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %61, %85
-  %86 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %86, align 1, !noalias !20739
   %87 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %88 = bitcast <16 x i1> %87 to i16
@@ -90611,7 +90611,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %113 = add i64 %.sroa.7.022.i, 16
   %114 = add i64 %113, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %114, %61
-  %115 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %115 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %115, align 1, !noalias !20739
   %116 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %117 = bitcast <16 x i1> %116 to i16
@@ -90625,7 +90625,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %119 = zext nneg i16 %118 to i64
   %120 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %119
   %121 = and i64 %120, %61
-  %122 = getelementptr inbounds i8, ptr %64, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 %121
   %123 = load i8, ptr %122, align 1, !noalias !20755, !noundef !9
   %124 = icmp sgt i8 %123, -1
   br i1 %124, label %125, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -90646,7 +90646,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %133 = trunc nuw nsw i64 %132 to i8
   %134 = add nsw i64 %.sroa.0.0.i12.i, -16
   %135 = and i64 %134, %61
-  %136 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %136 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %133, ptr %136, align 1, !noalias !20744
   %gep = getelementptr i8, ptr %invariant.gep, i64 %135
   store i8 %133, ptr %gep, align 1, !noalias !20744
@@ -90914,7 +90914,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %149 = mul i64 %148, 5871781006564002453
   %storemerge.i1.i.i.i.i.i = select i1 %142, i64 %149, i64 %146
   %.sroa.0.019.i = and i64 %storemerge.i1.i.i.i.i.i, %61
-  %150 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %150 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %150, align 1, !noalias !20808
   %151 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -90983,7 +90983,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %177 = add i64 %.sroa.7.022.i, 16
   %178 = add i64 %177, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %178, %61
-  %179 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %179 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %179, align 1, !noalias !20808
   %180 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %181 = bitcast <16 x i1> %180 to i16
@@ -90997,7 +90997,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %183 = zext nneg i16 %182 to i64
   %184 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %183
   %185 = and i64 %184, %61
-  %186 = getelementptr inbounds i8, ptr %64, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %64, i64 %185
   %187 = load i8, ptr %186, align 1, !noalias !20824, !noundef !9
   %188 = icmp sgt i8 %187, -1
   br i1 %188, label %189, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -91018,7 +91018,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %197 = trunc nuw nsw i64 %196 to i8
   %198 = add nsw i64 %.sroa.0.0.i12.i, -16
   %199 = and i64 %198, %61
-  %200 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %200 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %197, ptr %200, align 1, !noalias !20813
   %gep = getelementptr i8, ptr %invariant.gep, i64 %199
   store i8 %197, ptr %gep, align 1, !noalias !20813
@@ -91286,7 +91286,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %149 = mul i64 %148, 5871781006564002453
   %storemerge.i1.i.i.i.i.i = select i1 %142, i64 %149, i64 %146
   %.sroa.0.019.i = and i64 %storemerge.i1.i.i.i.i.i, %61
-  %150 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %150 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %150, align 1, !noalias !20877
   %151 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %152 = bitcast <16 x i1> %151 to i16
@@ -91355,7 +91355,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %177 = add i64 %.sroa.7.022.i, 16
   %178 = add i64 %177, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %178, %61
-  %179 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %179 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %179, align 1, !noalias !20877
   %180 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %181 = bitcast <16 x i1> %180 to i16
@@ -91369,7 +91369,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %183 = zext nneg i16 %182 to i64
   %184 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %183
   %185 = and i64 %184, %61
-  %186 = getelementptr inbounds i8, ptr %64, i64 %185
+  %186 = getelementptr inbounds nuw i8, ptr %64, i64 %185
   %187 = load i8, ptr %186, align 1, !noalias !20893, !noundef !9
   %188 = icmp sgt i8 %187, -1
   br i1 %188, label %189, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -91390,7 +91390,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %197 = trunc nuw nsw i64 %196 to i8
   %198 = add nsw i64 %.sroa.0.0.i12.i, -16
   %199 = and i64 %198, %61
-  %200 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %200 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %197, ptr %200, align 1, !noalias !20882
   %gep = getelementptr i8, ptr %invariant.gep, i64 %199
   store i8 %197, ptr %gep, align 1, !noalias !20882
@@ -91601,7 +91601,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %91 = xor i64 %90, %89
   %92 = mul i64 %91, 5871781006564002453
   %.sroa.0.019.i = and i64 %92, %60
-  %93 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.019.i
+  %93 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %93, align 1, !noalias !20939
   %94 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %95 = bitcast <16 x i1> %94 to i16
@@ -91666,7 +91666,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %117 = add i64 %.sroa.7.022.i, 16
   %118 = add i64 %117, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %118, %60
-  %119 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i
+  %119 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %119, align 1, !noalias !20939
   %120 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %121 = bitcast <16 x i1> %120 to i16
@@ -91680,7 +91680,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %123 = zext nneg i16 %122 to i64
   %124 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %123
   %125 = and i64 %124, %60
-  %126 = getelementptr inbounds i8, ptr %63, i64 %125
+  %126 = getelementptr inbounds nuw i8, ptr %63, i64 %125
   %127 = load i8, ptr %126, align 1, !noalias !20955, !noundef !9
   %128 = icmp sgt i8 %127, -1
   br i1 %128, label %129, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -91701,7 +91701,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %137 = trunc nuw nsw i64 %136 to i8
   %138 = add nsw i64 %.sroa.0.0.i12.i, -16
   %139 = and i64 %138, %60
-  %140 = getelementptr inbounds i8, ptr %63, i64 %.sroa.0.0.i12.i
+  %140 = getelementptr inbounds nuw i8, ptr %63, i64 %.sroa.0.0.i12.i
   store i8 %137, ptr %140, align 1, !noalias !20944
   %gep = getelementptr i8, ptr %invariant.gep, i64 %139
   store i8 %137, ptr %gep, align 1, !noalias !20944
@@ -92057,7 +92057,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5), !noalias !21044
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %7), !noalias !21005
   %.sroa.0.019.i = and i64 %65, %148
-  %149 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.019.i
+  %149 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %149, align 1, !noalias !21046
   %150 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %151 = bitcast <16 x i1> %150 to i16
@@ -92070,7 +92070,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %152 = add i64 %.sroa.7.022.i, 16
   %153 = add i64 %152, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %153, %65
-  %154 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i
+  %154 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %154, align 1, !noalias !21046
   %155 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %156 = bitcast <16 x i1> %155 to i16
@@ -92084,7 +92084,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %158 = zext nneg i16 %157 to i64
   %159 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %158
   %160 = and i64 %159, %65
-  %161 = getelementptr inbounds i8, ptr %68, i64 %160
+  %161 = getelementptr inbounds nuw i8, ptr %68, i64 %160
   %162 = load i8, ptr %161, align 1, !noalias !21051, !noundef !9
   %163 = icmp sgt i8 %162, -1
   br i1 %163, label %164, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -92105,7 +92105,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %172 = trunc nuw nsw i64 %171 to i8
   %173 = add nsw i64 %.sroa.0.0.i12.i, -16
   %174 = and i64 %173, %65
-  %175 = getelementptr inbounds i8, ptr %68, i64 %.sroa.0.0.i12.i
+  %175 = getelementptr inbounds nuw i8, ptr %68, i64 %.sroa.0.0.i12.i
   store i8 %172, ptr %175, align 1, !noalias !20983
   %gep = getelementptr i8, ptr %invariant.gep, i64 %174
   store i8 %172, ptr %gep, align 1, !noalias !20983
@@ -92317,7 +92317,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %91 = or disjoint i64 %89, %90
   %92 = mul i64 %91, 5871781006564002453
   %.sroa.0.019.i = and i64 %92, %61
-  %93 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %93 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %93, align 1, !noalias !21094
   %94 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %95 = bitcast <16 x i1> %94 to i16
@@ -92386,7 +92386,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %120 = add i64 %.sroa.7.022.i, 16
   %121 = add i64 %120, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %121, %61
-  %122 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %122, align 1, !noalias !21094
   %123 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %124 = bitcast <16 x i1> %123 to i16
@@ -92400,7 +92400,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %126 = zext nneg i16 %125 to i64
   %127 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %126
   %128 = and i64 %127, %61
-  %129 = getelementptr inbounds i8, ptr %64, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %64, i64 %128
   %130 = load i8, ptr %129, align 1, !noalias !21110, !noundef !9
   %131 = icmp sgt i8 %130, -1
   br i1 %131, label %132, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -92421,7 +92421,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %140 = trunc nuw nsw i64 %139 to i8
   %141 = add nsw i64 %.sroa.0.0.i12.i, -16
   %142 = and i64 %141, %61
-  %143 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %143 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %140, ptr %143, align 1, !noalias !21099
   %gep = getelementptr i8, ptr %invariant.gep, i64 %142
   store i8 %140, ptr %gep, align 1, !noalias !21099
@@ -93258,7 +93258,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %85 = or disjoint i64 %83, %84
   %86 = mul i64 %85, 5871781006564002453
   %.sroa.0.019.i = and i64 %86, %55
-  %87 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %87 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %87, align 1, !noalias !21292
   %88 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %89 = bitcast <16 x i1> %88 to i16
@@ -93318,7 +93318,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %107 = add i64 %.sroa.7.022.i, 16
   %108 = add i64 %107, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %108, %55
-  %109 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %109 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %109, align 1, !noalias !21292
   %110 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %111 = bitcast <16 x i1> %110 to i16
@@ -93332,7 +93332,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %113 = zext nneg i16 %112 to i64
   %114 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %113
   %115 = and i64 %114, %55
-  %116 = getelementptr inbounds i8, ptr %58, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %58, i64 %115
   %117 = load i8, ptr %116, align 1, !noalias !21308, !noundef !9
   %118 = icmp sgt i8 %117, -1
   br i1 %118, label %119, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -93353,7 +93353,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %127 = trunc nuw nsw i64 %126 to i8
   %128 = add nsw i64 %.sroa.0.0.i12.i, -16
   %129 = and i64 %128, %55
-  %130 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %130 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %127, ptr %130, align 1, !noalias !21297
   %gep = getelementptr i8, ptr %invariant.gep, i64 %129
   store i8 %127, ptr %gep, align 1, !noalias !21297
@@ -94213,7 +94213,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !21508, !noalias !21513, !noundef !9
   %79 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %55, %79
-  %80 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.019.i
+  %80 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %80, align 1, !noalias !21520
   %81 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %82 = bitcast <16 x i1> %81 to i16
@@ -94273,7 +94273,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %100 = add i64 %.sroa.7.022.i, 16
   %101 = add i64 %100, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %101, %55
-  %102 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i
+  %102 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %102, align 1, !noalias !21520
   %103 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %104 = bitcast <16 x i1> %103 to i16
@@ -94287,7 +94287,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %106 = zext nneg i16 %105 to i64
   %107 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %106
   %108 = and i64 %107, %55
-  %109 = getelementptr inbounds i8, ptr %58, i64 %108
+  %109 = getelementptr inbounds nuw i8, ptr %58, i64 %108
   %110 = load i8, ptr %109, align 1, !noalias !21536, !noundef !9
   %111 = icmp sgt i8 %110, -1
   br i1 %111, label %112, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -94308,7 +94308,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %120 = trunc nuw nsw i64 %119 to i8
   %121 = add nsw i64 %.sroa.0.0.i12.i, -16
   %122 = and i64 %121, %55
-  %123 = getelementptr inbounds i8, ptr %58, i64 %.sroa.0.0.i12.i
+  %123 = getelementptr inbounds nuw i8, ptr %58, i64 %.sroa.0.0.i12.i
   store i8 %120, ptr %123, align 1, !noalias !21525
   %gep = getelementptr i8, ptr %invariant.gep, i64 %122
   store i8 %120, ptr %gep, align 1, !noalias !21525
@@ -94912,7 +94912,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hb514c198d72a4a08E.llv
   %.val3.i = load i64, ptr %gep45, align 8, !alias.scope !21671, !noalias !21676, !noundef !9
   %85 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.019.i = and i64 %61, %85
-  %86 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.019.i
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.019.i
   %.sroa.0.0.copyload.i1720.i = load <16 x i8>, ptr %86, align 1, !noalias !21683
   %87 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1720.i, zeroinitializer
   %88 = bitcast <16 x i1> %87 to i16
@@ -94981,7 +94981,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %113 = add i64 %.sroa.7.022.i, 16
   %114 = add i64 %113, %.sroa.0.023.i
   %.sroa.0.0.i = and i64 %114, %61
-  %115 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i
+  %115 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i17.i = load <16 x i8>, ptr %115, align 1, !noalias !21683
   %116 = icmp slt <16 x i8> %.sroa.0.0.copyload.i17.i, zeroinitializer
   %117 = bitcast <16 x i1> %116 to i16
@@ -94995,7 +94995,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.54
   %119 = zext nneg i16 %118 to i64
   %120 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %119
   %121 = and i64 %120, %61
-  %122 = getelementptr inbounds i8, ptr %64, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %64, i64 %121
   %123 = load i8, ptr %122, align 1, !noalias !21699, !noundef !9
   %124 = icmp sgt i8 %123, -1
   br i1 %124, label %125, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495058782197839064.exit
@@ -95016,7 +95016,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.llvm.5495
   %133 = trunc nuw nsw i64 %132 to i8
   %134 = add nsw i64 %.sroa.0.0.i12.i, -16
   %135 = and i64 %134, %61
-  %136 = getelementptr inbounds i8, ptr %64, i64 %.sroa.0.0.i12.i
+  %136 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0.0.i12.i
   store i8 %133, ptr %136, align 1, !noalias !21688
   %gep = getelementptr i8, ptr %invariant.gep, i64 %135
   store i8 %133, ptr %gep, align 1, !noalias !21688

@@ -3664,7 +3664,7 @@ define internal fastcc noundef range(i32 -31, 3) i32 @_ZN19brotli_decompressor6d
   br i1 %98, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit.thread", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit.lr.ph"
 
 "_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcd72623f7cb9c693E.exit.lr.ph": ; preds = %96
-  %99 = getelementptr inbounds i32, ptr %38, i64 %91
+  %99 = getelementptr inbounds nuw i32, ptr %38, i64 %91
   %100 = zext i16 %.019 to i32
   %101 = zext i16 %.020 to i32
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 2260
@@ -8307,7 +8307,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h839b4014e967008
   %44 = load i16, ptr %29, align 1, !alias.scope !1007, !noalias !1008
   %45 = add nsw i64 %31, -1
   %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds [0 x i8], ptr %29, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw [0 x i8], ptr %29, i64 0, i64 %45
   %48 = load i8, ptr %47, align 1, !alias.scope !999, !noalias !1004, !noundef !5
   %49 = zext i8 %48 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
@@ -8997,7 +8997,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   %21 = load i16, ptr %4, align 1, !alias.scope !1072, !noalias !1079
   %22 = add nsw i64 %6, -1
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %22
   %25 = load i8, ptr %24, align 1, !alias.scope !1074, !noalias !1077, !noundef !5
   %26 = zext i8 %25 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i

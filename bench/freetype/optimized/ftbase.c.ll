@@ -19288,7 +19288,7 @@ ft_mem_free.exit:                                 ; preds = %Mac_Read_POST_Resou
   br i1 %.not.i40, label %180, label %Mac_Read_sfnt_Resource.exit
 
 180:                                              ; preds = %175
-  %181 = getelementptr inbounds i64, ptr %178, i64 %spec.select.i
+  %181 = getelementptr inbounds nuw i64, ptr %178, i64 %spec.select.i
   %182 = load i64, ptr %181, align 8
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %184 = load ptr, ptr %183, align 8

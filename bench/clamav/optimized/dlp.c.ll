@@ -193,7 +193,7 @@ get_iin.exit:                                     ; preds = %52, %.lr.ph.split.u
   br i1 %.not82, label %.critedge, label %83
 
 80:                                               ; preds = %68
-  %81 = getelementptr inbounds [20 x i8], ptr %4, i64 0, i64 %.265112
+  %81 = getelementptr inbounds nuw [20 x i8], ptr %4, i64 0, i64 %.265112
   store i8 %71, ptr %81, align 1
   %82 = add nuw nsw i64 %.265112, 1
   br label %83

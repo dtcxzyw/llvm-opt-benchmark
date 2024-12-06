@@ -2385,7 +2385,7 @@ if.else:                                          ; preds = %cond.end
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %output_buf) #24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %output_buf, ptr nonnull align 1 %add.ptr21, i64 %sub, i1 false)
   %call.i58 = tail call noundef zeroext i1 @_ZN7porting20secure_rand_fill_bufEPvm(ptr noundef nonnull %m_rand_buf17, i64 noundef 2048)
-  %add.ptr24 = getelementptr inbounds i8, ptr %output_buf, i64 %sub
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %output_buf, i64 %sub
   %sub28 = sub nuw nsw i64 %cond8, %sub
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr24, ptr nonnull align 4 %m_rand_buf17, i64 %sub28, i1 false)
   %conv31 = trunc nuw nsw i64 %sub28 to i32

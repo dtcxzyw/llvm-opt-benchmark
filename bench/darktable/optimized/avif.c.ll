@@ -410,7 +410,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %188 = or <8 x i1> %187, %186
   %189 = select <8 x i1> %188, <8 x float> %185, <8 x float> zeroinitializer
   %190 = select <8 x i1> %186, <8 x float> %153, <8 x float> %189
-  %191 = getelementptr inbounds i8, <8 x ptr> %181, i64 4
+  %191 = getelementptr inbounds nuw i8, <8 x ptr> %181, i64 4
   %192 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %191, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49, !alias.scope !51
   %193 = fmul reassoc nsz arcp contract afn <8 x float> %192, %153
   %194 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %193, %153
@@ -418,7 +418,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %196 = or <8 x i1> %195, %194
   %197 = select <8 x i1> %196, <8 x float> %193, <8 x float> zeroinitializer
   %198 = select <8 x i1> %194, <8 x float> %153, <8 x float> %197
-  %199 = getelementptr inbounds i8, <8 x ptr> %181, i64 8
+  %199 = getelementptr inbounds nuw i8, <8 x ptr> %181, i64 8
   %200 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %199, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49, !alias.scope !51
   %201 = fmul reassoc nsz arcp contract afn <8 x float> %200, %153
   %202 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %201, %153
@@ -578,7 +578,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %310 = or <8 x i1> %309, %308
   %311 = select <8 x i1> %310, <8 x float> %307, <8 x float> zeroinitializer
   %312 = select <8 x i1> %308, <8 x float> %276, <8 x float> %311
-  %313 = getelementptr inbounds i8, <8 x ptr> %303, i64 4
+  %313 = getelementptr inbounds nuw i8, <8 x ptr> %303, i64 4
   %314 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %313, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49
   %315 = fmul reassoc nsz arcp contract afn <8 x float> %314, %276
   %316 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %315, %276
@@ -586,7 +586,7 @@ define noundef range(i32 0, 2) i32 @write_image(ptr nocapture noundef readonly %
   %318 = or <8 x i1> %317, %316
   %319 = select <8 x i1> %318, <8 x float> %315, <8 x float> zeroinitializer
   %320 = select <8 x i1> %316, <8 x float> %276, <8 x float> %319
-  %321 = getelementptr inbounds i8, <8 x ptr> %303, i64 8
+  %321 = getelementptr inbounds nuw i8, <8 x ptr> %303, i64 8
   %322 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %321, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !49
   %323 = fmul reassoc nsz arcp contract afn <8 x float> %322, %276
   %324 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %323, %276

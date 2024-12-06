@@ -2732,7 +2732,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_19AggregateFilterDataESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_19AggregateFilterDataESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !120
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.186", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.186", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !118
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.186", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !121
@@ -4505,7 +4505,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_15GlobalSinkStateESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_15GlobalSinkStateESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !209
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.277", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.277", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !211
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.277", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !213
@@ -4677,7 +4677,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_9DataChunkESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_9DataChunkESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !205
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.302", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.302", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !207
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.302", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !228
@@ -6362,7 +6362,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_20GroupedAggregateDataESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_20GroupedAggregateDataESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !246
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.292", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.292", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !245
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.292", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !267
@@ -6532,7 +6532,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_25RadixPartitionedHashTableESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_25RadixPartitionedHashTableESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !244
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.253", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.253", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !243
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.253", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !282
@@ -8562,7 +8562,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_14LocalSinkStateESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_14LocalSinkStateESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !348
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.350", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.350", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !346
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.350", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !349
@@ -31991,7 +31991,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_26WindowPartitionSourceStateESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_26WindowPartitionSourceStateESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !1021
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.1125", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1125", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !1020
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1125", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !1022
@@ -46462,7 +46462,7 @@ if.then.i73.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN6duckdb10unique_ptrINS0_6VectorESt14default_deleteIS2_ELb1EEESaIS5_EE13_M_deallocateEPS5_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN6duckdb10unique_ptrINS0_6VectorESt14default_deleteIS2_ELb1EEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !1377
-  %add.ptr37.i = getelementptr inbounds %"class.duckdb::unique_ptr.1107", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1107", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !1376
   %add.ptr40.i = getelementptr inbounds nuw %"class.duckdb::unique_ptr.1107", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !1443
@@ -46536,7 +46536,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -46714,7 +46714,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN6duck
 
 _ZNSt12_Vector_baseIN6duckdb6vectorIhLb1EEESaIS2_EE13_M_deallocateEPS2_m.exit74: ; preds = %if.then.i73, %_ZNSt6vectorIN6duckdb6vectorIhLb1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1362
-  %add.ptr37 = getelementptr inbounds %"class.duckdb::vector.1202", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.duckdb::vector.1202", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1361
   %add.ptr40 = getelementptr inbounds nuw %"class.duckdb::vector.1202", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1461
@@ -46949,7 +46949,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPN6du
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPN6duckdb12FunctionDataESaIS2_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPN6duckdb12FunctionDataESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !14
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -47253,7 +47253,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPFvRN
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPFvRN6duckdb6VectorERNS0_18AggregateInputDataEmESaIS6_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPFvRN6duckdb6VectorERNS0_18AggregateInputDataEmESaIS6_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !14
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -48700,7 +48700,7 @@ if.then.i80:                                      ; preds = %_ZNSt6vectorISt3set
 
 _ZNSt12_Vector_baseISt3setImSt4lessImESaImEESaIS4_EE13_M_deallocateEPS4_m.exit81: ; preds = %if.then.i80, %_ZNSt6vectorISt3setImSt4lessImESaImEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !255
-  %add.ptr37 = getelementptr inbounds %"class.std::set", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::set", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !254
   %add.ptr40 = getelementptr inbounds nuw %"class.std::set", ptr %call5.i.i.i, i64 %10
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !396

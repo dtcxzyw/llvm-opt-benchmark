@@ -3230,7 +3230,7 @@ for.body138:                                      ; preds = %for.cond135
   br i1 %cmp139, label %if.then, label %if.end161
 
 if.then:                                          ; preds = %for.body138
-  %arrayidx140 = getelementptr inbounds ptr, ptr %13, i64 %finalized.0
+  %arrayidx140 = getelementptr inbounds nuw ptr, ptr %13, i64 %finalized.0
   %80 = load ptr, ptr %arrayidx140, align 8, !tbaa !3
   invoke void @_ZN6duckdb9DataChunk5ResetEv(ptr noundef nonnull align 8 dereferenceable(64) %prefixed)
           to label %invoke.cont142 unwind label %lpad141

@@ -2491,7 +2491,7 @@ if.then.i.i139:                                   ; preds = %"_ZZN6Assimp11AMFIm
   unreachable
 
 invoke.cont108:                                   ; preds = %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_0clERKNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEPKm.exit"
-  %add.ptr.i.i = getelementptr inbounds %class.aiVector3t, ptr %29, i64 %retval.0.i
+  %add.ptr.i.i = getelementptr inbounds nuw %class.aiVector3t, ptr %29, i64 %retval.0.i
   %cmp.not.i = icmp eq ptr %vert_arr.sroa.0.13851, %vert_arr.sroa.42.11847
   br i1 %cmp.not.i, label %_ZNKSt6vectorI10aiVector3tIfESaIS1_EE12_M_check_lenEmPKc.exit.i.i, label %if.then.i141
 
@@ -2751,7 +2751,7 @@ if.then.i.i202:                                   ; preds = %if.end122
   unreachable
 
 invoke.cont123:                                   ; preds = %if.end122
-  %add.ptr.i.i203 = getelementptr inbounds %class.aiVector3t, ptr %44, i64 %rv.5.lcssa.i
+  %add.ptr.i.i203 = getelementptr inbounds nuw %class.aiVector3t, ptr %44, i64 %rv.5.lcssa.i
   %cmp.not.i208 = icmp eq ptr %vert_arr.sroa.19.21255, %vert_arr.sroa.42.21247
   br i1 %cmp.not.i208, label %if.else.i212, label %if.then.i209
 

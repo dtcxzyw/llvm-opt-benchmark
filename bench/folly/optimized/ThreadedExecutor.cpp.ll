@@ -4209,7 +4209,7 @@ if.then.i226:                                     ; preds = %while.cond98
   %conv109 = zext nneg i8 %28 to i64
   %sub110 = add nsw i64 %conv109, -1
   %rawItems_.i.i.i216 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %29, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i217 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i216, i64 0, i64 %sub110
+  %arrayidx.i.i.i.i.i217 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i216, i64 0, i64 %sub110
   %cmp.i.i221 = icmp ult i8 %28, 17
   call void @llvm.assume(i1 %cmp.i.i221)
   %shr.i.i222 = lshr i64 %sub110, 1
@@ -11200,7 +11200,7 @@ if.then13:                                        ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflowCountEv.exit, %if.then13
   %14 = phi i64 [ %and.i62, %if.then13 ], [ %and.i74, %_ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then13 ], [ %add, %_ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i66 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.151", ptr %9, i64 %14, i32 2
+  %outboundOverflowCount_.i66 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.151", ptr %9, i64 %14, i32 2
   %15 = load i8, ptr %outboundOverflowCount_.i66, align 1, !tbaa !366
   %cmp.not.i67 = icmp eq i8 %15, -1
   br i1 %cmp.not.i67, label %_ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflowCountEv.exit, label %if.then.i68
@@ -11705,7 +11705,7 @@ if.then.i228:                                     ; preds = %while.cond99
   %conv110 = zext nneg i8 %30 to i64
   %sub111 = add nsw i64 %conv110, -1
   %rawItems_.i.i.i219 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.151", ptr %31, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i220 = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i219, i64 0, i64 %sub111
+  %arrayidx.i.i.i.i.i220 = getelementptr inbounds nuw [15 x %"union.std::aligned_storage<16, 8>::type"], ptr %rawItems_.i.i.i219, i64 0, i64 %sub111
   %cmp.i.i224 = icmp ult i8 %30, 17
   call void @llvm.assume(i1 %cmp.i.i224)
   %32 = ptrtoint ptr %arrayidx.i.i.i.i.i220 to i64
@@ -11976,7 +11976,7 @@ if.then.i4:                                       ; preds = %_ZN5folly3f146detai
 cleanup.thread.i:                                 ; preds = %cleanup.i, %if.then.i4
   %hostedOp.0.lcssa.i = phi i8 [ 0, %if.then.i4 ], [ -16, %cleanup.i ]
   %15 = phi i64 [ %and.i37.i, %if.then.i4 ], [ %and.i.i, %cleanup.i ]
-  %control_.i24.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.151", ptr %13, i64 %15, i32 1
+  %control_.i24.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.151", ptr %13, i64 %15, i32 1
   %16 = load i8, ptr %control_.i24.i, align 2, !tbaa !213
   %add.i25.i = add i8 %16, %hostedOp.0.lcssa.i
   store i8 %add.i25.i, ptr %control_.i24.i, align 2, !tbaa !213
@@ -11985,7 +11985,7 @@ cleanup.thread.i:                                 ; preds = %cleanup.i, %if.then
 if.end.i5:                                        ; preds = %if.then.i4, %cleanup.i
   %17 = phi i64 [ %and.i.i, %cleanup.i ], [ %and.i37.i, %if.then.i4 ]
   %index.040.i = phi i64 [ %add.i, %cleanup.i ], [ %hp.coerce0, %if.then.i4 ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk.151", ptr %13, i64 %17, i32 2
+  %outboundOverflowCount_.i.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.151", ptr %13, i64 %17, i32 2
   %18 = load i8, ptr %outboundOverflowCount_.i.i, align 1, !tbaa !366
   %cmp.not.i26.i = icmp eq i8 %18, -1
   br i1 %cmp.not.i26.i, label %cleanup.i, label %if.then.i27.i

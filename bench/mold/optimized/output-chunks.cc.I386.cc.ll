@@ -28477,7 +28477,7 @@ if.then:                                          ; preds = %while.body, %while.
 if.end9.split.i.i:                                ; preds = %if.then, %if.end9.split.i.i
   %__parent.017.i.i = phi i64 [ %dec.i.i, %if.end9.split.i.i ], [ %div15.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.017.i.i, -1
-  %add.ptr12.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__first, i64 %dec.i.i
+  %add.ptr12.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload13.i.i = load i64, ptr %add.ptr12.i.i, align 1
   tail call void @_ZSt13__adjust_heapIPN4mold3elf6ElfRelINS1_4I386EEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, i64 %__value.sroa.0.0.copyload13.i.i, ptr %__comp.coerce)
   %cmp7.i.i12 = icmp eq i64 %dec.i.i, 0
@@ -46771,7 +46771,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us
   %__parent.065.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.065.us, -1
-  %add.ptr11.us = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 1
   %cmp23.i16.not.us = icmp sgt i64 %__parent.065.us, %div.i6163
   br i1 %cmp23.i16.not.us, label %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us, label %while.body.i46.us
@@ -46825,7 +46825,7 @@ _ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7Cont
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60
   %__parent.065 = phi i64 [ %dec, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_4I386EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.065, -1
-  %add.ptr11 = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 1
   %cmp23.i16.not = icmp sgt i64 %__parent.065, %div.i6163
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i46
@@ -47624,7 +47624,7 @@ cond.false22.i39:                                 ; preds = %cond.false16.i37
 
 _ZNK3tbb6detail2d116quick_sort_rangeIPZN4mold3elf14EhFrameSectionINS4_4I386EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_E15median_of_threeERKSC_mmm.exit48: ; preds = %cond.true.i43, %cond.false.i45, %cond.false16.i37, %cond.false22.i39
   %cond34.i42 = phi i64 [ %cond.i47, %cond.false.i45 ], [ %cond30.i41, %cond.false22.i39 ], [ %mul7, %cond.true.i43 ], [ %mul7, %cond.false16.i37 ]
-  %arrayidx.i49 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i
+  %arrayidx.i49 = getelementptr inbounds nuw %struct.HdrEntry, ptr %1, i64 %cond34.i
   %arrayidx2.i50 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i23
   %x.0.copyload.i.i.i51 = load i32, ptr %arrayidx.i49, align 1
   %x.0.copyload.i1.i.i52 = load i32, ptr %arrayidx2.i50, align 1

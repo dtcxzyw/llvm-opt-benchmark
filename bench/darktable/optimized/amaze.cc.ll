@@ -3426,7 +3426,7 @@ define hidden void @amaze_demosaic(ptr nocapture noundef readonly %0, ptr nocapt
 
 2806:                                             ; preds = %2804, %2777
   %2807 = phi reassoc nsz arcp contract afn float [ %2803, %2777 ], [ 0.000000e+00, %2804 ]
-  %.idx = shl nsw i64 %2751, 3
+  %.idx = shl nuw nsw i64 %2751, 3
   %.offs = or disjoint i64 %.idx, 4
   %2808 = getelementptr inbounds nuw i8, ptr %49, i64 %.offs
   store float %2807, ptr %2808, align 4, !tbaa !97

@@ -6309,7 +6309,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm14LRStartEndInfoElN9
 
 24:                                               ; preds = %24, %20
   %.0.i.i.i = phi i64 [ %23, %20 ], [ %27, %24 ]
-  %25 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %21, ptr noundef nonnull byval(%"struct.llvm::LRStartEndInfo") align 8 %25)
   %26 = icmp eq i64 %.0.i.i.i, 0
   %27 = add nsw i64 %.0.i.i.i, -1
@@ -6509,9 +6509,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   %.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %8 = shl i64 %.031, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %11
   %.sroa.01.0.copyload.i = load i64, ptr %10, align 8
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8
   %13 = and i64 %.sroa.01.0.copyload.i, -8
@@ -6532,8 +6532,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   %28 = or i32 %27, %24
   %29 = icmp ult i32 %20, %28
   %spec.select = select i1 %29, i64 %11, i64 %9
-  %30 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %spec.select
-  %31 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.031
+  %30 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %spec.select
+  %31 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.031
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %32 = icmp slt i64 %spec.select, %6
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !158
@@ -6553,8 +6553,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
 39:                                               ; preds = %35
   %40 = shl nsw i64 %.0.lcssa, 1
   %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %41
-  %43 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.lcssa
+  %42 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %41
+  %43 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, ptr noundef nonnull align 8 dereferenceable(24) %42, i64 24, i1 false)
   br label %44
 
@@ -6593,7 +6593,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm14LRStartEndInfoElS1_N9
   br i1 %64, label %65, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit"
 
 65:                                               ; preds = %52
-  %66 = getelementptr inbounds %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0133.i
+  %66 = getelementptr inbounds nuw %"struct.llvm::LRStartEndInfo", ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %53, i64 24, i1 false)
   %67 = icmp sgt i64 %.04.i, %1
   br i1 %67, label %52, label %"_ZSt11__push_heapIPN4llvm14LRStartEndInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_26extractInstructionFeaturesERNS0_15SmallVectorImplIS1_EEPNS0_13MLModelRunnerENS0_12function_refIFiNS0_9SlotIndexEEEENSB_IFfSC_EEENSB_IFPNS0_17MachineBasicBlockESC_EEEiiiiSC_E3$_0EEEvT_T0_SO_T1_RT2_.exit", !llvm.loop !159

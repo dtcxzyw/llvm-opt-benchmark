@@ -463,7 +463,7 @@ for.body.i:                                       ; preds = %if.end.i, %if.end36
   br i1 %cmp14.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit, label %if.end16.i
 
 if.end16.i:                                       ; preds = %for.body.i
-  %arrayidx17.i = getelementptr inbounds i8, ptr %add.ptr64, i64 %offset.024.i
+  %arrayidx17.i = getelementptr inbounds nuw i8, ptr %add.ptr64, i64 %offset.024.i
   %13 = load i8, ptr %arrayidx17.i, align 1
   %cmp19.not.i = icmp eq i8 %13, 0
   br i1 %cmp19.not.i, label %if.end21.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit
@@ -483,7 +483,7 @@ if.end21.i:                                       ; preds = %if.end16.i
   br i1 %cmp34.i, label %_ZN4node6crypto17ClientHelloParser14ParseExtensionEtPKhm.exit, label %if.end36.i
 
 if.end36.i:                                       ; preds = %if.end21.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %add.ptr64, i64 %add13.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %add.ptr64, i64 %add13.i
   store ptr %add.ptr.i, ptr %servername_.i, align 8
   store i16 %add29.i, ptr %servername_size_.i, align 8
   %cmp12.i = icmp ult i64 %add33.i, %add5.i
@@ -548,7 +548,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %cmp14, label %sw.epilog, label %if.end16
 
 if.end16:                                         ; preds = %for.body
-  %arrayidx17 = getelementptr inbounds i8, ptr %data, i64 %offset.024
+  %arrayidx17 = getelementptr inbounds nuw i8, ptr %data, i64 %offset.024
   %2 = load i8, ptr %arrayidx17, align 1
   %cmp19.not = icmp eq i8 %2, 0
   br i1 %cmp19.not, label %if.end21, label %sw.epilog
@@ -568,7 +568,7 @@ if.end21:                                         ; preds = %if.end16
   br i1 %cmp34, label %sw.epilog, label %if.end36
 
 if.end36:                                         ; preds = %if.end21
-  %add.ptr = getelementptr inbounds i8, ptr %data, i64 %add13
+  %add.ptr = getelementptr inbounds nuw i8, ptr %data, i64 %add13
   store ptr %add.ptr, ptr %servername_, align 8
   store i16 %add29, ptr %servername_size_, align 8
   %cmp12 = icmp ult i64 %add33, %add5

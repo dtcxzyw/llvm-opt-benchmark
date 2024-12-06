@@ -14007,7 +14007,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN8rationalD2Ev.exit42, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZN8rationalD2Ev.exit42 ]
-  %add.ptr = getelementptr inbounds %class.rational, ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %__parent.0
   %0 = load i32, ptr %add.ptr, align 8
   store i32 %0, ptr %__value, align 8
   %m_kind3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4

@@ -3640,7 +3640,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h619429f1d5826810E.exit: ; preds 
   %91 = xor i64 %.sroa.0.08.i.i, -1
   %92 = add nsw i64 %87, %91
   %93 = getelementptr inbounds nuw [0 x { i64, [7 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %94 = getelementptr inbounds [0 x { i64, [7 x i64] }], ptr %90, i64 0, i64 %92
+  %94 = getelementptr inbounds nuw [0 x { i64, [7 x i64] }], ptr %90, i64 0, i64 %92
   br label %95
 
 95:                                               ; preds = %95, %.lr.ph.preheader.i.i
@@ -3743,7 +3743,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h6762748cc50fee07E.exit.thread: ;
   %30 = xor i64 %.sroa.0.08.i.i, -1
   %31 = add nsw i64 %26, %30
   %32 = getelementptr inbounds nuw [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %33 = getelementptr inbounds [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %29, i64 0, i64 %31
+  %33 = getelementptr inbounds nuw [0 x { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }], ptr %29, i64 0, i64 %31
   br label %34
 
 34:                                               ; preds = %34, %.lr.ph.preheader.i.i
@@ -3845,7 +3845,7 @@ _ZN4core5slice4sort6shared17find_existing_run17hb1cec88409843158E.exit.thread: ;
   %29 = xor i64 %.sroa.0.08.i.i, -1
   %30 = add nsw i64 %25, %29
   %31 = getelementptr inbounds nuw [0 x i64], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %32 = getelementptr inbounds [0 x i64], ptr %28, i64 0, i64 %30
+  %32 = getelementptr inbounds nuw [0 x i64], ptr %28, i64 0, i64 %30
   %33 = load i64, ptr %31, align 8, !alias.scope !1222, !noalias !1220, !noundef !5
   %34 = load i64, ptr %32, align 8, !alias.scope !1225, !noalias !1217
   store i64 %34, ptr %31, align 8, !alias.scope !1222, !noalias !1220

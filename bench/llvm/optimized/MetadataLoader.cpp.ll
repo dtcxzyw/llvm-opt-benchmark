@@ -21999,7 +21999,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit33: ; preds = %84, %89
 96:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit33, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit31, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit
   %.sroa.speculated64 = phi i64 [ %.sroa.speculated65, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit33 ], [ %.sroa.speculated, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit31 ], [ %.sroa.speculated, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit ]
   %97 = sub i64 %.sroa.754.067, %.sroa.speculated64
-  %98 = getelementptr inbounds i64, ptr %.sroa.049.066, i64 %.sroa.speculated64
+  %98 = getelementptr inbounds nuw i64, ptr %.sroa.049.066, i64 %.sroa.speculated64
   %99 = icmp eq i64 %97, 0
   br i1 %99, label %._crit_edge, label %47, !llvm.loop !754
 

@@ -450,7 +450,7 @@ define void @Gia_CreateHeader(ptr nocapture noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %4, %11
   %.020 = phi i64 [ %12, %11 ], [ 0, %4 ]
-  %14 = getelementptr inbounds i8, ptr %3, i64 %.020
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 %.020
   %15 = sub nsw i64 %9, %.020
   %16 = tail call i64 @write(i32 noundef %8, ptr noundef %14, i64 noundef %15) #17
   %17 = icmp slt i64 %16, 0

@@ -8643,7 +8643,7 @@ _ZN14regex_automata4util8captures14GroupInfoInner9group_len17h54f6f08f5d394483E.
   %591 = xor i64 %.011.i.i, -1
   %592 = add nsw i64 %587, %591
   %593 = getelementptr inbounds nuw [0 x i32], ptr %.fca.0.extract43, i64 0, i64 %.011.i.i
-  %594 = getelementptr inbounds [0 x i32], ptr %590, i64 0, i64 %592
+  %594 = getelementptr inbounds nuw [0 x i32], ptr %590, i64 0, i64 %592
   call void @llvm.experimental.noalias.scope.decl(metadata !1693)
   call void @llvm.experimental.noalias.scope.decl(metadata !1696)
   %595 = load i32, ptr %593, align 4, !alias.scope !1698, !noalias !1701, !noundef !4

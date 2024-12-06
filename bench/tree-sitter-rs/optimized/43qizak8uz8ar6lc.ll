@@ -9758,7 +9758,7 @@ define hidden void @_ZN4core4hash4Hash10hash_slice17h925907478f50d824E.llvm.1039
   br i1 %44, label %45, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %6, i64 %.1.i.i9
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i.i9
   %47 = load i8, ptr %46, align 1, !alias.scope !2409, !noalias !2412, !noundef !14
   %48 = zext i8 %47 to i64
   %49 = shl nuw nsw i64 %.1.i.i9, 3
@@ -9900,7 +9900,7 @@ _ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i10: ; preds = %45, %43
   br i1 %131, label %132, label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds i8, ptr %5, i64 %.1.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i.i
   %134 = load i8, ptr %133, align 1, !alias.scope !2432, !noalias !2435, !noundef !14
   %135 = zext i8 %134 to i64
   %136 = shl nuw nsw i64 %.1.i.i, 3

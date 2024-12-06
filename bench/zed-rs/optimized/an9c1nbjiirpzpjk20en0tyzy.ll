@@ -8037,8 +8037,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d7fd49c33d
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %22), !noalias !897
   call void @llvm.experimental.noalias.scope.decl(metadata !898)
   %47 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %48 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.0.0.ph.lcssa88, i64 %47
-  %49 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %47
+  %48 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } } } }, ptr %.sroa.0.0.ph.lcssa88, i64 %47
+  %49 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, i64 } } } }, ptr %2, i64 %47
   %50 = getelementptr i8, ptr %40, i64 -24
   br label %.lr.ph.i.i
 
@@ -8837,7 +8837,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h4e077f64b
   unreachable
 
 184:                                              ; preds = %181
-  %185 = getelementptr inbounds i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
+  %185 = getelementptr inbounds nuw i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
   %.not4.i.i = icmp eq i64 %.sroa.09.0.i, %.sroa.9.0.i
   br i1 %.not4.i.i, label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17ha6e8363192833b44E.exit.i, label %.lr.ph.preheader.i.i
 
@@ -8887,8 +8887,8 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17ha6e8363192833b
 197:                                              ; preds = %196
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1067)
   %198 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %199 = getelementptr inbounds i64, ptr %6, i64 %198
-  %200 = getelementptr inbounds i64, ptr %.sroa.0.0.lcssa, i64 %198
+  %199 = getelementptr inbounds nuw i64, ptr %6, i64 %198
+  %200 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.lcssa, i64 %198
   %201 = getelementptr i8, ptr %13, i64 -8
   br label %.lr.ph.i20.i
 
@@ -8973,7 +8973,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h0952f67e6353b7deE.ex
 235:                                              ; preds = %.lr.ph
   %236 = add i32 %.sroa.020.078, -1
   %237 = lshr i64 %.sroa.11.080, 3
-  %.idx.i = shl nsw i64 %237, 5
+  %.idx.i = shl nuw nsw i64 %237, 5
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.081, i64 %.idx.i
   %.idx1.i = mul i64 %237, 56
   %239 = getelementptr inbounds i8, ptr %.sroa.0.081, i64 %.idx1.i

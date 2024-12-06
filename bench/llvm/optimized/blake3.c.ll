@@ -1280,7 +1280,7 @@ define dso_local void @llvm_blake3_hasher_update(ptr noundef %0, ptr noundef %1,
   %586 = shl i64 %578, 5
   %587 = getelementptr inbounds i8, ptr %16, i64 %586
   %588 = shl i64 %578, 6
-  %589 = getelementptr inbounds i8, ptr %15, i64 %588
+  %589 = getelementptr inbounds nuw i8, ptr %15, i64 %588
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %587, ptr noundef nonnull align 16 dereferenceable(32) %589, i64 32, i1 false)
   %590 = add nuw i64 %577, 2
   br label %591

@@ -492,7 +492,7 @@ while.end.i:                                      ; preds = %if.end8.i, %if.end.
   %.lcssa.i = phi ptr [ %3, %if.end.i ], [ %buf_.i.i, %if.end8.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i, i8 32, i64 %n.addr.0.lcssa.i, i1 false)
   %8 = load ptr, ptr %pos_.i.i, align 8
-  %add.ptr.i27.i = getelementptr inbounds i8, ptr %8, i64 %n.addr.0.lcssa.i
+  %add.ptr.i27.i = getelementptr inbounds nuw i8, ptr %8, i64 %n.addr.0.lcssa.i
   store ptr %add.ptr.i27.i, ptr %pos_.i.i, align 8
   br label %if.end5
 
@@ -573,7 +573,7 @@ while.end.i47:                                    ; preds = %if.end8.i63, %if.en
   %.lcssa.i49 = phi ptr [ %add.ptr.i27.i16, %if.end.i38 ], [ %buf_.i.i52, %if.end8.i63 ]
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.lcssa.i49, i8 32, i64 %n.addr.0.lcssa.i48, i1 false)
   %19 = load ptr, ptr %pos_.i.i8, align 8
-  %add.ptr.i27.i50 = getelementptr inbounds i8, ptr %19, i64 %n.addr.0.lcssa.i48
+  %add.ptr.i27.i50 = getelementptr inbounds nuw i8, ptr %19, i64 %n.addr.0.lcssa.i48
   store ptr %add.ptr.i27.i50, ptr %pos_.i.i8, align 8
   br label %if.end8
 
@@ -746,7 +746,7 @@ while.end.i:                                      ; preds = %if.end8.i, %if.end.
   %.lcssa.i = phi ptr [ %10, %if.end.i44 ], [ %buf_.i.i, %if.end8.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i, i8 32, i64 %n.addr.0.lcssa.i, i1 false)
   %15 = load ptr, ptr %pos_.i.i, align 8
-  %add.ptr.i27.i = getelementptr inbounds i8, ptr %15, i64 %n.addr.0.lcssa.i
+  %add.ptr.i27.i = getelementptr inbounds nuw i8, ptr %15, i64 %n.addr.0.lcssa.i
   store ptr %add.ptr.i27.i, ptr %pos_.i.i, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit
 
@@ -982,7 +982,7 @@ while.end.i133:                                   ; preds = %if.end8.i149, %if.e
   %.lcssa.i135 = phi ptr [ %45, %if.end.i124 ], [ %buf_.i.i138, %if.end8.i149 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i135, i8 32, i64 %n.addr.0.lcssa.i134, i1 false)
   %50 = load ptr, ptr %pos_.i.i128, align 8
-  %add.ptr.i27.i136 = getelementptr inbounds i8, ptr %50, i64 %n.addr.0.lcssa.i134
+  %add.ptr.i27.i136 = getelementptr inbounds nuw i8, ptr %50, i64 %n.addr.0.lcssa.i134
   store ptr %add.ptr.i27.i136, ptr %pos_.i.i128, align 8
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit153
 

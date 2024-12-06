@@ -4820,151 +4820,151 @@ define internal noundef i32 @rt_copypaste_scale_callback(ptr noundef %0, ptr noc
   %38 = shufflevector <8 x i32> %37, <8 x i32> poison, <8 x i32> zeroinitializer
   %39 = insertelement <8 x i32> poison, i32 %31, i64 0
   %40 = shufflevector <8 x i32> %39, <8 x i32> poison, <8 x i32> zeroinitializer
-  %41 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, i32 1
+  %41 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, i32 1
   %42 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %41, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %43 = icmp eq <8 x i32> %42, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %41, i32 4, <8 x i1> %43), !tbaa !142
-  %44 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, i32 1
+  %44 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 8, i64 9, i64 10, i64 11, i64 12, i64 13, i64 14, i64 15>, i32 1
   %45 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %44, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %46 = icmp eq <8 x i32> %45, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %44, i32 4, <8 x i1> %46), !tbaa !142
-  %47 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 16, i64 17, i64 18, i64 19, i64 20, i64 21, i64 22, i64 23>, i32 1
+  %47 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 16, i64 17, i64 18, i64 19, i64 20, i64 21, i64 22, i64 23>, i32 1
   %48 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %47, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %49 = icmp eq <8 x i32> %48, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %47, i32 4, <8 x i1> %49), !tbaa !142
-  %50 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 24, i64 25, i64 26, i64 27, i64 28, i64 29, i64 30, i64 31>, i32 1
+  %50 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 24, i64 25, i64 26, i64 27, i64 28, i64 29, i64 30, i64 31>, i32 1
   %51 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %50, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %52 = icmp eq <8 x i32> %51, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %50, i32 4, <8 x i1> %52), !tbaa !142
-  %53 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 32, i64 33, i64 34, i64 35, i64 36, i64 37, i64 38, i64 39>, i32 1
+  %53 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 32, i64 33, i64 34, i64 35, i64 36, i64 37, i64 38, i64 39>, i32 1
   %54 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %53, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %55 = icmp eq <8 x i32> %54, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %53, i32 4, <8 x i1> %55), !tbaa !142
-  %56 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 40, i64 41, i64 42, i64 43, i64 44, i64 45, i64 46, i64 47>, i32 1
+  %56 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 40, i64 41, i64 42, i64 43, i64 44, i64 45, i64 46, i64 47>, i32 1
   %57 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %56, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %58 = icmp eq <8 x i32> %57, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %56, i32 4, <8 x i1> %58), !tbaa !142
-  %59 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 48, i64 49, i64 50, i64 51, i64 52, i64 53, i64 54, i64 55>, i32 1
+  %59 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 48, i64 49, i64 50, i64 51, i64 52, i64 53, i64 54, i64 55>, i32 1
   %60 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %59, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %61 = icmp eq <8 x i32> %60, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %59, i32 4, <8 x i1> %61), !tbaa !142
-  %62 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 56, i64 57, i64 58, i64 59, i64 60, i64 61, i64 62, i64 63>, i32 1
+  %62 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 56, i64 57, i64 58, i64 59, i64 60, i64 61, i64 62, i64 63>, i32 1
   %63 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %62, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %64 = icmp eq <8 x i32> %63, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %62, i32 4, <8 x i1> %64), !tbaa !142
-  %65 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 64, i64 65, i64 66, i64 67, i64 68, i64 69, i64 70, i64 71>, i32 1
+  %65 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 64, i64 65, i64 66, i64 67, i64 68, i64 69, i64 70, i64 71>, i32 1
   %66 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %65, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %67 = icmp eq <8 x i32> %66, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %65, i32 4, <8 x i1> %67), !tbaa !142
-  %68 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 72, i64 73, i64 74, i64 75, i64 76, i64 77, i64 78, i64 79>, i32 1
+  %68 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 72, i64 73, i64 74, i64 75, i64 76, i64 77, i64 78, i64 79>, i32 1
   %69 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %68, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %70 = icmp eq <8 x i32> %69, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %68, i32 4, <8 x i1> %70), !tbaa !142
-  %71 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 80, i64 81, i64 82, i64 83, i64 84, i64 85, i64 86, i64 87>, i32 1
+  %71 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 80, i64 81, i64 82, i64 83, i64 84, i64 85, i64 86, i64 87>, i32 1
   %72 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %71, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %73 = icmp eq <8 x i32> %72, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %71, i32 4, <8 x i1> %73), !tbaa !142
-  %74 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 88, i64 89, i64 90, i64 91, i64 92, i64 93, i64 94, i64 95>, i32 1
+  %74 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 88, i64 89, i64 90, i64 91, i64 92, i64 93, i64 94, i64 95>, i32 1
   %75 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %74, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %76 = icmp eq <8 x i32> %75, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %74, i32 4, <8 x i1> %76), !tbaa !142
-  %77 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 96, i64 97, i64 98, i64 99, i64 100, i64 101, i64 102, i64 103>, i32 1
+  %77 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 96, i64 97, i64 98, i64 99, i64 100, i64 101, i64 102, i64 103>, i32 1
   %78 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %77, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %79 = icmp eq <8 x i32> %78, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %77, i32 4, <8 x i1> %79), !tbaa !142
-  %80 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 104, i64 105, i64 106, i64 107, i64 108, i64 109, i64 110, i64 111>, i32 1
+  %80 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 104, i64 105, i64 106, i64 107, i64 108, i64 109, i64 110, i64 111>, i32 1
   %81 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %80, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %82 = icmp eq <8 x i32> %81, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %80, i32 4, <8 x i1> %82), !tbaa !142
-  %83 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 112, i64 113, i64 114, i64 115, i64 116, i64 117, i64 118, i64 119>, i32 1
+  %83 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 112, i64 113, i64 114, i64 115, i64 116, i64 117, i64 118, i64 119>, i32 1
   %84 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %83, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %85 = icmp eq <8 x i32> %84, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %83, i32 4, <8 x i1> %85), !tbaa !142
-  %86 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 120, i64 121, i64 122, i64 123, i64 124, i64 125, i64 126, i64 127>, i32 1
+  %86 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 120, i64 121, i64 122, i64 123, i64 124, i64 125, i64 126, i64 127>, i32 1
   %87 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %86, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %88 = icmp eq <8 x i32> %87, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %86, i32 4, <8 x i1> %88), !tbaa !142
-  %89 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 128, i64 129, i64 130, i64 131, i64 132, i64 133, i64 134, i64 135>, i32 1
+  %89 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 128, i64 129, i64 130, i64 131, i64 132, i64 133, i64 134, i64 135>, i32 1
   %90 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %89, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %91 = icmp eq <8 x i32> %90, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %89, i32 4, <8 x i1> %91), !tbaa !142
-  %92 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 136, i64 137, i64 138, i64 139, i64 140, i64 141, i64 142, i64 143>, i32 1
+  %92 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 136, i64 137, i64 138, i64 139, i64 140, i64 141, i64 142, i64 143>, i32 1
   %93 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %92, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %94 = icmp eq <8 x i32> %93, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %92, i32 4, <8 x i1> %94), !tbaa !142
-  %95 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 144, i64 145, i64 146, i64 147, i64 148, i64 149, i64 150, i64 151>, i32 1
+  %95 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 144, i64 145, i64 146, i64 147, i64 148, i64 149, i64 150, i64 151>, i32 1
   %96 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %95, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %97 = icmp eq <8 x i32> %96, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %95, i32 4, <8 x i1> %97), !tbaa !142
-  %98 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 152, i64 153, i64 154, i64 155, i64 156, i64 157, i64 158, i64 159>, i32 1
+  %98 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 152, i64 153, i64 154, i64 155, i64 156, i64 157, i64 158, i64 159>, i32 1
   %99 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %98, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %100 = icmp eq <8 x i32> %99, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %98, i32 4, <8 x i1> %100), !tbaa !142
-  %101 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 160, i64 161, i64 162, i64 163, i64 164, i64 165, i64 166, i64 167>, i32 1
+  %101 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 160, i64 161, i64 162, i64 163, i64 164, i64 165, i64 166, i64 167>, i32 1
   %102 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %101, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %103 = icmp eq <8 x i32> %102, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %101, i32 4, <8 x i1> %103), !tbaa !142
-  %104 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 168, i64 169, i64 170, i64 171, i64 172, i64 173, i64 174, i64 175>, i32 1
+  %104 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 168, i64 169, i64 170, i64 171, i64 172, i64 173, i64 174, i64 175>, i32 1
   %105 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %104, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %106 = icmp eq <8 x i32> %105, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %104, i32 4, <8 x i1> %106), !tbaa !142
-  %107 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 176, i64 177, i64 178, i64 179, i64 180, i64 181, i64 182, i64 183>, i32 1
+  %107 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 176, i64 177, i64 178, i64 179, i64 180, i64 181, i64 182, i64 183>, i32 1
   %108 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %107, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %109 = icmp eq <8 x i32> %108, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %107, i32 4, <8 x i1> %109), !tbaa !142
-  %110 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 184, i64 185, i64 186, i64 187, i64 188, i64 189, i64 190, i64 191>, i32 1
+  %110 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 184, i64 185, i64 186, i64 187, i64 188, i64 189, i64 190, i64 191>, i32 1
   %111 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %110, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %112 = icmp eq <8 x i32> %111, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %110, i32 4, <8 x i1> %112), !tbaa !142
-  %113 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 192, i64 193, i64 194, i64 195, i64 196, i64 197, i64 198, i64 199>, i32 1
+  %113 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 192, i64 193, i64 194, i64 195, i64 196, i64 197, i64 198, i64 199>, i32 1
   %114 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %113, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %115 = icmp eq <8 x i32> %114, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %113, i32 4, <8 x i1> %115), !tbaa !142
-  %116 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 200, i64 201, i64 202, i64 203, i64 204, i64 205, i64 206, i64 207>, i32 1
+  %116 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 200, i64 201, i64 202, i64 203, i64 204, i64 205, i64 206, i64 207>, i32 1
   %117 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %116, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %118 = icmp eq <8 x i32> %117, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %116, i32 4, <8 x i1> %118), !tbaa !142
-  %119 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 208, i64 209, i64 210, i64 211, i64 212, i64 213, i64 214, i64 215>, i32 1
+  %119 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 208, i64 209, i64 210, i64 211, i64 212, i64 213, i64 214, i64 215>, i32 1
   %120 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %119, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %121 = icmp eq <8 x i32> %120, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %119, i32 4, <8 x i1> %121), !tbaa !142
-  %122 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 216, i64 217, i64 218, i64 219, i64 220, i64 221, i64 222, i64 223>, i32 1
+  %122 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 216, i64 217, i64 218, i64 219, i64 220, i64 221, i64 222, i64 223>, i32 1
   %123 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %122, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %124 = icmp eq <8 x i32> %123, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %122, i32 4, <8 x i1> %124), !tbaa !142
-  %125 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 224, i64 225, i64 226, i64 227, i64 228, i64 229, i64 230, i64 231>, i32 1
+  %125 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 224, i64 225, i64 226, i64 227, i64 228, i64 229, i64 230, i64 231>, i32 1
   %126 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %125, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %127 = icmp eq <8 x i32> %126, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %125, i32 4, <8 x i1> %127), !tbaa !142
-  %128 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 232, i64 233, i64 234, i64 235, i64 236, i64 237, i64 238, i64 239>, i32 1
+  %128 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 232, i64 233, i64 234, i64 235, i64 236, i64 237, i64 238, i64 239>, i32 1
   %129 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %128, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %130 = icmp eq <8 x i32> %129, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %128, i32 4, <8 x i1> %130), !tbaa !142
-  %131 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 240, i64 241, i64 242, i64 243, i64 244, i64 245, i64 246, i64 247>, i32 1
+  %131 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 240, i64 241, i64 242, i64 243, i64 244, i64 245, i64 246, i64 247>, i32 1
   %132 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %131, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %133 = icmp eq <8 x i32> %132, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %131, i32 4, <8 x i1> %133), !tbaa !142
-  %134 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 248, i64 249, i64 250, i64 251, i64 252, i64 253, i64 254, i64 255>, i32 1
+  %134 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 248, i64 249, i64 250, i64 251, i64 252, i64 253, i64 254, i64 255>, i32 1
   %135 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %134, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %136 = icmp eq <8 x i32> %135, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %134, i32 4, <8 x i1> %136), !tbaa !142
-  %137 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 256, i64 257, i64 258, i64 259, i64 260, i64 261, i64 262, i64 263>, i32 1
+  %137 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 256, i64 257, i64 258, i64 259, i64 260, i64 261, i64 262, i64 263>, i32 1
   %138 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %137, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %139 = icmp eq <8 x i32> %138, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %137, i32 4, <8 x i1> %139), !tbaa !142
-  %140 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 264, i64 265, i64 266, i64 267, i64 268, i64 269, i64 270, i64 271>, i32 1
+  %140 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 264, i64 265, i64 266, i64 267, i64 268, i64 269, i64 270, i64 271>, i32 1
   %141 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %140, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %142 = icmp eq <8 x i32> %141, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %140, i32 4, <8 x i1> %142), !tbaa !142
-  %143 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 272, i64 273, i64 274, i64 275, i64 276, i64 277, i64 278, i64 279>, i32 1
+  %143 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 272, i64 273, i64 274, i64 275, i64 276, i64 277, i64 278, i64 279>, i32 1
   %144 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %143, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %145 = icmp eq <8 x i32> %144, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %143, i32 4, <8 x i1> %145), !tbaa !142
-  %146 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 280, i64 281, i64 282, i64 283, i64 284, i64 285, i64 286, i64 287>, i32 1
+  %146 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 280, i64 281, i64 282, i64 283, i64 284, i64 285, i64 286, i64 287>, i32 1
   %147 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %146, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %148 = icmp eq <8 x i32> %147, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %146, i32 4, <8 x i1> %148), !tbaa !142
-  %149 = getelementptr inbounds [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 288, i64 289, i64 290, i64 291, i64 292, i64 293, i64 294, i64 295>, i32 1
+  %149 = getelementptr inbounds nuw [300 x %struct.dt_iop_retouch_form_data_t], ptr %11, i64 0, <8 x i64> <i64 288, i64 289, i64 290, i64 291, i64 292, i64 293, i64 294, i64 295>, i32 1
   %150 = tail call <8 x i32> @llvm.masked.gather.v8i32.v8p0(<8 x ptr> %149, i32 4, <8 x i1> splat (i1 true), <8 x i32> poison), !tbaa !142
   %151 = icmp eq <8 x i32> %150, %38
   tail call void @llvm.masked.scatter.v8i32.v8p0(<8 x i32> %40, <8 x ptr> %149, i32 4, <8 x i1> %151), !tbaa !142
@@ -10906,8 +10906,8 @@ define internal fastcc void @image_rgb2lab(ptr nocapture noundef nonnull %0, i32
   %33 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %29 ], [ %135, %31 ]
   %34 = shl <8 x i64> %33, splat (i64 2)
   %35 = getelementptr inbounds float, ptr %0, <8 x i64> %34
-  %36 = getelementptr inbounds i8, <8 x ptr> %35, i64 4
-  %37 = getelementptr inbounds i8, <8 x ptr> %35, i64 8
+  %36 = getelementptr inbounds nuw i8, <8 x ptr> %35, i64 4
+  %37 = getelementptr inbounds nuw i8, <8 x ptr> %35, i64 8
   %38 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %35, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !16
   %39 = fmul reassoc nsz arcp contract afn <8 x float> %38, splat (float 0x3FDBE8A5E0000000)
   %40 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %36, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !16
@@ -11214,10 +11214,10 @@ define internal fastcc void @image_lab2rgb(ptr nocapture noundef nonnull %0, i32
   %33 = phi <8 x i64> [ <i64 0, i64 1, i64 2, i64 3, i64 4, i64 5, i64 6, i64 7>, %29 ], [ %90, %31 ]
   %34 = shl <8 x i64> %33, splat (i64 2)
   %35 = getelementptr inbounds float, ptr %0, <8 x i64> %34
-  %36 = getelementptr inbounds i8, <8 x ptr> %35, i64 4
+  %36 = getelementptr inbounds nuw i8, <8 x ptr> %35, i64 4
   %37 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %36, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !16
   %38 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %35, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !16
-  %39 = getelementptr inbounds i8, <8 x ptr> %35, i64 8
+  %39 = getelementptr inbounds nuw i8, <8 x ptr> %35, i64 8
   %40 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %39, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !16
   %41 = extractelement <8 x ptr> %35, i64 0
   %42 = fmul reassoc nsz arcp contract afn <8 x float> %37, splat (float 0x3F60624DE0000000)

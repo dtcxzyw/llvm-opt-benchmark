@@ -12416,7 +12416,7 @@ _ZN2cv4text14auto_array_ptrIdED2Ev.exit97.thread.i.i: ; preds = %._crit_edge148.
 _ZNK2cv4text13dissimilarity11postprocessERNS0_14cluster_resultE.exit.i: ; preds = %235, %_ZN2cv4text14auto_array_ptrIdED2Ev.exit97.thread.i.i
   %239 = load ptr, ptr %15, align 8
   %240 = add nsw i64 %78, -1
-  %241 = getelementptr inbounds %"struct.cv::text::node", ptr %239, i64 %240
+  %241 = getelementptr inbounds nuw %"struct.cv::text::node", ptr %239, i64 %240
   %242 = icmp eq i64 %240, 0
   br i1 %242, label %_ZSt11stable_sortIPN2cv4text4nodeEEvT_S4_.exit.i.i, label %.lr.ph.i.i.i.i.i.i
 

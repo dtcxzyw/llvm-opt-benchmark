@@ -7088,7 +7088,7 @@ if.end:                                           ; preds = %if.then.i.i.i45, %i
 
 if.then.i.i.i46:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 8 %first.coerce, i64 %sub.ptr.sub.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i46, %if.end
@@ -9205,7 +9205,7 @@ if.end:                                           ; preds = %if.then.i.i.i45, %i
 
 if.then.i.i.i46:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 2 %first.coerce, i64 %sub.ptr.sub.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i46, %if.end
@@ -10716,7 +10716,7 @@ invoke.cont.i.i.i:                                ; preds = %_ZNSt16allocator_tr
   store ptr %call5.i.i.i.i4.i20.i.i.i48, ptr %add.ptr, align 8
   %_M_finish.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   store ptr %call5.i.i.i.i4.i20.i.i.i48, ptr %_M_finish.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i20.i.i.i48, i64 %sub.ptr.sub.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i4.i20.i.i.i48, i64 %sub.ptr.sub.i.i.i.i
   %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i.i, align 8
   br label %for.body.i.i.i.i.i.i.i
@@ -11426,7 +11426,7 @@ if.end.i.i.i:                                     ; preds = %while.body
   %and.i.i.i.i = and i64 %sub.ptr.div.i.i.i.i, 1
   %cmp16.i.i.i.i = icmp eq i64 %and.i.i.i.i, 0
   %sub24.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr.i56.i.i.i.i = getelementptr inbounds %"struct.ue2::LookEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
+  %add.ptr.i56.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::LookEntry", ptr %__first.coerce, i64 %sub24.i.i.i.i
   %add.ptr.i57.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::LookEntry", ptr %__first.coerce, i64 %div2627.i.i.i
   br label %while.cond.i.i.i
 

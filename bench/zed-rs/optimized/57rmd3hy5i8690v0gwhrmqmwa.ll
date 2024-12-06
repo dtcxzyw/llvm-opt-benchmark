@@ -11531,8 +11531,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !3285
   call void @llvm.experimental.noalias.scope.decl(metadata !3286)
   %17 = add nsw i64 %1, -1
-  %18 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %0, i64 %17
-  %19 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %5, i64 %17
+  %18 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %5, i64 %17
   %20 = getelementptr i8, ptr %11, i64 -56
   br label %.lr.ph.i.i
 
@@ -11856,8 +11856,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !3367)
   %36 = getelementptr i8, ptr %18, i64 -24
   %37 = add nsw i64 %1, -1
-  %38 = getelementptr inbounds { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %12, i64 %37
-  %39 = getelementptr inbounds { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %12, i64 %37
+  %39 = getelementptr inbounds nuw { { i64, i64 }, { i32, i16, [1 x i16] } }, ptr %0, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %41 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -12338,8 +12338,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   call void @llvm.experimental.noalias.scope.decl(metadata !3486)
   %30 = getelementptr i8, ptr %19, i64 -64
   %31 = add nsw i64 %1, -1
-  %32 = getelementptr inbounds { i64, [7 x i64] }, ptr %13, i64 %31
-  %33 = getelementptr inbounds { i64, [7 x i64] }, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %13, i64 %31
+  %33 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %0, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -12854,8 +12854,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 71:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3716
   %72 = add nsw i64 %1, -1
-  %73 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
-  %74 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
+  %73 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
+  %74 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
   %75 = getelementptr { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %7
   %76 = getelementptr i8, ptr %75, i64 -40
   br label %.lr.ph.i.i
@@ -13042,8 +13042,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 15:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !3746
   %16 = add nsw i64 %1, -1
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %0, i64 %16
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { { { i64, ptr, {} }, i64 } } } }, { { i32, { i32, i32 } }, i32 } }, ptr %4, i64 %16
   %19 = getelementptr i8, ptr %10, i64 -64
   br label %.lr.ph.i.i
 
@@ -24595,8 +24595,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h06
   %76 = getelementptr { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %2, i64 %22
   %77 = getelementptr i8, ptr %76, i64 -80
   %78 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %79 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %2, i64 %78
-  %80 = getelementptr inbounds { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %.sroa.0.0.ph.lcssa86, i64 %78
+  %79 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %2, i64 %78
+  %80 = getelementptr inbounds nuw { { { { { i32, i32 } }, ptr, { { i64, i64 } } }, {} }, { { { ptr, i64 } }, {}, {} }, { i64, i64 }, i64, float, [1 x i32] }, ptr %.sroa.0.0.ph.lcssa86, i64 %78
   call void @llvm.assume(i1 %74)
   br label %85
 
@@ -25182,8 +25182,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0a
 88:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !5537
   %89 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %90 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %.sroa.0.0.ph.lcssa82, i64 %89
-  %91 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %.sroa.0.0.ph.lcssa82, i64 %89
+  %91 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %2, i64 %89
   %92 = getelementptr { { ptr, i64 }, i64 }, ptr %2, i64 %23
   %93 = getelementptr i8, ptr %92, i64 -24
   br label %.lr.ph.i.i
@@ -25758,8 +25758,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h0f
 95:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !5597
   %96 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %97 = getelementptr inbounds { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %.sroa.0.0.ph.lcssa108, i64 %96
-  %98 = getelementptr inbounds { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %2, i64 %96
+  %97 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %.sroa.0.0.ph.lcssa108, i64 %96
+  %98 = getelementptr inbounds nuw { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %2, i64 %96
   %99 = getelementptr { { i8, [1 x i8] }, [6 x i8], i64 }, ptr %2, i64 %23
   %100 = getelementptr i8, ptr %99, i64 -16
   br label %.lr.ph.i.i
@@ -25902,7 +25902,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h85c8a92156597728E.llvm.64029
 159:                                              ; preds = %16
   %160 = add nsw i32 %.sroa.019.0109, -1
   %161 = lshr i64 %.sroa.12.0110, 3
-  %.idx.i = shl nsw i64 %161, 6
+  %.idx.i = shl nuw nsw i64 %161, 6
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph117, i64 %.idx.i
   %.idx1.i = mul i64 %161, 112
   %163 = getelementptr inbounds i8, ptr %.sroa.0.0.ph117, i64 %.idx1.i
@@ -26394,8 +26394,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h16
   %69 = getelementptr { i64, [10 x i64] }, ptr %2, i64 %57
   %70 = getelementptr i8, ptr %69, i64 -88
   %71 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %72 = getelementptr inbounds { i64, [10 x i64] }, ptr %2, i64 %71
-  %73 = getelementptr inbounds { i64, [10 x i64] }, ptr %.sroa.0.0.ph.lcssa140, i64 %71
+  %72 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %2, i64 %71
+  %73 = getelementptr inbounds nuw { i64, [10 x i64] }, ptr %.sroa.0.0.ph.lcssa140, i64 %71
   %74 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %75 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %76 = getelementptr inbounds nuw i8, ptr %21, i64 32
@@ -27687,8 +27687,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1c
   call void @llvm.experimental.noalias.scope.decl(metadata !6122)
   %107 = getelementptr i8, ptr %88, i64 -136
   %108 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %109 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %108
-  %110 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph.lcssa97, i64 %108
+  %109 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %108
+  %110 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph.lcssa97, i64 %108
   %111 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %112 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %113 = getelementptr inbounds nuw i8, ptr %27, i64 12
@@ -28704,8 +28704,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h1f
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !6397
   call void @llvm.experimental.noalias.scope.decl(metadata !6398)
   %35 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
+  %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
   %38 = getelementptr i8, ptr %28, i64 -48
   br label %.lr.ph.i.i
 
@@ -29311,8 +29311,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h2d
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !6499
   %68 = getelementptr i8, ptr %57, i64 -104
   %69 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %70 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %69
-  %71 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa81, i64 %69
+  %70 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %2, i64 %69
+  %71 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa81, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -30072,8 +30072,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h3d
 96:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !6614
   %97 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %98 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.0.0.ph.lcssa108, i64 %97
-  %99 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %97
+  %98 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.0.0.ph.lcssa108, i64 %97
+  %99 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %97
   %100 = getelementptr { ptr, i64 }, ptr %2, i64 %24
   %101 = getelementptr i8, ptr %100, i64 -16
   br label %.lr.ph.i.i
@@ -30216,7 +30216,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h6c77f7965af8b333E.llvm.64029
 161:                                              ; preds = %17
   %162 = add nsw i32 %.sroa.019.0109, -1
   %163 = lshr i64 %.sroa.12.0110, 3
-  %.idx.i = shl nsw i64 %163, 6
+  %.idx.i = shl nuw nsw i64 %163, 6
   %164 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph117, i64 %.idx.i
   %.idx1.i = mul i64 %163, 112
   %165 = getelementptr inbounds i8, ptr %.sroa.0.0.ph117, i64 %.idx1.i
@@ -30762,8 +30762,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h51
 80:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !6701
   %81 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %82 = getelementptr inbounds { i64, i64 }, ptr %.sroa.0.0.ph.lcssa111, i64 %81
-  %83 = getelementptr inbounds { i64, i64 }, ptr %2, i64 %81
+  %82 = getelementptr inbounds nuw { i64, i64 }, ptr %.sroa.0.0.ph.lcssa111, i64 %81
+  %83 = getelementptr inbounds nuw { i64, i64 }, ptr %2, i64 %81
   %84 = getelementptr { i64, i64 }, ptr %2, i64 %22
   %85 = getelementptr i8, ptr %84, i64 -16
   br label %.lr.ph.i.i
@@ -30902,7 +30902,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h6e98ca359d547f41E.llvm.64029
 141:                                              ; preds = %15
   %142 = add nsw i32 %.sroa.019.0112, -1
   %143 = lshr i64 %.sroa.12.0113, 3
-  %.idx.i = shl nsw i64 %143, 6
+  %.idx.i = shl nuw nsw i64 %143, 6
   %144 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph120, i64 %.idx.i
   %.idx1.i = mul i64 %143, 112
   %145 = getelementptr inbounds i8, ptr %.sroa.0.0.ph120, i64 %.idx1.i
@@ -31497,8 +31497,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h71
 110:                                              ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !6806
   %111 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %112 = getelementptr inbounds { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa96, i64 %111
-  %113 = getelementptr inbounds { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %2, i64 %111
+  %112 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa96, i64 %111
+  %113 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %2, i64 %111
   %114 = getelementptr { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { [50 x i8], i8, [5 x i8] }, { i64, i64 }, { i64, i64 }, { { i32, i16, [1 x i16] } }, i8, [7 x i8] }, ptr %2, i64 %25
   %115 = getelementptr i8, ptr %114, i64 -192
   br label %.lr.ph.i.i
@@ -32126,8 +32126,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h78
 98:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !6904
   %99 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %100 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %.sroa.0.0.ph.lcssa82, i64 %99
-  %101 = getelementptr inbounds { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %2, i64 %99
+  %100 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %.sroa.0.0.ph.lcssa82, i64 %99
+  %101 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %2, i64 %99
   %102 = getelementptr { { i64, [2 x i64] }, { { i32, { i32, i32 } }, {} }, { i8, [16 x i8] }, i8, [2 x i8] }, ptr %2, i64 %23
   %103 = getelementptr i8, ptr %102, i64 -56
   br label %.lr.ph.i.i
@@ -32621,8 +32621,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h83
   %39 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %24
   %40 = getelementptr i8, ptr %39, i64 -168
   %41 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %42 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
-  %43 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
+  %42 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
+  %43 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
   call void @llvm.assume(i1 %36)
   br label %48
 
@@ -33191,8 +33191,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17ha0
   %39 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %24
   %40 = getelementptr i8, ptr %39, i64 -168
   %41 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %42 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
-  %43 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
+  %42 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
+  %43 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
   call void @llvm.assume(i1 %36)
   br label %48
 
@@ -33751,8 +33751,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !7248
   call void @llvm.experimental.noalias.scope.decl(metadata !7249)
   %35 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
+  %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
   %38 = getelementptr i8, ptr %28, i64 -48
   br label %.lr.ph.i.i
 
@@ -34329,8 +34329,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb3
   %39 = getelementptr { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %24
   %40 = getelementptr i8, ptr %39, i64 -168
   %41 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %42 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
-  %43 = getelementptr inbounds { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
+  %42 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %2, i64 %41
+  %43 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [8 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i8, [7 x i8] }, ptr %.sroa.0.0.ph.lcssa84, i64 %41
   call void @llvm.assume(i1 %36)
   br label %48
 
@@ -34889,8 +34889,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !7492
   call void @llvm.experimental.noalias.scope.decl(metadata !7493)
   %35 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa93, i64 %35
+  %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %35
   %38 = getelementptr i8, ptr %28, i64 -48
   br label %.lr.ph.i.i
 
@@ -35457,8 +35457,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hb7
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !7594
   call void @llvm.experimental.noalias.scope.decl(metadata !7595)
   %35 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %36 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.ph.lcssa95, i64 %35
-  %37 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %2, i64 %35
+  %36 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.ph.lcssa95, i64 %35
+  %37 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %2, i64 %35
   %38 = getelementptr i8, ptr %28, i64 -48
   br label %.lr.ph.i.i
 
@@ -36067,8 +36067,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hba
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29), !noalias !7696
   %68 = getelementptr i8, ptr %57, i64 -104
   %69 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %70 = getelementptr inbounds { i64, [12 x i64] }, ptr %2, i64 %69
-  %71 = getelementptr inbounds { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa81, i64 %69
+  %70 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %2, i64 %69
+  %71 = getelementptr inbounds nuw { i64, [12 x i64] }, ptr %.sroa.0.0.ph.lcssa81, i64 %69
   %72 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %73 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %74 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -36811,8 +36811,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hea
 88:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !7811
   %89 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %90 = getelementptr inbounds { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %.sroa.0.0.ph.lcssa82, i64 %89
-  %91 = getelementptr inbounds { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %2, i64 %89
+  %90 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %.sroa.0.0.ph.lcssa82, i64 %89
+  %91 = getelementptr inbounds nuw { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %2, i64 %89
   %92 = getelementptr { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { i64, [2 x i64] }, i64 }, ptr %2, i64 %23
   %93 = getelementptr i8, ptr %92, i64 -392
   br label %.lr.ph.i.i
@@ -43131,7 +43131,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   %64 = add nsw i32 %.sroa.020.0147, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !9561)
   %65 = lshr i64 %.sroa.11.0149, 3
-  %.idx.i = shl nsw i64 %65, 8
+  %.idx.i = shl nuw nsw i64 %65, 8
   %66 = getelementptr inbounds nuw i8, ptr %.sroa.0.0150, i64 %.idx.i
   %.idx1.i = mul i64 %65, 448
   %67 = getelementptr inbounds i8, ptr %.sroa.0.0150, i64 %.idx1.i
@@ -44466,7 +44466,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   unreachable
 
 183:                                              ; preds = %180
-  %184 = getelementptr inbounds i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
+  %184 = getelementptr inbounds nuw i64, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
   %.not4.i.i = icmp eq i64 %.sroa.09.0.i, %.sroa.9.0.i
   br i1 %.not4.i.i, label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h9bebd4dd88c6a9f0E.exit.i, label %.lr.ph.preheader.i.i
 
@@ -44516,8 +44516,8 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h9bebd4dd88c6a9
 196:                                              ; preds = %195
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10213)
   %197 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %198 = getelementptr inbounds i64, ptr %5, i64 %197
-  %199 = getelementptr inbounds i64, ptr %.sroa.0.0.lcssa, i64 %197
+  %198 = getelementptr inbounds nuw i64, ptr %5, i64 %197
+  %199 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.lcssa, i64 %197
   %200 = getelementptr i8, ptr %12, i64 -8
   br label %.lr.ph.i20.i
 
@@ -44710,7 +44710,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17heff01c173d426033E.exit20.i: ; 
 280:                                              ; preds = %.lr.ph
   %281 = add nsw i32 %.sroa.020.082, -1
   %282 = lshr i64 %.sroa.11.084, 3
-  %.idx.i = shl nsw i64 %282, 5
+  %.idx.i = shl nuw nsw i64 %282, 5
   %283 = getelementptr inbounds nuw i8, ptr %.sroa.0.085, i64 %.idx.i
   %.idx1.i = mul i64 %282, 56
   %284 = getelementptr inbounds i8, ptr %.sroa.0.085, i64 %.idx1.i
@@ -49669,7 +49669,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h54f085a683e646dcE.exit19.i: ; 
   %93 = add nsw i32 %.sroa.020.0109, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11483)
   %94 = lshr i64 %.sroa.11.0111, 3
-  %.idx.i = shl nsw i64 %94, 9
+  %.idx.i = shl nuw nsw i64 %94, 9
   %95 = getelementptr inbounds nuw i8, ptr %.sroa.0.0112, i64 %.idx.i
   %.idx1.i = mul i64 %94, 896
   %96 = getelementptr inbounds i8, ptr %.sroa.0.0112, i64 %.idx1.i
@@ -50686,7 +50686,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h3d632bdf8c888f2dE.exit40.i: ; 
 83:                                               ; preds = %.lr.ph
   %84 = add nsw i32 %.sroa.020.059, -1
   %85 = lshr i64 %.sroa.11.061, 3
-  %.idx.i = shl nsw i64 %85, 8
+  %.idx.i = shl nuw nsw i64 %85, 8
   %86 = getelementptr inbounds nuw i8, ptr %.sroa.0.062, i64 %.idx.i
   %.idx1.i = mul i64 %85, 448
   %87 = getelementptr inbounds i8, ptr %.sroa.0.062, i64 %.idx1.i
@@ -55711,7 +55711,7 @@ define internal fastcc void @_ZN4core5slice4sort8unstable9quicksort9quicksort17h
   unreachable
 
 1163:                                             ; preds = %1160
-  %1164 = getelementptr inbounds ptr, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
+  %1164 = getelementptr inbounds nuw ptr, ptr %.sroa.01.0.i, i64 %.sroa.9.0.i
   %.not4.i.i = icmp eq i64 %.sroa.09.0.i, %.sroa.9.0.i
   br i1 %.not4.i.i, label %_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hd59f6dac8c2f8e20E.exit.i, label %.lr.ph.preheader.i.i
 
@@ -55826,8 +55826,8 @@ _ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hd59f6dac8c2f8e
 1210:                                             ; preds = %1209
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14160)
   %1211 = add nsw i64 %.sroa.11.0.lcssa, -1
-  %1212 = getelementptr inbounds ptr, ptr %5, i64 %1211
-  %1213 = getelementptr inbounds ptr, ptr %.sroa.0.0.lcssa, i64 %1211
+  %1212 = getelementptr inbounds nuw ptr, ptr %5, i64 %1211
+  %1213 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.lcssa, i64 %1211
   %1214 = getelementptr i8, ptr %12, i64 -8
   br label %.lr.ph.i211.i
 
@@ -55980,7 +55980,7 @@ _ZN4core5slice4sort6shared9smallsort19bidirectional_merge17h1f4f6ced9d4cd35eE.ex
   %1281 = add nsw i32 %.sroa.020.0127, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14231)
   %1282 = lshr i64 %.sroa.11.0129, 3
-  %.idx.i = shl nsw i64 %1282, 5
+  %.idx.i = shl nuw nsw i64 %1282, 5
   %1283 = getelementptr inbounds nuw i8, ptr %.sroa.0.0130, i64 %.idx.i
   %.idx1.i = mul i64 %1282, 56
   %1284 = getelementptr inbounds i8, ptr %.sroa.0.0130, i64 %.idx1.i

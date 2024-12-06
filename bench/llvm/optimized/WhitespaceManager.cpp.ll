@@ -8205,7 +8205,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang6format17WhitespaceManager6C
 
 20:                                               ; preds = %20, %11
   %.013 = phi i64 [ %13, %11 ], [ %25, %20 ]
-  %21 = getelementptr inbounds %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013
+  %21 = getelementptr inbounds nuw %"struct.clang::format::WhitespaceManager::Change", ptr %0, i64 %.013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %4, ptr noundef nonnull align 8 dereferenceable(136) %21, i64 28, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %22) #18

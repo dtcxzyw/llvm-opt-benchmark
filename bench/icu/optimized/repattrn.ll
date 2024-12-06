@@ -1362,7 +1362,7 @@ land.lhs.true23:                                  ; preds = %do.body
 land.lhs.true26:                                  ; preds = %land.lhs.true23
   %chunkContents = getelementptr inbounds nuw i8, ptr %13, i64 48
   %17 = load ptr, ptr %chunkContents, align 8
-  %arrayidx = getelementptr inbounds i16, ptr %17, i64 %sub
+  %arrayidx = getelementptr inbounds nuw i16, ptr %17, i64 %sub
   %18 = load i16, ptr %arrayidx, align 2
   %cmp29 = icmp ult i16 %18, -9216
   br i1 %cmp29, label %if.then30, label %if.else33
@@ -1395,7 +1395,7 @@ land.lhs.true42:                                  ; preds = %do.body36
 land.lhs.true47:                                  ; preds = %land.lhs.true42
   %chunkContents49 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %22 = load ptr, ptr %chunkContents49, align 8
-  %arrayidx50 = getelementptr inbounds i16, ptr %22, i64 %sub40
+  %arrayidx50 = getelementptr inbounds nuw i16, ptr %22, i64 %sub40
   %23 = load i16, ptr %arrayidx50, align 2
   %cmp52 = icmp ult i16 %23, -9216
   br i1 %cmp52, label %if.then53, label %if.else57

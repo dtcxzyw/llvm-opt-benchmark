@@ -3435,7 +3435,7 @@ qp_lookahead_eol.exit.thread67:                   ; preds = %qp_lookahead_eol.ex
   %.048 = phi i64 [ 3, %66 ], [ 3, %qp_lookahead_eol.exit61.thread70 ], [ 2, %qp_lookahead_eol.exit61.thread ], [ 3, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %15 ], [ 1, %38 ], [ 1, %45 ]
   %.047 = phi i64 [ 1, %66 ], [ 1, %qp_lookahead_eol.exit61.thread70 ], [ 2, %qp_lookahead_eol.exit61.thread ], [ 1, %qp_lookahead_eol.exit.thread ], [ 1, %qp_lookahead_eol.exit ], [ 1, %15 ], [ 1, %38 ], [ 1, %45 ]
   %67 = add nsw i64 %.048, -1
-  %68 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %67
   %69 = load i8, ptr %68, align 1
   %.not = icmp eq i8 %69, 10
   br i1 %.not, label %.thread, label %70
@@ -3501,12 +3501,12 @@ qp_lookahead_eol.exit65:                          ; preds = %77
 99:                                               ; preds = %.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.05283, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %.149, i1 false)
   %100 = add i64 %.149, %.05184
-  %101 = getelementptr inbounds i8, ptr %.05283, i64 %.149
+  %101 = getelementptr inbounds nuw i8, ptr %.05283, i64 %.149
   %102 = sub nuw i64 %.05382, %.149
   %103 = load i64, ptr %6, align 8
   %104 = add i64 %103, %.149
   %105 = add nsw i64 %.149, -1
-  %106 = getelementptr inbounds [4 x i8], ptr %5, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 0, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = icmp eq i8 %107, 10
   %spec.store.select = select i1 %108, i64 0, i64 %104

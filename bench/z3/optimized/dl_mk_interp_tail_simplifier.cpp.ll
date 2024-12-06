@@ -9980,7 +9980,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i:                                ; preds = %if.then, %if.end8.split.i.i
   %__parent.015.i.i = phi i64 [ %dec.i.i, %if.end8.split.i.i ], [ %div13.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.015.i.i, -1
-  %add.ptr11.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i
   %1 = load ptr, ptr %add.ptr11.i.i, align 8
   call void @_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN7datalog25mk_interp_tail_simplifier14normalizer_cfg8expr_cmpEEEEvT_T0_SC_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, ptr noundef %1, ptr %__comp.coerce)
   %cmp6.i.i = icmp eq i64 %dec.i.i, 0

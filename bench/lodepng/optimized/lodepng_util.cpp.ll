@@ -2663,7 +2663,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit329:  ; preds = %if.then77, %if.end.
   br i1 %cmp.i.i331, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit348, label %if.end.i.i332
 
 if.end.i.i332:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit329
-  %arrayidx.i.i333 = getelementptr inbounds i8, ptr %data, i64 %add.i.i311
+  %arrayidx.i.i333 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i311
   %51 = load i8, ptr %arrayidx.i.i333, align 1
   %conv.i.i334 = zext i8 %51 to i32
   %shl.i.i335 = shl nuw i32 %conv.i.i334, 24
@@ -2693,7 +2693,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit348:  ; preds = %_ZN7lodepngL18decod
   br i1 %cmp.i.i350, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit367, label %if.end.i.i351
 
 if.end.i.i351:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit348
-  %arrayidx.i.i352 = getelementptr inbounds i8, ptr %data, i64 %add.i.i330
+  %arrayidx.i.i352 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i330
   %57 = load i8, ptr %arrayidx.i.i352, align 1
   %conv.i.i353 = zext i8 %57 to i32
   %shl.i.i354 = shl nuw i32 %conv.i.i353, 24
@@ -2776,7 +2776,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit402:  ; preds = %if.then92, %if.end.
   br i1 %cmp.i.i404, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit421, label %if.end.i.i405
 
 if.end.i.i405:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit402
-  %arrayidx.i.i406 = getelementptr inbounds i8, ptr %data, i64 %add.i.i384
+  %arrayidx.i.i406 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i384
   %73 = load i8, ptr %arrayidx.i.i406, align 1
   %conv.i.i407 = zext i8 %73 to i32
   %shl.i.i408 = shl nuw i32 %conv.i.i407, 24
@@ -2806,7 +2806,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit421:  ; preds = %_ZN7lodepngL18decod
   br i1 %cmp.i.i423, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit440, label %if.end.i.i424
 
 if.end.i.i424:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit421
-  %arrayidx.i.i425 = getelementptr inbounds i8, ptr %data, i64 %add.i.i403
+  %arrayidx.i.i425 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i403
   %79 = load i8, ptr %arrayidx.i.i425, align 1
   %conv.i.i426 = zext i8 %79 to i32
   %shl.i.i427 = shl nuw i32 %conv.i.i426, 24
@@ -2889,7 +2889,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit475:  ; preds = %if.then107, %if.end
   br i1 %cmp.i.i477, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit494, label %if.end.i.i478
 
 if.end.i.i478:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit475
-  %arrayidx.i.i479 = getelementptr inbounds i8, ptr %data, i64 %add.i.i457
+  %arrayidx.i.i479 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i457
   %95 = load i8, ptr %arrayidx.i.i479, align 1
   %conv.i.i480 = zext i8 %95 to i32
   %shl.i.i481 = shl nuw i32 %conv.i.i480, 24
@@ -2919,7 +2919,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit494:  ; preds = %_ZN7lodepngL18decod
   br i1 %cmp.i.i496, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit513, label %if.end.i.i497
 
 if.end.i.i497:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit494
-  %arrayidx.i.i498 = getelementptr inbounds i8, ptr %data, i64 %add.i.i476
+  %arrayidx.i.i498 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i476
   %101 = load i8, ptr %arrayidx.i.i498, align 1
   %conv.i.i499 = zext i8 %101 to i32
   %shl.i.i500 = shl nuw i32 %conv.i.i499, 24
@@ -3002,7 +3002,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit548:  ; preds = %if.then122, %if.end
   br i1 %cmp.i.i550, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit567, label %if.end.i.i551
 
 if.end.i.i551:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit548
-  %arrayidx.i.i552 = getelementptr inbounds i8, ptr %data, i64 %add.i.i530
+  %arrayidx.i.i552 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i530
   %117 = load i8, ptr %arrayidx.i.i552, align 1
   %conv.i.i553 = zext i8 %117 to i32
   %shl.i.i554 = shl nuw i32 %conv.i.i553, 24
@@ -3032,7 +3032,7 @@ _ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit567:  ; preds = %_ZN7lodepngL18decod
   br i1 %cmp.i.i569, label %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit586, label %if.end.i.i570
 
 if.end.i.i570:                                    ; preds = %_ZN7lodepngL18decodeICC15Fixed16EPKhmPm.exit567
-  %arrayidx.i.i571 = getelementptr inbounds i8, ptr %data, i64 %add.i.i549
+  %arrayidx.i.i571 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i.i549
   %123 = load i8, ptr %arrayidx.i.i571, align 1
   %conv.i.i572 = zext i8 %123 to i32
   %shl.i.i573 = shl nuw i32 %conv.i.i572, 24
@@ -3187,7 +3187,7 @@ if.then179:                                       ; preds = %_ZN7lodepngL15decod
   br i1 %cmp.i626, label %_ZN7lodepngL15decodeICCUint16EPKhmPm.exit, label %if.end.i627
 
 if.end.i627:                                      ; preds = %if.then179
-  %arrayidx.i628 = getelementptr inbounds i8, ptr %data, i64 %add.i606
+  %arrayidx.i628 = getelementptr inbounds nuw i8, ptr %data, i64 %add.i606
   %141 = load i8, ptr %arrayidx.i628, align 1
   %conv.i629 = zext i8 %141 to i32
   %shl.i630 = shl nuw nsw i32 %conv.i629, 8
@@ -8267,7 +8267,7 @@ if.else38:                                        ; preds = %if.else32
 
 if.then41:                                        ; preds = %if.else38
   %sub = add nsw i64 %7, -257
-  %arrayidx43 = getelementptr inbounds [29 x i64], ptr @_ZN7lodepngL8LENEXTRAE, i64 0, i64 %sub
+  %arrayidx43 = getelementptr inbounds nuw [29 x i64], ptr @_ZN7lodepngL8LENEXTRAE, i64 0, i64 %sub
   %56 = load i64, ptr %arrayidx43, align 8
   %57 = load i64, ptr %bp, align 8
   %shr = lshr i64 %57, 3
@@ -8279,7 +8279,7 @@ if.then45:                                        ; preds = %if.then41
   br label %return
 
 if.end47:                                         ; preds = %if.then41
-  %arrayidx = getelementptr inbounds [29 x i64], ptr @_ZN7lodepngL7LENBASEE, i64 0, i64 %sub
+  %arrayidx = getelementptr inbounds nuw [29 x i64], ptr @_ZN7lodepngL7LENBASEE, i64 0, i64 %sub
   %58 = load i64, ptr %arrayidx, align 8
   %59 = add nsw i64 %7, -285
   %cmp5.not.i = icmp ult i64 %59, -20

@@ -146075,7 +146075,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 %1
-  %20 = getelementptr inbounds i8, ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %19, ptr %14, align 8, !tbaa !2507
   store ptr %20, ptr %7, align 8, !tbaa !2508
   br label %38
@@ -146087,7 +146087,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
   br i1 %or.cond34, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %10, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %26 = sub nsw i64 0, %1
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store ptr %27, ptr %14, align 8, !tbaa !2507
@@ -146106,7 +146106,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost6detail16basic_pointerbufIcSt1
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 %32
-  %37 = getelementptr inbounds i8, ptr %10, i64 %13
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %36, ptr %14, align 8, !tbaa !2507
   store ptr %37, ptr %7, align 8, !tbaa !2508
   br label %38

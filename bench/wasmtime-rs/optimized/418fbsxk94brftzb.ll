@@ -809,7 +809,7 @@ define internal fastcc void @_ZN14cranelift_isle9serialize13Decomposition4sort17
   %172 = ptrtoint ptr %171 to i64
   %173 = ptrtoint ptr %170 to i64
   %174 = sub nuw i64 %172, %173
-  %175 = getelementptr inbounds i8, ptr %170, i64 %174
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 %174
   store ptr %170, ptr %55, align 8
   store ptr %175, ptr %83, align 8
   %176 = invoke align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb80a10b25be7a142E"(ptr nonnull align 8 %55)

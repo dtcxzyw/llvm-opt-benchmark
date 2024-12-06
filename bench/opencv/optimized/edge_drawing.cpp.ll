@@ -22291,7 +22291,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN2cv8ximgproc15EdgeDrawingImpl7inv
   br i1 %exitcond.not.i, label %_ZN2cv8ximgproc15EdgeDrawingImpl14AllocateMatrixEii.exit, label %15, !llvm.loop !154
 
 _ZN2cv8ximgproc15EdgeDrawingImpl14AllocateMatrixEii.exit: ; preds = %15
-  %18 = shl nuw nsw i32 %2, 1
+  %18 = shl nuw i32 %2, 1
   %19 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #38
   %20 = add nuw nsw i32 %18, 2
   %21 = zext nneg i32 %20 to i64
@@ -22363,10 +22363,10 @@ _ZN2cv8ximgproc15EdgeDrawingImpl14AllocateMatrixEii.exit183: ; preds = %27
 
 .lr.ph271:                                        ; preds = %._crit_edge247
   %42 = or disjoint i32 %18, 1
-  %43 = add nuw i32 %18, 2
+  %43 = add i32 %18, 2
   %44 = or disjoint i32 %18, 1
-  %45 = zext nneg i32 %44 to i64
-  %46 = zext nneg i32 %42 to i64
+  %45 = sext i32 %44 to i64
+  %46 = sext i32 %42 to i64
   %wide.trip.count312 = zext i32 %43 to i64
   br label %66
 
@@ -22454,7 +22454,7 @@ _ZN2cv8ximgproc15EdgeDrawingImpl14AllocateMatrixEii.exit183: ; preds = %27
 83:                                               ; preds = %81
   %84 = zext i32 %.1152 to i64
   %.not165 = icmp eq i64 %indvars.iv302, %84
-  %.not166253 = icmp samesign ugt i64 %indvars.iv302, %46
+  %.not166253 = icmp sgt i64 %indvars.iv302, %46
   %or.cond = select i1 %.not165, i1 true, i1 %.not166253
   br i1 %or.cond, label %.loopexit232, label %.lr.ph255
 

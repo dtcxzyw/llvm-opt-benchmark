@@ -8010,7 +8010,7 @@ if.end56:                                         ; preds = %if.end48, %land.lhs
   br i1 %cmp61, label %land.lhs.true62, label %if.end89
 
 land.lhs.true62:                                  ; preds = %if.end56
-  %add.ptr.i860 = getelementptr inbounds %"struct.node::PropInfo", ptr %15, i64 %i.1
+  %add.ptr.i860 = getelementptr inbounds nuw %"struct.node::PropInfo", ptr %15, i64 %i.1
   %id64 = getelementptr inbounds nuw i8, ptr %add.ptr.i860, i64 32
   %16 = load i32, ptr %id64, align 8
   %cmp65 = icmp eq i32 %16, 2

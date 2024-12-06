@@ -11808,7 +11808,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt5tupleIJmPN4llvm4TypeEPNS1_8
 
 17:                                               ; preds = %17, %.lr.ph._crit_edge
   %.0.i.i.i = phi i64 [ %14, %.lr.ph._crit_edge ], [ %25, %17 ]
-  %18 = getelementptr inbounds %"class.std::tuple.296", ptr %0, i64 %.0.i.i.i
+  %18 = getelementptr inbounds nuw %"class.std::tuple.296", ptr %0, i64 %.0.i.i.i
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %21 = load i64, ptr %20, align 8

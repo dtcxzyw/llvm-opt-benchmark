@@ -671,7 +671,7 @@ define internal ptr @H5SM__cache_list_deserialize(ptr noundef %0, i64 %1, ptr no
 
 52:                                               ; preds = %43, %47
   %53 = phi i64 [ %51, %47 ], [ 17, %43 ]
-  %54 = getelementptr inbounds i8, ptr %.04959, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %.04959, i64 %53
   %55 = add nuw i64 %.04860, 1
   %56 = load ptr, ptr %13, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -777,7 +777,7 @@ define internal range(i32 -1, 1) i32 @H5SM__cache_list_serialize(ptr noundef %0,
 
 36:                                               ; preds = %29, %32
   %37 = phi i64 [ %35, %32 ], [ 17, %29 ]
-  %38 = getelementptr inbounds i8, ptr %.04146, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %.04146, i64 %37
   %39 = add nuw i64 %.04047, 1
   %.pre = load ptr, ptr %8, align 8
   br label %40

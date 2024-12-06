@@ -4184,7 +4184,7 @@ _ZN14regex_automata6hybrid3dfa7LazyRef8is_valid17h6ff33c3c23a0a93eE.exit.thread.
 _ZN14regex_automata6hybrid3dfa4Lazy15set_start_state17h4bda2483c008e6deE.exit: ; preds = %330
   %344 = getelementptr i8, ptr %.val.i, i64 56
   %.val8.i = load ptr, ptr %344, align 8, !nonnull !5, !noundef !5
-  %345 = getelementptr inbounds [0 x i32], ptr %.val8.i, i64 0, i64 %.0.i
+  %345 = getelementptr inbounds nuw [0 x i32], ptr %.val8.i, i64 0, i64 %.0.i
   store i32 %.in.in.in, ptr %345, align 4
   br label %.thread
 }

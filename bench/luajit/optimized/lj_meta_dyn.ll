@@ -114,7 +114,7 @@ if.else12:                                        ; preds = %entry
   %cmp15 = icmp ult i64 %shr, -13
   %5 = sub nsw i64 21, %shr
   %spec.select = select i1 %cmp15, i64 35, i64 %5
-  %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
+  %arrayidx = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then7, %if.else12, %if.then
@@ -270,7 +270,7 @@ if.else12.i:                                      ; preds = %if.else
   %cmp15.i = icmp ult i64 %shr.i, -13
   %17 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %17
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i23
@@ -538,7 +538,7 @@ if.else12.i:                                      ; preds = %if.else84
   %cmp15.i = icmp ult i64 %shr.i, -13
   %31 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %31
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i53
@@ -732,7 +732,7 @@ if.else12.i:                                      ; preds = %if.else
   %cmp15.i = icmp ult i64 %shr.i27, -13
   %14 = sub nsw i64 21, %shr.i27
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %14
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i
@@ -796,7 +796,7 @@ if.else12.i55:                                    ; preds = %if.then9
   %cmp15.i58 = icmp ult i64 %shr.i32, -13
   %27 = sub nsw i64 21, %shr.i32
   %spec.select.i59 = select i1 %cmp15.i58, i64 35, i64 %27
-  %arrayidx.i60 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i57, i64 0, i64 %spec.select.i59
+  %arrayidx.i60 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i57, i64 0, i64 %spec.select.i59
   br label %if.end20.i36
 
 if.end20.i36:                                     ; preds = %if.else12.i55, %if.then7.i33, %if.then.i52
@@ -997,7 +997,7 @@ if.else12.i:                                      ; preds = %if.then40
   %cmp15.i = icmp ult i64 %shr.i, -13
   %12 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %12
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i97
@@ -1060,7 +1060,7 @@ if.else12.i121:                                   ; preds = %if.then44
   %cmp15.i124 = icmp ult i64 %shr.i99, -13
   %23 = sub nsw i64 21, %shr.i99
   %spec.select.i125 = select i1 %cmp15.i124, i64 35, i64 %23
-  %arrayidx.i126 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i123, i64 0, i64 %spec.select.i125
+  %arrayidx.i126 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i123, i64 0, i64 %spec.select.i125
   br label %if.end20.i103
 
 if.end20.i103:                                    ; preds = %if.else12.i121, %if.then7.i100, %if.then.i118
@@ -1398,7 +1398,7 @@ if.else12.i:                                      ; preds = %entry
   %cmp15.i = icmp ult i64 %shr.i, -13
   %5 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %5
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i
@@ -1745,7 +1745,7 @@ if.else12.i:                                      ; preds = %if.end48
   %cmp15.i = icmp ult i64 %shr.i, -13
   %22 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %22
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i
@@ -1879,7 +1879,7 @@ if.else12.i:                                      ; preds = %if.then
   %cmp15.i = icmp ult i64 %shr.i, -13
   %7 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %7
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i
@@ -2022,7 +2022,7 @@ if.else12.i70:                                    ; preds = %while.body
   %cmp15.i73 = icmp ult i64 %shr.i47, -13
   %35 = sub nsw i64 21, %shr.i47
   %spec.select.i74 = select i1 %cmp15.i73, i64 35, i64 %35
-  %arrayidx.i75 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i72, i64 0, i64 %spec.select.i74
+  %arrayidx.i75 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i72, i64 0, i64 %spec.select.i74
   br label %if.end20.i51
 
 if.end20.i51:                                     ; preds = %if.else12.i70, %if.then7.i48, %if.then.i67
@@ -2082,7 +2082,7 @@ if.else12.i100:                                   ; preds = %lj_meta_lookup.exit
   %cmp15.i103 = icmp ult i64 %shr.i77, -13
   %46 = sub nsw i64 21, %shr.i77
   %spec.select.i104 = select i1 %cmp15.i103, i64 35, i64 %46
-  %arrayidx.i105 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i102, i64 0, i64 %spec.select.i104
+  %arrayidx.i105 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i102, i64 0, i64 %spec.select.i104
   br label %if.end20.i81
 
 if.end20.i81:                                     ; preds = %if.else12.i100, %if.then7.i78, %if.then.i97
@@ -2283,7 +2283,7 @@ if.else12.i:                                      ; preds = %entry
   %cmp15.i = icmp ult i64 %shr.i, -13
   %5 = sub nsw i64 21, %shr.i
   %spec.select.i = select i1 %cmp15.i, i64 35, i64 %5
-  %arrayidx.i = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
+  %arrayidx.i = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot.i, i64 0, i64 %spec.select.i
   br label %if.end20.i
 
 if.end20.i:                                       ; preds = %if.else12.i, %if.then7.i, %if.then.i

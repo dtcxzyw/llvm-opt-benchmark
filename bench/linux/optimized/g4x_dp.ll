@@ -352,13 +352,13 @@ define dso_local noundef zeroext i1 @g4x_dp_init(ptr noundef %0, i32 %1, i32 nou
   %68 = phi ptr [ @g4x_disable_dp, %47 ], [ %58, %50 ]
   %69 = phi i64 [ 208, %47 ], [ %59, %50 ]
   %70 = phi ptr [ @g4x_post_disable_dp, %47 ], [ %60, %50 ]
-  %71 = getelementptr inbounds i8, ptr %18, i64 %63
+  %71 = getelementptr inbounds nuw i8, ptr %18, i64 %63
   store ptr %64, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %18, i64 %65
+  %72 = getelementptr inbounds nuw i8, ptr %18, i64 %65
   store ptr %66, ptr %72, align 8
-  %73 = getelementptr inbounds i8, ptr %18, i64 %67
+  %73 = getelementptr inbounds nuw i8, ptr %18, i64 %67
   store ptr %68, ptr %73, align 8
-  %74 = getelementptr inbounds i8, ptr %18, i64 %69
+  %74 = getelementptr inbounds nuw i8, ptr %18, i64 %69
   store ptr %70, ptr %74, align 8
   %75 = getelementptr inbounds nuw i8, ptr %18, i64 232
   store ptr @g4x_dp_audio_enable, ptr %75, align 8

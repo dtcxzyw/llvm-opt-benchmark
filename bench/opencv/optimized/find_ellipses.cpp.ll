@@ -4071,7 +4071,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i.us, label %382, label %380
 
 380:                                              ; preds = %377
-  %381 = getelementptr inbounds ptr, ptr %.0.i.i286.us, i64 %.02530.i.us
+  %381 = getelementptr inbounds nuw ptr, ptr %.0.i.i286.us, i64 %.02530.i.us
   store ptr %.031.i288.us, ptr %381, align 8
   br label %382
 
@@ -4633,7 +4633,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i306.us, label %599, label %597
 
 597:                                              ; preds = %594
-  %598 = getelementptr inbounds ptr, ptr %.0.i.i297.us, i64 %.02530.i301.us
+  %598 = getelementptr inbounds nuw ptr, ptr %.0.i.i297.us, i64 %.02530.i301.us
   store ptr %.031.i300.us, ptr %598, align 8
   br label %599
 
@@ -5085,7 +5085,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.us.i.us:                                 ; preds = %.split13.lr.ph.i.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us
   %.032.us.i.us = phi i64 [ %829, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us ], [ %791, %.split13.lr.ph.i.us ]
   %829 = add nsw i64 %.032.us.i.us, -1
-  %830 = getelementptr inbounds float, ptr %.031.i.us, i64 %829
+  %830 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %829
   %831 = load float, ptr %830, align 4
   %.not.us.i.us = icmp sgt i64 %.032.us.i.us, %795
   br i1 %.not.us.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us, label %.lr.ph.i23.us.i.us
@@ -5139,7 +5139,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.i.us:                                    ; preds = %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us, %.split13.preheader.i.us
   %.032.i.us = phi i64 [ %854, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us ], [ %791, %.split13.preheader.i.us ]
   %854 = add nsw i64 %.032.i.us, -1
-  %855 = getelementptr inbounds float, ptr %.031.i.us, i64 %854
+  %855 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %854
   %856 = load float, ptr %855, align 4
   %.not.i314.us = icmp sgt i64 %.032.i.us, %795
   br i1 %.not.i314.us, label %._crit_edge.i15.i.us, label %.lr.ph.i23.i.us
@@ -8236,7 +8236,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i.us, label %394, label %392
 
 392:                                              ; preds = %389
-  %393 = getelementptr inbounds ptr, ptr %.0.i.i343.us, i64 %.02530.i.us
+  %393 = getelementptr inbounds nuw ptr, ptr %.0.i.i343.us, i64 %.02530.i.us
   store ptr %.031.i345.us, ptr %393, align 8
   br label %394
 
@@ -8842,7 +8842,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i363.us, label %625, label %623
 
 623:                                              ; preds = %620
-  %624 = getelementptr inbounds ptr, ptr %.0.i.i354.us, i64 %.02530.i358.us
+  %624 = getelementptr inbounds nuw ptr, ptr %.0.i.i354.us, i64 %.02530.i358.us
   store ptr %.031.i357.us, ptr %624, align 8
   br label %625
 
@@ -9303,7 +9303,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.us.i.us:                                 ; preds = %.split13.lr.ph.i.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us
   %.032.us.i.us = phi i64 [ %857, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us ], [ %819, %.split13.lr.ph.i.us ]
   %857 = add nsw i64 %.032.us.i.us, -1
-  %858 = getelementptr inbounds float, ptr %.031.i.us, i64 %857
+  %858 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %857
   %859 = load float, ptr %858, align 4
   %.not.us.i.us = icmp sgt i64 %.032.us.i.us, %823
   br i1 %.not.us.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us, label %.lr.ph.i23.us.i.us
@@ -9357,7 +9357,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.i.us:                                    ; preds = %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us, %.split13.preheader.i.us
   %.032.i.us = phi i64 [ %882, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us ], [ %819, %.split13.preheader.i.us ]
   %882 = add nsw i64 %.032.i.us, -1
-  %883 = getelementptr inbounds float, ptr %.031.i.us, i64 %882
+  %883 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %882
   %884 = load float, ptr %883, align 4
   %.not.i371.us = icmp sgt i64 %.032.i.us, %823
   br i1 %.not.i371.us, label %._crit_edge.i15.i.us, label %.lr.ph.i23.i.us
@@ -10819,7 +10819,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i.us, label %396, label %394
 
 394:                                              ; preds = %391
-  %395 = getelementptr inbounds ptr, ptr %.0.i.i343.us, i64 %.02530.i.us
+  %395 = getelementptr inbounds nuw ptr, ptr %.0.i.i343.us, i64 %.02530.i.us
   store ptr %.031.i345.us, ptr %395, align 8
   br label %396
 
@@ -11425,7 +11425,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i363.us, label %627, label %625
 
 625:                                              ; preds = %622
-  %626 = getelementptr inbounds ptr, ptr %.0.i.i354.us, i64 %.02530.i358.us
+  %626 = getelementptr inbounds nuw ptr, ptr %.0.i.i354.us, i64 %.02530.i358.us
   store ptr %.031.i357.us, ptr %626, align 8
   br label %627
 
@@ -11886,7 +11886,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.us.i.us:                                 ; preds = %.split13.lr.ph.i.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us
   %.032.us.i.us = phi i64 [ %859, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us ], [ %821, %.split13.lr.ph.i.us ]
   %859 = add nsw i64 %.032.us.i.us, -1
-  %860 = getelementptr inbounds float, ptr %.031.i.us, i64 %859
+  %860 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %859
   %861 = load float, ptr %860, align 4
   %.not.us.i.us = icmp sgt i64 %.032.us.i.us, %825
   br i1 %.not.us.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us, label %.lr.ph.i23.us.i.us
@@ -11940,7 +11940,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.i.us:                                    ; preds = %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us, %.split13.preheader.i.us
   %.032.i.us = phi i64 [ %884, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us ], [ %821, %.split13.preheader.i.us ]
   %884 = add nsw i64 %.032.i.us, -1
-  %885 = getelementptr inbounds float, ptr %.031.i.us, i64 %884
+  %885 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %884
   %886 = load float, ptr %885, align 4
   %.not.i371.us = icmp sgt i64 %.032.i.us, %825
   br i1 %.not.i371.us, label %._crit_edge.i15.i.us, label %.lr.ph.i23.i.us
@@ -13353,7 +13353,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i.us, label %384, label %382
 
 382:                                              ; preds = %379
-  %383 = getelementptr inbounds ptr, ptr %.0.i.i286.us, i64 %.02530.i.us
+  %383 = getelementptr inbounds nuw ptr, ptr %.0.i.i286.us, i64 %.02530.i.us
   store ptr %.031.i288.us, ptr %383, align 8
   br label %384
 
@@ -13915,7 +13915,7 @@ _ZNSt10_HashtableIjSt4pairIKjN2cv8ximgproc11EllipseDataEESaIS5_ENSt8__detail10_S
   br i1 %.not28.i306.us, label %601, label %599
 
 599:                                              ; preds = %596
-  %600 = getelementptr inbounds ptr, ptr %.0.i.i297.us, i64 %.02530.i301.us
+  %600 = getelementptr inbounds nuw ptr, ptr %.0.i.i297.us, i64 %.02530.i301.us
   store ptr %.031.i300.us, ptr %600, align 8
   br label %601
 
@@ -14367,7 +14367,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.us.i.us:                                 ; preds = %.split13.lr.ph.i.us, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us
   %.032.us.i.us = phi i64 [ %831, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us ], [ %793, %.split13.lr.ph.i.us ]
   %831 = add nsw i64 %.032.us.i.us, -1
-  %832 = getelementptr inbounds float, ptr %.031.i.us, i64 %831
+  %832 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %831
   %833 = load float, ptr %832, align 4
   %.not.us.i.us = icmp sgt i64 %.032.us.i.us, %797
   br i1 %.not.us.i.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us.i.us, label %.lr.ph.i23.us.i.us
@@ -14421,7 +14421,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.i.us:                                    ; preds = %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us, %.split13.preheader.i.us
   %.032.i.us = phi i64 [ %856, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.i.us ], [ %793, %.split13.preheader.i.us ]
   %856 = add nsw i64 %.032.i.us, -1
-  %857 = getelementptr inbounds float, ptr %.031.i.us, i64 %856
+  %857 = getelementptr inbounds nuw float, ptr %.031.i.us, i64 %856
   %858 = load float, ptr %857, align 4
   %.not.i314.us = icmp sgt i64 %.032.i.us, %797
   br i1 %.not.i314.us, label %._crit_edge.i15.i.us, label %.lr.ph.i23.i.us
@@ -18704,7 +18704,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13.us:                                      ; preds = %.split13.lr.ph, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us
   %.032.us = phi i64 [ %51, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us ], [ %10, %.split13.lr.ph ]
   %51 = add nsw i64 %.032.us, -1
-  %52 = getelementptr inbounds float, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw float, ptr %0, i64 %51
   %53 = load float, ptr %52, align 4
   %.not.us = icmp sgt i64 %.032.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26.us, label %.lr.ph.i23.us
@@ -18756,7 +18756,7 @@ _ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 .split13:                                         ; preds = %.split13.preheader, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26
   %.032 = phi i64 [ %73, %_ZSt13__adjust_heapIPflfN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit26 ], [ %10, %.split13.preheader ]
   %73 = add nsw i64 %.032, -1
-  %74 = getelementptr inbounds float, ptr %0, i64 %73
+  %74 = getelementptr inbounds nuw float, ptr %0, i64 %73
   %75 = load float, ptr %74, align 4
   %.not = icmp sgt i64 %.032, %14
   br i1 %.not, label %._crit_edge.i15, label %.lr.ph.i23

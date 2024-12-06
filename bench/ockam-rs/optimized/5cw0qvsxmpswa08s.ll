@@ -115,7 +115,7 @@ common.resume:                                    ; preds = %.thread53, %14
   %40 = xor i64 %.011.i.i, -1
   %41 = add nsw i64 %36, %40
   %42 = getelementptr inbounds nuw [0 x i8], ptr %34, i64 0, i64 %.011.i.i
-  %43 = getelementptr inbounds [0 x i8], ptr %39, i64 0, i64 %41
+  %43 = getelementptr inbounds nuw [0 x i8], ptr %39, i64 0, i64 %41
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
   %44 = load i8, ptr %42, align 1, !alias.scope !36, !noalias !39, !noundef !9
@@ -184,7 +184,7 @@ common.resume:                                    ; preds = %.thread53, %14
   %68 = xor i64 %.011.i.i37, -1
   %69 = add nsw i64 %64, %68
   %70 = getelementptr inbounds nuw [0 x i8], ptr %63, i64 0, i64 %.011.i.i37
-  %71 = getelementptr inbounds [0 x i8], ptr %67, i64 0, i64 %69
+  %71 = getelementptr inbounds nuw [0 x i8], ptr %67, i64 0, i64 %69
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %72 = load i8, ptr %70, align 1, !alias.scope !76, !noalias !79, !noundef !9

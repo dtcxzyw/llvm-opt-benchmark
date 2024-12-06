@@ -3776,8 +3776,8 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 
 80:                                               ; preds = %73
   %81 = add nsw i64 %.0147.i.i.i.i, -4
-  %82 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %81
-  %83 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %81
+  %82 = getelementptr inbounds nuw i8, ptr %.3.i.i.i.i, i64 %81
+  %83 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 %81
   %84 = load i32, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i32 %84, ptr %.017.i.i.i.i, align 1, !noalias !696
   %85 = load i32, ptr %82, align 1, !alias.scope !690, !noalias !693
@@ -3800,15 +3800,15 @@ define { ptr, i64 } @"_ZN73_$LT$base_db..FileTextQuery$u20$as$u20$salsa..plumbin
 
 _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.i.i: ; preds = %89
   %92 = add nsw i64 %.0147.i.i.i.i, -16
-  %93 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %92
-  %94 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %92
+  %93 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %.3.i.i.i.i, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %93, ptr noundef nonnull readonly align 1 dereferenceable(16) %94, i64 16, i1 false), !noalias !696
   br label %_ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i
 
 95:                                               ; preds = %78
   %96 = add nsw i64 %.0147.i.i.i.i, -8
-  %97 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %96
-  %98 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.3.i.i.i.i, i64 %96
+  %98 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 %96
   %99 = load i64, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i64 %99, ptr %.017.i.i.i.i, align 1, !noalias !696
   %100 = load i64, ptr %97, align 1, !alias.scope !690, !noalias !693
@@ -3817,8 +3817,8 @@ _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.
 
 101:                                              ; preds = %75
   %102 = add nsw i64 %.0147.i.i.i.i, -2
-  %103 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %102
-  %104 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %102
+  %103 = getelementptr inbounds nuw i8, ptr %.3.i.i.i.i, i64 %102
+  %104 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 %102
   %105 = load i16, ptr %.3.i.i.i.i, align 1, !alias.scope !690, !noalias !693
   store i16 %105, ptr %.017.i.i.i.i, align 1, !noalias !696
   %106 = load i16, ptr %103, align 1, !alias.scope !690, !noalias !693
@@ -3826,8 +3826,8 @@ _ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.
   br label %_ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i
 
 _ZN8lz4_flex14fastcpy_unsafe10slice_copy17h71fe2ea3c2919e3aE.exit.i.i.i.i: ; preds = %101, %95, %_ZN8lz4_flex14fastcpy_unsafe18wild_copy_from_src17h60cff6b3c5aa76d4E.exit.i.i.i.i.i, %80, %75
-  %107 = getelementptr inbounds i8, ptr %.017.i.i.i.i, i64 %.0147.i.i.i.i
-  %108 = getelementptr inbounds i8, ptr %.3.i.i.i.i, i64 %.0147.i.i.i.i
+  %107 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i, i64 %.0147.i.i.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.3.i.i.i.i, i64 %.0147.i.i.i.i
   br label %53
 
 109:                                              ; preds = %67

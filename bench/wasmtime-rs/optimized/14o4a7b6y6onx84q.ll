@@ -7066,7 +7066,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN91_$LT$core..
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { i64, [2 x i64] }, i64, {} }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { i64, [2 x i64] }, i64, {} }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.0 = select i1 %.not, ptr %10, ptr null
@@ -7303,7 +7303,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN93_$LT$indexm
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 5
   %.not.i.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { i64, [2 x i64] }, i64, {} }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { i64, [2 x i64] }, i64, {} }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %storemerge.i = select i1 %.not.i.not, ptr %11, ptr %4
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !2128

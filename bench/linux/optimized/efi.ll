@@ -479,7 +479,7 @@ define internal fastcc i32 @efi_systab_init(i64 noundef %0) unnamed_addr #1 sect
 49:                                               ; preds = %26, %45
   %50 = phi i64 [ %.pre, %26 ], [ %46, %45 ]
   %51 = phi i64 [ 104, %26 ], [ %48, %45 ]
-  %52 = getelementptr inbounds i8, ptr %6, i64 %51
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 %51
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
   store i64 %54, ptr @efi_nr_tables, align 8

@@ -5918,7 +5918,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN4llvm8MCSymbolEP
 .split19.i.i.i:                                   ; preds = %.split.i.i.i, %.split19.i.i.i
   %.01.i.i.i = phi i64 [ %18, %.split19.i.i.i ], [ %16, %.split.i.i.i ]
   %18 = add nsw i64 %.01.i.i.i, -1
-  %19 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %18
   %.sroa.02.0.copyload20.i.i.i = load ptr, ptr %19, align 8
   %.sroa.23.0..sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.23.0.copyload22.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i.i, align 8
@@ -6443,9 +6443,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPN4llvm8MCSymbolEPNS1
   %.031 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESF_EEbT_T0_.exit" ], [ %1, %5 ]
   %9 = shl i64 %.031, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %12
   %.val = load ptr, ptr %11, align 8
   %.val30 = load ptr, ptr %13, align 8
   %14 = load ptr, ptr %.val, align 8
@@ -6498,8 +6498,8 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %15, %.lr.ph
   %39 = load i32, ptr %38, align 4
   %40 = icmp ult i32 %26, %39
   %spec.select = select i1 %40, i64 %12, i64 %10
-  %41 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %spec.select
-  %42 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.031
+  %41 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %spec.select
+  %42 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.031
   %43 = load ptr, ptr %41, align 8
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -6524,8 +6524,8 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i:        ; preds = %15, %.lr.ph
 54:                                               ; preds = %50
   %55 = shl nsw i64 %.0.lcssa, 1
   %56 = or disjoint i64 %55, 1
-  %57 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %56
-  %58 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.0.lcssa
+  %57 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0.lcssa
   %59 = load ptr, ptr %57, align 8
   store ptr %59, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -6600,7 +6600,7 @@ _ZNK4llvm8MCSymbol10getSectionEv.exit.i.i.i:      ; preds = %70, %67
   br i1 %93, label %94, label %"_ZSt11__push_heapIPSt4pairIPN4llvm8MCSymbolEPNS1_23MCPseudoProbeInlineTreeEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_21MCPseudoProbeSections4emitEPNS1_16MCObjectStreamerEE3$_0EEEvT_T0_SH_T1_RT2_.exit"
 
 94:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm21MCPseudoProbeSections4emitEPNS2_16MCObjectStreamerEE3$_0EclIPSt4pairIPNS2_8MCSymbolEPNS2_23MCPseudoProbeInlineTreeEESE_EEbT_RT0_.exit.i"
-  %95 = getelementptr inbounds %"struct.std::pair.221", ptr %0, i64 %.0133.i
+  %95 = getelementptr inbounds nuw %"struct.std::pair.221", ptr %0, i64 %.0133.i
   %96 = load ptr, ptr %68, align 8
   store ptr %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %68, i64 8

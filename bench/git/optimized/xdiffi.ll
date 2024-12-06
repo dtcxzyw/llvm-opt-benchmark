@@ -1540,7 +1540,7 @@ for.cond:                                         ; preds = %if.end11, %if.end
 
 for.body:                                         ; preds = %for.cond
   %9 = load ptr, ptr %recs4, align 8
-  %arrayidx5 = getelementptr inbounds ptr, ptr %9, i64 %i.0
+  %arrayidx5 = getelementptr inbounds nuw ptr, ptr %9, i64 %i.0
   %10 = load ptr, ptr %arrayidx5, align 8
   %size.i30 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %11 = load i64, ptr %size.i30, align 8

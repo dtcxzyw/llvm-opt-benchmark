@@ -49271,7 +49271,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIPN4llvm10BasicBlockEPN
 .split17.i.i:                                     ; preds = %.split.i.i, %.split17.i.i
   %.022.i.i = phi i64 [ %14, %.split17.i.i ], [ %12, %.split.i.i ]
   %14 = add nsw i64 %.022.i.i, -1
-  %15 = getelementptr inbounds %"struct.std::pair.494", ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.std::pair.494", ptr %0, i64 %14
   %.sroa.01.0.copyload18.i.i = load ptr, ptr %15, align 8
   %.sroa.22.0..sroa_idx19.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.22.0.copyload20.i.i = load ptr, ptr %.sroa.22.0..sroa_idx19.i.i, align 8
@@ -83463,7 +83463,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13IntrinsicInstElN9
 .split14.i.i.i:                                   ; preds = %.split.i.i.i, %.split14.i.i.i
   %.01.i.i.i = phi i64 [ %17, %.split14.i.i.i ], [ %14, %.split.i.i.i ]
   %17 = add nsw i64 %.01.i.i.i, -1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr noundef nonnull %0, i64 noundef %17, i64 noundef %12, ptr noundef %19)
   %20 = icmp eq i64 %17, 0
@@ -84032,9 +84032,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
   %.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstESA_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.032, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 4
@@ -84099,9 +84099,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
   %.sroa.0.0.i.i.i4.i.i = phi ptr [ %54, %50 ], [ %48, %46 ]
   %55 = icmp ult ptr %.sroa.0.0.i.i.i.i.i, %.sroa.0.0.i.i.i4.i.i
   %spec.select = select i1 %55, i64 %11, i64 %9
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %.032
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.032
   store ptr %57, ptr %58, align 8
   %59 = icmp slt i64 %spec.select, %6
   br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !536
@@ -84121,9 +84121,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
 66:                                               ; preds = %62
   %67 = shl nsw i64 %.0.lcssa, 1
   %68 = or disjoint i64 %67, 1
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %68
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %68
   %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %71 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %70, ptr %71, align 8
   br label %72
 
@@ -84206,7 +84206,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13IntrinsicInstElS2_N9
 
 119:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EclIPPN4llvm13IntrinsicInstES9_EEbT_RT0_.exit.i"
   %120 = load ptr, ptr %76, align 8
-  %121 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %121 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %120, ptr %121, align 8
   %122 = icmp sgt i64 %.04.i, %1
   br i1 %122, label %75, label %"_ZSt11__push_heapIPPN4llvm13IntrinsicInstElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_18Verifier22verifyNoAliasScopeDeclEvE3$_0EEEvT_T0_SC_T1_RT2_.exit", !llvm.loop !537

@@ -842,7 +842,7 @@ define linkonce_odr noundef i32 @_ZN5Eigen8internal27computeFromTridiagonal_impl
 
 .critedge2:                                       ; preds = %.preheader93, %33
   %.171.lcssa = phi i64 [ 0, %.preheader93 ], [ %.171, %33 ]
-  %36 = getelementptr inbounds float, ptr %0, i64 %27
+  %36 = getelementptr inbounds nuw float, ptr %0, i64 %27
   %37 = load float, ptr %36, align 4
   %38 = getelementptr inbounds nuw float, ptr %0, i64 %.1
   %39 = load float, ptr %38, align 4

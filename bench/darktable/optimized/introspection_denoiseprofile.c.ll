@@ -2849,8 +2849,8 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %1423 = phi i64 [ 0, %1392 ], [ %1557, %1422 ]
   %1424 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %1392 ], [ %1558, %1422 ]
   %1425 = getelementptr inbounds float, ptr %3, <8 x i64> %1424
-  %1426 = getelementptr inbounds i8, <8 x ptr> %1425, i64 4
-  %1427 = getelementptr inbounds i8, <8 x ptr> %1425, i64 8
+  %1426 = getelementptr inbounds nuw i8, <8 x ptr> %1425, i64 4
+  %1427 = getelementptr inbounds nuw i8, <8 x ptr> %1425, i64 8
   %1428 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1425, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12
   %1429 = fmul reassoc nsz arcp contract afn <8 x float> %1428, %1394
   %1430 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %1426, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12

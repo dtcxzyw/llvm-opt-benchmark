@@ -693,7 +693,7 @@ define internal noundef ptr @_service_connection(ptr nocapture noundef initializ
 76:                                               ; preds = %.lr.ph.i
   %77 = load i32, ptr %40, align 4
   %78 = load ptr, ptr %5, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 %.07299.i
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.07299.i
   %80 = sub nsw i64 %70, %.07299.i
   %81 = call i64 @read(i32 noundef %77, ptr noundef %79, i64 noundef %80) #12
   %82 = icmp slt i64 %81, 1
@@ -1408,7 +1408,7 @@ define internal fastcc ptr @_slurm_persist_recv_msg(ptr nocapture noundef %0, i1
 
 61:                                               ; preds = %.lr.ph
   %62 = load i32, ptr %5, align 4
-  %63 = getelementptr inbounds i8, ptr %54, i64 %.04261
+  %63 = getelementptr inbounds nuw i8, ptr %54, i64 %.04261
   %64 = sub nsw i64 %53, %.04261
   %65 = tail call i64 @read(i32 noundef %62, ptr noundef nonnull %63, i64 noundef %64) #12
   %66 = icmp slt i64 %65, 1

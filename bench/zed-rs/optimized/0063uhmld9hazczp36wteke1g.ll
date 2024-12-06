@@ -488,7 +488,7 @@ define hidden { i16, i16 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 1
   %.not.i.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds i16, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw i16, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %storemerge.i = select i1 %.not.i.not, ptr %11, ptr %4
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !146
@@ -14460,7 +14460,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0f14d18
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -14570,7 +14570,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0f14d18
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -14689,7 +14689,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h0f14d18
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -14864,7 +14864,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1268b06
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -14974,7 +14974,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1268b06
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -15088,7 +15088,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h1268b06
 
 111:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i"
   %112 = sub nuw nsw i64 %.sroa.4.012.i.i93, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i92, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i92, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
   %114 = icmp eq i64 %112, 0
   br i1 %114, label %116, label %103
 
@@ -15262,7 +15262,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2589864
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -15372,7 +15372,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2589864
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -15491,7 +15491,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2589864
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -15667,7 +15667,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abe077
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -15777,7 +15777,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abe077
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -15895,7 +15895,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2abe077
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -16073,7 +16073,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2dc401b
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -16183,7 +16183,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2dc401b
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -16302,7 +16302,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h2dc401b
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -16477,7 +16477,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h3c183a3
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -16587,7 +16587,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h3c183a3
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -16706,7 +16706,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h3c183a3
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -16881,7 +16881,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h47ecc8b
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -16991,7 +16991,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h47ecc8b
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -17104,7 +17104,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h47ecc8b
 
 111:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i"
   %112 = sub nuw nsw i64 %.sroa.4.012.i.i93, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i92, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i92, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i95
   %114 = icmp eq i64 %112, 0
   br i1 %114, label %116, label %103
 
@@ -17279,7 +17279,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h4c1b939
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -17389,7 +17389,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h4c1b939
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -17507,7 +17507,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h4c1b939
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -17685,7 +17685,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h6923ee5
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -17795,7 +17795,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h6923ee5
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -17914,7 +17914,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h6923ee5
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -18090,7 +18090,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7034f5b
 48:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %49 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %42
   %50 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %53, label %41
 
@@ -18200,7 +18200,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7034f5b
 80:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %81 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %74
   %82 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %83 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %84 = icmp eq i64 %82, 0
   br i1 %84, label %85, label %73
 
@@ -18320,7 +18320,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7034f5b
 
 115:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %116 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %117 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %118 = icmp eq i64 %116, 0
   br i1 %118, label %119, label %107
 
@@ -18369,7 +18369,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h7034f5b
 
 129:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i32.i"
   %130 = sub nuw nsw i64 %.sroa.4.012.i.i28.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
-  %131 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i27.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
   %132 = icmp eq i64 %130, 0
   br i1 %132, label %136, label %121
 
@@ -18558,7 +18558,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h837ae7c
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -18668,7 +18668,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h837ae7c
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -18784,7 +18784,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h837ae7c
 
 111:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %112 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %113 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %114 = icmp eq i64 %112, 0
   br i1 %114, label %116, label %103
 
@@ -18958,7 +18958,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h84a5a5b
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -19068,7 +19068,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h84a5a5b
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -19186,7 +19186,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h84a5a5b
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -19364,7 +19364,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h91d397a
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -19474,7 +19474,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h91d397a
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -19593,7 +19593,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17h91d397a
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -19769,7 +19769,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd1963e6
 47:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %48 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %41
   %49 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %51 = icmp eq i64 %49, 0
   br i1 %51, label %52, label %40
 
@@ -19879,7 +19879,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd1963e6
 79:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %80 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %73
   %81 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %82 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %83 = icmp eq i64 %81, 0
   br i1 %83, label %84, label %72
 
@@ -19997,7 +19997,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hd1963e6
 
 114:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %115 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %116 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %117 = icmp eq i64 %115, 0
   br i1 %117, label %119, label %106
 
@@ -20176,7 +20176,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hfa8ea60
 48:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %49 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %42
   %50 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %51 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %52 = icmp eq i64 %50, 0
   br i1 %52, label %53, label %41
 
@@ -20286,7 +20286,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hfa8ea60
 80:                                               ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i81"
   %81 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79, %74
   %82 = sub nuw nsw i64 %.sroa.4.012.i.i77, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
-  %83 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i76, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i79
   %84 = icmp eq i64 %82, 0
   br i1 %84, label %85, label %73
 
@@ -20406,7 +20406,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hfa8ea60
 
 115:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i.i"
   %116 = sub nuw nsw i64 %.sroa.4.012.i.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
-  %117 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i.i
   %118 = icmp eq i64 %116, 0
   br i1 %118, label %119, label %107
 
@@ -20455,7 +20455,7 @@ define internal fastcc void @_ZN4tiff7decoder3ifd5Entry13decode_offset17hfa8ea60
 
 129:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h633a2815124df1e1E.llvm.3233214882447289910.exit.i.i32.i"
   %130 = sub nuw nsw i64 %.sroa.4.012.i.i28.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
-  %131 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i27.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
+  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i27.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i30.i
   %132 = icmp eq i64 %130, 0
   br i1 %132, label %136, label %121
 
@@ -20790,7 +20790,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 138:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i"
   %139 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i, %132
   %140 = sub nuw nsw i64 %.sroa.4.012.i.i, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
-  %141 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i
   %142 = icmp eq i64 %140, 0
   br i1 %142, label %353, label %131
 
@@ -20843,7 +20843,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 156:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1117"
   %157 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1115, %150
   %158 = sub nuw nsw i64 %.sroa.4.012.i.i1113, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1115
-  %159 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1112, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1115
+  %159 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1112, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1115
   %160 = icmp eq i64 %158, 0
   br i1 %160, label %366, label %149
 
@@ -20896,7 +20896,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 174:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1127"
   %175 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1125, %168
   %176 = sub nuw nsw i64 %.sroa.4.012.i.i1123, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1125
-  %177 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1122, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1125
+  %177 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1122, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1125
   %178 = icmp eq i64 %176, 0
   br i1 %178, label %379, label %167
 
@@ -20960,7 +20960,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 199:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1137"
   %200 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1135, %193
   %201 = sub nuw nsw i64 %.sroa.4.012.i.i1133, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1135
-  %202 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1132, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1135
+  %202 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1132, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1135
   %203 = icmp eq i64 %201, 0
   br i1 %203, label %401, label %192
 
@@ -21013,7 +21013,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 217:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1147"
   %218 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1145, %211
   %219 = sub nuw nsw i64 %.sroa.4.012.i.i1143, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1145
-  %220 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1142, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1145
+  %220 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1142, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1145
   %221 = icmp eq i64 %219, 0
   br i1 %221, label %412, label %210
 
@@ -21066,7 +21066,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 235:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1157"
   %236 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1155, %229
   %237 = sub nuw nsw i64 %.sroa.4.012.i.i1153, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1155
-  %238 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1152, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1155
+  %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1152, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1155
   %239 = icmp eq i64 %237, 0
   br i1 %239, label %425, label %228
 
@@ -21119,7 +21119,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 253:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1167"
   %254 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1165, %247
   %255 = sub nuw nsw i64 %.sroa.4.012.i.i1163, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1165
-  %256 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1162, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1165
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1162, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1165
   %257 = icmp eq i64 %255, 0
   br i1 %257, label %447, label %246
 
@@ -21172,7 +21172,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 271:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1177"
   %272 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1175, %265
   %273 = sub nuw nsw i64 %.sroa.4.012.i.i1173, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1175
-  %274 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1172, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1175
+  %274 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1172, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1175
   %275 = icmp eq i64 %273, 0
   br i1 %275, label %460, label %264
 
@@ -21225,7 +21225,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 289:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1187"
   %290 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1185, %283
   %291 = sub nuw nsw i64 %.sroa.4.012.i.i1183, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1185
-  %292 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1182, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1185
+  %292 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1182, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1185
   %293 = icmp eq i64 %291, 0
   br i1 %293, label %476, label %282
 
@@ -21278,7 +21278,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 307:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1197"
   %308 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1195, %301
   %309 = sub nuw nsw i64 %.sroa.4.012.i.i1193, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1195
-  %310 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1192, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1195
+  %310 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1192, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1195
   %311 = icmp eq i64 %309, 0
   br i1 %311, label %489, label %300
 
@@ -21331,7 +21331,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 325:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1207"
   %326 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1205, %319
   %327 = sub nuw nsw i64 %.sroa.4.012.i.i1203, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1205
-  %328 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1202, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1205
+  %328 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1202, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1205
   %329 = icmp eq i64 %327, 0
   br i1 %329, label %508, label %318
 
@@ -21384,7 +21384,7 @@ default.unreachable2176:                          ; preds = %749, %748, %116, %1
 343:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1217"
   %344 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1215, %337
   %345 = sub nuw nsw i64 %.sroa.4.012.i.i1213, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1215
-  %346 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1212, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1215
+  %346 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1212, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1215
   %347 = icmp eq i64 %345, 0
   br i1 %347, label %527, label %336
 
@@ -22244,7 +22244,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 557:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1297"
   %558 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1295, %551
   %559 = sub nuw nsw i64 %.sroa.4.012.i.i1293, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1295
-  %560 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1292, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1295
+  %560 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1292, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1295
   %561 = icmp eq i64 %559, 0
   br i1 %561, label %652, label %550
 
@@ -22297,7 +22297,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 575:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1307"
   %576 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1305, %569
   %577 = sub nuw nsw i64 %.sroa.4.012.i.i1303, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1305
-  %578 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1302, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1305
+  %578 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1302, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1305
   %579 = icmp eq i64 %577, 0
   br i1 %579, label %681, label %568
 
@@ -22350,7 +22350,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 593:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1317"
   %594 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1315, %587
   %595 = sub nuw nsw i64 %.sroa.4.012.i.i1313, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1315
-  %596 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1312, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1315
+  %596 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1312, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1315
   %597 = icmp eq i64 %595, 0
   br i1 %597, label %708, label %586
 
@@ -22403,7 +22403,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 611:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1327"
   %612 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1325, %605
   %613 = sub nuw nsw i64 %.sroa.4.012.i.i1323, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1325
-  %614 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1322, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1325
+  %614 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1322, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1325
   %615 = icmp eq i64 %613, 0
   br i1 %615, label %718, label %604
 
@@ -22456,7 +22456,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 629:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1337"
   %630 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1335, %623
   %631 = sub nuw nsw i64 %.sroa.4.012.i.i1333, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1335
-  %632 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1332, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1335
+  %632 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1332, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1335
   %633 = icmp eq i64 %631, 0
   br i1 %633, label %728, label %622
 
@@ -22509,7 +22509,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 647:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1347"
   %648 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1345, %641
   %649 = sub nuw nsw i64 %.sroa.4.012.i.i1343, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1345
-  %650 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1342, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1345
+  %650 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1342, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1345
   %651 = icmp eq i64 %649, 0
   br i1 %651, label %738, label %640
 
@@ -22557,7 +22557,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 664:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1359"
   %665 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1357, %658
   %666 = sub nuw nsw i64 %.sroa.4.012.i.i1355, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1357
-  %667 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1354, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1357
+  %667 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1354, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1357
   %668 = icmp eq i64 %666, 0
   br i1 %668, label %672, label %657
 
@@ -22687,7 +22687,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 693:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1379"
   %694 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1377, %687
   %695 = sub nuw nsw i64 %.sroa.4.012.i.i1375, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1377
-  %696 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1374, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1377
+  %696 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1374, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1377
   %697 = icmp eq i64 %695, 0
   br i1 %697, label %701, label %686
 
@@ -23129,7 +23129,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 783:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1421"
   %784 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1419, %777
   %785 = sub nuw nsw i64 %.sroa.4.012.i.i1417, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1419
-  %786 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1416, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1419
+  %786 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1416, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1419
   %787 = icmp eq i64 %785, 0
   br i1 %787, label %809, label %776
 
@@ -23182,7 +23182,7 @@ _ZN4tiff7decoder6stream12EndianReader8read_i3217h3ffb7212095c85e2E.exit935.threa
 801:                                              ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1431"
   %802 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1429, %795
   %803 = sub nuw nsw i64 %.sroa.4.012.i.i1427, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1429
-  %804 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1426, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1429
+  %804 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1426, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1429
   %805 = icmp eq i64 %803, 0
   br i1 %805, label %828, label %794
 
@@ -23839,7 +23839,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1010:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1468"
   %1011 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1466, %1004
   %1012 = sub nuw nsw i64 %.sroa.4.012.i.i1464, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1466
-  %1013 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1463, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1466
+  %1013 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1463, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1466
   %1014 = icmp eq i64 %1012, 0
   br i1 %1014, label %1016, label %1003
 
@@ -23997,7 +23997,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1051:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1482"
   %1052 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1480, %1045
   %1053 = sub nuw nsw i64 %.sroa.4.012.i.i1478, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1480
-  %1054 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1477, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1480
+  %1054 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1477, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1480
   %1055 = icmp eq i64 %1053, 0
   br i1 %1055, label %1057, label %1044
 
@@ -24155,7 +24155,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1092:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1499"
   %1093 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1497, %1086
   %1094 = sub nuw nsw i64 %.sroa.4.012.i.i1495, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1497
-  %1095 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1494, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1497
+  %1095 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1494, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1497
   %1096 = icmp eq i64 %1094, 0
   br i1 %1096, label %1098, label %1085
 
@@ -24314,7 +24314,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1134:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1516"
   %1135 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1514, %1128
   %1136 = sub nuw nsw i64 %.sroa.4.012.i.i1512, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1514
-  %1137 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1511, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1514
+  %1137 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1511, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1514
   %1138 = icmp eq i64 %1136, 0
   br i1 %1138, label %1140, label %1127
 
@@ -24472,7 +24472,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1175:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1533"
   %1176 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1531, %1169
   %1177 = sub nuw nsw i64 %.sroa.4.012.i.i1529, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1531
-  %1178 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1528, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1531
+  %1178 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1528, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1531
   %1179 = icmp eq i64 %1177, 0
   br i1 %1179, label %1181, label %1168
 
@@ -24630,7 +24630,7 @@ _ZN3std2io18default_read_exact17h7de2e666929f36e6E.exit.thread: ; preds = %966, 
 1216:                                             ; preds = %"_ZN77_$LT$tiff..decoder..stream..SmartReader$LT$R$GT$$u20$as$u20$std..io..Read$GT$4read17h90871d6cd7b745c9E.exit.i.i1550"
   %1217 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1548, %1210
   %1218 = sub nuw nsw i64 %.sroa.4.012.i.i1546, %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1548
-  %1219 = getelementptr inbounds i8, ptr %.sroa.0.013.i.i1545, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1548
+  %1219 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i1545, i64 %.sroa.0.0.sroa.speculated.i.i6.i.i.i.i1548
   %1220 = icmp eq i64 %1218, 0
   br i1 %1220, label %1222, label %1209
 
@@ -39937,7 +39937,7 @@ define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN91_$LT$core..s
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 1
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds i16, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw i16, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null

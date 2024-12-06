@@ -5664,7 +5664,7 @@ cff_parse_fixed_dynamic.exit:                     ; preds = %23, %98, %104, %cff
   %149 = getelementptr inbounds nuw i8, ptr %5, i64 120
   store i64 %148, ptr %149, align 8
   %150 = sub nsw i64 0, %.2
-  %151 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %150
+  %151 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %150
   %152 = load i64, ptr %151, align 8
   store i64 %152, ptr %8, align 8
   %153 = call zeroext i8 @FT_Matrix_Check(ptr noundef nonnull %6) #19
@@ -6621,7 +6621,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
 
 115:                                              ; preds = %85
   %116 = add nsw i64 %86, -5
-  %117 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %116
+  %117 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %116
   %118 = load i64, ptr %117, align 8
   %119 = sdiv i64 %.2160, %118
   %120 = icmp sgt i64 %119, 32767
@@ -6629,7 +6629,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
 
 121:                                              ; preds = %115
   %122 = add nsw i64 %86, -4
-  %123 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %122
+  %123 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %122
   %124 = load i64, ptr %123, align 8
   %125 = tail call i64 @FT_DivFix(i64 noundef %.2160, i64 noundef %124) #19
   %126 = add nsw i64 %87, -4
@@ -6687,7 +6687,7 @@ define internal fastcc i64 @cff_parse_real(ptr noundef readonly %0, ptr noundef 
 
 155:                                              ; preds = %144
   %156 = sub nsw i64 0, %.4140
-  %157 = getelementptr inbounds [10 x i64], ptr @power_tens, i64 0, i64 %156
+  %157 = getelementptr inbounds nuw [10 x i64], ptr @power_tens, i64 0, i64 %156
   %158 = load i64, ptr %157, align 8
   %159 = mul nsw i64 %158, %.7
   %160 = icmp sgt i64 %159, 32767

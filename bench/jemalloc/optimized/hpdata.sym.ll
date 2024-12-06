@@ -2010,7 +2010,7 @@ while.end.i.i72:                                  ; preds = %fb_assign_visitor.e
 fb_assign_visitor.exit38.i:                       ; preds = %while.end.i.i72
   %sub10.i.i74 = sub nuw nsw i64 64, %cnt.addr.i.0.lcssa.i
   %shr11.i.i75 = lshr i64 -1, %sub10.i.i74
-  %arrayidx12.i.i76 = getelementptr inbounds i64, ptr %active_pages, i64 %group_ind.i.0.lcssa.i73
+  %arrayidx12.i.i76 = getelementptr inbounds nuw i64, ptr %active_pages, i64 %group_ind.i.0.lcssa.i73
   %19 = load i64, ptr %arrayidx12.i.i76, align 8
   %or.i37.i = or i64 %19, %shr11.i.i75
   store i64 %or.i37.i, ptr %arrayidx12.i.i76, align 8
@@ -2095,7 +2095,7 @@ while.end.i.i93:                                  ; preds = %fb_scount.exit.thre
 fb_assign_visitor.exit38.i97:                     ; preds = %while.end.i.i93
   %sub10.i.i98 = sub nuw nsw i64 64, %cnt.addr.i.0.lcssa.i94
   %shr11.i.i99 = lshr i64 -1, %sub10.i.i98
-  %arrayidx12.i.i100 = getelementptr inbounds i64, ptr %touched_pages, i64 %group_ind.i.0.lcssa.i95
+  %arrayidx12.i.i100 = getelementptr inbounds nuw i64, ptr %touched_pages, i64 %group_ind.i.0.lcssa.i95
   %39 = load i64, ptr %arrayidx12.i.i100, align 8
   %or.i37.i101 = or i64 %39, %shr11.i.i99
   store i64 %or.i37.i101, ptr %arrayidx12.i.i100, align 8
@@ -2270,7 +2270,7 @@ while.end.i.i:                                    ; preds = %fb_assign_visitor.e
 fb_assign_visitor.exit38.i:                       ; preds = %while.end.i.i
   %sub10.i.i = sub nuw nsw i64 64, %cnt.addr.i.0.lcssa.i
   %shr11.i.i = lshr i64 -1, %sub10.i.i
-  %arrayidx12.i.i = getelementptr inbounds i64, ptr %active_pages, i64 %group_ind.i.0.lcssa.i
+  %arrayidx12.i.i = getelementptr inbounds nuw i64, ptr %active_pages, i64 %group_ind.i.0.lcssa.i
   %not.i33.i = xor i64 %shr11.i.i, -1
   %16 = load i64, ptr %arrayidx12.i.i, align 8
   %and.i34.i = and i64 %16, %not.i33.i
@@ -2293,7 +2293,7 @@ while.body.i.i:                                   ; preds = %fb_unset_range.exit
 
 if.end29.i.i:                                     ; preds = %while.body.i.i
   %add19.i.i = add nsw i64 %group_ind.i.030.i, -1
-  %arrayidx30.i.i = getelementptr inbounds i64, ptr %active_pages, i64 %add19.i.i
+  %arrayidx30.i.i = getelementptr inbounds nuw i64, ptr %active_pages, i64 %add19.i.i
   %18 = load i64, ptr %arrayidx30.i.i, align 8
   %cmp13.i.i = icmp eq i64 %18, 0
   br i1 %cmp13.i.i, label %while.body.i.i, label %cond.false37.i.i, !llvm.loop !8
@@ -2483,7 +2483,7 @@ while.body.i.i51:                                 ; preds = %fb_ffs.exit41, %if.
 
 if.end29.i.i54:                                   ; preds = %while.body.i.i51
   %add19.i.i55 = add nsw i64 %group_ind.i.030.i52, -1
-  %arrayidx30.i.i56 = getelementptr inbounds i64, ptr %dirty_pages, i64 %add19.i.i55
+  %arrayidx30.i.i56 = getelementptr inbounds nuw i64, ptr %dirty_pages, i64 %add19.i.i55
   %10 = load i64, ptr %arrayidx30.i.i56, align 8
   %cmp13.i.i57 = icmp eq i64 %10, 0
   br i1 %cmp13.i.i57, label %while.body.i.i51, label %cond.false37.i.i, !llvm.loop !8
@@ -2544,7 +2544,7 @@ while.end.i.i:                                    ; preds = %fb_assign_visitor.e
 fb_assign_visitor.exit38.i:                       ; preds = %while.end.i.i
   %sub10.i.i = sub nuw nsw i64 64, %cnt.addr.i.0.lcssa.i
   %shr11.i.i = lshr i64 -1, %sub10.i.i
-  %arrayidx12.i.i = getelementptr inbounds i64, ptr %to_purge, i64 %group_ind.i.0.lcssa.i59
+  %arrayidx12.i.i = getelementptr inbounds nuw i64, ptr %to_purge, i64 %group_ind.i.0.lcssa.i59
   %25 = load i64, ptr %arrayidx12.i.i, align 8
   %or.i37.i = or i64 %25, %shr11.i.i
   store i64 %or.i37.i, ptr %arrayidx12.i.i, align 8

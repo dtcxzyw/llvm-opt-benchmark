@@ -891,7 +891,7 @@ while.body.i15.i.i:                               ; preds = %while.cond.i.i.i, %
 
 lor.lhs.false.i.i.i:                              ; preds = %while.body.i15.i.i
   %name69.i.i.i = getelementptr inbounds nuw i8, ptr %65, i64 108
-  %arrayidx70.i.i.i = getelementptr inbounds [0 x i8], ptr %name69.i.i.i, i64 0, i64 %gepdiff.i.i.i
+  %arrayidx70.i.i.i = getelementptr inbounds nuw [0 x i8], ptr %name69.i.i.i, i64 0, i64 %gepdiff.i.i.i
   %67 = load i8, ptr %arrayidx70.i.i.i, align 1
   %cmp72.not.i.i.i = icmp eq i8 %67, 47
   br i1 %cmp72.not.i.i.i, label %lor.lhs.false74.i.i.i, label %for.cond16.i.i.i.backedge
@@ -8274,7 +8274,7 @@ if.then82.i:                                      ; preds = %if.then80.i
 
 if.end87.i:                                       ; preds = %if.then82.i, %if.then80.i
   %name88.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 108
-  %add.ptr90.i = getelementptr inbounds i8, ptr %name88.i, i64 %copy_len.0.i
+  %add.ptr90.i = getelementptr inbounds nuw i8, ptr %name88.i, i64 %copy_len.0.i
   %reass.sub = sub i64 %len.0.i, %copy_len.0.i
   %sub92.i = add i64 %reass.sub, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr90.i, ptr align 1 %name.1.i, i64 %sub92.i, i1 false)
@@ -8284,7 +8284,6 @@ if.end87.i:                                       ; preds = %if.then82.i, %if.th
   %reass.sub10 = sub i64 %sub.ptr.lhs.cast.i, %56
   %add94.i = add i64 %reass.sub10, 1
   %sub95.i = add i64 %add94.i, %len.0.i
-  %.pre = load i32, ptr %ce_mode.i, align 4
   br label %create_from_disk.exit
 
 if.else96.i:                                      ; preds = %if.end37.i
@@ -8305,10 +8304,9 @@ if.else96.i:                                      ; preds = %if.end37.i
   br label %create_from_disk.exit
 
 create_from_disk.exit:                            ; preds = %if.end87.i, %if.else96.i
-  %60 = phi i32 [ %or11.i148.i, %if.else96.i ], [ %.pre, %if.end87.i ]
   %storemerge.i = phi i64 [ %and112.i, %if.else96.i ], [ %sub95.i, %if.end87.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %cp.i)
-  %cmp.i10 = icmp eq i32 %60, 16384
+  %cmp.i10 = icmp eq i32 %or11.i148.i, 16384
   br i1 %cmp.i10, label %if.then.i12, label %set_index_entry.exit
 
 if.then.i12:                                      ; preds = %create_from_disk.exit
@@ -8316,8 +8314,8 @@ if.then.i12:                                      ; preds = %create_from_disk.ex
   br label %set_index_entry.exit
 
 set_index_entry.exit:                             ; preds = %create_from_disk.exit, %if.then.i12
-  %61 = load ptr, ptr %istate, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
+  %60 = load ptr, ptr %istate, align 8
+  %arrayidx.i = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv
   store ptr %call.i.i, ptr %arrayidx.i, align 8
   call void @add_name_hash(ptr noundef nonnull %istate, ptr noundef nonnull %call.i.i) #28
   %add1 = add i64 %storemerge.i, %src_offset.07

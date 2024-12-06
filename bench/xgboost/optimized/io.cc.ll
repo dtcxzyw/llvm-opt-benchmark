@@ -13762,7 +13762,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !69
-  %53 = getelementptr inbounds i32, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !72
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !71

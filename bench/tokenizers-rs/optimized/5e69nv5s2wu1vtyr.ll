@@ -2990,7 +2990,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br i1 %.not.i.i, label %.critedge.i.i, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds { [3 x i64] }, ptr %34, i64 %35
+  %38 = getelementptr inbounds nuw { [3 x i64] }, ptr %34, i64 %35
   %39 = sub nsw i64 %33, %.sroa.5.0.copyload.i
   %40 = mul nsw i64 %39, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %36, i64 %40, i1 false), !alias.scope !389, !noalias !392
@@ -2999,7 +2999,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !399)
   %41 = getelementptr inbounds { [4 x i64] }, ptr %20, i64 %.sroa.5.0.copyload.i
-  %42 = getelementptr inbounds { [4 x i64] }, ptr %20, i64 %35
+  %42 = getelementptr inbounds nuw { [4 x i64] }, ptr %20, i64 %35
   %43 = shl nsw i64 %39, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull align 8 %41, i64 %43, i1 false), !alias.scope !402, !noalias !404
   br label %.thread
@@ -3053,7 +3053,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 57:                                               ; preds = %49
   %58 = add nuw nsw i64 %.sroa.10.0.i, 1
-  %59 = getelementptr inbounds { [3 x i64] }, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw { [3 x i64] }, ptr %55, i64 %58
   %60 = sub nuw nsw i64 %54, %.sroa.10.0.i
   %61 = mul nuw nsw i64 %60, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %59, ptr nonnull align 8 %56, i64 %61, i1 false), !alias.scope !411, !noalias !414
@@ -3062,7 +3062,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !416)
   %62 = getelementptr inbounds { [4 x i64] }, ptr %51, i64 %.sroa.10.0.i
-  %63 = getelementptr inbounds { [4 x i64] }, ptr %51, i64 %58
+  %63 = getelementptr inbounds nuw { [4 x i64] }, ptr %51, i64 %58
   %64 = shl nuw nsw i64 %60, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %63, ptr nonnull align 8 %62, i64 %64, i1 false), !alias.scope !419, !noalias !421
   br label %72
@@ -3509,13 +3509,13 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
   br label %237
 
 225:                                              ; preds = %214
-  %226 = getelementptr inbounds { [3 x i64] }, ptr %220, i64 %221
+  %226 = getelementptr inbounds nuw { [3 x i64] }, ptr %220, i64 %221
   %227 = sub nuw nsw i64 %218, %.sroa.14.0.i
   %228 = mul nuw nsw i64 %227, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %226, ptr nonnull align 8 %222, i64 %228, i1 false), !alias.scope !512, !noalias !515
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %222, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !noalias !457
   %229 = getelementptr inbounds { [4 x i64] }, ptr %215, i64 %.sroa.14.0.i
-  %230 = getelementptr inbounds { [4 x i64] }, ptr %215, i64 %221
+  %230 = getelementptr inbounds nuw { [4 x i64] }, ptr %215, i64 %221
   %231 = shl nuw nsw i64 %227, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %230, ptr nonnull align 8 %229, i64 %231, i1 false), !alias.scope !517, !noalias !520
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %229, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.7213.24..sroa_idx, i64 32, i1 false)
@@ -16493,7 +16493,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3401e0123965832cE.exit: ; preds = 
   %195 = xor i64 %.011.i.i, -1
   %196 = add nsw i64 %191, %195
   %197 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %198 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %194, i64 0, i64 %196
+  %198 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %194, i64 0, i64 %196
   br label %199
 
 199:                                              ; preds = %199, %.lr.ph.preheader.i.i
@@ -17128,7 +17128,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha41db9d3e8f6db43E.exit: ; preds = 
   %192 = xor i64 %.011.i.i, -1
   %193 = add nsw i64 %188, %192
   %194 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %195 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
   br label %196
 
 196:                                              ; preds = %196, %.lr.ph.preheader.i.i
@@ -17764,7 +17764,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfa768d451191709bE.exit: ; preds = 
   %193 = xor i64 %.011.i.i, -1
   %194 = add nsw i64 %189, %193
   %195 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %196 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %192, i64 0, i64 %194
+  %196 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %192, i64 0, i64 %194
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph.preheader.i.i
@@ -18399,7 +18399,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf3e50410b76eb8c1E.exit: ; preds = 
   %192 = xor i64 %.011.i.i, -1
   %193 = add nsw i64 %188, %192
   %194 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %195 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
   br label %196
 
 196:                                              ; preds = %196, %.lr.ph.preheader.i.i
@@ -19069,7 +19069,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h004ac5429e5fa5b7E.exit: ; preds = 
   %199 = xor i64 %.011.i.i, -1
   %200 = add nsw i64 %195, %199
   %201 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %202 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %198, i64 0, i64 %200
+  %202 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %198, i64 0, i64 %200
   br label %203
 
 203:                                              ; preds = %203, %.lr.ph.preheader.i.i
@@ -19739,7 +19739,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h59cdc12238a6a7bdE.exit: ; preds = 
   %199 = xor i64 %.011.i.i, -1
   %200 = add nsw i64 %195, %199
   %201 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %202 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %198, i64 0, i64 %200
+  %202 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %198, i64 0, i64 %200
   br label %203
 
 203:                                              ; preds = %203, %.lr.ph.preheader.i.i
@@ -20374,7 +20374,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h97360db56ff0cedbE.exit: ; preds = 
   %192 = xor i64 %.011.i.i, -1
   %193 = add nsw i64 %188, %192
   %194 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %195 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
   br label %196
 
 196:                                              ; preds = %196, %.lr.ph.preheader.i.i
@@ -21009,7 +21009,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h80c40a7cff038ed4E.exit: ; preds = 
   %192 = xor i64 %.011.i.i, -1
   %193 = add nsw i64 %188, %192
   %194 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %.sroa.6120.1, i64 0, i64 %.011.i.i
-  %195 = getelementptr inbounds [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
+  %195 = getelementptr inbounds nuw [0 x { { i64, i64 }, i8, [7 x i8] }], ptr %191, i64 0, i64 %193
   br label %196
 
 196:                                              ; preds = %196, %.lr.ph.preheader.i.i

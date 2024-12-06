@@ -236,7 +236,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 24:                                               ; preds = %21
   %25 = getelementptr inbounds { [10 x i64] }, ptr %13, i64 %.sroa.5.0.copyload.i
-  %26 = getelementptr inbounds { [10 x i64] }, ptr %13, i64 %23
+  %26 = getelementptr inbounds nuw { [10 x i64] }, ptr %13, i64 %23
   %27 = sub nsw i64 %22, %.sroa.5.0.copyload.i
   %28 = mul nsw i64 %27, 80
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %26, ptr nonnull align 8 %25, i64 %28, i1 false), !alias.scope !15, !noalias !18
@@ -818,7 +818,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 241:                                              ; preds = %235
   %242 = getelementptr inbounds { [10 x i64] }, ptr %spec.select.i, i64 %.sroa.7.0.i
-  %243 = getelementptr inbounds { [10 x i64] }, ptr %spec.select.i, i64 %240
+  %243 = getelementptr inbounds nuw { [10 x i64] }, ptr %spec.select.i, i64 %240
   %244 = sub nsw i64 %238, %.sroa.7.0.i
   %245 = mul nsw i64 %244, 80
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %243, ptr nonnull align 8 %242, i64 %245, i1 false), !alias.scope !118, !noalias !121
@@ -835,7 +835,7 @@ define hidden void @"_ZN5alloc11collections5btree4node210Handle$LT$alloc..collec
 
 252:                                              ; preds = %246
   %253 = getelementptr inbounds ptr, ptr %249, i64 %240
-  %254 = getelementptr inbounds ptr, ptr %249, i64 %250
+  %254 = getelementptr inbounds nuw ptr, ptr %249, i64 %250
   %255 = sub nsw i64 %238, %.sroa.7.0.i
   %256 = shl nsw i64 %255, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %254, ptr nonnull align 8 %253, i64 %256, i1 false), !alias.scope !123, !noalias !114

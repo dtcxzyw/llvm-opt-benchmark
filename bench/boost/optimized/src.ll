@@ -25900,7 +25900,7 @@ _ZNK5boost4json6string4sizeEv.exit.i.i:           ; preds = %14, %11
 
 35:                                               ; preds = %._crit_edge.i.i.i.i.i
   %36 = add nsw i64 %.034.lcssa.i.i.i.i.i, -4
-  %37 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i, i64 %36
+  %37 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i, i64 %36
   %38 = load i32, ptr %37, align 1
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %36, 3
@@ -31389,7 +31389,7 @@ _ZNK5boost4json6string4sizeEv.exit.i.i.i.i:       ; preds = %20, %17
 
 41:                                               ; preds = %._crit_edge.i.i.i.i.i.i.i
   %42 = add nsw i64 %.034.lcssa.i.i.i.i.i.i.i, -4
-  %43 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.i, i64 %42
   %44 = load i32, ptr %43, align 1
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %42, 3
@@ -37943,7 +37943,7 @@ define linkonce_odr hidden noundef i64 @_ZNK5boost4hashINS_4json14key_value_pair
 
 26:                                               ; preds = %._crit_edge.i.i.i.i.i.i
   %27 = add nsw i64 %.034.lcssa.i.i.i.i.i.i, -4
-  %28 = getelementptr inbounds i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 %27
   %29 = load i32, ptr %28, align 1
   %30 = zext i32 %29 to i64
   %31 = shl nuw nsw i64 %27, 3
@@ -62201,7 +62201,7 @@ define linkonce_odr hidden noundef double @_ZN5boost4json6detail8charconv6detail
 
 30:                                               ; preds = %26
   %31 = add nsw i64 %0, 325
-  %32 = getelementptr inbounds [634 x i64], ptr @_ZN5boost4json6detail8charconv6detailL14significand_64E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [634 x i64], ptr @_ZN5boost4json6detail8charconv6detailL14significand_64E, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !11
   %34 = mul nsw i64 %0, 217706
   %35 = ashr i64 %34, 16
@@ -62224,7 +62224,7 @@ define linkonce_odr hidden noundef double @_ZN5boost4json6detail8charconv6detail
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds [634 x i64], ptr @_ZN5boost4json6detail8charconv6detailL15significand_128E, i64 0, i64 %31
+  %51 = getelementptr inbounds nuw [634 x i64], ptr @_ZN5boost4json6detail8charconv6detailL15significand_128E, i64 0, i64 %31
   %52 = load i64, ptr %51, align 8, !tbaa !11
   %53 = zext i64 %52 to i128
   %54 = mul nuw i128 %53, %39

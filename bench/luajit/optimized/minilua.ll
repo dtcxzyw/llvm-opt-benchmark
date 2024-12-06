@@ -3836,7 +3836,7 @@ if.else16:                                        ; preds = %entry
   %sub18 = add nsw i64 %bufflen, -17
   %spec.select = tail call i64 @llvm.umin.i64(i64 %call17, i64 %sub18)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %out, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #37
-  %arrayidx24 = getelementptr inbounds i8, ptr %source, i64 %spec.select
+  %arrayidx24 = getelementptr inbounds nuw i8, ptr %source, i64 %spec.select
   %2 = load i8, ptr %arrayidx24, align 1
   %cmp26.not = icmp eq i8 %2, 0
   br i1 %cmp26.not, label %if.else31, label %if.then28
@@ -44191,7 +44191,7 @@ lor.lhs.false:                                    ; preds = %land.lhs.true, %lua
   br i1 %cmp10, label %if.then11, label %if.else21
 
 if.then11:                                        ; preds = %land.lhs.true, %lor.lhs.false, %lua_toboolean.exit
-  %add.ptr = getelementptr inbounds i8, ptr %call.i, i64 %init.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call.i, i64 %init.0
   %sub12 = sub i64 %17, %init.0
   %23 = load i64, ptr %l2, align 8
   %cmp.i42 = icmp eq i64 %23, 0
@@ -44264,7 +44264,7 @@ if.else21:                                        ; preds = %lor.lhs.false, %16
   %cmp22.not = icmp eq i8 %.fr, 94
   %spec.select32.idx = zext i1 %cmp22.not to i64
   %spec.select32 = getelementptr inbounds nuw i8, ptr %call.i33, i64 %spec.select32.idx
-  %add.ptr24 = getelementptr inbounds i8, ptr %call.i, i64 %init.0
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %call.i, i64 %init.0
   %L25 = getelementptr inbounds nuw i8, ptr %ms, i64 16
   store ptr %L, ptr %L25, align 8
   store ptr %call.i, ptr %ms, align 8

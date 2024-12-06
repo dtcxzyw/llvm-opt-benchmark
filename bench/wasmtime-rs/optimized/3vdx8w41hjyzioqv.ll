@@ -25279,7 +25279,7 @@ define void @_ZN8wasmtime7runtime6module6Module18resources_required17hd83b83b907
 
 18:                                               ; preds = %.split9
   %.not.i.i.i.i = icmp ult i64 %10, %8
-  %19 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %14, i64 %10
+  %19 = getelementptr inbounds nuw { { { i64, [1 x i64] }, i64, i8, i8, [6 x i8] }, { i64, [1 x i64] }, i64, i64 }, ptr %14, i64 %10
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit
 
 ._crit_edge.i.i.i:                                ; preds = %18, %16
@@ -25338,7 +25338,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17h746632c3fbd36fbbE.exit: ; preds 
 
 42:                                               ; preds = %.split13
   %.not.i.i.i.i18 = icmp ult i64 %34, %32
-  %43 = getelementptr inbounds { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %38, i64 %34
+  %43 = getelementptr inbounds nuw { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i8, [3 x i8] }, i32 }, {} }, ptr %38, i64 %34
   br i1 %.not.i.i.i.i18, label %._crit_edge.i.i.i21, label %_ZN4core4iter6traits8iterator8Iterator6reduce17ha75c34659af08e6cE.exit
 
 ._crit_edge.i.i.i21:                              ; preds = %42, %40

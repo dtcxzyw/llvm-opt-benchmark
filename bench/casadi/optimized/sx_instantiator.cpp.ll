@@ -124854,13 +124854,13 @@ _ZN6casadi17GenericExpressionINS_6SXElemEEdVERKS1_.exit: ; preds = %29
   %47 = phi i64 [ %45, %.loopexit ], [ %.pre86, %.lr.ph84.preheader ]
   %.1.in82 = phi i64 [ %.183, %.loopexit ], [ %12, %.lr.ph84.preheader ]
   %.183 = add nsw i64 %.1.in82, -1
-  %48 = getelementptr inbounds i64, ptr %13, i64 %.183
+  %48 = getelementptr inbounds nuw i64, ptr %13, i64 %.183
   %49 = load i64, ptr %48, align 8
   %.not59.not77 = icmp sgt i64 %47, %49
   br i1 %.not59.not77, label %.lr.ph80, label %.loopexit
 
 .lr.ph80:                                         ; preds = %.lr.ph84
-  %50 = getelementptr inbounds %"class.casadi::SXElem", ptr %2, i64 %.183
+  %50 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %2, i64 %.183
   br label %51
 
 51:                                               ; preds = %.lr.ph80, %68
@@ -125278,13 +125278,13 @@ define linkonce_odr hidden void @_ZN6casadi14casadi_ldl_trsINS_6SXElemEEEvPKxPKT
   %38 = phi i64 [ %36, %.loopexit ], [ %.pre67, %.lr.ph65.preheader ]
   %.1.in63 = phi i64 [ %.164, %.loopexit ], [ %10, %.lr.ph65.preheader ]
   %.164 = add nsw i64 %.1.in63, -1
-  %39 = getelementptr inbounds i64, ptr %11, i64 %.164
+  %39 = getelementptr inbounds nuw i64, ptr %11, i64 %.164
   %40 = load i64, ptr %39, align 8
   %.not42.not58 = icmp sgt i64 %38, %40
   br i1 %.not42.not58, label %.lr.ph61, label %.loopexit
 
 .lr.ph61:                                         ; preds = %.lr.ph65
-  %41 = getelementptr inbounds %"class.casadi::SXElem", ptr %2, i64 %.164
+  %41 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %2, i64 %.164
   br label %42
 
 42:                                               ; preds = %.lr.ph61, %50

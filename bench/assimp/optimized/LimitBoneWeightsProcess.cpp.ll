@@ -1507,7 +1507,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit61.us
   %__parent.066.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit61.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.066.us, -1
-  %add.ptr11.us = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 4
   %cmp23.i16.not.us = icmp sgt i64 %__parent.066.us, %div.i6264
   br i1 %cmp23.i16.not.us, label %while.end.i17.us.thread, label %while.body.i49.us
@@ -1573,7 +1573,7 @@ _ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit61
   %__parent.066 = phi i64 [ %dec, %_ZSt13__adjust_heapIPN6Assimp23LimitBoneWeightsProcess6WeightElS2_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S8_T1_T2_.exit61 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.066, -1
-  %add.ptr11 = getelementptr inbounds %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %"struct.Assimp::LimitBoneWeightsProcess::Weight", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
   %cmp23.i16.not = icmp sgt i64 %__parent.066, %div.i6264
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i49

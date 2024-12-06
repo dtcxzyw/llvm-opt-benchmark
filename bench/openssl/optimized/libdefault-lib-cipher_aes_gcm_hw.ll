@@ -148,7 +148,7 @@ if.end24:                                         ; preds = %if.then20, %if.end6
 
 if.then27:                                        ; preds = %if.end24
   tail call void @ossl_aes_gcm_update_aad_avx512(ptr noundef nonnull %gcm, ptr noundef %aad.addr.0, i64 noundef %and) #4
-  %add.ptr = getelementptr inbounds i8, ptr %aad.addr.0, i64 %and
+  %add.ptr = getelementptr inbounds nuw i8, ptr %aad.addr.0, i64 %and
   %sub28 = and i64 %aad_len.addr.0, 15
   br label %if.end29
 

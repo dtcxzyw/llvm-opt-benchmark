@@ -24075,7 +24075,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %32 = load ptr, ptr %31, align 8, !noalias !10936, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %27, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$$GT$17he4522c5b7e09ad10E.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24, !noalias !10936
 
@@ -24160,7 +24160,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %30 = load ptr, ptr %29, align 8, !noalias !10939, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10942)
   br label %.lr.ph.i.i
 
@@ -24936,7 +24936,7 @@ define hidden void @"_ZN4core3ptr74drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %30 = load ptr, ptr %29, align 8, !noalias !11321, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11324)
   br label %.lr.ph.i.i
 
@@ -35266,7 +35266,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14300)
   br label %.lr.ph.i
 
@@ -35449,7 +35449,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %27, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr49drop_in_place$LT$$u5b$just..scope..Scope$u5d$$GT$17he4522c5b7e09ad10E.llvm.1798434116971987782"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24
 
@@ -35533,7 +35533,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14327)
   br label %.lr.ph.i
 
@@ -35643,7 +35643,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   br label %34
 
 34:                                               ; preds = %36, %28

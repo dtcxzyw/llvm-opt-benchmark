@@ -53,7 +53,7 @@ define noundef range(i32 -2147483648, 256) i32 @main(i32 noundef %0, ptr noundef
 
 25:                                               ; preds = %21
   %26 = add nsw i64 %23, -1
-  %27 = getelementptr inbounds [4096 x i8], ptr %4, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [4096 x i8], ptr %4, i64 0, i64 %26
   %28 = load i8, ptr %27, align 1
   %.not.i = icmp eq i8 %28, 10
   br i1 %.not.i, label %29, label %31

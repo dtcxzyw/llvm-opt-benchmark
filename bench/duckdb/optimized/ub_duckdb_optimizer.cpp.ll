@@ -60904,7 +60904,7 @@ if.end:                                           ; preds = %entry
   %0 = and i64 %sub.ptr.sub.i, 16
   %cmp16.i = icmp eq i64 %0, 0
   %sub24.i = or disjoint i64 %sub, 1
-  %add.ptr.i57.i = getelementptr inbounds %"struct.duckdb::hugeint_t", ptr %__first.coerce, i64 %sub24.i
+  %add.ptr.i57.i = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %__first.coerce, i64 %sub24.i
   %add.ptr.i58.i = getelementptr inbounds nuw %"struct.duckdb::hugeint_t", ptr %__first.coerce, i64 %div2526
   br label %while.cond
 

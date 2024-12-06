@@ -1365,7 +1365,7 @@ if.then.i82:                                      ; preds = %_ZNSt6vectorI11epol
 
 _ZNSt12_Vector_baseI11epoll_eventSaIS0_EE13_M_deallocateEPS0_m.exit83: ; preds = %if.then.i82, %_ZNSt6vectorI11epoll_eventSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !49
-  %add.ptr37 = getelementptr inbounds %struct.epoll_event, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %struct.epoll_event, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !50
   %add.ptr40 = getelementptr inbounds nuw %struct.epoll_event, ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !95

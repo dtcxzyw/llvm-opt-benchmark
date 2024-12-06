@@ -17136,7 +17136,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17hbe951db
 .lr.ph.i:                                         ; preds = %2
   %8 = trunc i64 %1 to i32
   store i32 %8, ptr %4, align 8, !alias.scope !3299
-  %9 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
+  %9 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %1
   %10 = sub nuw nsw i64 %6, %1
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 16

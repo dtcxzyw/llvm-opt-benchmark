@@ -406,7 +406,7 @@ define internal ptr @H5O__pline_shared_decode(ptr noundef %0, ptr noundef %1, i3
   br label %283
 
 206:                                              ; preds = %197
-  %207 = getelementptr inbounds i8, ptr %173, i64 %.0169.i
+  %207 = getelementptr inbounds nuw i8, ptr %173, i64 %.0169.i
   %.pr.i = load i64, ptr %167, align 8
   br label %208
 

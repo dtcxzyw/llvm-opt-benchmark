@@ -2246,7 +2246,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
 .split17.us:                                      ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35.us
   %.041.us = phi i64 [ %51, %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
   %51 = add nsw i64 %.041.us, -1
-  %52 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %51
   %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.041.us, %15
@@ -2310,7 +2310,7 @@ _ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
 .split17:                                         ; preds = %.split17.preheader, %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35
   %.041 = phi i64 [ %71, %_ZSt13__adjust_heapIP5t_sidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
   %71 = add nsw i64 %.041, -1
-  %72 = getelementptr inbounds %struct.t_sid, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw %struct.t_sid, ptr %0, i64 %71
   %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.041, %15

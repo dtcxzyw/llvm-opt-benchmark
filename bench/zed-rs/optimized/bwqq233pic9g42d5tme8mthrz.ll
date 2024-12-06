@@ -397,7 +397,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h674908e36bbe023aE.exit.thr
   %gep57 = getelementptr { { { i64, i64 } }, { { { { ptr, ptr } }, {} }, {} } }, ptr %invariant.gep56, i64 %77
   %.val3.i = load i64, ptr %gep57, align 8, !alias.scope !46, !noalias !51, !noundef !4
   %.sroa.0.06.i = and i64 %54, %.val3.i
-  %78 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.06.i
+  %78 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.06.i
   %.sroa.0.0.copyload.i57.i = load <16 x i8>, ptr %78, align 1, !noalias !58
   %79 = icmp slt <16 x i8> %.sroa.0.0.copyload.i57.i, zeroinitializer
   %80 = bitcast <16 x i1> %79 to i16
@@ -457,7 +457,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.10
   %98 = add i64 %.sroa.7.09.i, 16
   %99 = add i64 %98, %.sroa.0.010.i
   %.sroa.0.0.i = and i64 %99, %54
-  %100 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i
+  %100 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i5.i = load <16 x i8>, ptr %100, align 1, !noalias !58
   %101 = icmp slt <16 x i8> %.sroa.0.0.copyload.i5.i, zeroinitializer
   %102 = bitcast <16 x i1> %101 to i16
@@ -471,7 +471,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.10
   %104 = zext nneg i16 %103 to i64
   %105 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %104
   %106 = and i64 %105, %54
-  %107 = getelementptr inbounds i8, ptr %57, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %57, i64 %106
   %108 = load i8, ptr %107, align 1, !noundef !4
   %109 = icmp sgt i8 %108, -1
   br i1 %109, label %110, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit
@@ -492,7 +492,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit: ; p
   %118 = trunc nuw nsw i64 %117 to i8
   %119 = add nsw i64 %.sroa.0.0.i12.i, -16
   %120 = and i64 %119, %54
-  %121 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i12.i
+  %121 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i12.i
   store i8 %118, ptr %121, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %120
   store i8 %118, ptr %gep, align 1

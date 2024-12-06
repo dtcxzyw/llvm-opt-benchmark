@@ -15449,7 +15449,7 @@ if.then.i74.i:                                    ; preds = %_ZNSt6vectorIN5foll
 
 _ZNSt12_Vector_baseIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_EE13_M_deallocateEPS4_m.exit75.i: ; preds = %if.then.i74.i, %_ZNSt6vectorIN5folly11AsyncReader12ReadCallback16ZeroCopyMemStore5EntryESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !437
-  %add.ptr37.i = getelementptr inbounds %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !447
   %add.ptr40.i = getelementptr inbounds nuw %"struct.folly::AsyncReader::ReadCallback::ZeroCopyMemStore::Entry", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !448
@@ -31054,7 +31054,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body

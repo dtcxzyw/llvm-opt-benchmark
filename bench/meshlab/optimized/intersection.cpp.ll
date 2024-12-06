@@ -808,7 +808,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
   %331 = load i64, ptr %7, align 8
   %332 = urem i64 %330, %331
   %333 = load ptr, ptr %4, align 8
-  %334 = getelementptr inbounds ptr, ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %332
   %335 = load ptr, ptr %334, align 8
   %.not.i.i.i180 = icmp eq ptr %335, null
   br i1 %.not.i.i.i180, label %.loopexit.i, label %336
@@ -1556,7 +1556,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   %58 = add nuw nsw i64 %56, %57
   %59 = xor i64 %58, %50
   %60 = urem i64 %59, %47
-  %61 = getelementptr inbounds ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %60
   store ptr %3, ptr %61, align 8
   br label %62
 
@@ -1664,7 +1664,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   %26 = add nuw nsw i64 %24, %25
   %27 = xor i64 %26, %18
   %28 = urem i64 %27, %1
-  %29 = getelementptr inbounds ptr, ptr %.0.i, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %31, label %36
@@ -1679,7 +1679,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIS3_IiiESaIS6_EEESaIS9_EN
   br i1 %.not28, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %35, align 8
   br label %39
 
@@ -2143,7 +2143,7 @@ _Z22SegmentBoxIntersectionRKN3vcg8Segment2IdEERKNS_4Box2IdEE.exit.thread: ; pred
   %261 = load i64, ptr %7, align 8
   %262 = urem i64 %260, %261
   %263 = load ptr, ptr %4, align 8
-  %264 = getelementptr inbounds ptr, ptr %263, i64 %262
+  %264 = getelementptr inbounds nuw ptr, ptr %263, i64 %262
   %265 = load ptr, ptr %264, align 8
   %.not.i.i.i110 = icmp eq ptr %265, null
   br i1 %.not.i.i.i110, label %.loopexit.i, label %266
@@ -2769,7 +2769,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   %58 = add nuw nsw i64 %56, %57
   %59 = xor i64 %58, %50
   %60 = urem i64 %59, %47
-  %61 = getelementptr inbounds ptr, ptr %45, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %45, i64 %60
   store ptr %3, ptr %61, align 8
   br label %62
 
@@ -2869,7 +2869,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   %26 = add nuw nsw i64 %24, %25
   %27 = xor i64 %26, %18
   %28 = urem i64 %27, %1
-  %29 = getelementptr inbounds ptr, ptr %.0.i, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not27 = icmp eq ptr %30, null
   br i1 %.not27, label %31, label %36
@@ -2884,7 +2884,7 @@ _ZNSt10_HashtableIN3vcg6Point2IiEESt4pairIKS2_St6vectorIiSaIiEEESaIS8_ENSt8__det
   br i1 %.not28, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %35, align 8
   br label %39
 

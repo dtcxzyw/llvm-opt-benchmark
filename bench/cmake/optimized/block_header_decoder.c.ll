@@ -133,7 +133,7 @@ define dso_local i32 @lzma_block_header_decode(ptr noundef %0, ptr noundef %1, p
 64:                                               ; preds = %61
   %65 = add nuw nsw i64 %62, 1
   store i64 %65, ptr %4, align 8
-  %66 = getelementptr inbounds i8, ptr %2, i64 %62
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %62
   %67 = load i8, ptr %66, align 1
   %.not63 = icmp eq i8 %67, 0
   br i1 %.not63, label %61, label %.loopexit.sink.split, !llvm.loop !8

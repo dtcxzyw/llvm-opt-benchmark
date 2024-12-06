@@ -1906,14 +1906,14 @@ _ZL10sort_filesN3gmx8ArrayRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 696:                                              ; preds = %691
   %697 = add nsw i64 %.0111.i, -1
-  %698 = getelementptr inbounds i32, ptr %574, i64 %697
+  %698 = getelementptr inbounds nuw i32, ptr %574, i64 %697
   %699 = load i32, ptr %698, align 4
   %700 = icmp eq i32 %699, 0
   br i1 %700, label %701, label %709
 
 701:                                              ; preds = %696
   %702 = load float, ptr %683, align 4
-  %703 = getelementptr inbounds float, ptr %573, i64 %697
+  %703 = getelementptr inbounds nuw float, ptr %573, i64 %697
   %704 = load float, ptr %703, align 4
   %705 = fcmp oeq float %702, %704
   br i1 %705, label %706, label %709

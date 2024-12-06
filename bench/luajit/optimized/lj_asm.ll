@@ -792,7 +792,7 @@ for.body.preheader.i:                             ; preds = %ra_setup.exit.i
 
 for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
   %ir.0.idx202.i = phi i64 [ %ir.1.add.i, %for.inc.i ], [ %arrayidx.idx.i, %for.body.preheader.i ]
-  %ir.0.ptr203.i = getelementptr inbounds i8, ptr %45, i64 %ir.0.idx202.i
+  %ir.0.ptr203.i = getelementptr inbounds nuw i8, ptr %45, i64 %ir.0.idx202.i
   %prev.i159 = getelementptr inbounds nuw i8, ptr %ir.0.ptr203.i, i64 6
   store i16 255, ptr %prev.i159, align 2
   %t.i160 = getelementptr inbounds nuw i8, ptr %ir.0.ptr203.i, i64 4
@@ -812,12 +812,12 @@ land.lhs.true.i:                                  ; preds = %for.body.i
 
 if.then.i164:                                     ; preds = %land.lhs.true.i
   store i32 0, ptr %ir.0.ptr203.i, align 8
-  %ir.0.add.i = add nsw i64 %ir.0.idx202.i, 8
+  %ir.0.add.i = add nuw nsw i64 %ir.0.idx202.i, 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %if.then.i164, %land.lhs.true.i, %for.body.i
   %ir.1.idx.i = phi i64 [ %ir.0.add.i, %if.then.i164 ], [ %ir.0.idx202.i, %land.lhs.true.i ], [ %ir.0.idx202.i, %for.body.i ]
-  %ir.1.add.i = add nsw i64 %ir.1.idx.i, 8
+  %ir.1.add.i = add nuw nsw i64 %ir.1.idx.i, 8
   %cmp.i = icmp slt i64 %ir.1.idx.i, 262136
   br i1 %cmp.i, label %for.body.i, label %for.end.i.loopexit, !llvm.loop !10
 

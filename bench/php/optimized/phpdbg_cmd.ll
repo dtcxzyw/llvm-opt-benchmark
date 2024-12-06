@@ -860,7 +860,7 @@ define void @phpdbg_stack_separate(ptr nocapture noundef %0) local_unnamed_addr 
 define range(i32 -1, 1) i32 @phpdbg_stack_verify(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca [128 x i8], align 16
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %434, label %4
+  br i1 %.not, label %431, label %4
 
 4:                                                ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, i8 0, i64 128, i1 false)
@@ -885,12 +885,12 @@ define range(i32 -1, 1) i32 @phpdbg_stack_verify(ptr noundef readonly %0, ptr no
 
 13:                                               ; preds = %11, %7
   %.not121 = icmp eq ptr %8, null
-  br i1 %.not121, label %434, label %14
+  br i1 %.not121, label %431, label %14
 
 14:                                               ; preds = %13
   %15 = load i32, ptr %8, align 8
   %16 = icmp eq i32 %15, 9
-  br i1 %16, label %434, label %17
+  br i1 %16, label %431, label %17
 
 17:                                               ; preds = %14
   %18 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
@@ -920,7 +920,7 @@ phpdbg_command_name.exit:                         ; preds = %17, %21
   %32 = getelementptr i8, ptr %28, i64 %31
   store i8 0, ptr %32, align 1
   %33 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %18, ptr noundef nonnull @.str.28, ptr noundef nonnull %3) #22
-  br label %434
+  br label %431
 
 .preheader:                                       ; preds = %11, %35
   %34 = phi i8 [ %.pr, %35 ], [ %12, %11 ]
@@ -941,12 +941,11 @@ phpdbg_command_name.exit:                         ; preds = %17, %21
   br label %.preheader
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread193
-  %38 = phi i8 [ %415, %.thread193 ], [ %12, %.lr.ph.preheader ]
+  %38 = phi i8 [ %412, %.thread193 ], [ %12, %.lr.ph.preheader ]
   %.0.ph353 = phi i8 [ %.0205, %.thread193 ], [ 0, %.lr.ph.preheader ]
-  %.0107.ph352 = phi i64 [ %410, %.thread193 ], [ 0, %.lr.ph.preheader ]
-  %.0108.ph351 = phi i64 [ %413, %.thread193 ], [ 0, %.lr.ph.preheader ]
-  %.1.ph350 = phi ptr [ %414, %.thread193 ], [ %10, %.lr.ph.preheader ]
-  %.0111.ph348 = phi ptr [ %412, %.thread193 ], [ %8, %.lr.ph.preheader ]
+  %.0108.ph351 = phi i64 [ %.pre-phi, %.thread193 ], [ 0, %.lr.ph.preheader ]
+  %.1.ph350 = phi ptr [ %411, %.thread193 ], [ %10, %.lr.ph.preheader ]
+  %.0111.ph348 = phi ptr [ %410, %.thread193 ], [ %8, %.lr.ph.preheader ]
   %.not125 = icmp eq ptr %.0111.ph348, null
   br i1 %.not125, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1004,7 +1003,7 @@ phpdbg_command_name.exit:                         ; preds = %17, %21
 .split302.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi304 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi305 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %49 = add i64 %.0107.ph352, 1
+  %49 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %50, label %69
 
 50:                                               ; preds = %.split302.us
@@ -1039,7 +1038,7 @@ phpdbg_command_name.exit137:                      ; preds = %52, %56
   %67 = getelementptr i8, ptr %63, i64 %66
   store i8 0, ptr %67, align 1
   %68 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %53, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, i64 noundef %49) #22
-  br label %434
+  br label %431
 
 69:                                               ; preds = %.split302.us
   %70 = load i32, ptr %.0111.ph348, align 8
@@ -1075,12 +1074,12 @@ phpdbg_command_name.exit140:                      ; preds = %71, %75
   store i8 0, ptr %86, align 1
   %87 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %88 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %72, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.30, ptr noundef nonnull %87, i64 noundef %49) #22
-  br label %434
+  br label %431
 
 .split307.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi309 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi310 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %89 = add i64 %.0107.ph352, 1
+  %89 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %90, label %109
 
 90:                                               ; preds = %.split307.us
@@ -1115,7 +1114,7 @@ phpdbg_command_name.exit143:                      ; preds = %92, %96
   %107 = getelementptr i8, ptr %103, i64 %106
   store i8 0, ptr %107, align 1
   %108 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.8, i64 noundef %89) #22
-  br label %434
+  br label %431
 
 109:                                              ; preds = %.split307.us
   %110 = load i32, ptr %.0111.ph348, align 8
@@ -1151,12 +1150,12 @@ phpdbg_command_name.exit146:                      ; preds = %111, %115
   store i8 0, ptr %126, align 1
   %127 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %128 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %112, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.8, ptr noundef nonnull %127, i64 noundef %89) #22
-  br label %434
+  br label %431
 
 .split312.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi314 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi315 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %129 = add i64 %.0107.ph352, 1
+  %129 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %130, label %149
 
 130:                                              ; preds = %.split312.us
@@ -1191,7 +1190,7 @@ phpdbg_command_name.exit149:                      ; preds = %132, %136
   %147 = getelementptr i8, ptr %143, i64 %146
   store i8 0, ptr %147, align 1
   %148 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %133, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.32, i64 noundef %129) #22
-  br label %434
+  br label %431
 
 149:                                              ; preds = %.split312.us
   %150 = load i32, ptr %.0111.ph348, align 8
@@ -1227,12 +1226,12 @@ phpdbg_command_name.exit152:                      ; preds = %151, %155
   store i8 0, ptr %166, align 1
   %167 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %168 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %152, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.32, ptr noundef nonnull %167, i64 noundef %129) #22
-  br label %434
+  br label %431
 
 .split317.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi319 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi320 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %169 = add i64 %.0107.ph352, 1
+  %169 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %170, label %189
 
 170:                                              ; preds = %.split317.us
@@ -1267,7 +1266,7 @@ phpdbg_command_name.exit155:                      ; preds = %172, %176
   %187 = getelementptr i8, ptr %183, i64 %186
   store i8 0, ptr %187, align 1
   %188 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %173, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, i64 noundef %169) #22
-  br label %434
+  br label %431
 
 189:                                              ; preds = %.split317.us
   %190 = load i32, ptr %.0111.ph348, align 8
@@ -1303,12 +1302,12 @@ phpdbg_command_name.exit158:                      ; preds = %191, %195
   store i8 0, ptr %206, align 1
   %207 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %208 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %192, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.4, ptr noundef nonnull %207, i64 noundef %169) #22
-  br label %434
+  br label %431
 
 .split322.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi324 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi325 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %209 = add i64 %.0107.ph352, 1
+  %209 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %210, label %229
 
 210:                                              ; preds = %.split322.us
@@ -1343,7 +1342,7 @@ phpdbg_command_name.exit161:                      ; preds = %212, %216
   %227 = getelementptr i8, ptr %223, i64 %226
   store i8 0, ptr %227, align 1
   %228 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %213, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.2, i64 noundef %209) #22
-  br label %434
+  br label %431
 
 229:                                              ; preds = %.split322.us
   %230 = load i32, ptr %.0111.ph348, align 8
@@ -1379,12 +1378,12 @@ phpdbg_command_name.exit164:                      ; preds = %231, %235
   store i8 0, ptr %246, align 1
   %247 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %248 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %232, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %247, i64 noundef %209) #22
-  br label %434
+  br label %431
 
 .split327.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi329 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi330 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %249 = add i64 %.0107.ph352, 1
+  %249 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %250, label %269
 
 250:                                              ; preds = %.split327.us
@@ -1419,7 +1418,7 @@ phpdbg_command_name.exit167:                      ; preds = %252, %256
   %267 = getelementptr i8, ptr %263, i64 %266
   store i8 0, ptr %267, align 1
   %268 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %253, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.33, i64 noundef %249) #22
-  br label %434
+  br label %431
 
 269:                                              ; preds = %.split327.us
   %270 = load i32, ptr %.0111.ph348, align 8
@@ -1455,12 +1454,12 @@ phpdbg_command_name.exit170:                      ; preds = %271, %275
   store i8 0, ptr %286, align 1
   %287 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %288 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %272, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.33, ptr noundef nonnull %287, i64 noundef %249) #22
-  br label %434
+  br label %431
 
 .split332.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi334 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi335 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %289 = add i64 %.0107.ph352, 1
+  %289 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %290, label %309
 
 290:                                              ; preds = %.split332.us
@@ -1495,7 +1494,7 @@ phpdbg_command_name.exit173:                      ; preds = %292, %296
   %307 = getelementptr i8, ptr %303, i64 %306
   store i8 0, ptr %307, align 1
   %308 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %293, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.34, i64 noundef %289) #22
-  br label %434
+  br label %431
 
 309:                                              ; preds = %.split332.us
   %310 = load i32, ptr %.0111.ph348, align 8
@@ -1531,12 +1530,12 @@ phpdbg_command_name.exit176:                      ; preds = %311, %315
   store i8 0, ptr %326, align 1
   %327 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %328 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %312, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.34, ptr noundef nonnull %327, i64 noundef %289) #22
-  br label %434
+  br label %431
 
 .split337.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi339 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi340 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %329 = add i64 %.0107.ph352, 1
+  %329 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %330, label %349
 
 330:                                              ; preds = %.split337.us
@@ -1571,7 +1570,7 @@ phpdbg_command_name.exit179:                      ; preds = %332, %336
   %347 = getelementptr i8, ptr %343, i64 %346
   store i8 0, ptr %347, align 1
   %348 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %333, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.35, i64 noundef %329) #22
-  br label %434
+  br label %431
 
 349:                                              ; preds = %.split337.us
   %350 = load i32, ptr %.0111.ph348, align 8
@@ -1607,12 +1606,12 @@ phpdbg_command_name.exit182:                      ; preds = %351, %355
   store i8 0, ptr %366, align 1
   %367 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %368 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %352, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.35, ptr noundef nonnull %367, i64 noundef %329) #22
-  br label %434
+  br label %431
 
 .split342.us:                                     ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi344 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi345 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %369 = add i64 %.0107.ph352, 1
+  %369 = add i64 %.0108.ph351, 1
   br i1 %.not125, label %370, label %389
 
 370:                                              ; preds = %.split342.us
@@ -1647,7 +1646,7 @@ phpdbg_command_name.exit185:                      ; preds = %372, %376
   %387 = getelementptr i8, ptr %383, i64 %386
   store i8 0, ptr %387, align 1
   %388 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %373, ptr noundef nonnull @.str.29, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, i64 noundef %369) #22
-  br label %434
+  br label %431
 
 389:                                              ; preds = %.split342.us
   %390 = load i32, ptr %.0111.ph348, align 8
@@ -1683,62 +1682,64 @@ phpdbg_command_name.exit188:                      ; preds = %391, %395
   store i8 0, ptr %406, align 1
   %407 = tail call ptr @phpdbg_get_param_type(ptr noundef nonnull %.0111.ph348)
   %408 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %392, ptr noundef nonnull @.str.31, ptr noundef nonnull %3, ptr noundef nonnull @.str.36, ptr noundef nonnull %407, i64 noundef %369) #22
-  br label %434
+  br label %431
 
 .split.us:                                        ; preds = %.lr.ph.split.split, %.lr.ph.split.us
   %.us-phi299 = phi ptr [ %.1294.us, %.lr.ph.split.us ], [ %.1294, %.lr.ph.split.split ]
   %.us-phi300 = phi i8 [ %.0295.us, %.lr.ph.split.us ], [ %.0295, %.lr.ph.split.split ]
-  %409 = add i64 %.0107.ph352, 1
-  br i1 %.not125, label %.critedge2, label %.thread193
+  br i1 %.not125, label %.critedge2, label %.split.us..thread193_crit_edge
 
-.thread193:                                       ; preds = %69, %109, %149, %189, %229, %269, %309, %349, %389, %.split.us
-  %410 = phi i64 [ %49, %69 ], [ %89, %109 ], [ %129, %149 ], [ %169, %189 ], [ %209, %229 ], [ %249, %269 ], [ %289, %309 ], [ %329, %349 ], [ %369, %389 ], [ %409, %.split.us ]
-  %.1225 = phi ptr [ %.us-phi304, %69 ], [ %.us-phi309, %109 ], [ %.us-phi314, %149 ], [ %.us-phi319, %189 ], [ %.us-phi324, %229 ], [ %.us-phi329, %269 ], [ %.us-phi334, %309 ], [ %.us-phi339, %349 ], [ %.us-phi344, %389 ], [ %.us-phi299, %.split.us ]
-  %.0205 = phi i8 [ %.us-phi305, %69 ], [ %.us-phi310, %109 ], [ %.us-phi315, %149 ], [ %.us-phi320, %189 ], [ %.us-phi325, %229 ], [ %.us-phi330, %269 ], [ %.us-phi335, %309 ], [ %.us-phi340, %349 ], [ %.us-phi345, %389 ], [ %.us-phi300, %.split.us ]
-  %411 = getelementptr inbounds nuw i8, ptr %.0111.ph348, i64 72
-  %412 = load ptr, ptr %411, align 8
-  %413 = add i64 %.0108.ph351, 1
-  %414 = getelementptr inbounds nuw i8, ptr %.1225, i64 1
-  %415 = load i8, ptr %414, align 1
-  %.not124293 = icmp eq i8 %415, 0
+.split.us..thread193_crit_edge:                   ; preds = %.split.us
+  %.pre = add i64 %.0108.ph351, 1
+  br label %.thread193
+
+.thread193:                                       ; preds = %.split.us..thread193_crit_edge, %69, %109, %149, %189, %229, %269, %309, %349, %389
+  %.pre-phi = phi i64 [ %.pre, %.split.us..thread193_crit_edge ], [ %49, %69 ], [ %89, %109 ], [ %129, %149 ], [ %169, %189 ], [ %209, %229 ], [ %249, %269 ], [ %289, %309 ], [ %329, %349 ], [ %369, %389 ]
+  %.1225 = phi ptr [ %.us-phi299, %.split.us..thread193_crit_edge ], [ %.us-phi304, %69 ], [ %.us-phi309, %109 ], [ %.us-phi314, %149 ], [ %.us-phi319, %189 ], [ %.us-phi324, %229 ], [ %.us-phi329, %269 ], [ %.us-phi334, %309 ], [ %.us-phi339, %349 ], [ %.us-phi344, %389 ]
+  %.0205 = phi i8 [ %.us-phi300, %.split.us..thread193_crit_edge ], [ %.us-phi305, %69 ], [ %.us-phi310, %109 ], [ %.us-phi315, %149 ], [ %.us-phi320, %189 ], [ %.us-phi325, %229 ], [ %.us-phi330, %269 ], [ %.us-phi335, %309 ], [ %.us-phi340, %349 ], [ %.us-phi345, %389 ]
+  %409 = getelementptr inbounds nuw i8, ptr %.0111.ph348, i64 72
+  %410 = load ptr, ptr %409, align 8
+  %411 = getelementptr inbounds nuw i8, ptr %.1225, i64 1
+  %412 = load i8, ptr %411, align 1
+  %.not124293 = icmp eq i8 %412, 0
   br i1 %.not124293, label %.critedge2, label %.lr.ph
 
 .critedge2:                                       ; preds = %.lr.ph.split, %.thread193, %.split.us, %46, %40, %50, %90, %130, %170, %210, %250, %290, %330, %370
-  %.0108.ph272 = phi i64 [ %.0108.ph351, %50 ], [ %.0108.ph351, %90 ], [ %.0108.ph351, %130 ], [ %.0108.ph351, %170 ], [ %.0108.ph351, %210 ], [ %.0108.ph351, %250 ], [ %.0108.ph351, %290 ], [ %.0108.ph351, %330 ], [ %.0108.ph351, %370 ], [ %.0108.ph351, %40 ], [ %.0108.ph351, %46 ], [ %413, %.thread193 ], [ %.0108.ph351, %.lr.ph.split ], [ %.0108.ph351, %.split.us ]
-  %416 = icmp ult i64 %.0108.ph272, %.0109
-  br i1 %416, label %417, label %434
+  %.0108.ph272 = phi i64 [ %.0108.ph351, %50 ], [ %.0108.ph351, %90 ], [ %.0108.ph351, %130 ], [ %.0108.ph351, %170 ], [ %.0108.ph351, %210 ], [ %.0108.ph351, %250 ], [ %.0108.ph351, %290 ], [ %.0108.ph351, %330 ], [ %.0108.ph351, %370 ], [ %.0108.ph351, %40 ], [ %.0108.ph351, %46 ], [ %.pre-phi, %.thread193 ], [ %.0108.ph351, %.lr.ph.split ], [ %.0108.ph351, %.split.us ]
+  %413 = icmp ult i64 %.0108.ph272, %.0109
+  br i1 %413, label %414, label %431
 
-417:                                              ; preds = %.critedge2
-  %418 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %419 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %420 = load ptr, ptr %419, align 8
-  %.not.i189 = icmp eq ptr %420, null
-  br i1 %.not.i189, label %phpdbg_command_name.exit191, label %421
+414:                                              ; preds = %.critedge2
+  %415 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
+  %416 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %417 = load ptr, ptr %416, align 8
+  %.not.i189 = icmp eq ptr %417, null
+  br i1 %.not.i189, label %phpdbg_command_name.exit191, label %418
 
-421:                                              ; preds = %417
-  %422 = load ptr, ptr %420, align 8
-  %423 = getelementptr inbounds nuw i8, ptr %420, i64 8
-  %424 = load i64, ptr %423, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %422, i64 %424, i1 false)
-  %425 = load i64, ptr %423, align 8
-  %426 = getelementptr inbounds i8, ptr %3, i64 %425
-  store i8 32, ptr %426, align 1
-  %427 = add i64 %425, 1
+418:                                              ; preds = %414
+  %419 = load ptr, ptr %417, align 8
+  %420 = getelementptr inbounds nuw i8, ptr %417, i64 8
+  %421 = load i64, ptr %420, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr align 1 %419, i64 %421, i1 false)
+  %422 = load i64, ptr %420, align 8
+  %423 = getelementptr inbounds i8, ptr %3, i64 %422
+  store i8 32, ptr %423, align 1
+  %424 = add i64 %422, 1
   br label %phpdbg_command_name.exit191
 
-phpdbg_command_name.exit191:                      ; preds = %417, %421
-  %.0.i190 = phi i64 [ %427, %421 ], [ 0, %417 ]
-  %428 = getelementptr i8, ptr %3, i64 %.0.i190
-  %429 = load ptr, ptr %0, align 8
-  %430 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %431 = load i64, ptr %430, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %428, ptr align 1 %429, i64 %431, i1 false)
-  %432 = getelementptr i8, ptr %428, i64 %431
-  store i8 0, ptr %432, align 1
-  %433 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %418, ptr noundef nonnull @.str.37, ptr noundef nonnull %3, i64 noundef %.0109, ptr noundef nonnull %10, i64 noundef %.0108.ph272) #22
-  br label %434
+phpdbg_command_name.exit191:                      ; preds = %414, %418
+  %.0.i190 = phi i64 [ %424, %418 ], [ 0, %414 ]
+  %425 = getelementptr i8, ptr %3, i64 %.0.i190
+  %426 = load ptr, ptr %0, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %428 = load i64, ptr %427, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %425, ptr align 1 %426, i64 %428, i1 false)
+  %429 = getelementptr i8, ptr %425, i64 %428
+  store i8 0, ptr %429, align 1
+  %430 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %415, ptr noundef nonnull @.str.37, ptr noundef nonnull %3, i64 noundef %.0109, ptr noundef nonnull %10, i64 noundef %.0108.ph272) #22
+  br label %431
 
-434:                                              ; preds = %2, %.critedge2, %13, %14, %phpdbg_command_name.exit191, %phpdbg_command_name.exit188, %phpdbg_command_name.exit185, %phpdbg_command_name.exit182, %phpdbg_command_name.exit179, %phpdbg_command_name.exit176, %phpdbg_command_name.exit173, %phpdbg_command_name.exit170, %phpdbg_command_name.exit167, %phpdbg_command_name.exit164, %phpdbg_command_name.exit161, %phpdbg_command_name.exit158, %phpdbg_command_name.exit155, %phpdbg_command_name.exit152, %phpdbg_command_name.exit149, %phpdbg_command_name.exit146, %phpdbg_command_name.exit143, %phpdbg_command_name.exit140, %phpdbg_command_name.exit137, %phpdbg_command_name.exit
+431:                                              ; preds = %2, %.critedge2, %13, %14, %phpdbg_command_name.exit191, %phpdbg_command_name.exit188, %phpdbg_command_name.exit185, %phpdbg_command_name.exit182, %phpdbg_command_name.exit179, %phpdbg_command_name.exit176, %phpdbg_command_name.exit173, %phpdbg_command_name.exit170, %phpdbg_command_name.exit167, %phpdbg_command_name.exit164, %phpdbg_command_name.exit161, %phpdbg_command_name.exit158, %phpdbg_command_name.exit155, %phpdbg_command_name.exit152, %phpdbg_command_name.exit149, %phpdbg_command_name.exit146, %phpdbg_command_name.exit143, %phpdbg_command_name.exit140, %phpdbg_command_name.exit137, %phpdbg_command_name.exit
   %.0112 = phi i32 [ -1, %phpdbg_command_name.exit191 ], [ -1, %phpdbg_command_name.exit188 ], [ -1, %phpdbg_command_name.exit185 ], [ -1, %phpdbg_command_name.exit182 ], [ -1, %phpdbg_command_name.exit179 ], [ -1, %phpdbg_command_name.exit176 ], [ -1, %phpdbg_command_name.exit173 ], [ -1, %phpdbg_command_name.exit170 ], [ -1, %phpdbg_command_name.exit167 ], [ -1, %phpdbg_command_name.exit164 ], [ -1, %phpdbg_command_name.exit161 ], [ -1, %phpdbg_command_name.exit158 ], [ -1, %phpdbg_command_name.exit155 ], [ -1, %phpdbg_command_name.exit152 ], [ -1, %phpdbg_command_name.exit149 ], [ -1, %phpdbg_command_name.exit146 ], [ -1, %phpdbg_command_name.exit143 ], [ -1, %phpdbg_command_name.exit140 ], [ -1, %phpdbg_command_name.exit137 ], [ -1, %phpdbg_command_name.exit ], [ 0, %14 ], [ 0, %13 ], [ 0, %.critedge2 ], [ 0, %2 ]
   ret i32 %.0112
 }

@@ -3369,7 +3369,7 @@ if.else16:                                        ; preds = %entry
   %cmp20 = icmp ult i64 %shr, -13
   %4 = sub nsw i64 21, %shr
   %spec.select = select i1 %cmp20, i64 35, i64 %4
-  %arrayidx26 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
+  %arrayidx26 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
   %5 = load i64, ptr %arrayidx26, align 8
   %tobool.not = icmp eq i64 %5, 0
   br i1 %tobool.not, label %cond.end31, label %cond.true28

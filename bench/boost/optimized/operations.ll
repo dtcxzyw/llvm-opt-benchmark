@@ -13320,7 +13320,7 @@ define internal fastcc noundef range(i32 5, 4) i32 @_ZN5boost10filesystem6detail
 
 .lr.ph:                                           ; preds = %.lr.ph53, %select.unfold
   %.02852 = phi i64 [ %.129, %select.unfold ], [ 0, %.lr.ph53 ]
-  %14 = getelementptr inbounds i8, ptr %2, i64 %.02852
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 %.02852
   %15 = sub nsw i64 %8, %.02852
   %16 = tail call i64 @write(i32 noundef %1, ptr noundef %14, i64 noundef %15)
   %17 = icmp slt i64 %16, 0

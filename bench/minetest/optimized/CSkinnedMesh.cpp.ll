@@ -10020,7 +10020,7 @@ if.end49.sink.split.sink.split:                   ; preds = %for.cond.cleanup24,
 
 if.end49.sink.split:                              ; preds = %if.end49.sink.split.sink.split, %for.cond.cleanup24, %for.cond.cleanup
   %.sink = phi i64 [ 96, %for.cond.cleanup ], [ 64, %for.cond.cleanup24 ], [ %.sink.ph, %if.end49.sink.split.sink.split ]
-  %is_sorted.i79 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %is_sorted.i79 = getelementptr inbounds nuw i8, ptr %this, i64 %.sink
   store i8 1, ptr %is_sorted.i79, align 8, !tbaa !408
   store i32 2, ptr %VertexType, align 8, !tbaa !328
   br label %if.end49
@@ -12674,7 +12674,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPcmcET_S1_T0_RSaIT1_E.exit.i
 
@@ -13401,7 +13401,7 @@ if.then.i78:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr4core5arrayIfEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i78, %_ZSt8_DestroyIPN3irr4core5arrayIfEES3_EvT_S5_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !193
-  %add.ptr36 = getelementptr inbounds %"class.irr::core::array.101", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw %"class.irr::core::array.101", ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !192
   %add.ptr39 = getelementptr inbounds nuw %"class.irr::core::array.101", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !200
@@ -13824,7 +13824,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %if.then.i69, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !202
-  %add.ptr34 = getelementptr inbounds float, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw float, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !201
   %add.ptr37 = getelementptr inbounds nuw float, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !451

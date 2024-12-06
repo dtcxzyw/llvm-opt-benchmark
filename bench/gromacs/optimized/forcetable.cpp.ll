@@ -2806,7 +2806,7 @@ switch.hole_check:                                ; preds = %288
 706:                                              ; preds = %738, %.lr.ph.i94
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i94 ], [ %indvars.iv.next.pre-phi.i, %738 ]
   %.07.i = phi double [ 0.000000e+00, %.lr.ph.i94 ], [ %.1.i, %738 ]
-  %707 = icmp slt i64 %indvars.iv.i95, %704
+  %707 = icmp ult i64 %indvars.iv.i95, %704
   br i1 %707, label %708, label %733
 
 708:                                              ; preds = %706
@@ -4830,7 +4830,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56
 68:                                               ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.pre-phi.i, %102 ]
   %.07.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.1.i, %102 ]
-  %69 = icmp slt i64 %indvars.iv.i, %67
+  %69 = icmp ult i64 %indvars.iv.i, %67
   br i1 %69, label %70, label %97
 
 70:                                               ; preds = %68

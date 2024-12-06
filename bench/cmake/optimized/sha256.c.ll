@@ -1207,7 +1207,7 @@ define dso_local void @lzma_sha256_finish(ptr nocapture noundef %0) local_unname
 5:                                                ; preds = %.backedge, %1
   %.1.sink = phi i64 [ %4, %1 ], [ %.1.sink.be, %.backedge ]
   %.sink = phi i8 [ -128, %1 ], [ 0, %.backedge ]
-  %6 = getelementptr inbounds [64 x i8], ptr %0, i64 0, i64 %.1.sink
+  %6 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 0, i64 %.1.sink
   store i8 %.sink, ptr %6, align 1
   %.017 = add nuw nsw i64 %.1.sink, 1
   switch i64 %.1.sink, label %.backedge [

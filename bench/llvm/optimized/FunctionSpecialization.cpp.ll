@@ -5145,9 +5145,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %.033.i.i.i = phi i64 [ %spec.select.i.i.i97, %.lr.ph.i.i.i96 ], [ %154, %.split.i.i ]
   %160 = shl i64 %.033.i.i.i, 1
   %161 = add i64 %160, 2
-  %162 = getelementptr inbounds i32, ptr %151, i64 %161
+  %162 = getelementptr inbounds nuw i32, ptr %151, i64 %161
   %163 = or disjoint i64 %160, 1
-  %164 = getelementptr inbounds i32, ptr %151, i64 %163
+  %164 = getelementptr inbounds nuw i32, ptr %151, i64 %163
   %.val29.i.i.i = load i32, ptr %162, align 4
   %.val30.i.i.i = load i32, ptr %164, align 4
   %.val.val.i.i.i = load ptr, ptr %3, align 8
@@ -5162,9 +5162,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %172 = icmp ugt i32 %.val29.i.i.i, %.val30.i.i.i
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %172, i1 %171
   %spec.select.i.i.i97 = select i1 %.0.i.i.i.i.i, i64 %163, i64 %161
-  %173 = getelementptr inbounds i32, ptr %151, i64 %spec.select.i.i.i97
+  %173 = getelementptr inbounds nuw i32, ptr %151, i64 %spec.select.i.i.i97
   %174 = load i32, ptr %173, align 4
-  %175 = getelementptr inbounds i32, ptr %151, i64 %.033.i.i.i
+  %175 = getelementptr inbounds nuw i32, ptr %151, i64 %.033.i.i.i
   store i32 %174, ptr %175, align 4
   %176 = icmp slt i64 %spec.select.i.i.i97, %158
   br i1 %176, label %.lr.ph.i.i.i96, label %._crit_edge.i.i.i, !llvm.loop !74
@@ -5181,9 +5181,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 181:                                              ; preds = %._crit_edge.i.i.i
   %182 = shl nsw i64 %.0.lcssa.i.i.i, 1
   %183 = or disjoint i64 %182, 1
-  %184 = getelementptr inbounds i32, ptr %151, i64 %183
+  %184 = getelementptr inbounds nuw i32, ptr %151, i64 %183
   %185 = load i32, ptr %184, align 4
-  %186 = getelementptr inbounds i32, ptr %151, i64 %.0.lcssa.i.i.i
+  %186 = getelementptr inbounds nuw i32, ptr %151, i64 %.0.lcssa.i.i.i
   store i32 %185, ptr %186, align 4
   br label %187
 
@@ -5215,7 +5215,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   br i1 %.0.i.i.i.i.i.i, label %199, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit.i.i"
 
 199:                                              ; preds = %190
-  %200 = getelementptr inbounds i32, ptr %151, i64 %.01319.i.i.i.i
+  %200 = getelementptr inbounds nuw i32, ptr %151, i64 %.01319.i.i.i.i
   store i32 %.val14.i.i.i.i, ptr %200, align 4
   %201 = icmp sgt i64 %.020.i.i.i.i, %154
   br i1 %201, label %190, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit.i.i", !llvm.loop !75
@@ -5229,14 +5229,14 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 
 .split15.lr.ph.i.i:                               ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit.i.i"
   %204 = or disjoint i64 %153, 1
-  %205 = getelementptr inbounds i32, ptr %151, i64 %204
-  %206 = getelementptr inbounds i32, ptr %151, i64 %179
+  %205 = getelementptr inbounds nuw i32, ptr %151, i64 %204
+  %206 = getelementptr inbounds nuw i32, ptr %151, i64 %179
   br label %.split15.i.i
 
 .split15.i.i:                                     ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", %.split15.lr.ph.i.i
   %.06.i.i = phi i64 [ %154, %.split15.lr.ph.i.i ], [ %207, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i" ]
   %207 = add nsw i64 %.06.i.i, -1
-  %208 = getelementptr inbounds i32, ptr %151, i64 %207
+  %208 = getelementptr inbounds nuw i32, ptr %151, i64 %207
   %209 = load i32, ptr %208, align 4
   %.not.i.i95 = icmp sgt i64 %.06.i.i, %158
   br i1 %.not.i.i95, label %._crit_edge.i18.i.i, label %.lr.ph.i30.i.i
@@ -5245,9 +5245,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %.033.i31.i.i = phi i64 [ %spec.select.i37.i.i, %.lr.ph.i30.i.i ], [ %207, %.split15.i.i ]
   %210 = shl i64 %.033.i31.i.i, 1
   %211 = add i64 %210, 2
-  %212 = getelementptr inbounds i32, ptr %151, i64 %211
+  %212 = getelementptr inbounds nuw i32, ptr %151, i64 %211
   %213 = or disjoint i64 %210, 1
-  %214 = getelementptr inbounds i32, ptr %151, i64 %213
+  %214 = getelementptr inbounds nuw i32, ptr %151, i64 %213
   %.val29.i32.i.i = load i32, ptr %212, align 4
   %.val30.i33.i.i = load i32, ptr %214, align 4
   %.val.val.i34.i.i = load ptr, ptr %3, align 8
@@ -5262,9 +5262,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %222 = icmp ugt i32 %.val29.i32.i.i, %.val30.i33.i.i
   %.0.i.i.i36.i.i = select i1 %.not.i.i.i35.i.i, i1 %222, i1 %221
   %spec.select.i37.i.i = select i1 %.0.i.i.i36.i.i, i64 %213, i64 %211
-  %223 = getelementptr inbounds i32, ptr %151, i64 %spec.select.i37.i.i
+  %223 = getelementptr inbounds nuw i32, ptr %151, i64 %spec.select.i37.i.i
   %224 = load i32, ptr %223, align 4
-  %225 = getelementptr inbounds i32, ptr %151, i64 %.033.i31.i.i
+  %225 = getelementptr inbounds nuw i32, ptr %151, i64 %.033.i31.i.i
   store i32 %224, ptr %225, align 4
   %226 = icmp slt i64 %spec.select.i37.i.i, %158
   br i1 %226, label %.lr.ph.i30.i.i, label %._crit_edge.i18.i.i, !llvm.loop !74
@@ -5308,7 +5308,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   br i1 %.0.i.i.i.i29.i.i, label %241, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i"
 
 241:                                              ; preds = %232
-  %242 = getelementptr inbounds i32, ptr %151, i64 %.01319.i.i23.i.i
+  %242 = getelementptr inbounds nuw i32, ptr %151, i64 %.01319.i.i23.i.i
   store i32 %.val14.i.i26.i.i, ptr %242, align 4
   %.not5.i.i = icmp slt i64 %.020.i.i25.i.i, %.06.i.i
   br i1 %.not5.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm19FunctionSpecializer3runEvE3$_0EEEvT_T0_S9_T1_T2_.exit38.i.i", label %232, !llvm.loop !75
@@ -5363,7 +5363,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   br i1 %.0.i.i.i.i, label %267, label %"_ZSt9push_heapIPjZN4llvm19FunctionSpecializer3runEvE3$_0EvT_S4_T0_.exit"
 
 267:                                              ; preds = %258
-  %268 = getelementptr inbounds i32, ptr %250, i64 %.01319.i.i
+  %268 = getelementptr inbounds nuw i32, ptr %250, i64 %.01319.i.i
   store i32 %.val14.i.i, ptr %268, align 4
   %.not.i98 = icmp ult i64 %.020.in.i.i, 2
   br i1 %.not.i98, label %"_ZSt9push_heapIPjZN4llvm19FunctionSpecializer3runEvE3$_0EvT_S4_T0_.exit", label %258, !llvm.loop !75
@@ -5396,9 +5396,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %.033.i.i.i112 = phi i64 [ %spec.select.i.i.i118, %.lr.ph.i.i.i111 ], [ 0, %273 ]
   %285 = shl i64 %.033.i.i.i112, 1
   %286 = add i64 %285, 2
-  %287 = getelementptr inbounds i32, ptr %270, i64 %286
+  %287 = getelementptr inbounds nuw i32, ptr %270, i64 %286
   %288 = or disjoint i64 %285, 1
-  %289 = getelementptr inbounds i32, ptr %270, i64 %288
+  %289 = getelementptr inbounds nuw i32, ptr %270, i64 %288
   %.val29.i.i.i113 = load i32, ptr %287, align 4
   %.val30.i.i.i114 = load i32, ptr %289, align 4
   %.val.val.i.i.i115 = load ptr, ptr %3, align 8
@@ -5413,9 +5413,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
   %297 = icmp ugt i32 %.val29.i.i.i113, %.val30.i.i.i114
   %.0.i.i.i.i.i117 = select i1 %.not.i.i.i.i.i116, i1 %297, i1 %296
   %spec.select.i.i.i118 = select i1 %.0.i.i.i.i.i117, i64 %288, i64 %286
-  %298 = getelementptr inbounds i32, ptr %270, i64 %spec.select.i.i.i118
+  %298 = getelementptr inbounds nuw i32, ptr %270, i64 %spec.select.i.i.i118
   %299 = load i32, ptr %298, align 4
-  %300 = getelementptr inbounds i32, ptr %270, i64 %.033.i.i.i112
+  %300 = getelementptr inbounds nuw i32, ptr %270, i64 %.033.i.i.i112
   store i32 %299, ptr %300, align 4
   %301 = icmp slt i64 %spec.select.i.i.i118, %283
   br i1 %301, label %.lr.ph.i.i.i111, label %._crit_edge.i.i.i99, !llvm.loop !74
@@ -5435,9 +5435,9 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit:                     ; preds = %.lr.ph.i, %135
 308:                                              ; preds = %304
   %309 = shl nsw i64 %.0.lcssa.i.i.i100, 1
   %310 = or disjoint i64 %309, 1
-  %311 = getelementptr inbounds i32, ptr %270, i64 %310
+  %311 = getelementptr inbounds nuw i32, ptr %270, i64 %310
   %312 = load i32, ptr %311, align 4
-  %313 = getelementptr inbounds i32, ptr %270, i64 %.0.lcssa.i.i.i100
+  %313 = getelementptr inbounds nuw i32, ptr %270, i64 %.0.lcssa.i.i.i100
   store i32 %312, ptr %313, align 4
   br label %314
 

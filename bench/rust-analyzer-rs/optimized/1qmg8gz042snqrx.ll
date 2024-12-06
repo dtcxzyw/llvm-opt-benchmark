@@ -1545,7 +1545,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %44 = load ptr, ptr %43, align 8, !nonnull !7, !noundef !7
   %45 = ptrtoint ptr %44 to i64
   %46 = sub nuw i64 %6, %45
-  %47 = getelementptr inbounds i8, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !565)
   br label %.lr.ph.i
 

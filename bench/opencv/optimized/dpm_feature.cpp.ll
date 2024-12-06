@@ -1288,8 +1288,8 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %103
   %358 = fadd double %357, 1.000000e-04
   %359 = call double @sqrt(double noundef %358) #18
   %360 = fdiv double 1.000000e+00, %359
-  %.idx544 = mul i64 %306, 144
-  %361 = getelementptr inbounds i8, ptr %302, i64 %.idx544
+  %.idx544 = mul nuw i64 %306, 144
+  %361 = getelementptr inbounds nuw i8, ptr %302, i64 %.idx544
   br label %390
 
 362:                                              ; preds = %.preheader468.us

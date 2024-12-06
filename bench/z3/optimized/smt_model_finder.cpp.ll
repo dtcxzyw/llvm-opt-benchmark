@@ -22787,7 +22787,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver10numeral_ltI10arith_utilEEEEEvT_T0_SE_T1_T2_.exit58
   %__parent.063 = phi i64 [ %div13, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver10numeral_ltI10arith_utilEEEEEvT_T0_SE_T1_T2_.exit58 ]
   %dec = add nsw i64 %__parent.063, -1
-  %add.ptr11 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %9 = load ptr, ptr %add.ptr11, align 8
   %agg.tmp.sroa.0.0.copyload12 = load ptr, ptr %__comp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i14)
@@ -23559,7 +23559,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver10numeral_ltI7bv_utilEEEEEvT_T0_SE_T1_T2_.exit58
   %__parent.063 = phi i64 [ %div13, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver10numeral_ltI7bv_utilEEEEEvT_T0_SE_T1_T2_.exit58 ]
   %dec = add nsw i64 %__parent.063, -1
-  %add.ptr11 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %9 = load ptr, ptr %add.ptr11, align 8
   %agg.tmp.sroa.0.0.copyload12 = load ptr, ptr %__comp, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %__comp.i14)
@@ -24345,7 +24345,7 @@ if.end7.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end7.split:                                    ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver12signed_bv_ltEEEEvT_T0_SC_T1_T2_.exit64
   %__parent.069 = phi i64 [ %div19, %if.end7.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPP4exprlS1_N9__gnu_cxx5__ops15_Iter_comp_iterIN3smt2mf10auf_solver12signed_bv_ltEEEEvT_T0_SC_T1_T2_.exit64 ]
   %dec = add nsw i64 %__parent.069, -1
-  %add.ptr14 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %10 = load ptr, ptr %add.ptr14, align 8
   %agg.tmp.sroa.0.0.copyload15 = load ptr, ptr %__comp, align 8
   %agg.tmp.sroa.2.0.copyload17 = load i32, ptr %agg.tmp.sroa.2.0..sroa_idx11, align 8

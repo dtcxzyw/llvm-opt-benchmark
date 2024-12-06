@@ -70,7 +70,7 @@ opal_vasprintf.exit._crit_edge.i:                 ; preds = %opal_vasprintf.exit
 14:                                               ; preds = %8
   %15 = add nsw i64 %1, -1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %11, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   store i8 0, ptr %16, align 1
   br label %17
 
@@ -113,7 +113,7 @@ opal_vasprintf.exit._crit_edge:                   ; preds = %opal_vasprintf.exit
 14:                                               ; preds = %8
   %15 = add nsw i64 %1, -1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %0, ptr align 1 %11, i64 %15, i1 false)
-  %16 = getelementptr inbounds i8, ptr %0, i64 %1
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   store i8 0, ptr %16, align 1
   br label %17
 

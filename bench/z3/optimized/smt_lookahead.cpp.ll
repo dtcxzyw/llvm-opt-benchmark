@@ -2713,7 +2713,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compareEEEEvT_T0_S9_T1_T2_.exit68.us
   %__parent.073.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compareEEEEvT_T0_S9_T1_T2_.exit68.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.073.us, -1
-  %add.ptr11.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %13 = load i32, ptr %add.ptr11.us, align 4
   %agg.tmp.sroa.0.0.copyload12.us = load ptr, ptr %__comp, align 8
   %cmp23.i16.not.us = icmp sgt i64 %__parent.073.us, %div.i6971
@@ -2788,7 +2788,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compa
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compareEEEEvT_T0_S9_T1_T2_.exit68
   %__parent.073 = phi i64 [ %dec, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN3smt9lookahead7compareEEEEvT_T0_S9_T1_T2_.exit68 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.073, -1
-  %add.ptr11 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %24 = load i32, ptr %add.ptr11, align 4
   %agg.tmp.sroa.0.0.copyload12 = load ptr, ptr %__comp, align 8
   %cmp23.i16.not = icmp sgt i64 %__parent.073, %div.i6971

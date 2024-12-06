@@ -2692,9 +2692,9 @@ land.rhs:                                         ; preds = %while.cond5.prehead
   br i1 %cmp7.not, label %while.end, label %while.body8
 
 while.body8:                                      ; preds = %land.rhs
-  %p.1.ptr12 = getelementptr inbounds i8, ptr %buffer, i64 %p.1.idx10
+  %p.1.ptr12 = getelementptr inbounds nuw i8, ptr %buffer, i64 %p.1.idx10
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %str.011, i64 1
-  %p.1.add = add nsw i64 %p.1.idx10, 1
+  %p.1.add = add nuw nsw i64 %p.1.idx10, 1
   store i8 %5, ptr %p.1.ptr12, align 1
   %cmp6.not = icmp eq i64 %p.1.add, 156
   br i1 %cmp6.not, label %while.end, label %land.rhs, !llvm.loop !7
@@ -2704,7 +2704,7 @@ while.end:                                        ; preds = %land.rhs, %while.bo
   br label %while.cond, !llvm.loop !8
 
 while.end10:                                      ; preds = %vaarg.end
-  %p.0.ptr = getelementptr inbounds i8, ptr %buffer, i64 %p.0.idx
+  %p.0.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %p.0.idx
   store i8 0, ptr %p.0.ptr, align 1
   call void @llvm.va_end.p0(ptr nonnull %args)
   ret void

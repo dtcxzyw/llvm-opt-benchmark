@@ -28235,7 +28235,7 @@ _ZN12jpeg_decoder7decoder12decode_block17ha0733174208708c3E.exit: ; preds = %751
 842:                                              ; preds = %836
   %843 = getelementptr inbounds nuw i8, ptr %837, i64 8
   %844 = load ptr, ptr %843, align 8, !nonnull !4, !noundef !4
-  %845 = getelementptr inbounds i16, ptr %844, i64 %830
+  %845 = getelementptr inbounds nuw i16, ptr %844, i64 %830
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !5889
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h89808deda4945a85E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, i64 noundef %.sroa.093.2, i1 noundef zeroext false)
           to label %.noexc446 unwind label %.loopexit.split-lp928.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -31819,7 +31819,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %brmerge.i, label %.thread1137.i, label %_ZN12jpeg_decoder7decoder8lossless7predict17h8ddbf5d251fb439fE.exit.us.i
 
 .thread1135.i:                                    ; preds = %756
-  %763 = getelementptr inbounds [0 x i16], ptr %753, i64 0, i64 %.reass.reass.us.i
+  %763 = getelementptr inbounds nuw [0 x i16], ptr %753, i64 0, i64 %.reass.reass.us.i
   %764 = load i16, ptr %763, align 2, !noalias !6576, !noundef !4
   %765 = getelementptr inbounds nuw [4 x i16], ptr %32, i64 0, i64 %.sroa.7347.0756.us.i
   %766 = load i16, ptr %765, align 2, !noalias !6577, !noundef !4
@@ -45744,7 +45744,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
   %28 = zext i32 %26 to i64
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %30 = add nsw i64 %28, -1
-  %31 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %29, i64 0, i64 %30
+  %31 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %29, i64 0, i64 %30
   %32 = load ptr, ptr %31, align 8, !alias.scope !8530, !noalias !8533, !nonnull !4, !align !25, !noundef !4
   %33 = load ptr, ptr %32, align 8, !noalias !8535, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
@@ -45775,7 +45775,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %49 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %48, i64 0, i64 %38
+  %49 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %48, i64 0, i64 %38
   %50 = load i64, ptr %0, align 8, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %52 = load i64, ptr %51, align 8, !noundef !4
@@ -45825,7 +45825,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
   br i1 %71, label %97, label %78
 
 72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %63, i64 %53
+  %73 = getelementptr inbounds nuw i8, ptr %63, i64 %53
   %74 = load i8, ptr %73, align 1, !alias.scope !8550, !noundef !4
   %75 = icmp sgt i8 %74, -65
   br i1 %75, label %70, label %96
@@ -45839,7 +45839,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %63, i64 %62
+  %81 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   %82 = load i8, ptr %81, align 1, !alias.scope !8550, !noundef !4
   %83 = icmp sgt i8 %82, -65
   br i1 %83, label %97, label %96
@@ -45929,7 +45929,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
   %115 = zext i32 %113 to i64
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %117 = add nsw i64 %115, -1
-  %118 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %116, i64 0, i64 %117
+  %118 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %116, i64 0, i64 %117
   %119 = load ptr, ptr %118, align 8, !alias.scope !8574, !noalias !8577, !nonnull !4, !align !25, !noundef !4
   %120 = load ptr, ptr %119, align 8, !noalias !8579, !nonnull !4, !noundef !4
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
@@ -45967,7 +45967,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
 
 136:                                              ; preds = %131
   %137 = getelementptr inbounds nuw i8, ptr %120, i64 24
-  %138 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %137, i64 0, i64 %125
+  %138 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %137, i64 0, i64 %125
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %140 = load i64, ptr %139, align 8, !noundef !4
   %141 = load i64, ptr %14, align 8, !noundef !4
@@ -45994,7 +45994,7 @@ define hidden noundef i64 @_ZN4rope6Cursor7summary17h0fd51493dd36b207E(ptr noali
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h36b9e996519b5441E.exit19.thread"
 
 151:                                              ; preds = %147
-  %152 = getelementptr inbounds i8, ptr %143, i64 %142
+  %152 = getelementptr inbounds nuw i8, ptr %143, i64 %142
   %153 = load i8, ptr %152, align 1, !noundef !4
   %154 = icmp sgt i8 %153, -65
   br i1 %154, label %149, label %157

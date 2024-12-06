@@ -722,7 +722,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   tail call void @llvm.assume(i1 %387)
   %388 = icmp ult i64 %384, %42
   tail call void @llvm.assume(i1 %388)
-  %389 = getelementptr inbounds float, ptr %256, i64 %384
+  %389 = getelementptr inbounds nuw float, ptr %256, i64 %384
   %390 = load float, ptr %389, align 4, !tbaa !76
   %391 = and i64 %384, 1
   %392 = or disjoint i64 %391, %258
@@ -781,7 +781,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat19calculateBlackAreasEv(ptr n
   tail call void @llvm.assume(i1 %431)
   %432 = icmp ult i64 %429, %42
   tail call void @llvm.assume(i1 %432)
-  %433 = getelementptr inbounds float, ptr %256, i64 %429
+  %433 = getelementptr inbounds nuw float, ptr %256, i64 %429
   %434 = load float, ptr %433, align 4, !tbaa !76
   %435 = fadd float %422, %434
   %436 = add nuw nsw i64 %411, 4

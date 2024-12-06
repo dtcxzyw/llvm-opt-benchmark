@@ -1894,7 +1894,7 @@ next_line.exit:                                   ; preds = %24, %.thread.i
   ]
 
 79:                                               ; preds = %.critedge, %.critedge, %.critedge
-  %80 = getelementptr inbounds i8, ptr %.1114175, i64 %.156168
+  %80 = getelementptr inbounds nuw i8, ptr %.1114175, i64 %.156168
   %81 = sub nsw i64 %77, %.156168
   store i64 %81, ptr %3, align 8
   br label %11
@@ -2146,7 +2146,7 @@ bid_entry.exit:                                   ; preds = %.loopexit71.thread1
   %.4 = phi i32 [ %160, %.thread131 ], [ %.051.ph, %155 ], [ %.051.ph, %.sink.split ]
   %.250 = phi i32 [ 0, %.thread131 ], [ 1, %155 ], [ %spec.select73, %.sink.split ]
   %.3 = phi i32 [ %.2129, %.thread131 ], [ %.2130, %155 ], [ %.047.ph.ph, %.sink.split ]
-  %188 = getelementptr inbounds i8, ptr %.1114175, i64 %.156168
+  %188 = getelementptr inbounds nuw i8, ptr %.1114175, i64 %.156168
   %189 = sub nsw i64 %77, %.156168
   store i64 %189, ptr %3, align 8
   br label %.outer.outer

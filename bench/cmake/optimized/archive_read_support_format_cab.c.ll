@@ -514,7 +514,7 @@ cab_skip_sfx.exit.thread.i:                       ; preds = %._crit_edge32.i.i
   br label %cab_read_header.exit.thread
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds i8, ptr %148, i64 %.0218.i
+  %152 = getelementptr inbounds nuw i8, ptr %148, i64 %.0218.i
   br label %153
 
 153:                                              ; preds = %157, %151
@@ -2586,7 +2586,7 @@ cab_checksum_cfdata.exit.i:                       ; preds = %137, %cab_checksum_
 
 cab_checksum_cfdata_4.exit.i36.i:                 ; preds = %.lr.ph.i.i31.i
   %163 = and i64 %.0.i, -4
-  %164 = getelementptr inbounds i8, ptr %154, i64 %163
+  %164 = getelementptr inbounds nuw i8, ptr %154, i64 %163
   %165 = and i64 %.0.i, 3
   switch i64 %165, label %default.unreachable [
     i64 3, label %166
@@ -2833,7 +2833,7 @@ define internal fastcc ptr @cab_read_ahead_cfdata(ptr noundef %0, ptr noundef no
 
 111:                                              ; preds = %106
   %112 = load ptr, ptr %48, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 %107
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %107
   store ptr %113, ptr %100, align 8
   %114 = load i16, ptr %60, align 8
   %115 = zext i16 %114 to i64

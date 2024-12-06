@@ -995,7 +995,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   %spec.select.i = tail call i64 @llvm.umin.i64(i64 %sub.i, i64 32)
   %sub.i.i = add nsw i64 %spec.select.i, -1
   %call.i.i = call ptr @strncpy(ptr noundef nonnull %s.i, ptr noundef nonnull readonly %incdec.ptr.i, i64 noundef %sub.i.i) #15
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %s.i, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %s.i, i64 %sub.i.i
   store i8 0, ptr %arrayidx.i.i, align 1
   br label %safe_strncpy.exit.i
 
@@ -1053,7 +1053,7 @@ if.end.i.i35:                                     ; preds = %if.end.i27
   %spec.select.i36 = call i64 @llvm.umin.i64(i64 %sub.i33, i64 32)
   %sub.i.i37 = add nsw i64 %spec.select.i36, -1
   %call.i.i38 = call ptr @strncpy(ptr noundef nonnull %s.i22, ptr noundef nonnull readonly %incdec.ptr.i28, i64 noundef %sub.i.i37) #15
-  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %s.i22, i64 %sub.i.i37
+  %arrayidx.i.i39 = getelementptr inbounds nuw i8, ptr %s.i22, i64 %sub.i.i37
   store i8 0, ptr %arrayidx.i.i39, align 1
   br label %safe_strncpy.exit.i40
 
@@ -1098,7 +1098,7 @@ if.end.i.i59:                                     ; preds = %if.end.i51
   %spec.select.i60 = call i64 @llvm.umin.i64(i64 %sub.i57, i64 32)
   %sub.i.i61 = add nsw i64 %spec.select.i60, -1
   %call.i.i62 = call ptr @strncpy(ptr noundef nonnull %s.i46, ptr noundef nonnull readonly %incdec.ptr.i52, i64 noundef %sub.i.i61) #15
-  %arrayidx.i.i63 = getelementptr inbounds i8, ptr %s.i46, i64 %sub.i.i61
+  %arrayidx.i.i63 = getelementptr inbounds nuw i8, ptr %s.i46, i64 %sub.i.i61
   store i8 0, ptr %arrayidx.i.i63, align 1
   br label %safe_strncpy.exit.i64
 

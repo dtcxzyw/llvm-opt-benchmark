@@ -9846,7 +9846,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
 146:                                              ; preds = %143, %134
   %147 = phi ptr [ %145, %143 ], [ null, %134 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 %141
-  %149 = getelementptr inbounds %"struct.rawspeed::NotARational", ptr %148, i64 %2
+  %149 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %148, i64 %2
   %150 = add nuw nsw i64 %2, 2305843009213693951
   %151 = and i64 %150, 2305843009213693951
   %152 = add nuw nsw i64 %151, 1

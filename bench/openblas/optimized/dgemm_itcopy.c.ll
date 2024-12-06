@@ -18,7 +18,7 @@ define noundef i32 @dgemm_itcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.idx23 = shl nsw i64 %0, 7
   %.idx25 = shl nsw i64 %0, 6
   %.idx27 = shl nsw i64 %0, 5
-  %.idx29 = shl nsw i64 %0, 4
+  %.idx29 = shl nuw nsw i64 %0, 4
   br label %14
 
 14:                                               ; preds = %144, %10

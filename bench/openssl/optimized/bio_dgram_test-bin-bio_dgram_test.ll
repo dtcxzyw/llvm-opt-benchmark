@@ -1453,7 +1453,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %done.09 = phi i64 [ 0, %entry ], [ %add, %if.end ]
-  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.09
+  %add.ptr = getelementptr inbounds nuw %struct.bio_msg_st, ptr %msg, i64 %done.09
   %sub = sub nuw nsw i64 %num_msg, %done.09
   %call = tail call i32 @BIO_sendmmsg(ptr noundef %b, ptr noundef nonnull %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull %num_processed) #6
   %tobool.not = icmp eq i32 %call, 0
@@ -1485,7 +1485,7 @@ entry:
 
 for.body:                                         ; preds = %entry, %if.end
   %done.09 = phi i64 [ 0, %entry ], [ %add, %if.end ]
-  %add.ptr = getelementptr inbounds %struct.bio_msg_st, ptr %msg, i64 %done.09
+  %add.ptr = getelementptr inbounds nuw %struct.bio_msg_st, ptr %msg, i64 %done.09
   %sub = sub nuw nsw i64 %num_msg, %done.09
   %call = tail call i32 @BIO_recvmmsg(ptr noundef %b, ptr noundef nonnull %add.ptr, i64 noundef 40, i64 noundef %sub, i64 noundef 0, ptr noundef nonnull %num_processed) #6
   %tobool.not = icmp eq i32 %call, 0

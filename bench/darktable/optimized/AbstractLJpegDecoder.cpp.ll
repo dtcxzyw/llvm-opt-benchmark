@@ -3958,7 +3958,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
 146:                                              ; preds = %143, %134
   %147 = phi ptr [ %145, %143 ], [ null, %134 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 %141
-  %149 = getelementptr inbounds i32, ptr %148, i64 %2
+  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %2
   %150 = load i32, ptr %3, align 4, !tbaa !47
   %151 = add nuw nsw i64 %2, 4611686018427387903
   %152 = and i64 %151, 4611686018427387903
@@ -4804,7 +4804,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !55
-  %52 = getelementptr inbounds i32, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !77
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !84
@@ -5381,7 +5381,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 206:                                              ; preds = %203, %194
   %207 = phi ptr [ %205, %203 ], [ null, %194 ]
   %208 = getelementptr inbounds i8, ptr %207, i64 %201
-  %209 = getelementptr inbounds i16, ptr %208, i64 %2
+  %209 = getelementptr inbounds nuw i16, ptr %208, i64 %2
   %210 = load i16, ptr %3, align 2, !tbaa !261
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
@@ -5583,7 +5583,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !231
-  %52 = getelementptr inbounds i32, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !229
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !276

@@ -796,7 +796,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17hf8987a555c6f07dbE.exit: ; p
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 1
   %.not.i.not.i = icmp ult i64 %.sroa.0.0, %28
-  %29 = getelementptr inbounds i16, ptr %15, i64 %.sroa.0.0
+  %29 = getelementptr inbounds nuw i16, ptr %15, i64 %.sroa.0.0
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %storemerge.i.i = select i1 %.not.i.not.i, ptr %30, ptr %24
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !86
@@ -9512,7 +9512,7 @@ define internal fastcc void @"_ZN46_$LT$u8$u20$as$u20$alloc..string..ToString$GT
 45:                                               ; preds = %15, %19
   %46 = or disjoint i8 %.sroa.0.0, 48
   %47 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !827, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %47, i64 %17
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %17
   store i8 %46, ptr %48, align 1
   %49 = add nuw nsw i64 %17, 1
   store i64 %49, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !827

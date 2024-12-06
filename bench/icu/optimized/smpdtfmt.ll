@@ -6990,7 +6990,7 @@ if.then728:                                       ; preds = %land.lhs.true724
 sw.bb730:                                         ; preds = %if.then728
   %184 = load ptr, ptr %fSymbols666, align 8
   %fCapitalization = getelementptr inbounds nuw i8, ptr %184, i64 832
-  %arrayidx733 = getelementptr inbounds [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %capContextUsageType.0
+  %arrayidx733 = getelementptr inbounds nuw [14 x [2 x i8]], ptr %fCapitalization, i64 0, i64 %capContextUsageType.0
   br label %sw.epilog742
 
 sw.bb735:                                         ; preds = %if.then728

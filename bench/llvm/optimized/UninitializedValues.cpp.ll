@@ -8214,7 +8214,7 @@ _ZSt13__adjust_heapIPPKN5clang8CFGBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN
 .split15:                                         ; preds = %.split15.lr.ph, %_ZSt13__adjust_heapIPPKN5clang8CFGBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_T0_SB_T1_T2_.exit29
   %.035 = phi i64 [ %14, %.split15.lr.ph ], [ %57, %_ZSt13__adjust_heapIPPKN5clang8CFGBlockElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_23ReversePostOrderCompareEEEEvT_T0_SB_T1_T2_.exit29 ]
   %57 = add nsw i64 %.035, -1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)

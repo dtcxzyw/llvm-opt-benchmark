@@ -25881,16 +25881,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds i32, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds i32, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
   %.val.i.i.i.i = load i32, ptr %22, align 4
   %.val29.i.i.i.i = load i32, ptr %24, align 4
   %25 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
   %spec.select.i.i.i.i = select i1 %25, i64 %23, i64 %21
-  %26 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i.i
+  %26 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i.i.i.i
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i.i.i
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i.i
   store i32 %27, ptr %28, align 4
   %29 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %29, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !262
@@ -25907,9 +25907,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 34:                                               ; preds = %._crit_edge.i.i.i.i
   %35 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %36 = or disjoint i64 %35, 1
-  %37 = getelementptr inbounds i32, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %36
   %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i.i
   store i32 %38, ptr %39, align 4
   br label %40
 
@@ -25928,7 +25928,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   br i1 %43, label %44, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 44:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %45 = getelementptr inbounds i32, ptr %0, i64 %.0134.i.i.i.i.i
+  %45 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i.i.i.i
   store i32 %.val.i.i.i.i.i, ptr %45, align 4
   %46 = icmp sgt i64 %.05.i.i.i.i.i, %14
   br i1 %46, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !263
@@ -25945,14 +25945,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %49 = or disjoint i64 %13, 1
-  %50 = getelementptr inbounds i32, ptr %0, i64 %49
-  %51 = getelementptr inbounds i32, ptr %0, i64 %32
+  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %49
+  %51 = getelementptr inbounds nuw i32, ptr %0, i64 %32
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %52, %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %52 = add nsw i64 %.06.us.i.i.i, -1
-  %53 = getelementptr inbounds i32, ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw i32, ptr %0, i64 %52
   %54 = load i32, ptr %53, align 4
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.us.i.i.i", label %.lr.ph.i25.us.i.i.i
@@ -25961,16 +25961,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.030.i26.us.i.i.i = phi i64 [ %spec.select.i29.us.i.i.i, %.lr.ph.i25.us.i.i.i ], [ %52, %.split14.us.i.i.i ]
   %55 = shl i64 %.030.i26.us.i.i.i, 1
   %56 = add i64 %55, 2
-  %57 = getelementptr inbounds i32, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw i32, ptr %0, i64 %56
   %58 = or disjoint i64 %55, 1
-  %59 = getelementptr inbounds i32, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw i32, ptr %0, i64 %58
   %.val.i27.us.i.i.i = load i32, ptr %57, align 4
   %.val29.i28.us.i.i.i = load i32, ptr %59, align 4
   %60 = icmp ult i32 %.val.i27.us.i.i.i, %.val29.i28.us.i.i.i
   %spec.select.i29.us.i.i.i = select i1 %60, i64 %58, i64 %56
-  %61 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i29.us.i.i.i
+  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i29.us.i.i.i
   %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i32, ptr %0, i64 %.030.i26.us.i.i.i
+  %63 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i26.us.i.i.i
   store i32 %62, ptr %63, align 4
   %64 = icmp slt i64 %spec.select.i29.us.i.i.i, %18
   br i1 %64, label %.lr.ph.i25.us.i.i.i, label %.lr.ph.i.i20.us.i.i.i, !llvm.loop !262
@@ -25985,7 +25985,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   br i1 %66, label %67, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.us.i.i.i"
 
 67:                                               ; preds = %.lr.ph.i.i20.us.i.i.i
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.0134.i.i21.us.i.i.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i21.us.i.i.i
   store i32 %.val.i.i24.us.i.i.i, ptr %68, align 4
   %.not5.us.i.i.i = icmp slt i64 %.05.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.us.i.i.i", label %.lr.ph.i.i20.us.i.i.i, !llvm.loop !263
@@ -26000,7 +26000,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %71, %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %71 = add nsw i64 %.06.i.i.i, -1
-  %72 = getelementptr inbounds i32, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %71
   %73 = load i32, ptr %72, align 4
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i25.i.i.i
@@ -26009,16 +26009,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.030.i26.i.i.i = phi i64 [ %spec.select.i29.i.i.i, %.lr.ph.i25.i.i.i ], [ %71, %.split14.i.i.i ]
   %74 = shl i64 %.030.i26.i.i.i, 1
   %75 = add i64 %74, 2
-  %76 = getelementptr inbounds i32, ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %75
   %77 = or disjoint i64 %74, 1
-  %78 = getelementptr inbounds i32, ptr %0, i64 %77
+  %78 = getelementptr inbounds nuw i32, ptr %0, i64 %77
   %.val.i27.i.i.i = load i32, ptr %76, align 4
   %.val29.i28.i.i.i = load i32, ptr %78, align 4
   %79 = icmp ult i32 %.val.i27.i.i.i, %.val29.i28.i.i.i
   %spec.select.i29.i.i.i = select i1 %79, i64 %77, i64 %75
-  %80 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i29.i.i.i
+  %80 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i29.i.i.i
   %81 = load i32, ptr %80, align 4
-  %82 = getelementptr inbounds i32, ptr %0, i64 %.030.i26.i.i.i
+  %82 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i26.i.i.i
   store i32 %81, ptr %82, align 4
   %83 = icmp slt i64 %spec.select.i29.i.i.i, %18
   br i1 %83, label %.lr.ph.i25.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !262
@@ -26048,7 +26048,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   br i1 %89, label %90, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.i.i.i"
 
 90:                                               ; preds = %.lr.ph.i.i20.i.i.i
-  %91 = getelementptr inbounds i32, ptr %0, i64 %.0134.i.i21.i.i.i
+  %91 = getelementptr inbounds nuw i32, ptr %0, i64 %.0134.i.i21.i.i.i
   store i32 %.val.i.i24.i.i.i, ptr %91, align 4
   %.not5.i.i.i = icmp slt i64 %.05.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_113VectorCombine25foldShuffleFromReductionsERN4llvm11InstructionEE3$_0EEEvT_T0_SC_T1_T2_.exit30.i.i.i", label %.lr.ph.i.i20.i.i.i, !llvm.loop !263
@@ -26081,16 +26081,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
   %.030.i.i.i18.i = phi i64 [ %spec.select.i.i.i21.i, %.lr.ph.i.i.i17.i ], [ 0, %.lr.ph.i5.i ]
   %103 = shl i64 %.030.i.i.i18.i, 1
   %104 = add i64 %103, 2
-  %105 = getelementptr inbounds i32, ptr %0, i64 %104
+  %105 = getelementptr inbounds nuw i32, ptr %0, i64 %104
   %106 = or disjoint i64 %103, 1
-  %107 = getelementptr inbounds i32, ptr %0, i64 %106
+  %107 = getelementptr inbounds nuw i32, ptr %0, i64 %106
   %.val.i.i.i19.i = load i32, ptr %105, align 4
   %.val29.i.i.i20.i = load i32, ptr %107, align 4
   %108 = icmp ult i32 %.val.i.i.i19.i, %.val29.i.i.i20.i
   %spec.select.i.i.i21.i = select i1 %108, i64 %106, i64 %104
-  %109 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i21.i
+  %109 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select.i.i.i21.i
   %110 = load i32, ptr %109, align 4
-  %111 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i.i18.i
+  %111 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i18.i
   store i32 %110, ptr %111, align 4
   %112 = icmp slt i64 %spec.select.i.i.i21.i, %101
   br i1 %112, label %.lr.ph.i.i.i17.i, label %._crit_edge.i.i.i6.i, !llvm.loop !262
@@ -26110,9 +26110,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPilN9__gnu_cxx5__ops15_Iter
 119:                                              ; preds = %115
   %120 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %121 = or disjoint i64 %120, 1
-  %122 = getelementptr inbounds i32, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw i32, ptr %0, i64 %121
   %123 = load i32, ptr %122, align 4
-  %124 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %124 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store i32 %123, ptr %124, align 4
   br label %125
 

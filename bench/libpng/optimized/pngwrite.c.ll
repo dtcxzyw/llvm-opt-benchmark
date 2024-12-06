@@ -3268,7 +3268,7 @@ png_image_set_PLTE.exit:                          ; preds = %._crit_edge.i, %350
   %412 = zext i32 %411 to i64
   %413 = mul i64 %spec.select, %412
   %414 = sub i64 0, %413
-  %415 = getelementptr inbounds i8, ptr %404, i64 %414
+  %415 = getelementptr inbounds nuw i8, ptr %404, i64 %414
   br label %416
 
 416:                                              ; preds = %409, %402

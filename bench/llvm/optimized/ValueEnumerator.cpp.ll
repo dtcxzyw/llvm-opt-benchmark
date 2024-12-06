@@ -11920,7 +11920,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN4llvm3UseEjElN9
 
 19:                                               ; preds = %19, %15
   %.0.i.i.i = phi i64 [ %18, %15 ], [ %22, %19 ]
-  %20 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %.0.i.i.i
+  %20 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %.0.i.i.i
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %20, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.i.i = load i32, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8
@@ -12392,15 +12392,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   %.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %6 ]
   %10 = shl i64 %.031, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %13
   %.val = load ptr, ptr %12, align 8
   %.val30 = load ptr, ptr %14, align 8
   %15 = call fastcc noundef zeroext i1 @"_ZZL28predictValueUseListOrderImplPKN4llvm5ValueEPKNS_8FunctionEjRKN12_GLOBAL__N_18OrderMapERSt6vectorINS_12UseListOrderESaISB_EEENK3$_0clERKSt4pairIPKNS_3UseEjESM_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val, ptr %.val30)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %.031
+  %16 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %.031
   %18 = load ptr, ptr %16, align 8
   store ptr %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -12425,8 +12425,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
 29:                                               ; preds = %25
   %30 = shl nsw i64 %.0.lcssa, 1
   %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %.0.lcssa
   %34 = load ptr, ptr %32, align 8
   store ptr %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -12450,7 +12450,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   br i1 %41, label %42, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL28predictValueUseListOrderImplPKNS1_5ValueEPKNS1_8FunctionEjRKN12_GLOBAL__N_18OrderMapERSt6vectorINS1_12UseListOrderESaISL_EEE3$_0EEEvT_T0_SS_T1_RT2_.exit"
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds %"struct.std::pair.324", ptr %0, i64 %.01317.i
+  %43 = getelementptr inbounds nuw %"struct.std::pair.324", ptr %0, i64 %.01317.i
   %44 = load ptr, ptr %40, align 8
   store ptr %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -16981,7 +16981,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm15ValueEnumerator7MD
 .split17.i.i.i:                                   ; preds = %.split.i.i.i, %.split17.i.i.i
   %.021.i.i.i = phi i64 [ %18, %.split17.i.i.i ], [ %16, %.split.i.i.i ]
   %18 = add nsw i64 %.021.i.i.i, -1
-  %19 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %18
   %.sroa.02.0.copyload18.i.i.i = load i64, ptr %19, align 4
   tail call fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_T2_"(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %14, i64 %.sroa.02.0.copyload18.i.i.i, ptr readonly %3)
   %20 = icmp eq i64 %18, 0
@@ -17493,9 +17493,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN4llvm15ValueEnumerator7MDInd
   %.038 = phi i64 [ %1, %.lr.ph ], [ %52, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36" ]
   %11 = shl i64 %.038, 1
   %12 = add i64 %11, 2
-  %13 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %12
   %14 = or disjoint i64 %11, 1
-  %15 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %14
   %.val29 = load i64, ptr %13, align 4
   %.val30 = load i64, ptr %15, align 4
   %.val.val = load ptr, ptr %9, align 8
@@ -17573,7 +17573,7 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %38, %36, %_ZL2
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread36": ; preds = %45, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread"
   %51 = phi i64 [ %.val30, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread" ], [ %.val29, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit" ], [ %.val29, %45 ]
   %52 = phi i64 [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit.thread" ], [ %12, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES8_EEbT_T0_.exit" ], [ %12, %45 ]
-  %53 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.038
+  %53 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.038
   store i64 %51, ptr %53, align 4
   %54 = icmp slt i64 %52, %7
   br i1 %54, label %10, label %._crit_edge, !llvm.loop !168
@@ -17593,8 +17593,8 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i: ; preds = %38, %36, %_ZL2
 61:                                               ; preds = %57
   %62 = shl nsw i64 %.0.lcssa, 1
   %63 = or disjoint i64 %62, 1
-  %64 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %63
-  %65 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.0.lcssa
+  %64 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %63
+  %65 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.0.lcssa
   %66 = load i64, ptr %64, align 4
   store i64 %66, ptr %65, align 4
   br label %67
@@ -17683,7 +17683,7 @@ _ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i: ; preds = %94, %92, %_Z
   br i1 %spec.select.i.i.i, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm15ValueEnumerator16organizeMetadataEvE3$_0EclIPNS3_7MDIndexES7_EEbT_RT0_.exit.i", %103, %_ZL20getMetadataTypeOrderPKN4llvm8MetadataE.exit3.i.i.i
-  %107 = getelementptr inbounds %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.0135.i
+  %107 = getelementptr inbounds nuw %"struct.llvm::ValueEnumerator::MDIndex", ptr %0, i64 %.0135.i
   store i64 %.val14.i, ptr %107, align 4
   %108 = icmp sgt i64 %.06.i, %1
   br i1 %108, label %72, label %"_ZSt11__push_heapIPN4llvm15ValueEnumerator7MDIndexElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_16organizeMetadataEvE3$_0EEEvT_T0_SA_T1_RT2_.exit", !llvm.loop !169

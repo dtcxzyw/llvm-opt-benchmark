@@ -1988,7 +1988,7 @@ get_register_name_from_address.exit:              ; preds = %11, %25, %.thread.i
   store ptr %49, ptr %7, align 8
   %50 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %51 = call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50) #5
-  %52 = add i32 %.06684, 4
+  %52 = add nuw nsw i32 %.06684, 4
   call fastcc void @dissect_register(i32 noundef %45, ptr noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 4)
   br label %dissect_extended_bootstrap_register.exit
 
@@ -2014,7 +2014,7 @@ is_extended_bootstrap_address.exit:               ; preds = %.preheader
   store ptr %59, ptr %7, align 8
   %60 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %61 = call ptr @proto_item_add_subtree(ptr noundef %59, i32 noundef %60) #5
-  %62 = add i32 %.06684, 4
+  %62 = add nuw nsw i32 %.06684, 4
   %63 = sub i32 %45, %55
   %64 = call i32 @llvm.fshl.i32(i32 %63, i32 %63, i32 30)
   %65 = icmp ult i32 %64, 4
@@ -2032,7 +2032,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
   %70 = load i32, ptr @hf_gvcp_custom_register_addr, align 4
   %71 = call ptr @proto_tree_add_item(ptr noundef %.091, i32 noundef %70, ptr noundef %1, i32 noundef %.06684, i32 noundef 4, i32 noundef 0) #5
   store ptr %71, ptr %7, align 8
-  %72 = add i32 %.06684, 4
+  %72 = add nuw nsw i32 %.06684, 4
   %73 = load i32, ptr @ett_gvcp_payload_cmd_subtree, align 4
   %74 = call ptr @proto_item_add_subtree(ptr noundef %71, i32 noundef %73) #5
   %75 = load i32, ptr @hf_gvcp_custom_register_value, align 4
@@ -2041,7 +2041,7 @@ switch.lookup:                                    ; preds = %is_extended_bootstr
 
 dissect_extended_bootstrap_register.exit:         ; preds = %is_extended_bootstrap_address.exit, %switch.lookup, %69, %47
   %.1 = phi i32 [ %52, %47 ], [ %72, %69 ], [ %62, %is_extended_bootstrap_address.exit ], [ %62, %switch.lookup ]
-  %77 = add i32 %.1, 4
+  %77 = add nuw nsw i32 %.1, 4
   %78 = add nuw nsw i32 %.06783, 1
   %exitcond.not = icmp eq i32 %78, %8
   br i1 %exitcond.not, label %.loopexit, label %44, !llvm.loop !9

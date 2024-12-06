@@ -334,7 +334,7 @@ if.then2:                                         ; preds = %if.end
 
 if.then5:                                         ; preds = %if.then2
   %sub = add nsw i64 %conv, -242
-  %arrayidx6 = getelementptr inbounds [14 x i32], ptr @HUFv07_readStats.l, i64 0, i64 %sub
+  %arrayidx6 = getelementptr inbounds nuw [14 x i32], ptr @HUFv07_readStats.l, i64 0, i64 %sub
   %1 = load i32, ptr %arrayidx6, align 4
   %conv7 = zext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %huffWeight, i8 1, i64 %hwSize, i1 false)
@@ -488,7 +488,7 @@ if.end84:                                         ; preds = %if.end78
 if.end94:                                         ; preds = %if.end84
   %add90 = sub nuw nsw i32 32, %15
   %conv95 = trunc nuw nsw i32 %add90 to i8
-  %arrayidx96 = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.0
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %huffWeight, i64 %oSize.0
   store i8 %conv95, ptr %arrayidx96, align 1
   %idxprom97 = zext nneg i32 %add90 to i64
   %arrayidx98 = getelementptr inbounds nuw i32, ptr %rankStats, i64 %idxprom97
@@ -5408,26 +5408,26 @@ sw.bb67:                                          ; preds = %sw.epilog
   br i1 %tobool35.not, label %sw.epilog86, label %if.then69
 
 if.then69:                                        ; preds = %sw.bb67
-  %arrayidx70 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %7 = load i8, ptr %arrayidx70, align 1
   %conv71 = zext i8 %7 to i64
   br label %sw.epilog86
 
 sw.bb73:                                          ; preds = %sw.epilog
-  %add.ptr74 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr74 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr74.val = load i16, ptr %add.ptr74, align 1
   %conv76 = zext i16 %add.ptr74.val to i64
   %add77 = add nuw nsw i64 %conv76, 256
   br label %sw.epilog86
 
 sw.bb79:                                          ; preds = %sw.epilog
-  %add.ptr80 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr80 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr80.val = load i32, ptr %add.ptr80, align 1
   %conv82 = zext i32 %add.ptr80.val to i64
   br label %sw.epilog86
 
 sw.bb83:                                          ; preds = %sw.epilog
-  %add.ptr84 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr84 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr84.val = load i64, ptr %add.ptr84, align 1
   br label %sw.epilog86
 
@@ -7956,7 +7956,7 @@ if.then22:                                        ; preds = %if.end20
 
 if.end23:                                         ; preds = %if.end20
   %9 = getelementptr inbounds nuw i8, ptr %ip.071, i64 3
-  %add.ptr24 = getelementptr inbounds i8, ptr %9, i64 %retval.0.i.ph61
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %9, i64 %retval.0.i.ph61
   %sub25 = sub nuw i64 %sub1763, %retval.0.i.ph61
   %inc = add i64 %nbBlocks.069, 1
   %cmp.i38 = icmp ult i64 %sub25, 3

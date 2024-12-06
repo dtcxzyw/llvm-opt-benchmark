@@ -3234,7 +3234,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN3irr2
 
 _ZNSt12_Vector_baseIN3irr2io13SZipFileEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i73, %_ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !60
-  %add.ptr34 = getelementptr inbounds %"struct.irr::io::SZipFileEntry", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !59
   %add.ptr37 = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !56

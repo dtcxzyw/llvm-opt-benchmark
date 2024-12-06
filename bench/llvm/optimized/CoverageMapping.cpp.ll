@@ -3569,7 +3569,7 @@ _ZNK4llvm9BitVector5countEv.exit.i.i:             ; preds = %.lr.ph.i.i.i
 
 _ZNK4llvm9BitVector10find_firstEv.exit.i.i:       ; preds = %370, %364, %346
   %.0.i.i.i.i = phi i32 [ %369, %364 ], [ -1, %346 ], [ -1, %370 ]
-  %.sroa.0.0.insert.insert.i.i.reass.i = add nuw nsw i64 %invariant.op.i, %indvars.iv.i.i
+  %.sroa.0.0.insert.insert.i.i.reass.i = add nuw i64 %invariant.op.i, %indvars.iv.i.i
   %371 = load ptr, ptr %45, align 8, !noalias !58
   %372 = load i32, ptr %204, align 8, !noalias !58
   %373 = icmp eq i32 %372, 0
@@ -17675,7 +17675,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN4llvm8coverage13CountedReg
 
 30:                                               ; preds = %30, %26
   %.0.i.i.i = phi i64 [ %29, %26 ], [ %33, %30 ]
-  %31 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0.i.i.i
+  %31 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_T2_(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %27, ptr noundef nonnull byval(%"struct.llvm::coverage::CountedRegion") align 8 %31)
   %32 = icmp eq i64 %.0.i.i.i, 0
   %33 = add nsw i64 %.0.i.i.i, -1
@@ -18155,9 +18155,9 @@ define internal fastcc void @_ZSt13__adjust_heapIPN4llvm8coverage13CountedRegion
   %.042 = phi i64 [ %42, %41 ], [ %1, %4 ]
   %8 = shl i64 %.042, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 36
   %14 = load i64, ptr %13, align 4
   %.sroa.013.0.extract.trunc.i.i = trunc i64 %14 to i32
@@ -18221,8 +18221,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 
 41:                                               ; preds = %21, %33, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread
   %42 = phi i64 [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit.thread ], [ %9, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_SE_EEbT_T0_.exit ], [ %9, %33 ], [ %9, %21 ]
-  %43 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.042
+  %43 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %42
+  %44 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.042
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %44, ptr noundef nonnull align 8 dereferenceable(74) %43, i64 74, i1 false)
   %45 = icmp slt i64 %42, %6
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !466
@@ -18242,8 +18242,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_114SegmentBuilder17sortNeste
 52:                                               ; preds = %48
   %53 = shl nsw i64 %.0.lcssa, 1
   %54 = or disjoint i64 %53, 1
-  %55 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %54
-  %56 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0.lcssa
+  %55 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %56, ptr noundef nonnull align 8 dereferenceable(74) %55, i64 74, i1 false)
   br label %57
 
@@ -18316,7 +18316,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNested
   br i1 %spec.select15.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsEN4llvm15MutableArrayRefINS4_8coverage13CountedRegionEEEEUlRKS7_SA_E_EclIPS7_S7_EEbT_RT0_.exit.i, %77, %75, %67, %65
-  %83 = getelementptr inbounds %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0134.i
+  %83 = getelementptr inbounds nuw %"struct.llvm::coverage::CountedRegion", ptr %0, i64 %.0134.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(74) %83, ptr noundef nonnull align 8 dereferenceable(74) %60, i64 74, i1 false)
   %84 = icmp sgt i64 %.05.i, %1
   br i1 %84, label %59, label %_ZSt11__push_heapIPN4llvm8coverage13CountedRegionElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114SegmentBuilder17sortNestedRegionsENS0_15MutableArrayRefIS2_EEEUlRKS2_SC_E_EEEvT_T0_SG_T1_RT2_.exit, !llvm.loop !467
@@ -22167,15 +22167,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %19 = shl i64 %.030.i.i.i.i, 1
   %20 = add i64 %19, 2
-  %21 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %20
   %22 = or disjoint i64 %19, 1
-  %23 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %22
   %.val.i.i.i.i = load i32, ptr %21, align 4
   %.val29.i.i.i.i = load i32, ptr %23, align 4
   %24 = icmp ult i32 %.val.i.i.i.i, %.val29.i.i.i.i
   %spec.select.i.i.i.i = select i1 %24, i64 %22, i64 %20
-  %25 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i.i
-  %26 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i.i
+  %25 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i.i
+  %26 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i.i
   %27 = load i64, ptr %25, align 4
   store i64 %27, ptr %26, align 4
   %28 = icmp slt i64 %spec.select.i.i.i.i, %17
@@ -22193,8 +22193,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 33:                                               ; preds = %._crit_edge.i.i.i.i
   %34 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %35 = or disjoint i64 %34, 1
-  %36 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %35
-  %37 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %36 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %35
+  %37 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i.i
   %38 = load i64, ptr %36, align 4
   store i64 %38, ptr %37, align 4
   br label %39
@@ -22215,7 +22215,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   br i1 %42, label %43, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 43:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %44 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i.i
+  %44 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i.i.i.i
   %45 = load i64, ptr %41, align 4
   store i64 %45, ptr %44, align 4
   %46 = icmp sgt i64 %.04.i.i.i.i.i, %14
@@ -22233,14 +22233,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 
 .split16.preheader.i.i.i:                         ; preds = %.split16.lr.ph.i.i.i
   %49 = or disjoint i64 %13, 1
-  %50 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %49
-  %51 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %31
+  %50 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %49
+  %51 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %31
   br label %.split16.i.i.i
 
 .split16.us.i.i.i:                                ; preds = %.split16.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %52, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.us.i.i.i" ], [ %14, %.split16.lr.ph.i.i.i ]
   %52 = add nsw i64 %.06.us.i.i.i, -1
-  %53 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %52
+  %53 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %52
   %.sroa.02.0.copyload17.us.i.i.i = load i64, ptr %53, align 4
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %17
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.us.i.i.i", label %.lr.ph.i29.us.i.i.i
@@ -22249,15 +22249,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.030.i30.us.i.i.i = phi i64 [ %spec.select.i33.us.i.i.i, %.lr.ph.i29.us.i.i.i ], [ %52, %.split16.us.i.i.i ]
   %54 = shl i64 %.030.i30.us.i.i.i, 1
   %55 = add i64 %54, 2
-  %56 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %55
   %57 = or disjoint i64 %54, 1
-  %58 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %57
   %.val.i31.us.i.i.i = load i32, ptr %56, align 4
   %.val29.i32.us.i.i.i = load i32, ptr %58, align 4
   %59 = icmp ult i32 %.val.i31.us.i.i.i, %.val29.i32.us.i.i.i
   %spec.select.i33.us.i.i.i = select i1 %59, i64 %57, i64 %55
-  %60 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i33.us.i.i.i
-  %61 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i30.us.i.i.i
+  %60 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i33.us.i.i.i
+  %61 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i30.us.i.i.i
   %62 = load i64, ptr %60, align 4
   store i64 %62, ptr %61, align 4
   %63 = icmp slt i64 %spec.select.i33.us.i.i.i, %17
@@ -22277,7 +22277,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   br i1 %65, label %66, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.us.i.i.i"
 
 66:                                               ; preds = %.lr.ph.i.i24.us.i.i.i
-  %67 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i25.us.i.i.i
+  %67 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i25.us.i.i.i
   %68 = load i64, ptr %64, align 4
   store i64 %68, ptr %67, align 4
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i27.us.i.i.i, %.06.us.i.i.i
@@ -22293,7 +22293,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 .split16.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.i.i.i", %.split16.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %71, %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.i.i.i" ], [ %14, %.split16.preheader.i.i.i ]
   %71 = add nsw i64 %.06.i.i.i, -1
-  %72 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %71
   %.sroa.02.0.copyload17.i.i.i = load i64, ptr %72, align 4
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %17
   br i1 %.not.i.i.i, label %._crit_edge.i19.i.i.i, label %.lr.ph.i29.i.i.i
@@ -22302,15 +22302,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.030.i30.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i29.i.i.i ], [ %71, %.split16.i.i.i ]
   %73 = shl i64 %.030.i30.i.i.i, 1
   %74 = add i64 %73, 2
-  %75 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %74
   %76 = or disjoint i64 %73, 1
-  %77 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %76
+  %77 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %76
   %.val.i31.i.i.i = load i32, ptr %75, align 4
   %.val29.i32.i.i.i = load i32, ptr %77, align 4
   %78 = icmp ult i32 %.val.i31.i.i.i, %.val29.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %78, i64 %76, i64 %74
-  %79 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i33.i.i.i
-  %80 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i30.i.i.i
+  %79 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i33.i.i.i
+  %80 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i30.i.i.i
   %81 = load i64, ptr %79, align 4
   store i64 %81, ptr %80, align 4
   %82 = icmp slt i64 %spec.select.i33.i.i.i, %17
@@ -22342,7 +22342,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   br i1 %88, label %89, label %"_ZSt13__adjust_heapIPN4llvm8coverage24CounterExpressionBuilder4TermElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_8simplifyENS1_7CounterEE3$_0EEEvT_T0_SC_T1_T2_.exit34.i.i.i"
 
 89:                                               ; preds = %.lr.ph.i.i24.i.i.i
-  %90 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i25.i.i.i
+  %90 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0133.i.i25.i.i.i
   %91 = load i64, ptr %87, align 4
   store i64 %91, ptr %90, align 4
   %.not5.i.i.i = icmp slt i64 %.04.i.i27.i.i.i, %.06.i.i.i
@@ -22376,15 +22376,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
   %.030.i.i.i20.i = phi i64 [ %spec.select.i.i.i23.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %102 = shl i64 %.030.i.i.i20.i, 1
   %103 = add i64 %102, 2
-  %104 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %103
+  %104 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %103
   %105 = or disjoint i64 %102, 1
-  %106 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %105
+  %106 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %105
   %.val.i.i.i21.i = load i32, ptr %104, align 4
   %.val29.i.i.i22.i = load i32, ptr %106, align 4
   %107 = icmp ult i32 %.val.i.i.i21.i, %.val29.i.i.i22.i
   %spec.select.i.i.i23.i = select i1 %107, i64 %105, i64 %103
-  %108 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i23.i
-  %109 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i20.i
+  %108 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %spec.select.i.i.i23.i
+  %109 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.030.i.i.i20.i
   %110 = load i64, ptr %108, align 4
   store i64 %110, ptr %109, align 4
   %111 = icmp slt i64 %spec.select.i.i.i23.i, %100
@@ -22405,8 +22405,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm8coverage24CounterEx
 118:                                              ; preds = %114
   %119 = shl nsw i64 %.0.lcssa.i.i.i8.i, 1
   %120 = or disjoint i64 %119, 1
-  %121 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %120
-  %122 = getelementptr inbounds %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i8.i
+  %121 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %120
+  %122 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterExpressionBuilder::Term", ptr %0, i64 %.0.lcssa.i.i.i8.i
   %123 = load i64, ptr %121, align 4
   store i64 %123, ptr %122, align 4
   br label %124
@@ -22872,7 +22872,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt5tupleIJijijEElN9__gnu_cxx5_
 
 21:                                               ; preds = %21, %14
   %.0.i.i = phi i64 [ %17, %14 ], [ %31, %21 ]
-  %22 = getelementptr inbounds %"class.std::tuple", ptr %0, i64 %.0.i.i
+  %22 = getelementptr inbounds nuw %"class.std::tuple", ptr %0, i64 %.0.i.i
   %23 = load i32, ptr %22, align 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
@@ -26012,7 +26012,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm11SmallVectorIhLj10E
 
 24:                                               ; preds = %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i, %18
   %.013.i.i.i = phi i64 [ %21, %18 ], [ %36, %_ZN4llvm11SmallVectorIhLj10EED2Ev.exit16.i.i.i ]
-  %25 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %0, i64 %.013.i.i.i
+  %25 = getelementptr inbounds nuw %"class.llvm::SmallVector.629", ptr %0, i64 %.013.i.i.i
   call void @_ZN4llvm15SmallVectorBaseImEC2EPvm(ptr noundef nonnull align 8 dereferenceable(34) %7, ptr noundef nonnull %22, i64 noundef 10) #28
   %26 = call noundef zeroext i1 @_ZNK4llvm15SmallVectorBaseImE5emptyEv(ptr noundef nonnull align 8 dereferenceable(34) %25) #28
   br i1 %26, label %_ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit.i.i.i, label %27
@@ -26479,7 +26479,7 @@ _ZN4llvm11SmallVectorIhLj10EEC2EOS1_.exit:        ; preds = %41, %44
   br i1 %58, label %59, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit"
 
 59:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm8coverage15CoverageMapping4loadENS2_8ArrayRefINS2_9StringRefEEES6_RNS2_3vfs10FileSystemES7_S6_PKNS2_6object14BuildIDFetcherEbE3$_1EclIPNS2_11SmallVectorIhLj10EEESJ_EEbT_RT0_.exit.i"
-  %60 = getelementptr inbounds %"class.llvm::SmallVector.629", ptr %0, i64 %.0133.i
+  %60 = getelementptr inbounds nuw %"class.llvm::SmallVector.629", ptr %0, i64 %.0133.i
   %61 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm15SmallVectorImplIhEaSEOS1_(ptr noundef nonnull align 8 dereferenceable(34) %60, ptr noundef nonnull align 8 dereferenceable(34) %47)
   %62 = icmp sgt i64 %.04.i, %1
   br i1 %62, label %.lr.ph.i, label %"_ZSt11__push_heapIPN4llvm11SmallVectorIhLj10EEElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_8coverage15CoverageMapping4loadENS0_8ArrayRefINS0_9StringRefEEESA_RNS0_3vfs10FileSystemESB_SA_PKNS0_6object14BuildIDFetcherEbE3$_1EEEvT_T0_SM_T1_RT2_.exit", !llvm.loop !574

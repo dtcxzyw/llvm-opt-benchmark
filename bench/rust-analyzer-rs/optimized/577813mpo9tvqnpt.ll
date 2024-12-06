@@ -22436,7 +22436,7 @@ _ZN3hir9semantics13SemanticsImpl6to_def17h90bda645d09af602E.exit: ; preds = %"_Z
   %300 = xor i64 %.011.i.i.i.i, -1
   %301 = add nsw i64 %296, %300
   %302 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %293, i64 0, i64 %.011.i.i.i.i
-  %303 = getelementptr inbounds [0 x { { i32, i32, i32 } }], ptr %299, i64 0, i64 %301
+  %303 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %299, i64 0, i64 %301
   br label %304
 
 304:                                              ; preds = %304, %.lr.ph.preheader.i.i.i.i

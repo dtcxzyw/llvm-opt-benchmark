@@ -879,7 +879,7 @@ for.body:                                         ; preds = %for.body.preheader,
   br i1 %cmp11, label %for.body, label %for.end, !llvm.loop !18
 
 for.end:                                          ; preds = %for.body
-  %arrayidx20 = getelementptr inbounds i8, ptr %from, i64 %sub10
+  %arrayidx20 = getelementptr inbounds nuw i8, ptr %from, i64 %sub10
   %6 = load i8, ptr %arrayidx20, align 1
   %7 = icmp eq i8 %6, 0
   %8 = getelementptr i8, ptr %from, i64 %flen

@@ -19515,7 +19515,7 @@ for.body.i15.i.i:                                 ; preds = %if.end.i.i137, %for
 for.end.i.i.i:                                    ; preds = %for.body.i15.i.i, %if.end.i.i137
   %it.addr.0.lcssa.i.i.i = phi ptr [ %it.0.i.i, %if.end.i.i137 ], [ %incdec.ptr.i.i.i, %for.body.i15.i.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %it.addr.0.lcssa.i.i.i, i8 48, i64 %data.i43.sroa.5.0, i1 false)
-  %add.ptr.i.i17.i.i = getelementptr inbounds i8, ptr %it.addr.0.lcssa.i.i.i, i64 %data.i43.sroa.5.0
+  %add.ptr.i.i17.i.i = getelementptr inbounds nuw i8, ptr %it.addr.0.lcssa.i.i.i, i64 %data.i43.sroa.5.0
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i17.i.i, i64 1
   %.str.176..str.177.i.i.i.i.i = select i1 %cmp.i, ptr @.str.176, ptr @.str.177
   %20 = zext i1 %value to i64
@@ -19693,7 +19693,7 @@ for.body.i15.i.i198:                              ; preds = %if.end.i.i194, %for
 for.end.i.i.i205:                                 ; preds = %for.body.i15.i.i198, %if.end.i.i194
   %it.addr.0.lcssa.i.i.i206 = phi ptr [ %it.0.i.i195, %if.end.i.i194 ], [ %incdec.ptr.i.i.i202, %for.body.i15.i.i198 ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %it.addr.0.lcssa.i.i.i206, i8 48, i64 %data.i79.sroa.5.0, i1 false)
-  %add.ptr.i.i17.i.i208 = getelementptr inbounds i8, ptr %it.addr.0.lcssa.i.i.i206, i64 %data.i79.sroa.5.0
+  %add.ptr.i.i17.i.i208 = getelementptr inbounds nuw i8, ptr %it.addr.0.lcssa.i.i.i206, i64 %data.i79.sroa.5.0
   %add.ptr.i.i.i.i.i210 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i17.i.i208, i64 1
   %35 = zext i1 %value to i8
   %36 = or disjoint i8 %35, 48

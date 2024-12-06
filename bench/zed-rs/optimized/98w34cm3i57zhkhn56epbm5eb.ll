@@ -8668,7 +8668,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h61ab8ea3fea1babaE.exit: ; preds 
   %148 = xor i64 %.sroa.0.08.i.i, -1
   %149 = add nsw i64 %144, %148
   %150 = getelementptr inbounds nuw [0 x { i64, [12 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %151 = getelementptr inbounds [0 x { i64, [12 x i64] }], ptr %147, i64 0, i64 %149
+  %151 = getelementptr inbounds nuw [0 x { i64, [12 x i64] }], ptr %147, i64 0, i64 %149
   br label %152
 
 152:                                              ; preds = %152, %.lr.ph.preheader.i.i
@@ -8967,7 +8967,7 @@ _ZN4core5slice4sort6shared17find_existing_run17h55a17e97545ef400E.exit: ; preds 
   %148 = xor i64 %.sroa.0.08.i.i, -1
   %149 = add nsw i64 %144, %148
   %150 = getelementptr inbounds nuw [0 x { i64, [12 x i64] }], ptr %0, i64 0, i64 %.sroa.0.08.i.i
-  %151 = getelementptr inbounds [0 x { i64, [12 x i64] }], ptr %147, i64 0, i64 %149
+  %151 = getelementptr inbounds nuw [0 x { i64, [12 x i64] }], ptr %147, i64 0, i64 %149
   br label %152
 
 152:                                              ; preds = %152, %.lr.ph.preheader.i.i

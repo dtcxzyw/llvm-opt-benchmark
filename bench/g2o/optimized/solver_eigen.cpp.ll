@@ -11684,7 +11684,7 @@ _ZN5Eigen20SparseCompressedBaseINS_12SparseMatrixIdLi0EiEEE13InnerIteratorC2ERKS
   %indvars.iv = phi i64 [ %111, %.lr.ph170.preheader ], [ %indvars.iv.next, %.lr.ph170 ]
   %.1114169 = phi i64 [ %116, %.lr.ph170.preheader ], [ %124, %.lr.ph170 ]
   %124 = add nsw i64 %.1114169, -1
-  %125 = getelementptr inbounds i32, ptr %53, i64 %124
+  %125 = getelementptr inbounds nuw i32, ptr %53, i64 %124
   %126 = load i32, ptr %125, align 4
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %127 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv.next

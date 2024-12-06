@@ -11774,20 +11774,20 @@ if.end61:                                         ; preds = %if.then58, %if.end5
 
 sw.bb62:                                          ; preds = %if.end61
   %conv63 = trunc i32 %dictID to i8
-  %arrayidx64 = getelementptr inbounds i8, ptr %dst, i64 %pos.1
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.1
   store i8 %conv63, ptr %arrayidx64, align 1
   %inc65 = add nuw nsw i64 %pos.1, 1
   br label %sw.epilog
 
 sw.bb66:                                          ; preds = %if.end61
-  %add.ptr = getelementptr inbounds i8, ptr %dst, i64 %pos.1
+  %add.ptr = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.1
   %conv67 = trunc i32 %dictID to i16
   store i16 %conv67, ptr %add.ptr, align 1
   %add68 = add nuw nsw i64 %pos.1, 2
   br label %sw.epilog
 
 sw.bb69:                                          ; preds = %if.end61
-  %add.ptr70 = getelementptr inbounds i8, ptr %dst, i64 %pos.1
+  %add.ptr70 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.1
   store i32 %dictID, ptr %add.ptr70, align 1
   %add71 = add nuw nsw i64 %pos.1, 4
   br label %sw.epilog
@@ -11806,12 +11806,12 @@ sw.bb73:                                          ; preds = %sw.epilog
 if.then75:                                        ; preds = %sw.bb73
   %conv76 = trunc i64 %pledgedSrcSize to i8
   %inc77 = add nuw nsw i64 %pos.2, 1
-  %arrayidx78 = getelementptr inbounds i8, ptr %dst, i64 %pos.2
+  %arrayidx78 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.2
   store i8 %conv76, ptr %arrayidx78, align 1
   br label %return
 
 sw.bb80:                                          ; preds = %sw.epilog
-  %add.ptr81 = getelementptr inbounds i8, ptr %dst, i64 %pos.2
+  %add.ptr81 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.2
   %7 = trunc i64 %pledgedSrcSize to i16
   %conv83 = add i16 %7, -256
   store i16 %conv83, ptr %add.ptr81, align 1
@@ -11819,14 +11819,14 @@ sw.bb80:                                          ; preds = %sw.epilog
   br label %return
 
 sw.bb85:                                          ; preds = %sw.epilog
-  %add.ptr86 = getelementptr inbounds i8, ptr %dst, i64 %pos.2
+  %add.ptr86 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.2
   %conv87 = trunc i64 %pledgedSrcSize to i32
   store i32 %conv87, ptr %add.ptr86, align 1
   %add88 = add nuw nsw i64 %pos.2, 4
   br label %return
 
 sw.bb89:                                          ; preds = %sw.epilog
-  %add.ptr90 = getelementptr inbounds i8, ptr %dst, i64 %pos.2
+  %add.ptr90 = getelementptr inbounds nuw i8, ptr %dst, i64 %pos.2
   store i64 %pledgedSrcSize, ptr %add.ptr90, align 1
   %add91 = add nuw nsw i64 %pos.2, 8
   br label %return

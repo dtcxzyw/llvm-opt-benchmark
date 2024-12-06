@@ -551,7 +551,7 @@ define void @ADIOI_GEN_ReadStridedColl(ptr noundef %0, ptr noundef %1, i32 nound
   %292 = load ptr, ptr %206, align 8
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 16
   %294 = load ptr, ptr %293, align 8
-  %295 = getelementptr inbounds i8, ptr %.0291357.i, i64 %.0277361.i
+  %295 = getelementptr inbounds nuw i8, ptr %.0291357.i, i64 %.0277361.i
   %296 = trunc i64 %..i to i32
   call void %294(ptr noundef %0, ptr noundef %295, i32 noundef %296, ptr noundef nonnull @ompi_mpi_byte, i32 noundef 100, i64 noundef %.0288359.i, ptr noundef nonnull %13, ptr noundef nonnull %7) #5
   %297 = load i32, ptr %7, align 4

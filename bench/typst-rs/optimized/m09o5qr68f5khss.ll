@@ -1080,7 +1080,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %31 = sub nuw i64 %29, %30
   %32 = udiv exact i64 %31, 48
   %.not.i.not = icmp ult i64 %26, %32
-  %33 = getelementptr inbounds { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.pre, i64 %26
+  %33 = getelementptr inbounds nuw { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.pre, i64 %26
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %storemerge.i = select i1 %.not.i.not, ptr %34, ptr %28
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !28
@@ -1167,7 +1167,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %34 = sub nuw i64 %32, %33
   %35 = lshr exact i64 %34, 3
   %.not.i.not = icmp ult i64 %29, %35
-  %36 = getelementptr inbounds i64, ptr %.pre, i64 %29
+  %36 = getelementptr inbounds nuw i64, ptr %.pre, i64 %29
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %storemerge.i = select i1 %.not.i.not, ptr %37, ptr %31
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !63
@@ -1461,7 +1461,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %22 = sub nuw i64 %20, %21
   %23 = udiv exact i64 %22, 48
   %.not.i.not.i = icmp ult i64 %18, %23
-  %24 = getelementptr inbounds { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.sroa.0.0.copyload, i64 %18
+  %24 = getelementptr inbounds nuw { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.sroa.0.0.copyload, i64 %18
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h19e3d69b33b7e4a0E.llvm.14728845296163125433.exit"
 
@@ -2451,7 +2451,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = sub nuw i64 %24, %25
   %27 = lshr exact i64 %26, 3
   %.not.i.not.i = icmp ult i64 %22, %27
-  %28 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload, i64 %22
+  %28 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5f03e5c034c40b4dE.llvm.14728845296163125433.exit"
 
@@ -87573,7 +87573,7 @@ define internal fastcc void @"_ZN5typst6layout6inline19linebreak_optimized28_$u7
   br label %.thread117
 
 47:                                               ; preds = %43
-  %48 = getelementptr inbounds { { { i64, [12 x i64] }, { i64, [12 x i64] }, ptr, { ptr, i64 }, { i64, i64 }, i64, double, i8, i8, [6 x i8] }, i64, double }, ptr %.sroa.0.0, i64 %.sroa.15.0
+  %48 = getelementptr inbounds nuw { { { i64, [12 x i64] }, { i64, [12 x i64] }, ptr, { ptr, i64 }, { i64, i64 }, i64, double, i8, i8, [6 x i8] }, i64, double }, ptr %.sroa.0.0, i64 %.sroa.15.0
   %49 = add i64 %.sroa.15.0, %.sroa.10.0
   br label %.thread133
 

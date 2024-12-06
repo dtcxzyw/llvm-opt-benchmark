@@ -161,9 +161,9 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %71 = phi <8 x i64> [ <i64 0, i64 4, i64 8, i64 12, i64 16, i64 20, i64 24, i64 28>, %64 ], [ %222, %69 ]
   %72 = getelementptr inbounds float, ptr %2, <8 x i64> %71
   %73 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %72, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !27, !alias.scope !28
-  %74 = getelementptr inbounds i8, <8 x ptr> %72, i64 4
+  %74 = getelementptr inbounds nuw i8, <8 x ptr> %72, i64 4
   %75 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %74, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !27, !alias.scope !28
-  %76 = getelementptr inbounds i8, <8 x ptr> %72, i64 8
+  %76 = getelementptr inbounds nuw i8, <8 x ptr> %72, i64 8
   %77 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %76, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !27, !alias.scope !28
   %78 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %75, <8 x float> %77)
   %79 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %73, <8 x float> %78)
@@ -288,7 +288,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %196 = select <8 x i1> %186, <8 x i1> %187, <8 x i1> zeroinitializer
   %197 = select <8 x i1> %189, <8 x float> %193, <8 x float> %195
   %198 = select <8 x i1> %196, <8 x float> %160, <8 x float> %197
-  %199 = getelementptr inbounds i8, <8 x ptr> %138, i64 4
+  %199 = getelementptr inbounds nuw i8, <8 x ptr> %138, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %198, <8 x ptr> %199, i32 4, <8 x i1> %149), !tbaa !27, !alias.scope !31, !noalias !28
   %200 = fcmp reassoc nsz arcp contract afn ogt <8 x float> %165, splat (float 2.000000e+00)
   %201 = select <8 x i1> %200, <8 x float> splat (float -2.000000e+00), <8 x float> splat (float 4.000000e+00)
@@ -308,13 +308,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %215 = select <8 x i1> %204, <8 x i1> %205, <8 x i1> zeroinitializer
   %216 = select <8 x i1> %207, <8 x float> %212, <8 x float> %214
   %217 = select <8 x i1> %215, <8 x float> %160, <8 x float> %216
-  %218 = getelementptr inbounds i8, <8 x ptr> %138, i64 8
+  %218 = getelementptr inbounds nuw i8, <8 x ptr> %138, i64 8
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %217, <8 x ptr> %218, i32 4, <8 x i1> %149), !tbaa !27, !alias.scope !31, !noalias !28
   %219 = select <8 x i1> %131, <8 x i1> %147, <8 x i1> zeroinitializer
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %146, <8 x ptr> %218, i32 4, <8 x i1> %219), !tbaa !27, !alias.scope !31, !noalias !28
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %146, <8 x ptr> %199, i32 4, <8 x i1> %219), !tbaa !27, !alias.scope !31, !noalias !28
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %146, <8 x ptr> %138, i32 4, <8 x i1> %219), !tbaa !27, !alias.scope !31, !noalias !28
-  %220 = getelementptr inbounds i8, <8 x ptr> %138, i64 12
+  %220 = getelementptr inbounds nuw i8, <8 x ptr> %138, i64 12
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %220, i32 4, <8 x i1> splat (i1 true)), !tbaa !27, !alias.scope !31, !noalias !28
   %221 = add nuw i64 %70, 8
   %222 = add <8 x i64> %71, splat (i64 32)

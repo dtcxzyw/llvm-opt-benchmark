@@ -847,7 +847,7 @@ for.body.i116.i:                                  ; preds = %for.body.i116.i, %f
   br i1 %exitcond.not.i121.i, label %for.end.i115.i, label %for.body.i116.i, !llvm.loop !7
 
 for.end.i115.i:                                   ; preds = %for.body.i116.i
-  %arrayidx8.i.i = getelementptr inbounds i32, ptr %divisor_array.i, i64 %sub.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw i32, ptr %divisor_array.i, i64 %sub.i.i
   %17 = load i32, ptr %arrayidx8.i.i, align 4
   %shl10.i.i = shl i32 %17, %14
   store i32 %shl10.i.i, ptr %arrayidx8.i.i, align 4
@@ -1022,7 +1022,7 @@ for.body.lr.ph.i151.i:                            ; preds = %for.cond.preheader.
 for.body.i152.i:                                  ; preds = %for.body.i152.i, %for.body.lr.ph.i151.i
   %i.0.in13.i.i = phi i64 [ %add.i, %for.body.lr.ph.i151.i ], [ %i.0.i.i, %for.body.i152.i ]
   %i.0.i.i = add nsw i64 %i.0.in13.i.i, -1
-  %arrayidx.i153.i = getelementptr inbounds i32, ptr %dividend_array.i, i64 %i.0.i.i
+  %arrayidx.i153.i = getelementptr inbounds nuw i32, ptr %dividend_array.i, i64 %i.0.i.i
   %32 = load i32, ptr %arrayidx.i153.i, align 4
   %shr.i154.i = lshr i32 %32, %14
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %i.0.in13.i.i
@@ -2899,7 +2899,7 @@ for.body.i112.i:                                  ; preds = %for.body.i112.i, %f
   br i1 %exitcond.not.i116.i, label %for.end.i110.i, label %for.body.i112.i, !llvm.loop !7
 
 for.end.i110.i:                                   ; preds = %for.body.i112.i
-  %arrayidx8.i.i = getelementptr inbounds i32, ptr %divisor_array.i, i64 %sub.i.i
+  %arrayidx8.i.i = getelementptr inbounds nuw i32, ptr %divisor_array.i, i64 %sub.i.i
   %27 = load i32, ptr %arrayidx8.i.i, align 4
   %shl10.i.i = shl i32 %27, %24
   store i32 %shl10.i.i, ptr %arrayidx8.i.i, align 4
@@ -2931,7 +2931,7 @@ for.body.i130.i:                                  ; preds = %for.body.i130.i, %f
   br i1 %exitcond.not.i138.i, label %for.end.i124.i, label %for.body.i130.i, !llvm.loop !7
 
 for.end.i124.i:                                   ; preds = %for.body.i130.i, %for.cond.preheader.i121.i
-  %arrayidx8.i125.i = getelementptr inbounds i32, ptr %dividend_array.i, i64 %next_index.1.lcssa.i.i.i
+  %arrayidx8.i125.i = getelementptr inbounds nuw i32, ptr %dividend_array.i, i64 %next_index.1.lcssa.i.i.i
   %30 = load i32, ptr %arrayidx8.i125.i, align 4
   %shl10.i126.i = shl i32 %30, %24
   store i32 %shl10.i126.i, ptr %arrayidx8.i125.i, align 4
@@ -3083,7 +3083,7 @@ for.body.lr.ph.i146.i:                            ; preds = %for.cond.preheader.
 for.body.i147.i:                                  ; preds = %for.body.i147.i, %for.body.lr.ph.i146.i
   %i.0.in13.i.i = phi i64 [ %add.i, %for.body.lr.ph.i146.i ], [ %i.0.i.i, %for.body.i147.i ]
   %i.0.i.i = add nsw i64 %i.0.in13.i.i, -1
-  %arrayidx.i148.i = getelementptr inbounds i32, ptr %dividend_array.i, i64 %i.0.i.i
+  %arrayidx.i148.i = getelementptr inbounds nuw i32, ptr %dividend_array.i, i64 %i.0.i.i
   %42 = load i32, ptr %arrayidx.i148.i, align 4
   %shr.i149.i = lshr i32 %42, %24
   %gep.i.i = getelementptr i32, ptr %invariant.gep.i.i, i64 %i.0.in13.i.i

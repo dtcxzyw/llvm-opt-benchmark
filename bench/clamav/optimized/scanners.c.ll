@@ -3241,7 +3241,7 @@ fmap_need_off_once_len.exit:                      ; preds = %19, %24
   %.04058 = phi i64 [ %29, %40 ], [ %6, %fmap_need_off_once_len.exit ]
   %29 = add nsw i64 %.04058, -1
   %30 = load ptr, ptr %9, align 8
-  %31 = getelementptr inbounds %struct.recursion_level_tag, ptr %30, i64 %29, i32 2
+  %31 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %30, i64 %29, i32 2
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %4, align 4
   %.not46 = icmp ne i32 %33, 0
@@ -3260,7 +3260,7 @@ fmap_need_off_once_len.exit:                      ; preds = %19, %24
   %.1 = phi i64 [ %39, %37 ], [ %.03859, %.lr.ph ]
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 232
   %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds ptr, ptr %17, i64 %29
+  %43 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
   store ptr %42, ptr %43, align 8
   %.not = icmp eq i64 %29, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph

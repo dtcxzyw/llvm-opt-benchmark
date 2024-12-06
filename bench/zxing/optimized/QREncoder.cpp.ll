@@ -3823,7 +3823,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %19
-  %24 = getelementptr inbounds i8, ptr %6, i64 %1
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 %1
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %20, i8 0, i64 %21, i1 false)
   br label %25
 
@@ -3874,7 +3874,7 @@ define linkonce_odr void @_ZNSt6vectorIhSaIhEE17_M_default_appendEm(ptr noundef 
 
 46:                                               ; preds = %45, %43
   store ptr %34, ptr %0, align 8, !tbaa !28
-  %47 = getelementptr inbounds i8, ptr %35, i64 %1
+  %47 = getelementptr inbounds nuw i8, ptr %35, i64 %1
   store ptr %47, ptr %5, align 8, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 %33
   store ptr %48, ptr %11, align 8, !tbaa !51

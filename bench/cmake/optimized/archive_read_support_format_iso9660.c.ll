@@ -3314,7 +3314,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 81:                                               ; preds = %78
   %82 = add nsw i64 %79, -4
-  %83 = getelementptr inbounds i8, ptr %69, i64 %82
+  %83 = getelementptr inbounds nuw i8, ptr %69, i64 %82
   %84 = load i8, ptr %83, align 1
   %85 = icmp eq i8 %84, 0
   br i1 %85, label %86, label %99
@@ -3363,7 +3363,7 @@ define internal fastcc noundef ptr @parse_file_info(ptr noundef %0, ptr noundef 
 
 108:                                              ; preds = %106
   %109 = add nsw i64 %16, -2
-  %110 = getelementptr inbounds i8, ptr %69, i64 %109
+  %110 = getelementptr inbounds nuw i8, ptr %69, i64 %109
   %111 = load i8, ptr %110, align 1
   %112 = icmp eq i8 %111, 59
   br i1 %112, label %113, label %117

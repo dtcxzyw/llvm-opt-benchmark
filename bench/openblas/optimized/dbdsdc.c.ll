@@ -743,7 +743,7 @@ thread-pre-split16:                               ; preds = %167, %173, %176, %.
   br i1 %486, label %487, label %489
 
 487:                                              ; preds = %484
-  %488 = getelementptr inbounds i32, ptr %37, i64 %442
+  %488 = getelementptr inbounds nuw i32, ptr %37, i64 %442
   store i32 %448, ptr %488, align 4, !tbaa !3
   br label %489
 

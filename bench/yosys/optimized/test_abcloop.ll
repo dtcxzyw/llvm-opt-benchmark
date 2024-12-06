@@ -381,7 +381,7 @@ define internal void @_ZN12_GLOBAL__N_115TestAbcloopPass7executeESt6vectorINSt7_
 51:                                               ; preds = %46, %27
   %.113 = phi i32 [ %31, %27 ], [ %.01216, %46 ]
   %.1 = phi i32 [ %19, %27 ], [ %37, %46 ]
-  %52 = add nsw i32 %.1, 1
+  %52 = add nuw nsw i32 %.1, 1
   %53 = load ptr, ptr %4, align 8
   %54 = load ptr, ptr %1, align 8
   %55 = ptrtoint ptr %53 to i64

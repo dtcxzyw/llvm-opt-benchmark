@@ -44559,7 +44559,7 @@ invoke.cont95:                                    ; preds = %if.end.i.i.i.i.i823
   %63 = getelementptr inbounds nuw i8, ptr %agg.tmp93, i64 16
   %_M_string_length.i.i.i.i820 = getelementptr inbounds nuw i8, ptr %agg.tmp93, i64 8
   store i64 %62, ptr %_M_string_length.i.i.i.i820, align 8, !tbaa !17
-  %arrayidx.i.i.i821 = getelementptr inbounds i8, ptr %63, i64 %62
+  %arrayidx.i.i.i821 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 0, ptr %arrayidx.i.i.i821, align 1, !tbaa !16
   invoke void @_ZN6duckdb5ValueC1ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp92, ptr noundef nonnull %agg.tmp93)
           to label %invoke.cont97 unwind label %lpad96
@@ -88961,7 +88961,7 @@ if.then.i80:                                      ; preds = %_ZNSt6vectorISt3set
 
 _ZNSt12_Vector_baseISt3setImSt4lessImESaImEESaIS4_EE13_M_deallocateEPS4_m.exit81: ; preds = %if.then.i80, %_ZNSt6vectorISt3setImSt4lessImESaImEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !775
-  %add.ptr37 = getelementptr inbounds %"class.std::set.806", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::set.806", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !774
   %add.ptr40 = getelementptr inbounds nuw %"class.std::set.806", ptr %call5.i.i.i, i64 %10
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1874
@@ -89207,7 +89207,7 @@ if.then.i81:                                      ; preds = %_ZNSt6vectorISt13un
 
 _ZNSt12_Vector_baseISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE13_M_deallocateEPS9_m.exit82: ; preds = %if.then.i81, %_ZNSt6vectorISt13unordered_mapImmSt4hashImESt8equal_toImESaISt4pairIKmmEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !784
-  %add.ptr37 = getelementptr inbounds %"class.std::unordered_map.107", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::unordered_map.107", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !783
   %add.ptr40 = getelementptr inbounds nuw %"class.std::unordered_map.107", ptr %call5.i.i.i, i64 %7
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1885
@@ -89298,7 +89298,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN6duck
 
 _ZNSt12_Vector_baseIN6duckdb6vectorImLb1EEESaIS2_EE13_M_deallocateEPS2_m.exit74: ; preds = %if.then.i73, %_ZNSt6vectorIN6duckdb6vectorImLb1EEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !782
-  %add.ptr37 = getelementptr inbounds %"class.duckdb::vector.69", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.duckdb::vector.69", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !781
   %add.ptr40 = getelementptr inbounds nuw %"class.duckdb::vector.69", ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1895
@@ -101030,7 +101030,7 @@ for.body.i.i.i.i.i227:                            ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.body.i.i.i.i.i227, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i233 = phi ptr [ %cond.i203, %invoke.cont57 ], [ %incdec.ptr.i.i.i.i.i231, %for.body.i.i.i.i.i227 ]
-  %add.ptr62 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %__cur.0.lcssa.i.i.i.i.i233, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %__cur.0.lcssa.i.i.i.i.i233, i64 %__n
   %cmp.i.i.not18.i.i.i.i.i234 = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.i.i.not18.i.i.i.i.i234, label %invoke.cont64, label %for.body.i.i.i.i.i235
 
@@ -101077,7 +101077,7 @@ lpad56.body:                                      ; preds = %lpad1.i.i.i.i215
   br i1 %cond, label %if.then66, label %if.then.i262
 
 if.then66:                                        ; preds = %lpad56.body
-  %add.ptr69 = getelementptr inbounds %"struct.duckdb::LogicalType", ptr %add.ptr54, i64 %__n
+  %add.ptr69 = getelementptr inbounds nuw %"struct.duckdb::LogicalType", ptr %add.ptr54, i64 %__n
   br label %for.body.i.i.i250
 
 for.body.i.i.i250:                                ; preds = %for.body.i.i.i250, %if.then66

@@ -2587,7 +2587,7 @@ if.then42:                                        ; preds = %if.end39
   %conv1.i = and i32 %value.0.copyload.i, %15
   %add46 = add i32 %conv1.i, 1
   %conv47 = zext i32 %add46 to i64
-  %add.ptr48 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %sub
   %.pre177 = ptrtoint ptr %add.ptr48 to i64
   %.pre178 = sub i64 %sub.ptr.lhs.cast32, %.pre177
   br label %if.end49
@@ -2891,7 +2891,7 @@ for.body:                                         ; preds = %do.body, %for.inc
   %deferred_src.2147 = phi ptr [ %deferred_src.1, %do.body ], [ %deferred_src.5, %for.inc ]
   %op.addr.2146 = phi i64 [ %op.addr.1, %do.body ], [ %op.addr.5, %for.inc ]
   %ip.addr.2145 = phi ptr [ %ip.addr.1, %do.body ], [ %cond11.i, %for.inc ]
-  %arrayidx.i.i = getelementptr inbounds [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %tag.1149
+  %arrayidx.i.i = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %tag.1149
   %1 = load i16, ptr %arrayidx.i.i, align 2
   %conv5 = sext i16 %1 to i64
   %shr.i = lshr i64 %tag.1149, 2
@@ -3572,7 +3572,7 @@ for.body.i:                                       ; preds = %for.inc.i, %do.body
   %deferred_length.298.i = phi i64 [ %deferred_length.1.i, %do.body.i ], [ %deferred_length.5.i, %for.inc.i ]
   %op.addr.297.i = phi i64 [ %op.addr.1.i, %do.body.i ], [ %op.addr.5.i, %for.inc.i ]
   %ip.addr.296.i = phi ptr [ %ip.addr.1.i, %do.body.i ], [ %cond11.i.i, %for.inc.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %tag.199.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [256 x i16], ptr @_ZN6snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 0, i64 %tag.199.i
   %8 = load i16, ptr %arrayidx.i.i.i, align 2
   %conv5.i = sext i16 %8 to i64
   %shr.i.i = lshr i64 %tag.199.i, 2
@@ -3717,7 +3717,7 @@ if.then39:                                        ; preds = %if.end36
   %conv1.i = and i32 %value.0.copyload.i, %22
   %add44 = add i32 %conv1.i, 1
   %conv45 = zext i32 %add44 to i64
-  %add.ptr46 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub40
+  %add.ptr46 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %sub40
   br label %if.end47
 
 if.end47:                                         ; preds = %if.then39, %if.end36
@@ -4029,7 +4029,7 @@ if.then42:                                        ; preds = %if.end39
   %conv1.i = and i32 %value.0.copyload.i, %19
   %add46 = add i32 %conv1.i, 1
   %conv47 = zext i32 %add46 to i64
-  %add.ptr48 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %sub
   %.pre213 = ptrtoint ptr %add.ptr48 to i64
   %.pre214 = sub i64 %sub.ptr.lhs.cast32, %.pre213
   br label %if.end49
@@ -4408,7 +4408,7 @@ if.then42:                                        ; preds = %if.end39
   %conv1.i = and i32 %value.0.copyload.i, %21
   %add46 = add i32 %conv1.i, 1
   %conv47 = zext i32 %add46 to i64
-  %add.ptr48 = getelementptr inbounds i8, ptr %incdec.ptr, i64 %sub
+  %add.ptr48 = getelementptr inbounds nuw i8, ptr %incdec.ptr, i64 %sub
   %.pre162 = ptrtoint ptr %add.ptr48 to i64
   %.pre163 = sub i64 %sub.ptr.lhs.cast32, %.pre162
   br label %if.end49

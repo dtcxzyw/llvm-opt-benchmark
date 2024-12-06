@@ -19659,14 +19659,14 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   br i1 %220, label %.lr.ph.i, label %.critedge.i
 
 .lr.ph.i:                                         ; preds = %217
-  %221 = getelementptr inbounds i8, ptr %216, i64 %218
+  %221 = getelementptr inbounds nuw i8, ptr %216, i64 %218
   %222 = load i8, ptr %221, align 1
   br label %223
 
 223:                                              ; preds = %228, %.lr.ph.i
   %224 = phi i64 [ %219, %.lr.ph.i ], [ %230, %228 ]
   %.15056.i = phi i64 [ 1, %.lr.ph.i ], [ %229, %228 ]
-  %225 = getelementptr inbounds i8, ptr %216, i64 %224
+  %225 = getelementptr inbounds nuw i8, ptr %216, i64 %224
   %226 = load i8, ptr %225, align 1
   %227 = icmp eq i8 %222, %226
   br i1 %227, label %228, label %.critedge.i
@@ -19697,7 +19697,7 @@ _ZNSt3__110unique_ptrIA_hNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
   %240 = trunc nuw i64 %.04960.i to i8
   %241 = or disjoint i8 %240, -128
   store i8 %241, ptr %3, align 1
-  %242 = getelementptr inbounds i8, ptr %216, i64 %.064.i
+  %242 = getelementptr inbounds nuw i8, ptr %216, i64 %.064.i
   %243 = load i8, ptr %242, align 1
   store i8 %243, ptr %166, align 1
   %244 = load ptr, ptr %1, align 8

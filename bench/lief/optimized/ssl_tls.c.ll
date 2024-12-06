@@ -7594,7 +7594,7 @@ mbedtls_ssl_sig_alg_is_supported.exit:            ; preds = %26
   %42 = trunc i16 %41 to i8
   %43 = getelementptr inbounds nuw i8, ptr %.044.ptr64, i64 1
   store i8 %42, ptr %43, align 1
-  %.044.add = add nsw i64 %.044.idx62, 2
+  %.044.add = add nuw nsw i64 %.044.idx62, 2
   %44 = load i16, ptr %.063, align 2
   %45 = zext i16 %44 to i32
   %46 = tail call ptr @mbedtls_ssl_sig_alg_to_str(i16 noundef zeroext %44) #22
@@ -7604,7 +7604,7 @@ mbedtls_ssl_sig_alg_is_supported.exit:            ; preds = %26
 mbedtls_ssl_sig_alg_is_supported.exit.thread:     ; preds = %26, %mbedtls_ssl_sig_alg_is_supported.exit, %40
   %.1.idx = phi i64 [ %.044.add, %40 ], [ %.044.idx62, %mbedtls_ssl_sig_alg_is_supported.exit ], [ %.044.idx62, %26 ]
   %47 = getelementptr inbounds nuw i8, ptr %.063, i64 2
-  %.044.ptr = getelementptr inbounds i8, ptr %1, i64 %.1.idx
+  %.044.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.1.idx
   %48 = load i16, ptr %47, align 2
   %.not48 = icmp eq i16 %48, 0
   br i1 %.not48, label %._crit_edge, label %26, !llvm.loop !24

@@ -12866,7 +12866,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPNSt7__cxx1112basic_stringIcSt11ch
 
 16:                                               ; preds = %16, %13
   %.012.i = phi i64 [ %15, %13 ], [ %18, %16 ]
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
+  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %17) #21
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #21
   call void @_ZSt13__adjust_heapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %0, i64 noundef %.012.i, i64 noundef %11, ptr noundef nonnull %7)
@@ -16506,7 +16506,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -16851,7 +16851,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8
@@ -17255,7 +17255,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -17600,7 +17600,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8
@@ -17864,7 +17864,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -18209,7 +18209,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8
@@ -18674,7 +18674,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -19019,7 +19019,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8
@@ -19281,7 +19281,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -19626,7 +19626,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8
@@ -19888,7 +19888,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt10unique_ptrIN12_GLOBAL_
 
 32:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i, %28
   %.013.i.i.i = phi i64 [ %31, %28 ], [ %36, %_ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EED2Ev.exit17.i.i.i ]
-  %33 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
+  %33 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.013.i.i.i
   %.val.i.i.i.i.i.i = load i64, ptr %33, align 8
   store ptr null, ptr %33, align 8
   store i64 %.val.i.i.i.i.i.i, ptr %19, align 8
@@ -20233,7 +20233,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_19IntrinsicESt14default_deleteIS1_EEaSEOS4_.exit
   br i1 %43, label %44, label %.critedge.i
 
 44:                                               ; preds = %.lr.ph.i
-  %45 = getelementptr inbounds %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
+  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.57", ptr %0, i64 %.0133.i
   %46 = load ptr, ptr %41, align 8
   store ptr null, ptr %41, align 8
   %47 = load ptr, ptr %45, align 8

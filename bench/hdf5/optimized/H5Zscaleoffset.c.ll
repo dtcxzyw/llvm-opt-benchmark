@@ -1086,7 +1086,7 @@ H5Z__scaleoffset_convert.exit511:                 ; preds = %81, %78
   %94 = getelementptr inbounds nuw i32, ptr %3, i64 %93
   store i32 %.0..0..0.545, ptr %94, align 4
   %95 = add i32 %.0437, 1
-  %96 = getelementptr inbounds i8, ptr %.0434, i64 %.1433
+  %96 = getelementptr inbounds nuw i8, ptr %.0434, i64 %.1433
   %97 = sub i64 %.0430, %.1433
   %.not502 = icmp eq i64 %97, 0
   br i1 %.not502, label %.loopexit, label %.preheader559
@@ -1166,7 +1166,7 @@ H5Z__scaleoffset_convert.exit514:                 ; preds = %114, %111
   %127 = getelementptr inbounds nuw i32, ptr %3, i64 %126
   store i32 %.0..0..0.544, ptr %127, align 4
   %128 = add i32 %.0428, 1
-  %129 = getelementptr inbounds i8, ptr %.0425, i64 %.1424
+  %129 = getelementptr inbounds nuw i8, ptr %.0425, i64 %.1424
   %130 = sub i64 %.0421, %.1424
   %.not498 = icmp eq i64 %130, 0
   br i1 %.not498, label %.loopexit, label %.preheader562
@@ -1343,7 +1343,7 @@ H5Z__scaleoffset_convert.exit523:                 ; preds = %195, %192
   %208 = getelementptr inbounds nuw i32, ptr %3, i64 %207
   store i32 %.0..0..0.534, ptr %208, align 4
   %209 = add i32 %.0401, 1
-  %210 = getelementptr inbounds i8, ptr %.0398, i64 %.1397
+  %210 = getelementptr inbounds nuw i8, ptr %.0398, i64 %.1397
   %211 = sub i64 %.0394, %.1397
   %.not491 = icmp eq i64 %211, 0
   br i1 %.not491, label %.loopexit, label %.preheader566
@@ -1423,7 +1423,7 @@ H5Z__scaleoffset_convert.exit526:                 ; preds = %228, %225
   %241 = getelementptr inbounds nuw i32, ptr %3, i64 %240
   store i32 %.0..0..0.533, ptr %241, align 4
   %242 = add i32 %.0392, 1
-  %243 = getelementptr inbounds i8, ptr %.0389, i64 %.1388
+  %243 = getelementptr inbounds nuw i8, ptr %.0389, i64 %.1388
   %244 = sub i64 %.0385, %.1388
   %.not487 = icmp eq i64 %244, 0
   br i1 %.not487, label %.loopexit, label %.preheader569
@@ -1541,7 +1541,7 @@ H5Z__scaleoffset_convert.exit532:                 ; preds = %280, %277
   %293 = getelementptr inbounds nuw i32, ptr %3, i64 %292
   store i32 %.0..0..0., ptr %293, align 4
   %294 = add i32 %.0374, 1
-  %295 = getelementptr inbounds i8, ptr %.0372, i64 %.1371
+  %295 = getelementptr inbounds nuw i8, ptr %.0372, i64 %.1371
   %296 = sub i64 %.0, %.1371
   %.not481 = icmp eq i64 %296, 0
   br i1 %.not481, label %.loopexit, label %.preheader
@@ -1982,7 +1982,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   store i32 %81, ptr %9, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0610, ptr nonnull align 4 %9, i64 %spec.select, i1 false)
   %82 = add i32 %.0613, 1
-  %83 = getelementptr inbounds i8, ptr %.0610, i64 %spec.select
+  %83 = getelementptr inbounds nuw i8, ptr %.0610, i64 %spec.select
   %84 = sub i64 %.0606, %spec.select
   %.not681 = icmp eq i64 %84, 0
   br i1 %.not681, label %.loopexit730, label %.preheader729
@@ -2070,7 +2070,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   store i32 %111, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0597, ptr nonnull align 4 %11, i64 %spec.select689, i1 false)
   %112 = add i32 %.0600, 1
-  %113 = getelementptr inbounds i8, ptr %.0597, i64 %spec.select689
+  %113 = getelementptr inbounds nuw i8, ptr %.0597, i64 %spec.select689
   %114 = sub i64 %.0593, %spec.select689
   %.not677 = icmp eq i64 %114, 0
   br i1 %.not677, label %.loopexit736, label %.preheader735
@@ -2314,7 +2314,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   store i32 %198, ptr %13, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0544, ptr nonnull align 4 %13, i64 %spec.select690, i1 false)
   %199 = add i32 %.0547, 1
-  %200 = getelementptr inbounds i8, ptr %.0544, i64 %spec.select690
+  %200 = getelementptr inbounds nuw i8, ptr %.0544, i64 %spec.select690
   %201 = sub i64 %.0540, %spec.select690
   %.not668 = icmp eq i64 %201, 0
   br i1 %.not668, label %.loopexit752, label %.preheader751
@@ -2402,7 +2402,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_i(ptr nocapture nou
   store i32 %228, ptr %15, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0532, ptr nonnull align 4 %15, i64 %spec.select691, i1 false)
   %229 = add i32 %.0534, 1
-  %230 = getelementptr inbounds i8, ptr %.0532, i64 %spec.select691
+  %230 = getelementptr inbounds nuw i8, ptr %.0532, i64 %spec.select691
   %231 = sub i64 %.0, %spec.select691
   %.not665 = icmp eq i64 %231, 0
   br i1 %.not665, label %.loopexit758, label %.preheader757
@@ -2570,7 +2570,7 @@ define internal fastcc void @H5Z__scaleoffset_postdecompress_fd(ptr nocapture no
   store i32 %45, ptr %10, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0116, ptr nonnull align 4 %10, i64 %spec.select, i1 false)
   %46 = add i32 %.0118, 1
-  %47 = getelementptr inbounds i8, ptr %.0116, i64 %spec.select
+  %47 = getelementptr inbounds nuw i8, ptr %.0116, i64 %spec.select
   %48 = sub i64 %.0, %spec.select
   %.not145 = icmp eq i64 %48, 0
   br i1 %.not145, label %.loopexit152, label %.preheader151
@@ -3555,7 +3555,7 @@ thread-pre-split2234:                             ; preds = %.lr.ph2699, %H5Z__s
   store i32 %287, ptr %9, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01668, ptr nonnull align 4 %9, i64 %spec.select1928, i1 false)
   %288 = add i32 %.01671, 1
-  %289 = getelementptr inbounds i8, ptr %.01668, i64 %spec.select1928
+  %289 = getelementptr inbounds nuw i8, ptr %.01668, i64 %spec.select1928
   %290 = sub i64 %.01664, %spec.select1928
   %.not1897 = icmp eq i64 %290, 0
   br i1 %.not1897, label %.loopexit2296, label %.preheader2295
@@ -3877,7 +3877,7 @@ thread-pre-split2238:                             ; preds = %.lr.ph2653, %H5Z__s
   store i32 %386, ptr %11, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01629, ptr nonnull align 4 %11, i64 %spec.select1935, i1 false)
   %387 = add i32 %.01632, 1
-  %388 = getelementptr inbounds i8, ptr %.01629, i64 %spec.select1935
+  %388 = getelementptr inbounds nuw i8, ptr %.01629, i64 %spec.select1935
   %389 = sub i64 %.01625, %spec.select1935
   %.not1891 = icmp eq i64 %389, 0
   br i1 %.not1891, label %.loopexit2305, label %.preheader2304
@@ -5073,7 +5073,7 @@ thread-pre-split2254:                             ; preds = %.lr.ph2475, %H5Z__s
   store i32 %754, ptr %13, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01469, ptr nonnull align 4 %13, i64 %spec.select1960, i1 false)
   %755 = add i32 %.01472, 1
-  %756 = getelementptr inbounds i8, ptr %.01469, i64 %spec.select1960
+  %756 = getelementptr inbounds nuw i8, ptr %.01469, i64 %spec.select1960
   %757 = sub i64 %.01465, %spec.select1960
   %.not1874 = icmp eq i64 %757, 0
   br i1 %.not1874, label %.loopexit2333, label %.preheader2332
@@ -5395,7 +5395,7 @@ thread-pre-split2258:                             ; preds = %.lr.ph2429, %H5Z__s
   store i32 %853, ptr %15, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.01431, ptr nonnull align 4 %15, i64 %spec.select1967, i1 false)
   %854 = add i32 %.01433, 1
-  %855 = getelementptr inbounds i8, ptr %.01431, i64 %spec.select1967
+  %855 = getelementptr inbounds nuw i8, ptr %.01431, i64 %spec.select1967
   %856 = sub i64 %.0, %spec.select1967
   %.not1869 = icmp eq i64 %856, 0
   br i1 %.not1869, label %.loopexit2342, label %.preheader2341
@@ -6008,7 +6008,7 @@ H5Z__scaleoffset_log2.exit342:                    ; preds = %.lr.ph.i334, %102
   store i32 %138, ptr %10, align 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0261, ptr nonnull align 4 %10, i64 %spec.select, i1 false)
   %139 = add i32 %.0263, 1
-  %140 = getelementptr inbounds i8, ptr %.0261, i64 %spec.select
+  %140 = getelementptr inbounds nuw i8, ptr %.0261, i64 %spec.select
   %141 = sub i64 %.0, %spec.select
   %.not324 = icmp eq i64 %141, 0
   br i1 %.not324, label %.loopexit371, label %.preheader370

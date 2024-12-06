@@ -313,23 +313,27 @@ define noalias noundef ptr @readLtlFormula(ptr noundef %0) local_unnamed_addr #4
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #22
   %5 = trunc i64 %4 to i32
   %.not.i = icmp slt i32 %3, %5
-  br i1 %.not.i, label %isUnexpectedEOS.exit.preheader, label %6
+  br i1 %.not.i, label %isUnexpectedEOS.exit.preheader.preheader, label %7
 
-6:                                                ; preds = %1
-  %7 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
-  %8 = load i32, ptr @startOfSuffixString, align 4
-  %9 = add nsw i32 %8, -1
-  %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i8, ptr %0, i64 %10
-  %12 = load i8, ptr %11, align 1
-  %13 = sext i8 %12 to i32
-  %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %0, i32 noundef %8, i32 noundef %9, i32 noundef %13)
+isUnexpectedEOS.exit.preheader.preheader:         ; preds = %1
+  %6 = sext i32 %3 to i64
+  br label %isUnexpectedEOS.exit.preheader
+
+7:                                                ; preds = %1
+  %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
+  %9 = load i32, ptr @startOfSuffixString, align 4
+  %10 = add nsw i32 %9, -1
+  %11 = sext i32 %10 to i64
+  %12 = getelementptr inbounds i8, ptr %0, i64 %11
+  %13 = load i8, ptr %12, align 1
+  %14 = sext i8 %13 to i32
+  %15 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.3, ptr noundef %0, i32 noundef %9, i32 noundef %10, i32 noundef %14)
   br label %.loopexit
 
-isUnexpectedEOS.exit.preheader:                   ; preds = %1, %isTemporalOperator.exit.thread
-  %.0221 = phi i32 [ %.1, %isTemporalOperator.exit.thread ], [ %3, %1 ]
-  %15 = sext i32 %.0221 to i64
-  %16 = getelementptr inbounds i8, ptr %0, i64 %15
+isUnexpectedEOS.exit.preheader:                   ; preds = %isUnexpectedEOS.exit.preheader.preheader, %isTemporalOperator.exit.thread
+  %indvars.iv = phi i64 [ %6, %isUnexpectedEOS.exit.preheader.preheader ], [ %indvars.iv.next.pre-phi, %isTemporalOperator.exit.thread ]
+  %indvars = trunc i64 %indvars.iv to i32
+  %16 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1
   switch i8 %17, label %.preheader.i.preheader [
     i8 32, label %19
@@ -338,375 +342,378 @@ isUnexpectedEOS.exit.preheader:                   ; preds = %1, %isTemporalOpera
     i8 9, label %19
     i8 11, label %19
     i8 12, label %19
-    i8 58, label %21
-    i8 71, label %31
-    i8 70, label %55
-    i8 88, label %79
-    i8 85, label %103
-    i8 43, label %131
-    i8 38, label %144
-    i8 33, label %157
+    i8 58, label %22
+    i8 71, label %33
+    i8 70, label %57
+    i8 88, label %81
+    i8 85, label %105
+    i8 43, label %133
+    i8 38, label %146
+    i8 33, label %159
     i8 0, label %getVarName.exit.thread
   ]
 
 .preheader.i.preheader:                           ; preds = %isUnexpectedEOS.exit.preheader
-  %18 = getelementptr inbounds i8, ptr %0, i64 %15
+  %18 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
   br label %.preheader.i
 
 19:                                               ; preds = %isUnexpectedEOS.exit.preheader, %isUnexpectedEOS.exit.preheader, %isUnexpectedEOS.exit.preheader, %isUnexpectedEOS.exit.preheader, %isUnexpectedEOS.exit.preheader, %isUnexpectedEOS.exit.preheader
-  %20 = add nsw i32 %.0221, 1
+  %20 = add nsw i64 %indvars.iv, 1
+  %21 = trunc nsw i64 %20 to i32
   br label %isTemporalOperator.exit.thread
 
-21:                                               ; preds = %isUnexpectedEOS.exit.preheader
-  %22 = add nsw i32 %.0221, 1
-  %23 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #22
-  %24 = trunc i64 %23 to i32
-  %.not.i.i = icmp slt i32 %22, %24
-  br i1 %.not.i.i, label %26, label %isUnexpectedEOS.exit.i
+22:                                               ; preds = %isUnexpectedEOS.exit.preheader
+  %23 = add nsw i64 %indvars.iv, 1
+  %24 = add nsw i32 %indvars, 1
+  %25 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0) #22
+  %sext = shl i64 %25, 32
+  %26 = ashr exact i64 %sext, 32
+  %.not.i.i = icmp slt i64 %23, %26
+  br i1 %.not.i.i, label %28, label %isUnexpectedEOS.exit.i
 
-isUnexpectedEOS.exit.i:                           ; preds = %21
-  %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
+isUnexpectedEOS.exit.i:                           ; preds = %22
+  %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1)
   br label %isTemporalOperator.exit.thread
 
-26:                                               ; preds = %21
-  %27 = sext i32 %22 to i64
-  %28 = getelementptr inbounds i8, ptr %0, i64 %27
-  %29 = load i8, ptr %28, align 1
-  switch i8 %29, label %isTemporalOperator.exit [
+28:                                               ; preds = %22
+  %29 = getelementptr inbounds i8, ptr %0, i64 %23
+  %30 = load i8, ptr %29, align 1
+  switch i8 %30, label %isTemporalOperator.exit [
     i8 71, label %isTemporalOperator.exit.thread
     i8 70, label %isTemporalOperator.exit.thread
     i8 85, label %isTemporalOperator.exit.thread
     i8 88, label %isTemporalOperator.exit.thread
   ]
 
-isTemporalOperator.exit:                          ; preds = %26
-  %30 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %22)
+isTemporalOperator.exit:                          ; preds = %28
+  %31 = trunc nsw i64 %23 to i32
+  %32 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %31)
   br label %.loopexit
 
-31:                                               ; preds = %isUnexpectedEOS.exit.preheader
-  %32 = getelementptr inbounds i8, ptr %0, i64 %15
-  %33 = getelementptr i8, ptr %32, i64 -1
-  %34 = load i8, ptr %33, align 1
-  %35 = icmp eq i8 %34, 58
-  br i1 %35, label %36, label %45
+33:                                               ; preds = %isUnexpectedEOS.exit.preheader
+  %34 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %35 = getelementptr i8, ptr %34, i64 -1
+  %36 = load i8, ptr %35, align 1
+  %37 = icmp eq i8 %36, 58
+  br i1 %37, label %38, label %47
 
-36:                                               ; preds = %31
-  %37 = add nsw i32 %.0221, 1
-  store i32 %37, ptr @startOfSuffixString, align 4
-  %38 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %.loopexit, label %40
+38:                                               ; preds = %33
+  %39 = add nsw i32 %indvars, 1
+  store i32 %39, ptr @startOfSuffixString, align 4
+  %40 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %.loopexit, label %42
 
-40:                                               ; preds = %36
-  %41 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i146 = icmp eq ptr %41, null
-  br i1 %.not.i146, label %generateTypedNode.exit, label %42
+42:                                               ; preds = %38
+  %43 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i146 = icmp eq ptr %43, null
+  br i1 %.not.i146, label %generateTypedNode.exit, label %44
 
-42:                                               ; preds = %40
-  store i32 4, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, i8 0, i64 32, i1 false)
+44:                                               ; preds = %42
+  store i32 4, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %45, i8 0, i64 32, i1 false)
   br label %generateTypedNode.exit
 
-generateTypedNode.exit:                           ; preds = %40, %42
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  store ptr %38, ptr %44, align 8
+generateTypedNode.exit:                           ; preds = %42, %44
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  store ptr %40, ptr %46, align 8
   br label %.loopexit
 
-45:                                               ; preds = %31
-  %46 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %.0221, ptr noundef nonnull %2)
-  %.not142 = icmp eq ptr %46, null
-  br i1 %.not142, label %47, label %49
+47:                                               ; preds = %33
+  %48 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %indvars, ptr noundef nonnull %2)
+  %.not142 = icmp eq ptr %48, null
+  br i1 %.not142, label %49, label %51
 
-47:                                               ; preds = %45
-  %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+49:                                               ; preds = %47
+  %50 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-49:                                               ; preds = %45
-  %50 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i147 = icmp eq ptr %50, null
-  br i1 %.not.i147, label %generateTypedNode.exit148, label %51
+51:                                               ; preds = %47
+  %52 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i147 = icmp eq ptr %52, null
+  br i1 %.not.i147, label %generateTypedNode.exit148, label %53
 
-51:                                               ; preds = %49
-  store i32 8, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, i8 0, i64 24, i1 false)
+53:                                               ; preds = %51
+  store i32 8, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %54, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit148
 
-generateTypedNode.exit148:                        ; preds = %49, %51
-  %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store ptr %46, ptr %53, align 8
-  %54 = load i32, ptr %2, align 4
-  store i32 %54, ptr @startOfSuffixString, align 4
+generateTypedNode.exit148:                        ; preds = %51, %53
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %48, ptr %55, align 8
+  %56 = load i32, ptr %2, align 4
+  store i32 %56, ptr @startOfSuffixString, align 4
   br label %.loopexit
 
-55:                                               ; preds = %isUnexpectedEOS.exit.preheader
-  %56 = getelementptr inbounds i8, ptr %0, i64 %15
-  %57 = getelementptr i8, ptr %56, i64 -1
-  %58 = load i8, ptr %57, align 1
-  %59 = icmp eq i8 %58, 58
-  br i1 %59, label %60, label %69
+57:                                               ; preds = %isUnexpectedEOS.exit.preheader
+  %58 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %59 = getelementptr i8, ptr %58, i64 -1
+  %60 = load i8, ptr %59, align 1
+  %61 = icmp eq i8 %60, 58
+  br i1 %61, label %62, label %71
 
-60:                                               ; preds = %55
-  %61 = add nsw i32 %.0221, 1
-  store i32 %61, ptr @startOfSuffixString, align 4
-  %62 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %.loopexit, label %64
+62:                                               ; preds = %57
+  %63 = add nsw i32 %indvars, 1
+  store i32 %63, ptr @startOfSuffixString, align 4
+  %64 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %65 = icmp eq ptr %64, null
+  br i1 %65, label %.loopexit, label %66
 
-64:                                               ; preds = %60
-  %65 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i149 = icmp eq ptr %65, null
-  br i1 %.not.i149, label %generateTypedNode.exit150, label %66
+66:                                               ; preds = %62
+  %67 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i149 = icmp eq ptr %67, null
+  br i1 %.not.i149, label %generateTypedNode.exit150, label %68
 
-66:                                               ; preds = %64
-  store i32 5, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %67, i8 0, i64 32, i1 false)
+68:                                               ; preds = %66
+  store i32 5, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, i8 0, i64 32, i1 false)
   br label %generateTypedNode.exit150
 
-generateTypedNode.exit150:                        ; preds = %64, %66
-  %68 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  store ptr %62, ptr %68, align 8
+generateTypedNode.exit150:                        ; preds = %66, %68
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  store ptr %64, ptr %70, align 8
   br label %.loopexit
 
-69:                                               ; preds = %55
-  %70 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %.0221, ptr noundef nonnull %2)
-  %.not141 = icmp eq ptr %70, null
-  br i1 %.not141, label %71, label %73
+71:                                               ; preds = %57
+  %72 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %indvars, ptr noundef nonnull %2)
+  %.not141 = icmp eq ptr %72, null
+  br i1 %.not141, label %73, label %75
 
-71:                                               ; preds = %69
-  %72 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+73:                                               ; preds = %71
+  %74 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-73:                                               ; preds = %69
-  %74 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i151 = icmp eq ptr %74, null
-  br i1 %.not.i151, label %generateTypedNode.exit152, label %75
+75:                                               ; preds = %71
+  %76 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i151 = icmp eq ptr %76, null
+  br i1 %.not.i151, label %generateTypedNode.exit152, label %77
 
-75:                                               ; preds = %73
-  store i32 8, ptr %74, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %76, i8 0, i64 24, i1 false)
+77:                                               ; preds = %75
+  store i32 8, ptr %76, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %76, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %78, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit152
 
-generateTypedNode.exit152:                        ; preds = %73, %75
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store ptr %70, ptr %77, align 8
-  %78 = load i32, ptr %2, align 4
-  store i32 %78, ptr @startOfSuffixString, align 4
+generateTypedNode.exit152:                        ; preds = %75, %77
+  %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
+  store ptr %72, ptr %79, align 8
+  %80 = load i32, ptr %2, align 4
+  store i32 %80, ptr @startOfSuffixString, align 4
   br label %.loopexit
 
-79:                                               ; preds = %isUnexpectedEOS.exit.preheader
-  %80 = getelementptr inbounds i8, ptr %0, i64 %15
-  %81 = getelementptr i8, ptr %80, i64 -1
-  %82 = load i8, ptr %81, align 1
-  %83 = icmp eq i8 %82, 58
-  br i1 %83, label %84, label %93
+81:                                               ; preds = %isUnexpectedEOS.exit.preheader
+  %82 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %83 = getelementptr i8, ptr %82, i64 -1
+  %84 = load i8, ptr %83, align 1
+  %85 = icmp eq i8 %84, 58
+  br i1 %85, label %86, label %95
 
-84:                                               ; preds = %79
-  %85 = add nsw i32 %.0221, 1
-  store i32 %85, ptr @startOfSuffixString, align 4
-  %86 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %87 = icmp eq ptr %86, null
-  br i1 %87, label %.loopexit, label %88
+86:                                               ; preds = %81
+  %87 = add nsw i32 %indvars, 1
+  store i32 %87, ptr @startOfSuffixString, align 4
+  %88 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %.loopexit, label %90
 
-88:                                               ; preds = %84
-  %89 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i153 = icmp eq ptr %89, null
-  br i1 %.not.i153, label %generateTypedNode.exit154, label %90
+90:                                               ; preds = %86
+  %91 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i153 = icmp eq ptr %91, null
+  br i1 %.not.i153, label %generateTypedNode.exit154, label %92
 
-90:                                               ; preds = %88
-  store i32 6, ptr %89, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %91, i8 0, i64 32, i1 false)
+92:                                               ; preds = %90
+  store i32 6, ptr %91, align 8
+  %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %93, i8 0, i64 32, i1 false)
   br label %generateTypedNode.exit154
 
-generateTypedNode.exit154:                        ; preds = %88, %90
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 24
-  store ptr %86, ptr %92, align 8
+generateTypedNode.exit154:                        ; preds = %90, %92
+  %94 = getelementptr inbounds nuw i8, ptr %91, i64 24
+  store ptr %88, ptr %94, align 8
   br label %.loopexit
 
-93:                                               ; preds = %79
-  %94 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %.0221, ptr noundef nonnull %2)
-  %.not140 = icmp eq ptr %94, null
-  br i1 %.not140, label %95, label %97
+95:                                               ; preds = %81
+  %96 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %indvars, ptr noundef nonnull %2)
+  %.not140 = icmp eq ptr %96, null
+  br i1 %.not140, label %97, label %99
 
-95:                                               ; preds = %93
-  %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+97:                                               ; preds = %95
+  %98 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-97:                                               ; preds = %93
-  %98 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i155 = icmp eq ptr %98, null
-  br i1 %.not.i155, label %generateTypedNode.exit156, label %99
+99:                                               ; preds = %95
+  %100 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i155 = icmp eq ptr %100, null
+  br i1 %.not.i155, label %generateTypedNode.exit156, label %101
 
-99:                                               ; preds = %97
-  store i32 8, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %100, i8 0, i64 24, i1 false)
+101:                                              ; preds = %99
+  store i32 8, ptr %100, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %100, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %102, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit156
 
-generateTypedNode.exit156:                        ; preds = %97, %99
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr %94, ptr %101, align 8
-  %102 = load i32, ptr %2, align 4
-  store i32 %102, ptr @startOfSuffixString, align 4
+generateTypedNode.exit156:                        ; preds = %99, %101
+  %103 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  store ptr %96, ptr %103, align 8
+  %104 = load i32, ptr %2, align 4
+  store i32 %104, ptr @startOfSuffixString, align 4
   br label %.loopexit
 
-103:                                              ; preds = %isUnexpectedEOS.exit.preheader
-  %104 = getelementptr inbounds i8, ptr %0, i64 %15
-  %105 = getelementptr i8, ptr %104, i64 -1
-  %106 = load i8, ptr %105, align 1
-  %107 = icmp eq i8 %106, 58
-  br i1 %107, label %108, label %121
+105:                                              ; preds = %isUnexpectedEOS.exit.preheader
+  %106 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv
+  %107 = getelementptr i8, ptr %106, i64 -1
+  %108 = load i8, ptr %107, align 1
+  %109 = icmp eq i8 %108, 58
+  br i1 %109, label %110, label %123
 
-108:                                              ; preds = %103
-  %109 = add nsw i32 %.0221, 1
-  store i32 %109, ptr @startOfSuffixString, align 4
-  %110 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %.loopexit, label %112
+110:                                              ; preds = %105
+  %111 = add nsw i32 %indvars, 1
+  store i32 %111, ptr @startOfSuffixString, align 4
+  %112 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %.loopexit, label %114
 
-112:                                              ; preds = %108
-  %113 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %.loopexit, label %115
+114:                                              ; preds = %110
+  %115 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %116 = icmp eq ptr %115, null
+  br i1 %116, label %.loopexit, label %117
 
-115:                                              ; preds = %112
-  %116 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i157 = icmp eq ptr %116, null
-  br i1 %.not.i157, label %generateTypedNode.exit158, label %117
+117:                                              ; preds = %114
+  %118 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i157 = icmp eq ptr %118, null
+  br i1 %.not.i157, label %generateTypedNode.exit158, label %119
 
-117:                                              ; preds = %115
-  store i32 7, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %116, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %118, i8 0, i64 16, i1 false)
+119:                                              ; preds = %117
+  store i32 7, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 16, i1 false)
   br label %generateTypedNode.exit158
 
-generateTypedNode.exit158:                        ; preds = %115, %117
-  %119 = getelementptr inbounds nuw i8, ptr %116, i64 24
-  store ptr %110, ptr %119, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 32
-  store ptr %113, ptr %120, align 8
+generateTypedNode.exit158:                        ; preds = %117, %119
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  store ptr %112, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  store ptr %115, ptr %122, align 8
   br label %.loopexit
 
-121:                                              ; preds = %103
-  %122 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %.0221, ptr noundef nonnull %2)
-  %.not139 = icmp eq ptr %122, null
-  br i1 %.not139, label %123, label %125
+123:                                              ; preds = %105
+  %124 = call ptr @getVarName(ptr noundef nonnull %0, i32 noundef %indvars, ptr noundef nonnull %2)
+  %.not139 = icmp eq ptr %124, null
+  br i1 %.not139, label %125, label %127
 
-123:                                              ; preds = %121
-  %124 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+125:                                              ; preds = %123
+  %126 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-125:                                              ; preds = %121
-  %126 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i159 = icmp eq ptr %126, null
-  br i1 %.not.i159, label %generateTypedNode.exit160, label %127
+127:                                              ; preds = %123
+  %128 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i159 = icmp eq ptr %128, null
+  br i1 %.not.i159, label %generateTypedNode.exit160, label %129
 
-127:                                              ; preds = %125
-  store i32 8, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 24, i1 false)
+129:                                              ; preds = %127
+  store i32 8, ptr %128, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %130, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit160
 
-generateTypedNode.exit160:                        ; preds = %125, %127
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
-  store ptr %122, ptr %129, align 8
-  %130 = load i32, ptr %2, align 4
-  store i32 %130, ptr @startOfSuffixString, align 4
+generateTypedNode.exit160:                        ; preds = %127, %129
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store ptr %124, ptr %131, align 8
+  %132 = load i32, ptr %2, align 4
+  store i32 %132, ptr @startOfSuffixString, align 4
   br label %.loopexit
 
-131:                                              ; preds = %isUnexpectedEOS.exit.preheader
-  %132 = add nsw i32 %.0221, 1
-  store i32 %132, ptr @startOfSuffixString, align 4
-  %133 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %.loopexit, label %135
+133:                                              ; preds = %isUnexpectedEOS.exit.preheader
+  %134 = add nsw i32 %indvars, 1
+  store i32 %134, ptr @startOfSuffixString, align 4
+  %135 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %.loopexit, label %137
 
-135:                                              ; preds = %131
-  %136 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit, label %138
+137:                                              ; preds = %133
+  %138 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %139 = icmp eq ptr %138, null
+  br i1 %139, label %.loopexit, label %140
 
-138:                                              ; preds = %135
-  %139 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i161 = icmp eq ptr %139, null
-  br i1 %.not.i161, label %generateTypedNode.exit162, label %140
+140:                                              ; preds = %137
+  %141 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i161 = icmp eq ptr %141, null
+  br i1 %.not.i161, label %generateTypedNode.exit162, label %142
 
-140:                                              ; preds = %138
-  store i32 1, ptr %139, align 8
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %141, i8 0, i64 16, i1 false)
+142:                                              ; preds = %140
+  store i32 1, ptr %141, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %143, i8 0, i64 16, i1 false)
   br label %generateTypedNode.exit162
 
-generateTypedNode.exit162:                        ; preds = %138, %140
-  %142 = getelementptr inbounds nuw i8, ptr %139, i64 24
-  store ptr %133, ptr %142, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  store ptr %136, ptr %143, align 8
+generateTypedNode.exit162:                        ; preds = %140, %142
+  %144 = getelementptr inbounds nuw i8, ptr %141, i64 24
+  store ptr %135, ptr %144, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %141, i64 32
+  store ptr %138, ptr %145, align 8
   br label %.loopexit
 
-144:                                              ; preds = %isUnexpectedEOS.exit.preheader
-  %145 = add nsw i32 %.0221, 1
-  store i32 %145, ptr @startOfSuffixString, align 4
-  %146 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %.loopexit, label %148
+146:                                              ; preds = %isUnexpectedEOS.exit.preheader
+  %147 = add nsw i32 %indvars, 1
+  store i32 %147, ptr @startOfSuffixString, align 4
+  %148 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %149 = icmp eq ptr %148, null
+  br i1 %149, label %.loopexit, label %150
 
-148:                                              ; preds = %144
-  %149 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %150 = icmp eq ptr %149, null
-  br i1 %150, label %.loopexit, label %151
+150:                                              ; preds = %146
+  %151 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %.loopexit, label %153
 
-151:                                              ; preds = %148
-  %152 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i163 = icmp eq ptr %152, null
-  br i1 %.not.i163, label %generateTypedNode.exit164, label %153
+153:                                              ; preds = %150
+  %154 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i163 = icmp eq ptr %154, null
+  br i1 %.not.i163, label %generateTypedNode.exit164, label %155
 
-153:                                              ; preds = %151
-  store i32 0, ptr %152, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %154, i8 0, i64 16, i1 false)
+155:                                              ; preds = %153
+  store i32 0, ptr %154, align 8
+  %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %156, i8 0, i64 16, i1 false)
   br label %generateTypedNode.exit164
 
-generateTypedNode.exit164:                        ; preds = %151, %153
-  %155 = getelementptr inbounds nuw i8, ptr %152, i64 24
-  store ptr %146, ptr %155, align 8
-  %156 = getelementptr inbounds nuw i8, ptr %152, i64 32
-  store ptr %149, ptr %156, align 8
+generateTypedNode.exit164:                        ; preds = %153, %155
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  store ptr %148, ptr %157, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  store ptr %151, ptr %158, align 8
   br label %.loopexit
 
-157:                                              ; preds = %isUnexpectedEOS.exit.preheader
-  %158 = add nsw i32 %.0221, 1
-  store i32 %158, ptr @startOfSuffixString, align 4
-  %159 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %.loopexit, label %161
+159:                                              ; preds = %isUnexpectedEOS.exit.preheader
+  %160 = add nsw i32 %indvars, 1
+  store i32 %160, ptr @startOfSuffixString, align 4
+  %161 = tail call ptr @readLtlFormula(ptr noundef nonnull %0)
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %.loopexit, label %163
 
-161:                                              ; preds = %157
-  %162 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i165 = icmp eq ptr %162, null
-  br i1 %.not.i165, label %generateTypedNode.exit166, label %163
+163:                                              ; preds = %159
+  %164 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i165 = icmp eq ptr %164, null
+  br i1 %.not.i165, label %generateTypedNode.exit166, label %165
 
-163:                                              ; preds = %161
-  store i32 2, ptr %162, align 8
-  %164 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, i8 0, i64 32, i1 false)
+165:                                              ; preds = %163
+  store i32 2, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %164, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %166, i8 0, i64 32, i1 false)
   br label %generateTypedNode.exit166
 
-generateTypedNode.exit166:                        ; preds = %161, %163
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  store ptr %159, ptr %165, align 8
+generateTypedNode.exit166:                        ; preds = %163, %165
+  %167 = getelementptr inbounds nuw i8, ptr %164, i64 24
+  store ptr %161, ptr %167, align 8
   br label %.loopexit
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %167
-  %166 = phi i8 [ %.pre.i, %167 ], [ %17, %.preheader.i.preheader ]
-  %indvars.iv32.i = phi i32 [ %indvars.iv.next33.i, %167 ], [ -1, %.preheader.i.preheader ]
-  %indvar.i = phi i64 [ %indvar.next.i, %167 ], [ 0, %.preheader.i.preheader ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %167 ], [ %15, %.preheader.i.preheader ]
-  switch i8 %166, label %167 [
+.preheader.i:                                     ; preds = %.preheader.i.preheader, %169
+  %168 = phi i8 [ %.pre.i, %169 ], [ %17, %.preheader.i.preheader ]
+  %indvars.iv32.i = phi i32 [ %indvars.iv.next33.i, %169 ], [ -1, %.preheader.i.preheader ]
+  %indvar.i = phi i64 [ %indvar.next.i, %169 ], [ 0, %.preheader.i.preheader ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %169 ], [ %indvars.iv, %.preheader.i.preheader ]
+  switch i8 %168, label %169 [
     i8 58, label %isNotVarNameSymbol.exit24.thread.i
     i8 32, label %isNotVarNameSymbol.exit24.thread.i
     i8 10, label %isNotVarNameSymbol.exit24.thread.i
@@ -714,7 +721,7 @@ generateTypedNode.exit166:                        ; preds = %161, %163
     i8 0, label %isNotVarNameSymbol.exit24.thread.i
   ]
 
-167:                                              ; preds = %.preheader.i
+169:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %indvar.next.i = add i64 %indvar.i, 1
   %indvars.iv.next33.i = add i32 %indvars.iv32.i, 1
@@ -723,52 +730,53 @@ generateTypedNode.exit166:                        ; preds = %161, %163
   br label %.preheader.i, !llvm.loop !6
 
 isNotVarNameSymbol.exit24.thread.i:               ; preds = %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i, %.preheader.i
-  %168 = trunc nsw i64 %indvars.iv.i to i32
-  %169 = sub nsw i32 %168, %.0221
-  %170 = add nsw i32 %169, 1
-  %171 = sext i32 %170 to i64
-  %172 = tail call noalias ptr @malloc(i64 noundef %171) #20
-  %173 = icmp sgt i32 %169, 0
-  br i1 %173, label %.lr.ph.preheader.i, label %177
+  %170 = trunc nsw i64 %indvars.iv.i to i32
+  %171 = sub nsw i32 %170, %indvars
+  %172 = add nsw i32 %171, 1
+  %173 = sext i32 %172 to i64
+  %174 = tail call noalias ptr @malloc(i64 noundef %173) #20
+  %175 = icmp sgt i32 %171, 0
+  br i1 %175, label %.lr.ph.preheader.i, label %179
 
 .lr.ph.preheader.i:                               ; preds = %isNotVarNameSymbol.exit24.thread.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %172, ptr nonnull readonly align 1 %18, i64 %indvar.i, i1 false)
-  %174 = add i32 %indvars.iv32.i, 1
-  %175 = zext nneg i32 %174 to i64
-  br label %177
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %174, ptr nonnull readonly align 1 %18, i64 %indvar.i, i1 false)
+  %176 = add i32 %indvars.iv32.i, 1
+  %177 = zext nneg i32 %176 to i64
+  br label %179
 
 getVarName.exit.thread:                           ; preds = %isUnexpectedEOS.exit.preheader
-  %176 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
+  %178 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   br label %.loopexit
 
-177:                                              ; preds = %.lr.ph.preheader.i, %isNotVarNameSymbol.exit24.thread.i
-  %.1.lcssa.i = phi i64 [ 0, %isNotVarNameSymbol.exit24.thread.i ], [ %175, %.lr.ph.preheader.i ]
-  %178 = getelementptr inbounds nuw i8, ptr %172, i64 %.1.lcssa.i
-  store i8 0, ptr %178, align 1
-  %179 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
-  %.not.i168 = icmp eq ptr %179, null
-  br i1 %.not.i168, label %generateTypedNode.exit169, label %180
+179:                                              ; preds = %.lr.ph.preheader.i, %isNotVarNameSymbol.exit24.thread.i
+  %.1.lcssa.i = phi i64 [ 0, %isNotVarNameSymbol.exit24.thread.i ], [ %177, %.lr.ph.preheader.i ]
+  %180 = getelementptr inbounds nuw i8, ptr %174, i64 %.1.lcssa.i
+  store i8 0, ptr %180, align 1
+  %181 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %.not.i168 = icmp eq ptr %181, null
+  br i1 %.not.i168, label %generateTypedNode.exit169, label %182
 
-180:                                              ; preds = %177
-  store i32 8, ptr %179, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %181, i8 0, i64 24, i1 false)
+182:                                              ; preds = %179
+  store i32 8, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %181, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %183, i8 0, i64 24, i1 false)
   br label %generateTypedNode.exit169
 
-generateTypedNode.exit169:                        ; preds = %177, %180
-  %182 = getelementptr inbounds nuw i8, ptr %179, i64 8
-  store ptr %172, ptr %182, align 8
-  store i32 %168, ptr @startOfSuffixString, align 4
+generateTypedNode.exit169:                        ; preds = %179, %182
+  %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
+  store ptr %174, ptr %184, align 8
+  store i32 %170, ptr @startOfSuffixString, align 4
   br label %.loopexit
 
-isTemporalOperator.exit.thread:                   ; preds = %isUnexpectedEOS.exit.i, %26, %26, %26, %26, %19
-  %.1 = phi i32 [ %20, %19 ], [ %22, %26 ], [ %22, %26 ], [ %22, %26 ], [ %22, %26 ], [ %22, %isUnexpectedEOS.exit.i ]
+isTemporalOperator.exit.thread:                   ; preds = %isUnexpectedEOS.exit.i, %28, %28, %28, %28, %19
+  %indvars.iv.next.pre-phi = phi i64 [ %23, %isUnexpectedEOS.exit.i ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ %23, %28 ], [ %20, %19 ]
+  %.1 = phi i32 [ %24, %isUnexpectedEOS.exit.i ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %24, %28 ], [ %21, %19 ]
   store i32 %.1, ptr @startOfSuffixString, align 4
-  %183 = icmp slt i32 %.1, %5
-  br i1 %183, label %isUnexpectedEOS.exit.preheader, label %.loopexit, !llvm.loop !7
+  %185 = icmp slt i32 %.1, %5
+  br i1 %185, label %isUnexpectedEOS.exit.preheader, label %.loopexit, !llvm.loop !7
 
-.loopexit:                                        ; preds = %isTemporalOperator.exit.thread, %isTemporalOperator.exit, %157, %148, %144, %135, %131, %112, %108, %84, %60, %36, %generateTypedNode.exit169, %getVarName.exit.thread, %generateTypedNode.exit166, %generateTypedNode.exit164, %generateTypedNode.exit162, %generateTypedNode.exit160, %123, %generateTypedNode.exit158, %generateTypedNode.exit156, %95, %generateTypedNode.exit154, %generateTypedNode.exit152, %71, %generateTypedNode.exit150, %generateTypedNode.exit148, %47, %generateTypedNode.exit, %6
-  %.0123 = phi ptr [ null, %6 ], [ %179, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ %162, %generateTypedNode.exit166 ], [ %152, %generateTypedNode.exit164 ], [ %139, %generateTypedNode.exit162 ], [ %116, %generateTypedNode.exit158 ], [ %126, %generateTypedNode.exit160 ], [ null, %123 ], [ %89, %generateTypedNode.exit154 ], [ %98, %generateTypedNode.exit156 ], [ null, %95 ], [ %65, %generateTypedNode.exit150 ], [ %74, %generateTypedNode.exit152 ], [ null, %71 ], [ %41, %generateTypedNode.exit ], [ %50, %generateTypedNode.exit148 ], [ null, %47 ], [ null, %isTemporalOperator.exit ], [ null, %36 ], [ null, %60 ], [ null, %84 ], [ null, %108 ], [ null, %112 ], [ null, %131 ], [ null, %135 ], [ null, %144 ], [ null, %148 ], [ null, %157 ], [ null, %isTemporalOperator.exit.thread ]
+.loopexit:                                        ; preds = %isTemporalOperator.exit.thread, %isTemporalOperator.exit, %159, %150, %146, %137, %133, %114, %110, %86, %62, %38, %generateTypedNode.exit169, %getVarName.exit.thread, %generateTypedNode.exit166, %generateTypedNode.exit164, %generateTypedNode.exit162, %generateTypedNode.exit160, %125, %generateTypedNode.exit158, %generateTypedNode.exit156, %97, %generateTypedNode.exit154, %generateTypedNode.exit152, %73, %generateTypedNode.exit150, %generateTypedNode.exit148, %49, %generateTypedNode.exit, %7
+  %.0123 = phi ptr [ null, %7 ], [ %181, %generateTypedNode.exit169 ], [ null, %getVarName.exit.thread ], [ %164, %generateTypedNode.exit166 ], [ %154, %generateTypedNode.exit164 ], [ %141, %generateTypedNode.exit162 ], [ %118, %generateTypedNode.exit158 ], [ %128, %generateTypedNode.exit160 ], [ null, %125 ], [ %91, %generateTypedNode.exit154 ], [ %100, %generateTypedNode.exit156 ], [ null, %97 ], [ %67, %generateTypedNode.exit150 ], [ %76, %generateTypedNode.exit152 ], [ null, %73 ], [ %43, %generateTypedNode.exit ], [ %52, %generateTypedNode.exit148 ], [ null, %49 ], [ null, %isTemporalOperator.exit ], [ null, %38 ], [ null, %62 ], [ null, %86 ], [ null, %110 ], [ null, %114 ], [ null, %133 ], [ null, %137 ], [ null, %146 ], [ null, %150 ], [ null, %159 ], [ null, %isTemporalOperator.exit.thread ]
   ret ptr %.0123
 }
 

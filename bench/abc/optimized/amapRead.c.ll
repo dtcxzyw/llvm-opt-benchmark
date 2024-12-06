@@ -87,7 +87,7 @@ define void @Amap_RemoveComments(ptr nocapture noundef %0, ptr noundef writeonly
   %.030.idx = phi i64 [ 0, %3 ], [ %.131.add, %23 ]
   %.028 = phi i32 [ 0, %3 ], [ %.129, %23 ]
   %.0 = phi i32 [ 0, %3 ], [ %.1, %23 ]
-  %.030.ptr = getelementptr inbounds i8, ptr %0, i64 %.030.idx
+  %.030.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.030.idx
   %5 = load i8, ptr %.030.ptr, align 1
   switch i8 %5, label %23 [
     i8 0, label %24
@@ -99,16 +99,16 @@ define void @Amap_RemoveComments(ptr nocapture noundef %0, ptr noundef writeonly
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.2.ptr47 = phi ptr [ %.2.ptr, %.lr.ph ], [ %.030.ptr, %4 ]
   %.2.idx46 = phi i64 [ %.2.add, %.lr.ph ], [ %.030.idx, %4 ]
-  %.2.add = add nsw i64 %.2.idx46, 1
+  %.2.add = add nuw nsw i64 %.2.idx46, 1
   store i8 32, ptr %.2.ptr47, align 1
-  %.2.ptr = getelementptr inbounds i8, ptr %0, i64 %.2.add
+  %.2.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.2.add
   %6 = load i8, ptr %.2.ptr, align 1
   %.not40 = icmp eq i8 %6, 10
   br i1 %.not40, label %.loopexit.thread, label %.lr.ph, !llvm.loop !4
 
 .loopexit.thread:                                 ; preds = %.lr.ph, %4
   %.131.idx50 = phi i64 [ %.030.idx, %4 ], [ %.2.add, %.lr.ph ]
-  %.131.ptr52 = getelementptr inbounds i8, ptr %0, i64 %.131.idx50
+  %.131.ptr52 = getelementptr inbounds nuw i8, ptr %0, i64 %.131.idx50
   %7 = icmp sgt i64 %.131.idx50, 0
   br i1 %7, label %8, label %23
 
@@ -157,7 +157,7 @@ define void @Amap_RemoveComments(ptr nocapture noundef %0, ptr noundef writeonly
   %.131.idx51 = phi i64 [ %.131.idx50, %15 ], [ %.131.idx50, %17 ], [ 1, %11 ], [ %.131.idx50, %18 ], [ %.131.idx50, %20 ], [ %.131.idx50, %.loopexit.thread ], [ %.030.idx, %21 ], [ %.030.idx, %4 ]
   %.129 = phi i32 [ %.028, %15 ], [ %.028, %17 ], [ %.028, %11 ], [ %.028, %18 ], [ %.028, %20 ], [ %.028, %.loopexit.thread ], [ %22, %21 ], [ %.028, %4 ]
   %.1 = phi i32 [ %16, %15 ], [ %.0, %17 ], [ %.0, %11 ], [ %19, %18 ], [ %.0, %20 ], [ %.0, %.loopexit.thread ], [ %.0, %21 ], [ %.0, %4 ]
-  %.131.add = add nsw i64 %.131.idx51, 1
+  %.131.add = add nuw nsw i64 %.131.idx51, 1
   br label %4, !llvm.loop !6
 
 24:                                               ; preds = %4
@@ -1178,7 +1178,7 @@ define ptr @Amap_LibReadBuffer(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
 
 3:                                                ; preds = %15, %2
   %.030.idx.i = phi i64 [ 0, %2 ], [ %.131.add.i, %15 ]
-  %.030.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.030.idx.i
+  %.030.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.030.idx.i
   %4 = load i8, ptr %.030.ptr.i, align 1
   switch i8 %4, label %15 [
     i8 0, label %Amap_RemoveComments.exit
@@ -1189,16 +1189,16 @@ define ptr @Amap_LibReadBuffer(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.2.ptr47.i = phi ptr [ %.2.ptr.i, %.lr.ph.i ], [ %.030.ptr.i, %3 ]
   %.2.idx46.i = phi i64 [ %.2.add.i, %.lr.ph.i ], [ %.030.idx.i, %3 ]
-  %.2.add.i = add nsw i64 %.2.idx46.i, 1
+  %.2.add.i = add nuw nsw i64 %.2.idx46.i, 1
   store i8 32, ptr %.2.ptr47.i, align 1
-  %.2.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.2.add.i
+  %.2.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.2.add.i
   %5 = load i8, ptr %.2.ptr.i, align 1
   %.not40.i = icmp eq i8 %5, 10
   br i1 %.not40.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !4
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %3
   %.131.idx50.i = phi i64 [ %.030.idx.i, %3 ], [ %.2.add.i, %.lr.ph.i ]
-  %.131.ptr52.i = getelementptr inbounds i8, ptr %0, i64 %.131.idx50.i
+  %.131.ptr52.i = getelementptr inbounds nuw i8, ptr %0, i64 %.131.idx50.i
   %6 = icmp sgt i64 %.131.idx50.i, 0
   br i1 %6, label %7, label %15
 
@@ -1231,7 +1231,7 @@ define ptr @Amap_LibReadBuffer(ptr noundef %0, i32 %1) local_unnamed_addr #0 {
 
 15:                                               ; preds = %.sink.split, %7, %11, %3, %10, %.loopexit.thread.i
   %.131.idx51.i = phi i64 [ 1, %10 ], [ %.131.idx50.i, %.loopexit.thread.i ], [ %.131.idx50.i, %11 ], [ %.131.idx50.i, %7 ], [ %.030.idx.i, %3 ], [ %.131.idx50.i, %.sink.split ]
-  %.131.add.i = add nsw i64 %.131.idx51.i, 1
+  %.131.add.i = add nuw nsw i64 %.131.idx51.i, 1
   br label %3, !llvm.loop !6
 
 Amap_RemoveComments.exit:                         ; preds = %3

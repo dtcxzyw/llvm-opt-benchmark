@@ -1386,7 +1386,7 @@ define i32 @yr_execute_code(ptr nocapture noundef readonly %0, ptr nocapture nou
 
 714:                                              ; preds = %712
   %715 = getelementptr inbounds nuw i8, ptr %707, i64 8
-  %716 = getelementptr inbounds [16 x i32], ptr %715, i64 0, i64 %689
+  %716 = getelementptr inbounds nuw [16 x i32], ptr %715, i64 0, i64 %689
   %717 = load i32, ptr %716, align 4
   %718 = zext i32 %717 to i64
   store i64 %718, ptr %682, align 8

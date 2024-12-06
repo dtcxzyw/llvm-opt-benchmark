@@ -17893,7 +17893,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.exit: ; preds = %4
   %62 = xor i64 %.011.i.i, -1
   %63 = add nsw i64 %58, %62
   %64 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] } }], ptr %56, i64 0, i64 %.011.i.i
-  %65 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %61, i64 0, i64 %63
+  %65 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] } }], ptr %61, i64 0, i64 %63
   br label %66
 
 66:                                               ; preds = %66, %.lr.ph.preheader.i.i

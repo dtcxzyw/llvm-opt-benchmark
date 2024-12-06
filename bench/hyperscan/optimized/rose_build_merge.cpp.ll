@@ -10463,8 +10463,8 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %
   %__holeIndex.addr.032.i.i.i.i.i = phi i64 [ %__parent.033.i.i.i.i.i, %while.body.i.i.i.i.i ], [ %__holeIndex.addr.1.i.i.i.i, %if.end33.i.i.i.i ]
   %__parent.033.in.i.i.i.i.i = add nsw i64 %__holeIndex.addr.032.i.i.i.i.i, -1
   %__parent.033.i.i.i.i.i = sdiv i64 %__parent.033.in.i.i.i.i.i, 2
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i
-  %stopxor.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 2
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i
+  %stopxor.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 2
   %504 = load i32, ptr %stopxor.i.i.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i.i589 = icmp eq i32 %504, %__value.sroa.4.0.copyload.i.i.i
   br i1 %cmp.not.i.i.i.i.i.i.i.i589, label %if.end.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i590
@@ -10474,7 +10474,7 @@ if.then.i.i.i.i.i.i.i.i590:                       ; preds = %land.rhs.i.i.i.i.i
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_118RoseMergeCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 if.end.i.i.i.i.i.i.i.i:                           ; preds = %land.rhs.i.i.i.i.i
-  %cpl.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 3
+  %cpl.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 3
   %505 = load i32, ptr %cpl.i.i.i.i.i.i.i.i, align 4
   %cmp7.not.i.i.i.i.i.i.i.i = icmp eq i32 %505, %__value.sroa.5.0.copyload.i.i.i
   br i1 %cmp7.not.i.i.i.i.i.i.i.i, label %if.end12.i.i.i.i.i.i.i.i, label %if.then8.i.i.i.i.i.i.i.i
@@ -10484,7 +10484,7 @@ if.then8.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp11.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_118RoseMergeCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 if.end12.i.i.i.i.i.i.i.i:                         ; preds = %if.end.i.i.i.i.i.i.i.i
-  %states.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 4
+  %states.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 4
   %506 = load i32, ptr %states.i.i.i.i.i.i.i.i, align 8
   %cmp14.not.i.i.i.i.i.i.i.i = icmp eq i32 %506, %__value.sroa.6.0.copyload.i.i.i
   br i1 %cmp14.not.i.i.i.i.i.i.i.i, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212_GLOBAL__N_118RoseMergeCandidateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i, label %if.then15.i.i.i.i.i.i.i.i
@@ -10494,13 +10494,13 @@ if.then15.i.i.i.i.i.i.i.i:                        ; preds = %if.end12.i.i.i.i.i.
   br i1 %cmp18.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_118RoseMergeCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212_GLOBAL__N_118RoseMergeCandidateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i: ; preds = %if.end12.i.i.i.i.i.i.i.i
-  %tie_breaker.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 5
+  %tie_breaker.i.i.i.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__parent.033.i.i.i.i.i, i32 5
   %507 = load i32, ptr %tie_breaker.i.i.i.i.i.i.i.i, align 4
   %cmp21.i.i.i.i.i.i.i.i = icmp ult i32 %507, %__value.sroa.7.0.copyload.i.i.i
   br i1 %cmp21.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_118RoseMergeCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212_GLOBAL__N_118RoseMergeCandidateEEEclINS_17__normal_iteratorIPS5_St6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i.i.i.i.i, %if.then15.i.i.i.i.i.i.i.i, %if.then8.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i590
-  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__holeIndex.addr.032.i.i.i.i.i
+  %add.ptr.i24.i.i.i.i.i = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::RoseMergeCandidate", ptr %pq.sroa.0.11018, i64 %__holeIndex.addr.032.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i24.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(96) %add.ptr.i.i.i.i.i.i, i64 96, i1 false)
   %cmp.i.i.i.i.i591 = icmp sgt i64 %__holeIndex.addr.032.i.i.i.i.i, 2
   br i1 %cmp.i.i.i.i.i591, label %land.rhs.i.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212_GLOBAL__N_118RoseMergeCandidateESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterISt4lessIS4_EEEEvT_SF_SF_RT0_.exit.i.i, !llvm.loop !267
@@ -37409,7 +37409,7 @@ if.end:                                           ; preds = %if.then.i.i.i45, %i
 
 if.then.i.i.i46:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 8 %first.coerce, i64 %sub.ptr.sub.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i46, %if.end
@@ -39091,7 +39091,7 @@ if.end:                                           ; preds = %if.then.i.i.i45, %i
 
 if.then.i.i.i46:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 8 %first.coerce, i64 %sub.ptr.sub.i.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i46, %if.end
@@ -42105,7 +42105,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt5dequeIN3ue212
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds %"class.ue2::graph_detail::vertex_descriptor", ptr %13, i64 %add12.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor", ptr %13, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEERS8_PS8_El.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -51390,7 +51390,7 @@ if.then.i.i.i.i.i.i.i.i.i166:                     ; preds = %_ZNSt12_Vector_base
 invoke.cont83:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i166, %_ZNSt12_Vector_baseIPN3ue27raw_dfaESaIS2_EE11_M_allocateEm.exit
   %add.ptr.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %cond.i161, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i164
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i.i.i.i168, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i175 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i168, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i168, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i179 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i162
   %tobool.not.i.i.i.i.i.i.i.i.i180 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i180, label %invoke.cont87, label %if.then.i.i.i.i.i.i.i.i.i181
@@ -51786,7 +51786,7 @@ if.then.i.i.i.i.i.i.i.i.i166:                     ; preds = %_ZNSt12_Vector_base
 invoke.cont83:                                    ; preds = %if.then.i.i.i.i.i.i.i.i.i166, %_ZNSt12_Vector_baseIPN3ue211raw_som_dfaESaIS2_EE11_M_allocateEm.exit
   %add.ptr.i.i.i.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %cond.i161, i64 %sub.ptr.sub.i.i.i.i.i.i.i.i.i164
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i.i.i.i.i168, ptr align 8 %__first.coerce, i64 %sub.ptr.sub.i.i.i, i1 false)
-  %add.ptr.i.i.i.i.i.i.i.i175 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i168, i64 %sub.ptr.sub.i.i.i
+  %add.ptr.i.i.i.i.i.i.i.i175 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i168, i64 %sub.ptr.sub.i.i.i
   %sub.ptr.sub.i.i.i.i.i.i.i.i.i179 = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast.i.i.i.i.i.i.i.i.i162
   %tobool.not.i.i.i.i.i.i.i.i.i180 = icmp eq ptr %1, %__position.coerce
   br i1 %tobool.not.i.i.i.i.i.i.i.i.i180, label %invoke.cont87, label %if.then.i.i.i.i.i.i.i.i.i181

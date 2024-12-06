@@ -1198,10 +1198,10 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h06e2798425a2097eE.exit: ; preds
   %.0.i = phi i64 [ %18, %17 ], [ %spec.select138.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h3355c3088fbf586fE.exit.i51.i" ]
   %22 = icmp ult i64 %.082.i, %.sroa.14.0107
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %.082.i
+  %23 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %.082.i
   %24 = icmp ult i64 %.0.i, %.sroa.14.0107
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %.0.i
+  %25 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %.0.i
   %.val.i.i.i = load i32, ptr %23, align 4, !alias.scope !127, !noalias !132, !noundef !14
   %.val5.i.i.i = load i32, ptr %25, align 4, !alias.scope !142, !noalias !143, !noundef !14
   %26 = icmp ult i32 %.val.i.i.i, %.val5.i.i.i
@@ -1239,7 +1239,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h06e2798425a2097eE.exit: ; preds
   %39 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %18
   %40 = icmp ult i64 %37, %.sroa.14.0107
   call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %37
+  %41 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %37
   %.val.i.i15.i = load i32, ptr %39, align 4, !alias.scope !153, !noalias !156, !noundef !14
   %.val5.i.i16.i = load i32, ptr %41, align 4, !alias.scope !166, !noalias !167, !noundef !14
   %42 = icmp ult i32 %.val.i.i15.i, %.val5.i.i16.i
@@ -1274,7 +1274,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17h06e2798425a2097eE.exit: ; preds
   %54 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %19
   %55 = icmp ult i64 %51, %.sroa.14.0107
   call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds i32, ptr %.sroa.0.0108, i64 %51
+  %56 = getelementptr inbounds nuw i32, ptr %.sroa.0.0108, i64 %51
   %.val.i.i32.i = load i32, ptr %54, align 4, !alias.scope !177, !noalias !180, !noundef !14
   %.val5.i.i33.i = load i32, ptr %56, align 4, !alias.scope !190, !noalias !191, !noundef !14
   %57 = icmp ult i32 %.val.i.i32.i, %.val5.i.i33.i
@@ -1894,10 +1894,10 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf4626fc25b14025dE.exit: ; preds
   %.0.i = phi i64 [ %19, %18 ], [ %spec.select138.i, %"_ZN4core5slice4sort12choose_pivot28_$u7b$$u7b$closure$u7d$$u7d$17h23d0828e2bf09c2bE.exit.i51.i" ]
   %23 = icmp ult i64 %.082.i, %.sroa.14.0108
   call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds { i32, float, float }, ptr %.sroa.0.0109, i64 %.082.i
+  %24 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %.082.i
   %25 = icmp ult i64 %.0.i, %.sroa.14.0108
   call void @llvm.assume(i1 %25)
-  %26 = getelementptr inbounds { i32, float, float }, ptr %.sroa.0.0109, i64 %.0.i
+  %26 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %.0.i
   %.val.i.i.i = load i32, ptr %24, align 4, !alias.scope !288, !noalias !291, !noundef !14
   %.val5.i.i.i = load i32, ptr %26, align 4, !alias.scope !288, !noalias !291, !noundef !14
   %27 = icmp ult i32 %.val.i.i.i, %.val5.i.i.i
@@ -1935,7 +1935,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf4626fc25b14025dE.exit: ; preds
   %40 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %19
   %41 = icmp ult i64 %38, %.sroa.14.0108
   call void @llvm.assume(i1 %41)
-  %42 = getelementptr inbounds { i32, float, float }, ptr %.sroa.0.0109, i64 %38
+  %42 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %38
   %.val.i.i15.i = load i32, ptr %40, align 4, !alias.scope !288, !noalias !305, !noundef !14
   %.val5.i.i16.i = load i32, ptr %42, align 4, !alias.scope !288, !noalias !305, !noundef !14
   %43 = icmp ult i32 %.val.i.i15.i, %.val5.i.i16.i
@@ -1970,7 +1970,7 @@ _ZN4core5slice4sort25insertion_sort_shift_left17hf4626fc25b14025dE.exit: ; preds
   %55 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %20
   %56 = icmp ult i64 %52, %.sroa.14.0108
   call void @llvm.assume(i1 %56)
-  %57 = getelementptr inbounds { i32, float, float }, ptr %.sroa.0.0109, i64 %52
+  %57 = getelementptr inbounds nuw { i32, float, float }, ptr %.sroa.0.0109, i64 %52
   %.val.i.i32.i = load i32, ptr %55, align 4, !alias.scope !288, !noalias !319, !noundef !14
   %.val5.i.i33.i = load i32, ptr %57, align 4, !alias.scope !288, !noalias !319, !noundef !14
   %58 = icmp ult i32 %.val.i.i32.i, %.val5.i.i33.i

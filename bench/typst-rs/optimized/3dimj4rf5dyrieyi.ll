@@ -51322,7 +51322,7 @@ define void @_ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE(ptr noalias
   %39 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !4, !noundef !4
   %41 = shl nuw i64 1, %8
-  %42 = getelementptr inbounds [0 x i64], ptr %40, i64 0, i64 %7
+  %42 = getelementptr inbounds nuw [0 x i64], ptr %40, i64 0, i64 %7
   %43 = load i64, ptr %42, align 8, !noundef !4
   %44 = or i64 %43, %41
   store i64 %44, ptr %42, align 8
@@ -51365,7 +51365,7 @@ define noundef zeroext i1 @_ZN5typst4util6bitset6BitSet8contains17hb325b963824d1
   %18 = and i64 %1, 63
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %21 = getelementptr inbounds i64, ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %13
   %22 = load i64, ptr %21, align 8, !noundef !4
   %23 = lshr i64 %22, %18
   %24 = trunc i64 %23 to i1
@@ -51460,7 +51460,7 @@ _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit.thread.us: ; pred
 _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit: ; preds = %26
   %34 = and i64 %.sroa.01.09, 63
   %35 = load ptr, ptr %13, align 8, !noalias !9051, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds i64, ptr %35, i64 %28
+  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %28
   %37 = load i64, ptr %36, align 8, !noalias !9051, !noundef !4
   %38 = lshr i64 %37, %34
   %39 = trunc i64 %38 to i1

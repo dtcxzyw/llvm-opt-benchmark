@@ -15069,7 +15069,7 @@ define void @_ZN6Unpack4InitEmb(ptr nocapture noundef nonnull align 8 dereferenc
   %50 = getelementptr inbounds i8, ptr %41, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = and i64 %48, %45
-  %53 = getelementptr inbounds i8, ptr %26, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %26, i64 %52
   store i8 %51, ptr %53, align 1
   %54 = add nuw i64 %.036, 1
   %exitcond = icmp eq i64 %54, %umax
@@ -15204,7 +15204,7 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   %.051 = phi ptr [ %19, %17 ], [ %25, %24 ], [ %2, %14 ], [ %22, %.preheader88 ]
   %.249.idx = phi i64 [ %.350.idx, %17 ], [ %.350.idx, %24 ], [ %.047.idx, %14 ], [ %.350.idx, %.preheader88 ]
   %.1 = phi ptr [ %15, %17 ], [ %15, %24 ], [ %.pre, %14 ], [ %15, %.preheader88 ]
-  %.249.ptr = getelementptr inbounds i8, ptr %4, i64 %.249.idx
+  %.249.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.249.idx
   %26 = getelementptr inbounds nuw i8, ptr %.051, i64 2
   %27 = load ptr, ptr %26, align 1
   %.not65 = icmp eq ptr %27, %10
@@ -15215,8 +15215,8 @@ define linkonce_odr noundef ptr @_ZN8ModelPPM16CreateSuccessorsEbP12RARPPM_STATE
   br i1 %.not66, label %29, label %_ZN14RARPPM_CONTEXT11createChildEP8ModelPPMP12RARPPM_STATERS2_.exit.thread
 
 29:                                               ; preds = %28
-  %.249.add = add nsw i64 %.249.idx, 8
-  %.ptr67 = getelementptr inbounds i8, ptr %4, i64 %.249.add
+  %.249.add = add nuw nsw i64 %.249.idx, 8
+  %.ptr67 = getelementptr inbounds nuw i8, ptr %4, i64 %.249.add
   store ptr %.051, ptr %.249.ptr, align 8
   %30 = getelementptr inbounds nuw i8, ptr %.1, i64 12
   %31 = load ptr, ptr %30, align 1

@@ -19940,7 +19940,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %110, %108, %99
 138:                                              ; preds = %137
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %130, ptr align 1 %.sroa.012.032, i64 %.sroa.3.033, i1 false)
   %139 = load ptr, ptr %129, align 8
-  %140 = getelementptr inbounds i8, ptr %139, i64 %.sroa.3.033
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.sroa.3.033
   store ptr %140, ptr %129, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit56
 
@@ -23944,7 +23944,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPNSt7__cxx1112basic_stringIcSt11ch
 
 16:                                               ; preds = %16, %13
   %.012.i = phi i64 [ %15, %13 ], [ %18, %16 ]
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
+  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %17) #27
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #27
   call void @_ZSt13__adjust_heapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %0, i64 noundef %.012.i, i64 noundef %11, ptr noundef nonnull %7)

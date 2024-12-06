@@ -4522,7 +4522,7 @@ if.end.i.i:                                       ; preds = %while.body
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %if.end.i.i
   %__parent.0.i.i = phi i64 [ %div9.i.i, %if.end.i.i ], [ %dec.i.i, %while.body.i.i ]
-  %add.ptr.i.i = getelementptr inbounds %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.0.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::SMFixIt", ptr %__first, i64 %__parent.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %__value.i.i, ptr noundef nonnull align 8 dereferenceable(48) %add.ptr.i.i, i64 16, i1 false)
   %Text3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %Text.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %Text3.i.i.i) #19

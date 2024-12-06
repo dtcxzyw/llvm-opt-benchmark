@@ -1316,7 +1316,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hfa48914519ee97c0E.exit.thread.
   %65 = sub nuw i64 %63, %64
   %66 = lshr exact i64 %65, 3
   %.not.i.i.i.i = icmp ult i64 %53, %66
-  %67 = getelementptr inbounds ptr, ptr %62, i64 %53
+  %67 = getelementptr inbounds nuw ptr, ptr %62, i64 %53
   br i1 %.not.i.i.i.i, label %select.unfold.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd22ccf5a4b58d19E.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfd22ccf5a4b58d19E.exit.i.i": ; preds = %59

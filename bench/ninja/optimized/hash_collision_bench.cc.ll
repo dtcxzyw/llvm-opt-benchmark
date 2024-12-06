@@ -394,7 +394,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPSt4pairImiElN9__gnu_
 .split19.i.i:                                     ; preds = %.split.i.i, %.split19.i.i
   %.025.i.i = phi i64 [ %14, %.split19.i.i ], [ %12, %.split.i.i ]
   %14 = add nsw i64 %.025.i.i, -1
-  %15 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %14
   %.sroa.01.0.copyload20.i.i = load i64, ptr %15, align 8
   %.sroa.22.0..sroa_idx21.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.22.0.copyload22.i.i = load i32, ptr %.sroa.22.0..sroa_idx21.i.i, align 8

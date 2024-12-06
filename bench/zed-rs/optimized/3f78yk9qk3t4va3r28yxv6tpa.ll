@@ -5072,7 +5072,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 112:                                              ; preds = %110
   %113 = zext i32 %111 to i64
   %114 = add nsw i64 %113, -1
-  %115 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %46, i64 0, i64 %114
+  %115 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %46, i64 0, i64 %114
   %116 = load ptr, ptr %115, align 8, !alias.scope !920, !noalias !923, !nonnull !7, !align !201, !noundef !7
   %117 = load ptr, ptr %116, align 8, !noalias !925, !nonnull !7, !noundef !7
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
@@ -5109,7 +5109,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 131:                                              ; preds = %128
   %132 = getelementptr inbounds nuw i8, ptr %117, i64 56
-  %133 = getelementptr inbounds [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %132, i64 0, i64 %122
+  %133 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %132, i64 0, i64 %122
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 56
   %135 = load i64, ptr %134, align 8, !noundef !7
   %136 = icmp eq i64 %135, %.sroa.0.0.copyload1.i
@@ -5743,7 +5743,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 113:                                              ; preds = %111
   %114 = zext i32 %112 to i64
   %115 = add nsw i64 %114, -1
-  %116 = getelementptr inbounds [0 x { ptr, i64, { i64, i64 } }], ptr %52, i64 0, i64 %115
+  %116 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, i64 } }], ptr %52, i64 0, i64 %115
   %117 = load ptr, ptr %116, align 8, !alias.scope !1004, !noalias !1007, !nonnull !7, !align !201, !noundef !7
   %118 = load ptr, ptr %117, align 8, !noalias !1009, !nonnull !7, !noundef !7
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -5780,7 +5780,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %118, i64 56
-  %134 = getelementptr inbounds [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %133, i64 0, i64 %123
+  %134 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }], ptr %133, i64 0, i64 %123
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %136 = load i64, ptr %135, align 8, !noundef !7
   %137 = icmp eq i64 %136, %.sroa.6.sroa.4.0.copyload.i.i

@@ -7355,7 +7355,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %45 = phi i64 [ %46, %.noexc25 ], [ %43, %.preheader.i ]
   %46 = add nsw i64 %45, -1
   store i64 %46, ptr %34, align 8, !alias.scope !1392
-  %47 = getelementptr inbounds [32 x { ptr, ptr }], ptr %2, i64 0, i64 %46
+  %47 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %2, i64 0, i64 %46
   %48 = load ptr, ptr %47, align 8, !alias.scope !1392, !nonnull !4, !align !13, !noundef !4
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !1392, !noundef !4
@@ -7420,7 +7420,7 @@ _ZN5tokio4sync6notify17NotifyWaitersList15pop_back_locked17h31301df7cc52e6d6E.ex
   %67 = phi i64 [ %68, %.noexc38 ], [ %65, %.preheader.i33 ]
   %68 = add nsw i64 %67, -1
   store i64 %68, ptr %34, align 8, !alias.scope !1398
-  %69 = getelementptr inbounds [32 x { ptr, ptr }], ptr %2, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %2, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8, !alias.scope !1398, !nonnull !4, !align !13, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load ptr, ptr %71, align 8, !alias.scope !1398, !noundef !4
@@ -9313,7 +9313,7 @@ thread-pre-split:                                 ; preds = %.lr.ph, %98, %"_ZN7
   %76 = phi i64 [ %77, %.noexc37 ], [ %73, %.preheader.i ]
   %77 = add nsw i64 %76, -1
   store i64 %77, ptr %11, align 8, !alias.scope !1659
-  %78 = getelementptr inbounds [32 x { ptr, ptr }], ptr %9, i64 0, i64 %77
+  %78 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %9, i64 0, i64 %77
   %79 = load ptr, ptr %78, align 8, !alias.scope !1659, !nonnull !4, !align !13, !noundef !4
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8, !alias.scope !1659, !noundef !4

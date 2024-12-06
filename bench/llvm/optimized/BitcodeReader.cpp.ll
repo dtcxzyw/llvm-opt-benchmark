@@ -53783,7 +53783,7 @@ _ZNSt10unique_ptrIN4llvm16GlobalVarSummaryESt14default_deleteIS1_EED2Ev.exit355:
   %.1249 = phi i32 [ %.2250, %615 ], [ 6, %605 ]
   %.1246 = phi i32 [ %.2247, %615 ], [ 0, %605 ]
   %.1244 = phi i32 [ %620, %615 ], [ 0, %605 ]
-  %622 = getelementptr inbounds i64, ptr %592, i64 %.0251
+  %622 = getelementptr inbounds nuw i64, ptr %592, i64 %.0251
   %623 = trunc i64 %606 to i32
   %624 = and i32 %623, 1023
   br label %625

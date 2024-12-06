@@ -2110,7 +2110,7 @@ common.resume:                                    ; preds = %.body, %149, %198, 
   %420 = xor i64 %.011.i.i.i, -1
   %421 = add nsw i64 %416, %420
   %422 = getelementptr inbounds nuw [0 x i64], ptr %414, i64 0, i64 %.011.i.i.i
-  %423 = getelementptr inbounds [0 x i64], ptr %419, i64 0, i64 %421
+  %423 = getelementptr inbounds nuw [0 x i64], ptr %419, i64 0, i64 %421
   %424 = load i64, ptr %422, align 8, !alias.scope !198, !noalias !196, !noundef !12
   %425 = load i64, ptr %423, align 8, !alias.scope !201, !noalias !193, !noundef !12
   store i64 %425, ptr %422, align 8, !alias.scope !198, !noalias !196
@@ -3469,7 +3469,7 @@ define hidden void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
   %27 = xor i64 %.011.i.i.i, -1
   %28 = add nsw i64 %23, %27
   %29 = getelementptr inbounds nuw [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %20, i64 0, i64 %.011.i.i.i
-  %30 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %26, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %26, i64 0, i64 %28
   br label %31
 
 31:                                               ; preds = %31, %.lr.ph.preheader.i.i.i
@@ -159723,7 +159723,7 @@ define hidden void @"_ZN5typst9visualize8gradient8Gradient6repeat28_$u7b$$u7b$cl
   %32 = xor i64 %.011.i.i, -1
   %33 = add nsw i64 %28, %32
   %34 = getelementptr inbounds nuw [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %25, i64 0, i64 %.011.i.i
-  %35 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %31, i64 0, i64 %33
+  %35 = getelementptr inbounds nuw [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %31, i64 0, i64 %33
   br label %36
 
 36:                                               ; preds = %36, %.lr.ph.preheader.i.i

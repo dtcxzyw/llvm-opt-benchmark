@@ -40845,7 +40845,7 @@ _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vecto
   %283 = zext i32 %281 to i64
   %284 = add nsw i64 %283, -1
   %285 = sdiv i64 %284, 64
-  %286 = getelementptr inbounds i64, ptr %282, i64 %285
+  %286 = getelementptr inbounds nuw i64, ptr %282, i64 %285
   %287 = and i64 %284, -9223372036854775745
   %288 = icmp ugt i64 %287, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %288, i64 -8, i64 0
@@ -43926,7 +43926,7 @@ _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cx
   %289 = zext i32 %287 to i64
   %290 = add nsw i64 %289, -1
   %291 = sdiv i64 %290, 64
-  %292 = getelementptr inbounds i64, ptr %288, i64 %291
+  %292 = getelementptr inbounds nuw i64, ptr %288, i64 %291
   %293 = and i64 %290, -9223372036854775745
   %294 = icmp ugt i64 %293, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %294, i64 -8, i64 0
@@ -46336,7 +46336,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -46492,7 +46492,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %90 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %91 = add nsw i64 %90, -1
   %92 = sdiv i64 %91, 64
-  %93 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %92
   %94 = and i64 %91, -9223372036854775745
   %95 = icmp ugt i64 %94, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %95, i64 -8, i64 0
@@ -49577,7 +49577,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -49733,7 +49733,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %89 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %90 = add nsw i64 %89, -1
   %91 = sdiv i64 %90, 64
-  %92 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
   %93 = and i64 %90, -9223372036854775745
   %94 = icmp ugt i64 %93, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %94, i64 -8, i64 0
@@ -49822,7 +49822,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -49980,7 +49980,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %90 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %91 = add nsw i64 %90, -1
   %92 = sdiv i64 %91, 64
-  %93 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %92
+  %93 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %92
   %94 = and i64 %91, -9223372036854775745
   %95 = icmp ugt i64 %94, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %95, i64 -8, i64 0
@@ -50069,7 +50069,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -50224,7 +50224,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %89 = zext i32 %.sroa.2.0.copyload.i.i10 to i64
   %90 = add nsw i64 %89, -1
   %91 = sdiv i64 %90, 64
-  %92 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i8, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i8, i64 %91
   %93 = and i64 %90, -9223372036854775745
   %94 = icmp ugt i64 %93, -9223372036854775808
   %storemerge.idx.i.i.i.i.i11 = select i1 %94, i64 -8, i64 0
@@ -50313,7 +50313,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -50469,7 +50469,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %89 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %90 = add nsw i64 %89, -1
   %91 = sdiv i64 %90, 64
-  %92 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
   %93 = and i64 %90, -9223372036854775745
   %94 = icmp ugt i64 %93, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %94, i64 -8, i64 0
@@ -50558,7 +50558,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -50729,7 +50729,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %92 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %93 = add nsw i64 %92, -1
   %94 = sdiv i64 %93, 64
-  %95 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %94
+  %95 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %94
   %96 = and i64 %93, -9223372036854775745
   %97 = icmp ugt i64 %96, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %97, i64 -8, i64 0
@@ -50818,7 +50818,7 @@ define linkonce_odr { i8, ptr } @_ZN8nlohmann6detail28json_sax_dom_callback_pars
   %10 = zext i32 %.sroa.2.0.copyload.i.i to i64
   %11 = add nsw i64 %10, -1
   %12 = sdiv i64 %11, 64
-  %13 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
+  %13 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i, i64 %12
   %14 = and i64 %11, -9223372036854775745
   %15 = icmp ugt i64 %14, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %15, i64 -8, i64 0
@@ -50974,7 +50974,7 @@ _ZNSt6vectorIN8nlohmann10basic_jsonISt3mapS_NSt7__cxx1112basic_stringIcSt11char_
   %89 = zext i32 %.sroa.2.0.copyload.i.i11 to i64
   %90 = add nsw i64 %89, -1
   %91 = sdiv i64 %90, 64
-  %92 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
+  %92 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i.i9, i64 %91
   %93 = and i64 %90, -9223372036854775745
   %94 = icmp ugt i64 %93, -9223372036854775808
   %storemerge.idx.i.i.i.i.i12 = select i1 %94, i64 -8, i64 0

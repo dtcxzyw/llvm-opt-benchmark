@@ -413,7 +413,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit27: ; preds = %_ZN5faissL1
   %54 = mul i64 %49, %.0
   %55 = getelementptr inbounds i8, ptr %4, i64 %54
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %53, ptr align 1 %55, i64 %49, i1 false)
-  %56 = getelementptr inbounds i64, ptr %3, i64 %.0
+  %56 = getelementptr inbounds nuw i64, ptr %3, i64 %.0
   %57 = load i64, ptr %56, align 8
   tail call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(72) %44, i64 noundef %57, ptr noundef %52)
   %58 = icmp samesign ugt i64 %.0.in30, 1

@@ -34583,7 +34583,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit: ; preds = %if.end8
   %.lcssa.i = phi ptr [ %7, %if.end.i ], [ %buf_.i.i, %if.end8.i ]
   tail call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i, i8 32, i64 %n.addr.0.lcssa.i, i1 false)
   %12 = load ptr, ptr %pos_.i.i, align 8
-  %add.ptr.i27.i = getelementptr inbounds i8, ptr %12, i64 %n.addr.0.lcssa.i
+  %add.ptr.i27.i = getelementptr inbounds nuw i8, ptr %12, i64 %n.addr.0.lcssa.i
   store ptr %add.ptr.i27.i, ptr %pos_.i.i, align 8
   br label %if.end13
 
@@ -34708,7 +34708,7 @@ _ZN4absl19str_format_internal14FormatSinkImpl6AppendEmc.exit55: ; preds = %if.en
   %.lcssa.i37 = phi ptr [ %23, %if.end.i26 ], [ %buf_.i.i40, %if.end8.i51 ]
   call void @llvm.memset.p0.i64(ptr align 1 %.lcssa.i37, i8 32, i64 %n.addr.0.lcssa.i36, i1 false)
   %28 = load ptr, ptr %pos_.i.i30, align 8
-  %add.ptr.i27.i38 = getelementptr inbounds i8, ptr %28, i64 %n.addr.0.lcssa.i36
+  %add.ptr.i27.i38 = getelementptr inbounds nuw i8, ptr %28, i64 %n.addr.0.lcssa.i36
   store ptr %add.ptr.i27.i38, ptr %pos_.i.i30, align 8
   br label %if.end33
 
@@ -34796,7 +34796,7 @@ do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, 
   %edge.0.i.i.i.i = phi ptr [ %12, %do.body10.i.i.i.i ], [ %8, %do.end.i.i.i.i ]
   %index.0.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i, %do.body10.i.i.i.i ], [ %add.i.i.i.i, %do.end.i.i.i.i ]
   %edges_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i
+  %arrayidx.i13.i.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i13.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i, -1
   %arrayidx15.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i

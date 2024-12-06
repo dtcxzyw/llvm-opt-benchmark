@@ -35444,16 +35444,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %.031.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %20, %.split.i.i.i ]
   %27 = shl i64 %.031.i.i.i.i, 1
   %28 = add i64 %27, 2
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
   %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %30
   %.val.i.i.i.i = load ptr, ptr %29, align 8
   %.val29.i.i.i.i = load ptr, ptr %31, align 8
   %32 = call fastcc noundef zeroext i1 @"_ZZL16buildClonedLoopsRN4llvm4LoopENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS9_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoERNS_15SmallVectorImplIPS0_EEENK3$_0clES4_S4_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %6, ptr noundef %.val.i.i.i.i, ptr noundef %.val29.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %32, i64 %30, i64 %28
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %.031.i.i.i.i
+  %35 = getelementptr inbounds nuw ptr, ptr %0, i64 %.031.i.i.i.i
   store ptr %34, ptr %35, align 8
   %36 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !600
@@ -35470,9 +35470,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 41:                                               ; preds = %._crit_edge.i.i.i.i
   %42 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %43
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %45, ptr %46, align 8
   br label %47
 
@@ -35493,7 +35493,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
   %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %52, ptr %53, align 8
   %54 = icmp sgt i64 %.018.i.i.i.i.i, %20
   br i1 %54, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_T2_.exit.i.i.i", !llvm.loop !601
@@ -35509,14 +35509,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
 
 .split15.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_T2_.exit.i.i.i"
   %57 = or disjoint i64 %19, 1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %39
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %39
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_T2_.exit32.i.i.i", %.split15.lr.ph.i.i.i
   %.058.i.i.i = phi i64 [ %20, %.split15.lr.ph.i.i.i ], [ %60, %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_T2_.exit32.i.i.i" ]
   %60 = add nsw i64 %.058.i.i.i, -1
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
   %62 = load ptr, ptr %61, align 8
   %.not.i.i.i = icmp sgt i64 %.058.i.i.i, %24
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -35525,9 +35525,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm10BasicBlockElN9__g
   %.031.i28.i.i.i = phi i64 [ %spec.select.i31.i.i.i, %"_ZZL16buildClonedLoopsRN4llvm4LoopENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS9_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoERNS_15SmallVectorImplIPS0_EEENK3$_0clES4_S4_.exit46.i.i.i" ], [ %60, %.split15.i.i.i ]
   %63 = shl i64 %.031.i28.i.i.i, 1
   %64 = add i64 %63, 2
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
   %66 = or disjoint i64 %63, 1
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %66
   %.val.i29.i.i.i = load ptr, ptr %65, align 8
   %.val29.i30.i.i.i = load ptr, ptr %67, align 8
   %68 = load i32, ptr %3, align 8
@@ -35616,9 +35616,9 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
   %125 = tail call noundef i32 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv(ptr noundef nonnull align 8 dereferenceable(152) %124) #19
   %126 = icmp ult i32 %96, %125
   %spec.select.i31.i.i.i = select i1 %126, i64 %66, i64 %64
-  %127 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i31.i.i.i
+  %127 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i31.i.i.i
   %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds ptr, ptr %0, i64 %.031.i28.i.i.i
+  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.031.i28.i.i.i
   store ptr %128, ptr %129, align 8
   %130 = icmp slt i64 %spec.select.i31.i.i.i, %24
   br i1 %130, label %.lr.ph.i27.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !600
@@ -35737,7 +35737,7 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
 
 195:                                              ; preds = %"_ZZL16buildClonedLoopsRN4llvm4LoopENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS9_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoERNS_15SmallVectorImplIPS0_EEENK3$_0clES4_S4_.exit.i.i.i"
   %196 = load ptr, ptr %140, align 8
-  %197 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i23.i.i.i
+  %197 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i23.i.i.i
   store ptr %196, ptr %197, align 8
   %.not54.i.i.i = icmp slt i64 %.018.i.i25.i.i.i, %.058.i.i.i
   br i1 %.not54.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm10BasicBlockElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL16buildClonedLoopsRNS0_4LoopENS0_8ArrayRefIS2_EERKNS0_8ValueMapIPKNS0_5ValueENS0_14WeakTrackingVHENS0_14ValueMapConfigISE_NS0_3sys10SmartMutexILb0EEEEEEERNS0_8LoopInfoERNS0_15SmallVectorImplIPS7_EEE3$_0EEEvT_T0_SX_T1_T2_.exit32.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !601
@@ -35770,9 +35770,9 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
   %.031.i.i = phi i64 [ %spec.select.i.i, %"_ZZL16buildClonedLoopsRN4llvm4LoopENS_8ArrayRefIPNS_10BasicBlockEEERKNS_8ValueMapIPKNS_5ValueENS_14WeakTrackingVHENS_14ValueMapConfigIS9_NS_3sys10SmartMutexILb0EEEEEEERNS_8LoopInfoERNS_15SmallVectorImplIPS0_EEENK3$_0clES4_S4_.exit32" ], [ 0, %.lr.ph.i5.i ]
   %209 = shl i64 %.031.i.i, 1
   %210 = add i64 %209, 2
-  %211 = getelementptr inbounds ptr, ptr %0, i64 %210
+  %211 = getelementptr inbounds nuw ptr, ptr %0, i64 %210
   %212 = or disjoint i64 %209, 1
-  %213 = getelementptr inbounds ptr, ptr %0, i64 %212
+  %213 = getelementptr inbounds nuw ptr, ptr %0, i64 %212
   %.val.i.i16 = load ptr, ptr %211, align 8
   %.val29.i.i17 = load ptr, ptr %213, align 8
   %214 = load i32, ptr %3, align 8
@@ -35861,9 +35861,9 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
   %271 = tail call noundef i32 @_ZNK4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12getLoopDepthEv(ptr noundef nonnull align 8 dereferenceable(152) %270) #19
   %272 = icmp ult i32 %242, %271
   %spec.select.i.i = select i1 %272, i64 %212, i64 %210
-  %273 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %273 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds ptr, ptr %0, i64 %.031.i.i
+  %275 = getelementptr inbounds nuw ptr, ptr %0, i64 %.031.i.i
   store ptr %274, ptr %275, align 8
   %276 = icmp slt i64 %spec.select.i.i, %207
   br i1 %276, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !600
@@ -35883,9 +35883,9 @@ _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_10BasicBlockEPNS_4LoopELj16ENS_12
 283:                                              ; preds = %279
   %284 = shl nsw i64 %.0.lcssa.i.i, 1
   %285 = or disjoint i64 %284, 1
-  %286 = getelementptr inbounds ptr, ptr %0, i64 %285
+  %286 = getelementptr inbounds nuw ptr, ptr %0, i64 %285
   %287 = load ptr, ptr %286, align 8
-  %288 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %288 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
   store ptr %287, ptr %288, align 8
   br label %289
 

@@ -1493,8 +1493,8 @@ _ZNSt6vectorIhSaIhEE2atEm.exit.i.i.i.i:           ; preds = %call34.i.i.i.noexc.
   br i1 %cmp.not.i.i63.i.i.i.i, label %_ZNSt6vectorIhSaIhEE2atEm.exit66.i.i.i.i, label %if.then.i.i.i.i.i.invoke.i
 
 _ZNSt6vectorIhSaIhEE2atEm.exit66.i.i.i.i:         ; preds = %_ZNSt6vectorIhSaIhEE2atEm.exit.i.i.i.i
-  %add.ptr.i.i.i.i.i.i248 = getelementptr inbounds i8, ptr %v_msk.i.sroa.0.2, i64 %118
-  %add.ptr.i.i65.i.i.i.i = getelementptr inbounds i8, ptr %v_cmp.i.sroa.0.2, i64 %118
+  %add.ptr.i.i.i.i.i.i248 = getelementptr inbounds nuw i8, ptr %v_msk.i.sroa.0.2, i64 %118
+  %add.ptr.i.i65.i.i.i.i = getelementptr inbounds nuw i8, ptr %v_cmp.i.sroa.0.2, i64 %118
   invoke void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef nonnull align 8 dereferenceable(32) %call34.i.i.i78.i, ptr noundef nonnull %add.ptr.i.i.i.i.i.i248, ptr noundef nonnull %add.ptr.i.i65.i.i.i.i)
           to label %.noexc80.i unwind label %lpad8.loopexit.split-lp.loopexit.i
 

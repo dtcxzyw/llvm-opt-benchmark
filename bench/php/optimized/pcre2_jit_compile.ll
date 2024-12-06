@@ -9476,7 +9476,7 @@ recurse_check_bit.exit329.i.i:                    ; preds = %3919
 3963:                                             ; preds = %3953
   %3964 = or i8 %3961, %3957
   store i8 %3964, ptr %3960, align 1
-  %3965 = getelementptr inbounds i8, ptr %.0183371.i.i, i64 %3945
+  %3965 = getelementptr inbounds nuw i8, ptr %.0183371.i.i, i64 %3945
   %3966 = load i8, ptr %3965, align 1
   switch i8 %3966, label %3991 [
     i8 98, label %get_class_iterator_size.exit.i.i
@@ -9532,7 +9532,7 @@ get_class_iterator_size.exit.i.i:                 ; preds = %3991, %3981, %3978,
 
 recurse_check_bit.exit332.thread.i.i:             ; preds = %get_class_iterator_size.exit.i.i, %3953, %3944
   %.20.i.i = phi i32 [ %3992, %get_class_iterator_size.exit.i.i ], [ %.0186370.i.i, %3944 ], [ %.0186370.i.i, %3953 ]
-  %3993 = getelementptr inbounds i8, ptr %.0183371.i.i, i64 %3945
+  %3993 = getelementptr inbounds nuw i8, ptr %.0183371.i.i, i64 %3945
   br label %4021
 
 3994:                                             ; preds = %.lr.ph.i.i1256, %.lr.ph.i.i1256, %.lr.ph.i.i1256, %.lr.ph.i.i1256
@@ -13269,7 +13269,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
 
 122:                                              ; preds = %111, %113
   %123 = phi i64 [ %121, %113 ], [ 33, %111 ]
-  %124 = getelementptr inbounds i8, ptr %.1175, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %.1175, i64 %123
   %125 = load i8, ptr %124, align 1
   switch i8 %125, label %150 [
     i8 99, label %126
@@ -60056,7 +60056,7 @@ bracketend.exit:                                  ; preds = %19
 
 54:                                               ; preds = %47, %44, %.loopexit390
   %.0234 = phi i64 [ %53, %47 ], [ 1, %44 ], [ 1, %.loopexit390 ]
-  %55 = getelementptr inbounds i8, ptr %42, i64 %.0234
+  %55 = getelementptr inbounds nuw i8, ptr %42, i64 %.0234
   %56 = call fastcc i32 @scan_prefix(ptr noundef %0, ptr noundef nonnull %55, ptr noundef %.0223.ph472, i32 noundef %.0247.ph470, ptr noundef %4)
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %is_char7_bitset.exit.thread, label %276
@@ -111703,7 +111703,7 @@ recurse_check_bit.exit429.thread:                 ; preds = %522, %531, %513
 555:                                              ; preds = %546
   %556 = sext i32 %554 to i64
   store i64 %556, ptr %8, align 16
-  %557 = getelementptr inbounds i8, ptr %.0260622, i64 %547
+  %557 = getelementptr inbounds nuw i8, ptr %.0260622, i64 %547
   %558 = load i8, ptr %557, align 1
   switch i8 %558, label %get_class_iterator_size.exit.thread [
     i8 98, label %get_class_iterator_size.exit.thread572
@@ -111763,7 +111763,7 @@ get_class_iterator_size.exit.thread572:           ; preds = %569, %555, %555, %g
 
 get_class_iterator_size.exit.thread:              ; preds = %get_class_iterator_size.exit.thread572, %555, %569, %get_class_iterator_size.exit, %588, %546
   %.14 = phi i32 [ 2, %588 ], [ 1, %get_class_iterator_size.exit ], [ 0, %546 ], [ 1, %569 ], [ 1, %555 ], [ 1, %get_class_iterator_size.exit.thread572 ]
-  %591 = getelementptr inbounds i8, ptr %.0260622, i64 %547
+  %591 = getelementptr inbounds nuw i8, ptr %.0260622, i64 %547
   br label %647
 
 592:                                              ; preds = %72, %72, %72, %72

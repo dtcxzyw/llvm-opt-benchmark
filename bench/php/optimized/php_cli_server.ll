@@ -2475,7 +2475,7 @@ define internal void @add_response_header(ptr nocapture noundef readonly %0, ptr
   %25 = phi ptr [ %23, %22 ], [ %21, %20 ]
   %26 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %25, ptr align 1 %26, i64 %.07182, i1 false)
-  %27 = getelementptr inbounds i8, ptr %25, i64 %.07182
+  %27 = getelementptr inbounds nuw i8, ptr %25, i64 %.07182
   store i8 0, ptr %27, align 1
   br label %.critedge5
 

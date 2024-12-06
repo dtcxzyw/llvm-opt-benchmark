@@ -166,7 +166,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h4004be209a52c5d9E.exit.thr
   %.val3.i = load i64, ptr %gep59, align 8, !alias.scope !30, !noalias !35, !noundef !9
   %78 = mul i64 %.val3.i, 5871781006564002453
   %.sroa.0.06.i = and i64 %78, %54
-  %79 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.06.i
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.06.i
   %.sroa.0.0.copyload.i57.i = load <16 x i8>, ptr %79, align 1, !noalias !42
   %80 = icmp slt <16 x i8> %.sroa.0.0.copyload.i57.i, zeroinitializer
   %81 = bitcast <16 x i1> %80 to i16
@@ -226,7 +226,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.exit.i.
   %99 = add i64 %.sroa.7.09.i, 16
   %100 = add i64 %99, %.sroa.0.010.i
   %.sroa.0.0.i = and i64 %100, %54
-  %101 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i
+  %101 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i5.i = load <16 x i8>, ptr %101, align 1, !noalias !42
   %102 = icmp slt <16 x i8> %.sroa.0.0.copyload.i5.i, zeroinitializer
   %103 = bitcast <16 x i1> %102 to i16
@@ -240,7 +240,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.exit.i.
   %105 = zext nneg i16 %104 to i64
   %106 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %105
   %107 = and i64 %106, %54
-  %108 = getelementptr inbounds i8, ptr %57, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %57, i64 %107
   %109 = load i8, ptr %108, align 1, !noundef !9
   %110 = icmp sgt i8 %109, -1
   br i1 %110, label %111, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit
@@ -261,7 +261,7 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit: ; p
   %119 = trunc nuw nsw i64 %118 to i8
   %120 = add nsw i64 %.sroa.0.0.i12.i, -16
   %121 = and i64 %120, %54
-  %122 = getelementptr inbounds i8, ptr %57, i64 %.sroa.0.0.i12.i
+  %122 = getelementptr inbounds nuw i8, ptr %57, i64 %.sroa.0.0.i12.i
   store i8 %119, ptr %122, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %121
   store i8 %119, ptr %gep, align 1

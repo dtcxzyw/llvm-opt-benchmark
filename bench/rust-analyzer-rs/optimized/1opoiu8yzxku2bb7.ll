@@ -10435,7 +10435,7 @@ _ZN4core4iter6traits8iterator8Iterator8find_map17h3dfe7dcc15f83877E.exit.i.i.i: 
   %1210 = xor i64 %.011.i.i.i.i.i, -1
   %1211 = add nsw i64 %1206, %1210
   %1212 = getelementptr inbounds nuw [0 x ptr], ptr %1203, i64 0, i64 %.011.i.i.i.i.i
-  %1213 = getelementptr inbounds [0 x ptr], ptr %1209, i64 0, i64 %1211
+  %1213 = getelementptr inbounds nuw [0 x ptr], ptr %1209, i64 0, i64 %1211
   %1214 = load ptr, ptr %1212, align 8, !alias.scope !2668, !noalias !2671, !nonnull !13, !noundef !13
   %1215 = load ptr, ptr %1213, align 8, !alias.scope !2672, !noalias !2673, !nonnull !13, !noundef !13
   store ptr %1215, ptr %1212, align 8, !alias.scope !2668, !noalias !2671
@@ -29823,7 +29823,7 @@ define internal fastcc void @_ZN11ide_assists8handlers21convert_comment_block22r
   %42 = xor i64 %.011.i.i, -1
   %43 = add nsw i64 %38, %42
   %44 = getelementptr inbounds nuw [0 x ptr], ptr %35, i64 0, i64 %.011.i.i
-  %45 = getelementptr inbounds [0 x ptr], ptr %41, i64 0, i64 %43
+  %45 = getelementptr inbounds nuw [0 x ptr], ptr %41, i64 0, i64 %43
   %46 = load ptr, ptr %44, align 8, !alias.scope !6791, !noalias !6789, !nonnull !13, !noundef !13
   %47 = load ptr, ptr %45, align 8, !alias.scope !6794, !noalias !6786, !nonnull !13, !noundef !13
   store ptr %47, ptr %44, align 8, !alias.scope !6791, !noalias !6789

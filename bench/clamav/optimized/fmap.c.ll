@@ -1623,7 +1623,7 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 
 .lr.ph:                                           ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %20 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %spec.select
+  %20 = getelementptr inbounds nuw [2048 x i64], ptr %2, i64 0, i64 %spec.select
   br label %21
 
 21:                                               ; preds = %.lr.ph, %57

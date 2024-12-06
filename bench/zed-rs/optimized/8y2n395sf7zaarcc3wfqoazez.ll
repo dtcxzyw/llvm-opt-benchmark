@@ -2367,7 +2367,7 @@ define hidden void @"_ZN55_$LT$T$u20$as$u20$pkcs1..traits..EncodeRsaPublicKey$GT
   br label %83
 
 59:                                               ; preds = %56
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(39) %.sroa.5.0..sroa_idx, ptr noundef nonnull dereferenceable(39) getelementptr inbounds (i8, ptr @anon.dd82cfc7c2fc634f21e9bc4221da04d3.32, i64 1), i64 39)
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(39) %.sroa.5.0..sroa_idx, ptr noundef nonnull dereferenceable(39) getelementptr inbounds nuw (i8, ptr @anon.dd82cfc7c2fc634f21e9bc4221da04d3.32, i64 1), i64 39)
   %60 = icmp eq i32 %bcmp, 0
   br i1 %60, label %62, label %61
 
@@ -3910,7 +3910,7 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$9from_elem17hbac3a98834e2a2e
 .lr.ph:                                           ; preds = %58, %.lr.ph
   %.sroa.03.022 = phi i64 [ %60, %.lr.ph ], [ 0, %58 ]
   %60 = add nuw i64 %.sroa.03.022, 1
-  %61 = getelementptr inbounds i64, ptr %7, i64 %.sroa.03.022
+  %61 = getelementptr inbounds nuw i64, ptr %7, i64 %.sroa.03.022
   store i64 %1, ptr %61, align 8
   %exitcond.not = icmp eq i64 %60, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

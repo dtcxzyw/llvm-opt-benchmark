@@ -2260,7 +2260,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17hb712e6326a397aa7E.exit
   br i1 %or.cond.i.i, label %102, label %_ZN14regex_automata4util8captures8Captures9get_match17h0a4f8d375d633b8eE.exit
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i64, ptr %94, i64 %.0.i.i
+  %103 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i
   %104 = load i64, ptr %103, align 8, !noalias !112, !noundef !4
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %_ZN14regex_automata4util8captures8Captures9get_match17h0a4f8d375d633b8eE.exit, label %106
@@ -3278,7 +3278,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17hebaced78a1f48f42E.exit: ; pre
 
 _ZN10serde_json3ser9Formatter8write_u817h68b8c207216e2c6bE.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i", %72
   %76 = phi i64 [ %50, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i" ], [ %.pre.i.i.i.i.i19, %72 ]
-  %77 = getelementptr inbounds i8, ptr %5, i64 %.1.i.i
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i.i
   %78 = load ptr, ptr %15, align 8, !alias.scope !548, !noalias !542, !nonnull !4, !noundef !4
   %79 = getelementptr inbounds i8, ptr %78, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr nonnull readonly align 1 %77, i64 %68, i1 false), !noalias !549
@@ -3397,7 +3397,7 @@ define hidden noalias noundef ptr @_ZN10serde_json3ser9Formatter16write_byte_arr
 
 _ZN10serde_json3ser9Formatter8write_u817h5ce5d012da7b7099E.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i", %51
   %55 = phi i64 [ %47, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i" ], [ %.pre.i.i.i.i.i16, %51 ]
-  %56 = getelementptr inbounds i8, ptr %5, i64 %.1.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i.i
   %57 = load ptr, ptr %19, align 8, !alias.scope !593, !noalias !587, !nonnull !4, !noundef !4
   %58 = getelementptr inbounds i8, ptr %57, i64 %55
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %58, ptr nonnull readonly align 1 %56, i64 %46, i1 false), !noalias !594
@@ -43030,7 +43030,7 @@ define internal fastcc void @_ZN4time10formatting13format_number17hc041d1f4b354b
 
 _ZN4time10formatting23format_number_pad_space17hdf6e7e5cb4e79084E.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i", %38
   %58 = phi i64 [ %34, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i" ], [ %.pre.i.i.i.i.i, %38 ]
-  %59 = getelementptr inbounds i8, ptr %7, i64 %.1.i.i
+  %59 = getelementptr inbounds nuw i8, ptr %7, i64 %.1.i.i
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !alias.scope !9396, !noalias !9391, !nonnull !4, !noundef !4
   %62 = getelementptr inbounds i8, ptr %61, i64 %58
@@ -43147,7 +43147,7 @@ _ZN4time10formatting23format_number_pad_space17hdf6e7e5cb4e79084E.exit: ; preds 
 
 _ZN4time10formatting22format_number_pad_zero17h0fa89554d539d193E.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i9", %96
   %116 = phi i64 [ %92, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i9" ], [ %.pre.i.i.i.i.i11, %96 ]
-  %117 = getelementptr inbounds i8, ptr %6, i64 %.1.i.i10
+  %117 = getelementptr inbounds nuw i8, ptr %6, i64 %.1.i.i10
   %118 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %119 = load ptr, ptr %118, align 8, !alias.scope !9442, !noalias !9437, !nonnull !4, !noundef !4
   %120 = getelementptr inbounds i8, ptr %119, i64 %116
@@ -43225,7 +43225,7 @@ _ZN4time10formatting22format_number_pad_zero17h0fa89554d539d193E.exit: ; preds =
 
 _ZN4time10formatting22format_number_pad_none17h133ec3377e2f7284E.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i17", %150
   %154 = phi i64 [ %146, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17hdee7928b71fe5e34E.exit.i17" ], [ %.pre.i.i.i.i.i19, %150 ]
-  %155 = getelementptr inbounds i8, ptr %5, i64 %.1.i.i18
+  %155 = getelementptr inbounds nuw i8, ptr %5, i64 %.1.i.i18
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %157 = load ptr, ptr %156, align 8, !alias.scope !9474, !noalias !9470, !nonnull !4, !noundef !4
   %158 = getelementptr inbounds i8, ptr %157, i64 %154
@@ -43591,7 +43591,7 @@ _ZN4time10formatting11fmt_ordinal17haad6fb660d8fbd44E.exit: ; preds = %_ZN4time1
 64:                                               ; preds = %61
   %65 = zext nneg i8 %62 to i64
   %66 = add nsw i64 %65, -1
-  %67 = getelementptr inbounds [12 x { ptr, i64 }], ptr @anon.a2b023d1a4e2834952d16152dce23780.205, i64 0, i64 %66
+  %67 = getelementptr inbounds nuw [12 x { ptr, i64 }], ptr @anon.a2b023d1a4e2834952d16152dce23780.205, i64 0, i64 %66
   %68 = load ptr, ptr %67, align 8, !noalias !9527, !nonnull !4, !align !5, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %70 = load i64, ptr %69, align 8, !noalias !9527, !noundef !4
@@ -43624,7 +43624,7 @@ _ZN4time10formatting5write17hb0852041087e33f2E.exit.i: ; preds = %76, %64
 86:                                               ; preds = %61
   %87 = zext nneg i8 %62 to i64
   %88 = add nsw i64 %87, -1
-  %89 = getelementptr inbounds [12 x { ptr, i64 }], ptr @anon.a2b023d1a4e2834952d16152dce23780.205, i64 0, i64 %88
+  %89 = getelementptr inbounds nuw [12 x { ptr, i64 }], ptr @anon.a2b023d1a4e2834952d16152dce23780.205, i64 0, i64 %88
   %90 = load ptr, ptr %89, align 8, !noalias !9527, !nonnull !4, !align !5, !noundef !4
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load i64, ptr %91, align 8, !noalias !9527, !noundef !4
@@ -43800,7 +43800,7 @@ _ZN4time10formatting9fmt_month17h53a072904e522b88E.exit: ; preds = %61
 
 _ZN4time10formatting23format_number_pad_space17h5fb5a340f37dfe4fE.exit.i.i: ; preds = %146, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i.i.i"
   %165 = phi i64 [ %142, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i.i.i" ], [ %.pre.i.i.i.i.i.i.i, %146 ]
-  %166 = getelementptr inbounds i8, ptr %14, i64 %.2.i.i.i.i
+  %166 = getelementptr inbounds nuw i8, ptr %14, i64 %.2.i.i.i.i
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %168 = load ptr, ptr %167, align 8, !alias.scope !9617, !noalias !9612, !nonnull !4, !noundef !4
   %169 = getelementptr inbounds i8, ptr %168, i64 %165
@@ -43915,7 +43915,7 @@ _ZN4time10formatting23format_number_pad_space17h5fb5a340f37dfe4fE.exit.i.i: ; pr
 
 _ZN4time10formatting22format_number_pad_zero17he6dd209388039d36E.exit.i.i: ; preds = %203, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i10.i.i"
   %222 = phi i64 [ %199, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i10.i.i" ], [ %.pre.i.i.i.i.i12.i.i, %203 ]
-  %223 = getelementptr inbounds i8, ptr %13, i64 %.2.i.i11.i.i
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 %.2.i.i11.i.i
   %224 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %225 = load ptr, ptr %224, align 8, !alias.scope !9662, !noalias !9657, !nonnull !4, !noundef !4
   %226 = getelementptr inbounds i8, ptr %225, i64 %222
@@ -43989,7 +43989,7 @@ _ZN4time10formatting22format_number_pad_zero17he6dd209388039d36E.exit.i.i: ; pre
 
 _ZN4time10formatting22format_number_pad_none17h4ab48a5ed240e92eE.exit.i.i: ; preds = %256, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i18.i.i"
   %260 = phi i64 [ %252, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h9c92780aaf1e7d54E.exit.i18.i.i" ], [ %.pre.i.i.i.i.i20.i.i, %256 ]
-  %261 = getelementptr inbounds i8, ptr %12, i64 %.2.i.i19.i.i
+  %261 = getelementptr inbounds nuw i8, ptr %12, i64 %.2.i.i19.i.i
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %263 = load ptr, ptr %262, align 8, !alias.scope !9691, !noalias !9686, !nonnull !4, !noundef !4
   %264 = getelementptr inbounds i8, ptr %263, i64 %260
@@ -46055,7 +46055,7 @@ define internal fastcc void @_ZN4time10formatting22format_number_pad_zero17h3fa0
 
 51:                                               ; preds = %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit", %38
   %52 = phi i64 [ %34, %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u32$GT$5write17h1fd863dcf43b9be6E.exit" ], [ %.pre.i.i.i.i, %38 ]
-  %53 = getelementptr inbounds i8, ptr %4, i64 %.2.i
+  %53 = getelementptr inbounds nuw i8, ptr %4, i64 %.2.i
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %55 = load ptr, ptr %54, align 8, !alias.scope !10224, !noalias !10219, !nonnull !4, !noundef !4
   %56 = getelementptr inbounds i8, ptr %55, i64 %52
@@ -56468,7 +56468,7 @@ define hidden noundef nonnull ptr @_ZN5typst11foundations3str16captures_to_dict1
   br i1 %or.cond.i, label %53, label %59
 
 53:                                               ; preds = %48
-  %54 = getelementptr inbounds i64, ptr %44, i64 %.0.i
+  %54 = getelementptr inbounds nuw i64, ptr %44, i64 %.0.i
   %55 = load i64, ptr %54, align 8, !noalias !12712, !noundef !4
   %56 = icmp eq i64 %55, 0
   br i1 %56, label %59, label %60
@@ -69832,7 +69832,7 @@ define void @_ZN5typst7realize9behaviour14BehavedBuilder4push17hab9c0e122b758a3a
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  %90 = getelementptr inbounds [0 x { ptr, { { ptr, i64 }, ptr } }], ptr %89, i64 0, i64 %53
+  %90 = getelementptr inbounds nuw [0 x { ptr, { { ptr, i64 }, ptr } }], ptr %89, i64 0, i64 %53
   %91 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %92 = load ptr, ptr %91, align 8, !invariant.load !4, !nonnull !4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
@@ -71573,7 +71573,7 @@ _ZN5typst4util6bitset6BitSet6insert17hcf45db57805834dfE.exit: ; preds = %_ZN5typ
   %113 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %114 = load ptr, ptr %113, align 8, !nonnull !4, !noundef !4
   %115 = shl nuw i64 1, %95
-  %116 = getelementptr inbounds [0 x i64], ptr %114, i64 0, i64 %94
+  %116 = getelementptr inbounds nuw [0 x i64], ptr %114, i64 0, i64 %94
   %117 = load i64, ptr %116, align 8, !noundef !4
   %118 = or i64 %117, %115
   store i64 %118, ptr %116, align 8
@@ -71729,7 +71729,7 @@ _ZN5typst11foundations7content7Content10is_guarded17h981a6d7928681b26E.exit: ; p
   %179 = and i64 %155, 63
   %180 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %181 = load ptr, ptr %180, align 8, !noalias !16041, !nonnull !4, !noundef !4
-  %182 = getelementptr inbounds i64, ptr %181, i64 %175
+  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %175
   %183 = load i64, ptr %182, align 8, !noalias !16041, !noundef !4
   %184 = lshr i64 %183, %179
   %185 = trunc i64 %184 to i1
@@ -71767,7 +71767,7 @@ _ZN5typst4util6bitset6BitSet8contains17hb325b963824d18aaE.exit: ; preds = %191
   %197 = and i64 %155, 63
   %198 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %199 = load ptr, ptr %198, align 8, !noalias !16042, !nonnull !4, !noundef !4
-  %200 = getelementptr inbounds i64, ptr %199, i64 %193
+  %200 = getelementptr inbounds nuw i64, ptr %199, i64 %193
   %201 = load i64, ptr %200, align 8, !noalias !16042, !noundef !4
   %202 = lshr i64 %201, %197
   %.fr = freeze i64 %202
@@ -186841,7 +186841,7 @@ _ZN14regex_automata4util4iter8Searcher7advance17he682d14bc60f8bdeE.exit.i.i: ; p
   br i1 %or.cond.i, label %223, label %288
 
 223:                                              ; preds = %218
-  %224 = getelementptr inbounds i64, ptr %199, i64 %.0.i
+  %224 = getelementptr inbounds nuw i64, ptr %199, i64 %.0.i
   %225 = load i64, ptr %224, align 8, !noalias !39084, !noundef !4
   %226 = icmp eq i64 %225, 0
   br i1 %226, label %288, label %289

@@ -8227,7 +8227,7 @@ if.then.i4:                                       ; preds = %_ZN5folly3f146detai
 cleanup.thread.i:                                 ; preds = %cleanup.i, %if.then.i4
   %hostedOp.0.lcssa.i = phi i8 [ 0, %if.then.i4 ], [ -16, %cleanup.i ]
   %15 = phi i64 [ %and.i37.i, %if.then.i4 ], [ %and.i.i, %cleanup.i ]
-  %control_.i24.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %15, i32 1
+  %control_.i24.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %15, i32 1
   %16 = load i8, ptr %control_.i24.i, align 2, !tbaa !391
   %add.i25.i = add i8 %16, %hostedOp.0.lcssa.i
   store i8 %add.i25.i, ptr %control_.i24.i, align 2, !tbaa !391
@@ -8236,7 +8236,7 @@ cleanup.thread.i:                                 ; preds = %cleanup.i, %if.then
 if.end.i5:                                        ; preds = %if.then.i4, %cleanup.i
   %17 = phi i64 [ %and.i.i, %cleanup.i ], [ %and.i37.i, %if.then.i4 ]
   %index.040.i = phi i64 [ %add.i, %cleanup.i ], [ %hp.coerce0, %if.then.i4 ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %17, i32 2
+  %outboundOverflowCount_.i.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %17, i32 2
   %18 = load i8, ptr %outboundOverflowCount_.i.i, align 1, !tbaa !395
   %cmp.not.i26.i = icmp eq i8 %18, -1
   br i1 %cmp.not.i26.i, label %cleanup.i, label %if.then.i27.i

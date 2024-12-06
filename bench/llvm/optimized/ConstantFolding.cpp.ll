@@ -1874,7 +1874,7 @@ tailrecurse.backedge:                             ; preds = %50, %55, %59, %181
   br i1 %.not160, label %119, label %.loopexit
 
 119:                                              ; preds = %112
-  %120 = getelementptr inbounds i8, ptr %.0134, i64 %118
+  %120 = getelementptr inbounds nuw i8, ptr %.0134, i64 %118
   %121 = trunc i64 %118 to i32
   %122 = sub i32 %.0136, %121
   br label %74, !llvm.loop !9
@@ -1957,7 +1957,7 @@ tailrecurse.backedge:                             ; preds = %50, %55, %59, %181
 157:                                              ; preds = %154
   %158 = trunc i64 %155 to i32
   %159 = sub i32 %.1137223, %158
-  %160 = getelementptr inbounds i8, ptr %.1135224, i64 %155
+  %160 = getelementptr inbounds nuw i8, ptr %.1135224, i64 %155
   %161 = add i64 %.0133225, 1
   %.not158 = icmp eq i64 %161, %.0142
   br i1 %.not158, label %.loopexit, label %.lr.ph227, !llvm.loop !10

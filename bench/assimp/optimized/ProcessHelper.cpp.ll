@@ -1610,7 +1610,7 @@ arrayctor.cont125.thread:                         ; preds = %invoke.cont116
   br label %for.cond164.preheader
 
 new.ctorloop119:                                  ; preds = %invoke.cont116
-  %arrayctor.end120 = getelementptr inbounds %struct.aiFace, ptr %54, i64 %sub.ptr.div.i
+  %arrayctor.end120 = getelementptr inbounds nuw %struct.aiFace, ptr %54, i64 %sub.ptr.div.i
   br label %arrayctor.loop121
 
 arrayctor.loop121:                                ; preds = %arrayctor.loop121, %new.ctorloop119

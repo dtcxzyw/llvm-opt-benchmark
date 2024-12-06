@@ -22483,16 +22483,16 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm15DomTreeNodeBaseIN
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %19, %.split.i.i.i ]
   %25 = shl i64 %.034.i.i.i.i, 1
   %26 = add i64 %25, 2
-  %27 = getelementptr inbounds ptr, ptr %0, i64 %26
+  %27 = getelementptr inbounds nuw ptr, ptr %0, i64 %26
   %28 = or disjoint i64 %25, 1
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
   %.val29.i.i.i.i = load ptr, ptr %27, align 8
   %.val30.i.i.i.i = load ptr, ptr %29, align 8
   %30 = tail call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_16NewGVN6runGVNEvENK3$_1clEPKN4llvm15DomTreeNodeBaseINS2_10BasicBlockEEES7_"(ptr %3, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %30, i64 %28, i64 %26
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i.i
+  %33 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
   store ptr %32, ptr %33, align 8
   %34 = icmp slt i64 %spec.select.i.i.i.i, %23
   br i1 %34, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !312
@@ -22509,9 +22509,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm15DomTreeNodeBaseIN
 39:                                               ; preds = %._crit_edge.i.i.i.i
   %40 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %43, ptr %44, align 8
   br label %45
 
@@ -22531,7 +22531,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm15DomTreeNodeBaseIN
 
 49:                                               ; preds = %.lr.ph.i.i.i.i.i
   %50 = load ptr, ptr %47, align 8
-  %51 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %51 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %50, ptr %51, align 8
   %52 = icmp sgt i64 %.04.i.i.i.i.i, %19
   br i1 %52, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_T2_.exit.i.i.i", !llvm.loop !313
@@ -22545,14 +22545,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm15DomTreeNodeBaseIN
 
 .split15.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_T2_.exit.i.i.i"
   %55 = or disjoint i64 %18, 1
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %37
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %37
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_T2_.exit32.i.i.i", %.split15.lr.ph.i.i.i
   %.0249.i.i.i = phi i64 [ %19, %.split15.lr.ph.i.i.i ], [ %58, %"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_T2_.exit32.i.i.i" ]
   %58 = add nsw i64 %.0249.i.i.i, -1
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %58
+  %59 = getelementptr inbounds nuw ptr, ptr %0, i64 %58
   %60 = load ptr, ptr %59, align 8
   %.not.i.i.i = icmp sgt i64 %.0249.i.i.i, %23
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -22561,9 +22561,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm15DomTreeNodeBaseIN
   %.034.i28.i.i.i = phi i64 [ %spec.select.i31.i.i.i, %"_ZZN12_GLOBAL__N_16NewGVN6runGVNEvENK3$_1clEPKN4llvm15DomTreeNodeBaseINS2_10BasicBlockEEES7_.exit61.i.i.i" ], [ %58, %.split15.i.i.i ]
   %61 = shl i64 %.034.i28.i.i.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %64
   %.val29.i29.i.i.i = load ptr, ptr %63, align 8
   %.val30.i30.i.i.i = load ptr, ptr %65, align 8
   %66 = load ptr, ptr %10, align 8
@@ -23244,9 +23244,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEEjNS
   %410 = load i32, ptr %409, align 4
   %411 = icmp ult i32 %408, %410
   %spec.select.i31.i.i.i = select i1 %411, i64 %64, i64 %62
-  %412 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i31.i.i.i
+  %412 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i31.i.i.i
   %413 = load ptr, ptr %412, align 8
-  %414 = getelementptr inbounds ptr, ptr %0, i64 %.034.i28.i.i.i
+  %414 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i28.i.i.i
   store ptr %413, ptr %414, align 8
   %415 = icmp slt i64 %spec.select.i31.i.i.i, %23
   br i1 %415, label %.lr.ph.i27.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !312
@@ -23669,7 +23669,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEEjNS
 
 628:                                              ; preds = %"_ZZN12_GLOBAL__N_16NewGVN6runGVNEvENK3$_1clEPKN4llvm15DomTreeNodeBaseINS2_10BasicBlockEEES7_.exit.i.i.i"
   %629 = load ptr, ptr %425, align 8
-  %630 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %630 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %629, ptr %630, align 8
   %.not186.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.0249.i.i.i
   br i1 %.not186.i.i.i, label %"_ZSt13__adjust_heapIPPN4llvm15DomTreeNodeBaseINS0_10BasicBlockEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_16NewGVN6runGVNEvE3$_1EEEvT_T0_SE_T1_T2_.exit32.i.i.i", label %.lr.ph.i.i22.i.i.i, !llvm.loop !313
@@ -23702,9 +23702,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEEjNS
   %.034.i.i.i97.i = phi i64 [ %spec.select.i.i.i101.i, %"_ZZN12_GLOBAL__N_16NewGVN6runGVNEvENK3$_1clEPKN4llvm15DomTreeNodeBaseINS2_10BasicBlockEEES7_.exit35.i.i" ], [ 0, %.lr.ph.i5.i ]
   %642 = shl i64 %.034.i.i.i97.i, 1
   %643 = add i64 %642, 2
-  %644 = getelementptr inbounds ptr, ptr %0, i64 %643
+  %644 = getelementptr inbounds nuw ptr, ptr %0, i64 %643
   %645 = or disjoint i64 %642, 1
-  %646 = getelementptr inbounds ptr, ptr %0, i64 %645
+  %646 = getelementptr inbounds nuw ptr, ptr %0, i64 %645
   %.val29.i.i.i98.i = load ptr, ptr %644, align 8
   %.val30.i.i.i99.i = load ptr, ptr %646, align 8
   %647 = load ptr, ptr %10, align 8
@@ -24662,9 +24662,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEEjNS
   %1119 = load i32, ptr %1118, align 4
   %1120 = icmp ult i32 %1117, %1119
   %spec.select.i.i.i101.i = select i1 %1120, i64 %645, i64 %643
-  %1121 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i101.i
+  %1121 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i101.i
   %1122 = load ptr, ptr %1121, align 8
-  %1123 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i97.i
+  %1123 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i97.i
   store ptr %1122, ptr %1123, align 8
   %1124 = icmp slt i64 %spec.select.i.i.i101.i, %640
   br i1 %1124, label %.lr.ph.i.i.i96.i, label %._crit_edge.i.i.i6.i, !llvm.loop !312
@@ -24684,9 +24684,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DomTreeNodeBaseINS_10BasicBlockEEEjNS
 1131:                                             ; preds = %1127
   %1132 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %1133 = or disjoint i64 %1132, 1
-  %1134 = getelementptr inbounds ptr, ptr %0, i64 %1133
+  %1134 = getelementptr inbounds nuw ptr, ptr %0, i64 %1133
   %1135 = load ptr, ptr %1134, align 8
-  %1136 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %1136 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %1135, ptr %1136, align 8
   br label %1137
 
@@ -42533,7 +42533,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPN4llvm5ValueEPNS1
 .split20.i.i.i:                                   ; preds = %.split.i.i.i, %.split20.i.i.i
   %.026.i.i.i = phi i64 [ %21, %.split20.i.i.i ], [ %19, %.split.i.i.i ]
   %21 = add nsw i64 %.026.i.i.i, -1
-  %22 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %21
   %.sroa.02.0.copyload21.i.i.i = load ptr, ptr %22, align 8
   %.sroa.23.0..sroa_idx22.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.23.0.copyload23.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx22.i.i.i, align 8
@@ -43288,8 +43288,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
   %.sroa.0.0.i12.i.i = phi i32 [ %64, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E6doFindIS4_EEPKSB_RKT_.exit.i10.i.i ], [ 0, %12 ], [ 0, %.lr.ph.i.i.i6.i.i ]
   %65 = icmp ult i32 %.sroa.01.0.extract.trunc5.i.i, %.sroa.0.0.i12.i.i
   %spec.select = select i1 %65, i64 %15, i64 %14
-  %66 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %spec.select
-  %67 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %.041
+  %66 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %spec.select
+  %67 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %.041
   %68 = load ptr, ptr %66, align 8
   store ptr %68, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -43314,8 +43314,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
 79:                                               ; preds = %75
   %80 = shl nsw i64 %.0.lcssa, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %81
-  %83 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %.0.lcssa
+  %82 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %81
+  %83 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %.0.lcssa
   %84 = load ptr, ptr %82, align 8
   store ptr %84, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %82, i64 8
@@ -43424,7 +43424,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockESt4pairIjjENS_12DenseMapI
   br i1 %142, label %143, label %"_ZSt11__push_heapIPSt4pairIPN4llvm5ValueEPNS1_10BasicBlockEElS6_N9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsENS1_15MutableArrayRefIS6_EEE3$_0EEEvT_T0_SI_T1_RT2_.exit"
 
 143:                                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK12_GLOBAL__N_16NewGVN10sortPHIOpsEN4llvm15MutableArrayRefISt4pairIPNS4_5ValueEPNS4_10BasicBlockEEEEE3$_0EclIPSB_SB_EEbT_RT0_.exit.i"
-  %144 = getelementptr inbounds %"struct.std::pair.568", ptr %0, i64 %.0139.i
+  %144 = getelementptr inbounds nuw %"struct.std::pair.568", ptr %0, i64 %.0139.i
   %145 = load ptr, ptr %98, align 8
   store ptr %145, ptr %144, align 8
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8

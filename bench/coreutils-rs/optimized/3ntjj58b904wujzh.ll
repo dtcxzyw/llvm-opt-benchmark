@@ -1745,7 +1745,7 @@ _ZN9uu_numfmt6format20round_with_precision17hf29d408b8a5f1e88E.exit.i.i: ; preds
 
 505:                                              ; preds = %_ZN9uu_numfmt6format9div_round17ha67a865b1f440330E.exit.i.i
   %506 = add nsw i64 %.061.i.i, -1
-  %507 = getelementptr inbounds [8 x i8], ptr %20, i64 0, i64 %506
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 0, i64 %506
   %508 = load i8, ptr %507, align 1, !range !227, !noalias !224, !noundef !4
   %.sroa.17.16.insert.ext4.i = zext nneg i8 %508 to i64
   %.sroa.17.17.insert.insert20.i = or disjoint i64 %.0.i.i, %.sroa.17.16.insert.ext4.i

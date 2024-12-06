@@ -2154,8 +2154,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 71:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !422
   %72 = add nsw i64 %1, -1
-  %73 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
-  %74 = getelementptr inbounds { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
+  %73 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %0, i64 %72
+  %74 = getelementptr inbounds nuw { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %72
   %75 = getelementptr { i64, i64, i64, { i32, [2 x i32] }, i8, [3 x i8] }, ptr %4, i64 %7
   %76 = getelementptr i8, ptr %75, i64 -40
   br label %.lr.ph.i.i
@@ -2427,8 +2427,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 57:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !452
   %58 = add nsw i64 %1, -1
-  %59 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 %58
-  %60 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %4, i64 %58
   %61 = getelementptr { i64, i64, i8, [7 x i8] }, ptr %4, i64 %7
   %62 = getelementptr i8, ptr %61, i64 -24
   br label %.lr.ph.i.i
@@ -2695,8 +2695,8 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
 57:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !482
   %58 = add nsw i64 %1, -1
-  %59 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %0, i64 %58
-  %60 = getelementptr inbounds { i64, i64, i8, [7 x i8] }, ptr %4, i64 %58
+  %59 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %0, i64 %58
+  %60 = getelementptr inbounds nuw { i64, i64, i8, [7 x i8] }, ptr %4, i64 %58
   %61 = getelementptr { i64, i64, i8, [7 x i8] }, ptr %4, i64 %7
   %62 = getelementptr i8, ptr %61, i64 -24
   br label %.lr.ph.i.i
@@ -5107,8 +5107,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h05
   call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %106 = getelementptr i8, ptr %87, i64 -136
   %107 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %108 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %107
-  %109 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph.lcssa97, i64 %107
+  %108 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %2, i64 %107
+  %109 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i64, { { i32, i32 }, { i32, i32 } }, { i32, [4 x i32] }, { i32, [4 x i32] } }, ptr %.sroa.0.0.ph.lcssa97, i64 %107
   %110 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %111 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %26, i64 12
@@ -6204,8 +6204,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17h09
 71:                                               ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7), !noalias !1070
   %72 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %73 = getelementptr inbounds { i64, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa85, i64 %72
-  %74 = getelementptr inbounds { i64, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %72
+  %73 = getelementptr inbounds nuw { i64, { { i64, ptr, {} }, i64 } }, ptr %.sroa.0.0.ph.lcssa85, i64 %72
+  %74 = getelementptr inbounds nuw { i64, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %72
   %75 = getelementptr { i64, { { i64, ptr, {} }, i64 } }, ptr %2, i64 %20
   %76 = getelementptr i8, ptr %75, i64 -32
   br label %.lr.ph.i.i
@@ -6346,7 +6346,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h33ffe93b82862a0fE.llvm.51014
 131:                                              ; preds = %13
   %132 = add nsw i32 %.sroa.019.086, -1
   %133 = lshr i64 %.sroa.12.087, 3
-  %.idx.i = shl nsw i64 %133, 7
+  %.idx.i = shl nuw nsw i64 %133, 7
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph94, i64 %.idx.i
   %.idx1.i = mul i64 %133, 224
   %135 = getelementptr inbounds i8, ptr %.sroa.0.0.ph94, i64 %.idx1.i
@@ -6691,8 +6691,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf4
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %27), !noalias !1130
   call void @llvm.experimental.noalias.scope.decl(metadata !1131)
   %54 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %55 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %.sroa.0.0.ph.lcssa91, i64 %54
-  %56 = getelementptr inbounds { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %2, i64 %54
+  %55 = getelementptr inbounds nuw { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %.sroa.0.0.ph.lcssa91, i64 %54
+  %56 = getelementptr inbounds nuw { { [2 x i32], i32, [1 x i32] }, { { { ptr, i64 } }, {}, {} }, i64, i64, { ptr, [1 x i64] }, i64, i64, i8, i8, i8, i8, i8, i8, i8, [1 x i8] }, ptr %2, i64 %54
   %57 = getelementptr i8, ptr %47, i64 -88
   br label %.lr.ph.i.i
 
@@ -10516,7 +10516,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17h34890abf692df031E(ptr noal
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = add nsw i64 %31, -1
-  %34 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %32, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8, !alias.scope !1681, !noalias !1684, !nonnull !4, !align !13, !noundef !4
   %36 = load ptr, ptr %35, align 8, !noalias !1686, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -10547,7 +10547,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17h34890abf692df031E(ptr noal
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %52 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %51, i64 0, i64 %41
+  %52 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %51, i64 0, i64 %41
   %53 = load i64, ptr %0, align 8, !noundef !4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %55 = load i64, ptr %54, align 8, !noundef !4
@@ -10712,7 +10712,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17h34890abf692df031E(ptr noal
   %126 = zext i32 %124 to i64
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = add nsw i64 %126, -1
-  %129 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %127, i64 0, i64 %128
   %130 = load ptr, ptr %129, align 8, !alias.scope !1725, !noalias !1728, !nonnull !4, !align !13, !noundef !4
   %131 = load ptr, ptr %130, align 8, !noalias !1730, !nonnull !4, !noundef !4
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -10753,7 +10753,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17h34890abf692df031E(ptr noal
 
 150:                                              ; preds = %142
   %151 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %152 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %151, i64 0, i64 %136
+  %152 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %151, i64 0, i64 %136
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %154 = load i64, ptr %153, align 8, !noundef !4
   %155 = load i64, ptr %14, align 8, !noundef !4
@@ -10784,7 +10784,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17h34890abf692df031E(ptr noal
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h9aa32a78c719d687E.exit19.thread"
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds i8, ptr %157, i64 %156
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 %156
   %170 = load i8, ptr %169, align 1, !noundef !4
   %171 = icmp sgt i8 %170, -65
   br i1 %171, label %163, label %174

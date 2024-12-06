@@ -4228,7 +4228,7 @@ _ZN14regex_automata3nfa8thompson9backtrack18BoundedBacktracker16max_haystack_len
   br i1 %or.cond.i.i, label %107, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds i64, ptr %101, i64 %.0.i.i
+  %108 = getelementptr inbounds nuw i64, ptr %101, i64 %.0.i.i
   %109 = load i64, ptr %108, align 8, !noalias !906, !noundef !4
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %_ZN14regex_automata4util8captures8Captures9get_match17ha78de418f05c3052E.exit, label %111

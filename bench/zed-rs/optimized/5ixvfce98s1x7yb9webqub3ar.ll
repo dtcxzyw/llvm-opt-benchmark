@@ -2424,7 +2424,7 @@ define internal fastcc noalias noundef ptr @"_ZN8sum_tree16SumTree$LT$T$GT$19pus
   %146 = getelementptr inbounds [0 x { i64, i64, i64 }], ptr %143, i64 0, i64 %145
   %147 = zext i32 %131 to i64
   %148 = add nsw i64 %147, -1
-  %149 = getelementptr inbounds [0 x ptr], ptr %125, i64 0, i64 %148
+  %149 = getelementptr inbounds nuw [0 x ptr], ptr %125, i64 0, i64 %148
   %150 = load ptr, ptr %149, align 8, !nonnull !5, !noundef !5
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 40
   %152 = load i64, ptr %151, align 8, !alias.scope !527, !noalias !530, !noundef !5

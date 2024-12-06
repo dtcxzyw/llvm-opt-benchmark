@@ -17513,7 +17513,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %100, %102
 123:                                              ; preds = %122
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %115, ptr align 1 %.sroa.072.292, i64 %.sroa.373.291, i1 false)
   %124 = load ptr, ptr %35, align 8
-  %125 = getelementptr inbounds i8, ptr %124, i64 %.sroa.373.291
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 %.sroa.373.291
   store ptr %125, ptr %35, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 

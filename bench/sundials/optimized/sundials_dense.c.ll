@@ -1406,7 +1406,7 @@ define noundef i32 @SUNDlsMat_DenseORMQR(ptr nocapture noundef readonly %0, ptr 
   %indvars.iv.i = phi i64 [ %22, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.065.in.i = phi i64 [ %11, %.lr.ph66.preheader.i ], [ %.065.i, %.loopexit.i ]
   %.065.i = add nsw i64 %.065.in.i, -1
-  %24 = getelementptr inbounds ptr, ptr %7, i64 %.065.i
+  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %.065.i
   %25 = load ptr, ptr %24, align 8
   store double 1.000000e+00, ptr %4, align 8
   %26 = getelementptr double, ptr %3, i64 %.065.i
@@ -1436,7 +1436,7 @@ define noundef i32 @SUNDlsMat_DenseORMQR(ptr nocapture noundef readonly %0, ptr 
   br i1 %39, label %.lr.ph63.i, label %.loopexit.i
 
 .lr.ph63.i:                                       ; preds = %._crit_edge.i
-  %40 = getelementptr inbounds double, ptr %1, i64 %.065.i
+  %40 = getelementptr inbounds nuw double, ptr %1, i64 %.065.i
   %41 = load double, ptr %40, align 8
   %42 = fneg double %41
   %43 = fmul double %.049.lcssa.i, %42
@@ -1502,7 +1502,7 @@ define noundef i32 @SUNDlsMat_denseORMQR(ptr nocapture noundef readonly %0, i64 
   %indvars.iv = phi i64 [ %18, %.lr.ph66.preheader ], [ %indvars.iv.next, %.loopexit ]
   %.065.in = phi i64 [ %2, %.lr.ph66.preheader ], [ %.065, %.loopexit ]
   %.065 = add nsw i64 %.065.in, -1
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %.065
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.065
   %21 = load ptr, ptr %20, align 8
   store double 1.000000e+00, ptr %6, align 8
   %22 = getelementptr double, ptr %5, i64 %.065
@@ -1532,7 +1532,7 @@ define noundef i32 @SUNDlsMat_denseORMQR(ptr nocapture noundef readonly %0, i64 
   br i1 %35, label %.lr.ph63, label %.loopexit
 
 .lr.ph63:                                         ; preds = %._crit_edge
-  %36 = getelementptr inbounds double, ptr %3, i64 %.065
+  %36 = getelementptr inbounds nuw double, ptr %3, i64 %.065
   %37 = load double, ptr %36, align 8
   %38 = fneg double %37
   %39 = fmul double %.049.lcssa, %38
@@ -1604,7 +1604,7 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
   %indvars.iv.i = phi i64 [ %22, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.065.in.i = phi i64 [ %11, %.lr.ph66.preheader.i ], [ %.065.i, %.loopexit.i ]
   %.065.i = add nsw i64 %.065.in.i, -1
-  %24 = getelementptr inbounds ptr, ptr %7, i64 %.065.i
+  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %.065.i
   %25 = load ptr, ptr %24, align 8
   store double 1.000000e+00, ptr %4, align 8
   %26 = getelementptr double, ptr %3, i64 %.065.i
@@ -1634,7 +1634,7 @@ define noundef i32 @DenseORMQR(ptr nocapture noundef readonly %0, ptr nocapture 
   br i1 %39, label %.lr.ph63.i, label %.loopexit.i
 
 .lr.ph63.i:                                       ; preds = %._crit_edge.i
-  %40 = getelementptr inbounds double, ptr %1, i64 %.065.i
+  %40 = getelementptr inbounds nuw double, ptr %1, i64 %.065.i
   %41 = load double, ptr %40, align 8
   %42 = fneg double %41
   %43 = fmul double %.049.lcssa.i, %42
@@ -2454,7 +2454,7 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
   %indvars.iv.i = phi i64 [ %18, %.lr.ph66.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.065.in.i = phi i64 [ %2, %.lr.ph66.preheader.i ], [ %.065.i, %.loopexit.i ]
   %.065.i = add nsw i64 %.065.in.i, -1
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %.065.i
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.065.i
   %21 = load ptr, ptr %20, align 8
   store double 1.000000e+00, ptr %6, align 8
   %22 = getelementptr double, ptr %5, i64 %.065.i
@@ -2484,7 +2484,7 @@ define noundef i32 @denseORMQR(ptr nocapture noundef readonly %0, i64 noundef %1
   br i1 %35, label %.lr.ph63.i, label %.loopexit.i
 
 .lr.ph63.i:                                       ; preds = %._crit_edge.i
-  %36 = getelementptr inbounds double, ptr %3, i64 %.065.i
+  %36 = getelementptr inbounds nuw double, ptr %3, i64 %.065.i
   %37 = load double, ptr %36, align 8
   %38 = fneg double %37
   %39 = fmul double %.049.lcssa.i, %38

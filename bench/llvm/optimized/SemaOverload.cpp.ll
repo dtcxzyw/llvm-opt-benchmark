@@ -86724,16 +86724,16 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN5clang21TemplateSpecCandi
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %16, %.split.i.i.i ]
   %22 = shl i64 %.034.i.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %25
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %.val30.i.i.i.i = load ptr, ptr %26, align 8
   %27 = tail call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_(ptr readonly %3, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i)
   %spec.select.i.i.i.i = select i1 %27, i64 %25, i64 %23
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %20
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !477
@@ -86750,9 +86750,9 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN5clang21TemplateSpecCandi
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -86772,7 +86772,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN5clang21TemplateSpecCandi
 
 46:                                               ; preds = %.lr.ph.i.i.i.i.i
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %47, ptr %48, align 8
   %49 = icmp sgt i64 %.04.i.i.i.i.i, %16
   br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit.i.i.i, !llvm.loop !478
@@ -86786,14 +86786,14 @@ _ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Ite
 
 .split15.lr.ph.i.i.i:                             ; preds = %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit.i.i.i
   %52 = or disjoint i64 %15, 1
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %52
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, %.split15.lr.ph.i.i.i
   %.067.i.i.i = phi i64 [ %16, %.split15.lr.ph.i.i.i ], [ %55, %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i ]
   %55 = add nsw i64 %.067.i.i.i, -1
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i = icmp sgt i64 %.067.i.i.i, %20
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i27.i.i.i
@@ -86802,9 +86802,9 @@ _ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Ite
   %.034.i28.i.i.i = phi i64 [ %85, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i ], [ %55, %.split15.i.i.i ]
   %58 = shl i64 %.034.i28.i.i.i, 1
   %59 = add i64 %58, 2
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
   %61 = or disjoint i64 %58, 1
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %.val29.i29.i.i.i = load ptr, ptr %60, align 8
   %.val30.i30.i.i.i = load ptr, ptr %62, align 8
   %63 = icmp eq ptr %.val29.i29.i.i.i, %.val30.i30.i.i.i
@@ -86875,9 +86875,9 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.i.i.i, %82, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i47.i.i.i, %74, %switch.lookup, %.lr.ph.i27.i.i.i
   %85 = phi i64 [ %61, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.thread53.i.i.i ], [ %59, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit50.i.i.i ], [ %59, %switch.lookup ], [ %59, %82 ], [ %59, %.lr.ph.i27.i.i.i ], [ %59, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i47.i.i.i ], [ %59, %74 ]
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %.034.i28.i.i.i
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i28.i.i.i
   store ptr %87, ptr %88, align 8
   %89 = icmp slt i64 %85, %20
   br i1 %89, label %.lr.ph.i27.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !477
@@ -86975,7 +86975,7 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58.i.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i, %112, %switch.lookup86
   %117 = phi ptr [ %.pre.i.i.i, %._ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.thread58_crit_edge.i.i.i ], [ %.val14.i.i26.i.i.i, %112 ], [ %.val14.i.i26.i.i.i, %switch.lookup86 ], [ %.val14.i.i26.i.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit.i.i.i ]
-  %118 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %118 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %117, ptr %118, align 8
   %.not66.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.067.i.i.i
   br i1 %.not66.i.i.i, label %_ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayEEEEvT_T0_SB_T1_T2_.exit32.i.i.i, label %.lr.ph.i.i22.i.i.i, !llvm.loop !478
@@ -87008,9 +87008,9 @@ _ZSt13__adjust_heapIPPN5clang21TemplateSpecCandidateElS2_N9__gnu_cxx5__ops15_Ite
   %.034.i.i.i34.i = phi i64 [ %157, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread.i.i ], [ 0, %.lr.ph.i5.i ]
   %130 = shl i64 %.034.i.i.i34.i, 1
   %131 = add i64 %130, 2
-  %132 = getelementptr inbounds ptr, ptr %0, i64 %131
+  %132 = getelementptr inbounds nuw ptr, ptr %0, i64 %131
   %133 = or disjoint i64 %130, 1
-  %134 = getelementptr inbounds ptr, ptr %0, i64 %133
+  %134 = getelementptr inbounds nuw ptr, ptr %0, i64 %133
   %.val29.i.i.i35.i = load ptr, ptr %132, align 8
   %.val30.i.i.i36.i = load ptr, ptr %134, align 8
   %135 = icmp eq ptr %.val29.i.i.i35.i, %.val30.i.i.i36.i
@@ -87081,9 +87081,9 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 
 _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread.i.i: ; preds = %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread3.i.i, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.i.i, %154, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i22.i.i, %146, %switch.lookup90, %.lr.ph.i.i.i33.i
   %157 = phi i64 [ %133, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.thread3.i.i ], [ %131, %_ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21TemplateSpecCandidateES4_.exit25.i.i ], [ %131, %switch.lookup90 ], [ %131, %154 ], [ %131, %.lr.ph.i.i.i33.i ], [ %131, %_ZL23GetLocationForCandidatePKN5clang21TemplateSpecCandidateE.exit22.i22.i.i ], [ %131, %146 ]
-  %158 = getelementptr inbounds ptr, ptr %0, i64 %157
+  %158 = getelementptr inbounds nuw ptr, ptr %0, i64 %157
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i34.i
+  %160 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i34.i
   store ptr %159, ptr %160, align 8
   %161 = icmp slt i64 %157, %128
   br i1 %161, label %.lr.ph.i.i.i33.i, label %._crit_edge.i.i.i6.i, !llvm.loop !477
@@ -87103,9 +87103,9 @@ _ZN12_GLOBAL__N_139CompareTemplateSpecCandidatesForDisplayclEPKN5clang21Template
 168:                                              ; preds = %164
   %169 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %170 = or disjoint i64 %169, 1
-  %171 = getelementptr inbounds ptr, ptr %0, i64 %170
+  %171 = getelementptr inbounds nuw ptr, ptr %0, i64 %170
   %172 = load ptr, ptr %171, align 8
-  %173 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %173 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %172, ptr %173, align 8
   br label %174
 

@@ -553,21 +553,21 @@ ZSTD_frameHeaderSize_internal.exit:               ; preds = %17, %ZSTD_frameHead
   ]
 
 80:                                               ; preds = %79
-  %81 = getelementptr inbounds i8, ptr %1, i64 %.086
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 %.086
   %82 = load i8, ptr %81, align 1
   %83 = zext i8 %82 to i32
   %84 = add nuw nsw i64 %.086, 1
   br label %92
 
 85:                                               ; preds = %79
-  %86 = getelementptr inbounds i8, ptr %1, i64 %.086
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 %.086
   %.val109 = load i16, ptr %86, align 1
   %87 = zext i16 %.val109 to i32
   %88 = add nuw nsw i64 %.086, 2
   br label %92
 
 89:                                               ; preds = %79
-  %90 = getelementptr inbounds i8, ptr %1, i64 %.086
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 %.086
   %.val103 = load i32, ptr %90, align 1
   %91 = add nuw nsw i64 %.086, 4
   br label %92
@@ -589,26 +589,26 @@ default.unreachable:                              ; preds = %92, %79
   br i1 %.not99, label %107, label %94
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %96 = load i8, ptr %95, align 1
   %97 = zext i8 %96 to i64
   br label %107
 
 98:                                               ; preds = %92
-  %99 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %.val110 = load i16, ptr %99, align 1
   %100 = zext i16 %.val110 to i64
   %101 = add nuw nsw i64 %100, 256
   br label %107
 
 102:                                              ; preds = %92
-  %103 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %.val = load i32, ptr %103, align 1
   %104 = zext i32 %.val to i64
   br label %107
 
 105:                                              ; preds = %92
-  %106 = getelementptr inbounds i8, ptr %1, i64 %.1
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 %.1
   %.val111 = load i64, ptr %106, align 1
   br label %107
 
@@ -2071,7 +2071,7 @@ ZSTD_setRleBlock.exit:                            ; preds = %161, %159, %152, %1
 
 180:                                              ; preds = %177, %171
   %181 = phi i64 [ %.pre168, %177 ], [ %165, %171 ]
-  %182 = getelementptr inbounds i8, ptr %1, i64 %.0131174
+  %182 = getelementptr inbounds nuw i8, ptr %1, i64 %.0131174
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 29888
   store ptr %182, ptr %183, align 8
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 29920

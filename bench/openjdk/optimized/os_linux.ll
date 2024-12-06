@@ -9966,7 +9966,7 @@ define hidden noundef i32 @_ZN2os13get_core_pathEPcm(ptr noundef %0, i64 noundef
 
 14:                                               ; preds = %8
   %15 = add nsw i64 %9, -1
-  %16 = getelementptr inbounds [129 x i8], ptr %3, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [129 x i8], ptr %3, i64 0, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 10
   br i1 %18, label %19, label %20

@@ -11182,7 +11182,7 @@ if.then7:                                         ; preds = %if.end5
   %sub.ptr.lhs.cast.i37 = ptrtoint ptr %op.addr.1 to i64
   %sub.ptr.rhs.cast.i38 = ptrtoint ptr %ip.addr.1 to i64
   %sub.ptr.sub.i39 = sub i64 %sub.ptr.lhs.cast.i37, %sub.ptr.rhs.cast.i38
-  %add.ptr.i40 = getelementptr inbounds i8, ptr %op.addr.1, i64 %length.addr.0
+  %add.ptr.i40 = getelementptr inbounds nuw i8, ptr %op.addr.1, i64 %length.addr.0
   %cmp1.i56 = icmp slt i64 %sub.ptr.sub.i39, 16
   %or.cond = select i1 %cmp3, i1 %cmp1.i56, i1 false
   br i1 %or.cond, label %do.body.i58, label %if.else.i42

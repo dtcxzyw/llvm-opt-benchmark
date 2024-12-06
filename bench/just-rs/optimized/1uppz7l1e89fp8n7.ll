@@ -406,7 +406,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17ha1828de0215e32b7E.exit
   br i1 %or.cond.i.i, label %102, label %_ZN14regex_automata4util8captures8Captures9get_match17h97cfbafd45e73072E.exit
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds i64, ptr %94, i64 %.0.i.i
+  %103 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i
   %104 = load i64, ptr %103, align 8, !noalias !45, !noundef !4
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %_ZN14regex_automata4util8captures8Captures9get_match17h97cfbafd45e73072E.exit, label %106
@@ -10682,7 +10682,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h4b557bb0d1a0168cE.exit.i: 
   br i1 %or.cond.i.i, label %346, label %351
 
 346:                                              ; preds = %341
-  %347 = getelementptr inbounds i64, ptr %338, i64 %.0.i.i
+  %347 = getelementptr inbounds nuw i64, ptr %338, i64 %.0.i.i
   %348 = load i64, ptr %347, align 8, !noalias !2530, !noundef !4
   %349 = icmp eq i64 %348, 0
   br i1 %349, label %351, label %352

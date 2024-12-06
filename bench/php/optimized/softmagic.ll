@@ -3326,7 +3326,7 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
 
 106:                                              ; preds = %102
   %107 = add nsw i64 %spec.select, -1
-  %108 = getelementptr inbounds i8, ptr %5, i64 %107
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 %107
   %109 = load i8, ptr %108, align 1
   %110 = sub nsw i64 0, %spec.select
   %111 = getelementptr inbounds i8, ptr %94, i64 %110
@@ -3350,7 +3350,7 @@ define internal fastcc i32 @magiccheck(ptr noundef %0, ptr noundef %1) unnamed_a
   br i1 %.not386, label %file_strncmp16.exit, label %121
 
 121:                                              ; preds = %117
-  %122 = getelementptr inbounds i8, ptr %120, i64 %107
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 %107
   %123 = load i8, ptr %122, align 1
   %124 = icmp eq i8 %109, %123
   br i1 %124, label %125, label %127

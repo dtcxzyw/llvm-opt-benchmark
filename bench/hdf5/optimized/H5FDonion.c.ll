@@ -2328,7 +2328,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   br label %163
 
 78:                                               ; preds = %67
-  %79 = getelementptr inbounds i8, ptr %28, i64 %.0140
+  %79 = getelementptr inbounds nuw i8, ptr %28, i64 %.0140
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %79, ptr align 1 %.0145171, i64 %62, i1 false)
   br label %80
 
@@ -2417,7 +2417,7 @@ define internal range(i32 -1, 1) i32 @H5FD__onion_write(ptr noundef %0, i32 noun
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph169.preheader, %._crit_edge, %96
-  %126 = getelementptr inbounds i8, ptr %28, i64 %.0140
+  %126 = getelementptr inbounds nuw i8, ptr %28, i64 %.0140
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %126, ptr align 1 %.0145171, i64 %62, i1 false)
   br label %127
 

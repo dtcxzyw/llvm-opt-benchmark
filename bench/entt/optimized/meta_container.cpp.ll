@@ -100786,7 +100786,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit79: ; preds = %if.then.i78, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1181
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1761
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1766
@@ -109300,7 +109300,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !83
-  %add.ptr37 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !86
   %add.ptr40 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !85
@@ -121750,7 +121750,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt5dequeIiSaIiEE
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds i32, ptr %13, i64 %add12.i
+  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %13, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -125993,7 +125993,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt15_Deque_itera
   br i1 %cmp2.i.i, label %if.then.i.i61, label %cond.true.i.i
 
 if.then.i.i61:                                    ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i62 = getelementptr inbounds i32, ptr %18, i64 %add12.i
+  %add.ptr.i.i62 = getelementptr inbounds nuw i32, ptr %18, i64 %add12.i
   br label %_ZStplRKSt15_Deque_iteratorIiRiPiEl.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i

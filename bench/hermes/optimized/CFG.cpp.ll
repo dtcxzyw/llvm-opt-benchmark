@@ -7381,7 +7381,7 @@ if.then:                                          ; preds = %while.body
 if.end9.split.i.i:                                ; preds = %if.then, %if.end9.split.i.i
   %__parent.021.i.i = phi i64 [ %dec.i.i, %if.end9.split.i.i ], [ %div19.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.021.i.i, -1
-  %add.ptr14.i.i = getelementptr inbounds %"class.llvh::cfg::Update", ptr %__first, i64 %dec.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw %"class.llvh::cfg::Update", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload15.i.i = load ptr, ptr %add.ptr14.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i.i, i64 8
   %__value.sroa.2.0.copyload17.i.i = load i64, ptr %__value.sroa.2.0.add.ptr.sroa_idx16.i.i, align 8
@@ -24979,7 +24979,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_T0_SK_T1_T2_.exit59.us
   %__parent.064.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_T0_SK_T1_T2_.exit59.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.064.us, -1
-  %add.ptr10.us = getelementptr inbounds ptr, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.us
   %11 = load ptr, ptr %add.ptr10.us, align 8
   %cmp23.i14.not.us = icmp sgt i64 %__parent.064.us, %div.i6062
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_T0_SK_T1_T2_.exit59.us, label %while.body.i45.us
@@ -25042,7 +25042,7 @@ _ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_T0_SK_T1_T2_.exit59
   %__parent.064 = phi i64 [ %dec, %_ZSt13__adjust_heapIPPN4llvh15DomTreeNodeBaseIN6hermes10BasicBlockEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS3_Lb0EEEE16VerifyDFSNumbersERKSD_EUlS5_S5_E_EEEvT_T0_SK_T1_T2_.exit59 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.064, -1
-  %add.ptr10 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %20 = load ptr, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.064, %div.i6062
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i45

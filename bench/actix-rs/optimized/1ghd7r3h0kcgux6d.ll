@@ -1267,7 +1267,7 @@ define hidden void @"_ZN6brotli3enc10prior_eval22PriorEval$LT$Alloc$GT$16update_
 
 61:                                               ; preds = %56
   %62 = add nsw i64 %49, -1
-  %63 = getelementptr inbounds [0 x i16], ptr %57, i64 0, i64 %62
+  %63 = getelementptr inbounds nuw [0 x i16], ptr %57, i64 0, i64 %62
   %64 = load i16, ptr %63, align 2, !noalias !280, !noundef !12
   %65 = sub i16 %59, %64
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit
@@ -1523,7 +1523,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit: ; preds = %89, %
 
 199:                                              ; preds = %192
   %200 = add nsw i64 %195, -1
-  %201 = getelementptr inbounds [0 x i16], ptr %193, i64 0, i64 %200
+  %201 = getelementptr inbounds nuw [0 x i16], ptr %193, i64 0, i64 %200
   %202 = load i16, ptr %201, align 2, !noalias !286, !noundef !12
   %203 = sub i16 %197, %202
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit101
@@ -1777,7 +1777,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit144: ; preds = %22
 
 333:                                              ; preds = %329
   %334 = add nsw i64 %49, -1
-  %335 = getelementptr inbounds [0 x i16], ptr %330, i64 0, i64 %334
+  %335 = getelementptr inbounds nuw [0 x i16], ptr %330, i64 0, i64 %334
   %336 = load i16, ptr %335, align 2, !noalias !292, !noundef !12
   %337 = sub i16 %332, %336
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit103
@@ -1898,7 +1898,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit159: ; preds = %_Z
 
 401:                                              ; preds = %397
   %402 = add nsw i64 %195, -1
-  %403 = getelementptr inbounds [0 x i16], ptr %398, i64 0, i64 %402
+  %403 = getelementptr inbounds nuw [0 x i16], ptr %398, i64 0, i64 %402
   %404 = load i16, ptr %403, align 2, !noalias !298, !noundef !12
   %405 = sub i16 %400, %404
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit105
@@ -2026,7 +2026,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit174: ; preds = %_Z
 
 474:                                              ; preds = %470
   %475 = add nsw i64 %49, -1
-  %476 = getelementptr inbounds [0 x i16], ptr %471, i64 0, i64 %475
+  %476 = getelementptr inbounds nuw [0 x i16], ptr %471, i64 0, i64 %475
   %477 = load i16, ptr %476, align 2, !noalias !304, !noundef !12
   %478 = sub i16 %473, %477
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit107
@@ -2267,7 +2267,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189: ; preds = %49
 
 599:                                              ; preds = %_ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit189
   %600 = add nsw i64 %195, -1
-  %601 = getelementptr inbounds [0 x i16], ptr %595, i64 0, i64 %600
+  %601 = getelementptr inbounds nuw [0 x i16], ptr %595, i64 0, i64 %600
   %602 = load i16, ptr %601, align 2, !noalias !310, !noundef !12
   %603 = sub i16 %597, %602
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit109
@@ -2519,7 +2519,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit204: ; preds = %62
 
 734:                                              ; preds = %730
   %735 = add nsw i64 %49, -1
-  %736 = getelementptr inbounds [0 x i16], ptr %731, i64 0, i64 %735
+  %736 = getelementptr inbounds nuw [0 x i16], ptr %731, i64 0, i64 %735
   %737 = load i16, ptr %736, align 2, !noalias !316, !noundef !12
   %738 = sub i16 %733, %737
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit111
@@ -2776,7 +2776,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit219: ; preds = %76
 
 873:                                              ; preds = %869
   %874 = add nsw i64 %195, -1
-  %875 = getelementptr inbounds [0 x i16], ptr %870, i64 0, i64 %874
+  %875 = getelementptr inbounds nuw [0 x i16], ptr %870, i64 0, i64 %874
   %876 = load i16, ptr %875, align 2, !noalias !322, !noundef !12
   %877 = sub i16 %872, %876
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit113
@@ -3036,7 +3036,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit234: ; preds = %89
 
 1013:                                             ; preds = %1009
   %1014 = add nsw i64 %49, -1
-  %1015 = getelementptr inbounds [0 x i16], ptr %1010, i64 0, i64 %1014
+  %1015 = getelementptr inbounds nuw [0 x i16], ptr %1010, i64 0, i64 %1014
   %1016 = load i16, ptr %1015, align 2, !noalias !328, !noundef !12
   %1017 = sub i16 %1012, %1016
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit115
@@ -3287,7 +3287,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit249: ; preds = %10
 
 1146:                                             ; preds = %1142
   %1147 = add nsw i64 %195, -1
-  %1148 = getelementptr inbounds [0 x i16], ptr %1143, i64 0, i64 %1147
+  %1148 = getelementptr inbounds nuw [0 x i16], ptr %1143, i64 0, i64 %1147
   %1149 = load i16, ptr %1148, align 2, !noalias !334, !noundef !12
   %1150 = sub i16 %1145, %1149
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit117
@@ -3544,7 +3544,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit264: ; preds = %11
 
 1283:                                             ; preds = %1279
   %1284 = add nsw i64 %49, -1
-  %1285 = getelementptr inbounds [0 x i16], ptr %1280, i64 0, i64 %1284
+  %1285 = getelementptr inbounds nuw [0 x i16], ptr %1280, i64 0, i64 %1284
   %1286 = load i16, ptr %1285, align 2, !noalias !340, !noundef !12
   %1287 = sub i16 %1282, %1286
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit119
@@ -3795,7 +3795,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit279: ; preds = %13
 
 1416:                                             ; preds = %1412
   %1417 = add nsw i64 %195, -1
-  %1418 = getelementptr inbounds [0 x i16], ptr %1413, i64 0, i64 %1417
+  %1418 = getelementptr inbounds nuw [0 x i16], ptr %1413, i64 0, i64 %1417
   %1419 = load i16, ptr %1418, align 2, !noalias !346, !noundef !12
   %1420 = sub i16 %1415, %1419
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit121
@@ -4052,7 +4052,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit294: ; preds = %14
 
 1553:                                             ; preds = %1549
   %1554 = add nsw i64 %49, -1
-  %1555 = getelementptr inbounds [0 x i16], ptr %1550, i64 0, i64 %1554
+  %1555 = getelementptr inbounds nuw [0 x i16], ptr %1550, i64 0, i64 %1554
   %1556 = load i16, ptr %1555, align 2, !noalias !352, !noundef !12
   %1557 = sub i16 %1552, %1556
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit123
@@ -4303,7 +4303,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit309: ; preds = %15
 
 1686:                                             ; preds = %1682
   %1687 = add nsw i64 %195, -1
-  %1688 = getelementptr inbounds [0 x i16], ptr %1683, i64 0, i64 %1687
+  %1688 = getelementptr inbounds nuw [0 x i16], ptr %1683, i64 0, i64 %1687
   %1689 = load i16, ptr %1688, align 2, !noalias !358, !noundef !12
   %1690 = sub i16 %1685, %1689
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit125
@@ -4557,7 +4557,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit324: ; preds = %17
 
 1820:                                             ; preds = %1816
   %1821 = add nsw i64 %49, -1
-  %1822 = getelementptr inbounds [0 x i16], ptr %1817, i64 0, i64 %1821
+  %1822 = getelementptr inbounds nuw [0 x i16], ptr %1817, i64 0, i64 %1821
   %1823 = load i16, ptr %1822, align 2, !noalias !364, !noundef !12
   %1824 = sub i16 %1819, %1823
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit127
@@ -4806,7 +4806,7 @@ _ZN6brotli3enc10prior_eval3CDF6update17h53c722722faf32afE.exit339: ; preds = %18
 
 1951:                                             ; preds = %1947
   %1952 = add nsw i64 %195, -1
-  %1953 = getelementptr inbounds [0 x i16], ptr %1948, i64 0, i64 %1952
+  %1953 = getelementptr inbounds nuw [0 x i16], ptr %1948, i64 0, i64 %1952
   %1954 = load i16, ptr %1953, align 2, !noalias !370, !noundef !12
   %1955 = sub i16 %1950, %1954
   br label %_ZN6brotli3enc10prior_eval3CDF4cost17h6549c3e4cf6c4138E.exit129

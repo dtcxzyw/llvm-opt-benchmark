@@ -354,7 +354,7 @@ for.cond:                                         ; preds = %for.body, %if.then4
 
 for.body:                                         ; preds = %for.cond
   %i.0 = add nsw i64 %i.0.in, -1
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %15, i64 %i.0
+  %arrayidx = getelementptr inbounds nuw %union.TValue, ptr %15, i64 %i.0
   %16 = load i64, ptr %arrayidx, align 8
   %cmp49 = icmp eq i64 %16, -1
   br i1 %cmp49, label %for.cond, label %land.lhs.true, !llvm.loop !6

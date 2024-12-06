@@ -9135,7 +9135,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29: ; preds = %35
   %68 = phi i64 [ %69, %.noexc38 ], [ 32, %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit" ]
   %69 = add nsw i64 %68, -1
   store i64 %69, ptr %5, align 8, !alias.scope !1596
-  %70 = getelementptr inbounds [32 x { ptr, ptr }], ptr %4, i64 0, i64 %69
+  %70 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %4, i64 0, i64 %69
   %71 = load ptr, ptr %70, align 8, !alias.scope !1596, !nonnull !5, !align !45, !noundef !5
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !alias.scope !1596, !noundef !5
@@ -9211,7 +9211,7 @@ _ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE.exit: ; preds = %
   %92 = phi i64 [ %93, %.noexc51 ], [ %90, %.preheader.i46 ]
   %93 = add nsw i64 %92, -1
   store i64 %93, ptr %5, align 8, !alias.scope !1599
-  %94 = getelementptr inbounds [32 x { ptr, ptr }], ptr %4, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %4, i64 0, i64 %93
   %95 = load ptr, ptr %94, align 8, !alias.scope !1599, !nonnull !5, !align !45, !noundef !5
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load ptr, ptr %96, align 8, !alias.scope !1599, !noundef !5

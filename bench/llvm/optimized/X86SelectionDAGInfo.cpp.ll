@@ -414,7 +414,7 @@ _ZNK4llvm3EVT13getSizeInBitsEv.exit12.i.i:        ; preds = %77, %_ZNK4llvm3EVTe
   %91 = mul nuw i64 %85, %.sink
   %92 = zext nneg i16 %90 to i64
   %93 = add nsw i64 %92, -1
-  %94 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %93
+  %94 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %93
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %94, align 16
   %95 = icmp ugt i64 %.sroa.0.0.copyload.i.i.i.i, 8
   br i1 %95, label %96, label %_ZNK4llvm3EVT6bitsGTES0_.exit.thread
@@ -1130,7 +1130,7 @@ _ZL21getOptimalRepmovsTypeRKN4llvm12X86SubtargetENS_5AlignE.exit.i: ; preds = %1
   %.sroa.01.0.i.i = phi i16 [ %103, %100 ], [ 7, %99 ], [ 6, %98 ], [ 5, %95 ]
   %104 = zext nneg i16 %.sroa.01.0.i.i to i64
   %105 = add nsw i64 %104, -1
-  %106 = getelementptr inbounds [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %105
+  %106 = getelementptr inbounds nuw [240 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %105
   %.sroa.0.0.copyload.i.i30 = load i64, ptr %106, align 16
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %106, i64 8
   %.sroa.2.0.copyload.i.i = load i8, ptr %.sroa.2.0..sroa_idx.i.i, align 8

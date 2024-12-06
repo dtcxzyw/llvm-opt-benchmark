@@ -1201,7 +1201,7 @@ sw.default.i:                                     ; preds = %if.end.i
 
 costatus.exit:                                    ; preds = %sw.default.i, %cleanup.i, %if.end.i, %lor.end
   %retval.1.i = phi i64 [ 3, %sw.default.i ], [ %retval.0.i, %cleanup.i ], [ 0, %lor.end ], [ 1, %if.end.i ]
-  %arrayidx = getelementptr inbounds [4 x ptr], ptr @statnames, i64 0, i64 %retval.1.i
+  %arrayidx = getelementptr inbounds nuw [4 x ptr], ptr @statnames, i64 0, i64 %retval.1.i
   %0 = load ptr, ptr %arrayidx, align 8, !tbaa !10
   call void @lua_pushstring(ptr noundef %L, ptr noundef %0) #8
   ret i32 1

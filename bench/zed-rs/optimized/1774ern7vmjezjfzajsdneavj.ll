@@ -12438,7 +12438,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$alloc..vec..splice..Splice$
   %35 = load ptr, ptr %34, align 8, !noalias !3828, !nonnull !4, !noundef !4
   %36 = ptrtoint ptr %35 to i64
   %37 = sub nuw i64 %31, %36
-  %38 = getelementptr inbounds i8, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw i8, ptr %35, i64 %37
   invoke void @"_ZN4core3ptr59drop_in_place$LT$$u5b$vim..state..ReplayableAction$u5d$$GT$17h4cf1313f3469d3f0E.llvm.16203528845727909344"(ptr noalias noundef nonnull align 8 %38, i64 noundef %33)
           to label %39 unwind label %27, !noalias !3828
 
@@ -88486,7 +88486,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %32 = load ptr, ptr %31, align 8, !noalias !35378, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %28, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr59drop_in_place$LT$$u5b$vim..state..ReplayableAction$u5d$$GT$17h4cf1313f3469d3f0E.llvm.16203528845727909344"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24, !noalias !35378
 
@@ -111489,7 +111489,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %31 = load ptr, ptr %30, align 8, !nonnull !4, !noundef !4
   %32 = ptrtoint ptr %31 to i64
   %33 = sub nuw i64 %7, %32
-  %34 = getelementptr inbounds i8, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 %33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !40049)
   br label %.lr.ph.i
 
@@ -111701,7 +111701,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %30 = load ptr, ptr %29, align 8, !nonnull !4, !noundef !4
   %31 = ptrtoint ptr %30 to i64
   %32 = sub nuw i64 %6, %31
-  %33 = getelementptr inbounds i8, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
   br label %34
 
 34:                                               ; preds = %36, %28
@@ -111823,7 +111823,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %28, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr59drop_in_place$LT$$u5b$vim..state..ReplayableAction$u5d$$GT$17h4cf1313f3469d3f0E.llvm.16203528845727909344"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24
 

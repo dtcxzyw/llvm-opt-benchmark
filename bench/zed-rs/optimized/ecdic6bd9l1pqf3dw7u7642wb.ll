@@ -335,7 +335,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 18:                                               ; preds = %15
   %19 = zext i32 %17 to i64
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %9, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %9, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !alias.scope !20, !noalias !14, !nonnull !4, !align !21, !noundef !4
   %23 = load ptr, ptr %22, align 8, !noalias !22, !nonnull !4, !noundef !4
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -368,7 +368,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 192
-  %40 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
+  %40 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
   %41 = load i64, ptr %40, align 8, !range !24, !noalias !5, !noundef !4
   %trunc.i = trunc nuw i64 %41 to i1
   br i1 %trunc.i, label %51, label %43
@@ -13962,7 +13962,7 @@ _ZN8language17language_registry16LanguageRegistry7version17hdaa9745d0c55e7b2E.ex
 96:                                               ; preds = %94
   %97 = zext i32 %95 to i64
   %98 = add nsw i64 %97, -1
-  %99 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %81, i64 0, i64 %98
+  %99 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %81, i64 0, i64 %98
   %100 = load ptr, ptr %99, align 8, !alias.scope !2354, !noalias !2357, !nonnull !4, !align !21, !noundef !4
   %101 = load ptr, ptr %100, align 8, !noalias !2360, !nonnull !4, !noundef !4
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
@@ -14001,7 +14001,7 @@ _ZN8language17language_registry16LanguageRegistry7version17hdaa9745d0c55e7b2E.ex
 
 117:                                              ; preds = %114
   %118 = getelementptr inbounds nuw i8, ptr %101, i64 192
-  %119 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %118, i64 0, i64 %107
+  %119 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %118, i64 0, i64 %107
   %120 = load i64, ptr %119, align 8, !range !24, !noundef !4
   %trunc.i = trunc nuw i64 %120 to i1
   br i1 %trunc.i, label %121, label %.invoke.i
@@ -27328,7 +27328,7 @@ define internal fastcc void @_ZN8language6buffer12BufferChunks31initialize_diagn
   %92 = zext i32 %90 to i64
   %93 = getelementptr inbounds nuw i8, ptr %75, i64 272
   %94 = add nsw i64 %92, -1
-  %95 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %93, i64 0, i64 %94
+  %95 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %93, i64 0, i64 %94
   %96 = load ptr, ptr %95, align 8, !alias.scope !5149, !noalias !5150, !nonnull !4, !align !21, !noundef !4
   %97 = load ptr, ptr %96, align 8, !noalias !5154, !nonnull !4, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4480
@@ -27368,7 +27368,7 @@ define internal fastcc void @_ZN8language6buffer12BufferChunks31initialize_diagn
 
 114:                                              ; preds = %109
   %115 = getelementptr inbounds nuw i8, ptr %97, i64 24
-  %116 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %115, i64 0, i64 %104
+  %116 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %115, i64 0, i64 %104
   %117 = getelementptr inbounds nuw i8, ptr %75, i64 544
   %118 = load i8, ptr %117, align 8, !range !10, !alias.scope !5143, !noalias !5155, !noundef !4
   %119 = trunc nuw i8 %118 to i1
@@ -29311,7 +29311,7 @@ define internal fastcc void @_ZN8language10syntax_map9SyntaxMap11interpolate17h7
 175:                                              ; preds = %173
   %176 = zext i32 %174 to i64
   %177 = add nsw i64 %176, -1
-  %178 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %132, i64 0, i64 %177
+  %178 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %132, i64 0, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 168
   %180 = load ptr, ptr %179, align 8, !alias.scope !5455, !noalias !5458, !nonnull !4, !align !21, !noundef !4
   %181 = load ptr, ptr %180, align 8, !noalias !5461, !nonnull !4, !noundef !4
@@ -29387,7 +29387,7 @@ define internal fastcc void @_ZN8language10syntax_map9SyntaxMap11interpolate17h7
 205:                                              ; preds = %203
   %206 = zext i32 %204 to i64
   %207 = add nsw i64 %206, -1
-  %208 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %132, i64 0, i64 %207
+  %208 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %132, i64 0, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 168
   %210 = load ptr, ptr %209, align 8, !alias.scope !5462, !noalias !5465, !nonnull !4, !align !21, !noundef !4
   %211 = load ptr, ptr %210, align 8, !noalias !5468, !nonnull !4, !noundef !4
@@ -29443,7 +29443,7 @@ define internal fastcc void @_ZN8language10syntax_map9SyntaxMap11interpolate17h7
 
 232:                                              ; preds = %223
   %233 = getelementptr inbounds nuw i8, ptr %211, i64 192
-  %234 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %233, i64 0, i64 %217
+  %234 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %233, i64 0, i64 %217
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !5337
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 24
   invoke void @_ZN4text14BufferSnapshot18summary_for_anchor17h7fb917d8c8519edeE(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %235)
@@ -30878,7 +30878,7 @@ _ZN4core10intrinsics10typed_swap17h82f2bae3ce00a206E.llvm.8558902862996176100.ex
 638:                                              ; preds = %636
   %639 = zext i32 %637 to i64
   %640 = add nsw i64 %639, -1
-  %641 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %640
+  %641 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %640
   %642 = getelementptr inbounds nuw i8, ptr %641, i64 168
   %643 = load ptr, ptr %642, align 8, !alias.scope !5590, !noalias !5593, !nonnull !4, !align !21, !noundef !4
   %644 = load ptr, ptr %643, align 8, !noalias !5595, !nonnull !4, !noundef !4
@@ -31789,7 +31789,7 @@ _ZN8language10syntax_map15ChangeRegionSet14start_position17h4840c11c1113cf00E.ex
 943:                                              ; preds = %941
   %944 = zext i32 %942 to i64
   %945 = add nsw i64 %944, -1
-  %946 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %945
+  %946 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %945
   %947 = getelementptr inbounds nuw i8, ptr %946, i64 168
   %948 = load ptr, ptr %947, align 8, !alias.scope !5895, !noalias !5898, !nonnull !4, !align !21, !noundef !4
   %949 = load ptr, ptr %948, align 8, !noalias !5900, !nonnull !4, !noundef !4
@@ -31835,7 +31835,7 @@ _ZN8language10syntax_map15ChangeRegionSet14start_position17h4840c11c1113cf00E.ex
 
 966:                                              ; preds = %961
   %967 = getelementptr inbounds nuw i8, ptr %949, i64 192
-  %968 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %967, i64 0, i64 %955
+  %968 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %967, i64 0, i64 %955
   %.val271 = load ptr, ptr %.sroa.4108.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.val272 = load i64, ptr %.sroa.5109.0..sroa_idx, align 8, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !5901)
@@ -32510,7 +32510,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
 1186:                                             ; preds = %1184
   %1187 = zext i32 %1185 to i64
   %1188 = add nsw i64 %1187, -1
-  %1189 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %1188
+  %1189 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, i64, i8, [7 x i8] }, ptr, i64 }], ptr %311, i64 0, i64 %1188
   %1190 = getelementptr inbounds nuw i8, ptr %1189, i64 168
   %1191 = load ptr, ptr %1190, align 8, !alias.scope !6065, !noalias !6068, !nonnull !4, !align !21, !noundef !4
   %1192 = load ptr, ptr %1191, align 8, !noalias !6070, !nonnull !4, !noundef !4
@@ -32548,7 +32548,7 @@ _ZN8language10syntax_map15ChangeRegionSet6insert17hfe6dd29739df7f24E.exit: ; pre
 
 1207:                                             ; preds = %1204
   %1208 = getelementptr inbounds nuw i8, ptr %1192, i64 192
-  %1209 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %1208, i64 0, i64 %1198
+  %1209 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %1208, i64 0, i64 %1198
   %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 24
   %1211 = invoke noundef i64 @"_ZN55_$LT$text..anchor..Anchor$u20$as$u20$text..ToOffset$GT$9to_offset17h7c2ea2ffd4c1136cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %1210, ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1)
           to label %.noexc357 unwind label %.loopexit926

@@ -10856,7 +10856,7 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit: ; pre
   unreachable
 
 _ZN6brotli3enc9histogram16HistogramAddItem17hca292cd7d5eaea54E.exit: ; preds = %68
-  %74 = getelementptr inbounds [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %16, i64 0, i64 %.sroa.676.1
+  %74 = getelementptr inbounds nuw [0 x { [704 x i32], i64, float, [1 x i32] }], ptr %16, i64 0, i64 %.sroa.676.1
   %75 = getelementptr inbounds nuw [0 x i32], ptr %74, i64 0, i64 %71
   %76 = load i32, ptr %75, align 4, !alias.scope !1384, !noundef !4
   %77 = add i32 %76, 1
@@ -10915,7 +10915,7 @@ _ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67.us: 
   br i1 %102, label %103, label %.split218.us, !prof !648
 
 103:                                              ; preds = %100
-  %104 = getelementptr inbounds [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %14, i64 0, i64 %.sroa.6.2.us
+  %104 = getelementptr inbounds nuw [0 x { [256 x i32], i64, float, [1 x i32] }], ptr %14, i64 0, i64 %.sroa.6.2.us
   %105 = getelementptr inbounds [0 x i8], ptr %6, i64 0, i64 %101
   %106 = load i8, ptr %105, align 1, !noundef !4
   %107 = zext i8 %106 to i64
@@ -11131,7 +11131,7 @@ _ZN6brotli3enc9histogram16HistogramAddItem17h79b1c7dce9230d37E.exit: ; preds = %
 
 204:                                              ; preds = %_ZN6brotli3enc9histogram22BlockSplitIteratorNext17h2e0c62248f9ee554E.exit67
   %205 = shl nuw nsw i64 %.sroa.6.2, 6
-  %206 = getelementptr inbounds [0 x i8], ptr %12, i64 0, i64 %.sroa.6.2
+  %206 = getelementptr inbounds nuw [0 x i8], ptr %12, i64 0, i64 %.sroa.6.2
   %207 = load i8, ptr %206, align 1, !range !166, !noundef !4
   switch i8 %207, label %default.unreachable [
     i8 0, label %208

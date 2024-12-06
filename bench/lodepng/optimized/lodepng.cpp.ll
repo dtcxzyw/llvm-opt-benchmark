@@ -3215,7 +3215,7 @@ for.cond166.preheader.i.i:                        ; preds = %for.inc163.i.i
 land.rhs.i.i:                                     ; preds = %while.cond90.preheader.i.i, %while.body101.i.i
   %add93336.i.i = phi i64 [ %add93.i.i, %while.body101.i.i ], [ %add92.i.i, %while.cond90.preheader.i.i ]
   %j.0335.i.i = phi i32 [ %inc102.i.i, %while.body101.i.i ], [ 0, %while.cond90.preheader.i.i ]
-  %arrayidx98.i.i = getelementptr inbounds i32, ptr %call.i191.i.i, i64 %add93336.i.i
+  %arrayidx98.i.i = getelementptr inbounds nuw i32, ptr %call.i191.i.i, i64 %add93336.i.i
   %125 = load i32, ptr %arrayidx98.i.i, align 4
   %cmp100.i.i = icmp eq i32 %125, %124
   br i1 %cmp100.i.i, label %while.body101.i.i, label %while.end.i.i

@@ -7210,7 +7210,7 @@ define hidden noundef ptr @_ZN8language6buffer6Buffer11language_at17h723be896cf9
 39:                                               ; preds = %37
   %40 = zext i32 %38 to i64
   %41 = add nsw i64 %40, -1
-  %42 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %31, i64 0, i64 %41
+  %42 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %31, i64 0, i64 %41
   %43 = load ptr, ptr %42, align 8, !alias.scope !1235, !noalias !1221, !nonnull !30, !align !64, !noundef !30
   %44 = load ptr, ptr %43, align 8, !noalias !1236, !nonnull !30, !noundef !30
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -7247,7 +7247,7 @@ define hidden noundef ptr @_ZN8language6buffer6Buffer11language_at17h723be896cf9
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %44, i64 192
-  %61 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %60, i64 0, i64 %50
+  %61 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %60, i64 0, i64 %50
   %62 = load i64, ptr %61, align 8, !range !325, !noalias !1237, !noundef !30
   %trunc.i.i.i = trunc nuw i64 %62 to i1
   br i1 %trunc.i.i.i, label %74, label %63

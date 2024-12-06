@@ -10794,7 +10794,7 @@ if.else.i.i:                                      ; preds = %for.body.i
 
 _ZN7simdutf7icelake12_GLOBAL__N_128latin1_to_utf8_avx512_branchEDv8_xPc.exit.i: ; preds = %if.else.i.i, %if.then.i.i
   %retval.0.i.i = phi i64 [ %add.i.i.i, %if.then.i.i ], [ 64, %if.else.i.i ]
-  %add.ptr2.i = getelementptr inbounds i8, ptr %utf8_output.addr.042.i, i64 %retval.0.i.i
+  %add.ptr2.i = getelementptr inbounds nuw i8, ptr %utf8_output.addr.042.i, i64 %retval.0.i.i
   %add3.i = add i64 %pos.041.i, 64
   %add.i = add i64 %pos.041.i, 192
   %cmp.not.i = icmp ugt i64 %add.i, %len

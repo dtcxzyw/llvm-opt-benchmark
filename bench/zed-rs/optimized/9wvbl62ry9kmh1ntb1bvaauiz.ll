@@ -790,7 +790,7 @@ common.resume.i.i:                                ; preds = %149, %143, %54
 74:                                               ; preds = %72
   %75 = zext i32 %73 to i64
   %76 = add nsw i64 %75, -1
-  %77 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %22, i64 0, i64 %76
+  %77 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %22, i64 0, i64 %76
   %78 = load ptr, ptr %77, align 8, !alias.scope !167, !noalias !168, !nonnull !11, !align !172, !noundef !11
   %79 = load ptr, ptr %78, align 8, !noalias !173, !nonnull !11, !noundef !11
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -821,7 +821,7 @@ common.resume.i.i:                                ; preds = %149, %143, %54
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %79, i64 136
-  %95 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %94, i64 0, i64 %84
+  %95 = getelementptr inbounds nuw [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %94, i64 0, i64 %84
   %96 = tail call noundef align 8 dereferenceable_or_null(16) ptr @_ZN8language6buffer14BufferSnapshot4file17h4a3d81d6ab6ce9f2E(ptr noalias noundef nonnull readonly align 8 dereferenceable(600) %95), !noalias !174
   %97 = tail call noundef zeroext i1 @"_ZN6editor6Editor15redacted_ranges28_$u7b$$u7b$closure$u7d$$u7d$17h3f4dea74462679eeE.llvm.1503349291000977302"(ptr noalias noundef nonnull readonly align 8 dereferenceable(432) %17, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %96), !noalias !181
   br i1 %97, label %_ZN4core3ops8function6FnOnce9call_once17h4a5d29929b6323b3E.exit.i.i.i.i, label %60
@@ -4176,7 +4176,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   %22 = zext i32 %20 to i64
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = add nsw i64 %22, -1
-  %25 = getelementptr inbounds [0 x { ptr, i64, { i32, i32 } }], ptr %23, i64 0, i64 %24
+  %25 = getelementptr inbounds nuw [0 x { ptr, i64, { i32, i32 } }], ptr %23, i64 0, i64 %24
   %26 = load ptr, ptr %25, align 8, !alias.scope !1539, !noalias !1540, !nonnull !11, !align !172, !noundef !11
   %27 = load ptr, ptr %26, align 8, !noalias !1542, !nonnull !11, !noundef !11
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -4214,7 +4214,7 @@ default.unreachable.i:                            ; preds = %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %27, i64 136
-  %44 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %43, i64 0, i64 %32
+  %44 = getelementptr inbounds nuw [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %43, i64 0, i64 %32
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 392
   %46 = load i32, ptr %45, align 8, !alias.scope !1534, !noalias !1531, !noundef !11
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 396
@@ -45137,7 +45137,7 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
 36:                                               ; preds = %34
   %37 = zext i32 %35 to i64
   %38 = add nsw i64 %37, -1
-  %39 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %15, i64 0, i64 %38
+  %39 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %15, i64 0, i64 %38
   %40 = load ptr, ptr %39, align 8, !alias.scope !13828, !noalias !13829, !nonnull !11, !align !172, !noundef !11
   %41 = load ptr, ptr %40, align 8, !noalias !13833, !nonnull !11, !noundef !11
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -45168,7 +45168,7 @@ define internal fastcc void @"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$
 
 _ZN4core3ops8function6FnOnce9call_once17h1546b1f15d976409E.exit.i.i.i: ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 136
-  %56 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %55, i64 0, i64 %46
+  %56 = getelementptr inbounds nuw [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %55, i64 0, i64 %46
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %5), !noalias !13834
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13835)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13838)
@@ -54160,7 +54160,7 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw i8, ptr %36, i64 272
   %56 = add nsw i64 %54, -1
-  %57 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %55, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8, !alias.scope !16959, !noalias !16960, !nonnull !11, !align !172, !noundef !11
   %59 = load ptr, ptr %58, align 8, !noalias !16965, !nonnull !11, !noundef !11
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4480
@@ -54191,7 +54191,7 @@ define internal fastcc void @_ZN4core4iter8adapters7flatten17and_then_or_clear17
 
 74:                                               ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %59, i64 24
-  %76 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %75, i64 0, i64 %66
+  %76 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %75, i64 0, i64 %66
   %77 = getelementptr inbounds nuw i8, ptr %36, i64 544
   %78 = load i8, ptr %77, align 8, !range !79, !alias.scope !16953, !noalias !16966, !noundef !11
   %79 = trunc nuw i8 %78 to i1
@@ -84896,7 +84896,7 @@ _ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread28.i.i.i
 111:                                              ; preds = %109
   %112 = zext i32 %110 to i64
   %113 = add nsw i64 %112, -1
-  %114 = getelementptr inbounds [0 x { ptr, i64, { i64, { i32, i32 } } }], ptr %27, i64 0, i64 %113
+  %114 = getelementptr inbounds nuw [0 x { ptr, i64, { i64, { i32, i32 } } }], ptr %27, i64 0, i64 %113
   %115 = load ptr, ptr %114, align 8, !alias.scope !23195, !noalias !23196, !nonnull !11, !align !172, !noundef !11
   %116 = load ptr, ptr %115, align 8, !noalias !23199, !nonnull !11, !noundef !11
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -84937,7 +84937,7 @@ _ZN4core3ops5range11RangeBounds8contains17hdb0b8aba0ffc3872E.exit.thread28.i.i.i
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 136
-  %132 = getelementptr inbounds [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %131, i64 0, i64 %121
+  %132 = getelementptr inbounds nuw [0 x { { { { i64, [6 x i64] }, ptr }, { i64, ptr, ptr, ptr, ptr, ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i16, i8, [5 x i8] }, { ptr, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, { { { [4 x i64] }, i64 }, i32, [1 x i32] }, i64 }, ptr, { ptr, [1 x i64] }, { { [4 x i64] }, i64 }, ptr, i64 }, { { [56 x i8], i8, [7 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, i64, i64, { { { [4 x i64] }, i64 } }, { i64, i64, { i32, i32 }, i32, i32, i32, i32, i32, [1 x i32] }, i32, i8, [3 x i8] }], ptr %131, i64 0, i64 %121
   call void @llvm.lifetime.start.p0(i64 416, ptr nonnull %.sroa.0.i.i.i.i.i.i.i.i.i.i.i.i.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23200)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.06.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i)
@@ -111568,7 +111568,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN8sum_tree8tre
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = add nsw i64 %29, -1
-  %32 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !alias.scope !31001, !noalias !31004, !nonnull !11, !align !172, !noundef !11
   %34 = load ptr, ptr %33, align 8, !noalias !31006, !nonnull !11, !noundef !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -111599,7 +111599,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN8sum_tree8tre
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %49 = getelementptr inbounds [0 x { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }], ptr %48, i64 0, i64 %40
+  %49 = getelementptr inbounds nuw [0 x { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }], ptr %48, i64 0, i64 %40
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !alias.scope !31007, !noundef !11
   %52 = load i64, ptr %1, align 8, !alias.scope !31010, !noalias !31017, !noundef !11
@@ -111691,7 +111691,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree8tree
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = add nsw i64 %29, -1
-  %32 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !alias.scope !31044, !noalias !31047, !nonnull !11, !align !172, !noundef !11
   %34 = load ptr, ptr %33, align 8, !noalias !31049, !nonnull !11, !noundef !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -111722,7 +111722,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree8tree
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %49 = getelementptr inbounds [0 x { { i64, [2 x i64] }, ptr }], ptr %48, i64 0, i64 %40
+  %49 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, ptr }], ptr %48, i64 0, i64 %40
   %50 = load i64, ptr %49, align 8, !range !107, !alias.scope !31050, !noalias !31053, !noundef !11
   %trunc.i = trunc nuw i64 %50 to i1
   %51 = load i64, ptr %1, align 8, !range !107, !alias.scope !31055, !noalias !31058, !noundef !11
@@ -111829,7 +111829,7 @@ define hidden noundef align 8 dereferenceable_or_null(192) ptr @"_ZN8sum_tree8tr
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = add nsw i64 %29, -1
-  %32 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !alias.scope !31081, !noalias !31084, !nonnull !11, !align !172, !noundef !11
   %34 = load ptr, ptr %33, align 8, !noalias !31086, !nonnull !11, !noundef !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -111860,7 +111860,7 @@ define hidden noundef align 8 dereferenceable_or_null(192) ptr @"_ZN8sum_tree8tr
 
 .thread:                                          ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %48 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] }, { { i64, [1 x i64] }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64 } } } }], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw [0 x { { i64, [1 x i64] }, { { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] }, { { i64, [1 x i64] }, { i64, i64, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, { i64, i64 } } } }], ptr %47, i64 0, i64 %40
   %49 = load i64, ptr %48, align 8, !range !107, !alias.scope !31087, !noundef !11
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i64, ptr %50, align 8, !alias.scope !31087, !noundef !11
@@ -111950,7 +111950,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree8tree
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = add nsw i64 %29, -1
-  %32 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %30, i64 0, i64 %31
   %33 = load ptr, ptr %32, align 8, !alias.scope !31108, !noalias !31111, !nonnull !11, !align !172, !noundef !11
   %34 = load ptr, ptr %33, align 8, !noalias !31113, !nonnull !11, !noundef !11
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -111981,7 +111981,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN8sum_tree8tree
 
 .thread:                                          ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  %48 = getelementptr inbounds [0 x { ptr, i64 }], ptr %47, i64 0, i64 %40
+  %48 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %47, i64 0, i64 %40
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %49, align 8, !alias.scope !31114, !noundef !11
   %51 = load i64, ptr %1, align 8, !alias.scope !31117, !noalias !31120, !noundef !11
@@ -112173,7 +112173,7 @@ define hidden void @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17h18f240
   %61 = zext i32 %59 to i64
   %62 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %63 = add nsw i64 %61, -1
-  %64 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %62, i64 0, i64 %63
+  %64 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %62, i64 0, i64 %63
   %65 = load ptr, ptr %64, align 8, !alias.scope !31153, !noalias !31156, !nonnull !11, !align !172, !noundef !11
   %66 = load ptr, ptr %65, align 8, !noalias !31158, !nonnull !11, !noundef !11
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -112214,7 +112214,7 @@ define hidden void @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17h18f240
 
 82:                                               ; preds = %78
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 48
-  %84 = getelementptr inbounds [0 x { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }], ptr %83, i64 0, i64 %72
+  %84 = getelementptr inbounds nuw [0 x { { ptr, { { { ptr, i64 } }, {}, {} } }, { { i64, i64 } } }], ptr %83, i64 0, i64 %72
   call void @llvm.experimental.noalias.scope.decl(metadata !31159)
   %.val.i = load ptr, ptr %84, align 8, !alias.scope !31159, !noalias !31162, !nonnull !11, !noundef !11
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -112507,7 +112507,7 @@ define hidden noundef ptr @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17
   %66 = zext i32 %64 to i64
   %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %68 = add nsw i64 %66, -1
-  %69 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %67, i64 0, i64 %68
+  %69 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %67, i64 0, i64 %68
   %70 = load ptr, ptr %69, align 8, !alias.scope !31243, !noalias !31246, !nonnull !11, !align !172, !noundef !11
   %71 = load ptr, ptr %70, align 8, !noalias !31248, !nonnull !11, !noundef !11
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -112797,7 +112797,7 @@ define hidden noundef ptr @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17
   %58 = zext i32 %56 to i64
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %60 = add nsw i64 %58, -1
-  %61 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %59, i64 0, i64 %60
+  %61 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %59, i64 0, i64 %60
   %62 = load ptr, ptr %61, align 8, !alias.scope !31321, !noalias !31324, !nonnull !11, !align !172, !noundef !11
   %63 = load ptr, ptr %62, align 8, !noalias !31326, !nonnull !11, !noundef !11
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
@@ -112838,7 +112838,7 @@ define hidden noundef ptr @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6remove17
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %63, i64 48
-  %81 = getelementptr inbounds [0 x { ptr, { { i64, i64 } } }], ptr %80, i64 0, i64 %69
+  %81 = getelementptr inbounds nuw [0 x { ptr, { { i64, i64 } } }], ptr %80, i64 0, i64 %69
   %.val17 = load ptr, ptr %81, align 8, !nonnull !11, !noundef !11
   %82 = atomicrmw add ptr %.val17, i64 1 monotonic, align 8
   %83 = icmp slt i64 %82, 0
@@ -113059,7 +113059,7 @@ common.resume:                                    ; preds = %137, %133, %"_ZN4co
 43:                                               ; preds = %41
   %44 = zext i32 %42 to i64
   %45 = add nsw i64 %44, -1
-  %46 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %32, i64 0, i64 %45
+  %46 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %32, i64 0, i64 %45
   %47 = load ptr, ptr %46, align 8, !alias.scope !31379, !noalias !31382, !nonnull !11, !align !172, !noundef !11
   %48 = load ptr, ptr %47, align 8, !noalias !31384, !nonnull !11, !noundef !11
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
@@ -113082,7 +113082,7 @@ common.resume:                                    ; preds = %137, %133, %"_ZN4co
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %48, i64 40
-  %63 = getelementptr inbounds [0 x { ptr, i64 }], ptr %62, i64 0, i64 %54
+  %63 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %62, i64 0, i64 %54
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.val8.us = load i64, ptr %64, align 8
   %.val9.us = load ptr, ptr %63, align 8, !nonnull !11, !noundef !11
@@ -113134,7 +113134,7 @@ common.resume:                                    ; preds = %137, %133, %"_ZN4co
 76:                                               ; preds = %74
   %77 = zext i32 %75 to i64
   %78 = add nsw i64 %77, -1
-  %79 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %32, i64 0, i64 %78
+  %79 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %32, i64 0, i64 %78
   %80 = load ptr, ptr %79, align 8, !alias.scope !31379, !noalias !31382, !nonnull !11, !align !172, !noundef !11
   %81 = load ptr, ptr %80, align 8, !noalias !31384, !nonnull !11, !noundef !11
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -113173,7 +113173,7 @@ common.resume:                                    ; preds = %137, %133, %"_ZN4co
 
 94:                                               ; preds = %92
   %95 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %96 = getelementptr inbounds [0 x { ptr, i64 }], ptr %95, i64 0, i64 %87
+  %96 = getelementptr inbounds nuw [0 x { ptr, i64 }], ptr %95, i64 0, i64 %87
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.val8 = load i64, ptr %97, align 8
   %98 = mul i64 %.val8, 5871781006564002453
@@ -113421,7 +113421,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6u
   %54 = zext i32 %52 to i64
   %55 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %56 = add nsw i64 %54, -1
-  %57 = getelementptr inbounds [0 x { ptr, i64, ptr }], ptr %55, i64 0, i64 %56
+  %57 = getelementptr inbounds nuw [0 x { ptr, i64, ptr }], ptr %55, i64 0, i64 %56
   %58 = load ptr, ptr %57, align 8, !alias.scope !31458, !noalias !31461, !nonnull !11, !align !172, !noundef !11
   %59 = load ptr, ptr %58, align 8, !noalias !31463, !nonnull !11, !noundef !11
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -113462,7 +113462,7 @@ define hidden noundef zeroext i1 @"_ZN8sum_tree8tree_map20TreeMap$LT$K$C$V$GT$6u
 
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %59, i64 48
-  %77 = getelementptr inbounds [0 x { ptr, { { i64, i64 } } }], ptr %76, i64 0, i64 %65
+  %77 = getelementptr inbounds nuw [0 x { ptr, { { i64, i64 } } }], ptr %76, i64 0, i64 %65
   call void @llvm.experimental.noalias.scope.decl(metadata !31464)
   call void @llvm.experimental.noalias.scope.decl(metadata !31467)
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8

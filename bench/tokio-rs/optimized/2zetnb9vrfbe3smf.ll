@@ -3158,7 +3158,7 @@ define void @_ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE(ptr 
   %6 = phi i64 [ %7, %.lr.ph.preheader ], [ %3, %.preheader ]
   %7 = add nsw i64 %6, -1
   store i64 %7, ptr %2, align 8
-  %8 = getelementptr inbounds [32 x { ptr, ptr }], ptr %0, i64 0, i64 %7
+  %8 = getelementptr inbounds nuw [32 x { ptr, ptr }], ptr %0, i64 0, i64 %7
   %9 = load ptr, ptr %8, align 8, !nonnull !19, !align !32, !noundef !19
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !noundef !19

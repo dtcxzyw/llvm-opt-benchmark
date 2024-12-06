@@ -518,7 +518,7 @@ if.then6.i.i:                                     ; preds = %land.lhs.true.i.i
 
 if.then17.i.i:                                    ; preds = %if.then6.i.i
   %6 = load ptr, ptr %qss, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %6, i64 %rem.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %rem.i.i
   call void @OPENSSL_cleanse(ptr noundef %add.ptr.i.i, i64 noundef %sub15.i.i) #10
   %7 = load i64, ptr %alloc.i.i, align 8
   %sub22.neg.i.i = add i64 %sub.i.i, %rem.i.i
@@ -533,7 +533,7 @@ if.end24.i.i:                                     ; preds = %if.then17.i.i, %if.
 
 if.then26.i.i:                                    ; preds = %if.end24.i.i
   %8 = load ptr, ptr %qss, align 8
-  %add.ptr28.i.i = getelementptr inbounds i8, ptr %8, i64 %idx.0.i.i
+  %add.ptr28.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.0.i.i
   call void @OPENSSL_cleanse(ptr noundef %add.ptr28.i.i, i64 noundef %l.0.i.i) #10
   br label %if.end30.i.i
 

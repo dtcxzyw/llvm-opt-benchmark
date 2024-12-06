@@ -3951,7 +3951,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm7SMFixItElN9__gnu_cxx5__
 
 21:                                               ; preds = %21, %15
   %.012.i.i = phi i64 [ %18, %15 ], [ %24, %21 ]
-  %22 = getelementptr inbounds %"class.llvm::SMFixIt", ptr %0, i64 %.012.i.i
+  %22 = getelementptr inbounds nuw %"class.llvm::SMFixIt", ptr %0, i64 %.012.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 16, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %23) #17

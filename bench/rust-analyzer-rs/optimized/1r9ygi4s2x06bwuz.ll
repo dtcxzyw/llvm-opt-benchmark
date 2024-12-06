@@ -18532,7 +18532,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds { [3 x i64] }, ptr %34, i64 %.sroa.420.0.copyload
-  %38 = getelementptr inbounds { [3 x i64] }, ptr %34, i64 %35
+  %38 = getelementptr inbounds nuw { [3 x i64] }, ptr %34, i64 %35
   %39 = sub nsw i64 %33, %.sroa.420.0.copyload
   %40 = mul nsw i64 %39, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %37, i64 %40, i1 false), !alias.scope !3822, !noalias !3825
@@ -19099,7 +19099,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 
 247:                                              ; preds = %240
   %248 = getelementptr inbounds { [3 x i64] }, ptr %245, i64 %.sroa.7.0.i.i
-  %249 = getelementptr inbounds { [3 x i64] }, ptr %245, i64 %246
+  %249 = getelementptr inbounds nuw { [3 x i64] }, ptr %245, i64 %246
   %250 = sub nsw i64 %243, %.sroa.7.0.i.i
   %251 = mul nsw i64 %250, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %249, ptr nonnull align 8 %248, i64 %251, i1 false), !alias.scope !3925, !noalias !3928
@@ -19116,7 +19116,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 
 258:                                              ; preds = %252
   %259 = getelementptr inbounds ptr, ptr %255, i64 %246
-  %260 = getelementptr inbounds ptr, ptr %255, i64 %256
+  %260 = getelementptr inbounds nuw ptr, ptr %255, i64 %256
   %261 = sub nsw i64 %243, %.sroa.7.0.i.i
   %262 = shl nsw i64 %261, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %260, ptr nonnull align 8 %259, i64 %262, i1 false), !alias.scope !3930, !noalias !3921

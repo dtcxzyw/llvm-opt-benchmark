@@ -1855,7 +1855,7 @@ for.body:                                         ; preds = %if.end35, %for.body
   %conv41 = trunc i64 %shr to i8
   %3 = xor i64 %i.037, -1
   %sub44 = add nsw i64 %3, %conv38
-  %arrayidx45 = getelementptr inbounds [16 x i8], ptr %nonce, i64 0, i64 %sub44
+  %arrayidx45 = getelementptr inbounds nuw [16 x i8], ptr %nonce, i64 0, i64 %sub44
   %4 = load i8, ptr %arrayidx45, align 1
   %xor = xor i8 %4, %conv41
   store i8 %xor, ptr %arrayidx45, align 1

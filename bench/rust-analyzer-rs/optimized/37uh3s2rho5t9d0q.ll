@@ -382,7 +382,7 @@ define void @_ZN3cfg3dnf7DnfExpr3new17h226938a050051d69E(ptr noalias nocapture n
   %38 = xor i64 %.011.i.i.i, -1
   %39 = add nsw i64 %34, %38
   %40 = getelementptr inbounds nuw [0 x { [24 x i8], i8, [23 x i8] }], ptr %31, i64 0, i64 %.011.i.i.i
-  %41 = getelementptr inbounds [0 x { [24 x i8], i8, [23 x i8] }], ptr %37, i64 0, i64 %39
+  %41 = getelementptr inbounds nuw [0 x { [24 x i8], i8, [23 x i8] }], ptr %37, i64 0, i64 %39
   br label %42
 
 42:                                               ; preds = %42, %.lr.ph.preheader.i.i.i

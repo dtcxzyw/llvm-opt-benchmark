@@ -4917,7 +4917,7 @@ define internal fastcc void @checkURLs(ptr noundef nonnull %0, ptr nocapture nou
 .lr.ph.i.i:                                       ; preds = %62, %68
   %65 = phi i64 [ %70, %68 ], [ %63, %62 ]
   %.04145.i.i = phi i64 [ %69, %68 ], [ 4, %62 ]
-  %66 = getelementptr inbounds i8, ptr %35, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %35, i64 %65
   %67 = load i8, ptr %66, align 1
   switch i8 %67, label %68 [
     i8 32, label %._crit_edge.i.i

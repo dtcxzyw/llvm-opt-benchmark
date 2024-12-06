@@ -41139,7 +41139,7 @@ define hidden void @_ZN15rustfmt_nightly5types21rewrite_path_segments17h681dfbea
   %44 = sub nuw i64 %23, %43
   %45 = udiv exact i64 %44, 24
   %.not.i.i.not = icmp ult i64 %.sroa.9.0, %45
-  %46 = getelementptr inbounds { ptr, { i32, { i32, i16, i16 } }, i32 }, ptr %.sroa.034.0, i64 %.sroa.9.0
+  %46 = getelementptr inbounds nuw { ptr, { i32, { i32, i16, i16 } }, i32 }, ptr %.sroa.034.0, i64 %.sroa.9.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb329e014a5b1c23dE.exit.thread54", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb329e014a5b1c23dE.exit.thread"
 
 47:                                               ; preds = %97, %90, %64, %58, %72

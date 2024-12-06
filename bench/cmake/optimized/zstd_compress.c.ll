@@ -11270,20 +11270,20 @@ define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr nocaptu
 
 61:                                               ; preds = %60
   %62 = trunc i32 %4 to i8
-  %63 = getelementptr inbounds i8, ptr %0, i64 %.1
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
   store i8 %62, ptr %63, align 1
   %64 = add nuw nsw i64 %.1, 1
   br label %72
 
 65:                                               ; preds = %60
-  %66 = getelementptr inbounds i8, ptr %0, i64 %.1
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
   %67 = trunc i32 %4 to i16
   store i16 %67, ptr %66, align 1
   %68 = add nuw nsw i64 %.1, 2
   br label %72
 
 69:                                               ; preds = %60
-  %70 = getelementptr inbounds i8, ptr %0, i64 %.1
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 %.1
   store i32 %4, ptr %70, align 1
   %71 = add nuw nsw i64 %.1, 4
   br label %72
@@ -11302,12 +11302,12 @@ define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr nocaptu
 74:                                               ; preds = %73
   %75 = trunc i64 %3 to i8
   %76 = add nuw nsw i64 %.2, 1
-  %77 = getelementptr inbounds i8, ptr %0, i64 %.2
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 %.2
   store i8 %75, ptr %77, align 1
   br label %90
 
 78:                                               ; preds = %72
-  %79 = getelementptr inbounds i8, ptr %0, i64 %.2
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 %.2
   %80 = trunc i64 %3 to i16
   %81 = add i16 %80, -256
   store i16 %81, ptr %79, align 1
@@ -11315,14 +11315,14 @@ define internal fastcc range(i64 -70, 20) i64 @ZSTD_writeFrameHeader(ptr nocaptu
   br label %90
 
 83:                                               ; preds = %72
-  %84 = getelementptr inbounds i8, ptr %0, i64 %.2
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %.2
   %85 = trunc i64 %3 to i32
   store i32 %85, ptr %84, align 1
   %86 = add nuw nsw i64 %.2, 4
   br label %90
 
 87:                                               ; preds = %72
-  %88 = getelementptr inbounds i8, ptr %0, i64 %.2
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 %.2
   store i64 %3, ptr %88, align 1
   %89 = add nuw nsw i64 %.2, 8
   br label %90

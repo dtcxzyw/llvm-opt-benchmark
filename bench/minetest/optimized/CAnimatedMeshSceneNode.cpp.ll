@@ -6430,7 +6430,7 @@ if.then.i66:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i66, %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !74
-  %add.ptr36 = getelementptr inbounds %"class.irr::video::SMaterial", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !75
   %add.ptr39 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !161

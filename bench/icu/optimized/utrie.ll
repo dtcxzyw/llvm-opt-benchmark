@@ -346,7 +346,7 @@ if.end3.i:                                        ; preds = %_ZL20utrie_allocDat
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %4, i64 %idx.ext.i
   %idx.ext8.i = sext i32 %1 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext8.i
-  %add.ptr9.i = getelementptr inbounds i32, ptr %4, i64 %idx.neg.i
+  %add.ptr9.i = getelementptr inbounds nuw i32, ptr %4, i64 %idx.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr9.i, i64 128, i1 false)
   br label %if.end5
 
@@ -477,7 +477,7 @@ if.end3.i:                                        ; preds = %_ZL20utrie_allocDat
   %add.ptr.i = getelementptr inbounds nuw i32, ptr %6, i64 %idx.ext.i
   %idx.ext8.i = sext i32 %3 to i64
   %idx.neg.i = sub nsw i64 0, %idx.ext8.i
-  %add.ptr9.i = getelementptr inbounds i32, ptr %6, i64 %idx.neg.i
+  %add.ptr9.i = getelementptr inbounds nuw i32, ptr %6, i64 %idx.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr9.i, i64 128, i1 false)
   br label %if.end14
 
@@ -654,7 +654,7 @@ if.end60:                                         ; preds = %_ZL20utrie_allocDat
   %add.ptr.i121 = getelementptr inbounds nuw i32, ptr %19, i64 %idx.ext.i120
   %idx.ext8.i122 = sext i32 %13 to i64
   %idx.neg.i123 = sub nsw i64 0, %idx.ext8.i122
-  %add.ptr9.i124 = getelementptr inbounds i32, ptr %19, i64 %idx.neg.i123
+  %add.ptr9.i124 = getelementptr inbounds nuw i32, ptr %19, i64 %idx.neg.i123
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i121, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr9.i124, i64 128, i1 false)
   %sub61 = sub nsw i32 0, %17
   store i32 %sub61, ptr %arrayidx34, align 4
@@ -715,7 +715,7 @@ if.end3.i146:                                     ; preds = %_ZL20utrie_allocDat
   %add.ptr.i149 = getelementptr inbounds nuw i32, ptr %25, i64 %idx.ext.i148
   %idx.ext8.i150 = sext i32 %22 to i64
   %idx.neg.i151 = sub nsw i64 0, %idx.ext8.i150
-  %add.ptr9.i152 = getelementptr inbounds i32, ptr %25, i64 %idx.neg.i151
+  %add.ptr9.i152 = getelementptr inbounds nuw i32, ptr %25, i64 %idx.neg.i151
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i149, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr9.i152, i64 128, i1 false)
   br label %if.end78
 
@@ -958,7 +958,7 @@ if.end3.i.i.i:                                    ; preds = %_ZL20utrie_allocDat
   %add.ptr.i.i.i = getelementptr inbounds nuw i32, ptr %16, i64 %idx.ext.i.i.i
   %idx.ext8.i.i.i = sext i32 %15 to i64
   %idx.neg.i.i.i = sub nsw i64 0, %idx.ext8.i.i.i
-  %add.ptr9.i.i.i = getelementptr inbounds i32, ptr %16, i64 %idx.neg.i.i.i
+  %add.ptr9.i.i.i = getelementptr inbounds nuw i32, ptr %16, i64 %idx.neg.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(128) %add.ptr.i.i.i, ptr noundef nonnull align 4 dereferenceable(128) %add.ptr9.i.i.i, i64 128, i1 false)
   %.pre.i = load ptr, ptr %data.i, align 8
   br label %if.end35.i

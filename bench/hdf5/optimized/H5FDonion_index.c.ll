@@ -1023,7 +1023,7 @@ define range(i32 -1, 1) i32 @H5FD__onion_revision_index_insert(ptr nocapture nou
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, %20
-  %34 = getelementptr inbounds ptr, ptr %18, i64 %33
+  %34 = getelementptr inbounds nuw ptr, ptr %18, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %39

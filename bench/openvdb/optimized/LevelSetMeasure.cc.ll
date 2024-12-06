@@ -20113,7 +20113,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds double, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw double, ptr %__first, i64 %dec.us
   %7 = load double, ptr %add.ptr10.us, align 8
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -20165,7 +20165,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIdEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds double, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw double, ptr %__first, i64 %dec
   %12 = load double, ptr %add.ptr10, align 8
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -20950,7 +20950,7 @@ cond.false22.i33:                                 ; preds = %cond.false16.i31
 
 _ZNK3tbb6detail2d116quick_sort_rangeIPdSt4lessIdEE15median_of_threeERKS3_mmm.exit42: ; preds = %cond.true.i37, %cond.false.i39, %cond.false16.i31, %cond.false22.i33
   %cond34.i36 = phi i64 [ %cond.i41, %cond.false.i39 ], [ %cond30.i35, %cond.false22.i33 ], [ %mul7, %cond.true.i37 ], [ %mul7, %cond.false16.i31 ]
-  %arrayidx.i43 = getelementptr inbounds double, ptr %1, i64 %cond34.i
+  %arrayidx.i43 = getelementptr inbounds nuw double, ptr %1, i64 %cond34.i
   %arrayidx2.i44 = getelementptr inbounds double, ptr %1, i64 %cond34.i20
   %11 = load double, ptr %arrayidx.i43, align 8
   %12 = load double, ptr %arrayidx2.i44, align 8

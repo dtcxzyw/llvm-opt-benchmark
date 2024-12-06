@@ -11734,7 +11734,7 @@ define internal fastcc void @dt_iop_colorzones_get_params(ptr nocapture noundef 
   %59 = fmul reassoc nsz arcp contract afn <8 x float> %58, %58
   %60 = fmul reassoc nsz arcp contract afn <8 x float> %59, %49
   %61 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.exp.v8f32(<8 x float> %60)
-  %62 = getelementptr inbounds i8, <8 x ptr> %53, i64 4
+  %62 = getelementptr inbounds nuw i8, <8 x ptr> %53, i64 4
   %63 = fsub reassoc nsz arcp contract afn <8 x float> %47, %57
   %64 = fmul reassoc nsz arcp contract afn <8 x float> %61, %63
   %65 = fadd reassoc nsz arcp contract afn <8 x float> %64, %57
@@ -11832,7 +11832,7 @@ define internal fastcc void @dt_iop_colorzones_get_params(ptr nocapture noundef 
   %137 = fmul reassoc nsz arcp contract afn <8 x float> %136, %136
   %138 = fmul reassoc nsz arcp contract afn <8 x float> %137, %127
   %139 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.exp.v8f32(<8 x float> %138)
-  %140 = getelementptr inbounds i8, <8 x ptr> %131, i64 4
+  %140 = getelementptr inbounds nuw i8, <8 x ptr> %131, i64 4
   %141 = fsub reassoc nsz arcp contract afn <8 x float> %125, %135
   %142 = fmul reassoc nsz arcp contract afn <8 x float> %139, %141
   %143 = fadd reassoc nsz arcp contract afn <8 x float> %142, %135

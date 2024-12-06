@@ -579,7 +579,7 @@ define internal fastcc void @make_noise(ptr noundef %0, float noundef %1, i64 no
   call void @llvm.assume(i1 true) [ "align"(ptr %101, i64 16) ]
   %102 = extractelement <8 x ptr> %94, i64 7
   call void @llvm.assume(i1 true) [ "align"(ptr %102, i64 16) ]
-  %103 = getelementptr inbounds i8, <8 x ptr> %94, i64 4
+  %103 = getelementptr inbounds nuw i8, <8 x ptr> %94, i64 4
   %104 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %103, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !31
   %105 = or <8 x i64> %47, %44
   %106 = xor <8 x i32> %89, %91
@@ -618,7 +618,7 @@ define internal fastcc void @make_noise(ptr noundef %0, float noundef %1, i64 no
   %138 = fdiv reassoc nsz arcp contract afn <8 x float> %137, %104
   %139 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.maxnum.v8f32(<8 x float> %138, <8 x float> zeroinitializer)
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %139, <8 x ptr> %103, i32 4, <8 x i1> splat (i1 true)), !tbaa !31
-  %140 = getelementptr inbounds i8, <8 x ptr> %94, i64 8
+  %140 = getelementptr inbounds nuw i8, <8 x ptr> %94, i64 8
   %141 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %140, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !31
   %142 = fmul reassoc nsz arcp contract afn <8 x float> %132, %141
   %143 = fdiv reassoc nsz arcp contract afn <8 x float> %142, %104

@@ -7822,7 +7822,7 @@ define void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15
   %29 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h4f7fd66f642fcd62E"(i64 %16, ptr nonnull %28, i64 11)
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
-  %32 = getelementptr inbounds i64, ptr %30, i64 %1
+  %32 = getelementptr inbounds nuw i64, ptr %30, i64 %1
   %33 = sub i64 %31, %1
   %34 = shl i64 %33, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %32, ptr align 8 %30, i64 %34, i1 false)
@@ -7917,7 +7917,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h38c249ff8326963aE.exit: ; pre
   %96 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h81b94cea43540870E"(i64 %94, ptr nonnull %95, i64 12)
   %97 = extractvalue { ptr, i64 } %96, 0
   %98 = extractvalue { ptr, i64 } %96, 1
-  %99 = getelementptr inbounds ptr, ptr %97, i64 %1
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %1
   %100 = sub i64 %98, %1
   %101 = shl i64 %100, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %97, i64 %101, i1 false)
@@ -8019,7 +8019,7 @@ define void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15
   %29 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h788446e6f3feff06E"(i64 %16, ptr nonnull %28, i64 11)
   %30 = extractvalue { ptr, i64 } %29, 0
   %31 = extractvalue { ptr, i64 } %29, 1
-  %32 = getelementptr inbounds i16, ptr %30, i64 %1
+  %32 = getelementptr inbounds nuw i16, ptr %30, i64 %1
   %33 = sub i64 %31, %1
   %34 = shl i64 %33, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %32, ptr align 2 %30, i64 %34, i1 false)
@@ -8114,7 +8114,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17h38c249ff8326963aE.exit: ; pre
   %96 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h2c8ac41b5dd1f799E"(i64 %94, ptr nonnull %95, i64 12)
   %97 = extractvalue { ptr, i64 } %96, 0
   %98 = extractvalue { ptr, i64 } %96, 1
-  %99 = getelementptr inbounds ptr, ptr %97, i64 %1
+  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %1
   %100 = sub i64 %98, %1
   %101 = shl i64 %100, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %97, i64 %101, i1 false)
@@ -8217,7 +8217,7 @@ define void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15
   %30 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h61c964313eaa7294E"(i64 %18, ptr nonnull %29, i64 11)
   %31 = extractvalue { ptr, i64 } %30, 0
   %32 = extractvalue { ptr, i64 } %30, 1
-  %33 = getelementptr inbounds { [2 x i64] }, ptr %31, i64 %1
+  %33 = getelementptr inbounds nuw { [2 x i64] }, ptr %31, i64 %1
   %34 = sub i64 %32, %1
   %35 = shl i64 %34, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %33, ptr align 8 %31, i64 %35, i1 false)
@@ -8226,7 +8226,7 @@ define void @"_ZN5alloc11collections5btree4node29BalancingContext$LT$K$C$V$GT$15
   %38 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbdeed2b47d1dfcf0E"(i64 %18, ptr nonnull %37, i64 11)
   %39 = extractvalue { ptr, i64 } %38, 0
   %40 = extractvalue { ptr, i64 } %38, 1
-  %41 = getelementptr inbounds { [7 x i64] }, ptr %39, i64 %1
+  %41 = getelementptr inbounds nuw { [7 x i64] }, ptr %39, i64 %1
   %42 = sub i64 %40, %1
   %43 = mul i64 %42, 56
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %41, ptr align 8 %39, i64 %43, i1 false)
@@ -8342,7 +8342,7 @@ _ZN5alloc11collections5btree4node13move_to_slice17he276f451ae42c770E.exit: ; pre
   %109 = tail call { ptr, i64 } @"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hd78f903001799fdaE"(i64 %107, ptr nonnull %108, i64 12)
   %110 = extractvalue { ptr, i64 } %109, 0
   %111 = extractvalue { ptr, i64 } %109, 1
-  %112 = getelementptr inbounds ptr, ptr %110, i64 %1
+  %112 = getelementptr inbounds nuw ptr, ptr %110, i64 %1
   %113 = sub i64 %111, %1
   %114 = shl i64 %113, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %112, ptr align 8 %110, i64 %114, i1 false)

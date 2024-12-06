@@ -241,8 +241,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %bf.cast = zext nneg i8 %bf.clear to i32
   call void @DES_cfb64_encrypt(ptr noundef %in.addr.021, ptr noundef %out.addr.024, i64 noundef %chunk.123, ptr noundef nonnull %dks, ptr noundef nonnull %iv, ptr noundef nonnull %num, i32 noundef %bf.cast) #6
   %sub = sub nuw i64 %len.addr.022, %chunk.123
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.021, i64 %chunk.123
-  %add.ptr4 = getelementptr inbounds i8, ptr %out.addr.024, i64 %chunk.123
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.021, i64 %chunk.123
+  %add.ptr4 = getelementptr inbounds nuw i8, ptr %out.addr.024, i64 %chunk.123
   %spec.select19 = call i64 @llvm.umin.i64(i64 %sub, i64 %chunk.123)
   %cmp2.not = icmp eq i64 %sub, 0
   br i1 %cmp2.not, label %while.end.loopexit, label %while.body, !llvm.loop !8
@@ -324,8 +324,8 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %sub23 = sub i64 %inl.addr.031, %chunk.132
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.030, i64 %chunk.132
-  %add.ptr24 = getelementptr inbounds i8, ptr %out.addr.033, i64 %chunk.132
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.030, i64 %chunk.132
+  %add.ptr24 = getelementptr inbounds nuw i8, ptr %out.addr.033, i64 %chunk.132
   %spec.select26 = call i64 @llvm.umin.i64(i64 %sub23, i64 %chunk.132)
   %tobool.not = icmp eq i64 %sub23, 0
   br i1 %tobool.not, label %while.end, label %for.cond.preheader, !llvm.loop !10

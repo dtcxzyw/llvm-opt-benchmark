@@ -177897,7 +177897,7 @@ _ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Tri
   %.0.i = phi i64 [ %176, %_ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Triangulation_hierarchy_vertex_base_3INS0_37Triangulation_vertex_base_with_info_3INS0_13Alpha_wraps_38internal12Alpha_wrap_3INS7_20Triangle_mesh_oracleINS0_5EpickEiLb1EEEE11Vertex_infoENS0_37Robust_circumcenter_filtered_traits_3INS7_27Alpha_wrap_AABB_geom_traitsISA_EEEENS0_27Triangulation_vertex_base_3ISH_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_INS5_ISD_SH_NSI_ISH_NSJ_INSK_INS5_ISD_SH_NSI_ISH_NSJ_IvEEEEEENS7_24Cell_base_with_timestampINS0_35Triangulation_cell_base_with_info_3INSC_9Cell_infoESH_NS0_52Delaunay_triangulation_cell_base_with_circumcenter_3ISH_NS0_34Delaunay_triangulation_cell_base_3ISH_NS0_25Triangulation_cell_base_3ISH_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEEEEEENS0_14Sequential_tagEEEEEEEEEEES10_S11_EEEEEEEEEENS0_7DefaultES1C_S1C_EELb0EEESt4pairIKS1E_mESaIS1H_ENSt8__detail10_Select1stESt8equal_toIS1E_ESt4hashIS1E_ENS1J_18_Mod_range_hashingENS1J_20_Default_ranged_hashENS1J_20_P38 ], [ %132, %.noexc39._crit_edge ]
   %179 = getelementptr inbounds nuw i8, ptr %91, i64 24
   store i64 %133, ptr %179, align 8
-  %180 = getelementptr inbounds ptr, ptr %178, i64 %.0.i
+  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %.0.i
   %181 = load ptr, ptr %180, align 8
   %.not.i.i = icmp eq ptr %181, null
   br i1 %.not.i.i, label %185, label %182
@@ -177928,7 +177928,7 @@ _ZNSt10_HashtableIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_37Tri
 
 193:                                              ; preds = %187, %185
   %194 = phi ptr [ %.pre143, %187 ], [ %178, %185 ]
-  %195 = getelementptr inbounds ptr, ptr %194, i64 %.0.i
+  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %.0.i
   store ptr %17, ptr %195, align 8
   %.pre144 = load ptr, ptr %40, align 8
   br label %196

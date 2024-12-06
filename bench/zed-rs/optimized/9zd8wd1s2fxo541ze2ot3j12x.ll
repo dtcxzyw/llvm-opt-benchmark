@@ -103,7 +103,7 @@ define hidden { i16, i16 } @"_ZN104_$LT$core..iter..adapters..copied..Copied$LT$
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 1
   %.not.i.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds i16, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw i16, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %storemerge.i = select i1 %.not.i.not, ptr %11, ptr %4
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !4
@@ -17774,7 +17774,7 @@ define hidden noundef align 2 dereferenceable_or_null(2) ptr @"_ZN91_$LT$core..s
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 1
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds i16, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw i16, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null

@@ -10762,7 +10762,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN4llvm11VPBlockBaseElN
 .split15.i.i:                                     ; preds = %.split.i.i, %.split15.i.i
   %.018.i.i = phi i64 [ %18, %.split15.i.i ], [ %15, %.split.i.i ]
   %18 = add nsw i64 %.018.i.i, -1
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %18
   %20 = load ptr, ptr %19, align 8
   tail call void @_ZSt13__adjust_heapIPPN4llvm11VPBlockBaseElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_14DomTreeBuilder11SemiNCAInfoINS0_17DominatorTreeBaseIS1_Lb0EEEE6runDFSILb0EPFbS2_S2_EEEjS2_jT0_jPKNS0_8DenseMapIS2_jNS0_12DenseMapInfoIS2_vEENS0_6detail12DenseMapPairIS2_jEEEEEUlS2_S2_E_EEEvT_SF_SF_T1_T2_(ptr noundef nonnull %0, i64 noundef %18, i64 noundef %13, ptr noundef %20, ptr %3)
   %21 = icmp eq i64 %18, 0

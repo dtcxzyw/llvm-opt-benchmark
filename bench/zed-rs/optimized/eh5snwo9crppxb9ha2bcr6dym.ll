@@ -1093,7 +1093,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h42bf2ca27083ea24E.exit: ; p
   %27 = sub nuw i64 %25, %26
   %28 = lshr exact i64 %27, 1
   %.not.i.not.i = icmp ult i64 %.sroa.0.0, %28
-  %29 = getelementptr inbounds i16, ptr %15, i64 %.sroa.0.0
+  %29 = getelementptr inbounds nuw i16, ptr %15, i64 %.sroa.0.0
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %storemerge.i.i = select i1 %.not.i.not.i, ptr %30, ptr %24
   store ptr %storemerge.i.i, ptr %0, align 8, !alias.scope !91

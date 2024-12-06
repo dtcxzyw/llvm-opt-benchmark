@@ -4869,7 +4869,7 @@ do.body:                                          ; preds = %entry, %do.cond
   %0 = load ptr, ptr @con, align 8
   %read = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1 = load ptr, ptr %read, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %offset.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %offset.0
   %sub = sub nsw i64 %len, %offset.0
   %call = tail call i64 %1(ptr noundef %0, ptr noundef nonnull %add.ptr, i64 noundef %sub) #20
   switch i64 %call, label %if.end16 [

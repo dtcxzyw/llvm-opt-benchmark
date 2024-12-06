@@ -14216,7 +14216,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZNSt4pairIP4expr8rationalED2Ev.exit46, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZNSt4pairIP4expr8rationalED2Ev.exit46 ]
-  %add.ptr = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__parent.0
   %0 = load ptr, ptr %add.ptr, align 8
   store ptr %0, ptr %__value, align 8
   %second3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8

@@ -6818,7 +6818,7 @@ define noundef range(i8 0, 36) i8 @_ZN17cranelift_codegen2ir12instructions6Opcod
   tail call void @llvm.assume(i1 %3)
   %4 = zext i8 %0 to i64
   %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %5
   %7 = load i8, ptr %6, align 1, !range !763, !noundef !4
   ret i8 %7
 }
@@ -6830,7 +6830,7 @@ define i32 @_ZN17cranelift_codegen2ir12instructions6Opcode11constraints17h372659
   tail call void @llvm.assume(i1 %3)
   %4 = zext i8 %0 to i64
   %5 = add nsw i64 %4, -1
-  %6 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %5
   %.sroa.0.0.copyload = load i32, ptr %6, align 2
   ret i32 %.sroa.0.0.copyload
 }
@@ -44017,7 +44017,7 @@ _ZN17cranelift_codegen8verifier8Verifier15block_integrity17h52392460704a4eeaE.ex
   %.0.i.i162 = load i8, ptr %1570, align 1, !range !756, !alias.scope !5462, !noundef !4
   %1571 = zext i8 %.0.i.i162 to i64
   %1572 = add nsw i64 %1571, -1
-  %1573 = getelementptr inbounds [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %1572
+  %1573 = getelementptr inbounds nuw [185 x i8], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.79, i64 0, i64 %1572
   %1574 = load i8, ptr %1573, align 1, !range !763, !noalias !5465, !noundef !4
   %.not.i163 = icmp eq i8 %1574, %1568
   br i1 %.not.i163, label %1575, label %1593
@@ -46399,7 +46399,7 @@ _ZN17cranelift_codegen8verifier8Verifier21instruction_integrity17hd8944cfd0324a0
   %.0.i.i189 = load i8, ptr %2143, align 1, !range !756, !alias.scope !6066, !noundef !4
   %2144 = zext i8 %.0.i.i189 to i64
   %2145 = add nsw i64 %2144, -1
-  %2146 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2145
+  %2146 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2145
   %.sroa.0.0.copyload.i.i = load i32, ptr %2146, align 2, !noalias !6069
   %2147 = icmp ult i32 %.sroa.0.0.copyload.i.i, 385875968
   br i1 %2147, label %2148, label %_ZN17cranelift_codegen2ir12instructions17OpcodeConstraints12ctrl_typeset17h41e7c56eefbd9b88E.exit.thread.i
@@ -46948,7 +46948,7 @@ _ZN17cranelift_codegen8verifier8Verifier17typecheck_results17hdba9bf9fd0ea1db9E.
   %.0.i.i.i204 = load i8, ptr %2274, align 1, !range !756, !alias.scope !6183, !noundef !4
   %2275 = zext i8 %.0.i.i.i204 to i64
   %2276 = add nsw i64 %2275, -1
-  %2277 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2276
+  %2277 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2276
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %2277, align 2, !noalias !6186
   %2278 = zext nneg i8 %2272 to i64
   %switch.gep6540 = getelementptr inbounds nuw [36 x i64], ptr @switch.table._ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E, i64 0, i64 %2278
@@ -46957,7 +46957,7 @@ _ZN17cranelift_codegen8verifier8Verifier17typecheck_results17hdba9bf9fd0ea1db9E.
   %.0.i.i.i13.i = load i8, ptr %2279, align 1, !range !756, !alias.scope !6187, !noalias !6190, !noundef !4
   %2280 = zext i8 %.0.i.i.i13.i to i64
   %2281 = add nsw i64 %2280, -1
-  %2282 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2281
+  %2282 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %2281
   %.sroa.0.0.copyload.i.i.i.i = load i32, ptr %2282, align 2, !noalias !6193
   %sum.shift.i.i.i.i = lshr i32 %.sroa.0.0.copyload.i.i.i.i, 21
   %2283 = and i32 %sum.shift.i.i.i.i, 7

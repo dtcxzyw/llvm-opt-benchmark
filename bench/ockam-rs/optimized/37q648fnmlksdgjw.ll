@@ -1834,9 +1834,9 @@ define hidden void @"_ZN107_$LT$kafka_protocol..messages..fetch_request..FetchTo
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %71, i64 %.sroa.4.016.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i, ptr nonnull readonly align 1 %70, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !188, !noalias !192
   %72 = sub nuw nsw i64 %.sroa.4.016.i.i.i, %.0.sroa.speculated.i.i.i.i
-  %73 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
   %74 = sub nuw i64 %71, %.0.sroa.speculated.i.i.i.i
-  %75 = getelementptr inbounds i8, ptr %70, i64 %.0.sroa.speculated.i.i.i.i
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 %.0.sroa.speculated.i.i.i.i
   %76 = icmp eq i64 %72, 0
   br i1 %76, label %83, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i"
 
@@ -29383,9 +29383,9 @@ define hidden void @"_ZN111_$LT$kafka_protocol..messages..fetch_request..Forgott
   %.0.sroa.speculated.i.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %72, i64 %.sroa.4.016.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.015.i.i.i, ptr nonnull readonly align 1 %71, i64 %.0.sroa.speculated.i.i.i.i, i1 false), !alias.scope !3828, !noalias !3832
   %73 = sub nuw nsw i64 %.sroa.4.016.i.i.i, %.0.sroa.speculated.i.i.i.i
-  %74 = getelementptr inbounds i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.015.i.i.i, i64 %.0.sroa.speculated.i.i.i.i
   %75 = sub nuw i64 %72, %.0.sroa.speculated.i.i.i.i
-  %76 = getelementptr inbounds i8, ptr %71, i64 %.0.sroa.speculated.i.i.i.i
+  %76 = getelementptr inbounds nuw i8, ptr %71, i64 %.0.sroa.speculated.i.i.i.i
   %77 = icmp eq i64 %73, 0
   br i1 %77, label %83, label %"_ZN65_$LT$bytes..bytes..Bytes$u20$as$u20$bytes..buf..buf_impl..Buf$GT$7advance17h7b78eed98c71e9c3E.llvm.6961039930124626028.exit.i.i.i"
 
@@ -81289,7 +81289,7 @@ define internal fastcc noundef i64 @_ZN9hashbrown3map9make_hash17h52f07b6eaeb380
   %22 = load i16, ptr %.val1.i, align 1, !alias.scope !12437, !noalias !12438
   %23 = add nsw i64 %.val2.i, -1
   %24 = zext i16 %22 to i64
-  %25 = getelementptr inbounds [0 x i8], ptr %.val1.i, i64 0, i64 %23
+  %25 = getelementptr inbounds nuw [0 x i8], ptr %.val1.i, i64 0, i64 %23
   %26 = load i8, ptr %25, align 1, !alias.scope !12424, !noalias !12431, !noundef !5
   %27 = zext i8 %26 to i64
   br label %_ZN5ahash10operations10read_small17h3ddee2fcffabbc3dE.exit.i.i.i
@@ -81454,7 +81454,7 @@ define internal fastcc noundef i64 @_ZN9hashbrown3map9make_hash17hb99258a159760a
   %21 = load i16, ptr %.0.val, align 1, !alias.scope !12469, !noalias !12470
   %22 = add nsw i64 %.16.val, -1
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds [0 x i8], ptr %.0.val, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw [0 x i8], ptr %.0.val, i64 0, i64 %22
   %25 = load i8, ptr %24, align 1, !alias.scope !12456, !noalias !12463, !noundef !5
   %26 = zext i8 %25 to i64
   br label %_ZN5ahash10operations10read_small17h3ddee2fcffabbc3dE.exit.i.i.i
@@ -101217,7 +101217,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf50cbcdff95b1e44E.exit: ; preds = %_ZN4core3
   %158 = load i16, ptr %.val2.i12, align 1, !alias.scope !16830, !noalias !16831
   %159 = add nsw i64 %.val3.i13, -1
   %160 = zext i16 %158 to i64
-  %161 = getelementptr inbounds [0 x i8], ptr %.val2.i12, i64 0, i64 %159
+  %161 = getelementptr inbounds nuw [0 x i8], ptr %.val2.i12, i64 0, i64 %159
   %162 = load i8, ptr %161, align 1, !alias.scope !16817, !noalias !16824, !noundef !5
   %163 = zext i8 %162 to i64
   br label %_ZN5ahash10operations10read_small17h3ddee2fcffabbc3dE.exit.i.i.i.i
@@ -101852,7 +101852,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf50cbcdff95b1e44E.exit: ; preds = %_ZN4core3
   %153 = load i16, ptr %.val1.i.i18, align 1, !alias.scope !16952, !noalias !16953
   %154 = add nsw i64 %.val2.i.i, -1
   %155 = zext i16 %153 to i64
-  %156 = getelementptr inbounds [0 x i8], ptr %.val1.i.i18, i64 0, i64 %154
+  %156 = getelementptr inbounds nuw [0 x i8], ptr %.val1.i.i18, i64 0, i64 %154
   %157 = load i8, ptr %156, align 1, !alias.scope !16939, !noalias !16946, !noundef !5
   %158 = zext i8 %157 to i64
   br label %_ZN5ahash10operations10read_small17h3ddee2fcffabbc3dE.exit.i.i.i.i
@@ -102496,7 +102496,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf50cbcdff95b1e44E.exit: ; preds = %_ZN4core3
   %153 = load i16, ptr %.val1.i.i18, align 1, !alias.scope !17074, !noalias !17075
   %154 = add nsw i64 %.val2.i.i, -1
   %155 = zext i16 %153 to i64
-  %156 = getelementptr inbounds [0 x i8], ptr %.val1.i.i18, i64 0, i64 %154
+  %156 = getelementptr inbounds nuw [0 x i8], ptr %.val1.i.i18, i64 0, i64 %154
   %157 = load i8, ptr %156, align 1, !alias.scope !17061, !noalias !17068, !noundef !5
   %158 = zext i8 %157 to i64
   br label %_ZN5ahash10operations10read_small17h3ddee2fcffabbc3dE.exit.i.i.i.i

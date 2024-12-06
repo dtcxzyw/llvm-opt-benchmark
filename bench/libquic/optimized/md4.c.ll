@@ -178,7 +178,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %if.then, %entry
   %n.0 = phi i64 [ 0, %if.then ], [ %inc, %entry ]
-  %add.ptr8 = getelementptr inbounds i8, ptr %data, i64 %n.0
+  %add.ptr8 = getelementptr inbounds nuw i8, ptr %data, i64 %n.0
   %sub9 = sub nuw nsw i64 56, %n.0
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %add.ptr8, i8 0, i64 %sub9, i1 false)
   %add.ptr13 = getelementptr inbounds nuw i8, ptr %c, i64 80

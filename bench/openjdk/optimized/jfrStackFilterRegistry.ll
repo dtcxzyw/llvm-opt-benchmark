@@ -61,7 +61,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEP13_jobjectArrayS1_P1
 
 19:                                               ; preds = %16
   %20 = add nsw i64 %17, -1
-  %21 = getelementptr inbounds [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %20
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %22
   store ptr %12, ptr %23, align 8
@@ -113,7 +113,7 @@ define hidden noundef i64 @_ZN22JfrStackFilterRegistry3addEPK14JfrStackFilter(pt
 
 4:                                                ; preds = %1
   %5 = add nsw i64 %2, -1
-  %6 = getelementptr inbounds [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %5
+  %6 = getelementptr inbounds nuw [4096 x i64], ptr @_ZL10_free_list, i64 0, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = getelementptr inbounds [4096 x ptr], ptr @_ZL9_elements, i64 0, i64 %7
   store ptr %0, ptr %8, align 8

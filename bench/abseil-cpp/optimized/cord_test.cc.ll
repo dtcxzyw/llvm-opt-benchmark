@@ -45348,7 +45348,7 @@ do.body10.i.i.i.i:                                ; preds = %do.body10.i.i.i.i, 
   %edge.0.i.i.i.i = phi ptr [ %12, %do.body10.i.i.i.i ], [ %8, %do.end.i.i.i.i ]
   %index.0.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i, %do.body10.i.i.i.i ], [ %add.i.i.i.i, %do.end.i.i.i.i ]
   %edges_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i
+  %arrayidx.i13.i.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i
   %12 = load ptr, ptr %arrayidx.i13.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i, -1
   %arrayidx15.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i
@@ -57327,7 +57327,7 @@ do.body10.i.i.i.i.i:                              ; preds = %do.body10.i.i.i.i.i
   %edge.0.i.i.i.i.i = phi ptr [ %160, %do.body10.i.i.i.i.i ], [ %156, %do.end.i.i.i.i.i ]
   %index.0.i.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i.i, %do.body10.i.i.i.i.i ], [ %add.i.i.i.i.i, %do.end.i.i.i.i.i ]
   %edges_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
+  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
   %160 = load ptr, ptr %arrayidx.i13.i.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i.i, -1
   %arrayidx15.i.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i.i
@@ -63484,7 +63484,7 @@ do.body10.i.i.i.i.i:                              ; preds = %do.body10.i.i.i.i.i
   %edge.0.i.i.i.i.i = phi ptr [ %171, %do.body10.i.i.i.i.i ], [ %167, %do.end.i.i.i.i.i ]
   %index.0.i.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i.i, %do.body10.i.i.i.i.i ], [ %add.i.i.i.i.i, %do.end.i.i.i.i.i ]
   %edges_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
+  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
   %171 = load ptr, ptr %arrayidx.i13.i.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i.i, -1
   %arrayidx15.i.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i.i
@@ -65420,7 +65420,7 @@ do.body10.i.i.i.i.i1054:                          ; preds = %do.body10.i.i.i.i.i
   %edge.0.i.i.i.i.i1056 = phi ptr [ %406, %do.body10.i.i.i.i.i1054 ], [ %402, %do.end.i.i.i.i.i1051 ]
   %index.0.i.i.i.i.i1057 = phi i64 [ %conv.i15.i.i.i.i.i1063, %do.body10.i.i.i.i.i1054 ], [ %add.i.i.i.i.i1046, %do.end.i.i.i.i.i1051 ]
   %edges_.i.i.i.i.i.i1058 = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i.i1056, i64 16
-  %arrayidx.i13.i.i.i.i.i1059 = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i.i1058, i64 0, i64 %index.0.i.i.i.i.i1057
+  %arrayidx.i13.i.i.i.i.i1059 = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i.i1058, i64 0, i64 %index.0.i.i.i.i.i1057
   %406 = load ptr, ptr %arrayidx.i13.i.i.i.i.i1059, align 8
   %indvars.iv.next27.i.i.i.i.i1060 = add nsw i64 %indvars.iv26.i.i.i.i.i1055, -1
   %arrayidx15.i.i.i.i.i1061 = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i988, i64 0, i64 %indvars.iv.next27.i.i.i.i.i1060
@@ -78182,7 +78182,7 @@ do.body10.i.i.i.i.i:                              ; preds = %do.body10.i.i.i.i.i
   %edge.0.i.i.i.i.i = phi ptr [ %544, %do.body10.i.i.i.i.i ], [ %540, %do.end.i.i.i.i.i ]
   %index.0.i.i.i.i.i = phi i64 [ %conv.i15.i.i.i.i.i, %do.body10.i.i.i.i.i ], [ %add.i.i.i.i.i, %do.end.i.i.i.i.i ]
   %edges_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i.i, i64 16
-  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
+  %arrayidx.i13.i.i.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i.i, i64 0, i64 %index.0.i.i.i.i.i
   %544 = load ptr, ptr %arrayidx.i13.i.i.i.i.i, align 8
   %indvars.iv.next27.i.i.i.i.i = add nsw i64 %indvars.iv26.i.i.i.i.i, -1
   %arrayidx15.i.i.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i.i.i, i64 0, i64 %indvars.iv.next27.i.i.i.i.i
@@ -78654,7 +78654,7 @@ do.body10.i.i.i.i.i2165:                          ; preds = %do.body10.i.i.i.i.i
   %edge.0.i.i.i.i.i2167 = phi ptr [ %608, %do.body10.i.i.i.i.i2165 ], [ %604, %do.end.i.i.i.i.i2162 ]
   %index.0.i.i.i.i.i2168 = phi i64 [ %conv.i15.i.i.i.i.i2174, %do.body10.i.i.i.i.i2165 ], [ %add.i.i.i.i.i2157, %do.end.i.i.i.i.i2162 ]
   %edges_.i.i.i.i.i.i2169 = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i.i.i2167, i64 16
-  %arrayidx.i13.i.i.i.i.i2170 = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i.i.i2169, i64 0, i64 %index.0.i.i.i.i.i2168
+  %arrayidx.i13.i.i.i.i.i2170 = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i.i.i2169, i64 0, i64 %index.0.i.i.i.i.i2168
   %608 = load ptr, ptr %arrayidx.i13.i.i.i.i.i2170, align 8
   %indvars.iv.next27.i.i.i.i.i2171 = add nsw i64 %indvars.iv26.i.i.i.i.i2166, -1
   %arrayidx15.i.i.i.i.i2172 = getelementptr inbounds [12 x ptr], ptr %node_.i.i.i.i.i2035, i64 0, i64 %indvars.iv.next27.i.i.i.i.i2171
@@ -104227,7 +104227,7 @@ while.cond.if.end.loopexit_crit_edge.i.i.i.i104:  ; preds = %call4.i.i.i.i99.noe
 
 invoke.cont42:                                    ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i104, %call.i.i.i.i90.noexc
   %retval.0.i = phi i64 [ %extract.t10.i.i.i.i95, %call.i.i.i.i90.noexc ], [ %extract.t14.le.i.i.i.i106, %while.cond.if.end.loopexit_crit_edge.i.i.i.i104 ]
-  %arrayidx = getelementptr inbounds [10 x %"class.absl::Cord"], ptr %a, i64 0, i64 %retval.0.i
+  %arrayidx = getelementptr inbounds nuw [10 x %"class.absl::Cord"], ptr %a, i64 0, i64 %retval.0.i
   invoke void @_ZN4absl4Cord6AppendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %c, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx)
           to label %invoke.cont44 unwind label %lpad41.loopexit
 
@@ -104436,7 +104436,7 @@ while.cond.if.end.loopexit_crit_edge.i.i.i.i125:  ; preds = %call4.i.i.i.i120.no
 
 invoke.cont45:                                    ; preds = %while.cond.if.end.loopexit_crit_edge.i.i.i.i125, %call.i.i.i.i109.noexc
   %retval.0.i118 = phi i64 [ %extract.t10.i.i.i.i115, %call.i.i.i.i109.noexc ], [ %extract.t14.le.i.i.i.i127, %while.cond.if.end.loopexit_crit_edge.i.i.i.i125 ]
-  %arrayidx47 = getelementptr inbounds [10 x %"class.absl::Cord"], ptr %a, i64 0, i64 %retval.0.i118
+  %arrayidx47 = getelementptr inbounds nuw [10 x %"class.absl::Cord"], ptr %a, i64 0, i64 %retval.0.i118
   invoke void @_ZN4absl4Cord6AppendERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %d, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx47)
           to label %for.inc unwind label %lpad41.loopexit
 
@@ -138854,7 +138854,7 @@ do.body10.i.i.i:                                  ; preds = %do.body10.i.i.i, %d
   %edge.0.i.i.i = phi ptr [ %11, %do.body10.i.i.i ], [ %7, %do.end.i.i.i ]
   %index.0.i.i.i = phi i64 [ %conv.i15.i.i.i, %do.body10.i.i.i ], [ %add.i.i.i, %do.end.i.i.i ]
   %edges_.i.i.i.i = getelementptr inbounds nuw i8, ptr %edge.0.i.i.i, i64 16
-  %arrayidx.i13.i.i.i = getelementptr inbounds [6 x ptr], ptr %edges_.i.i.i.i, i64 0, i64 %index.0.i.i.i
+  %arrayidx.i13.i.i.i = getelementptr inbounds nuw [6 x ptr], ptr %edges_.i.i.i.i, i64 0, i64 %index.0.i.i.i
   %11 = load ptr, ptr %arrayidx.i13.i.i.i, align 8
   %indvars.iv.next27.i.i.i = add nsw i64 %indvars.iv26.i.i.i, -1
   %arrayidx15.i.i.i = getelementptr inbounds [12 x ptr], ptr %node_.i.i, i64 0, i64 %indvars.iv.next27.i.i.i
@@ -149668,7 +149668,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %dec = add nsw i64 %dst.022, -5
   %arrayidx = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec
   %dec9 = add nsw i64 %shr, -1
-  %arrayidx10 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec9
+  %arrayidx10 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec9
   %0 = load i32, ptr %arrayidx, align 4
   %1 = load i32, ptr %arrayidx10, align 4
   store i32 %1, ptr %arrayidx, align 4
@@ -149676,7 +149676,7 @@ while.body:                                       ; preds = %if.then, %while.bod
   %dec11 = add nsw i64 %dst.022, -6
   %arrayidx12 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec11
   %dec13 = add nsw i64 %shr, -2
-  %arrayidx14 = getelementptr inbounds [60 x i32], ptr %buffer, i64 0, i64 %dec13
+  %arrayidx14 = getelementptr inbounds nuw [60 x i32], ptr %buffer, i64 0, i64 %dec13
   %2 = load i32, ptr %arrayidx12, align 8
   %3 = load i32, ptr %arrayidx14, align 8
   store i32 %3, ptr %arrayidx12, align 8

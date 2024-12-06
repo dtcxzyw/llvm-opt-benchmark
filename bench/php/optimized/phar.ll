@@ -3833,7 +3833,7 @@ thread-pre-split:                                 ; preds = %9, %29
   br i1 %83, label %.loopexit260, label %84
 
 84:                                               ; preds = %82
-  %85 = getelementptr inbounds i8, ptr %0, i64 %78
+  %85 = getelementptr inbounds nuw i8, ptr %0, i64 %78
   %86 = load i8, ptr %85, align 1
   switch i8 %86, label %87 [
     i8 47, label %.loopexit260
@@ -3891,7 +3891,7 @@ thread-pre-split:                                 ; preds = %9, %29
   br i1 %110, label %.loopexit260, label %111
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds i8, ptr %0, i64 %105
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 %105
   %113 = load i8, ptr %112, align 1
   switch i8 %113, label %114 [
     i8 47, label %.loopexit260

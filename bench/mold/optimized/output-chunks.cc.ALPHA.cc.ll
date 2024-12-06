@@ -26153,7 +26153,7 @@ if.end.i.i.i:                                     ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %while.body.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %while.body.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %__first, i64 %__parent.0.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i, ptr noundef nonnull align 1 dereferenceable(24) %add.ptr.i.i.i, i64 24, i1 false)
   tail call void @_ZSt13__adjust_heapIPN4mold3elf6ElfRelINS1_5ALPHAEEElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_13RelDynSectionIS3_E4sortERNS1_7ContextIS3_EEEUlRKS4_SF_E_EEEvT_T0_SJ_T1_T2_(ptr noundef %__first, i64 noundef %__parent.0.i.i.i, i64 noundef %sub.ptr.div.i.i.i10, ptr noundef nonnull byval(%"struct.mold::elf::ElfRel") align 8 %agg.tmp.i.i.i, ptr %__comp.coerce)
   %cmp7.i.i.i = icmp eq i64 %__parent.0.i.i.i, 0
@@ -44511,7 +44511,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us
   %__parent.065.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.065.us, -1
-  %add.ptr11.us = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 1
   %cmp23.i16.not.us = icmp sgt i64 %__parent.065.us, %div.i6163
   br i1 %cmp23.i16.not.us, label %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us, label %while.body.i46.us
@@ -44565,7 +44565,7 @@ _ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7Con
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60
   %__parent.065 = phi i64 [ %dec, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_5ALPHAEE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.065, -1
-  %add.ptr11 = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 1
   %cmp23.i16.not = icmp sgt i64 %__parent.065, %div.i6163
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i46
@@ -45364,7 +45364,7 @@ cond.false22.i39:                                 ; preds = %cond.false16.i37
 
 _ZNK3tbb6detail2d116quick_sort_rangeIPZN4mold3elf14EhFrameSectionINS4_5ALPHAEE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_E15median_of_threeERKSC_mmm.exit48: ; preds = %cond.true.i43, %cond.false.i45, %cond.false16.i37, %cond.false22.i39
   %cond34.i42 = phi i64 [ %cond.i47, %cond.false.i45 ], [ %cond30.i41, %cond.false22.i39 ], [ %mul7, %cond.true.i43 ], [ %mul7, %cond.false16.i37 ]
-  %arrayidx.i49 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i
+  %arrayidx.i49 = getelementptr inbounds nuw %struct.HdrEntry, ptr %1, i64 %cond34.i
   %arrayidx2.i50 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i23
   %x.0.copyload.i.i.i51 = load i32, ptr %arrayidx.i49, align 1
   %x.0.copyload.i1.i.i52 = load i32, ptr %arrayidx2.i50, align 1

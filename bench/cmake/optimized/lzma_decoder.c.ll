@@ -5533,7 +5533,7 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %2598 = trunc i64 %2595 to i32
   %2599 = sub i32 0, %2598
   %2600 = icmp ugt i32 %2573, %2599
-  %2601 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
+  %2601 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.13
   %2602 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload3154, i64 %2597
   br i1 %2600, label %2603, label %2609
 

@@ -20095,7 +20095,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
 
 18:                                               ; preds = %18, %14
   %.0.i.i.i = phi i64 [ %17, %14 ], [ %22, %18 ]
-  %19 = getelementptr inbounds i32, ptr %0, i64 %.0.i.i.i
+  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.i.i.i
   %20 = load i32, ptr %19, align 4
   tail call fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %15, i32 noundef %20, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter.282") align 8 %3)
   %21 = icmp eq i64 %.0.i.i.i, 0
@@ -20578,16 +20578,16 @@ define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_c
   %.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %9 = shl i64 %.030, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds i32, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
   %.val = load i32, ptr %11, align 4
   %.val29 = load i32, ptr %13, align 4
   %14 = call fastcc noundef zeroext i1 @"_ZZN5clang6formatL15sortJavaImportsERKNS0_11FormatStyleERKN4llvm15SmallVectorImplINS0_12_GLOBAL__N_119JavaImportDirectiveEEENS4_8ArrayRefINS_7tooling5RangeEEENS4_9StringRefESF_RNSC_12ReplacementsEENK3$_0clEjj"(ptr noundef nonnull readonly align 8 dereferenceable(24) %4, i32 noundef %.val, i32 noundef %.val29)
   %spec.select = select i1 %14, i64 %12, i64 %10
-  %15 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %spec.select
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i32, ptr %0, i64 %.030
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %.030
   store i32 %16, ptr %17, align 4
   %18 = icmp slt i64 %spec.select, %7
   br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !389
@@ -20607,9 +20607,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_c
 25:                                               ; preds = %21
   %26 = shl nsw i64 %.0.lcssa, 1
   %27 = or disjoint i64 %26, 1
-  %28 = getelementptr inbounds i32, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %27
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa
   store i32 %29, ptr %30, align 4
   br label %31
 
@@ -20697,7 +20697,7 @@ _ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i: ; preds = %_ZN4llvm9StringRe
   br i1 %66, label %67, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_RT2_.exit"
 
 67:                                               ; preds = %.lr.ph.i, %57, %_ZN4llvmltENS_9StringRefES0_.exit.i.i.i.i.i, %64, %_ZN4llvmltENS_9StringRefES0_.exit.thread.i.i.i.i.i
-  %68 = getelementptr inbounds i32, ptr %0, i64 %.01318.i
+  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.01318.i
   store i32 %.val.i, ptr %68, align 4
   %69 = icmp sgt i64 %.019.i, %1
   br i1 %69, label %.lr.ph.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang6formatL15sortJavaImportsERKNS5_11FormatStyleERKN4llvm15SmallVectorImplINS5_12_GLOBAL__N_119JavaImportDirectiveEEENS9_8ArrayRefINS4_7tooling5RangeEEENS9_9StringRefESK_RNSH_12ReplacementsEE3$_0EEEvT_T0_SQ_T1_RT2_.exit", !llvm.loop !396

@@ -11992,7 +11992,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %or.cond.i.i.i, label %125, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1f1c0a1b19441340E.exit"
 
 125:                                              ; preds = %120
-  %126 = getelementptr inbounds i64, ptr %119, i64 %.0.i.i.i
+  %126 = getelementptr inbounds nuw i64, ptr %119, i64 %.0.i.i.i
   %127 = load i64, ptr %126, align 8, !noalias !3062, !noundef !4
   %128 = icmp eq i64 %127, 0
   br i1 %128, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17h1f1c0a1b19441340E.exit", label %129
@@ -45329,7 +45329,7 @@ define hidden void @"_ZN15tree_sitter_cli4test18parse_test_content28_$u7b$$u7b$c
   br i1 %or.cond.i, label %188, label %192
 
 188:                                              ; preds = %183
-  %189 = getelementptr inbounds i64, ptr %182, i64 %.0.i267
+  %189 = getelementptr inbounds nuw i64, ptr %182, i64 %.0.i267
   %190 = load i64, ptr %189, align 8, !noalias !10467, !noundef !4
   %191 = icmp eq i64 %190, 0
   br i1 %191, label %192, label %193
@@ -46211,7 +46211,7 @@ define hidden void @"_ZN15tree_sitter_cli4test18parse_test_content28_$u7b$$u7b$c
   br i1 %or.cond.i, label %92, label %105
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds i64, ptr %86, i64 %.0.i55
+  %93 = getelementptr inbounds nuw i64, ptr %86, i64 %.0.i55
   %94 = load i64, ptr %93, align 8, !noalias !10622, !noundef !4
   %95 = icmp eq i64 %94, 0
   br i1 %95, label %105, label %106

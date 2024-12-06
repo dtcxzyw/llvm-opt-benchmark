@@ -175647,7 +175647,7 @@ _ZNSt10_HashtableIjSt4pairIKjP11AstVarScopeESaIS4_ENSt8__detail10_Select1stESt8e
   br i1 %.not66, label %44, label %39
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds ptr, ptr %.0.i, i64 %.05271
+  %40 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.05271
   store ptr %.072, ptr %40, align 8
   br label %44
 

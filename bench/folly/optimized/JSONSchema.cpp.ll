@@ -16914,7 +16914,7 @@ while.body.i.i.i.i.i:                             ; preds = %if.end.i1914, %whil
   %incdec.ptr.i810.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i1915, %while.cond.i.i.i.i.i ], [ %__begin4.i.sroa.0.02486, %if.end.i1914 ]
   %dec.i.i.i.i.i = add nsw i64 %357, -1
   %incdec.ptr.i.i.i.i.i1915 = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i.i, i64 -8
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i.i
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i.i
   %358 = load i8, ptr %arrayidx.i.i.i.i.i.i.i, align 1, !tbaa !16, !noalias !671
   %cmp.i.not.i.i.i.i = icmp eq i8 %358, 0
   br i1 %cmp.i.not.i.i.i.i, label %while.cond.i.i.i.i.i, label %for.body.i1913.backedge, !prof !12, !llvm.loop !701
@@ -17437,7 +17437,7 @@ while.body.i.i.i.i242.i:                          ; preds = %if.end79.i, %while.
   %incdec.ptr.i810.i.i.i243.i = phi ptr [ %incdec.ptr.i.i.i.i245.i, %while.cond.i.i.i.i248.i ], [ %__begin443.i.sroa.0.02489, %if.end79.i ]
   %dec.i.i.i.i244.i = add nsw i64 %419, -1
   %incdec.ptr.i.i.i.i245.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i243.i, i64 -8
-  %arrayidx.i.i.i.i.i.i246.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i240.i, i64 0, i64 %dec.i.i.i.i244.i
+  %arrayidx.i.i.i.i.i.i246.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i240.i, i64 0, i64 %dec.i.i.i.i244.i
   %420 = load i8, ptr %arrayidx.i.i.i.i.i.i246.i, align 1, !tbaa !16, !noalias !671
   %cmp.i.not.i.i.i247.i = icmp eq i8 %420, 0
   br i1 %cmp.i.not.i.i.i247.i, label %while.cond.i.i.i.i248.i, label %for.body53.i.backedge, !prof !12, !llvm.loop !724
@@ -18963,7 +18963,7 @@ while.body.i.i.i.i.i2004:                         ; preds = %cleanup.i, %while.c
   %incdec.ptr.i810.i.i.i.i2005 = phi ptr [ %incdec.ptr.i.i.i.i186.i, %while.cond.i.i.i.i.i2009 ], [ %__begin3.i.sroa.0.02494, %cleanup.i ]
   %dec.i.i.i.i.i2006 = add nsw i64 %603, -1
   %incdec.ptr.i.i.i.i186.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i.i2005, i64 -8
-  %arrayidx.i.i.i.i.i.i187.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i.i2002, i64 0, i64 %dec.i.i.i.i.i2006
+  %arrayidx.i.i.i.i.i.i187.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i.i2002, i64 0, i64 %dec.i.i.i.i.i2006
   %604 = load i8, ptr %arrayidx.i.i.i.i.i.i187.i, align 1, !tbaa !16, !noalias !791
   %cmp.i.not.i.i.i.i2007 = icmp eq i8 %604, 0
   br i1 %cmp.i.not.i.i.i.i2007, label %while.cond.i.i.i.i.i2009, label %for.body.i1998.backedge, !prof !12, !llvm.loop !824
@@ -25108,7 +25108,7 @@ land.lhs.true.i.i:                                ; preds = %_ZNSt5dequeIcSaIcEE
   br i1 %cmp2.i.i, label %if.then.i.i, label %cond.true.i.i
 
 if.then.i.i:                                      ; preds = %land.lhs.true.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 %add10.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %add10.i
   br label %_ZStplRKSt15_Deque_iteratorIcRcPcEl.exit
 
 cond.true.i.i:                                    ; preds = %land.lhs.true.i.i
@@ -48764,7 +48764,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %if.then1566
   %sub.ptr.lhs.cast.i.i2665 = ptrtoint ptr %529 to i64
   %530 = xor i64 %sub.ptr.rhs.cast.i.i2666, -1
   %sub1570 = add i64 %sub.ptr.lhs.cast.i.i2665, %530
-  %second = getelementptr inbounds %"struct.std::pair.637", ptr %527, i64 %sub1574, i32 1
+  %second = getelementptr inbounds nuw %"struct.std::pair.637", ptr %527, i64 %sub1574, i32 1
   store i64 %sub1570, ptr %second, align 8, !tbaa !1771
   br label %return
 
@@ -78589,7 +78589,7 @@ for.inc.i.i.i.i.i184:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.inc.i.i.i.i.i184, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i189 = phi ptr [ %cond.i171, %invoke.cont57 ], [ %incdec.ptr1.i.i.i.i.i188, %for.inc.i.i.i.i.i184 ]
-  %add.ptr62 = getelementptr inbounds %"struct.boost::sub_match", ptr %__cur.0.lcssa.i.i.i.i.i189, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %__cur.0.lcssa.i.i.i.i.i189, i64 %__n
   %cmp.not13.i.i.i.i.i190 = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not13.i.i.i.i.i190, label %invoke.cont64, label %for.inc.i.i.i.i.i191
 
@@ -81854,7 +81854,7 @@ while.body.i.i.i.i:                               ; preds = %for.inc91, %while.c
   %incdec.ptr.i810.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.cond.i.i.i.i ], [ %__begin3.sroa.0.0185, %for.inc91 ]
   %dec.i.i.i.i = add nsw i64 %30, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i, i64 -8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
   %31 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !16
   %cmp.i.not.i.i.i = icmp eq i8 %31, 0
   br i1 %cmp.i.not.i.i.i, label %while.cond.i.i.i.i, label %for.body.backedge, !prof !12, !llvm.loop !2438

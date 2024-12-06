@@ -5493,8 +5493,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.val29.i.i.i.i = load float, ptr %25, align 4
   %26 = fcmp ogt float %.val.i.i.i.i, %.val29.i.i.i.i
   %spec.select.i.i.i.i = select i1 %26, i64 %23, i64 %22
-  %27 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %spec.select.i.i.i.i
-  %28 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.030.i.i.i.i
+  %27 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.030.i.i.i.i
   %29 = load i64, ptr %27, align 4
   store i64 %29, ptr %28, align 4
   %30 = icmp slt i64 %spec.select.i.i.i.i, %19
@@ -5512,8 +5512,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
 35:                                               ; preds = %._crit_edge.i.i.i.i
   %36 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %37
-  %39 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %38 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.0.lcssa.i.i.i.i
   %40 = load i64, ptr %38, align 4
   store i64 %40, ptr %39, align 4
   br label %41
@@ -5537,7 +5537,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   br i1 %46, label %47, label %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i"
 
 47:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %48 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.0134.i.i.i.i.i
+  %48 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.0134.i.i.i.i.i
   %49 = load i64, ptr %44, align 4
   store i64 %49, ptr %48, align 4
   %50 = icmp sgt i64 %.05.i.i.i.i.i, %16
@@ -5558,14 +5558,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
 
 .split16.preheader.i.i.i:                         ; preds = %.split16.lr.ph.i.i.i
   %53 = or disjoint i64 %15, 1
-  %54 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %53
-  %55 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %33
+  %54 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %53
+  %55 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %33
   br label %.split16.i.i.i
 
 .split16.us.i.i.i:                                ; preds = %.split16.lr.ph.i.i.i, %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %56, %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.us.i.i.i" ], [ %16, %.split16.lr.ph.i.i.i ]
   %56 = add nsw i64 %.06.us.i.i.i, -1
-  %57 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %56
   %.sroa.02.0.copyload17.us.i.i.i = load i64, ptr %57, align 4
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %19
   br i1 %.not.us.i.i.i, label %._crit_edge.i19.us.thread.i.i.i, label %.lr.ph.i32.us.i.i.i
@@ -5586,8 +5586,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.val29.i35.us.i.i.i = load float, ptr %62, align 4
   %63 = fcmp ogt float %.val.i34.us.i.i.i, %.val29.i35.us.i.i.i
   %spec.select.i36.us.i.i.i = select i1 %63, i64 %60, i64 %59
-  %64 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %spec.select.i36.us.i.i.i
-  %65 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.030.i33.us.i.i.i
+  %64 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %spec.select.i36.us.i.i.i
+  %65 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.030.i33.us.i.i.i
   %66 = load i64, ptr %64, align 4
   store i64 %66, ptr %65, align 4
   %67 = icmp slt i64 %spec.select.i36.us.i.i.i, %19
@@ -5610,7 +5610,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   br i1 %71, label %72, label %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.us.i.i.i"
 
 72:                                               ; preds = %.lr.ph.i.i27.us.i.i.i
-  %73 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.0134.i.i28.us.i.i.i
+  %73 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.0134.i.i28.us.i.i.i
   %74 = load i64, ptr %69, align 4
   store i64 %74, ptr %73, align 4
   %.not5.us.i.i.i = icmp slt i64 %.05.i.i30.us.i.i.i, %.06.us.i.i.i
@@ -5630,7 +5630,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
 .split16.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.i.i.i", %.split16.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %77, %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.i.i.i" ], [ %16, %.split16.preheader.i.i.i ]
   %77 = add nsw i64 %.06.i.i.i, -1
-  %78 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %77
+  %78 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %77
   %.sroa.02.0.copyload17.i.i.i = load i64, ptr %78, align 4
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %19
   br i1 %.not.i.i.i, label %._crit_edge.i19.i.i.i, label %.lr.ph.i32.i.i.i
@@ -5646,8 +5646,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.val29.i35.i.i.i = load float, ptr %83, align 4
   %84 = fcmp ogt float %.val.i34.i.i.i, %.val29.i35.i.i.i
   %spec.select.i36.i.i.i = select i1 %84, i64 %81, i64 %80
-  %85 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %spec.select.i36.i.i.i
-  %86 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.030.i33.i.i.i
+  %85 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %spec.select.i36.i.i.i
+  %86 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.030.i33.i.i.i
   %87 = load i64, ptr %85, align 4
   store i64 %87, ptr %86, align 4
   %88 = icmp slt i64 %spec.select.i36.i.i.i, %19
@@ -5682,7 +5682,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   br i1 %96, label %97, label %"_ZSt13__adjust_heapIP8t_toppoplS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL6print5P8_IO_FILEE3$_0EEEvT_T0_SA_T1_T2_.exit37.i.i.i"
 
 97:                                               ; preds = %.lr.ph.i.i27.i.i.i
-  %98 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.0134.i.i28.i.i.i
+  %98 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.0134.i.i28.i.i.i
   %99 = load i64, ptr %94, align 4
   store i64 %99, ptr %98, align 4
   %.not5.i.i.i = icmp slt i64 %.05.i.i30.i.i.i, %.06.i.i.i
@@ -5726,8 +5726,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
   %.val29.i.i.i25.i = load float, ptr %114, align 4
   %115 = fcmp ogt float %.val.i.i.i24.i, %.val29.i.i.i25.i
   %spec.select.i.i.i26.i = select i1 %115, i64 %112, i64 %111
-  %116 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %spec.select.i.i.i26.i
-  %117 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.030.i.i.i23.i
+  %116 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %spec.select.i.i.i26.i
+  %117 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.030.i.i.i23.i
   %118 = load i64, ptr %116, align 4
   store i64 %118, ptr %117, align 4
   %119 = icmp slt i64 %spec.select.i.i.i26.i, %108
@@ -5748,8 +5748,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP8t_toppoplN9__gnu_cxx5__op
 126:                                              ; preds = %122
   %127 = shl nsw i64 %.0.lcssa.i.i.i8.i, 1
   %128 = or disjoint i64 %127, 1
-  %129 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %128
-  %130 = getelementptr inbounds %struct.t_toppop, ptr %0, i64 %.0.lcssa.i.i.i8.i
+  %129 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %128
+  %130 = getelementptr inbounds nuw %struct.t_toppop, ptr %0, i64 %.0.lcssa.i.i.i8.i
   %131 = load i64, ptr %129, align 4
   store i64 %131, ptr %130, align 4
   br label %132
@@ -6208,13 +6208,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
   %27 = and i64 %22, 1
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %24
   br label %32
 
 32:                                               ; preds = %"_ZSt13__adjust_heapIP10t_dr_statslS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i", %21
   %.0.i.i.i = phi i64 [ %24, %21 ], [ %56, %"_ZSt13__adjust_heapIP10t_dr_statslS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i" ]
-  %33 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.0.i.i.i
+  %33 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.0.i.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.i.i.i, ptr noundef nonnull align 4 dereferenceable(24) %33, i64 24, i1 false)
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 24
@@ -6235,8 +6235,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
   %.val28.i.i.i.i = load float, ptr %39, align 4
   %40 = fcmp ogt float %.val.i.i.i.i, %.val28.i.i.i.i
   %spec.select.i.i.i.i = select i1 %40, i64 %37, i64 %36
-  %41 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %spec.select.i.i.i.i
-  %42 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.033.i.i.i.i
+  %41 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %spec.select.i.i.i.i
+  %42 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.033.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %42, ptr noundef nonnull align 4 dereferenceable(36) %41, i64 36, i1 false)
   %43 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %43, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !56
@@ -6267,7 +6267,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
   br i1 %50, label %51, label %"_ZSt13__adjust_heapIP10t_dr_statslS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i"
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.0133.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %52, ptr noundef nonnull align 4 dereferenceable(36) %48, i64 36, i1 false)
   %53 = icmp sgt i64 %.04.i.i.i.i.i, %.0.i.i.i
   br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP10t_dr_statslS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL10dump_statsP8_IO_FILEiRK12t_disresdataRK15InteractionListN3gmx8ArrayRefIK9t_iparamsEEP11t_dr_resultiPiP7t_atomsE3$_0EEEvT_T0_SQ_T1_T2_.exit.i.i.i", !llvm.loop !57
@@ -6314,8 +6314,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
   %.val28.i.i.i27.i = load float, ptr %68, align 4
   %69 = fcmp ogt float %.val.i.i.i26.i, %.val28.i.i.i27.i
   %spec.select.i.i.i28.i = select i1 %69, i64 %66, i64 %65
-  %70 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %spec.select.i.i.i28.i
-  %71 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.033.i.i.i25.i
+  %70 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %spec.select.i.i.i28.i
+  %71 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.033.i.i.i25.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %71, ptr noundef nonnull align 4 dereferenceable(36) %70, i64 36, i1 false)
   %72 = icmp slt i64 %spec.select.i.i.i28.i, %62
   br i1 %72, label %.lr.ph.i.i.i24.i, label %._crit_edge.i.i.i11.i, !llvm.loop !56
@@ -6335,8 +6335,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP10t_dr_statslN9__gnu_cxx5_
 79:                                               ; preds = %75
   %80 = shl nsw i64 %.0.lcssa.i.i.i12.i, 1
   %81 = or disjoint i64 %80, 1
-  %82 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %81
-  %83 = getelementptr inbounds %struct.t_dr_stats, ptr %0, i64 %.0.lcssa.i.i.i12.i
+  %82 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %81
+  %83 = getelementptr inbounds nuw %struct.t_dr_stats, ptr %0, i64 %.0.lcssa.i.i.i12.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %83, ptr noundef nonnull align 4 dereferenceable(36) %82, i64 36, i1 false)
   br label %84
 

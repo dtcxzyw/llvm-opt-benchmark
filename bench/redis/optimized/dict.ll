@@ -532,7 +532,7 @@ if.then150:                                       ; preds = %if.end147
 
 land.lhs.true156:                                 ; preds = %if.then150
   %20 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx159 = getelementptr inbounds ptr, ptr %20, i64 %h.0
+  %arrayidx159 = getelementptr inbounds nuw ptr, ptr %20, i64 %h.0
   %21 = load ptr, ptr %arrayidx159, align 8
   %tobool160.not = icmp eq ptr %21, null
   br i1 %tobool160.not, label %if.then161, label %if.else178
@@ -562,7 +562,7 @@ if.else178:                                       ; preds = %land.lhs.true156, %
 
 if.then181:                                       ; preds = %if.else178
   %24 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx184 = getelementptr inbounds ptr, ptr %24, i64 %h.0
+  %arrayidx184 = getelementptr inbounds nuw ptr, ptr %24, i64 %h.0
   %25 = load ptr, ptr %arrayidx184, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #23
   store ptr %retval.0.i76, ptr %call.i, align 8
@@ -585,7 +585,7 @@ cond.false196:                                    ; preds = %if.else186
 
 decodeEntryNoValue.exit.i92:                      ; preds = %if.else186
   %28 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx200 = getelementptr inbounds ptr, ptr %28, i64 %h.0
+  %arrayidx200 = getelementptr inbounds nuw ptr, ptr %28, i64 %h.0
   %29 = load ptr, ptr %arrayidx200, align 8
   %and.i.i.i93 = and i64 %9, -8
   %30 = inttoptr i64 %and.i.i.i93 to ptr
@@ -595,7 +595,7 @@ decodeEntryNoValue.exit.i92:                      ; preds = %if.else186
 
 if.else203:                                       ; preds = %if.end147
   %31 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx206 = getelementptr inbounds ptr, ptr %31, i64 %h.0
+  %arrayidx206 = getelementptr inbounds nuw ptr, ptr %31, i64 %h.0
   %32 = load ptr, ptr %arrayidx206, align 8
   br i1 %tobool.not.i, label %cond.end.i97, label %cond.false.i96
 
@@ -624,7 +624,7 @@ if.else.i100:                                     ; preds = %cond.end.i97
 if.end207:                                        ; preds = %if.else.i100, %decodeEntryNoValue.exit.i103, %decodeEntryNoValue.exit.i92, %cond.end172, %decodeMaskedPtr.exit, %if.then181
   %de.1 = phi ptr [ %27, %if.then181 ], [ %retval.0.i76, %decodeMaskedPtr.exit ], [ %retval.0.i76, %cond.end172 ], [ %de.0120, %decodeEntryNoValue.exit.i92 ], [ %de.0120, %decodeEntryNoValue.exit.i103 ], [ %de.0120, %if.else.i100 ]
   %34 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx210 = getelementptr inbounds ptr, ptr %34, i64 %h.0
+  %arrayidx210 = getelementptr inbounds nuw ptr, ptr %34, i64 %h.0
   store ptr %de.1, ptr %arrayidx210, align 8
   %35 = load i64, ptr %ht_used, align 8
   %dec213 = add i64 %35, -1
@@ -3351,7 +3351,7 @@ if.else174:                                       ; preds = %while.body168
 
 if.end183.sink.split:                             ; preds = %if.else174, %while.body168
   %rem.sink = phi i64 [ %stored.378, %while.body168 ], [ %rem, %if.else174 ]
-  %arrayidx181 = getelementptr inbounds ptr, ptr %des, i64 %rem.sink
+  %arrayidx181 = getelementptr inbounds nuw ptr, ptr %des, i64 %rem.sink
   store ptr %he.079, ptr %arrayidx181, align 8
   br label %if.end183
 

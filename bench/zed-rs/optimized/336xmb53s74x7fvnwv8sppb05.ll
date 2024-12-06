@@ -18896,8 +18896,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !9338
   call void @llvm.experimental.noalias.scope.decl(metadata !9339)
   %33 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %34 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph.lcssa104, i64 %33
-  %35 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %2, i64 %33
+  %34 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph.lcssa104, i64 %33
+  %35 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %2, i64 %33
   %36 = getelementptr i8, ptr %26, i64 -24
   br label %.lr.ph.i.i
 

@@ -372,7 +372,7 @@ define void @dgtts2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   br label %301
 
 292:                                              ; preds = %.loopexit18.us
-  %293 = getelementptr inbounds double, ptr %11, i64 %278
+  %293 = getelementptr inbounds nuw double, ptr %11, i64 %278
   %294 = load double, ptr %293, align 8, !tbaa !7
   %295 = getelementptr double, ptr %241, i64 %277
   %296 = load double, ptr %295, align 8, !tbaa !7

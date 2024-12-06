@@ -4877,7 +4877,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSort
 .split15.us:                                      ; preds = %.split15.lr.ph, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSortEEEEvT_T0_S8_T1_T2_.exit29.us
   %.035.us = phi i64 [ %64, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSortEEEEvT_T0_S8_T1_T2_.exit29.us ], [ %10, %.split15.lr.ph ]
   %64 = add nsw i64 %.035.us, -1
-  %65 = getelementptr inbounds i32, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.035.us, %14
@@ -4945,7 +4945,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSort
 .split15:                                         ; preds = %.split15.preheader, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSortEEEEvT_T0_S8_T1_T2_.exit29
   %.035 = phi i64 [ %99, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN5faiss12IndirectSortEEEEvT_T0_S8_T1_T2_.exit29 ], [ %10, %.split15.preheader ]
   %99 = add nsw i64 %.035, -1
-  %100 = getelementptr inbounds i32, ptr %0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.035, %14

@@ -1173,7 +1173,7 @@ define void @ADIOI_Calc_bounds(ptr nocapture noundef readonly %0, i32 noundef %1
 
 99:                                               ; preds = %97
   %.1144 = add nsw i64 %.1144.in, -1
-  %100 = getelementptr inbounds i64, ptr %.pre237.pre, i64 %.1144
+  %100 = getelementptr inbounds nuw i64, ptr %.pre237.pre, i64 %.1144
   %101 = load i64, ptr %100, align 8
   %.not170 = icmp eq i64 %101, 0
   br i1 %.not170, label %97, label %split239, !llvm.loop !20
@@ -1327,7 +1327,7 @@ split239:                                         ; preds = %99, %._crit_edge238
 
 182:                                              ; preds = %180
   %.4147 = add nsw i64 %.4147.in, -1
-  %183 = getelementptr inbounds i64, ptr %.pre.pre, i64 %.4147
+  %183 = getelementptr inbounds nuw i64, ptr %.pre.pre, i64 %.4147
   %184 = load i64, ptr %183, align 8
   %.not162 = icmp eq i64 %184, 0
   br i1 %.not162, label %180, label %split, !llvm.loop !23

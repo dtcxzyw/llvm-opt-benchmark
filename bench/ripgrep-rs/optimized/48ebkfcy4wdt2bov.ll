@@ -103,7 +103,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %35 = sub nuw i64 %33, %34
   %36 = lshr exact i64 %35, 4
   %.not.i.not = icmp ult i64 %30, %36
-  %37 = getelementptr inbounds { ptr, i64 }, ptr %.pre, i64 %30
+  %37 = getelementptr inbounds nuw { ptr, i64 }, ptr %.pre, i64 %30
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %storemerge.i = select i1 %.not.i.not, ptr %38, ptr %32
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !17
@@ -185,7 +185,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = sub nuw i64 %24, %25
   %27 = lshr exact i64 %26, 4
   %.not.i.not.i = icmp ult i64 %22, %27
-  %28 = getelementptr inbounds { ptr, i64 }, ptr %.sroa.0.0.copyload, i64 %22
+  %28 = getelementptr inbounds nuw { ptr, i64 }, ptr %.sroa.0.0.copyload, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   br i1 %.not.i.not.i, label %._crit_edge.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd7d1821ff62bfd4eE.llvm.5952769917390182195.exit"
 

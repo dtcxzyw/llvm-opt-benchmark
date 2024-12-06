@@ -10048,7 +10048,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   %97 = load ptr, ptr %95, align 8
   %98 = tail call fastcc i64 @hash(ptr noundef %0, ptr noundef %97)
   %99 = and i64 %98, %77
-  %100 = getelementptr inbounds ptr, ptr %84, i64 %99
+  %100 = getelementptr inbounds nuw ptr, ptr %84, i64 %99
   %101 = load ptr, ptr %100, align 8
   %.not147165 = icmp eq ptr %101, null
   br i1 %.not147165, label %._crit_edge170, label %.lr.ph169
@@ -10102,7 +10102,7 @@ define internal fastcc ptr @lookup(ptr nocapture noundef readonly %0, ptr nocapt
   store i8 %71, ptr %64, align 8
   store i64 %76, ptr %5, align 8
   %124 = and i64 %77, %22
-  %125 = getelementptr inbounds ptr, ptr %84, i64 %124
+  %125 = getelementptr inbounds nuw ptr, ptr %84, i64 %124
   %126 = load ptr, ptr %125, align 8
   %.not144176 = icmp eq ptr %126, null
   br i1 %.not144176, label %.loopexit, label %.lr.ph180

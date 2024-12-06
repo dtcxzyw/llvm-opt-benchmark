@@ -2411,7 +2411,7 @@ define internal fastcc i32 @pcf_get_encodings(ptr noundef %0, ptr noundef %1) un
   %.1 = phi i64 [ %108, %103 ], [ 1, %101 ]
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 528
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds %struct.PCF_MetricRec_, ptr %111, i64 %.1
+  %112 = getelementptr inbounds nuw %struct.PCF_MetricRec_, ptr %111, i64 %.1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %111, ptr noundef nonnull align 8 dereferenceable(24) %112, i64 24, i1 false)
   %113 = call ptr @ft_mem_qrealloc(ptr noundef %5, i64 noundef 2, i64 noundef 0, i64 noundef %68, ptr noundef null, ptr noundef nonnull %3) #15
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 552

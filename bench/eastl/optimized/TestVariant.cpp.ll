@@ -6258,7 +6258,7 @@ if.then:                                          ; preds = %entry
 do.body:                                          ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit, %if.then
   %parentPosition.0 = phi i64 [ %add, %if.then ], [ %dec, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit ]
   %dec = add nsw i64 %parentPosition.0, -1
-  %add.ptr = getelementptr inbounds %"class.eastl::variant.30", ptr %first, i64 %dec
+  %add.ptr = getelementptr inbounds nuw %"class.eastl::variant.30", ptr %first, i64 %dec
   store i64 -1, ptr %temp, align 8
   store ptr null, ptr %mpHandler.i.i, align 8
   %cmp.not.i = icmp eq ptr %temp, %add.ptr

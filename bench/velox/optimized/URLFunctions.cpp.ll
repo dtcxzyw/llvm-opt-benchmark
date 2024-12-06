@@ -19852,7 +19852,7 @@ sw.bb:                                            ; preds = %if.end
 
 if.else:                                          ; preds = %sw.bb
   %add.ptr = getelementptr inbounds nuw i8, ptr %call9, i64 %off
-  %add.ptr12 = getelementptr inbounds i8, ptr %call9, i64 %sub.ptr.sub
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %call9, i64 %sub.ptr.sub
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call9, ptr noundef %add.ptr, ptr noundef %add.ptr12)
   br label %sw.epilog
 
@@ -19863,7 +19863,7 @@ sw.bb14:                                          ; preds = %if.end
   br i1 %or.cond23, label %return, label %if.else19
 
 if.else19:                                        ; preds = %sw.bb14
-  %add.ptr20 = getelementptr inbounds i8, ptr %call9, i64 %sub.ptr.sub
+  %add.ptr20 = getelementptr inbounds nuw i8, ptr %call9, i64 %sub.ptr.sub
   %idx.neg = sub nsw i64 0, %off
   %add.ptr21 = getelementptr inbounds i8, ptr %add.ptr20, i64 %idx.neg
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call9, ptr noundef %add.ptr21, ptr noundef %add.ptr20)
@@ -19881,7 +19881,7 @@ sw.bb24:                                          ; preds = %if.end
 
 if.else29:                                        ; preds = %sw.bb24
   %add.ptr30 = getelementptr inbounds nuw i8, ptr %call9, i64 %add
-  %add.ptr31 = getelementptr inbounds i8, ptr %call9, i64 %sub.ptr.sub
+  %add.ptr31 = getelementptr inbounds nuw i8, ptr %call9, i64 %sub.ptr.sub
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %call9, ptr noundef %add.ptr30, ptr noundef %add.ptr31)
   br label %sw.epilog
 

@@ -4859,7 +4859,7 @@ define hidden void @_ZN4core5slice4sort8unstable9quicksort9quicksort17ha9af08a6a
   %65 = add i32 %.sroa.020.0147, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !850)
   %66 = lshr i64 %.sroa.11.0149, 3
-  %.idx.i = shl nsw i64 %66, 8
+  %.idx.i = shl nuw nsw i64 %66, 8
   %67 = getelementptr inbounds nuw i8, ptr %.sroa.0.0150, i64 %.idx.i
   %.idx1.i = mul i64 %66, 448
   %68 = getelementptr inbounds i8, ptr %.sroa.0.0150, i64 %.idx1.i
@@ -6514,7 +6514,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17he5c3f3b92885cc22E.exit25.i: ; 
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1490)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1493)
   %80 = lshr i64 %.sroa.11.0118, 3
-  %.idx.i = shl nsw i64 %80, 8
+  %.idx.i = shl nuw nsw i64 %80, 8
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.0119, i64 %.idx.i
   %.idx1.i = mul i64 %80, 448
   %82 = getelementptr inbounds i8, ptr %.sroa.0.0119, i64 %.idx1.i

@@ -11683,7 +11683,7 @@ extra_tell_used_size.exit473.i:                   ; preds = %260, %254, %252
   %sext.i = add nsw i64 %296, -21474836480
   %297 = ashr exact i64 %sext.i, 32
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %295, ptr align 1 %.0396542.i, i64 %297, i1 false)
-  %298 = getelementptr inbounds i8, ptr %.6544.i, i64 %.0394543.i
+  %298 = getelementptr inbounds nuw i8, ptr %.6544.i, i64 %.0394543.i
   br label %299
 
 299:                                              ; preds = %291, %.lr.ph._crit_edge.i

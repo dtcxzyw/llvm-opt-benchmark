@@ -33997,7 +33997,7 @@ _ZN12jpeg_decoder7decoder12decode_block17h43b206f42a407ed7E.exit: ; preds = %888
 981:                                              ; preds = %974
   %982 = getelementptr inbounds nuw i8, ptr %976, i64 8
   %983 = load ptr, ptr %982, align 8, !nonnull !14, !noundef !14
-  %984 = getelementptr inbounds i16, ptr %983, i64 %967
+  %984 = getelementptr inbounds nuw i16, ptr %983, i64 %967
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !10881
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17hc2aea3fb18e4af7eE"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, i64 noundef %.sroa.093.2, i1 noundef zeroext false)
           to label %.noexc467 unwind label %.loopexit.split-lp987.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -42551,7 +42551,7 @@ switch.lookup21356:                               ; preds = %1610, %1592, %1624
   br i1 %2143, label %2144, label %.invoke1477.i
 
 2144:                                             ; preds = %2142
-  %2145 = getelementptr inbounds [0 x i16], ptr %2138, i64 0, i64 %.reass.reass.us.i
+  %2145 = getelementptr inbounds nuw [0 x i16], ptr %2138, i64 0, i64 %.reass.reass.us.i
   %2146 = load i16, ptr %2145, align 2, !noalias !12638, !noundef !14
   %2147 = getelementptr inbounds nuw [4 x i16], ptr %37, i64 0, i64 %.sroa.7369.0797.us.i
   store i16 %2146, ptr %2147, align 2, !noalias !12626

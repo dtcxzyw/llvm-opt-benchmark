@@ -807,7 +807,7 @@ while.body.i.i.i.i.i.prol.loopexit:               ; preds = %while.body.i.i.i.i.
   %rem.i.i.i.i.i.prol = and i64 %19, 255
   %arrayidx.i.i.i.i.i.prol = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i.i.prol
   %23 = load i16, ptr %arrayidx.i.i.i.i.i.prol, align 2, !tbaa !73
-  %add.ptr.i.i.i.i.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i.i.prol
+  %add.ptr.i.i.i.i.i.prol = getelementptr inbounds nuw i8, ptr %buf.i, i64 %sub.i.i.i.i.i.prol
   store i16 %23, ptr %add.ptr.i.i.i.i.i.prol, align 1
   %24 = icmp samesign ult i64 %21, 2
   br i1 %24, label %while.end.i.i.i.i.i, label %while.body.i.i.i.i.i.preheader.new, !prof !77
@@ -859,7 +859,7 @@ if.else.i.i.i.i.i:                                ; preds = %while.end.i.i.i.i.i
 
 "_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit.i": ; preds = %if.else.i.i.i.i.i, %if.then.i.i.i.i.i
   %retval.0.i1117.i.i.i.i = phi i64 [ %add.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %retval.0.i1118.i.i.i.i, %if.else.i.i.i.i.i ]
-  %add.ptr.i.i47.i = getelementptr inbounds i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i.i
+  %add.ptr.i.i47.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i.i
   %vtable.i.i.i4.i.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i5.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i.i, i64 24
   %30 = load ptr, ptr %vfn.i.i.i5.i.i, align 8
@@ -917,7 +917,7 @@ while.body.i.i.i.i81.i.prol.loopexit:             ; preds = %while.body.i.i.i.i8
   %rem.i.i.i.i86.i.prol = and i64 %35, 255
   %arrayidx.i.i.i.i87.i.prol = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i86.i.prol
   %39 = load i16, ptr %arrayidx.i.i.i.i87.i.prol, align 2, !tbaa !73
-  %add.ptr.i.i.i.i88.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i84.i.prol
+  %add.ptr.i.i.i.i88.i.prol = getelementptr inbounds nuw i8, ptr %buf.i, i64 %sub.i.i.i.i84.i.prol
   store i16 %39, ptr %add.ptr.i.i.i.i88.i.prol, align 1
   %40 = icmp samesign ult i64 %37, 2
   br i1 %40, label %while.end.i.i.i.i66.i, label %while.body.i.i.i.i81.i.preheader.new, !prof !77
@@ -969,7 +969,7 @@ if.else.i.i.i.i71.i:                              ; preds = %while.end.i.i.i.i66
 
 "_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit91.i": ; preds = %if.else.i.i.i.i71.i, %if.then.i.i.i.i80.i
   %retval.0.i1117.i.i.i74.i = phi i64 [ %add.i.i.i.i64.i, %if.then.i.i.i.i80.i ], [ %retval.0.i1118.i.i.i72.i, %if.else.i.i.i.i71.i ]
-  %add.ptr.i.i75.i = getelementptr inbounds i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i74.i
+  %add.ptr.i.i75.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i74.i
   %vtable.i.i.i4.i78.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i5.i79.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i78.i, i64 24
   %46 = load ptr, ptr %vfn.i.i.i5.i79.i, align 8
@@ -1054,7 +1054,7 @@ while.body.i.i.i.i144.i.prol.loopexit:            ; preds = %while.body.i.i.i.i1
   %rem.i.i.i.i149.i.prol = and i64 %cond13.i, 255
   %arrayidx.i.i.i.i150.i.prol = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i149.i.prol
   %60 = load i16, ptr %arrayidx.i.i.i.i150.i.prol, align 2, !tbaa !73
-  %add.ptr.i.i.i.i151.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i147.i.prol
+  %add.ptr.i.i.i.i151.i.prol = getelementptr inbounds nuw i8, ptr %buf.i, i64 %sub.i.i.i.i147.i.prol
   store i16 %60, ptr %add.ptr.i.i.i.i151.i.prol, align 1
   %61 = icmp samesign ult i64 %58, 2
   br i1 %61, label %while.end.i.i.i.i129.i, label %while.body.i.i.i.i144.i.preheader.new, !prof !77
@@ -1106,7 +1106,7 @@ if.else.i.i.i.i134.i:                             ; preds = %while.end.i.i.i.i12
 
 "_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit154.i": ; preds = %if.else.i.i.i.i134.i, %if.then.i.i.i.i143.i
   %retval.0.i1117.i.i.i137.i = phi i64 [ %add.i.i.i.i127.i, %if.then.i.i.i.i143.i ], [ %retval.0.i1118.i.i.i135.i, %if.else.i.i.i.i134.i ]
-  %add.ptr.i.i138.i = getelementptr inbounds i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i137.i
+  %add.ptr.i.i138.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i137.i
   %vtable.i.i.i4.i141.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i5.i142.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i141.i, i64 24
   %67 = load ptr, ptr %vfn.i.i.i5.i142.i, align 8
@@ -1166,7 +1166,7 @@ while.body.i.i.i.i193.i.prol.loopexit:            ; preds = %while.body.i.i.i.i1
   %rem.i.i.i.i198.i.prol = and i64 %72, 255
   %arrayidx.i.i.i.i199.i.prol = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i198.i.prol
   %76 = load i16, ptr %arrayidx.i.i.i.i199.i.prol, align 2, !tbaa !73
-  %add.ptr.i.i.i.i200.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i196.i.prol
+  %add.ptr.i.i.i.i200.i.prol = getelementptr inbounds nuw i8, ptr %buf.i, i64 %sub.i.i.i.i196.i.prol
   store i16 %76, ptr %add.ptr.i.i.i.i200.i.prol, align 1
   %77 = icmp samesign ult i64 %74, 2
   br i1 %77, label %while.end.i.i.i.i178.i, label %while.body.i.i.i.i193.i.preheader.new, !prof !77
@@ -1218,7 +1218,7 @@ if.else.i.i.i.i183.i:                             ; preds = %while.end.i.i.i.i17
 
 "_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit203.i": ; preds = %if.else.i.i.i.i183.i, %if.then.i.i.i.i192.i
   %retval.0.i1117.i.i.i186.i = phi i64 [ %add.i.i.i.i176.i, %if.then.i.i.i.i192.i ], [ %retval.0.i1118.i.i.i184.i, %if.else.i.i.i.i183.i ]
-  %add.ptr.i.i187.i = getelementptr inbounds i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i186.i
+  %add.ptr.i.i187.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i186.i
   %vtable.i.i.i4.i190.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i5.i191.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i190.i, i64 24
   %83 = load ptr, ptr %vfn.i.i.i5.i191.i, align 8
@@ -1280,7 +1280,7 @@ while.body.i.i.i.i237.i.prol.loopexit:            ; preds = %while.body.i.i.i.i2
   %rem.i.i.i.i242.i.prol = and i64 %cond19.i, 255
   %arrayidx.i.i.i.i243.i.prol = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 0, i64 %rem.i.i.i.i242.i.prol
   %92 = load i16, ptr %arrayidx.i.i.i.i243.i.prol, align 2, !tbaa !73
-  %add.ptr.i.i.i.i244.i.prol = getelementptr inbounds i8, ptr %buf.i, i64 %sub.i.i.i.i240.i.prol
+  %add.ptr.i.i.i.i244.i.prol = getelementptr inbounds nuw i8, ptr %buf.i, i64 %sub.i.i.i.i240.i.prol
   store i16 %92, ptr %add.ptr.i.i.i.i244.i.prol, align 1
   %93 = icmp samesign ult i64 %90, 2
   br i1 %93, label %while.end.i.i.i.i222.i, label %while.body.i.i.i.i237.i.preheader.new, !prof !77
@@ -1332,7 +1332,7 @@ if.else.i.i.i.i227.i:                             ; preds = %while.end.i.i.i.i22
 
 "_ZZN5folly10symbolizer12_GLOBAL__N_119printAsyncStackInfoIZNS0_21SafeStackTracePrinter15printStackTraceEbE3$_1EEvT_ENKUlmE_clEm.exit247.i": ; preds = %if.else.i.i.i.i227.i, %if.then.i.i.i.i236.i
   %retval.0.i1117.i.i.i230.i = phi i64 [ %add.i.i.i.i220.i, %if.then.i.i.i.i236.i ], [ %retval.0.i1118.i.i.i228.i, %if.else.i.i.i.i227.i ]
-  %add.ptr.i.i231.i = getelementptr inbounds i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i230.i
+  %add.ptr.i.i231.i = getelementptr inbounds nuw i8, ptr %buf.i, i64 %retval.0.i1117.i.i.i230.i
   %vtable.i.i.i4.i234.i = load ptr, ptr %printer_.i.i.i, align 8, !tbaa !7
   %vfn.i.i.i5.i235.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i4.i234.i, i64 24
   %99 = load ptr, ptr %vfn.i.i.i5.i235.i, align 8

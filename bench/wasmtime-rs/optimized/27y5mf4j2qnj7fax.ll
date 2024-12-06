@@ -4130,7 +4130,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %59 = load i64, ptr %58, align 8, !noundef !4
   %60 = trunc i64 %59 to i32
   %61 = load ptr, ptr %40, align 8, !alias.scope !720, !nonnull !4, !noundef !4
-  %62 = getelementptr inbounds [0 x i32], ptr %61, i64 0, i64 %52
+  %62 = getelementptr inbounds nuw [0 x i32], ptr %61, i64 0, i64 %52
   store i32 %60, ptr %62, align 4
   %63 = load i64, ptr %8, align 8, !alias.scope !720, !noundef !4
   %64 = icmp ugt i64 %63, %34

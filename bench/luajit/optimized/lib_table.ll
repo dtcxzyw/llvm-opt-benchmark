@@ -73,7 +73,7 @@ for.cond:                                         ; preds = %for.body, %entry
 
 for.body:                                         ; preds = %for.cond
   %i.0 = add nsw i64 %i.0.in, -1
-  %arrayidx = getelementptr inbounds %union.TValue, ptr %1, i64 %i.0
+  %arrayidx = getelementptr inbounds nuw %union.TValue, ptr %1, i64 %i.0
   %3 = load i64, ptr %arrayidx, align 8
   %cmp3 = icmp eq i64 %3, -1
   br i1 %cmp3, label %for.cond, label %if.then, !llvm.loop !4
@@ -357,7 +357,7 @@ cond.true22:                                      ; preds = %cond.end19
 
 cond.end33:                                       ; preds = %cond.true22, %cond.end19
   %cond34 = phi i64 [ 0, %cond.end19 ], [ %spec.select, %cond.true22 ]
-  %arrayidx36 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond34
+  %arrayidx36 = getelementptr inbounds nuw [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %cond34
   %15 = load ptr, ptr %arrayidx36, align 8
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef nonnull %L, i32 noundef 1423, ptr noundef %15, i32 noundef %conv13) #5
   unreachable

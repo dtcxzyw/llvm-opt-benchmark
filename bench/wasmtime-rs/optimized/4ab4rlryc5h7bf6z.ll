@@ -1149,10 +1149,10 @@ define internal fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4path13Path$LT
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %5)
   %28 = add nsw i64 %1, -1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 0, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 0, i64 %28
   %31 = load i8, ptr %30, align 1, !noundef !4
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %28
+  %33 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %28
   %34 = load i32, ptr %33, align 4, !noundef !4
   %35 = zext i32 %34 to i64
   %36 = icmp ugt i64 %16, %35
@@ -3114,7 +3114,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %96, %.
 
 215:                                              ; preds = %207
   %216 = add nsw i64 %.sroa.5.0225, -2
-  %217 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %216
+  %217 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %216
   %218 = load i32, ptr %217, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !450)
   %219 = zext i32 %218 to i64
@@ -3129,7 +3129,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %96, %.
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h5760c34940dd89c9E.exit76": ; preds = %215
   %223 = load ptr, ptr %23, align 8, !alias.scope !450, !noalias !453, !nonnull !4, !noundef !4
   %224 = getelementptr inbounds nuw [0 x { i8, [63 x i8] }], ptr %223, i64 0, i64 %219
-  %225 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 %216
+  %225 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 0, i64 %216
   %226 = load i8, ptr %225, align 1, !noundef !4
   %227 = zext i8 %226 to i64
   %228 = tail call fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$16try_inner_insert17h15f33c84b8cf3622E"(ptr noalias noundef align 4 dereferenceable(64) %224, i64 noundef %227, i32 noundef %.046, i32 noundef %.0.i70)
@@ -3140,7 +3140,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %96, %.
   br i1 %230, label %231, label %103
 
 231:                                              ; preds = %229
-  %232 = getelementptr inbounds [16 x i8], ptr %21, i64 0, i64 %216
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 0, i64 %216
   %233 = add i8 %226, 1
   store i8 %233, ptr %232, align 1
   br label %103
@@ -3729,7 +3729,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %98, %.
 
 219:                                              ; preds = %211
   %220 = add nsw i64 %.sroa.5.0227, -2
-  %221 = getelementptr inbounds [16 x i32], ptr %0, i64 0, i64 %220
+  %221 = getelementptr inbounds nuw [16 x i32], ptr %0, i64 0, i64 %220
   %222 = load i32, ptr %221, align 4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !562)
   %223 = zext i32 %222 to i64
@@ -3744,7 +3744,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %98, %.
 "_ZN106_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..IndexMut$LT$K$GT$$GT$9index_mut17h2941bcc6d4282ae3E.exit76": ; preds = %219
   %227 = load ptr, ptr %25, align 8, !alias.scope !562, !noalias !565, !nonnull !4, !noundef !4
   %228 = getelementptr inbounds nuw [0 x { i8, [63 x i8] }], ptr %227, i64 0, i64 %223
-  %229 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 %220
+  %229 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %220
   %230 = load i8, ptr %229, align 1, !noundef !4
   %231 = zext i8 %230 to i64
   %232 = tail call fastcc noundef zeroext i1 @"_ZN17cranelift_bforest4node17NodeData$LT$F$GT$16try_inner_insert17h88050b7e3d6de75bE"(ptr noalias noundef align 4 dereferenceable(64) %228, i64 noundef %231, i32 noundef %.046, i32 noundef %.0.i70)
@@ -3755,7 +3755,7 @@ _ZN17cranelift_bforest12slice_insert17h40bfccf5087a67e6E.exit: ; preds = %98, %.
   br i1 %234, label %235, label %105
 
 235:                                              ; preds = %233
-  %236 = getelementptr inbounds [16 x i8], ptr %23, i64 0, i64 %220
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 0, i64 %220
   %237 = add i8 %230, 1
   store i8 %237, ptr %236, align 1
   br label %105

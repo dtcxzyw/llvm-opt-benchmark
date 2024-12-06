@@ -1509,7 +1509,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %p8.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %p, %for.body.preheader ]
   %i.08 = phi i64 [ %xor, %for.inc ], [ %rem, %for.body.preheader ]
   %1 = load i8, ptr %p8.09, align 1
-  %arrayidx = getelementptr inbounds [2 x i8], ptr %u, i64 0, i64 %i.08
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %u, i64 0, i64 %i.08
   %2 = load i8, ptr %arrayidx, align 1
   %cmp2.not = icmp eq i8 %1, %2
   br i1 %cmp2.not, label %for.inc, label %return

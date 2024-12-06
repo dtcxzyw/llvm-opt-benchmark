@@ -472,7 +472,7 @@ H5O__alloc_msgs.exit:                             ; preds = %82
   %.lcssa = phi i64 [ 0, %121 ], [ %199, %._crit_edge.loopexit ]
   %205 = add nuw nsw i64 %.lcssa, 1
   store i64 %205, ptr %76, align 8
-  %206 = getelementptr inbounds %struct.H5O_mesg_t, ptr %204, i64 %.lcssa
+  %206 = getelementptr inbounds nuw %struct.H5O_mesg_t, ptr %204, i64 %.lcssa
   store ptr @H5O_MSG_NULL, ptr %206, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i8 1, ptr %207, align 8
@@ -4262,7 +4262,7 @@ H5O__move_cont.exit.thread590.i:                  ; preds = %.thread.i
   %1007 = getelementptr inbounds nuw i8, ptr %995, i64 %1006
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 4
   %1009 = getelementptr inbounds i8, ptr %1008, i64 %.neg.i.i
-  %1010 = getelementptr inbounds i8, ptr %1009, i64 %992
+  %1010 = getelementptr inbounds nuw i8, ptr %1009, i64 %992
   %1011 = add nuw nsw i32 %1004, 10
   %1012 = add nuw nsw i32 %1011, %1001
   %1013 = add nuw nsw i32 %1012, %998

@@ -6121,7 +6121,7 @@ common.resume:                                    ; preds = %44, %202, %36
   br i1 %.02.i249, label %.thread274, label %"_ZN71_$LT$tt..buffer..Cursor$LT$Span$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e852343bd875f9cE.exit.lr.ph"
 
 .thread274:                                       ; preds = %65
-  %70 = getelementptr inbounds i8, ptr %26, i64 %31
+  %70 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   store ptr %26, ptr %1, align 8
   store ptr %70, ptr %27, align 8
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17h65031c67500f4d7dE.exit"
@@ -6366,8 +6366,8 @@ default.unreachable:                              ; preds = %100
   br i1 %157, label %161, label %158
 
 158:                                              ; preds = %"_ZN71_$LT$tt..buffer..Cursor$LT$Span$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2e852343bd875f9cE.exit.thread"
-  %159 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %26, i64 %156
-  %160 = getelementptr inbounds i8, ptr %26, i64 %31
+  %159 = getelementptr inbounds nuw { [56 x i8], i8, [7 x i8] }, ptr %26, i64 %156
+  %160 = getelementptr inbounds nuw i8, ptr %26, i64 %31
   store ptr %159, ptr %1, align 8
   store ptr %160, ptr %27, align 8
   %switch = icmp samesign ult i64 %156, 2
@@ -7133,7 +7133,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN3mbe7tt_iter1
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 6
   %10 = icmp ult i64 %1, %9
-  %11 = getelementptr inbounds { [56 x i8], i8, [7 x i8] }, ptr %3, i64 %1
+  %11 = getelementptr inbounds nuw { [56 x i8], i8, [7 x i8] }, ptr %3, i64 %1
   %.0 = select i1 %10, ptr %11, ptr null
   ret ptr %.0
 }

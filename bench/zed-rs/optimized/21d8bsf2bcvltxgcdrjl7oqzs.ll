@@ -29998,7 +29998,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
   %79 = zext i32 %77 to i64
   %80 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %81 = add nsw i64 %79, -1
-  %82 = getelementptr inbounds [0 x { { { i64, [1 x i64] }, i64 }, ptr, i64 }], ptr %80, i64 0, i64 %81
+  %82 = getelementptr inbounds nuw [0 x { { { i64, [1 x i64] }, i64 }, ptr, i64 }], ptr %80, i64 0, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %84 = load ptr, ptr %83, align 8, !alias.scope !6764, !noalias !6767, !nonnull !4, !align !21, !noundef !4
   %85 = load ptr, ptr %84, align 8, !noalias !6770, !nonnull !4, !noundef !4
@@ -30036,7 +30036,7 @@ define hidden void @"_ZN55_$LT$gpui..app..AppContext$u20$as$u20$gpui..Context$GT
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17ha6740fd8e64d1bc1E.exit.i": ; preds = %97
   %100 = getelementptr inbounds nuw i8, ptr %85, i64 32
-  %101 = getelementptr inbounds [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, i128, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, ptr, [1 x i64] }], ptr %100, i64 0, i64 %92
+  %101 = getelementptr inbounds nuw [0 x { { i64, [1 x i64] }, { i64, [1 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, { [11 x i8], i8, [4 x i8] }, i128, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, ptr, [1 x i64] }], ptr %100, i64 0, i64 %92
   %.val6.i.i = load i64, ptr %101, align 16, !range !182, !alias.scope !6771, !noalias !6763, !noundef !4
   %102 = getelementptr i8, ptr %101, i64 8
   %.val7.i.i = load i64, ptr %102, align 8, !alias.scope !6771, !noalias !6763

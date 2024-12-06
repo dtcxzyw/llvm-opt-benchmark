@@ -19205,7 +19205,7 @@ _ZNSt12_Vector_baseIP15CraftDefinitionSaIS1_EE11_M_allocateEm.exit.i: ; preds = 
   %call5.i.i.i.i63 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #29
   store ptr %call5.i.i.i.i63, ptr %agg.result, align 8, !tbaa !409
   store ptr %call5.i.i.i.i63, ptr %_M_finish.i.i, align 8, !tbaa !420
-  %add.ptr21.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i63, i64 %cond1686
+  %add.ptr21.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i63, i64 %cond1686
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !423
   br label %invoke.cont18
 
@@ -19348,7 +19348,7 @@ _ZNKSt6vectorIP15CraftDefinitionSaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = 
           to label %_ZNSt12_Vector_baseIP15CraftDefinitionSaIS1_EE11_M_allocateEm.exit.i.i unwind label %lpad28.loopexit.split
 
 _ZNSt12_Vector_baseIP15CraftDefinitionSaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %_ZNKSt6vectorIP15CraftDefinitionSaIS1_EE12_M_check_lenEmPKc.exit.i.i
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i79, i64 %sub.ptr.sub.i73
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i79, i64 %sub.ptr.sub.i73
   store ptr %16, ptr %add.ptr.i.i, align 8, !tbaa !38
   %cmp.i.i.i.i.i = icmp sgt i64 %sub.ptr.sub.i73, 0
   br i1 %cmp.i.i.i.i.i, label %if.then.i.i.i.i.i, label %_ZNSt6vectorIP15CraftDefinitionSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
@@ -21911,7 +21911,7 @@ if.then.i85:                                      ; preds = %_ZNSt6vectorISt13un
 
 _ZNSt12_Vector_baseISt13unordered_mapImSt6vectorIP15CraftDefinitionSaIS3_EESt4hashImESt8equal_toImESaISt4pairIKmS5_EEESaISE_EE13_M_deallocateEPSE_m.exit86: ; preds = %if.then.i85, %_ZNSt6vectorISt13unordered_mapImS_IP15CraftDefinitionSaIS2_EESt4hashImESt8equal_toImESaISt4pairIKmS4_EEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !406
-  %add.ptr37 = getelementptr inbounds %"class.std::unordered_map.210", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::unordered_map.210", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !404
   %add.ptr40 = getelementptr inbounds nuw %"class.std::unordered_map.210", ptr %call5.i.i.i, i64 %7
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !453

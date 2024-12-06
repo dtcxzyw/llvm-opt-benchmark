@@ -352,7 +352,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN100_$LT$core.
   %17 = sub nuw i64 %15, %16
   %18 = lshr exact i64 %17, 4
   %.not.i = icmp ult i64 %3, %18
-  %19 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %14, i64 %3
+  %19 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %14, i64 %3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %storemerge.i = select i1 %.not.i, ptr %20, ptr %13
   %.0.i2 = select i1 %.not.i, ptr %19, ptr null
@@ -2089,7 +2089,7 @@ define hidden { i64, ptr } @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$
   %15 = sub nuw i64 %13, %14
   %16 = lshr exact i64 %15, 4
   %.not.i.i = icmp ult i64 %3, %16
-  %17 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %12, i64 %3
+  %17 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %12, i64 %3
   br i1 %.not.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit": ; preds = %9
@@ -5927,7 +5927,7 @@ default.unreachable:                              ; preds = %select.unfold.i.i.i
   %37 = sub nuw i64 %35, %36
   %38 = lshr exact i64 %37, 4
   %.not.i.i.i.i.i = icmp ult i64 %27, %38
-  %39 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %23, i64 %27
+  %39 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %23, i64 %27
   br i1 %.not.i.i.i.i.i, label %select.unfold.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i": ; preds = %32
@@ -42280,7 +42280,7 @@ _ZN13rustc_apfloat4ieee3sig4omsb17h11e77ce4627df859E.exit: ; preds = %110
   br label %125
 
 133:                                              ; preds = %125
-  %134 = getelementptr inbounds i128, ptr %0, i64 %.sroa.5.0.i.i
+  %134 = getelementptr inbounds nuw i128, ptr %0, i64 %.sroa.5.0.i.i
   br label %135
 
 135:                                              ; preds = %137, %133
@@ -64889,7 +64889,7 @@ define hidden void @"_ZN4core6option15Option$LT$T$GT$7or_else17h2e93db435b6e2803
   %21 = sub nuw i64 %19, %20
   %22 = lshr exact i64 %21, 4
   %.not.i.i.i.i = icmp ult i64 %11, %22
-  %23 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %7, i64 %11
+  %23 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %7, i64 %11
   br i1 %.not.i.i.i.i, label %select.unfold.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i": ; preds = %16
@@ -75056,7 +75056,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 4
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.0 = select i1 %.not, ptr %10, ptr null
@@ -80552,7 +80552,7 @@ define hidden { i64, ptr } @"_ZN95_$LT$chalk_ir..cast..Casted$LT$IT$C$U$GT$$u20$
   %15 = sub nuw i64 %13, %14
   %16 = lshr exact i64 %15, 4
   %.not.i.i.i = icmp ult i64 %3, %16
-  %17 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %12, i64 %3
+  %17 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %12, i64 %3
   br i1 %.not.i.i.i, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1e8f3922c4b22f62E.llvm.14675025554980555382.exit", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i": ; preds = %9
@@ -81282,7 +81282,7 @@ default.unreachable:                              ; preds = %select.unfold.i.i.i
   %37 = sub nuw i64 %35, %36
   %38 = lshr exact i64 %37, 4
   %.not.i.i.i.i.i.i = icmp ult i64 %27, %38
-  %39 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %23, i64 %27
+  %39 = getelementptr inbounds nuw { { i64, [1 x i64] } }, ptr %23, i64 %27
   br i1 %.not.i.i.i.i.i.i, label %select.unfold.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb394bfefea58dee5E.llvm.14675025554980555382.exit.i.i.i.i": ; preds = %32

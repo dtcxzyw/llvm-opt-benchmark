@@ -943,7 +943,7 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %4
   %31 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %30, i32 1
   store i64 %29, ptr %31, align 8
   %32 = load ptr, ptr %.043, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 %.02842
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.02842
   %34 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %30
   store ptr %33, ptr %34, align 16
   %35 = add i32 %23, 1
@@ -1302,7 +1302,7 @@ mca_pml_ob1_compute_segment_length_base.exit.thread: ; preds = %5
   %32 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %7, i64 0, i64 %31, i32 1
   store i64 %30, ptr %32, align 8
   %33 = load ptr, ptr %.039, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %.02838
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.02838
   %35 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %7, i64 0, i64 %31
   store ptr %34, ptr %35, align 16
   %36 = add i32 %24, 1
@@ -2671,7 +2671,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
   %40 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %39, i32 1
   store i64 %38, ptr %40, align 8
   %41 = load ptr, ptr %.064, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 %.04563
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.04563
   %43 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %39
   store ptr %42, ptr %43, align 16
   %44 = add i32 %32, 1
@@ -2999,7 +2999,7 @@ mca_pml_ob1_compute_segment_length_base.exit:     ; preds = %mca_pml_ob1_compute
   %32 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %31, i32 1
   store i64 %30, ptr %32, align 8
   %33 = load ptr, ptr %.037, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 %.02836
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 %.02836
   %35 = getelementptr inbounds nuw [16 x %struct.iovec], ptr %6, i64 0, i64 %31
   store ptr %34, ptr %35, align 16
   %36 = add i32 %24, 1

@@ -3533,7 +3533,7 @@ cond.false:                                       ; preds = %index2value.exit
 cond.true5:                                       ; preds = %cond.false
   %array = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %array, align 8
-  %arrayidx = getelementptr inbounds %struct.TValue, ptr %15, i64 %sub
+  %arrayidx = getelementptr inbounds nuw %struct.TValue, ptr %15, i64 %sub
   br label %cond.end
 
 cond.false8:                                      ; preds = %cond.false
@@ -4661,7 +4661,7 @@ cond.false:                                       ; preds = %index2value.exit
 cond.true5:                                       ; preds = %cond.false
   %array = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %array, align 8
-  %arrayidx = getelementptr inbounds %struct.TValue, ptr %15, i64 %sub
+  %arrayidx = getelementptr inbounds nuw %struct.TValue, ptr %15, i64 %sub
   br label %cond.end
 
 cond.false8:                                      ; preds = %cond.false

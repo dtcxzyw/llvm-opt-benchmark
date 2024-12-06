@@ -758,7 +758,7 @@ _ZN10serde_json3ser9Formatter17begin_array_value17h336a61dfab5fca54E.exit: ; pre
 
 _ZN10serde_json3ser9Formatter8write_u817h6dfb9b5f7d66deacE.exit: ; preds = %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h232ac8d57e3e0410E.exit.i", %63
   %64 = phi i64 [ %41, %"_ZN4itoa54_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u8$GT$5write17h232ac8d57e3e0410E.exit.i" ], [ %.pre.i.i.i.i.i.i20, %63 ]
-  %65 = getelementptr inbounds i8, ptr %5, i64 %.sroa.07.1.i.i
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.07.1.i.i
   %66 = load ptr, ptr %12, align 8, !alias.scope !331, !noalias !325, !nonnull !13, !noundef !13
   %67 = getelementptr inbounds i8, ptr %66, i64 %64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %67, ptr nonnull readonly align 1 %65, i64 %59, i1 false), !noalias !332

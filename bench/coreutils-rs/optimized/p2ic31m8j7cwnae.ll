@@ -3020,7 +3020,7 @@ _ZN4rand3rng3Rng9gen_range17h802626c5ec6b2768E.exit.i: ; preds = %.lr.ph.i
 246:                                              ; preds = %241
   %247 = add nuw nsw i64 %.sroa.078.0527, 1
   %248 = load ptr, ptr %166, align 8, !nonnull !5, !noundef !5
-  %249 = getelementptr inbounds [0 x { i8, [3 x i8] }], ptr %248, i64 0, i64 %243
+  %249 = getelementptr inbounds nuw [0 x { i8, [3 x i8] }], ptr %248, i64 0, i64 %243
   store i8 2, ptr %249, align 1
   %exitcond566.not = icmp eq i64 %.sroa.078.0527, %239
   br i1 %exitcond566.not, label %240, label %241

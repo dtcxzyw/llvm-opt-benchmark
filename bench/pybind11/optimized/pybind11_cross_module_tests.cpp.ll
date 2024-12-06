@@ -146487,7 +146487,7 @@ _ZN8pybind116detail7cast_opIRSt6vectorIbSaIbEEEENS0_11type_casterINS0_14intrinsi
   %25 = zext i32 %15 to i64
   %26 = add nsw i64 %25, -1
   %27 = sdiv i64 %26, 64
-  %28 = getelementptr inbounds i64, ptr %13, i64 %27
+  %28 = getelementptr inbounds nuw i64, ptr %13, i64 %27
   %29 = and i64 %26, -9223372036854775745
   %30 = icmp ugt i64 %29, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i = select i1 %30, i64 -8, i64 0

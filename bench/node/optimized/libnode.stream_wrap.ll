@@ -2138,7 +2138,7 @@ for.body:                                         ; preds = %for.body.preheader,
 if.then10:                                        ; preds = %for.body
   %len.le = getelementptr inbounds nuw i8, ptr %vbufs.027, i64 8
   %5 = load ptr, ptr %vbufs.027, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %5, i64 %written.026
+  %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %written.026
   store ptr %add.ptr, ptr %vbufs.027, align 8
   %sub = sub nuw i64 %4, %written.026
   store i64 %sub, ptr %len.le, align 8
@@ -2205,7 +2205,7 @@ for.body.i:                                       ; preds = %if.else.i, %for.bod
 if.then10.i:                                      ; preds = %for.body.i
   %len.i.le = getelementptr inbounds nuw i8, ptr %vbufs.027.i, i64 8
   %5 = load ptr, ptr %vbufs.027.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %5, i64 %written.026.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %written.026.i
   store ptr %add.ptr.i, ptr %vbufs.027.i, align 8
   %sub.i = sub nuw i64 %4, %written.026.i
   store i64 %sub.i, ptr %len.i.le, align 8

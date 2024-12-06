@@ -740,7 +740,7 @@ _ZN9Stockfish12_GLOBAL__N_114sliding_attackENS_9PieceTypeENS_6SquareEm.exit70: ;
   %84 = trunc nuw nsw i64 %indvars.iv to i32
   %85 = lshr i64 %indvars.iv102, 3
   %86 = and i64 %85, 536870911
-  %87 = getelementptr inbounds nuw [8 x i32], ptr getelementptr inbounds (i8, ptr @__const._ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE.seeds, i64 32), i64 0, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i32], ptr getelementptr inbounds nuw (i8, ptr @__const._ZN9Stockfish12_GLOBAL__N_111init_magicsENS_9PieceTypeEPmPNS_5MagicE.seeds, i64 32), i64 0, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %26, i64 8

@@ -617,7 +617,7 @@ define internal fastcc i32 @Xz_ReadIndex(ptr noundef nonnull %0, ptr noundef %1,
 18:                                               ; preds = %16
   %19 = add nsw i64 %2, -4
   %20 = tail call i32 @CrcCalc(ptr noundef nonnull %9, i64 noundef %19) #9
-  %21 = getelementptr inbounds i8, ptr %9, i64 %19
+  %21 = getelementptr inbounds nuw i8, ptr %9, i64 %19
   %22 = load i32, ptr %21, align 1
   %.not66.i = icmp eq i32 %20, %22
   br i1 %.not66.i, label %23, label %Xz_ReadIndex2.exit

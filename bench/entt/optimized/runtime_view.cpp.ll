@@ -18714,7 +18714,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit79: ; preds = %if.then.i78, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !388
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !454
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !459
@@ -20936,7 +20936,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPN4en
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPN4entt6entityESaIS2_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPN4entt6entityESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -22671,7 +22671,7 @@ sw.bb39:                                          ; preds = %if.end37, %for.end.
   br i1 %cmp.i.i.i.i179, label %land.lhs.true.i.i.i.i181, label %cleanup
 
 land.lhs.true.i.i.i.i181:                         ; preds = %sw.bb39
-  %add.ptr.i.i.i.i.i182 = getelementptr inbounds ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
+  %add.ptr.i.i.i.i.i182 = getelementptr inbounds nuw ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
   %34 = load ptr, ptr %add.ptr.i.i.i.i.i182, align 8, !tbaa !277
   %tobool.not.i.i.i.i183 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i183, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4entt8internal21runtime_view_iteratorINS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E_EclINS_17__normal_iteratorIPKPS8_St6vectorISH_SaISH_EEEEEEbSA_.exit190
@@ -23277,7 +23277,7 @@ sw.bb39:                                          ; preds = %if.end37, %for.end.
   br i1 %cmp.i.i.i.i179, label %land.lhs.true.i.i.i.i181, label %cleanup
 
 land.lhs.true.i.i.i.i181:                         ; preds = %sw.bb39
-  %add.ptr.i.i.i.i.i182 = getelementptr inbounds ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
+  %add.ptr.i.i.i.i.i182 = getelementptr inbounds nuw ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
   %34 = load ptr, ptr %add.ptr.i.i.i.i.i182, align 8, !tbaa !277
   %tobool.not.i.i.i.i183 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i183, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4entt18basic_runtime_viewINS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS7_EE8containsES5_EUlPKT_E_EclINS_17__normal_iteratorIPKS8_St6vectorIS8_S9_EEEEEbSB_.exit190
@@ -25688,7 +25688,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPiSaI
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPiSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPiSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -25856,7 +25856,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPiSaIS
 
 _ZNSt12_Vector_baseIPiSaIS0_EE13_M_deallocateEPS0_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPiSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !351
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !550
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !553
@@ -27746,7 +27746,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPcSaI
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPcSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -27914,7 +27914,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPcSaIS
 
 _ZNSt12_Vector_baseIPcSaIS0_EE13_M_deallocateEPS0_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !357
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !572
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !575
@@ -34818,7 +34818,7 @@ sw.bb39:                                          ; preds = %if.end37, %for.end.
   br i1 %cmp.i.i.i.i179, label %land.lhs.true.i.i.i.i181, label %cleanup
 
 land.lhs.true.i.i.i.i181:                         ; preds = %sw.bb39
-  %add.ptr.i.i.i.i.i182 = getelementptr inbounds ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
+  %add.ptr.i.i.i.i.i182 = getelementptr inbounds nuw ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
   %34 = load ptr, ptr %add.ptr.i.i.i.i.i182, align 8, !tbaa !277
   %tobool.not.i.i.i.i183 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i183, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4entt8internal21runtime_view_iteratorIKNS2_16basic_sparse_setINS2_6entityESaIS6_EEEE5validEvEUlPKT_E_EclINS_17__normal_iteratorIPKPS9_St6vectorISI_SaISI_EEEEEEbSB_.exit190
@@ -35424,7 +35424,7 @@ sw.bb39:                                          ; preds = %if.end37, %for.end.
   br i1 %cmp.i.i.i.i179, label %land.lhs.true.i.i.i.i181, label %cleanup
 
 land.lhs.true.i.i.i.i181:                         ; preds = %sw.bb39
-  %add.ptr.i.i.i.i.i182 = getelementptr inbounds ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
+  %add.ptr.i.i.i.i.i182 = getelementptr inbounds nuw ptr, ptr %33, i64 %div11.i.i.i.i172.pre-phi
   %34 = load ptr, ptr %add.ptr.i.i.i.i.i182, align 8, !tbaa !277
   %tobool.not.i.i.i.i183 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i.i183, label %cleanup, label %_ZN9__gnu_cxx5__ops12_Iter_negateIZNK4entt18basic_runtime_viewIKNS2_16basic_sparse_setINS2_6entityESaIS5_EEESaIPS8_EE8containsES5_EUlPKT_E_EclINS_17__normal_iteratorIPKS9_St6vectorIS9_SA_EEEEEbSC_.exit190
@@ -69099,7 +69099,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPdSaI
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPdSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPdSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -69267,7 +69267,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPdSaIS
 
 _ZNSt12_Vector_baseIPdSaIS0_EE13_M_deallocateEPS0_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPdSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1082
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1089
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1092
@@ -71098,7 +71098,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPfSaI
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPfSaIS0_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPfSaIS0_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -71266,7 +71266,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPfSaIS
 
 _ZNSt12_Vector_baseIPfSaIS0_EE13_M_deallocateEPS0_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPfSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1107
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1113
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1116
@@ -86496,7 +86496,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIPN4te
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIPN4test14pointer_stableESaIS2_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIPN4test14pointer_stableESaIS2_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !277
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951
@@ -86664,7 +86664,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPN4tes
 
 _ZNSt12_Vector_baseIPN4test14pointer_stableESaIS2_EE13_M_deallocateEPS2_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPN4test14pointer_stableESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1324
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1329
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1334

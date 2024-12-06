@@ -5254,7 +5254,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit244:              ; preds = %1000, %998, %988, %
   %1004 = load i32, ptr %1003, align 8
   %1005 = zext i32 %1004 to i64
   %1006 = getelementptr inbounds nuw i8, ptr %441, i64 %1005
-  %1007 = getelementptr inbounds i8, ptr %1006, i64 %.0163
+  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 %.0163
   br label %1008
 
 1008:                                             ; preds = %434, %_ZN4llvm11raw_ostreamlsEPKc.exit244, %458

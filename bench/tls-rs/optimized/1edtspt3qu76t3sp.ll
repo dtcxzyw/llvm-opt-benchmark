@@ -1397,7 +1397,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i16, ptr %27, i64 %.sroa.412.0.copyload
-  %31 = getelementptr inbounds i16, ptr %27, i64 %28
+  %31 = getelementptr inbounds nuw i16, ptr %27, i64 %28
   %32 = sub nsw i64 %26, %.sroa.412.0.copyload
   %33 = shl nsw i64 %32, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %31, ptr nonnull align 2 %30, i64 %33, i1 false), !alias.scope !276, !noalias !279
@@ -1737,7 +1737,7 @@ _ZN5alloc11collections5btree4node12slice_insert17he04a6bfe9be25271E.exit.i.i.i: 
 
 180:                                              ; preds = %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17hd2ecee10fbe5b6ffE.exit.i.i"
   %181 = getelementptr inbounds i16, ptr %178, i64 %.sroa.7.0.i.i
-  %182 = getelementptr inbounds i16, ptr %178, i64 %179
+  %182 = getelementptr inbounds nuw i16, ptr %178, i64 %179
   %183 = sub nsw i64 %176, %.sroa.7.0.i.i
   %184 = shl nsw i64 %183, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %182, ptr nonnull align 2 %181, i64 %184, i1 false), !alias.scope !344, !noalias !341
@@ -1754,7 +1754,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h95f8a337c8ddb0bdE.exit.i17.i.i
 
 190:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17h95f8a337c8ddb0bdE.exit.i17.i.i
   %191 = getelementptr inbounds ptr, ptr %187, i64 %179
-  %192 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %192 = getelementptr inbounds nuw ptr, ptr %187, i64 %188
   %193 = sub nsw i64 %176, %.sroa.7.0.i.i
   %194 = shl nsw i64 %193, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %192, ptr nonnull align 8 %191, i64 %194, i1 false), !alias.scope !347, !noalias !341
@@ -1949,7 +1949,7 @@ define hidden noundef nonnull align 1 ptr @"_ZN5alloc11collections5btree3map5ent
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds i8, ptr %27, i64 %.sroa.412.0.copyload
-  %31 = getelementptr inbounds i8, ptr %27, i64 %28
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 %28
   %32 = sub nsw i64 %26, %.sroa.412.0.copyload
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %31, ptr nonnull align 1 %30, i64 %32, i1 false), !alias.scope !370, !noalias !373
   br label %69
@@ -2284,7 +2284,7 @@ _ZN5alloc11collections5btree4node12slice_insert17h66dd253e5f3b216eE.exit.i.i.i: 
 
 175:                                              ; preds = %"_ZN5alloc11collections5btree4node212Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Mut$C$K$C$V$C$alloc..collections..btree..node..marker..Internal$GT$$C$alloc..collections..btree..node..marker..KV$GT$5split17he8c58ecec2639c7cE.exit.i.i"
   %176 = getelementptr inbounds i8, ptr %173, i64 %.sroa.7.0.i.i
-  %177 = getelementptr inbounds i8, ptr %173, i64 %174
+  %177 = getelementptr inbounds nuw i8, ptr %173, i64 %174
   %178 = sub nsw i64 %171, %.sroa.7.0.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %177, ptr nonnull align 1 %176, i64 %178, i1 false), !alias.scope !438, !noalias !435
   br label %_ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
@@ -2300,7 +2300,7 @@ _ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
 
 184:                                              ; preds = %_ZN5alloc11collections5btree4node12slice_insert17hda67d109c4eae166E.exit.i17.i.i
   %185 = getelementptr inbounds ptr, ptr %181, i64 %174
-  %186 = getelementptr inbounds ptr, ptr %181, i64 %182
+  %186 = getelementptr inbounds nuw ptr, ptr %181, i64 %182
   %187 = sub nsw i64 %171, %.sroa.7.0.i.i
   %188 = shl nsw i64 %187, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %186, ptr nonnull align 8 %185, i64 %188, i1 false), !alias.scope !441, !noalias !435

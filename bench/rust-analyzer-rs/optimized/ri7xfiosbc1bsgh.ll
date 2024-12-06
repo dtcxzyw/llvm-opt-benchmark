@@ -35122,7 +35122,7 @@ define hidden noundef i64 @_ZN11ide_assists8handlers11auto_import25module_distan
   %26 = xor i64 %.011.i.i, -1
   %27 = add nsw i64 %22, %26
   %28 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %19, i64 0, i64 %.011.i.i
-  %29 = getelementptr inbounds [0 x { { i32, i32, i32 } }], ptr %25, i64 0, i64 %27
+  %29 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %25, i64 0, i64 %27
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.preheader.i.i
@@ -35167,7 +35167,7 @@ _ZN4core3ptr19swap_nonoverlapping17hf60b8e011a24ad65E.exit.i.i: ; preds = %30
   %47 = xor i64 %.011.i.i20, -1
   %48 = add nsw i64 %43, %47
   %49 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %40, i64 0, i64 %.011.i.i20
-  %50 = getelementptr inbounds [0 x { { i32, i32, i32 } }], ptr %46, i64 0, i64 %48
+  %50 = getelementptr inbounds nuw [0 x { { i32, i32, i32 } }], ptr %46, i64 0, i64 %48
   br label %51
 
 51:                                               ; preds = %51, %.lr.ph.preheader.i.i19

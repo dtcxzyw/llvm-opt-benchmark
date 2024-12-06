@@ -2116,7 +2116,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %112 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }], ptr %2, i64 0, i64 %.val3.i, i32 2
   %113 = load i64, ptr %112, align 8, !noalias !546, !noundef !57
   %.sroa.0.013.i = and i64 %64, %113
-  %114 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.013.i
+  %114 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.013.i
   %.sroa.0.0.copyload.i1114.i = load <16 x i8>, ptr %114, align 1, !noalias !550
   %115 = icmp slt <16 x i8> %.sroa.0.0.copyload.i1114.i, zeroinitializer
   %116 = bitcast <16 x i1> %115 to i16
@@ -2130,7 +2130,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %119 = zext nneg i16 %118 to i64
   %120 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %119
   %121 = and i64 %120, %64
-  %122 = getelementptr inbounds i8, ptr %67, i64 %121
+  %122 = getelementptr inbounds nuw i8, ptr %67, i64 %121
   %123 = load i8, ptr %122, align 1, !noalias !555, !noundef !57
   %124 = icmp sgt i8 %123, -1
   br i1 %124, label %125, label %_ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.llvm.7179468393991100100.exit
@@ -2151,7 +2151,7 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hc48ee78c4b12348aE.l
   %132 = add i64 %.sroa.7.015.i, 16
   %133 = add i64 %132, %.sroa.0.016.i
   %.sroa.0.0.i4 = and i64 %133, %64
-  %134 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i4
+  %134 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i4
   %.sroa.0.0.copyload.i11.i = load <16 x i8>, ptr %134, align 1, !noalias !550
   %135 = icmp slt <16 x i8> %.sroa.0.0.copyload.i11.i, zeroinitializer
   %136 = bitcast <16 x i1> %135 to i16
@@ -2164,7 +2164,7 @@ _ZN9hashbrown3raw5inner13RawTableInner16find_insert_slot17h3517d2888b321db1E.llv
   %139 = trunc nuw nsw i64 %138 to i8
   %140 = add nsw i64 %.sroa.0.0.i1.i, -16
   %141 = and i64 %140, %64
-  %142 = getelementptr inbounds i8, ptr %67, i64 %.sroa.0.0.i1.i
+  %142 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.0.0.i1.i
   store i8 %139, ptr %142, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %141
   store i8 %139, ptr %gep, align 1

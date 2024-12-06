@@ -1453,7 +1453,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 206:                                              ; preds = %203, %194
   %207 = phi ptr [ %205, %203 ], [ null, %194 ]
   %208 = getelementptr inbounds i8, ptr %207, i64 %201
-  %209 = getelementptr inbounds i16, ptr %208, i64 %2
+  %209 = getelementptr inbounds nuw i16, ptr %208, i64 %2
   %210 = load i16, ptr %3, align 2, !tbaa !18
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807

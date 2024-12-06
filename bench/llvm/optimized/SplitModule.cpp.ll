@@ -3175,7 +3175,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIjSt23_Rb_tree_cons
 .split21.i.i.i:                                   ; preds = %.split.i.i.i, %.split21.i.i.i
   %.01.i.i.i = phi i64 [ %18, %.split21.i.i.i ], [ %16, %.split.i.i.i ]
   %18 = add nsw i64 %.01.i.i.i, -1
-  %19 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %18
   %.sroa.03.0.copyload22.i.i.i = load i32, ptr %19, align 8
   %.sroa.3.0..sroa_idx24.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.3.0.copyload25.i.i.i = load ptr, ptr %.sroa.3.0..sroa_idx24.i.i.i, align 8
@@ -3621,9 +3621,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIjSt23_Rb_tree_const_i
   %.032 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESS_EEbT_T0_.exit" ], [ %1, %5 ]
   %9 = shl i64 %.032, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %12
   %.val = load i32, ptr %11, align 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %.val, %14
@@ -3668,8 +3668,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESS_EEbT_T0_.exit": ; preds = %32, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i, %33
   %.0.i.i = phi i1 [ %34, %33 ], [ %.inv.i.i.i.i, %32 ], [ %spec.select.i.i.i, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ]
   %spec.select = select i1 %.0.i.i, i64 %12, i64 %10
-  %35 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %spec.select
-  %36 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %.032
+  %35 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %spec.select
+  %36 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %.032
   %37 = load i32, ptr %35, align 4
   store i32 %37, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -3694,8 +3694,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 48:                                               ; preds = %44
   %49 = shl nsw i64 %.0.lcssa, 1
   %50 = or disjoint i64 %49, 1
-  %51 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %50
-  %52 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %.0.lcssa
+  %51 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %50
+  %52 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %.0.lcssa
   %53 = load i32, ptr %51, align 4
   store i32 %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -3756,7 +3756,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %64
   br i1 %spec.select.i.i.i.i, label %79, label %"_ZSt11__push_heapIPSt4pairIjSt23_Rb_tree_const_iteratorIN4llvm18EquivalenceClassesIPKNS2_11GlobalValueESt4lessIS6_EE7ECValueEEElSC_N9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRNS2_6ModuleERNS2_8DenseMapIS6_jNS2_12DenseMapInfoIS6_vEENS2_6detail12DenseMapPairIS6_jEEEEjE3$_1EEEvT_T0_SU_T1_RT2_.exit"
 
 79:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL14findPartitionsRN4llvm6ModuleERNS2_8DenseMapIPKNS2_11GlobalValueEjNS2_12DenseMapInfoIS8_vEENS2_6detail12DenseMapPairIS8_jEEEEjE3$_1EclIPSt4pairIjSt23_Rb_tree_const_iteratorINS2_18EquivalenceClassesIS8_St4lessIS8_EE7ECValueEEESR_EEbT_RT0_.exit.i", %77, %76
-  %80 = getelementptr inbounds %"struct.std::pair.153", ptr %0, i64 %.0134.i
+  %80 = getelementptr inbounds nuw %"struct.std::pair.153", ptr %0, i64 %.0134.i
   %81 = load i32, ptr %61, align 4
   store i32 %81, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8

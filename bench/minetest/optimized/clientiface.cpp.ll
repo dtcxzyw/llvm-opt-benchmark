@@ -4290,11 +4290,11 @@ if.then.i.i:                                      ; preds = %_ZNKSt7__cxx1112bas
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; preds = %.noexc.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i
   %6 = phi ptr [ %.pre.i.i, %.noexc.i ], [ %4, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %.pr9
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.pr9
   store i8 %2, ptr %arrayidx.i.i, align 1, !tbaa !15
   store i64 %add.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11, !alias.scope !260
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !4, !alias.scope !260
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !15
   %.pr.pre = load i64, ptr %_M_string_length.i.i.i.i, align 8
   br label %for.inc.i
@@ -4474,11 +4474,11 @@ if.then.i.i:                                      ; preds = %if.then10.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit.i: ; preds = %.noexc.i, %if.then10.i
   %6 = phi ptr [ %.pre.i.i, %.noexc.i ], [ %4, %if.then10.i ]
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %6, i64 %.pr9
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.pr9
   store i8 %2, ptr %arrayidx.i.i, align 1, !tbaa !15
   store i64 %add.i.i, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !11, !alias.scope !264
   %7 = load ptr, ptr %ref.tmp, align 8, !tbaa !4, !alias.scope !264
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %7, i64 %add.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %add.i.i
   store i8 0, ptr %arrayidx.i.i.i, align 1, !tbaa !15
   %.pr.pre = load i64, ptr %_M_string_length.i.i.i.i, align 8
   br label %for.inc.i
@@ -9765,7 +9765,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body
@@ -9923,7 +9923,7 @@ if.then3.i.i:                                     ; preds = %cond.end.i
   %arrayidx5.i.i = getelementptr inbounds nuw ptr, ptr %23, i64 %rem.i.i.i.i39
   store ptr %22, ptr %arrayidx5.i.i, align 8, !tbaa !12
   %.pre.i = load ptr, ptr %this, align 8, !tbaa !274
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.06672
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %__bkt.06672
   %.pre43.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8, !tbaa !12
   br label %if.end.i.i
 
@@ -9935,7 +9935,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre43.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.06673
+  %arrayidx7.i.i = getelementptr inbounds nuw ptr, ptr %28, i64 %__bkt.06673
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 

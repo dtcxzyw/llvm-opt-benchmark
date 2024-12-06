@@ -5689,7 +5689,7 @@ do.end44:                                         ; preds = %do.body33
 if.end49:                                         ; preds = %land.rhs
   %len15.le = getelementptr inbounds nuw i8, ptr %bufs_ptr.addr.161, i64 8
   %23 = load ptr, ptr %bufs_ptr.addr.161, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %23, i64 %sent.062
+  %add.ptr = getelementptr inbounds nuw i8, ptr %23, i64 %sent.062
   store ptr %add.ptr, ptr %bufs_ptr.addr.161, align 8
   %sub31 = sub nuw i64 %22, %sent.062
   store i64 %sub31, ptr %len15.le, align 8

@@ -9787,7 +9787,7 @@ if.end8.split.lr.ph:                              ; preds = %_ZSt13__adjust_heap
 if.end8.split:                                    ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit80
   %__parent.086 = phi i64 [ %div13, %if.end8.split.lr.ph ], [ %dec, %_ZSt13__adjust_heapIPSt4pairIjjElS1_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S7_T1_T2_.exit80 ]
   %dec = add nsw i64 %__parent.086, -1
-  %add.ptr11 = getelementptr inbounds %"struct.std::pair.101", ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %"struct.std::pair.101", ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 4
   %cmp28.i16.not = icmp sgt i64 %__parent.086, %div.i8183
   br i1 %cmp28.i16.not, label %while.end.i17, label %while.body.i59

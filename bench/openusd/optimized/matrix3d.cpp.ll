@@ -1728,7 +1728,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds double, ptr %1, i64 %53
   %55 = sext i32 %49 to i64
-  %56 = getelementptr inbounds double, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw double, ptr %54, i64 %55
   %57 = load double, ptr %56, align 8
   %58 = fsub double %19, %57
   %59 = mul nuw nsw i32 %51, 3
@@ -1743,7 +1743,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   %68 = fmul double %67, 5.000000e-01
   %69 = getelementptr inbounds nuw [3 x double], ptr %3, i64 0, i64 %17
   store double %68, ptr %69, align 8
-  %70 = getelementptr inbounds double, ptr %16, i64 %55
+  %70 = getelementptr inbounds nuw double, ptr %16, i64 %55
   %71 = load double, ptr %70, align 8
   %72 = getelementptr inbounds nuw double, ptr %54, i64 %17
   %73 = load double, ptr %72, align 8
@@ -1762,7 +1762,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__10GfMatrix3d25ExtractRotation
   store double %83, ptr %84, align 8
   %85 = getelementptr inbounds nuw double, ptr %54, i64 %62
   %86 = load double, ptr %85, align 8
-  %87 = getelementptr inbounds double, ptr %61, i64 %55
+  %87 = getelementptr inbounds nuw double, ptr %61, i64 %55
   %88 = load double, ptr %87, align 8
   %89 = fsub double %86, %88
   %90 = fdiv double %89, %75

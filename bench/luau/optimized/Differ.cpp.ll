@@ -12380,7 +12380,7 @@ _ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8
   %.0.i49 = phi i64 [ %162, %_ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS1_14TypeIdPairHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit.i52 ], [ %93, %.noexc53._crit_edge ]
   %165 = getelementptr inbounds nuw i8, ptr %116, i64 24
   store i64 %91, ptr %165, align 8
-  %166 = getelementptr inbounds ptr, ptr %164, i64 %.0.i49
+  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %.0.i49
   %167 = load ptr, ptr %166, align 8
   %.not.i.i50 = icmp eq ptr %167, null
   br i1 %.not.i.i50, label %171, label %168
@@ -12411,7 +12411,7 @@ _ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8
 
 179:                                              ; preds = %173, %171
   %180 = phi ptr [ %.pre185, %173 ], [ %164, %171 ]
-  %181 = getelementptr inbounds ptr, ptr %180, i64 %.0.i49
+  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %.0.i49
   store ptr %23, ptr %181, align 8
   br label %_ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS1_14TypeIdPairHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb1EEEm.exit55
 
@@ -12672,7 +12672,7 @@ _ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8
   %.0.i = phi i64 [ %274, %_ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS1_14TypeIdPairHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %205, %.noexc47._crit_edge ]
   %277 = getelementptr inbounds nuw i8, ptr %228, i64 24
   store i64 %203, ptr %277, align 8
-  %278 = getelementptr inbounds ptr, ptr %276, i64 %.0.i
+  %278 = getelementptr inbounds nuw ptr, ptr %276, i64 %.0.i
   %279 = load ptr, ptr %278, align 8
   %.not.i.i = icmp eq ptr %279, null
   br i1 %.not.i.i, label %283, label %280
@@ -12703,7 +12703,7 @@ _ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8
 
 291:                                              ; preds = %285, %283
   %292 = phi ptr [ %.pre187, %285 ], [ %276, %283 ]
-  %293 = getelementptr inbounds ptr, ptr %292, i64 %.0.i
+  %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %.0.i
   store ptr %23, ptr %293, align 8
   br label %_ZNSt10_HashtableISt4pairIPKN4Luau4TypeES4_ES5_SaIS5_ENSt8__detail9_IdentityESt8equal_toIS5_ENS1_14TypeIdPairHashENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb1ELb1ELb1EEEE21_M_insert_unique_nodeEmmPNS7_10_Hash_nodeIS5_Lb1EEEm.exit
 

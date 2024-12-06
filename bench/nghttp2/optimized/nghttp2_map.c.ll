@@ -569,7 +569,7 @@ lor.lhs.false18:                                  ; preds = %if.then10, %if.end2
   br i1 %cmp22, label %for.end, label %if.end25
 
 if.end25:                                         ; preds = %lor.lhs.false18
-  %arrayidx27 = getelementptr inbounds %struct.nghttp2_map_bucket, ptr %10, i64 %didx.055
+  %arrayidx27 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %10, i64 %didx.055
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx27, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx1456, i64 16, i1 false)
   store i32 0, ptr %arrayidx1456, align 8
   %key2.i39 = getelementptr inbounds nuw i8, ptr %arrayidx1456, i64 4

@@ -8820,10 +8820,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %nocase.0105 = phi i1 [ false, %for.body.lr.ph ], [ %nocase.1, %for.inc ]
   %best_begin.0104 = phi i64 [ 0, %for.body.lr.ph ], [ %best_begin.2, %for.inc ]
   %best_end.0103 = phi i64 [ 0, %for.body.lr.ph ], [ %best_end.2, %for.inc ]
-  %end.0101 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
+  %i.0102 = phi i64 [ 0, %for.body.lr.ph ], [ %end.1, %for.inc ]
   %begin.0100 = phi i64 [ 0, %for.body.lr.ph ], [ %begin.1, %for.inc ]
   %best_len.099 = phi i64 [ 0, %for.body.lr.ph ], [ %best_len.2, %for.inc ]
-  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %2, i64 %end.0101
+  %add.ptr.i = getelementptr inbounds %"class.ue2::CharReach", ptr %2, i64 %i.0102
   %3 = load i64, ptr %add.ptr.i, align 8
   %4 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %3)
   %arrayidx.i.i44.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
@@ -8854,7 +8854,7 @@ if.end:                                           ; preds = %land.lhs.true, %for
   %11 = load i32, ptr %maxHistoryAvailable, align 8
   %add = add i32 %11, 1
   %conv = zext i32 %add to i64
-  %cmp9.not = icmp ult i64 %end.0101, %conv
+  %cmp9.not = icmp ult i64 %i.0102, %conv
   %12 = select i1 %brmerge, i1 true, i1 %cmp9.not
   %fail.1 = select i1 %12, i8 %fail.0, i8 1
   %tobool14 = trunc nuw i8 %fail.1 to i1
@@ -8864,13 +8864,13 @@ if.end:                                           ; preds = %land.lhs.true, %for
 
 land.lhs.true17:                                  ; preds = %if.end
   %13 = load ptr, ptr %mask, align 8
-  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %13, i64 %end.0101
+  %add.ptr.i46 = getelementptr inbounds %"class.ue2::CharReach", ptr %13, i64 %i.0102
   %call19 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i46)
   br i1 %call19, label %if.then20, label %if.end35
 
 if.then20:                                        ; preds = %land.lhs.true17
   %14 = load ptr, ptr %mask, align 8
-  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %14, i64 %end.0101
+  %add.ptr.i47 = getelementptr inbounds %"class.ue2::CharReach", ptr %14, i64 %i.0102
   %15 = load i64, ptr %add.ptr.i47, align 8
   %16 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %15)
   %arrayidx.i.i44.i.i48 = getelementptr inbounds nuw i8, ptr %add.ptr.i47, i64 8
@@ -8903,25 +8903,25 @@ if.end35:                                         ; preds = %if.end, %if.end27.t
   br i1 %tobool36, label %if.then37, label %if.else
 
 if.then37:                                        ; preds = %if.end35
-  %sub = sub i64 %end.0101, %begin.0100
+  %sub = sub i64 %i.0102, %begin.0100
   %cmp38 = icmp ugt i64 %sub, %best_len.099
   %best_len.1 = tail call i64 @llvm.umax.i64(i64 %sub, i64 %best_len.099)
-  %best_end.1 = select i1 %cmp38, i64 %end.0101, i64 %best_end.0103
+  %best_end.1 = select i1 %cmp38, i64 %i.0102, i64 %best_end.0103
   %best_begin.1 = select i1 %cmp38, i64 %begin.0100, i64 %best_begin.0104
-  %add43 = add nuw i64 %end.0101, 1
+  %add43 = add nuw i64 %i.0102, 1
   %.pre = load ptr, ptr %mask, align 8
   br label %for.inc
 
 if.else:                                          ; preds = %if.end35
-  %add45 = add nuw i64 %end.0101, 1
+  %add45 = add nuw i64 %i.0102, 1
   %23 = load ptr, ptr %mask, align 8
-  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %23, i64 %end.0101
+  %add.ptr.i61 = getelementptr inbounds %"class.ue2::CharReach", ptr %23, i64 %i.0102
   %call47 = tail call noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i61)
   %.pre117 = load ptr, ptr %mask, align 8
   br i1 %call47, label %if.then48, label %for.inc
 
 if.then48:                                        ; preds = %if.else
-  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre117, i64 %end.0101
+  %add.ptr.i62 = getelementptr inbounds %"class.ue2::CharReach", ptr %.pre117, i64 %i.0102
   %24 = load i64, ptr %add.ptr.i62, align 8
   %25 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %24)
   %arrayidx.i.i44.i.i63 = getelementptr inbounds nuw i8, ptr %add.ptr.i62, i64 8

@@ -444,7 +444,7 @@ define internal void @_ZN12_GLOBAL__N_117TestAutotbBackend7executeERPSoNSt7__cxx
   %.120 = phi i32 [ %22, %30 ], [ %40, %49 ]
   %.118 = phi i32 [ %.01724, %30 ], [ %53, %49 ]
   %.1 = phi i32 [ %34, %30 ], [ %.025, %49 ]
-  %55 = add nsw i32 %.120, 1
+  %55 = add nuw nsw i32 %.120, 1
   %56 = load ptr, ptr %7, align 8
   %57 = load ptr, ptr %3, align 8
   %58 = ptrtoint ptr %56 to i64

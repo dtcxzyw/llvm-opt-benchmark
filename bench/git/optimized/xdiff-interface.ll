@@ -766,7 +766,7 @@ if.then:                                          ; preds = %land.lhs.true
 
 land.lhs.true5:                                   ; preds = %if.then
   %sub6 = add nsw i64 %len, -2
-  %arrayidx7 = getelementptr inbounds i8, ptr %line, i64 %sub6
+  %arrayidx7 = getelementptr inbounds nuw i8, ptr %line, i64 %sub6
   %2 = load i8, ptr %arrayidx7, align 1
   %cmp9 = icmp eq i8 %2, 13
   br i1 %cmp9, label %if.end13, label %if.else

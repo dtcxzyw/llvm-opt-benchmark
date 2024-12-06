@@ -35410,7 +35410,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 94:                                               ; preds = %92
   %95 = zext i32 %93 to i64
   %96 = add nsw i64 %95, -1
-  %97 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8, !alias.scope !7088, !noalias !7089, !nonnull !4, !align !248, !noundef !4
   %99 = load ptr, ptr %98, align 8, !noalias !7092, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -35466,7 +35466,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 
 .noexc14.i:                                       ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %119 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %118, i64 0, i64 %104
+  %119 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %118, i64 0, i64 %104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !7062
   invoke void @"_ZN63_$LT$text..InsertionFragment$u20$as$u20$sum_tree..KeyedItem$GT$3key17hef423a9891da5bfaE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %119)
           to label %.noexc16 unwind label %.loopexit
@@ -35520,7 +35520,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 134:                                              ; preds = %132
   %135 = zext i32 %133 to i64
   %136 = add nsw i64 %135, -1
-  %137 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %136
   %138 = load ptr, ptr %137, align 8, !alias.scope !7097, !noalias !7098, !nonnull !4, !align !248, !noundef !4
   %139 = load ptr, ptr %138, align 8, !noalias !7101, !nonnull !4, !noundef !4
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -35550,7 +35550,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %153 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %152, i64 0, i64 %144
+  %153 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %152, i64 0, i64 %144
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i16, ptr %154, align 4, !noalias !7054, !noundef !4
   %156 = icmp eq i16 %155, %44
@@ -35602,7 +35602,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17h27aeaa
 166:                                              ; preds = %164
   %167 = zext i32 %165 to i64
   %168 = add nsw i64 %167, -1
-  %169 = getelementptr inbounds [0 x { ptr, i64, { ptr, i64 } }], ptr %35, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [0 x { ptr, i64, { ptr, i64 } }], ptr %35, i64 0, i64 %168
   %170 = load ptr, ptr %169, align 8, !alias.scope !7105, !noalias !7106, !nonnull !4, !align !248, !noundef !4
   %171 = load ptr, ptr %170, align 8, !noalias !7109, !nonnull !4, !noundef !4
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16
@@ -41047,7 +41047,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 94:                                               ; preds = %92
   %95 = zext i32 %93 to i64
   %96 = add nsw i64 %95, -1
-  %97 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %96
+  %97 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %96
   %98 = load ptr, ptr %97, align 8, !alias.scope !8139, !noalias !8140, !nonnull !4, !align !248, !noundef !4
   %99 = load ptr, ptr %98, align 8, !noalias !8143, !nonnull !4, !noundef !4
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
@@ -41103,7 +41103,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 
 .noexc14.i:                                       ; preds = %110
   %118 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %119 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %118, i64 0, i64 %104
+  %119 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %118, i64 0, i64 %104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !8113
   invoke void @"_ZN63_$LT$text..InsertionFragment$u20$as$u20$sum_tree..KeyedItem$GT$3key17hef423a9891da5bfaE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %119)
           to label %.noexc16 unwind label %.loopexit
@@ -41157,7 +41157,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 134:                                              ; preds = %132
   %135 = zext i32 %133 to i64
   %136 = add nsw i64 %135, -1
-  %137 = getelementptr inbounds [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %136
+  %137 = getelementptr inbounds nuw [0 x { ptr, i64, { { i32, i16, [1 x i16] }, i64 } }], ptr %30, i64 0, i64 %136
   %138 = load ptr, ptr %137, align 8, !alias.scope !8148, !noalias !8149, !nonnull !4, !align !248, !noundef !4
   %139 = load ptr, ptr %138, align 8, !noalias !8152, !nonnull !4, !noundef !4
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
@@ -41187,7 +41187,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 
 151:                                              ; preds = %149
   %152 = getelementptr inbounds nuw i8, ptr %139, i64 32
-  %153 = getelementptr inbounds [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %152, i64 0, i64 %144
+  %153 = getelementptr inbounds nuw [0 x { { i32, i16, [1 x i16] }, i64, { { { [4 x i64] }, i64 } } }], ptr %152, i64 0, i64 %144
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i16, ptr %154, align 4, !noalias !8105, !noundef !4
   %156 = icmp eq i16 %155, %44
@@ -41239,7 +41239,7 @@ define hidden void @_ZN5alloc3vec16in_place_collect18from_iter_in_place17hcf95ad
 166:                                              ; preds = %164
   %167 = zext i32 %165 to i64
   %168 = add nsw i64 %167, -1
-  %169 = getelementptr inbounds [0 x { ptr, i64, { ptr, i64 } }], ptr %35, i64 0, i64 %168
+  %169 = getelementptr inbounds nuw [0 x { ptr, i64, { ptr, i64 } }], ptr %35, i64 0, i64 %168
   %170 = load ptr, ptr %169, align 8, !alias.scope !8156, !noalias !8157, !nonnull !4, !align !248, !noundef !4
   %171 = load ptr, ptr %170, align 8, !noalias !8160, !nonnull !4, !noundef !4
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 16

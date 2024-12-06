@@ -11145,7 +11145,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIN32pxrInternal_v0_2
 
 30:                                               ; preds = %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit20.i.i.i, %20
   %.015.i.i.i = phi i64 [ %23, %20 ], [ %76, %_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_ED2Ev.exit20.i.i.i ]
-  %31 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.015.i.i.i
+  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.015.i.i.i
   %32 = load i32, ptr %31, align 4
   store i32 0, ptr %31, align 4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -11934,7 +11934,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL
   br i1 %68, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i, label %.loopexit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114_PathPairOrderEEclIPSt4pairINS2_7SdfPathES8_ES9_EEbT_RT0_.exit.i, %63, %.noexc32
-  %69 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0136.i
+  %69 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0136.i
   %70 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZNSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EaSEOS2_(ptr noundef nonnull align 4 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %56) #22
   %71 = icmp sgt i64 %.07.i, %1
   br i1 %71, label %.lr.ph.i, label %.loopexit, !llvm.loop !121

@@ -13257,7 +13257,7 @@ define void @_ZN10tokenizers6models7unigram5model7Unigram6encode17h1440044a94f96
   %363 = xor i64 %.011.i.i.i, -1
   %364 = add nsw i64 %359, %363
   %365 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val146.i, i64 0, i64 %.011.i.i.i
-  %366 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %362, i64 0, i64 %364
+  %366 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %362, i64 0, i64 %364
   br label %367
 
 367:                                              ; preds = %367, %.lr.ph.preheader.i.i.i
@@ -13351,7 +13351,7 @@ thread-pre-split.i:                               ; preds = %352
   %396 = xor i64 %.011.i.i158.i, -1
   %397 = add nsw i64 %392, %396
   %398 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val144.i, i64 0, i64 %.011.i.i158.i
-  %399 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %395, i64 0, i64 %397
+  %399 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %395, i64 0, i64 %397
   br label %400
 
 400:                                              ; preds = %400, %.lr.ph.preheader.i.i157.i
@@ -13717,7 +13717,7 @@ _ZN4core3ptr19swap_nonoverlapping17h130b14c0fe3413a8E.exit.i.i161.i: ; preds = %
   %517 = xor i64 %.011.i.i187.i, -1
   %518 = add nsw i64 %513, %517
   %519 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %.val142.i, i64 0, i64 %.011.i.i187.i
-  %520 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %516, i64 0, i64 %518
+  %520 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %516, i64 0, i64 %518
   br label %521
 
 521:                                              ; preds = %521, %.lr.ph.preheader.i.i186.i

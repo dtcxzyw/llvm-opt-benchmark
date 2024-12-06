@@ -28671,7 +28671,7 @@ define internal fastcc noundef zeroext i1 @"_ZN5image6codecs4webp7encoder20WebPE
 278:                                              ; preds = %276
   %279 = getelementptr inbounds nuw [16 x i32], ptr %25, i64 0, i64 %indvars.iv
   %280 = trunc nuw nsw i64 %indvars.iv to i8
-  %281 = getelementptr inbounds [0 x i8], ptr %2, i64 0, i64 %209
+  %281 = getelementptr inbounds nuw [0 x i8], ptr %2, i64 0, i64 %209
   store i8 %280, ptr %281, align 1
   %282 = add i32 %271, -1
   store i32 %282, ptr %279, align 4

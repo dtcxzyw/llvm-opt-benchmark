@@ -12552,7 +12552,7 @@ define void @_ZN8terminal8Terminal22last_n_non_empty_lines17h7ae6cd25834a9966E(p
   %55 = xor i64 %.sroa.0.08.i.i, -1
   %56 = add nsw i64 %51, %55
   %57 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %50, i64 0, i64 %.sroa.0.08.i.i
-  %58 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %54, i64 0, i64 %56
+  %58 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %54, i64 0, i64 %56
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.preheader.i.i

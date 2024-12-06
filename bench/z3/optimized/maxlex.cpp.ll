@@ -1547,7 +1547,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN3opt4softD2Ev.exit59, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZN3opt4softD2Ev.exit59 ]
-  %add.ptr = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %__parent.0
   %m_manager2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %0 = load ptr, ptr %m_manager2.i.i, align 8
   store ptr %0, ptr %m_manager.i.i, align 8
@@ -4728,7 +4728,7 @@ if.end.i.i.i:                                     ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %_ZN3opt4softD2Ev.exit59.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %_ZN3opt4softD2Ev.exit59.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %__parent.0.i.i.i
   %m_manager2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   %0 = load ptr, ptr %m_manager2.i.i.i.i.i, align 8
   store ptr %0, ptr %m_manager.i.i.i.i.i, align 8
@@ -5727,9 +5727,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.034 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.034, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %sub1
+  %add.ptr2 = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %sub1
   %weight.i.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 16
   %weight2.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 16
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
@@ -5786,8 +5786,8 @@ if.else.i.i.i.i:                                  ; preds = %land.lhs.true.i.i.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3opt9is_maxlexERK6vectorINS2_4softELb1EjEE3$_0EclIPS4_SB_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i.i.i, %if.else.i.i.i.i.i.i, %if.else.i.i.i.i
   %retval.0.i.i.i.i = phi i1 [ %call5.i.i.i.i, %if.else.i.i.i.i ], [ %cmp.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i, %if.else.i.i.i.i.i.i ]
   %spec.select = select i1 %retval.0.i.i.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.034
+  %add.ptr3 = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.034
   %call5 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %add.ptr4, ptr noundef nonnull align 8 dereferenceable(52) %add.ptr3) #14
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !30
@@ -5807,8 +5807,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %call16 = tail call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %add.ptr15, ptr noundef nonnull align 8 dereferenceable(52) %add.ptr14) #14
   br label %if.end18
 
@@ -5917,7 +5917,7 @@ call4.i.i.i.i.i.i.i.noexc:                        ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp5.i.i.i.i.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %call4.i.i.i.i.i.i.i.noexc, %call5.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i
-  %add.ptr2.i = getelementptr inbounds %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.opt::soft", ptr %__first, i64 %__holeIndex.addr.04.i
   %call3.i = call noundef nonnull align 8 dereferenceable(52) ptr @_ZN3opt4softaSEOS0_(ptr noundef nonnull align 8 dereferenceable(52) %add.ptr2.i, ptr noundef nonnull align 8 dereferenceable(52) %add.ptr.i) #14
   %cmp.i = icmp sgt i64 %__parent.05.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !31

@@ -67965,7 +67965,7 @@ define hidden void @_ZN4rope6Cursor7summary17h0da1c5cafdf0fe0aE(ptr dead_on_unwi
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = add nsw i64 %34, -1
-  %37 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8, !alias.scope !17511, !noalias !17514, !nonnull !4, !align !5, !noundef !4
   %39 = load ptr, ptr %38, align 8, !noalias !17516, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -67996,7 +67996,7 @@ define hidden void @_ZN4rope6Cursor7summary17h0da1c5cafdf0fe0aE(ptr dead_on_unwi
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %55 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %54, i64 0, i64 %44
+  %55 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %54, i64 0, i64 %44
   %56 = load i64, ptr %1, align 8, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %58 = load i64, ptr %57, align 8, !noundef !4
@@ -68167,7 +68167,7 @@ define hidden void @_ZN4rope6Cursor7summary17h0da1c5cafdf0fe0aE(ptr dead_on_unwi
   %129 = zext i32 %127 to i64
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %131 = add nsw i64 %129, -1
-  %132 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %130, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8, !alias.scope !17565, !noalias !17568, !nonnull !4, !align !5, !noundef !4
   %134 = load ptr, ptr %133, align 8, !noalias !17570, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
@@ -68205,7 +68205,7 @@ define hidden void @_ZN4rope6Cursor7summary17h0da1c5cafdf0fe0aE(ptr dead_on_unwi
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %151 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %150, i64 0, i64 %139
+  %151 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %150, i64 0, i64 %139
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %153 = load i64, ptr %152, align 8, !noundef !4
   %154 = load i64, ptr %15, align 8, !noundef !4
@@ -68241,7 +68241,7 @@ define hidden void @_ZN4rope6Cursor7summary17h0da1c5cafdf0fe0aE(ptr dead_on_unwi
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hd7fa7e37b5407bb0E.exit19.thread"
 
 169:                                              ; preds = %160
-  %170 = getelementptr inbounds i8, ptr %156, i64 %155
+  %170 = getelementptr inbounds nuw i8, ptr %156, i64 %155
   %171 = load i8, ptr %170, align 1, !noundef !4
   %172 = icmp sgt i8 %171, -65
   br i1 %172, label %162, label %175
@@ -68307,7 +68307,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17hcd914cc6cdde7ec3E(ptr noal
   %31 = zext i32 %29 to i64
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = add nsw i64 %31, -1
-  %34 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %32, i64 0, i64 %33
+  %34 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %32, i64 0, i64 %33
   %35 = load ptr, ptr %34, align 8, !alias.scope !17576, !noalias !17579, !nonnull !4, !align !5, !noundef !4
   %36 = load ptr, ptr %35, align 8, !noalias !17581, !nonnull !4, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -68338,7 +68338,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17hcd914cc6cdde7ec3E(ptr noal
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %52 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %51, i64 0, i64 %41
+  %52 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %51, i64 0, i64 %41
   %53 = load i64, ptr %0, align 8, !noundef !4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %55 = load i64, ptr %54, align 8, !noundef !4
@@ -68503,7 +68503,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17hcd914cc6cdde7ec3E(ptr noal
   %126 = zext i32 %124 to i64
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %128 = add nsw i64 %126, -1
-  %129 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %127, i64 0, i64 %128
+  %129 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %127, i64 0, i64 %128
   %130 = load ptr, ptr %129, align 8, !alias.scope !17619, !noalias !17622, !nonnull !4, !align !5, !noundef !4
   %131 = load ptr, ptr %130, align 8, !noalias !17624, !nonnull !4, !noundef !4
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
@@ -68544,7 +68544,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17hcd914cc6cdde7ec3E(ptr noal
 
 150:                                              ; preds = %142
   %151 = getelementptr inbounds nuw i8, ptr %131, i64 24
-  %152 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %151, i64 0, i64 %136
+  %152 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %151, i64 0, i64 %136
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %154 = load i64, ptr %153, align 8, !noundef !4
   %155 = load i64, ptr %14, align 8, !noundef !4
@@ -68575,7 +68575,7 @@ define hidden { i32, i32 } @_ZN4rope6Cursor7summary17hcd914cc6cdde7ec3E(ptr noal
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17hd7fa7e37b5407bb0E.exit19.thread"
 
 168:                                              ; preds = %161
-  %169 = getelementptr inbounds i8, ptr %157, i64 %156
+  %169 = getelementptr inbounds nuw i8, ptr %157, i64 %156
   %170 = load i8, ptr %169, align 1, !noundef !4
   %171 = icmp sgt i8 %170, -65
   br i1 %171, label %163, label %174
@@ -120664,7 +120664,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
   %38 = zext i32 %36 to i64
   %39 = getelementptr inbounds nuw i8, ptr %20, i64 272
   %40 = add nsw i64 %38, -1
-  %41 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %39, i64 0, i64 %40
+  %41 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %39, i64 0, i64 %40
   %42 = load ptr, ptr %41, align 8, !alias.scope !29407, !noalias !29408, !nonnull !4, !align !5, !noundef !4
   %43 = load ptr, ptr %42, align 8, !noalias !29413, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4480
@@ -120695,7 +120695,7 @@ define hidden { i64, ptr } @"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$a
 
 58:                                               ; preds = %55
   %59 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %60 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %59, i64 0, i64 %50
+  %60 = getelementptr inbounds nuw [0 x { { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [8 x i64] }, i64, i32, i8, i8, i8, [1 x i8] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }], ptr %59, i64 0, i64 %50
   %61 = getelementptr inbounds nuw i8, ptr %20, i64 544
   %62 = load i8, ptr %61, align 8, !range !32, !alias.scope !29415, !noalias !29416, !noundef !4
   %63 = trunc nuw i8 %62 to i1

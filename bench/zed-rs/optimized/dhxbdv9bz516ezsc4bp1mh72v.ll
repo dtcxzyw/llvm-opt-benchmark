@@ -14714,7 +14714,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i254,
   %713 = xor i64 %.sroa.0.08.i.i, -1
   %714 = add nsw i64 %709, %713
   %715 = getelementptr inbounds nuw [0 x i64], ptr %.sroa.6442.0.copyload, i64 0, i64 %.sroa.0.08.i.i
-  %716 = getelementptr inbounds [0 x i64], ptr %712, i64 0, i64 %714
+  %716 = getelementptr inbounds nuw [0 x i64], ptr %712, i64 0, i64 %714
   %717 = load i64, ptr %715, align 8, !alias.scope !2817, !noalias !2815, !noundef !4
   %718 = load i64, ptr %716, align 8, !alias.scope !2820, !noalias !2812
   store i64 %718, ptr %715, align 8, !alias.scope !2817, !noalias !2815

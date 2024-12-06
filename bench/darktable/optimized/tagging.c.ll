@@ -804,7 +804,7 @@ define internal fastcc void @_init_treeview(ptr noundef %0, i32 noundef range(i3
 308:                                              ; preds = %302, %298, %294, %290
   %309 = phi i64 [ 1144, %294 ], [ 1152, %290 ], [ 1136, %298 ], [ %303, %302 ]
   %310 = phi i32 [ 2, %294 ], [ 0, %290 ], [ 2, %298 ], [ %307, %302 ]
-  %311 = getelementptr inbounds i8, ptr %289, i64 %309
+  %311 = getelementptr inbounds nuw i8, ptr %289, i64 %309
   %312 = load ptr, ptr %311, align 8, !tbaa !18
   %313 = call ptr @g_type_check_instance_cast(ptr noundef %312, i64 noundef %71) #16
   call void @gtk_tree_sortable_set_sort_column_id(ptr noundef %313, i32 noundef %310, i32 noundef 0) #16

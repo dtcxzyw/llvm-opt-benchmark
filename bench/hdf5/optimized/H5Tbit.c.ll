@@ -684,7 +684,7 @@ define i64 @H5T__bit_find(ptr nocapture noundef readonly %0, i64 noundef %1, i64
   br i1 %.not150, label %.loopexit, label %.lr.ph148
 
 .lr.ph148:                                        ; preds = %.preheader
-  %33 = getelementptr inbounds i8, ptr %0, i64 %.196.lcssa
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.196.lcssa
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   br label %53

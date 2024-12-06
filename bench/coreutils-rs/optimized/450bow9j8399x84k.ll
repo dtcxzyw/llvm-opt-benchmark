@@ -934,7 +934,7 @@ define noundef zeroext i1 @"_ZN75_$LT$uu_split..number..DynamicWidthNumber$u20$a
   %39 = xor i64 %.011.i.i.i, -1
   %40 = add nsw i64 %35, %39
   %41 = getelementptr inbounds nuw [0 x i8], ptr %34, i64 0, i64 %.011.i.i.i
-  %42 = getelementptr inbounds [0 x i8], ptr %38, i64 0, i64 %40
+  %42 = getelementptr inbounds nuw [0 x i8], ptr %38, i64 0, i64 %40
   %43 = load i8, ptr %41, align 1, !alias.scope !133, !noalias !136, !noundef !4
   %44 = load i8, ptr %42, align 1, !alias.scope !137, !noalias !138, !noundef !4
   store i8 %44, ptr %41, align 1, !alias.scope !133, !noalias !136

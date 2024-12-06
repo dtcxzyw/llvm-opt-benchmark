@@ -11801,7 +11801,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN4llvm17ValueTypeByHwModeEN9__gnu_c
 
 26:                                               ; preds = %_ZN4llvm17ValueTypeByHwModeC2EOS0_.exit15, %11
   %.012 = phi i64 [ %13, %11 ], [ %53, %_ZN4llvm17ValueTypeByHwModeC2EOS0_.exit15 ]
-  %27 = getelementptr inbounds %"struct.llvm::ValueTypeByHwMode", ptr %0, i64 %.012
+  %27 = getelementptr inbounds nuw %"struct.llvm::ValueTypeByHwMode", ptr %0, i64 %.012
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %29, null

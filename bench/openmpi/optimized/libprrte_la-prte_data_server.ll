@@ -642,7 +642,7 @@ pmix_obj_run_destructors.exit678:                 ; preds = %.lr.ph.i675, %173
 196:                                              ; preds = %.lr.ph967, %247
   %197 = phi i32 [ %192, %.lr.ph967 ], [ %248, %247 ]
   %storemerge616965 = phi i64 [ 0, %.lr.ph967 ], [ %250, %247 ]
-  %198 = getelementptr inbounds %struct.pmix_info, ptr %157, i64 %storemerge616965
+  %198 = getelementptr inbounds nuw %struct.pmix_info, ptr %157, i64 %storemerge616965
   %199 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %198, ptr noundef nonnull dereferenceable(11) @.str.10) #15
   %200 = icmp eq i32 %199, 0
   br i1 %200, label %201, label %204

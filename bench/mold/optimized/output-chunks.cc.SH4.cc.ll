@@ -26532,7 +26532,7 @@ if.end.split.i.i:                                 ; preds = %while.body
 if.end9.split.i.i:                                ; preds = %if.end.split.i.i, %if.end9.split.i.i
   %__parent.021.i.i = phi i64 [ %dec.i.i, %if.end9.split.i.i ], [ %div19.i.i, %if.end.split.i.i ]
   %dec.i.i = add nsw i64 %__parent.021.i.i, -1
-  %add.ptr14.i.i = getelementptr inbounds %"struct.mold::elf::ElfRel", ptr %__first, i64 %dec.i.i
+  %add.ptr14.i.i = getelementptr inbounds nuw %"struct.mold::elf::ElfRel", ptr %__first, i64 %dec.i.i
   %__value.sroa.0.0.copyload15.i.i = load i64, ptr %add.ptr14.i.i, align 1
   %__value.sroa.2.0.add.ptr.sroa_idx16.i.i = getelementptr inbounds nuw i8, ptr %add.ptr14.i.i, i64 8
   %__value.sroa.2.0.copyload17.i.i = load i32, ptr %__value.sroa.2.0.add.ptr.sroa_idx16.i.i, align 1
@@ -45116,7 +45116,7 @@ if.end8.split.preheader:                          ; preds = %if.end8.split.lr.ph
 if.end8.split.us:                                 ; preds = %if.end8.split.lr.ph, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us
   %__parent.065.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us ], [ %div13, %if.end8.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.065.us, -1
-  %add.ptr11.us = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec.us
   %__value.sroa.0.0.copyload12.us = load i64, ptr %add.ptr11.us, align 1
   %cmp23.i16.not.us = icmp sgt i64 %__parent.065.us, %div.i6163
   br i1 %cmp23.i16.not.us, label %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60.us, label %while.body.i46.us
@@ -45170,7 +45170,7 @@ _ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7Conte
 if.end8.split:                                    ; preds = %if.end8.split.preheader, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60
   %__parent.065 = phi i64 [ %dec, %_ZSt13__adjust_heapIPZN4mold3elf14EhFrameSectionINS1_3SH4EE8copy_bufERNS1_7ContextIS3_EEE8HdrEntrylS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS4_8copy_bufES7_EUlRKS8_SE_E_EEEvT_T0_SI_T1_T2_.exit60 ], [ %div13, %if.end8.split.preheader ]
   %dec = add nsw i64 %__parent.065, -1
-  %add.ptr11 = getelementptr inbounds %struct.HdrEntry, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw %struct.HdrEntry, ptr %__first, i64 %dec
   %__value.sroa.0.0.copyload12 = load i64, ptr %add.ptr11, align 1
   %cmp23.i16.not = icmp sgt i64 %__parent.065, %div.i6163
   br i1 %cmp23.i16.not, label %while.end.i17, label %while.body.i46
@@ -45969,7 +45969,7 @@ cond.false22.i39:                                 ; preds = %cond.false16.i37
 
 _ZNK3tbb6detail2d116quick_sort_rangeIPZN4mold3elf14EhFrameSectionINS4_3SH4EE8copy_bufERNS4_7ContextIS6_EEE8HdrEntryZNS7_8copy_bufESA_EUlRKSB_SE_E_E15median_of_threeERKSC_mmm.exit48: ; preds = %cond.true.i43, %cond.false.i45, %cond.false16.i37, %cond.false22.i39
   %cond34.i42 = phi i64 [ %cond.i47, %cond.false.i45 ], [ %cond30.i41, %cond.false22.i39 ], [ %mul7, %cond.true.i43 ], [ %mul7, %cond.false16.i37 ]
-  %arrayidx.i49 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i
+  %arrayidx.i49 = getelementptr inbounds nuw %struct.HdrEntry, ptr %1, i64 %cond34.i
   %arrayidx2.i50 = getelementptr inbounds %struct.HdrEntry, ptr %1, i64 %cond34.i23
   %x.0.copyload.i.i.i51 = load i32, ptr %arrayidx.i49, align 1
   %x.0.copyload.i1.i.i52 = load i32, ptr %arrayidx2.i50, align 1

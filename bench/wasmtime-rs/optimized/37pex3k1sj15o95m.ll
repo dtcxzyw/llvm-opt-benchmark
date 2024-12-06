@@ -16831,7 +16831,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph9inst_args17h25714fd5553fa2b9E.exit:
   %11 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !range !3073
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 2
   %sum.shift.i = lshr i32 %.sroa.0.0.copyload.i, 21
   %15 = and i32 %sum.shift.i, 7
@@ -16872,7 +16872,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph13inst_args_mut17hfceb77d5deb327c5E.
   %11 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !range !3073
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 2
   %sum.shift.i = lshr i32 %.sroa.0.0.copyload.i, 21
   %15 = and i32 %sum.shift.i, 7
@@ -16913,7 +16913,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph9inst_args17h25714fd5553fa2b9E.exit:
   %11 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !range !3073
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 2
   %sum.shift.i = lshr i32 %.sroa.0.0.copyload.i, 21
   %15 = and i32 %sum.shift.i, 7
@@ -16958,7 +16958,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph13inst_args_mut17hfceb77d5deb327c5E.
   %11 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %10), !range !3073
   %12 = zext i8 %11 to i64
   %13 = add nsw i64 %12, -1
-  %14 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
+  %14 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %13
   %.sroa.0.0.copyload.i = load i32, ptr %14, align 2
   %sum.shift.i = lshr i32 %.sroa.0.0.copyload.i, 21
   %15 = and i32 %sum.shift.i, 7
@@ -17780,7 +17780,7 @@ define hidden noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph33num_exp
   %14 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %13), !range !3073
   %15 = zext i8 %14 to i64
   %16 = add nsw i64 %15, -1
-  %17 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %16
+  %17 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %16
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 2
   %.sroa.4.0.extract.shift.i = lshr i32 %.sroa.0.0.copyload.i, 16
   %18 = and i32 %.sroa.4.0.extract.shift.i, 7
@@ -17839,7 +17839,7 @@ define void @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8
   %16 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %15), !range !3073
   %17 = zext i8 %16 to i64
   %18 = add nsw i64 %17, -1
-  %19 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %18
+  %19 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %18
   %.sroa.0.0.copyload.i = load i32, ptr %19, align 2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %.sroa.0.0.copyload.i, ptr %20, align 4
@@ -18058,7 +18058,7 @@ define { i16, i16 } @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph19compute_resul
   %17 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %16), !range !3073, !noalias !3344
   %18 = zext i8 %17 to i64
   %19 = add nsw i64 %18, -1
-  %20 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %19
+  %20 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %19
   %.sroa.0.0.copyload.i.i = load i32, ptr %20, align 2, !noalias !3360
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.sroa.0.0.copyload.i.i, ptr %21, align 4, !alias.scope !3344, !noalias !3347
@@ -18131,7 +18131,7 @@ define noundef range(i16 0, 16384) i16 @_ZN17cranelift_codegen2ir3dfg13DataFlowG
   %12 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %11), !range !3073
   %13 = zext i8 %12 to i64
   %14 = add nsw i64 %13, -1
-  %15 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %14
+  %15 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %14
   %.sroa.0.0.copyload.i = load i32, ptr %15, align 2
   %16 = icmp ult i32 %.sroa.0.0.copyload.i, 385875968
   br i1 %16, label %17, label %26
@@ -20276,7 +20276,7 @@ define noundef i64 @_ZN17cranelift_codegen2ir3dfg13DataFlowGraph28make_inst_resu
   %24 = tail call noundef i8 @_ZN17cranelift_codegen2ir12instructions15InstructionData6opcode17h1728d7d3638baf28E(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %23), !range !3073, !noalias !3943
   %25 = zext i8 %24 to i64
   %26 = add nsw i64 %25, -1
-  %27 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %26
+  %27 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %26
   %.sroa.0.0.copyload.i.i = load i32, ptr %27, align 2, !noalias !3956
   br label %_ZN17cranelift_codegen2ir3dfg13DataFlowGraph17inst_result_types17h8f1f6cc41a75fbf8E.exit
 
@@ -31329,7 +31329,7 @@ _ZN17cranelift_codegen2ir3dfg13DataFlowGraph12inst_results17h8abf8bfc17f44328E.e
 .noexc218.i:                                      ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i211.i"
   %728 = zext i8 %727 to i64
   %729 = add nsw i64 %728, -1
-  %730 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %729
+  %730 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %729
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %730, align 2, !noalias !5639
   %731 = icmp ult i32 %.sroa.0.0.copyload.i.i.i, 385875968
   br i1 %731, label %732, label %.noexc150.i
@@ -36277,7 +36277,7 @@ _ZN17cranelift_codegen6egraph9elaborate10Elaborator20elaborate_eclass_use17h6ffc
   %2550 = xor i64 %.011.i.i.i.i.i, -1
   %2551 = add nsw i64 %2546, %2550
   %2552 = getelementptr inbounds nuw [0 x { i32, [2 x i32] }], ptr %2545, i64 0, i64 %.011.i.i.i.i.i
-  %2553 = getelementptr inbounds [0 x { i32, [2 x i32] }], ptr %2549, i64 0, i64 %2551
+  %2553 = getelementptr inbounds nuw [0 x { i32, [2 x i32] }], ptr %2549, i64 0, i64 %2551
   br label %2554
 
 2554:                                             ; preds = %2554, %.lr.ph.preheader.i.i.i.i.i

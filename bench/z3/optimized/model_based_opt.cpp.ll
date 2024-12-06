@@ -28617,7 +28617,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN3opt15model_based_opt3varD2Ev.exit46, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZN3opt15model_based_opt3varD2Ev.exit46 ]
-  %add.ptr = getelementptr inbounds %"struct.opt::model_based_opt::var", ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw %"struct.opt::model_based_opt::var", ptr %__first, i64 %__parent.0
   %0 = load i32, ptr %add.ptr, align 8
   store i32 %0, ptr %__value, align 8
   %m_coeff3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8

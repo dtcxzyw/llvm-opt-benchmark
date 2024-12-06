@@ -58929,7 +58929,7 @@ invoke.cont5:                                     ; preds = %while.cond.return.l
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i26.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ]
   %retval.0.i.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i, %if.end.i.i.i ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i11, i64 %retval.0.i.i.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i11, i64 %retval.0.i.i.i
   %2 = load i32, ptr %add.ptr.i, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %add.ptr.i, align 4
@@ -59293,7 +59293,7 @@ invoke.cont5:                                     ; preds = %while.cond.return.l
   %rng.sroa.0.1 = phi i64 [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i24.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %coerce3.sroa.0.0.extract.trunc.i7.i.i.i.i.i.i.i, %if.end.i.i.i ]
   %rng.sroa.4.1 = phi i64 [ %.narrow.i.i.i.i.i26.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i, %if.end.i.i.i ]
   %retval.0.i.i.i = phi i64 [ %coerce3.sroa.2.0.extract.trunc.i.i35.le.i.i.i, %while.cond.return.loopexit_crit_edge.i.i.i ], [ %coerce3.sroa.2.0.extract.trunc.i.i.i.i.i, %if.end.i.i.i ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i11, i64 %retval.0.i.i.i
+  %add.ptr.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i11, i64 %retval.0.i.i.i
   %2 = load i32, ptr %add.ptr.i, align 4
   %inc = add nsw i32 %2, 1
   store i32 %inc, ptr %add.ptr.i, align 4

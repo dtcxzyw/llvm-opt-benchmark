@@ -38648,7 +38648,7 @@ default.unreachable:                              ; preds = %78
   %218 = add i64 %217, %.01927.i.i
   %219 = icmp ult i64 %218, %.sroa.570.0259
   call void @llvm.assume(i1 %219)
-  %220 = getelementptr inbounds { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.068.0257, i64 %218
+  %220 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %.sroa.068.0257, i64 %218
   %.val23.i.i = load ptr, ptr %220, align 8, !alias.scope !9419, !noalias !9420, !nonnull !9, !align !2044, !noundef !9
   %221 = getelementptr i8, ptr %220, i64 8
   %.val24.i.i = load i64, ptr %221, align 8, !alias.scope !9419, !noalias !9420, !noundef !9

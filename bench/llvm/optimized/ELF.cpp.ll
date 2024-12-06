@@ -9827,7 +9827,7 @@ _ZN4llvm5ErrorD2Ev.exit180:                       ; preds = %120
 
 163:                                              ; preds = %120
   %164 = load ptr, ptr %1, align 8
-  %165 = getelementptr inbounds i8, ptr %164, i64 %123
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %123
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %167 = load i8, ptr %166, align 8
   %168 = and i8 %167, -2
@@ -23922,7 +23922,7 @@ _ZN4llvm5ErrorD2Ev.exit180:                       ; preds = %125
 
 171:                                              ; preds = %125
   %172 = load ptr, ptr %1, align 8
-  %173 = getelementptr inbounds i8, ptr %172, i64 %129
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 %129
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %175 = load i8, ptr %174, align 8
   %176 = and i8 %175, -2

@@ -1039,7 +1039,7 @@ if.end4:                                          ; preds = %if.end
 while.cond:                                       ; preds = %if.end4, %zipmapDecodeLength.exit55
   %count.0 = phi i32 [ %inc, %zipmapDecodeLength.exit55 ], [ 0, %if.end4 ]
   %p.0.idx = phi i64 [ %incdec.ptr.add, %zipmapDecodeLength.exit55 ], [ 1, %if.end4 ]
-  %p.0.ptr = getelementptr inbounds i8, ptr %zm, i64 %p.0.idx
+  %p.0.ptr = getelementptr inbounds nuw i8, ptr %zm, i64 %p.0.idx
   %2 = load i8, ptr %p.0.ptr, align 1
   %cmp8.not = icmp eq i8 %2, -1
   br i1 %cmp8.not, label %while.end, label %while.body

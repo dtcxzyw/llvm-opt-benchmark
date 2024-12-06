@@ -497,7 +497,7 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %if.t
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %i.0.i.i = add nsw i64 %i.0.in.i.i, -1
-  %arrayidx.i.i = getelementptr inbounds %union.TValue, ptr %55, i64 %i.0.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw %union.TValue, ptr %55, i64 %i.0.i.i
   %56 = load i64, ptr %arrayidx.i.i, align 8
   %cmp5.i.i = icmp eq i64 %56, -1
   br i1 %cmp5.i.i, label %for.cond.i.i, label %for.end.i.i, !llvm.loop !7

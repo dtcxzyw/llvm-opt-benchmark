@@ -520,7 +520,7 @@ invoke.cont8.i:                                   ; preds = %for.body.i315
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.063.i, i64 8
   %58 = load i64, ptr %_M_string_length.i.i.i.i, align 8
   %add.ptr.i.i.i316 = getelementptr inbounds i8, ptr %57, i64 %58
-  %add.ptr.i.i57.i = getelementptr inbounds i8, ptr %55, i64 %sub.ptr.sub.i50.i
+  %add.ptr.i.i57.i = getelementptr inbounds nuw i8, ptr %55, i64 %sub.ptr.sub.i50.i
   invoke void @_ZNSt6vectorIhSaIhEE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEvNS4_IPhS1_EET_SG_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %lit_blob, ptr %add.ptr.i.i57.i, ptr %57, ptr %add.ptr.i.i.i316)
           to label %invoke.cont26.i unwind label %lpad14.i
 
@@ -2554,7 +2554,7 @@ _ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i: ; preds = %_ZNKSt6vectorIj
 if.end.i.i.i.i.i162:                              ; preds = %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit
   %cond.i160 = phi ptr [ %call5.i.i.i, %_ZNSt16allocator_traitsISaIjEE8allocateERS0_m.exit.i ], [ null, %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i160, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i163 = getelementptr inbounds i32, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i163 = getelementptr inbounds nuw i32, ptr %add.ptr54, i64 %__n
   %31 = load i32, ptr %__x, align 4
   %32 = add nuw nsw i64 %__n, 4611686018427387903
   %33 = and i64 %32, 4611686018427387903
@@ -14053,7 +14053,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i68
 
 _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: ; preds = %if.then.i68, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit
   store ptr %call.i.i.i, ptr %this, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %cond.i
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8

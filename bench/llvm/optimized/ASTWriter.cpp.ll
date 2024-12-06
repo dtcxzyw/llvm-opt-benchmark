@@ -85516,7 +85516,7 @@ _ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops1
 .split16.us:                                      ; preds = %.split16.lr.ph, %_ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit33.us
   %.039.us = phi i64 [ %62, %_ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit33.us ], [ %10, %.split16.lr.ph ]
   %62 = add nsw i64 %.039.us, -1
-  %63 = getelementptr inbounds %"struct.std::pair.3087", ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.std::pair.3087", ptr %0, i64 %62
   %.sroa.02.0.copyload17.us = load i64, ptr %63, align 4
   %.not.us = icmp sgt i64 %.039.us, %13
   br i1 %.not.us, label %._crit_edge.i19.us.thread, label %.lr.ph.i30.us
@@ -85586,7 +85586,7 @@ _ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops1
 .split16:                                         ; preds = %.split16.preheader, %_ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit33
   %.039 = phi i64 [ %90, %_ZSt13__adjust_heapIPSt4pairIjN5clang17DiagnosticMappingEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SC_T1_T2_.exit33 ], [ %10, %.split16.preheader ]
   %90 = add nsw i64 %.039, -1
-  %91 = getelementptr inbounds %"struct.std::pair.3087", ptr %0, i64 %90
+  %91 = getelementptr inbounds nuw %"struct.std::pair.3087", ptr %0, i64 %90
   %.sroa.02.0.copyload17 = load i64, ptr %91, align 4
   %.not = icmp sgt i64 %.039, %13
   br i1 %.not, label %._crit_edge.i19, label %.lr.ph.i30
@@ -103818,7 +103818,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN5clang12FileEntryRefElN9_
 .split16.i.i.i:                                   ; preds = %.split.i.i.i, %.split16.i.i.i
   %.01.i.i.i = phi i64 [ %16, %.split16.i.i.i ], [ %14, %.split.i.i.i ]
   %16 = add nsw i64 %.01.i.i.i, -1
-  %17 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %16
   %.sroa.02.0.copyload17.i.i.i = load ptr, ptr %17, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPN5clang12FileEntryRefElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %0, i64 noundef %16, i64 noundef %12, ptr %.sroa.02.0.copyload17.i.i.i)
   %18 = icmp eq i64 %16, 0
@@ -104278,9 +104278,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN5clang12FileEntryRefElS1_N9_
   %.030 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextEN4llvm9StringRefEE3$_0EclIPNS2_12FileEntryRefESE_EEbT_T0_.exit" ], [ %1, %4 ]
   %8 = shl i64 %.030, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   br label %13
@@ -104337,8 +104337,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN5clang9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextEN4llvm9StringRefEE3$_0EclIPNS2_12FileEntryRefESE_EEbT_T0_.exit": ; preds = %29, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i
   %.0.i.i12.i.i = phi i1 [ %.inv.i.i.i.i, %29 ], [ %30, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ]
   %spec.select = select i1 %.0.i.i12.i.i, i64 %11, i64 %9
-  %31 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %spec.select
-  %32 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %.030
+  %31 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %spec.select
+  %32 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %.030
   %33 = load i64, ptr %31, align 8
   store i64 %33, ptr %32, align 8
   %34 = icmp slt i64 %spec.select, %6
@@ -104359,8 +104359,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 41:                                               ; preds = %37
   %42 = shl nsw i64 %.0.lcssa, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %43
-  %45 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %.0.lcssa
+  %44 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %43
+  %45 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %.0.lcssa
   %46 = load i64, ptr %44, align 8
   store i64 %46, ptr %45, align 8
   br label %47
@@ -104429,7 +104429,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %_ZNK5clang1
   br i1 %68, label %69, label %"_ZSt11__push_heapIPN5clang12FileEntryRefElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 69:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN5clang9ASTWriter17WriteControlBlockERNS2_12PreprocessorERNS2_10ASTContextEN4llvm9StringRefEE3$_0EclIPNS2_12FileEntryRefESD_EEbT_RT0_.exit.i", %67
-  %70 = getelementptr inbounds %"class.clang::FileEntryRef", ptr %0, i64 %.0133.i
+  %70 = getelementptr inbounds nuw %"class.clang::FileEntryRef", ptr %0, i64 %.0133.i
   store i64 %61, ptr %70, align 8
   %71 = icmp sgt i64 %.04.i, %1
   br i1 %71, label %.lr.ph.i, label %"_ZSt11__push_heapIPN5clang12FileEntryRefElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_9ASTWriter17WriteControlBlockERNS0_12PreprocessorERNS0_10ASTContextEN4llvm9StringRefEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !882
@@ -105938,7 +105938,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPPKN5clang14IdentifierInfoElN9_
 .split14.i.i:                                     ; preds = %.split.i.i, %.split14.i.i
   %.016.i.i = phi i64 [ %15, %.split14.i.i ], [ %12, %.split.i.i ]
   %15 = add nsw i64 %.016.i.i, -1
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
   %17 = load ptr, ptr %16, align 8
   tail call void @_ZSt13__adjust_heapIPPKN5clang14IdentifierInfoElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm5derefISt4lessIvEEEEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %0, i64 noundef %15, i64 noundef %10, ptr noundef %17)
   %18 = icmp eq i64 %15, 0
@@ -108337,7 +108337,7 @@ _ZSt13__adjust_heapIPSt4pairIN5clang6FileIDEPNS1_9ASTWriter16DeclIDInFileInfoEEl
 .split21:                                         ; preds = %.split21.lr.ph, %_ZSt13__adjust_heapIPSt4pairIN5clang6FileIDEPNS1_9ASTWriter16DeclIDInFileInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SF_T1_T2_.exit38
   %.044 = phi i64 [ %10, %.split21.lr.ph ], [ %62, %_ZSt13__adjust_heapIPSt4pairIN5clang6FileIDEPNS1_9ASTWriter16DeclIDInFileInfoEElS6_N9__gnu_cxx5__ops15_Iter_comp_iterIN4llvm10less_firstEEEEvT_T0_SF_T1_T2_.exit38 ]
   %62 = add nsw i64 %.044, -1
-  %63 = getelementptr inbounds %"struct.std::pair.1803", ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %"struct.std::pair.1803", ptr %0, i64 %62
   %.sroa.03.0.copyload22 = load i32, ptr %63, align 8
   %.sroa.3.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %.sroa.3.0.copyload25 = load ptr, ptr %.sroa.3.0..sroa_idx24, align 8
@@ -111388,7 +111388,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN5clang15DeclarationNa
 .split19.i.i:                                     ; preds = %.split.i.i, %.split19.i.i
   %.024.i.i = phi i64 [ %16, %.split19.i.i ], [ %14, %.split.i.i ]
   %16 = add nsw i64 %.024.i.i, -1
-  %17 = getelementptr inbounds %"struct.std::pair.2561", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.std::pair.2561", ptr %0, i64 %16
   %.sroa.02.0.copyload20.i.i = load i64, ptr %17, align 8
   %.sroa.23.0..sroa_idx21.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.23.0.copyload22.i.i = load i64, ptr %.sroa.23.0..sroa_idx21.i.i, align 8
@@ -113163,7 +113163,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang9ASTWriter12WriteA
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds %struct.ModuleInfo, ptr %0, i64 %.0133.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %struct.ModuleInfo, ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %50 = icmp sgt i64 %.04.i.i.i.i.i, %21
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit.i.i.i", !llvm.loop !970
@@ -113186,7 +113186,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang9ASTWriter12WriteA
 .split19.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit39.i.i.i", %.split19.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %21, %.split19.lr.ph.i.i.i ], [ %56, %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit39.i.i.i" ]
   %56 = add nsw i64 %.06.i.i.i, -1
-  %57 = getelementptr inbounds %struct.ModuleInfo, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw %struct.ModuleInfo, ptr %0, i64 %56
   %.sroa.02.0.copyload20.i.i.i = load i64, ptr %57, align 8
   %.sroa.23.0..sroa_idx21.i.i.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.23.0.copyload22.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i.i, align 8
@@ -113235,7 +113235,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang9ASTWriter12WriteA
   br i1 %71, label %72, label %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit39.i.i.i"
 
 72:                                               ; preds = %.lr.ph.i.i29.i.i.i
-  %73 = getelementptr inbounds %struct.ModuleInfo, ptr %0, i64 %.0133.i.i30.i.i.i
+  %73 = getelementptr inbounds nuw %struct.ModuleInfo, ptr %0, i64 %.0133.i.i30.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 8 dereferenceable(16) %70, i64 16, i1 false)
   %.not5.i.i.i = icmp slt i64 %.04.i.i32.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPZN5clang9ASTWriter12WriteASTCoreERNS0_4SemaEN4llvm9StringRefEPNS0_6ModuleEE10ModuleInfolS8_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12WriteASTCoreES3_S5_S7_E3$_1EEEvT_T0_SG_T1_T2_.exit39.i.i.i", label %.lr.ph.i.i29.i.i.i, !llvm.loop !970

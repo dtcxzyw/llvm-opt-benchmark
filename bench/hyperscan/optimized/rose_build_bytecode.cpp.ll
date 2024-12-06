@@ -10439,7 +10439,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i1303: ; preds = %if.else.i.i1
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i1306 unwind label %lpad28.loopexit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i1306: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i1303
-  %add.ptr.i.i150.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i155.i, i64 %sub.ptr.sub.i.i1288
+  %add.ptr.i.i150.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i155.i, i64 %sub.ptr.sub.i.i1288
   store i32 %call24.i, ptr %add.ptr.i.i150.i, align 4
   %cmp.i.i.i.i.i.i151.not.i = icmp eq ptr %programs.sroa.11.1281.i, %programs.sroa.0.1282.i
   br i1 %cmp.i.i.i.i.i.i151.not.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i.i1307, label %if.then.i.i.i.i.i.i152.i
@@ -11051,7 +11051,7 @@ _ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i1461: ; preds = %if.else.i.i1
           to label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i1465 unwind label %lpad32.loopexit.i
 
 _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i.i.i1465: ; preds = %_ZNKSt6vectorIjSaIjEE12_M_check_lenEmPKc.exit.i.i.i1461
-  %add.ptr.i.i142.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i145.i, i64 %sub.ptr.sub.i.i1392
+  %add.ptr.i.i142.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i145.i, i64 %sub.ptr.sub.i.i1392
   store i32 %call31.i1367, ptr %add.ptr.i.i142.i, align 4
   %cmp.i.i.i.i.i.i.not.i = icmp eq ptr %programs.sroa.11.2300.i, %programs.sroa.0.2301.i
   br i1 %cmp.i.i.i.i.i.i.not.i, label %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit39.i.i.i1467, label %if.then.i.i.i.i.i.i.i1466
@@ -11231,7 +11231,7 @@ if.then.i1235:                                    ; preds = %while.body.i1226
   br i1 %tobool14.not.i, label %if.end22.i, label %if.then15.i
 
 if.then15.i:                                      ; preds = %if.then.i1235
-  %arrayidx16.i = getelementptr inbounds ptr, ptr %retval.0.i.i1224, i64 %__bbegin_bkt.043.i
+  %arrayidx16.i = getelementptr inbounds nuw ptr, ptr %retval.0.i.i1224, i64 %__bbegin_bkt.043.i
   br label %if.end22.sink.split.i
 
 if.else.i1229:                                    ; preds = %while.body.i1226
@@ -11303,7 +11303,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
 if.end.i1209:                                     ; preds = %call3.i.noexc1217.if.end.i1209_crit_edge, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i
   %1058 = phi ptr [ %retval.0.i.i1224, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre1758, %call3.i.noexc1217.if.end.i1209_crit_edge ]
   %__bkt.addr.0.i = phi i64 [ %rem.i.i.i.i1208, %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %rem.i.i.i100.i, %call3.i.noexc1217.if.end.i1209_crit_edge ]
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %1058, i64 %__bkt.addr.0.i
+  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %1058, i64 %__bkt.addr.0.i
   %1059 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i1210 = icmp eq ptr %1059, null
   br i1 %tobool.not.i.i1210, label %if.else.i.i1213, label %if.then.i.i1211
@@ -11335,7 +11335,7 @@ if.then14.i.i:                                    ; preds = %if.else.i.i1213
 
 if.end.i.i1216:                                   ; preds = %if.then14.i.i, %if.else.i.i1213
   %1065 = phi ptr [ %.pre1759, %if.then14.i.i ], [ %1058, %if.else.i.i1213 ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %1065, i64 %__bkt.addr.0.i
+  %arrayidx20.i.i = getelementptr inbounds nuw ptr, ptr %1065, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i.i1333, ptr %arrayidx20.i.i, align 8
   br label %_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNS4_10_Hash_nodeIS2_Lb0EEEm.exit
 
@@ -21849,7 +21849,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i68
 
 _ZNSt12_Vector_baseIcN3ue216AlignedAllocatorIcLm64EEEE13_M_deallocateEPcm.exit: ; preds = %if.then.i68, %_ZNSt6vectorIcN3ue216AlignedAllocatorIcLm64EEEE11_S_relocateEPcS4_S4_RS2_.exit
   store ptr %call.i.i.i, ptr %this, align 8
-  %add.ptr36 = getelementptr inbounds i8, ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8
   %add.ptr39 = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %cond.i
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8
@@ -22379,7 +22379,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body
@@ -44461,7 +44461,7 @@ if.end:                                           ; preds = %if.then.i.i.i38, %i
 
 if.then.i.i.i43:                                  ; preds = %if.end
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %call5.i.i.i.i.i.i.i.i, ptr nonnull align 4 %first, i64 %sub.ptr.sub.i, i1 false)
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i.i.i.i.i, i64 %sub.ptr.sub.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i.i.i43, %if.end
@@ -47445,7 +47445,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body
@@ -49607,7 +49607,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body

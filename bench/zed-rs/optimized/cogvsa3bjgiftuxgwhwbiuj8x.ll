@@ -262,7 +262,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17hd6eec329556150e7E.e
   br i1 %or.cond.i.i.i.i.i.i.i, label %124, label %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i
 
 124:                                              ; preds = %119
-  %125 = getelementptr inbounds i64, ptr %116, i64 %.sroa.041.0.i.i.i.i.i.i.i
+  %125 = getelementptr inbounds nuw i64, ptr %116, i64 %.sroa.041.0.i.i.i.i.i.i.i
   %126 = load i64, ptr %125, align 8, !noalias !66, !noundef !9
   %127 = icmp eq i64 %126, 0
   br i1 %127, label %_ZN14regex_automata4util4iter8Searcher7advance17he706eb4fbc3da569E.exit.i.i, label %128
@@ -2047,7 +2047,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h07796c882b77fcafE.exit: ; 
   br i1 %or.cond.i, label %328, label %333
 
 328:                                              ; preds = %323
-  %329 = getelementptr inbounds i64, ptr %320, i64 %.sroa.041.0.i
+  %329 = getelementptr inbounds nuw i64, ptr %320, i64 %.sroa.041.0.i
   %330 = load i64, ptr %329, align 8, !noalias !358, !noundef !9
   %331 = icmp eq i64 %330, 0
   br i1 %331, label %333, label %334

@@ -2047,9 +2047,9 @@ define hidden void @_ZN5ropey4tree13node_children12NodeChildren6insert17h906c4f1
   unreachable
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
   %22 = add nuw nsw i64 %1, 1
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %24 = sub nsw i64 %7, %1
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %21, i64 %25, i1 false), !alias.scope !475, !noalias !478
@@ -3462,9 +3462,9 @@ define hidden void @_ZN5ropey4tree13node_children5inner20NodeChildrenInternal6in
   unreachable
 
 20:                                               ; preds = %8
-  %21 = getelementptr inbounds ptr, ptr %0, i64 %1
+  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
   %22 = add nuw nsw i64 %1, 1
-  %23 = getelementptr inbounds ptr, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw ptr, ptr %0, i64 %22
   %24 = sub nsw i64 %7, %1
   %25 = shl nsw i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %21, i64 %25, i1 false)

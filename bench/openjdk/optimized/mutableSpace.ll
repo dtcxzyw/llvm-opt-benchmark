@@ -456,7 +456,7 @@ _ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit: ; preds = %63, %65, %79
   %85 = sub i64 0, %61
   %86 = and i64 %84, %85
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
+  %88 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
   %89 = ptrtoint ptr %88 to i64
   %90 = and i64 %85, %89
   %91 = icmp ugt i64 %90, %86
@@ -486,12 +486,12 @@ _ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38: ; preds = %95, %81, %_Z
   %spec.select89 = select i1 %100, i64 %61, i64 %101
   %102 = getelementptr inbounds ptr, ptr %.sroa.066.0, i64 %.sroa.769.0
   call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str, ptr noundef %.sroa.066.0, ptr noundef %102, i64 noundef %spec.select89, ptr noundef %6) #11
-  %103 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
+  %103 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
   call void @_ZN12PretouchTask8pretouchEPKcPcS2_mP13WorkerThreads(ptr noundef nonnull @.str.4, ptr noundef %.sroa.061.0, ptr noundef %103, i64 noundef %spec.select89, ptr noundef %6) #11
   br label %104
 
 104:                                              ; preds = %98, %_ZN12MutableSpace16numa_setup_pagesE9MemRegionmb.exit38
-  %105 = getelementptr inbounds ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
+  %105 = getelementptr inbounds nuw ptr, ptr %.sroa.061.0, i64 %.sroa.7.0
   %106 = ptrtoint ptr %105 to i64
   %107 = ptrtoint ptr %.sroa.066.0 to i64
   %108 = sub i64 %106, %107

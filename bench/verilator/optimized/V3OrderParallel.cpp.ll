@@ -19459,7 +19459,7 @@ _ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1E
 .split17:                                         ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40
   %.047 = phi i64 [ %10, %.split17.lr.ph ], [ %61, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40 ]
   %61 = add nsw i64 %.047, -1
-  %62 = getelementptr inbounds %struct.SortingRecord, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.SortingRecord, ptr %0, i64 %61
   %.sroa.01.0.copyload18 = load i64, ptr %62, align 16
   %.sroa.22.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.22.0.copyload20 = load i64, ptr %.sroa.22.0..sroa_idx19, align 8
@@ -20284,7 +20284,7 @@ _ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0E
 .split17:                                         ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40
   %.047 = phi i64 [ %10, %.split17.lr.ph ], [ %61, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb1EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40 ]
   %61 = add nsw i64 %.047, -1
-  %62 = getelementptr inbounds %struct.SortingRecord.332, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.SortingRecord.332, ptr %0, i64 %61
   %.sroa.01.0.copyload18 = load i64, ptr %62, align 16
   %.sroa.22.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.22.0.copyload20 = load i64, ptr %.sroa.22.0..sroa_idx19, align 8
@@ -24187,7 +24187,7 @@ _ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1E
 .split17:                                         ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40
   %.047 = phi i64 [ %10, %.split17.lr.ph ], [ %61, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE1ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40 ]
   %61 = add nsw i64 %.047, -1
-  %62 = getelementptr inbounds %struct.SortingRecord.356, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.SortingRecord.356, ptr %0, i64 %61
   %.sroa.01.0.copyload18 = load i64, ptr %62, align 16
   %.sroa.22.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.22.0.copyload20 = load i64, ptr %.sroa.22.0..sroa_idx19, align 8
@@ -25009,7 +25009,7 @@ _ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0E
 .split17:                                         ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40
   %.047 = phi i64 [ %10, %.split17.lr.ph ], [ %61, %_ZSt13__adjust_heapIPZN11Contraction24siblingPairFromRelativesILN8GraphWay2enE0ELb0EEEvP13V3GraphVertexE13SortingRecordlS6_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_.exit40 ]
   %61 = add nsw i64 %.047, -1
-  %62 = getelementptr inbounds %struct.SortingRecord.358, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw %struct.SortingRecord.358, ptr %0, i64 %61
   %.sroa.01.0.copyload18 = load i64, ptr %62, align 16
   %.sroa.22.0..sroa_idx19 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %.sroa.22.0.copyload20 = load i64, ptr %.sroa.22.0..sroa_idx19, align 8

@@ -459,7 +459,7 @@ define internal fastcc range(i32 0, 2) i32 @ExtractMetadataFromJPEG(ptr nocaptur
   br i1 %100, label %101, label %105
 
 101:                                              ; preds = %95
-  %102 = getelementptr inbounds i8, ptr %92, i64 %89
+  %102 = getelementptr inbounds nuw i8, ptr %92, i64 %89
   %103 = sub nsw i64 %87, %89
   %104 = call i32 @MetadataCopy(ptr noundef %102, i64 noundef %103, ptr noundef nonnull %98) #18
   %.not33 = icmp eq i32 %104, 0

@@ -5358,7 +5358,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -5393,7 +5393,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -5468,7 +5468,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -5503,7 +5503,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -7756,7 +7756,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -7791,7 +7791,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -7866,7 +7866,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -7901,7 +7901,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -8583,7 +8583,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -8618,7 +8618,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -8693,7 +8693,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -8728,7 +8728,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -9410,7 +9410,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -9445,7 +9445,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -9520,7 +9520,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -9555,7 +9555,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -10237,7 +10237,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -10272,7 +10272,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -10347,7 +10347,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -10382,7 +10382,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -11064,7 +11064,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -11099,7 +11099,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont3.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -11174,7 +11174,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -11209,7 +11209,7 @@ for.cond4.preheader.i.i.i14.i51:                  ; preds = %for.body.i.i.i7.i44
 
 for.body.i.i.i7.i44:                              ; preds = %for.body.i.i.i7.i44, %invoke.cont3.i39
   %i.07.i.i.i8.i45 = phi i64 [ %inc.i.i.i12.i49, %for.body.i.i.i7.i44 ], [ 0, %invoke.cont3.i39 ]
-  %node_list.idx.i.i.i9.i46 = shl nsw i64 %i.07.i.i.i8.i45, 4
+  %node_list.idx.i.i.i9.i46 = shl nuw nsw i64 %i.07.i.i.i8.i45, 4
   %node_list.offs.i.i.i10.i47 = or disjoint i64 %node_list.idx.i.i.i9.i46, 8
   %node_list.i.i.i11.i48 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i43, i64 %node_list.offs.i.i.i10.i47
   store atomic i64 0, ptr %node_list.i.i.i11.i48 monotonic, align 8
@@ -11891,7 +11891,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -11926,7 +11926,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -12001,7 +12001,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -12036,7 +12036,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -12718,7 +12718,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -12753,7 +12753,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -12828,7 +12828,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -12863,7 +12863,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -13545,7 +13545,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -13580,7 +13580,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -13655,7 +13655,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -13690,7 +13690,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -14372,7 +14372,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %if.end
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -14407,7 +14407,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -14482,7 +14482,7 @@ for.cond4.preheader.i.i.i.i31:                    ; preds = %for.body.i.i.i.i24
 
 for.body.i.i.i.i24:                               ; preds = %for.body.i.i.i.i24, %.noexc
   %i.07.i.i.i.i25 = phi i64 [ %inc.i.i.i.i29, %for.body.i.i.i.i24 ], [ 0, %.noexc ]
-  %node_list.idx.i.i.i.i26 = shl nsw i64 %i.07.i.i.i.i25, 4
+  %node_list.idx.i.i.i.i26 = shl nuw nsw i64 %i.07.i.i.i.i25, 4
   %node_list.offs.i.i.i.i27 = or disjoint i64 %node_list.idx.i.i.i.i26, 8
   %node_list.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i23, i64 %node_list.offs.i.i.i.i27
   store atomic i64 0, ptr %node_list.i.i.i.i28 monotonic, align 8
@@ -14517,7 +14517,7 @@ for.cond4.preheader.i.i.i14.i50:                  ; preds = %for.body.i.i.i7.i43
 
 for.body.i.i.i7.i43:                              ; preds = %for.body.i.i.i7.i43, %invoke.cont3.i
   %i.07.i.i.i8.i44 = phi i64 [ %inc.i.i.i12.i48, %for.body.i.i.i7.i43 ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i9.i45 = shl nsw i64 %i.07.i.i.i8.i44, 4
+  %node_list.idx.i.i.i9.i45 = shl nuw nsw i64 %i.07.i.i.i8.i44, 4
   %node_list.offs.i.i.i10.i46 = or disjoint i64 %node_list.idx.i.i.i9.i45, 8
   %node_list.i.i.i11.i47 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i42, i64 %node_list.offs.i.i.i10.i46
   store atomic i64 0, ptr %node_list.i.i.i11.i47 monotonic, align 8
@@ -16428,7 +16428,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -16463,7 +16463,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -83947,7 +83947,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %invoke.cont.i
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %invoke.cont.i ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -83982,7 +83982,7 @@ for.cond4.preheader.i.i.i14.i:                    ; preds = %for.body.i.i.i7.i
 
 for.body.i.i.i7.i:                                ; preds = %for.body.i.i.i7.i, %invoke.cont4.i
   %i.07.i.i.i8.i = phi i64 [ %inc.i.i.i12.i, %for.body.i.i.i7.i ], [ 0, %invoke.cont4.i ]
-  %node_list.idx.i.i.i9.i = shl nsw i64 %i.07.i.i.i8.i, 4
+  %node_list.idx.i.i.i9.i = shl nuw nsw i64 %i.07.i.i.i8.i, 4
   %node_list.offs.i.i.i10.i = or disjoint i64 %node_list.idx.i.i.i9.i, 8
   %node_list.i.i.i11.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i6.i, i64 %node_list.offs.i.i.i10.i
   store atomic i64 0, ptr %node_list.i.i.i11.i monotonic, align 8
@@ -160396,7 +160396,7 @@ for.cond4.preheader.i.i.i.i:                      ; preds = %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %entry
   %i.07.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %entry ]
-  %node_list.idx.i.i.i.i = shl nsw i64 %i.07.i.i.i.i, 4
+  %node_list.idx.i.i.i.i = shl nuw nsw i64 %i.07.i.i.i.i, 4
   %node_list.offs.i.i.i.i = or disjoint i64 %node_list.idx.i.i.i.i, 8
   %node_list.i.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i.i, i64 %node_list.offs.i.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i.i monotonic, align 8
@@ -160431,7 +160431,7 @@ for.cond4.preheader.i.i.i13.i:                    ; preds = %for.body.i.i.i6.i
 
 for.body.i.i.i6.i:                                ; preds = %for.body.i.i.i6.i, %invoke.cont3.i
   %i.07.i.i.i7.i = phi i64 [ %inc.i.i.i11.i, %for.body.i.i.i6.i ], [ 0, %invoke.cont3.i ]
-  %node_list.idx.i.i.i8.i = shl nsw i64 %i.07.i.i.i7.i, 4
+  %node_list.idx.i.i.i8.i = shl nuw nsw i64 %i.07.i.i.i7.i, 4
   %node_list.offs.i.i.i9.i = or disjoint i64 %node_list.idx.i.i.i8.i, 8
   %node_list.i.i.i10.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i5.i, i64 %node_list.offs.i.i.i9.i
   store atomic i64 0, ptr %node_list.i.i.i10.i monotonic, align 8
@@ -165245,7 +165245,7 @@ if.then.i113:                                     ; preds = %if.then63
 
 common.resume.i:                                  ; preds = %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i
   %common.resume.op.i = phi { ptr, i32 } [ %63, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE0_ED2Ev.exit8.i.i ], [ %66, %_ZN3tbb6detail2d010raii_guardIZNS0_2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNSA_4TreeINSA_8RootNodeINSA_12InternalNodeINSE_INSA_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS5_13spin_rw_mutexEE14enable_segmentEmbEUlvE2_ED2Ev.exit8.i.i ]
-  %arrayidx.i.i7.i13.i = getelementptr inbounds [64 x %"struct.std::atomic.66"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
+  %arrayidx.i.i7.i13.i = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
   store atomic i64 0, ptr %arrayidx.i.i7.i13.i monotonic, align 8
   br label %common.resume
 
@@ -165265,7 +165265,7 @@ for.body.i.i.i:                                   ; preds = %if.then.i113, %for.
   br i1 %exitcond.not.i.i.i, label %_ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i, label %for.body.i.i.i, !llvm.loop !2094
 
 _ZN3tbb6detail2d213hash_map_baseINS0_2d113tbb_allocatorISt4pairIKPN7openvdb5v11_04tree17ValueAccessorBaseIKNS8_4TreeINS8_8RootNodeINS8_12InternalNodeINSC_INS8_8LeafNodeIfLj3EEELj4EEELj5EEEEEEELb1EEEbEEENS3_13spin_rw_mutexEE12init_bucketsEPNSQ_6bucketEmb.exit.i: ; preds = %for.body.i.i.i
-  %arrayidx.i116 = getelementptr inbounds [64 x %"struct.std::atomic.66"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
+  %arrayidx.i116 = getelementptr inbounds nuw [64 x %"struct.std::atomic.66"], ptr %my_table.i.i.i, i64 0, i64 %grow_segment.2
   %64 = ptrtoint ptr %call.i.i.i1.i.i to i64
   store atomic i64 %64, ptr %arrayidx.i116 release, align 8
   %shl.i = shl i64 2, %grow_segment.2

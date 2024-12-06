@@ -1009,7 +1009,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
   br label %8
 
 8:                                                ; preds = %6, %4
-  %9 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %10 = trunc i8 %9 to i1
   br i1 %10, label %12, label %11
 
@@ -1018,8 +1018,8 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
   br label %31
 
 12:                                               ; preds = %8
-  %13 = load ptr, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 64), align 8
-  %14 = load i64, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 72), align 8
+  %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8
+  %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8
   tail call void @cert_fill_X509_store(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %14)
   %.not25 = icmp eq ptr %1, null
   br i1 %.not25, label %31, label %15
@@ -1083,7 +1083,7 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 44) i32 @sslctx_function(ptr nocapture noundef readnone %0, ptr noundef %1, ptr nocapture noundef readnone %2) local_unnamed_addr #1 {
-  %4 = load i8, ptr getelementptr inbounds (i8, ptr @_cert_store, i64 40), align 8
+  %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 40), align 8
   %5 = trunc i8 %4 to i1
   br i1 %5, label %9, label %6
 

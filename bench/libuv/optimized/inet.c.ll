@@ -606,7 +606,7 @@ if.end43.i:                                       ; preds = %if.else.i21
   %incdec.ptr47.ptr.i = getelementptr i8, ptr %tp.0.ptr.ptr.le.i, i64 1
   store i8 %conv46.i, ptr %tp.0.ptr.ptr.le.i, align 1
   %conv51.i = trunc i32 %val.0.i to i8
-  %incdec.ptr47.add.i = add nsw i64 %tp.0.idx.ph62.i, 2
+  %incdec.ptr47.add.i = add nuw nsw i64 %tp.0.idx.ph62.i, 2
   store i8 %conv51.i, ptr %incdec.ptr47.ptr.i, align 1
   br label %while.cond.outer60.i
 

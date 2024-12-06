@@ -20062,17 +20062,17 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__g
   %.034.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %16, %.split.i.i.i ]
   %22 = shl i64 %.034.i.i.i.i, 1
   %23 = add i64 %22, 2
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %25 = or disjoint i64 %22, 1
-  %26 = getelementptr inbounds ptr, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %25
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %.val30.i.i.i.i = load ptr, ptr %26, align 8
   %.val.val.i.i.i.i = load ptr, ptr %10, align 8
   %27 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %.val.val.i.i.i.i, ptr noundef %.val29.i.i.i.i, ptr noundef %.val30.i.i.i.i) #18
   %spec.select.i.i.i.i = select i1 %27, i64 %25, i64 %23
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %20
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !309
@@ -20089,9 +20089,9 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__g
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -20112,7 +20112,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPPN4llvm11InstructionElN9__g
 
 46:                                               ; preds = %.lr.ph.i.i.i.i.i
   %47 = load ptr, ptr %44, align 8
-  %48 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %47, ptr %48, align 8
   %49 = icmp sgt i64 %.04.i.i.i.i.i, %16
   br i1 %49, label %.lr.ph.i.i.i.i.i, label %_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121LowerMatrixIntrinsics24LowerMatrixMultiplyFusedEPNS0_8CallInstERNS0_15SmallPtrSetImplIS2_EERNS0_11SmallVectorIPNS0_13IntrinsicInstELj16EEEEUlS2_S2_E_EEEvT_T0_SM_T1_T2_.exit.i.i.i, !llvm.loop !310
@@ -20126,14 +20126,14 @@ _ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iter
 
 .split15.lr.ph.i.i.i:                             ; preds = %_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121LowerMatrixIntrinsics24LowerMatrixMultiplyFusedEPNS0_8CallInstERNS0_15SmallPtrSetImplIS2_EERNS0_11SmallVectorIPNS0_13IntrinsicInstELj16EEEEUlS2_S2_E_EEEvT_T0_SM_T1_T2_.exit.i.i.i
   %52 = or disjoint i64 %15, 1
-  %53 = getelementptr inbounds ptr, ptr %0, i64 %52
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %52
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split15.i.i.i
 
 .split15.i.i.i:                                   ; preds = %_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121LowerMatrixIntrinsics24LowerMatrixMultiplyFusedEPNS0_8CallInstERNS0_15SmallPtrSetImplIS2_EERNS0_11SmallVectorIPNS0_13IntrinsicInstELj16EEEEUlS2_S2_E_EEEvT_T0_SM_T1_T2_.exit34.i.i.i, %.split15.lr.ph.i.i.i
   %.040.i.i.i = phi i64 [ %16, %.split15.lr.ph.i.i.i ], [ %55, %_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121LowerMatrixIntrinsics24LowerMatrixMultiplyFusedEPNS0_8CallInstERNS0_15SmallPtrSetImplIS2_EERNS0_11SmallVectorIPNS0_13IntrinsicInstELj16EEEEUlS2_S2_E_EEEvT_T0_SM_T1_T2_.exit34.i.i.i ]
   %55 = add nsw i64 %.040.i.i.i, -1
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not.i.i.i = icmp sgt i64 %.040.i.i.i, %20
   br i1 %.not.i.i.i, label %._crit_edge.i18.i.i.i, label %.lr.ph.i28.i.i.i
@@ -20142,17 +20142,17 @@ _ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iter
   %.034.i29.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i28.i.i.i ], [ %55, %.split15.i.i.i ]
   %58 = shl i64 %.034.i29.i.i.i, 1
   %59 = add i64 %58, 2
-  %60 = getelementptr inbounds ptr, ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw ptr, ptr %0, i64 %59
   %61 = or disjoint i64 %58, 1
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %.val29.i30.i.i.i = load ptr, ptr %60, align 8
   %.val30.i31.i.i.i = load ptr, ptr %62, align 8
   %.val.val.i32.i.i.i = load ptr, ptr %10, align 8
   %63 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %.val.val.i32.i.i.i, ptr noundef %.val29.i30.i.i.i, ptr noundef %.val30.i31.i.i.i) #18
   %spec.select.i33.i.i.i = select i1 %63, i64 %61, i64 %59
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds ptr, ptr %0, i64 %.034.i29.i.i.i
+  %66 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i29.i.i.i
   store ptr %65, ptr %66, align 8
   %67 = icmp slt i64 %spec.select.i33.i.i.i, %20
   br i1 %67, label %.lr.ph.i28.i.i.i, label %._crit_edge.i18.i.i.i, !llvm.loop !309
@@ -20185,7 +20185,7 @@ _ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iter
 
 74:                                               ; preds = %.lr.ph.i.i22.i.i.i
   %75 = load ptr, ptr %72, align 8
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i23.i.i.i
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i23.i.i.i
   store ptr %75, ptr %76, align 8
   %.not39.i.i.i = icmp slt i64 %.04.i.i25.i.i.i, %.040.i.i.i
   br i1 %.not39.i.i.i, label %_ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_121LowerMatrixIntrinsics24LowerMatrixMultiplyFusedEPNS0_8CallInstERNS0_15SmallPtrSetImplIS2_EERNS0_11SmallVectorIPNS0_13IntrinsicInstELj16EEEEUlS2_S2_E_EEEvT_T0_SM_T1_T2_.exit34.i.i.i, label %.lr.ph.i.i22.i.i.i, !llvm.loop !310
@@ -20218,17 +20218,17 @@ _ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iter
   %.034.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i5.i ]
   %88 = shl i64 %.034.i.i, 1
   %89 = add i64 %88, 2
-  %90 = getelementptr inbounds ptr, ptr %0, i64 %89
+  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %89
   %91 = or disjoint i64 %88, 1
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %91
   %.val29.i.i16 = load ptr, ptr %90, align 8
   %.val30.i.i = load ptr, ptr %92, align 8
   %.val.val.i.i17 = load ptr, ptr %10, align 8
   %93 = tail call noundef zeroext i1 @_ZNK4llvm13DominatorTree9dominatesEPKNS_5ValueEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(124) %.val.val.i.i17, ptr noundef %.val29.i.i16, ptr noundef %.val30.i.i) #18
   %spec.select.i.i = select i1 %93, i64 %91, i64 %89
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds ptr, ptr %0, i64 %.034.i.i
+  %96 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034.i.i
   store ptr %95, ptr %96, align 8
   %97 = icmp slt i64 %spec.select.i.i, %86
   br i1 %97, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !309
@@ -20248,9 +20248,9 @@ _ZSt13__adjust_heapIPPN4llvm11InstructionElS2_N9__gnu_cxx5__ops15_Iter_comp_iter
 104:                                              ; preds = %100
   %105 = shl nsw i64 %.0.lcssa.i.i, 1
   %106 = or disjoint i64 %105, 1
-  %107 = getelementptr inbounds ptr, ptr %0, i64 %106
+  %107 = getelementptr inbounds nuw ptr, ptr %0, i64 %106
   %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %109 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i
   store ptr %108, ptr %109, align 8
   br label %110
 

@@ -754,7 +754,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor13decode8BitR
   %283 = zext i8 %282 to i16
   %284 = icmp ult i64 %280, %61
   tail call void @llvm.assume(i1 %284)
-  %285 = getelementptr inbounds i16, ptr %97, i64 %280
+  %285 = getelementptr inbounds nuw i16, ptr %97, i64 %280
   store i16 %283, ptr %285, align 2, !tbaa !108
   %286 = add nuw nsw i64 %245, 8
   %287 = icmp eq i64 %286, %64
@@ -1962,7 +1962,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %276 = lshr i16 %275, 4
   %277 = icmp ult i64 %264, %66
   tail call void @llvm.assume(i1 %277)
-  %278 = getelementptr inbounds i16, ptr %115, i64 %264
+  %278 = getelementptr inbounds nuw i16, ptr %115, i64 %264
   store i16 %276, ptr %278, align 2, !tbaa !108
   %279 = add nuw nsw i64 %264, 1
   %280 = shl nuw nsw i64 %279, 1
@@ -1980,7 +1980,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %291 = lshr i16 %290, 4
   %292 = icmp ult i64 %279, %66
   tail call void @llvm.assume(i1 %292)
-  %293 = getelementptr inbounds i16, ptr %115, i64 %279
+  %293 = getelementptr inbounds nuw i16, ptr %115, i64 %279
   store i16 %291, ptr %293, align 2, !tbaa !108
   %294 = add nuw nsw i64 %264, 2
   %295 = shl nuw nsw i64 %294, 1
@@ -1998,7 +1998,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %306 = lshr i16 %305, 4
   %307 = icmp ult i64 %294, %66
   tail call void @llvm.assume(i1 %307)
-  %308 = getelementptr inbounds i16, ptr %115, i64 %294
+  %308 = getelementptr inbounds nuw i16, ptr %115, i64 %294
   store i16 %306, ptr %308, align 2, !tbaa !108
   %309 = add nuw nsw i64 %264, 3
   %310 = shl nuw nsw i64 %309, 1
@@ -2016,7 +2016,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %321 = lshr i16 %320, 4
   %322 = icmp ult i64 %309, %66
   tail call void @llvm.assume(i1 %322)
-  %323 = getelementptr inbounds i16, ptr %115, i64 %309
+  %323 = getelementptr inbounds nuw i16, ptr %115, i64 %309
   store i16 %321, ptr %323, align 2, !tbaa !108
   %324 = add nuw nsw i64 %264, 4
   %325 = icmp eq i64 %324, %71
@@ -2453,7 +2453,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %276 = lshr i16 %275, 4
   %277 = icmp ult i64 %264, %66
   tail call void @llvm.assume(i1 %277)
-  %278 = getelementptr inbounds i16, ptr %115, i64 %264
+  %278 = getelementptr inbounds nuw i16, ptr %115, i64 %264
   store i16 %276, ptr %278, align 2, !tbaa !108
   %279 = add nuw nsw i64 %264, 1
   %280 = shl nuw nsw i64 %279, 1
@@ -2471,7 +2471,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %291 = lshr i16 %290, 4
   %292 = icmp ult i64 %279, %66
   tail call void @llvm.assume(i1 %292)
-  %293 = getelementptr inbounds i16, ptr %115, i64 %279
+  %293 = getelementptr inbounds nuw i16, ptr %115, i64 %279
   store i16 %291, ptr %293, align 2, !tbaa !108
   %294 = add nuw nsw i64 %264, 2
   %295 = shl nuw nsw i64 %294, 1
@@ -2489,7 +2489,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %306 = lshr i16 %305, 4
   %307 = icmp ult i64 %294, %66
   tail call void @llvm.assume(i1 %307)
-  %308 = getelementptr inbounds i16, ptr %115, i64 %294
+  %308 = getelementptr inbounds nuw i16, ptr %115, i64 %294
   store i16 %306, ptr %308, align 2, !tbaa !108
   %309 = add nuw nsw i64 %264, 3
   %310 = shl nuw nsw i64 %309, 1
@@ -2507,7 +2507,7 @@ define weak_odr hidden void @_ZN8rawspeed24UncompressedDecompressor33decode12Bit
   %321 = lshr i16 %320, 4
   %322 = icmp ult i64 %309, %66
   tail call void @llvm.assume(i1 %322)
-  %323 = getelementptr inbounds i16, ptr %115, i64 %309
+  %323 = getelementptr inbounds nuw i16, ptr %115, i64 %309
   store i16 %321, ptr %323, align 2, !tbaa !108
   %324 = add nuw nsw i64 %264, 4
   %325 = icmp eq i64 %324, %71
@@ -3437,7 +3437,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %379 = add nuw nsw i64 %378, %102
   %380 = icmp ule i64 %379, %105
   tail call void @llvm.assume(i1 %380)
-  %381 = getelementptr inbounds i8, ptr %57, i64 %378
+  %381 = getelementptr inbounds nuw i8, ptr %57, i64 %378
   %382 = mul nuw nsw i64 %376, %103
   %383 = add nuw nsw i64 %382, %102
   %384 = icmp ule i64 %383, %66
@@ -3461,7 +3461,7 @@ define hidden void @_ZN8rawspeed24UncompressedDecompressor19readUncompressedRawE
   %394 = add nuw nsw i64 %393, %288
   %395 = icmp ule i64 %394, %291
   tail call void @llvm.assume(i1 %395)
-  %396 = getelementptr inbounds i8, ptr %243, i64 %393
+  %396 = getelementptr inbounds nuw i8, ptr %243, i64 %393
   %397 = mul nuw nsw i64 %391, %289
   %398 = add nuw nsw i64 %397, %288
   %399 = icmp ule i64 %398, %252

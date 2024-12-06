@@ -16316,7 +16316,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIf
 .split15.us:                                      ; preds = %.split15.lr.ph, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIfEEEEEvT_T0_SA_T1_T2_.exit29.us
   %.035.us = phi i64 [ %64, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIfEEEEEvT_T0_SA_T1_T2_.exit29.us ], [ %10, %.split15.lr.ph ]
   %64 = add nsw i64 %.035.us, -1
-  %65 = getelementptr inbounds i32, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw i32, ptr %0, i64 %64
   %66 = load i32, ptr %65, align 4
   %.sroa.0.0.copyload16.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.035.us, %14
@@ -16384,7 +16384,7 @@ _ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIf
 .split15:                                         ; preds = %.split15.preheader, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIfEEEEEvT_T0_SA_T1_T2_.exit29
   %.035 = phi i64 [ %99, %_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_idxIfEEEEEvT_T0_SA_T1_T2_.exit29 ], [ %10, %.split15.preheader ]
   %99 = add nsw i64 %.035, -1
-  %100 = getelementptr inbounds i32, ptr %0, i64 %99
+  %100 = getelementptr inbounds nuw i32, ptr %0, i64 %99
   %101 = load i32, ptr %100, align 4
   %.sroa.0.0.copyload16 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.035, %14
@@ -17123,7 +17123,7 @@ _ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_pt
 .split14.us:                                      ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_ptrIdEEEEEvT_T0_SB_T1_T2_.exit27.us
   %.033.us = phi i64 [ %55, %_ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_ptrIdEEEEEvT_T0_SB_T1_T2_.exit27.us ], [ %10, %.split14.lr.ph ]
   %55 = add nsw i64 %.033.us, -1
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %55
   %57 = load ptr, ptr %56, align 8
   %.not.us = icmp sgt i64 %.033.us, %14
   br i1 %.not.us, label %_ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_ptrIdEEEEEvT_T0_SB_T1_T2_.exit27.us, label %.lr.ph.i24.us
@@ -17179,7 +17179,7 @@ _ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_pt
 .split14:                                         ; preds = %.split14.preheader, %_ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_ptrIdEEEEEvT_T0_SB_T1_T2_.exit27
   %.033 = phi i64 [ %81, %_ZSt13__adjust_heapIPPdlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml10cmp_lt_ptrIdEEEEEvT_T0_SB_T1_T2_.exit27 ], [ %10, %.split14.preheader ]
   %81 = add nsw i64 %.033, -1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not = icmp sgt i64 %.033, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i24

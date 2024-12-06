@@ -46265,7 +46265,7 @@ if.then.i85:                                      ; preds = %_ZN6duckdb16TimeToS
   br label %_ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit
 
 _ZN6duckdb16TimeToStringCast6FormatEPcmPiS1_.exit: ; preds = %if.then.i85, %_ZN6duckdb16TimeToStringCast15FormatTwoDigitsEPci.exit.2.i
-  %arrayidx44 = getelementptr inbounds i8, ptr %cond.i, i64 %add30
+  %arrayidx44 = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add30
   store i8 43, ptr %arrayidx44, align 1, !tbaa !7
   %arrayidx46 = getelementptr i8, ptr %arrayidx44, i64 1
   store i8 48, ptr %arrayidx46, align 1, !tbaa !7

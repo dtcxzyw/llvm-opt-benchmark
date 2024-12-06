@@ -61994,7 +61994,7 @@ for.body225:                                      ; preds = %for.end220, %for.in
   %175 = phi ptr [ %.pre2045.pre, %for.inc232 ], [ %174, %for.end220 ]
   %conv2221961 = phi i64 [ %conv222, %for.inc232 ], [ %conv2221954.pre-phi, %for.end220 ]
   %i.21960 = phi i32 [ %inc233, %for.inc232 ], [ %i.1.lcssa, %for.end220 ]
-  %add.ptr.i1415 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %175, i64 %conv2221961
+  %add.ptr.i1415 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %175, i64 %conv2221961
   %call229 = invoke noundef zeroext i1 @_ZN15GUIFormSpecMenu19parsePositionDirectEPNS_10parserDataERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(2228) %this, ptr noundef nonnull %mydata, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i1415)
           to label %invoke.cont228 unwind label %lpad201.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -95794,7 +95794,7 @@ if.then.i82:                                      ; preds = %_ZNSt6vectorINSt7__
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit83: ; preds = %if.then.i82, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !189
-  %add.ptr37 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !190
   %add.ptr40 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %10
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !266

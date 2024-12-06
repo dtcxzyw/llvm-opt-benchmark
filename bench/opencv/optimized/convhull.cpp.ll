@@ -4233,7 +4233,7 @@ _ZSt13__adjust_heapIPPN2cv6Point_IiEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_
 .split14:                                         ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPPN2cv6Point_IiEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_SC_T1_T2_.exit34
   %.040 = phi i64 [ %10, %.split14.lr.ph ], [ %75, %_ZSt13__adjust_heapIPPN2cv6Point_IiEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIiEEEEEvT_T0_SC_T1_T2_.exit34 ]
   %75 = add nsw i64 %.040, -1
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %75
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %.not = icmp sgt i64 %.040, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i27
@@ -5147,7 +5147,7 @@ _ZSt13__adjust_heapIPPN2cv6Point_IfEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_
 .split14:                                         ; preds = %.split14.lr.ph, %_ZSt13__adjust_heapIPPN2cv6Point_IfEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_SC_T1_T2_.exit30
   %.036 = phi i64 [ %10, %.split14.lr.ph ], [ %79, %_ZSt13__adjust_heapIPPN2cv6Point_IfEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_14CHullCmpPointsIfEEEEEvT_T0_SC_T1_T2_.exit30 ]
   %79 = add nsw i64 %.036, -1
-  %80 = getelementptr inbounds ptr, ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %0, i64 %79
   %81 = load ptr, ptr %80, align 8
   %.not = icmp sgt i64 %.036, %14
   br i1 %.not, label %._crit_edge.i16, label %.lr.ph.i25

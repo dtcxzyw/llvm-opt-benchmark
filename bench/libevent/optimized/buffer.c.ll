@@ -6449,7 +6449,7 @@ if.then32:                                        ; preds = %if.end29
 
 while.body:                                       ; preds = %while.cond.preheader, %while.body
   %read_so_far.045 = phi i64 [ %add41, %while.body ], [ 0, %while.cond.preheader ]
-  %add.ptr35 = getelementptr inbounds i8, ptr %call23, i64 %read_so_far.045
+  %add.ptr35 = getelementptr inbounds nuw i8, ptr %call23, i64 %read_so_far.045
   %sub36 = sub nsw i64 %2, %read_so_far.045
   %call37 = tail call i64 @read(i32 noundef %1, ptr noundef nonnull %add.ptr35, i64 noundef %sub36) #16
   %cmp38 = icmp sgt i64 %call37, 0

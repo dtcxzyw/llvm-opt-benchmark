@@ -266,7 +266,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
 
 15:                                               ; preds = %27, %4
   %.030.idx.i = phi i64 [ 0, %4 ], [ %.131.add.i, %27 ]
-  %.030.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.030.idx.i
+  %.030.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.030.idx.i
   %16 = load i8, ptr %.030.ptr.i, align 1
   switch i8 %16, label %27 [
     i8 0, label %Io_ReadFileRemoveComments.exit
@@ -277,16 +277,16 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
 .lr.ph.i:                                         ; preds = %15, %.lr.ph.i
   %.2.ptr4.i = phi ptr [ %.2.ptr.i, %.lr.ph.i ], [ %.030.ptr.i, %15 ]
   %.2.idx3.i = phi i64 [ %.2.add.i, %.lr.ph.i ], [ %.030.idx.i, %15 ]
-  %.2.add.i = add nsw i64 %.2.idx3.i, 1
+  %.2.add.i = add nuw nsw i64 %.2.idx3.i, 1
   store i8 32, ptr %.2.ptr4.i, align 1
-  %.2.ptr.i = getelementptr inbounds i8, ptr %0, i64 %.2.add.i
+  %.2.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.2.add.i
   %17 = load i8, ptr %.2.ptr.i, align 1
   %.not38.i = icmp eq i8 %17, 10
   br i1 %.not38.i, label %.loopexit.thread.i, label %.lr.ph.i, !llvm.loop !6
 
 .loopexit.thread.i:                               ; preds = %.lr.ph.i, %15
   %.131.idx7.i = phi i64 [ %.030.idx.i, %15 ], [ %.2.add.i, %.lr.ph.i ]
-  %.131.ptr9.i = getelementptr inbounds i8, ptr %0, i64 %.131.idx7.i
+  %.131.ptr9.i = getelementptr inbounds nuw i8, ptr %0, i64 %.131.idx7.i
   %18 = icmp sgt i64 %.131.idx7.i, 0
   br i1 %18, label %19, label %27
 
@@ -319,7 +319,7 @@ define noundef ptr @Mio_LibraryReadBuffer(ptr noundef %0, i32 noundef %1, ptr no
 
 27:                                               ; preds = %15, %.sink.split.i, %23, %22, %19, %.loopexit.thread.i
   %.131.idx8.i = phi i64 [ 1, %22 ], [ %.131.idx7.i, %.loopexit.thread.i ], [ %.131.idx7.i, %23 ], [ %.131.idx7.i, %19 ], [ %.131.idx7.i, %.sink.split.i ], [ %.030.idx.i, %15 ]
-  %.131.add.i = add nsw i64 %.131.idx8.i, 1
+  %.131.add.i = add nuw nsw i64 %.131.idx8.i, 1
   br label %15, !llvm.loop !7
 
 Io_ReadFileRemoveComments.exit:                   ; preds = %15

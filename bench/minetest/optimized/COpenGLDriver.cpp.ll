@@ -14984,7 +14984,7 @@ for.body:                                         ; preds = %if.end319, %for.bod
 
 _ZNK3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3getEj.exit: ; preds = %for.body
   %Texture.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %arrayidx.i = getelementptr inbounds [4 x ptr], ptr %Texture.i, i64 0, i64 %2
+  %arrayidx.i = getelementptr inbounds nuw [4 x ptr], ptr %Texture.i, i64 0, i64 %2
   %5 = load ptr, ptr %arrayidx.i, align 8, !tbaa !135
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end319, label %if.then6
@@ -15273,7 +15273,7 @@ if.then43:                                        ; preds = %if.end39
   %IsCached44 = getelementptr inbounds nuw i8, ptr %5, i64 237
   %101 = load i8, ptr %IsCached44, align 1, !tbaa !438, !range !131, !noundef !132
   %tobool45.not = icmp eq i8 %101, 0
-  %LODBias57.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 5
+  %LODBias57.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 5
   %.pre = load i8, ptr %LODBias57.phi.trans.insert, align 1, !tbaa !117
   br i1 %tobool45.not, label %if.then53, label %lor.lhs.false46
 
@@ -15312,7 +15312,7 @@ if.else80:                                        ; preds = %if.end39
   br i1 %tobool83.not, label %if.end110, label %if.then84
 
 if.then84:                                        ; preds = %if.else80
-  %LODBias88 = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 5
+  %LODBias88 = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 5
   %108 = load i8, ptr %LODBias88, align 1, !tbaa !117
   %tobool89.not = icmp eq i8 %108, 0
   br i1 %tobool89.not, label %if.else107, label %if.then90
@@ -15337,7 +15337,7 @@ if.end110:                                        ; preds = %if.else107, %if.the
   %IsCached111 = getelementptr inbounds nuw i8, ptr %5, i64 237
   %112 = load i8, ptr %IsCached111, align 1, !tbaa !438, !range !131, !noundef !132
   %tobool112.not = icmp eq i8 %112, 0
-  %MagFilter123.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 3
+  %MagFilter123.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 3
   %.pre573 = load i32, ptr %MagFilter123.phi.trans.insert, align 8, !tbaa !115
   br i1 %tobool112.not, label %if.then119, label %lor.lhs.false113
 
@@ -15374,7 +15374,7 @@ land.lhs.true127:                                 ; preds = %if.end126
 
 if.then129:                                       ; preds = %land.lhs.true127
   %tobool131.not = icmp eq i8 %.pre576, 0
-  %MinFilter144.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 2
+  %MinFilter144.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 2
   %.pre574 = load i32, ptr %MinFilter144.phi.trans.insert, align 4, !tbaa !114
   br i1 %tobool131.not, label %if.then140, label %lor.lhs.false132
 
@@ -15405,7 +15405,7 @@ cond.end152.fold.split:                           ; preds = %if.then140
 if.else157:                                       ; preds = %land.lhs.true127, %if.end126.if.else157_crit_edge
   %118 = phi i8 [ %.pre575, %if.end126.if.else157_crit_edge ], [ %.pre576, %land.lhs.true127 ]
   %tobool159.not = icmp eq i8 %118, 0
-  %MinFilter175.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 2
+  %MinFilter175.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 2
   %.pre577 = load i32, ptr %MinFilter175.phi.trans.insert, align 4, !tbaa !114
   br i1 %tobool159.not, label %if.then170, label %lor.lhs.false160
 
@@ -15445,7 +15445,7 @@ if.end182:                                        ; preds = %if.end182.sink.spli
 
 land.lhs.true187:                                 ; preds = %if.end182
   %tobool189.not = icmp eq i8 %.pre580, 0
-  %AnisotropicFilter202.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 4
+  %AnisotropicFilter202.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 4
   %.pre578 = load i8, ptr %AnisotropicFilter202.phi.trans.insert, align 4, !tbaa !102
   br i1 %tobool189.not, label %if.then198, label %lor.lhs.false190
 
@@ -15482,12 +15482,12 @@ if.end221:                                        ; preds = %cond.end214, %if.en
   br i1 %tobool223.not, label %if.end221.if.then234_crit_edge, label %lor.lhs.false224
 
 if.end221.if.then234_crit_edge:                   ; preds = %if.end221
-  %TextureWrapU238.phi.trans.insert = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
+  %TextureWrapU238.phi.trans.insert = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
   %bf.load239.pre = load i16, ptr %TextureWrapU238.phi.trans.insert, align 8
   br label %if.then234
 
 lor.lhs.false224:                                 ; preds = %if.end221, %lor.lhs.false190
-  %TextureWrapU = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
+  %TextureWrapU = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
   %bf.load228 = load i16, ptr %TextureWrapU, align 8
   %129 = and i16 %bf.load228, 15
   %130 = load i8, ptr %StatesCache.i, align 4, !tbaa !444
@@ -15497,7 +15497,7 @@ lor.lhs.false224:                                 ; preds = %if.end221, %lor.lhs
 
 if.then234:                                       ; preds = %lor.lhs.false224, %if.end221.if.then234_crit_edge
   %bf.load239 = phi i16 [ %bf.load239.pre, %if.end221.if.then234_crit_edge ], [ %bf.load228, %lor.lhs.false224 ]
-  %TextureWrapU238 = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
+  %TextureWrapU238 = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
   %132 = trunc i16 %bf.load239 to i8
   %bf.cast241 = and i8 %132, 15
   switch i8 %bf.cast241, label %if.end251 [
@@ -15604,7 +15604,7 @@ lor.lhs.false254:                                 ; preds = %if.end251, %lor.lhs
 
 if.then265:                                       ; preds = %if.end251, %lor.lhs.false254
   %bf.load270 = phi i16 [ %bf.load258, %lor.lhs.false254 ], [ %bf.load270.pre, %if.end251 ]
-  %TextureWrapV269 = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
+  %TextureWrapV269 = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
   %151 = trunc i16 %bf.load270 to i8
   %152 = lshr i8 %151, 4
   switch i8 %152, label %if.end284 [
@@ -15716,7 +15716,7 @@ lor.lhs.false287:                                 ; preds = %if.end284, %lor.lhs
 
 if.then298:                                       ; preds = %lor.lhs.false287, %if.end284.if.then298_crit_edge
   %bf.lshr304.pre-phi = phi i16 [ %.pre586, %if.end284.if.then298_crit_edge ], [ %bf.lshr292, %lor.lhs.false287 ]
-  %TextureWrapW302 = getelementptr inbounds [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
+  %TextureWrapW302 = getelementptr inbounds nuw [4 x %"class.irr::video::SMaterialLayer"], ptr %material, i64 0, i64 %2, i32 1
   %171 = trunc nuw i16 %bf.lshr304.pre-phi to i8
   %bf.cast306 = and i8 %171, 15
   switch i8 %bf.cast306, label %_ZN3irr5video13COpenGLDriver18getTextureWrapModeEh.exit560 [
@@ -22315,7 +22315,7 @@ if.then.i76:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i76, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !163
-  %add.ptr34 = getelementptr inbounds %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !164
   %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !162
@@ -23058,7 +23058,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %if.then.i69, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !311
-  %add.ptr34 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !310
   %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !505
@@ -23370,7 +23370,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video8ITextureESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !471
-  %add.ptr34 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !470
   %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !511
@@ -23469,7 +23469,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video14E_CUBE_SURFACEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIN3irr5video14E_CUBE_SURFACEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !476
-  %add.ptr34 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !504
   %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !512
@@ -23675,7 +23675,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then
   br i1 %cmp.i.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i, label %if.then.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %if.then.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 %sub
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %sub
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %incdec.ptr.i.i.i.i, i8 0, i64 %sub.i.i.i.i, i1 false)
   br label %_ZSt27__uninitialized_default_n_aIPhmhET_S1_T0_RSaIT1_E.exit.i
 
@@ -25503,7 +25503,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video6IImageESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIPN3irr5video6IImageESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !364
-  %add.ptr34 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !366
   %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !365

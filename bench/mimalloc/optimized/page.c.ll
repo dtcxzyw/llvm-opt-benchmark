@@ -396,7 +396,7 @@ for.body.preheader:                               ; preds = %if.end7, %if.end25
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %sz.042 = phi i64 [ %inc, %for.body ], [ %sz.042.ph, %for.body.preheader ]
-  %arrayidx28 = getelementptr inbounds ptr, ptr %pages_free_direct, i64 %sz.042
+  %arrayidx28 = getelementptr inbounds nuw ptr, ptr %pages_free_direct, i64 %sz.042
   store ptr %spec.store.select, ptr %arrayidx28, align 8
   %inc = add nuw nsw i64 %sz.042, 1
   %exitcond.not = icmp eq i64 %sz.042, %div1.i

@@ -351,8 +351,8 @@ for.body:                                         ; preds = %for.body.preheader,
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %sub24 = sub i64 %inl.addr.032, %chunk.133
-  %add.ptr = getelementptr inbounds i8, ptr %in.addr.031, i64 %chunk.133
-  %add.ptr25 = getelementptr inbounds i8, ptr %out.addr.030, i64 %chunk.133
+  %add.ptr = getelementptr inbounds nuw i8, ptr %in.addr.031, i64 %chunk.133
+  %add.ptr25 = getelementptr inbounds nuw i8, ptr %out.addr.030, i64 %chunk.133
   %spec.select26 = call i64 @llvm.umin.i64(i64 %sub24, i64 %chunk.133)
   %tobool.not = icmp eq i64 %sub24, 0
   br i1 %tobool.not, label %while.end, label %for.cond.preheader, !llvm.loop !10

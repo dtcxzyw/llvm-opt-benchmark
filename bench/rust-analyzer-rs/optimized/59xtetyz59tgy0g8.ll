@@ -11250,7 +11250,7 @@ define hidden void @"_ZN6hir_ty7builder31TyBuilder$LT$hir_def..AdtId$GT$18fill_w
   %55 = sub nuw i64 %42, %54
   %56 = udiv exact i64 %55, 24
   %.not.i.i.not = icmp ult i64 %.sroa.9.0, %56
-  %57 = getelementptr inbounds { { { i64, [1 x i64] } }, ptr }, ptr %.sroa.0.0, i64 %.sroa.9.0
+  %57 = getelementptr inbounds nuw { { { i64, [1 x i64] } }, ptr }, ptr %.sroa.0.0, i64 %.sroa.9.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h504f9a7c7d01607dE.exit.thread88", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h504f9a7c7d01607dE.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h504f9a7c7d01607dE.exit.thread": ; preds = %53, %51

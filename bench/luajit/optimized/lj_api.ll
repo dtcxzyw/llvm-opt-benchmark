@@ -6648,7 +6648,7 @@ if.else12:                                        ; preds = %index2adr.exit
   %cmp15 = icmp ult i64 %shr, -13
   %26 = sub nsw i64 21, %shr
   %spec.select = select i1 %cmp15, i64 35, i64 %26
-  %arrayidx = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
+  %arrayidx = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot, i64 0, i64 %spec.select
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then7, %if.else12, %if.then
@@ -8510,7 +8510,7 @@ if.else74:                                        ; preds = %if.end60
   %cmp78 = icmp ult i64 %shr61, -13
   %50 = sub nsw i64 21, %shr61
   %spec.select = select i1 %cmp78, i64 35, i64 %50
-  %arrayidx82 = getelementptr inbounds [38 x %struct.GCRef], ptr %gcroot75, i64 0, i64 %spec.select
+  %arrayidx82 = getelementptr inbounds nuw [38 x %struct.GCRef], ptr %gcroot75, i64 0, i64 %spec.select
   store i64 %49, ptr %arrayidx82, align 8
   br label %if.end86
 

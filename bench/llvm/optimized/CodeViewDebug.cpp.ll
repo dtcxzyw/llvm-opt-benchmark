@@ -34703,9 +34703,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %.val.val.i.i.i.i = load ptr, ptr %.val.i.i.i.i, align 8
@@ -34716,9 +34716,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.val29.val.val.i.i.i.i = load i16, ptr %26, align 4
   %27 = icmp ult i16 %.val.val.val.i.i.i.i, %.val29.val.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !478
@@ -34735,9 +34735,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -34762,7 +34762,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %49 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %49, align 8
   %50 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit.i.i.i", !llvm.loop !479
@@ -34779,14 +34779,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %53 = or disjoint i64 %13, 1
-  %54 = getelementptr inbounds ptr, ptr %0, i64 %53
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %53
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %56, %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %56 = add nsw i64 %.06.us.i.i.i, -1
-  %57 = getelementptr inbounds ptr, ptr %0, i64 %56
+  %57 = getelementptr inbounds nuw ptr, ptr %0, i64 %56
   %58 = load ptr, ptr %57, align 8
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i", label %.lr.ph.i29.us.i.i.i
@@ -34795,9 +34795,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.030.i30.us.i.i.i = phi i64 [ %spec.select.i37.us.i.i.i, %.lr.ph.i29.us.i.i.i ], [ %56, %.split14.us.i.i.i ]
   %59 = shl i64 %.030.i30.us.i.i.i, 1
   %60 = add i64 %59, 2
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %60
+  %61 = getelementptr inbounds nuw ptr, ptr %0, i64 %60
   %62 = or disjoint i64 %59, 1
-  %63 = getelementptr inbounds ptr, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw ptr, ptr %0, i64 %62
   %.val.i31.us.i.i.i = load ptr, ptr %61, align 8
   %.val29.i32.us.i.i.i = load ptr, ptr %63, align 8
   %.val.val.i33.us.i.i.i = load ptr, ptr %.val.i31.us.i.i.i, align 8
@@ -34808,9 +34808,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.val29.val.val.i36.us.i.i.i = load i16, ptr %65, align 4
   %66 = icmp ult i16 %.val.val.val.i35.us.i.i.i, %.val29.val.val.i36.us.i.i.i
   %spec.select.i37.us.i.i.i = select i1 %66, i64 %62, i64 %60
-  %67 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i37.us.i.i.i
+  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i37.us.i.i.i
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr inbounds ptr, ptr %0, i64 %.030.i30.us.i.i.i
+  %69 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i30.us.i.i.i
   store ptr %68, ptr %69, align 8
   %70 = icmp slt i64 %spec.select.i37.us.i.i.i, %18
   br i1 %70, label %.lr.ph.i29.us.i.i.i, label %.lr.ph.i.i20.us.i.i.i, !llvm.loop !478
@@ -34831,7 +34831,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   br i1 %74, label %75, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i"
 
 75:                                               ; preds = %.lr.ph.i.i20.us.i.i.i
-  %76 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
+  %76 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
   store ptr %.val.i.i24.us.i.i.i, ptr %76, align 8
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.us.i.i.i", label %.lr.ph.i.i20.us.i.i.i, !llvm.loop !479
@@ -34846,7 +34846,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %79, %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %79 = add nsw i64 %.06.i.i.i, -1
-  %80 = getelementptr inbounds ptr, ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw ptr, ptr %0, i64 %79
   %81 = load ptr, ptr %80, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i29.i.i.i
@@ -34855,9 +34855,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.030.i30.i.i.i = phi i64 [ %spec.select.i37.i.i.i, %.lr.ph.i29.i.i.i ], [ %79, %.split14.i.i.i ]
   %82 = shl i64 %.030.i30.i.i.i, 1
   %83 = add i64 %82, 2
-  %84 = getelementptr inbounds ptr, ptr %0, i64 %83
+  %84 = getelementptr inbounds nuw ptr, ptr %0, i64 %83
   %85 = or disjoint i64 %82, 1
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %.val.i31.i.i.i = load ptr, ptr %84, align 8
   %.val29.i32.i.i.i = load ptr, ptr %86, align 8
   %.val.val.i33.i.i.i = load ptr, ptr %.val.i31.i.i.i, align 8
@@ -34868,9 +34868,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.val29.val.val.i36.i.i.i = load i16, ptr %88, align 4
   %89 = icmp ult i16 %.val.val.val.i35.i.i.i, %.val29.val.val.i36.i.i.i
   %spec.select.i37.i.i.i = select i1 %89, i64 %85, i64 %83
-  %90 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i37.i.i.i
+  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i37.i.i.i
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %.030.i30.i.i.i
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i30.i.i.i
   store ptr %91, ptr %92, align 8
   %93 = icmp slt i64 %spec.select.i37.i.i.i, %18
   br i1 %93, label %.lr.ph.i29.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !478
@@ -34906,7 +34906,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   br i1 %101, label %102, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.i.i.i"
 
 102:                                              ; preds = %.lr.ph.i.i20.i.i.i
-  %103 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %103 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %103, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPKN4llvm13CodeViewDebug13LocalVariableElS4_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_21emitLocalVariableListERKNS1_12FunctionInfoENS0_8ArrayRefIS2_EEE3$_0EEEvT_T0_SH_T1_T2_.exit38.i.i.i", label %.lr.ph.i.i20.i.i.i, !llvm.loop !479
@@ -34939,9 +34939,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.030.i.i.i22.i = phi i64 [ %spec.select.i.i.i29.i, %.lr.ph.i.i.i21.i ], [ 0, %.lr.ph.i5.i ]
   %115 = shl i64 %.030.i.i.i22.i, 1
   %116 = add i64 %115, 2
-  %117 = getelementptr inbounds ptr, ptr %0, i64 %116
+  %117 = getelementptr inbounds nuw ptr, ptr %0, i64 %116
   %118 = or disjoint i64 %115, 1
-  %119 = getelementptr inbounds ptr, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw ptr, ptr %0, i64 %118
   %.val.i.i.i23.i = load ptr, ptr %117, align 8
   %.val29.i.i.i24.i = load ptr, ptr %119, align 8
   %.val.val.i.i.i25.i = load ptr, ptr %.val.i.i.i23.i, align 8
@@ -34952,9 +34952,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
   %.val29.val.val.i.i.i28.i = load i16, ptr %121, align 4
   %122 = icmp ult i16 %.val.val.val.i.i.i27.i, %.val29.val.val.i.i.i28.i
   %spec.select.i.i.i29.i = select i1 %122, i64 %118, i64 %116
-  %123 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i29.i
+  %123 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i29.i
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i22.i
+  %125 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i22.i
   store ptr %124, ptr %125, align 8
   %126 = icmp slt i64 %spec.select.i.i.i29.i, %113
   br i1 %126, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i6.i, !llvm.loop !478
@@ -34974,9 +34974,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPKN4llvm13CodeViewDebug13L
 133:                                              ; preds = %129
   %134 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %135 = or disjoint i64 %134, 1
-  %136 = getelementptr inbounds ptr, ptr %0, i64 %135
+  %136 = getelementptr inbounds nuw ptr, ptr %0, i64 %135
   %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %138 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %137, ptr %138, align 8
   br label %139
 

@@ -4107,7 +4107,7 @@ define hidden void @_ZN4rope6Cursor7summary17h4ec4428b6bda09c7E(ptr dead_on_unwi
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %36 = add nsw i64 %34, -1
-  %37 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
+  %37 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %35, i64 0, i64 %36
   %38 = load ptr, ptr %37, align 8, !alias.scope !649, !noalias !653, !nonnull !4, !align !11, !noundef !4
   %39 = load ptr, ptr %38, align 8, !noalias !655, !nonnull !4, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -4138,7 +4138,7 @@ define hidden void @_ZN4rope6Cursor7summary17h4ec4428b6bda09c7E(ptr dead_on_unwi
 
 53:                                               ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %55 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %54, i64 0, i64 %44
+  %55 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %54, i64 0, i64 %44
   %56 = load i64, ptr %1, align 8, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %58 = load i64, ptr %57, align 8, !noundef !4
@@ -4309,7 +4309,7 @@ define hidden void @_ZN4rope6Cursor7summary17h4ec4428b6bda09c7E(ptr dead_on_unwi
   %129 = zext i32 %127 to i64
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %131 = add nsw i64 %129, -1
-  %132 = getelementptr inbounds [0 x { ptr, i64, i64 }], ptr %130, i64 0, i64 %131
+  %132 = getelementptr inbounds nuw [0 x { ptr, i64, i64 }], ptr %130, i64 0, i64 %131
   %133 = load ptr, ptr %132, align 8, !alias.scope !704, !noalias !707, !nonnull !4, !align !11, !noundef !4
   %134 = load ptr, ptr %133, align 8, !noalias !709, !nonnull !4, !noundef !4
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
@@ -4347,7 +4347,7 @@ define hidden void @_ZN4rope6Cursor7summary17h4ec4428b6bda09c7E(ptr dead_on_unwi
 
 149:                                              ; preds = %145
   %150 = getelementptr inbounds nuw i8, ptr %134, i64 24
-  %151 = getelementptr inbounds [0 x { { i32, [128 x i8] } }], ptr %150, i64 0, i64 %139
+  %151 = getelementptr inbounds nuw [0 x { { i32, [128 x i8] } }], ptr %150, i64 0, i64 %139
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %153 = load i64, ptr %152, align 8, !noundef !4
   %154 = load i64, ptr %15, align 8, !noundef !4
@@ -4383,7 +4383,7 @@ define hidden void @_ZN4rope6Cursor7summary17h4ec4428b6bda09c7E(ptr dead_on_unwi
   br label %"_ZN8sum_tree6cursor19Cursor$LT$T$C$D$GT$4item17h871b0b7cc7f93741E.exit19.thread"
 
 169:                                              ; preds = %160
-  %170 = getelementptr inbounds i8, ptr %156, i64 %155
+  %170 = getelementptr inbounds nuw i8, ptr %156, i64 %155
   %171 = load i8, ptr %170, align 1, !noundef !4
   %172 = icmp sgt i8 %171, -65
   br i1 %172, label %162, label %175

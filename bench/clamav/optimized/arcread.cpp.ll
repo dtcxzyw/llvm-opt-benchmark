@@ -1180,7 +1180,7 @@ _Z5uiMsgIJRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit.i205: ; preds = %94
   br i1 %304, label %305, label %308
 
 305:                                              ; preds = %301
-  %306 = getelementptr inbounds i8, ptr %9, i64 %303
+  %306 = getelementptr inbounds nuw i8, ptr %9, i64 %303
   %307 = sub nuw nsw i64 %292, %303
   invoke void @_ZN14EncodeFileName6DecodeEPcmPhmPwm(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull %9, i64 noundef %292, ptr noundef nonnull %306, i64 noundef %307, ptr noundef nonnull %296, i64 noundef 2048)
           to label %308 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

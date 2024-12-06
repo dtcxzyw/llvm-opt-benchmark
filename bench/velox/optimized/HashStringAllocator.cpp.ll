@@ -1187,7 +1187,7 @@ if.then12.i:                                      ; preds = %if.end.i
 
 _ZN8facebook5velox19HashStringAllocator7newSlabEv.exit: ; preds = %if.end.i
   %sub9.i = add nsw i64 %cond.i, -32
-  %add.ptr.i = getelementptr inbounds i8, ptr %call5.i, i64 %sub9.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i, i64 %sub9.i
   store i32 -256988403, ptr %add.ptr.i, align 4
   %cumulativeBytes_.i15 = getelementptr inbounds nuw i8, ptr %this, i64 37248
   %12 = load i64, ptr %cumulativeBytes_.i15, align 8
@@ -2039,7 +2039,7 @@ if.then12:                                        ; preds = %if.end
 
 if.end17:                                         ; preds = %if.end
   %sub9 = add nsw i64 %cond, -32
-  %add.ptr = getelementptr inbounds i8, ptr %call5, i64 %sub9
+  %add.ptr = getelementptr inbounds nuw i8, ptr %call5, i64 %sub9
   store i32 -256988403, ptr %add.ptr, align 4
   %cumulativeBytes_ = getelementptr inbounds nuw i8, ptr %this, i64 37248
   %5 = load i64, ptr %cumulativeBytes_, align 8

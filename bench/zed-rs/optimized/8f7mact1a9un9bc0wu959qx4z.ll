@@ -126,7 +126,7 @@ define hidden { i64, ptr } @"_ZN110_$LT$core..iter..adapters..enumerate..Enumera
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 6
   %.not.i.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { i64, [7 x i64] }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %storemerge.i = select i1 %.not.i.not, ptr %11, ptr %4
   store ptr %storemerge.i, ptr %0, align 8, !alias.scope !4
@@ -5027,7 +5027,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN91_$LT$core..
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 6
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { i64, [7 x i64] }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null
@@ -9786,7 +9786,7 @@ _ZN2ui10components12context_menu11ContextMenu12select_first17h3e355f4c0e5cb705E.
   %44 = sub nuw i64 %14, %43
   %45 = lshr exact i64 %44, 6
   %.not.i.not.i.not = icmp ult i64 %.sroa.15.0, %45
-  %46 = getelementptr inbounds { i64, [7 x i64] }, ptr %.sroa.0.013, i64 %.sroa.15.0
+  %46 = getelementptr inbounds nuw { i64, [7 x i64] }, ptr %.sroa.0.013, i64 %.sroa.15.0
   %47 = add i64 %.sroa.15.0, %.sroa.10.0
   br i1 %.not.i.not.i.not, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0de8fb7169fc8cfcE.llvm.1407927494119257398.exit.thread28", label %.loopexit
 

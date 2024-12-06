@@ -5795,9 +5795,9 @@ default.unreachable.i110:                         ; preds = %929
   br i1 %933, label %934, label %939
 
 934:                                              ; preds = %932
-  %935 = getelementptr inbounds [0 x i8], ptr %920, i64 0, i64 %931
+  %935 = getelementptr inbounds nuw [0 x i8], ptr %920, i64 0, i64 %931
   %936 = load i8, ptr %935, align 1, !noalias !866, !noundef !4
-  %937 = getelementptr inbounds [0 x i8], ptr %919, i64 0, i64 %931
+  %937 = getelementptr inbounds nuw [0 x i8], ptr %919, i64 0, i64 %931
   %938 = load i8, ptr %937, align 1, !noalias !866, !noundef !4
   br label %929
 

@@ -3635,7 +3635,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9SlotIndexEPNS1_
 .split19.i.i:                                     ; preds = %.split.i.i, %.split19.i.i
   %.024.i.i = phi i64 [ %16, %.split19.i.i ], [ %14, %.split.i.i ]
   %16 = add nsw i64 %.024.i.i, -1
-  %17 = getelementptr inbounds %"struct.std::pair.167", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"struct.std::pair.167", ptr %0, i64 %16
   %.sroa.02.0.copyload20.i.i = load i64, ptr %17, align 8
   %.sroa.23.0..sroa_idx21.i.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.23.0.copyload22.i.i = load ptr, ptr %.sroa.23.0..sroa_idx21.i.i, align 8

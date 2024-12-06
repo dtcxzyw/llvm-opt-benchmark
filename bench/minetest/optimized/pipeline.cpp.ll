@@ -787,7 +787,7 @@ for.body:                                         ; preds = %if.then5, %for.inc
   %9 = phi ptr [ %14, %for.inc ], [ %4, %if.then5 ]
   %10 = phi ptr [ %15, %for.inc ], [ %3, %if.then5 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ %sub.ptr.div.i, %if.then5 ]
-  %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %add.ptr.i.i82 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %add.ptr.i.i82, align 8, !tbaa !34
   %tobool14.not = icmp eq ptr %11, null
   br i1 %tobool14.not, label %for.inc, label %if.then15
@@ -3209,7 +3209,7 @@ if.then.i81:                                      ; preds = %_ZNSt6vectorIN13Tex
 
 _ZNSt12_Vector_baseIN13TextureBuffer17TextureDefinitionESaIS1_EE13_M_deallocateEPS1_m.exit82: ; preds = %if.then.i81, %_ZNSt6vectorIN13TextureBuffer17TextureDefinitionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !23
-  %add.ptr37 = getelementptr inbounds %"struct.TextureBuffer::TextureDefinition", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !25
   %add.ptr40 = getelementptr inbounds nuw %"struct.TextureBuffer::TextureDefinition", ptr %call5.i.i.i, i64 %14
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !120
@@ -3317,7 +3317,7 @@ if.then.i78:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video8ITextureESaIS3_EE13_M_deallocateEPS3_m.exit79: ; preds = %if.then.i78, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !16
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !14
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !56

@@ -12112,7 +12112,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPSt4pairIPN5clang4ento22Path
 .split20.i.i.i:                                   ; preds = %.split.i.i.i, %.split20.i.i.i
   %.026.i.i.i = phi i64 [ %20, %.split20.i.i.i ], [ %18, %.split.i.i.i ]
   %20 = add nsw i64 %.026.i.i.i, -1
-  %21 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %20
   %.sroa.02.0.copyload21.i.i.i = load ptr, ptr %21, align 8
   %.sroa.23.0..sroa_idx22.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.23.0.copyload23.i.i.i = load ptr, ptr %.sroa.23.0..sroa_idx22.i.i.i, align 8
@@ -12981,8 +12981,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread38: ; preds = %63, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread
   %70 = phi i64 [ %14, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit.thread ], [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESH_EEbT_T0_.exit ], [ %13, %63 ]
-  %71 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %70
-  %72 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.044
+  %71 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %70
+  %72 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %.044
   %73 = load ptr, ptr %71, align 8
   store ptr %73, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -13007,8 +13007,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCom
 84:                                               ; preds = %80
   %85 = shl nsw i64 %.0.lcssa, 1
   %86 = or disjoint i64 %85, 1
-  %87 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %86
-  %88 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.0.lcssa
+  %87 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %86
+  %88 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %.0.lcssa
   %89 = load ptr, ptr %87, align 8
   store ptr %89, ptr %88, align 8
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -13141,7 +13141,7 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityComp
   br i1 %151, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i, label %_ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEElS8_N9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_T0_SJ_T1_RT2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.thread.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEclIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNSA_12ExplodedNodeEESG_EEbT_RT0_.exit.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4ento12ExplodedNodeEjNS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_jEEEES6_jS8_SB_E4findES6_.exit16.i.i.i.i
-  %152 = getelementptr inbounds %"struct.std::pair.1017", ptr %0, i64 %.0137.i
+  %152 = getelementptr inbounds nuw %"struct.std::pair.1017", ptr %0, i64 %.0137.i
   %153 = load ptr, ptr %102, align 8
   store ptr %153, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 8

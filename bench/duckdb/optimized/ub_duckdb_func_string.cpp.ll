@@ -58885,7 +58885,7 @@ if.then.i73.i:                                    ; preds = %_ZNSt6vectorIN19duc
 
 _ZNSt12_Vector_baseIN19duckdb_jaro_winkler6common16BitvectorHashmapESaIS2_EE13_M_deallocateEPS2_m.exit74.i: ; preds = %if.then.i73.i, %_ZNSt6vectorIN19duckdb_jaro_winkler6common16BitvectorHashmapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !1409
-  %add.ptr37.i = getelementptr inbounds %"struct.duckdb_jaro_winkler::common::BitvectorHashmap", ptr %add.ptr.i, i64 %sub
+  %add.ptr37.i = getelementptr inbounds nuw %"struct.duckdb_jaro_winkler::common::BitvectorHashmap", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr37.i, ptr %_M_finish.i, align 8, !tbaa !1438
   %add.ptr40.i = getelementptr inbounds nuw %"struct.duckdb_jaro_winkler::common::BitvectorHashmap", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr40.i, ptr %_M_end_of_storage.i, align 8, !tbaa !1439
@@ -58997,7 +58997,7 @@ if.then.i77:                                      ; preds = %_ZNSt6vectorImSaImE
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit78: ; preds = %if.then.i77, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !1284
-  %add.ptr37 = getelementptr inbounds i64, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw i64, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !1289
   %add.ptr40 = getelementptr inbounds nuw i64, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !1286
@@ -59199,7 +59199,7 @@ lor.lhs.false11.i.i.i.i.i:                        ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i: ; preds = %lor.lhs.false11.i.i.i.i.i, %while.cond.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i, %if.else.i.i.i
   %retval.0.i.i.i.i.i = phi i64 [ %rem.i.i.i.i.i, %lor.lhs.false.i.i.i.i.i ], [ %rem.i.i.i.i.i, %if.else.i.i.i ], [ %rem634.i.i.i.i.i, %while.cond.preheader.i.i.i.i.i ], [ %rem639.i.i.i.i.i, %lor.lhs.false11.i.i.i.i.i ], [ %rem6.i.i.i.i.i, %while.cond.i.i.i.i.i ]
-  %value.i.i.i.i = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %2, i64 0, i64 %retval.0.i.i.i.i.i, i32 1
+  %value.i.i.i.i = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %2, i64 0, i64 %retval.0.i.i.i.i.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i, %if.then.i.i.i
@@ -59284,7 +59284,7 @@ lor.lhs.false11.i.i.i.i82.i:                      ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i96.i: ; preds = %lor.lhs.false11.i.i.i.i82.i, %while.cond.i.i.i.i87.i, %while.cond.preheader.i.i.i.i74.i, %lor.lhs.false.i.i.i.i72.i, %if.else.i.i66.i
   %retval.0.i.i.i.i97.i = phi i64 [ %rem.i.i.i.i68.i, %lor.lhs.false.i.i.i.i72.i ], [ %rem.i.i.i.i68.i, %if.else.i.i66.i ], [ %rem634.i.i.i.i78.i, %while.cond.preheader.i.i.i.i74.i ], [ %rem639.i.i.i.i84.i, %lor.lhs.false11.i.i.i.i82.i ], [ %rem6.i.i.i.i92.i, %while.cond.i.i.i.i87.i ]
-  %value.i.i.i98.i = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %5, i64 0, i64 %retval.0.i.i.i.i97.i, i32 1
+  %value.i.i.i98.i = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %5, i64 0, i64 %retval.0.i.i.i.i97.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit106.i
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit106.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i96.i, %if.then.i.i101.i
@@ -59400,7 +59400,7 @@ lor.lhs.false11.i.i.i.i.i157:                     ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i171: ; preds = %lor.lhs.false11.i.i.i.i.i157, %while.cond.i.i.i.i.i162, %while.cond.preheader.i.i.i.i.i149, %lor.lhs.false.i.i.i.i.i147, %if.else.i.i.i141
   %retval.0.i.i.i.i.i172 = phi i64 [ %rem.i.i.i.i.i143, %lor.lhs.false.i.i.i.i.i147 ], [ %rem.i.i.i.i.i143, %if.else.i.i.i141 ], [ %rem634.i.i.i.i.i153, %while.cond.preheader.i.i.i.i.i149 ], [ %rem639.i.i.i.i.i159, %lor.lhs.false11.i.i.i.i.i157 ], [ %rem6.i.i.i.i.i167, %while.cond.i.i.i.i.i162 ]
-  %value.i.i.i.i173 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %25, i64 0, i64 %retval.0.i.i.i.i.i172, i32 1
+  %value.i.i.i.i173 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %25, i64 0, i64 %retval.0.i.i.i.i.i172, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i174
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmT_.exit.i174: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i.i171, %if.then.i.i.i180
@@ -59846,7 +59846,7 @@ lor.lhs.false11.i.i.i.i:                          ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i: ; preds = %lor.lhs.false11.i.i.i.i, %while.cond.i.i.i.i, %while.cond.preheader.i.i.i.i, %lor.lhs.false.i.i.i.i, %if.else.i.i
   %retval.0.i.i.i.i = phi i64 [ %rem.i.i.i.i, %lor.lhs.false.i.i.i.i ], [ %rem.i.i.i.i, %if.else.i.i ], [ %rem634.i.i.i.i, %while.cond.preheader.i.i.i.i ], [ %rem6.i.i.i.i, %while.cond.i.i.i.i ], [ %rem639.i.i.i.i, %lor.lhs.false11.i.i.i.i ]
-  %value.i.i.i = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i.i, i64 0, i64 %retval.0.i.i.i.i, i32 1
+  %value.i.i.i = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i.i, i64 0, i64 %retval.0.i.i.i.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, %if.then.i.i239
@@ -60012,7 +60012,7 @@ lor.lhs.false11.i.i.i:                            ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i: ; preds = %lor.lhs.false11.i.i.i, %while.cond.i.i.i, %while.cond.preheader.i.i.i, %lor.lhs.false.i.i.i, %if.else.i
   %retval.0.i.i.i = phi i64 [ %rem.i.i.i, %lor.lhs.false.i.i.i ], [ %rem.i.i.i, %if.else.i ], [ %rem634.i.i.i, %while.cond.preheader.i.i.i ], [ %rem639.i.i.i, %lor.lhs.false11.i.i.i ], [ %rem6.i.i.i, %while.cond.i.i.i ]
-  %value.i.i = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i, i64 0, i64 %retval.0.i.i.i, i32 1
+  %value.i.i = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i, i64 0, i64 %retval.0.i.i.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i, %if.then.i
@@ -60109,7 +60109,7 @@ lor.lhs.false11.i.i.i148:                         ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i162: ; preds = %lor.lhs.false11.i.i.i148, %while.cond.i.i.i153, %while.cond.preheader.i.i.i140, %lor.lhs.false.i.i.i138, %if.else.i131
   %retval.0.i.i.i163 = phi i64 [ %rem.i.i.i134, %lor.lhs.false.i.i.i138 ], [ %rem.i.i.i134, %if.else.i131 ], [ %rem634.i.i.i144, %while.cond.preheader.i.i.i140 ], [ %rem639.i.i.i150, %lor.lhs.false11.i.i.i148 ], [ %rem6.i.i.i158, %while.cond.i.i.i153 ]
-  %value.i.i164 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i132, i64 0, i64 %retval.0.i.i.i163, i32 1
+  %value.i.i164 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i132, i64 0, i64 %retval.0.i.i.i163, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit173
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit173: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i162, %if.then.i167
@@ -60221,7 +60221,7 @@ lor.lhs.false11.i.i.i197:                         ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i211: ; preds = %lor.lhs.false11.i.i.i197, %while.cond.i.i.i202, %while.cond.preheader.i.i.i189, %lor.lhs.false.i.i.i187, %for.body
   %retval.0.i.i.i212 = phi i64 [ %rem.i.i.i183, %lor.lhs.false.i.i.i187 ], [ %rem.i.i.i183, %for.body ], [ %rem634.i.i.i193, %while.cond.preheader.i.i.i189 ], [ %rem639.i.i.i199, %lor.lhs.false11.i.i.i197 ], [ %rem6.i.i.i207, %while.cond.i.i.i202 ]
-  %value.i.i213 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i181, i64 0, i64 %retval.0.i.i.i212, i32 1
+  %value.i.i213 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i181, i64 0, i64 %retval.0.i.i.i212, i32 1
   %retval.0.i215 = load i64, ptr %value.i.i213, align 8, !tbaa !68
   %add.ptr.i223 = getelementptr inbounds i64, ptr %flagged.0.val, i64 %word.25
   %39 = load i64, ptr %add.ptr.i223, align 8, !tbaa !68
@@ -60321,7 +60321,7 @@ lor.lhs.false11.i.i.i246:                         ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i260: ; preds = %lor.lhs.false11.i.i.i246, %while.cond.i.i.i251, %while.cond.preheader.i.i.i238, %lor.lhs.false.i.i.i236, %if.else.i229
   %retval.0.i.i.i261 = phi i64 [ %rem.i.i.i232, %lor.lhs.false.i.i.i236 ], [ %rem.i.i.i232, %if.else.i229 ], [ %rem634.i.i.i242, %while.cond.preheader.i.i.i238 ], [ %rem639.i.i.i248, %lor.lhs.false11.i.i.i246 ], [ %rem6.i.i.i256, %while.cond.i.i.i251 ]
-  %value.i.i262 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i230, i64 0, i64 %retval.0.i.i.i261, i32 1
+  %value.i.i262 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i230, i64 0, i64 %retval.0.i.i.i261, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit271
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit271: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i260, %if.then.i265
@@ -60673,7 +60673,7 @@ lor.lhs.false11.i.i.i.i133:                       ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i: ; preds = %lor.lhs.false11.i.i.i.i133, %while.cond.i.i.i.i135, %while.cond.preheader.i.i.i.i125, %lor.lhs.false.i.i.i.i123, %if.else.i.i117
   %retval.0.i.i.i.i144 = phi i64 [ %rem.i.i.i.i119, %lor.lhs.false.i.i.i.i123 ], [ %rem.i.i.i.i119, %if.else.i.i117 ], [ %rem634.i.i.i.i129, %while.cond.preheader.i.i.i.i125 ], [ %rem6.i.i.i.i140, %while.cond.i.i.i.i135 ], [ %rem639.i.i.i.i, %lor.lhs.false11.i.i.i.i133 ]
-  %value.i.i.i145 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i.i144, i32 1
+  %value.i.i.i145 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i.i144, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit.i
 
 _ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i, %if.then.i.i149
@@ -60757,7 +60757,7 @@ lor.lhs.false11.i.i.i82.i:                        ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i96.i: ; preds = %lor.lhs.false11.i.i.i82.i, %while.cond.i.i.i87.i, %while.cond.preheader.i.i.i74.i, %lor.lhs.false.i.i.i72.i, %if.else.i66.i
   %retval.0.i.i.i97.i = phi i64 [ %rem.i.i.i68.i, %lor.lhs.false.i.i.i72.i ], [ %rem.i.i.i68.i, %if.else.i66.i ], [ %rem634.i.i.i78.i, %while.cond.preheader.i.i.i74.i ], [ %rem6.i.i.i92.i, %while.cond.i.i.i87.i ], [ %rem639.i.i.i84.i, %lor.lhs.false11.i.i.i82.i ]
-  %value.i.i98.i = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i97.i, i32 1
+  %value.i.i98.i = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i97.i, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit105.i
 
 _ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit105.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i96.i, %if.then.i101.i
@@ -60865,7 +60865,7 @@ lor.lhs.false11.i.i.i.i181:                       ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i195: ; preds = %lor.lhs.false11.i.i.i.i181, %while.cond.i.i.i.i186, %while.cond.preheader.i.i.i.i173, %lor.lhs.false.i.i.i.i171, %if.else.i.i165
   %retval.0.i.i.i.i196 = phi i64 [ %rem.i.i.i.i167, %lor.lhs.false.i.i.i.i171 ], [ %rem.i.i.i.i167, %if.else.i.i165 ], [ %rem634.i.i.i.i177, %while.cond.preheader.i.i.i.i173 ], [ %rem6.i.i.i.i191, %while.cond.i.i.i.i186 ], [ %rem639.i.i.i.i183, %lor.lhs.false11.i.i.i.i181 ]
-  %value.i.i.i197 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i.i196, i32 1
+  %value.i.i.i197 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %PM, i64 0, i64 %retval.0.i.i.i.i196, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit.i198
 
 _ZNK19duckdb_jaro_winkler6common18PatternMatchVector3getIcEEmT_.exit.i198: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i195, %if.then.i.i204
@@ -61354,7 +61354,7 @@ lor.lhs.false11.i.i.i.i273:                       ; preds = %while.cond.preheade
 
 _ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i287: ; preds = %lor.lhs.false11.i.i.i.i273, %while.cond.i.i.i.i278, %while.cond.preheader.i.i.i.i265, %lor.lhs.false.i.i.i.i263, %if.else.i.i257
   %retval.0.i.i.i.i288 = phi i64 [ %rem.i.i.i.i259, %lor.lhs.false.i.i.i.i263 ], [ %rem.i.i.i.i259, %if.else.i.i257 ], [ %rem634.i.i.i.i269, %while.cond.preheader.i.i.i.i265 ], [ %rem6.i.i.i.i283, %while.cond.i.i.i.i278 ], [ %rem639.i.i.i.i275, %lor.lhs.false11.i.i.i.i273 ]
-  %value.i.i.i289 = getelementptr inbounds [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i.i, i64 0, i64 %retval.0.i.i.i.i288, i32 1
+  %value.i.i.i289 = getelementptr inbounds nuw [128 x %"struct.duckdb_jaro_winkler::common::BitvectorHashmap::MapElem"], ptr %add.ptr.i11.i.i, i64 0, i64 %retval.0.i.i.i.i288, i32 1
   br label %_ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i
 
 _ZNK19duckdb_jaro_winkler6common23BlockPatternMatchVector3getIcEEmlT_.exit.i: ; preds = %_ZNK19duckdb_jaro_winkler6common16BitvectorHashmap3getIcEEmT_.exit.i.i287, %if.then.i.i299
@@ -67635,7 +67635,7 @@ if.then:                                          ; preds = %_ZN6duckdbL15StrRev
 if.end.i.i:                                       ; preds = %if.then, %cleanup.i.i
   %add38.i.i = phi i64 [ %add.i.i, %cleanup.i.i ], [ %conv35.i.i, %if.then ]
   %start.037.i.i = phi i64 [ %start.1.i.i, %cleanup.i.i ], [ 0, %if.then ]
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %add38.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 %add38.i.i
   %call5.i.i = call noundef i32 @_ZN6duckdb18utf8proc_codepointEPKcRi(ptr noundef nonnull %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(4) %sz.i.i)
   %call6.i.i = call noundef ptr @_ZN6duckdb21utf8proc_get_propertyEi(i32 noundef %call5.i.i)
   %boundclass7.i.i = getelementptr inbounds nuw i8, ptr %call6.i.i, i64 20
@@ -67649,7 +67649,7 @@ if.end.i.i:                                       ; preds = %if.then, %cleanup.i
 if.then12.i.i:                                    ; preds = %if.end.i.i
   %idx.neg.i31.i.i = sub nsw i64 0, %add38.i.i
   %add.ptr2.i32.i.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %idx.neg.i31.i.i
-  %add.ptr3.i33.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %start.037.i.i
+  %add.ptr3.i33.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 %start.037.i.i
   %sub.i34.i.i = sub nsw i64 %add38.i.i, %start.037.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr2.i32.i.i, ptr nonnull align 1 %add.ptr3.i33.i.i, i64 %sub.i34.i.i, i1 false)
   br label %cleanup.i.i
@@ -67667,7 +67667,7 @@ _ZN6duckdbL17StrReverseUnicodeEPKcmPc.exit:       ; preds = %cleanup.i.i, %if.th
   %add.lcssa.i.i = phi i64 [ %conv35.i.i, %if.then ], [ %add.i.i, %cleanup.i.i ]
   %idx.neg.i.i.i = sub i64 0, %add.lcssa.i.i
   %add.ptr2.i.i.i = getelementptr inbounds i8, ptr %invariant.gep.i, i64 %idx.neg.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds i8, ptr %cond.i, i64 %start.0.lcssa.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 %start.0.lcssa.i.i
   %sub.i.i.i = sub i64 %add.lcssa.i.i, %start.0.lcssa.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr2.i.i.i, ptr nonnull align 1 %add.ptr3.i.i.i, i64 %sub.i.i.i, i1 false)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %boundclass.i.i) #24
@@ -85350,7 +85350,7 @@ if.then5.i.i:                                     ; preds = %for.body.i38.i
 if.end10.i.i:                                     ; preds = %if.then5.i.i, %for.body.i38.i
   %nbytes.1.i.i = phi i64 [ 0, %if.then5.i.i ], [ %nbytes.048.i.i, %for.body.i38.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %codepoint.i35.i) #24
-  %add.ptr11.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %nbytes.1.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i, i64 %nbytes.1.i.i
   %sub.i39.i = sub nsw i64 %conv.i.i.i, %nbytes.1.i.i
   %call12.i.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr11.i.i, i64 noundef %sub.i39.i, ptr noundef nonnull %codepoint.i35.i)
   %add.i40.i = add i64 %call12.i.i, %nbytes.1.i.i
@@ -85623,7 +85623,7 @@ if.then5.i.i:                                     ; preds = %for.body.i38.i
 if.end10.i.i:                                     ; preds = %if.then5.i.i, %for.body.i38.i
   %nbytes.1.i.i = phi i64 [ 0, %if.then5.i.i ], [ %nbytes.048.i.i, %for.body.i38.i ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %codepoint.i35.i) #24
-  %add.ptr11.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %nbytes.1.i.i
+  %add.ptr11.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i, i64 %nbytes.1.i.i
   %sub.i39.i = sub nsw i64 %conv.i.i.i, %nbytes.1.i.i
   %call12.i.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr11.i.i, i64 noundef %sub.i39.i, ptr noundef nonnull %codepoint.i35.i)
   %add.i40.i = add i64 %call12.i.i, %nbytes.1.i.i
@@ -141304,7 +141304,7 @@ while.cond.i:                                     ; preds = %while.body.i, %for.
   br i1 %cmp.i112, label %while.body.i, label %for.cond.cleanup.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.0.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %begin.0.i
   %sub.i = sub nuw nsw i64 %conv.i.i, %begin.0.i
   %call2.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
   %22 = load i32, ptr %codepoint.i, align 4, !tbaa !65
@@ -141406,7 +141406,7 @@ while.cond.i120:                                  ; preds = %while.body.i143, %i
   br i1 %cmp.i122, label %while.body.i143, label %for.cond.cleanup.i123
 
 while.body.i143:                                  ; preds = %while.cond.i120
-  %add.ptr.i144 = getelementptr inbounds i8, ptr %cond.i.i118, i64 %begin.0.i121
+  %add.ptr.i144 = getelementptr inbounds nuw i8, ptr %cond.i.i118, i64 %begin.0.i121
   %sub.i145 = sub nuw nsw i64 %conv.i.i119, %begin.0.i121
   %call2.i146 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i144, i64 noundef %sub.i145, ptr noundef nonnull %codepoint.i115)
   %32 = load i32, ptr %codepoint.i115, align 4, !tbaa !65
@@ -141760,7 +141760,7 @@ while.cond:                                       ; preds = %while.body, %entry
   br i1 %cmp, label %while.body, label %for.cond.cleanup
 
 while.body:                                       ; preds = %while.cond
-  %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %begin.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i, i64 %begin.0
   %sub = sub nuw nsw i64 %conv.i, %begin.0
   %call2 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %codepoint)
   %2 = load i32, ptr %codepoint, align 4, !tbaa !65
@@ -141877,7 +141877,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %call3.i.i.i.i.noexc.i
   %pos.09.i.i = phi i64 [ %add.i.i, %call3.i.i.i.i.noexc.i ], [ 0, %entry ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %codepoint.i.i) #24
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %pos.09.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i, i64 %pos.09.i.i
   %sub.i.i = sub nsw i64 %conv.i.i.i, %pos.09.i.i
   %call2.i101.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %codepoint.i.i)
           to label %call2.i.noexc.i unwind label %lpad.i
@@ -141907,7 +141907,7 @@ while.body.lr.ph.i:                               ; preds = %invoke.cont.i
 
 while.body.i:                                     ; preds = %invoke.cont7.i, %while.body.lr.ph.i
   %begin.0163.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i, %invoke.cont7.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.0163.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %begin.0163.i
   %sub.i = sub nsw i64 %conv.i.i, %begin.0163.i
   %call5.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
           to label %invoke.cont4.i unwind label %lpad3.i
@@ -141999,7 +141999,7 @@ for.cond.cleanup.i:                               ; preds = %invoke.cont25.i, %w
 for.body.i:                                       ; preds = %invoke.cont25.i, %for.body.lr.ph.i
   %next.0167.i = phi i64 [ %begin.0161.i, %for.body.lr.ph.i ], [ %add22.i, %invoke.cont25.i ]
   %end.0166.i = phi i64 [ %begin.0161.i, %for.body.lr.ph.i ], [ %spec.select.i, %invoke.cont25.i ]
-  %add.ptr17.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %next.0167.i
+  %add.ptr17.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %next.0167.i
   %sub18.i = sub nsw i64 %conv.i.i, %next.0167.i
   %call21.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr17.i, i64 noundef %sub18.i, ptr noundef nonnull %codepoint.i)
           to label %invoke.cont20.i unwind label %lpad19.i
@@ -142553,7 +142553,7 @@ while.cond.while.end_crit_edge.i:                 ; preds = %while.cond.i
   br label %while.end.i
 
 while.body.i:                                     ; preds = %while.cond.i
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.0.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %begin.0.i
   %sub.i = sub nuw nsw i64 %conv.i.i, %begin.0.i
   %call2.i = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
   %22 = load i32, ptr %codepoint.i, align 4, !tbaa !65
@@ -142644,7 +142644,7 @@ while.cond.while.end_crit_edge.i123:              ; preds = %while.cond.i120
   br label %while.end.i125
 
 while.body.i144:                                  ; preds = %while.cond.i120
-  %add.ptr.i145 = getelementptr inbounds i8, ptr %cond.i.i118, i64 %begin.0.i121
+  %add.ptr.i145 = getelementptr inbounds nuw i8, ptr %cond.i.i118, i64 %begin.0.i121
   %sub.i146 = sub nuw nsw i64 %conv.i.i119, %begin.0.i121
   %call2.i147 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i145, i64 noundef %sub.i146, ptr noundef nonnull %codepoint.i115)
   %31 = load i32, ptr %codepoint.i115, align 4, !tbaa !65
@@ -142987,7 +142987,7 @@ while.cond.while.end_crit_edge:                   ; preds = %while.cond
   br label %while.end
 
 while.body:                                       ; preds = %while.cond
-  %add.ptr = getelementptr inbounds i8, ptr %cond.i, i64 %begin.0
+  %add.ptr = getelementptr inbounds nuw i8, ptr %cond.i, i64 %begin.0
   %sub = sub nuw nsw i64 %conv.i, %begin.0
   %call2 = call noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr, i64 noundef %sub, ptr noundef nonnull %codepoint)
   %2 = load i32, ptr %codepoint, align 4, !tbaa !65
@@ -143087,7 +143087,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %call3.i.i.i.i.noexc.i
   %pos.09.i.i = phi i64 [ %add.i.i, %call3.i.i.i.i.noexc.i ], [ 0, %entry ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %codepoint.i.i) #24
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %pos.09.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i, i64 %pos.09.i.i
   %sub.i.i = sub nsw i64 %conv.i.i.i, %pos.09.i.i
   %call2.i65.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %codepoint.i.i)
           to label %call2.i.noexc.i unwind label %lpad.i
@@ -143117,7 +143117,7 @@ while.body.lr.ph.i:                               ; preds = %invoke.cont.i
 
 while.body.i:                                     ; preds = %invoke.cont7.i, %while.body.lr.ph.i
   %begin.091.i = phi i64 [ 0, %while.body.lr.ph.i ], [ %add.i, %invoke.cont7.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %begin.091.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %begin.091.i
   %sub.i = sub nsw i64 %conv.i.i, %begin.091.i
   %call5.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
           to label %invoke.cont4.i unwind label %lpad3.i
@@ -144199,7 +144199,7 @@ entry:
 while.body.i.i:                                   ; preds = %entry, %call3.i.i.i.i.noexc.i
   %pos.09.i.i = phi i64 [ %add.i.i, %call3.i.i.i.i.noexc.i ], [ 0, %entry ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %codepoint.i.i) #24
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %cond.i.i.i, i64 %pos.09.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i, i64 %pos.09.i.i
   %sub.i.i = sub nsw i64 %conv.i.i.i, %pos.09.i.i
   %call2.i57.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i.i, i64 noundef %sub.i.i, ptr noundef nonnull %codepoint.i.i)
           to label %call2.i.noexc.i unwind label %lpad.i
@@ -144241,7 +144241,7 @@ lpad.i:                                           ; preds = %call2.i.noexc.i, %w
 for.body.i:                                       ; preds = %invoke.cont7.i, %for.body.lr.ph.i
   %next.076.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %add.i, %invoke.cont7.i ]
   %end.075.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %spec.select.i, %invoke.cont7.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %cond.i.i, i64 %next.076.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %cond.i.i, i64 %next.076.i
   %sub.i = sub nsw i64 %conv.i.i, %next.076.i
   %call5.i = invoke noundef i64 @_ZN6duckdb16utf8proc_iterateEPKhlPi(ptr noundef %add.ptr.i, i64 noundef %sub.i, ptr noundef nonnull %codepoint.i)
           to label %invoke.cont4.i unwind label %lpad3.i

@@ -149,7 +149,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17hc09d51b4cc5f645
   %44 = load i16, ptr %29, align 1, !alias.scope !64, !noalias !65
   %45 = add nsw i64 %31, -1
   %46 = zext i16 %44 to i64
-  %47 = getelementptr inbounds [0 x i8], ptr %29, i64 0, i64 %45
+  %47 = getelementptr inbounds nuw [0 x i8], ptr %29, i64 0, i64 %45
   %48 = load i8, ptr %47, align 1, !alias.scope !56, !noalias !61, !noundef !4
   %49 = zext i8 %48 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i.i
@@ -375,7 +375,7 @@ define hidden void @"_ZN63_$LT$http..header..name..Custom$u20$as$u20$core..hash.
   %21 = load i16, ptr %4, align 1, !alias.scope !102, !noalias !109
   %22 = add nsw i64 %6, -1
   %23 = zext i16 %21 to i64
-  %24 = getelementptr inbounds [0 x i8], ptr %4, i64 0, i64 %22
+  %24 = getelementptr inbounds nuw [0 x i8], ptr %4, i64 0, i64 %22
   %25 = load i8, ptr %24, align 1, !alias.scope !104, !noalias !107, !noundef !4
   %26 = zext i8 %25 to i64
   br label %_ZN5ahash10operations10read_small17h38e68769ac70e63bE.exit.i

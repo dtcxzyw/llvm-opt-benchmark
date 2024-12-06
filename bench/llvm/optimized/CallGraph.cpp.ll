@@ -4512,7 +4512,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN4llvm13CallGraphNodeElN9
 .split14.i.i.i:                                   ; preds = %.split.i.i.i, %.split14.i.i.i
   %.01.i.i.i = phi i64 [ %17, %.split14.i.i.i ], [ %14, %.split.i.i.i ]
   %17 = add nsw i64 %.01.i.i.i, -1
-  %18 = getelementptr inbounds ptr, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN4llvm13CallGraphNodeElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_SD_T1_T2_"(ptr noundef nonnull %0, i64 noundef %17, i64 noundef %12, ptr noundef %19)
   %20 = icmp eq i64 %17, 0
@@ -4903,9 +4903,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN4llvm13CallGraphNodeElS2_N9
   %.034 = phi i64 [ %28, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread" ], [ %1, %4 ]
   %8 = shl i64 %.034, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   %13 = getelementptr i8, ptr %.val, i64 8
@@ -4954,9 +4954,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit.thread": ; preds = %15, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i, %25, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit", %27
   %28 = phi i64 [ %11, %27 ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESB_EEbT_T0_.exit" ], [ %9, %25 ], [ %9, %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i ], [ %9, %15 ]
-  %29 = getelementptr inbounds ptr, ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %0, i64 %28
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %31 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
   store ptr %30, ptr %31, align 8
   %32 = icmp slt i64 %28, %6
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !77
@@ -4976,9 +4976,9 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZN4ll
 39:                                               ; preds = %35
   %40 = shl nsw i64 %.0.lcssa, 1
   %41 = or disjoint i64 %40, 1
-  %42 = getelementptr inbounds ptr, ptr %0, i64 %41
+  %42 = getelementptr inbounds nuw ptr, ptr %0, i64 %41
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %43, ptr %44, align 8
   br label %45
 
@@ -5036,7 +5036,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i: ; preds = %_ZN4
 
 63:                                               ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4llvm9CallGraph5printERNS2_11raw_ostreamEE3$_0EclIPPNS2_13CallGraphNodeESA_EEbT_RT0_.exit.i", %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.thread.i.i.i.i.i, %61
   %64 = load ptr, ptr %49, align 8
-  %65 = getelementptr inbounds ptr, ptr %0, i64 %.0134.i
+  %65 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0134.i
   store ptr %64, ptr %65, align 8
   %66 = icmp sgt i64 %.05.i, %1
   br i1 %66, label %48, label %"_ZSt11__push_heapIPPN4llvm13CallGraphNodeElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZNKS0_9CallGraph5printERNS0_11raw_ostreamEE3$_0EEEvT_T0_SD_T1_RT2_.exit", !llvm.loop !78

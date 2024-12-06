@@ -545,9 +545,9 @@ if.then1:                                         ; preds = %if.end
   br label %return
 
 if.end3:                                          ; preds = %if.end
-  %3 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %3, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   store ptr @qnull_, ptr %obj, align 8
   br label %return
 

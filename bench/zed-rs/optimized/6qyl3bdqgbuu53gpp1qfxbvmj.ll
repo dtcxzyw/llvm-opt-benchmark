@@ -16003,7 +16003,7 @@ define hidden noundef align 8 ptr @_ZN5prost7message7Message5merge17hcf652c87f16
 
 156:                                              ; preds = %41
   %157 = add nsw i64 %37, -1
-  %158 = getelementptr inbounds [0 x i8], ptr %.val.i.i, i64 0, i64 %157
+  %158 = getelementptr inbounds nuw [0 x i8], ptr %.val.i.i, i64 0, i64 %157
   %159 = load i8, ptr %158, align 1, !noalias !1648, !noundef !4
   %160 = icmp sgt i8 %159, -1
   br i1 %160, label %46, label %_ZN5prost8encoding13decode_varint17haa96bba9e6c27a8eE.exit

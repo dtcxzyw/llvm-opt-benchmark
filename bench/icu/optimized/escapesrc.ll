@@ -259,7 +259,7 @@ if.end65:                                         ; preds = %if.end58, %if.then3
   %13 = and i8 %12, 63
   %conv68 = or disjoint i8 %13, -128
   %inc69 = add nuw nsw i64 %i27.0, 1
-  %arrayidx70 = getelementptr inbounds i8, ptr %bytes, i64 %i27.0
+  %arrayidx70 = getelementptr inbounds nuw i8, ptr %bytes, i64 %i27.0
   store i8 %conv68, ptr %arrayidx70, align 1
   br label %do.end
 

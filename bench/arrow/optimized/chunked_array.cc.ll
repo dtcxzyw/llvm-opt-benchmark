@@ -2726,7 +2726,7 @@ while.body.i.i:                                   ; preds = %if.end15.i, %while.
   %n.08.i.i = phi i64 [ %n.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i, %if.end15.i ]
   %shr.i.i = lshr i64 %n.08.i.i, 1
   %add.i.i = add nuw nsw i64 %shr.i.i, %lo.09.i.i
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %3, i64 %add.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %add.i.i
   %7 = load i64, ptr %add.ptr.i.i.i, align 8
   %cmp4.not.i.i = icmp slt i64 %index, %7
   %sub.i.i = sub nsw i64 %n.08.i.i, %shr.i.i
@@ -2738,7 +2738,7 @@ while.body.i.i:                                   ; preds = %if.end15.i, %while.
 _ZNK5arrow8internal13ChunkResolver6BisectEl.exit.i: ; preds = %while.body.i.i, %if.end15.i
   %lo.0.lcssa.i.i = phi i64 [ 0, %if.end15.i ], [ %lo.1.i.i, %while.body.i.i ]
   store atomic i64 %lo.0.lcssa.i.i, ptr %cached_chunk_.i seq_cst, align 8
-  %add.ptr.i17.i = getelementptr inbounds i64, ptr %3, i64 %lo.0.lcssa.i.i
+  %add.ptr.i17.i = getelementptr inbounds nuw i64, ptr %3, i64 %lo.0.lcssa.i.i
   %8 = load i64, ptr %add.ptr.i17.i, align 8
   %sub23.i = sub nsw i64 %index, %8
   br label %_ZNK5arrow8internal13ChunkResolver7ResolveEl.exit

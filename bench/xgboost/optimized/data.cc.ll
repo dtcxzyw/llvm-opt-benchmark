@@ -28657,7 +28657,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !417
-  %53 = getelementptr inbounds i64, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i64, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !415
   %54 = getelementptr inbounds nuw i64, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !416
@@ -28756,7 +28756,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !418
-  %53 = getelementptr inbounds float, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw float, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !419
   %54 = getelementptr inbounds nuw float, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !465
@@ -28855,7 +28855,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !420
-  %53 = getelementptr inbounds i32, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !421
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !466
@@ -44520,7 +44520,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !609
-  %53 = getelementptr inbounds i32, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !610
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !644
@@ -59660,7 +59660,7 @@ define linkonce_odr void @_ZNSt6vectorIlSaIlEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !776
-  %53 = getelementptr inbounds i64, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i64, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !775
   %54 = getelementptr inbounds nuw i64, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !811
@@ -74628,7 +74628,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerIjfEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 135:                                              ; preds = %131, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1007
-  %136 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer", ptr %53, i64 %1
+  %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer", ptr %53, i64 %1
   store ptr %136, ptr %5, align 8, !tbaa !985
   %137 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer", ptr %52, i64 %50
   store ptr %137, ptr %12, align 8, !tbaa !1009
@@ -83570,7 +83570,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerImfEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 134:                                              ; preds = %130, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerImfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1197
-  %135 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer.277", ptr %53, i64 %1
+  %135 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.277", ptr %53, i64 %1
   store ptr %135, ptr %5, align 8, !tbaa !1182
   %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.277", ptr %52, i64 %50
   store ptr %136, ptr %12, align 8, !tbaa !1199
@@ -96839,7 +96839,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerIjiEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 135:                                              ; preds = %131, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1387
-  %136 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer.314", ptr %53, i64 %1
+  %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.314", ptr %53, i64 %1
   store ptr %136, ptr %5, align 8, !tbaa !1378
   %137 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.314", ptr %52, i64 %50
   store ptr %137, ptr %12, align 8, !tbaa !1389
@@ -99856,7 +99856,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerImiEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 134:                                              ; preds = %130, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerImiEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1454
-  %135 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer.356", ptr %53, i64 %1
+  %135 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.356", ptr %53, i64 %1
   store ptr %135, ptr %5, align 8, !tbaa !1445
   %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.356", ptr %52, i64 %50
   store ptr %136, ptr %12, align 8, !tbaa !1456
@@ -102881,7 +102881,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerIjlEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 135:                                              ; preds = %131, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerIjlEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1522
-  %136 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer.393", ptr %53, i64 %1
+  %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.393", ptr %53, i64 %1
   store ptr %136, ptr %5, align 8, !tbaa !1513
   %137 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.393", ptr %52, i64 %50
   store ptr %137, ptr %12, align 8, !tbaa !1524
@@ -105897,7 +105897,7 @@ _ZNSt6vectorIN4dmlc4data17RowBlockContainerImlEESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 134:                                              ; preds = %130, %_ZNSt6vectorIN4dmlc4data17RowBlockContainerImlEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %52, ptr %0, align 8, !tbaa !1589
-  %135 = getelementptr inbounds %"struct.dmlc::data::RowBlockContainer.435", ptr %53, i64 %1
+  %135 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.435", ptr %53, i64 %1
   store ptr %135, ptr %5, align 8, !tbaa !1580
   %136 = getelementptr inbounds nuw %"struct.dmlc::data::RowBlockContainer.435", ptr %52, i64 %50
   store ptr %136, ptr %12, align 8, !tbaa !1591

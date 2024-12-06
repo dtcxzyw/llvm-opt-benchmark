@@ -4489,7 +4489,7 @@ for.body.i:                                       ; preds = %if.end10, %for.body
 ssl_print_hex.exit:                               ; preds = %for.body.i, %if.end10
   %call5.i = tail call i32 @BIO_puts(ptr noundef %bio, ptr noundef nonnull @.str.12) #3
   %5 = load ptr, ptr %pmsg, align 8
-  %add.ptr12 = getelementptr inbounds i8, ptr %5, i64 %add
+  %add.ptr12 = getelementptr inbounds nuw i8, ptr %5, i64 %add
   store ptr %add.ptr12, ptr %pmsg, align 8
   %6 = load i64, ptr %pmsglen, align 8
   %sub = sub i64 %6, %add

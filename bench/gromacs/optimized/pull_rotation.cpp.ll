@@ -10745,13 +10745,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
   %25 = and i64 %20, 1
   %26 = icmp eq i64 %25, 0
   %27 = or disjoint i64 %21, 1
-  %28 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %27
   %29 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %22
   br label %30
 
 30:                                               ; preds = %"_ZSt13__adjust_heapIP16sort_along_vec_tlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sort_collective_coordinatesP13gmx_enfrotgrpS1_E3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i", %19
   %.0.i.i.i = phi i64 [ %22, %19 ], [ %53, %"_ZSt13__adjust_heapIP16sort_along_vec_tlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sort_collective_coordinatesP13gmx_enfrotgrpS1_E3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i" ]
-  %31 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %.0.i.i.i
+  %31 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %.0.i.i.i
   %.sroa.02.0.copyload.i.i.i = load float, ptr %31, align 4
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %31, i64 4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %.sroa.4.i.i.i)
@@ -10763,15 +10763,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
   %.032.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %30 ]
   %33 = shl i64 %.032.i.i.i.i, 1
   %34 = add i64 %33, 2
-  %35 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %34
   %36 = or disjoint i64 %33, 1
-  %37 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %36
   %.val.i.i.i.i = load float, ptr %35, align 4
   %.val28.i.i.i.i = load float, ptr %37, align 4
   %38 = fcmp olt float %.val.i.i.i.i, %.val28.i.i.i.i
   %spec.select.i.i.i.i = select i1 %38, i64 %36, i64 %34
-  %39 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %spec.select.i.i.i.i
-  %40 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %.032.i.i.i.i
+  %39 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %spec.select.i.i.i.i
+  %40 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %.032.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %40, ptr noundef nonnull align 4 dereferenceable(36) %39, i64 36, i1 false)
   %41 = icmp slt i64 %spec.select.i.i.i.i, %24
   br i1 %41, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !102
@@ -10801,7 +10801,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
   br i1 %47, label %48, label %"_ZSt13__adjust_heapIP16sort_along_vec_tlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sort_collective_coordinatesP13gmx_enfrotgrpS1_E3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i"
 
 48:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %49 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %.0133.i.i.i.i.i
+  %49 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %49, ptr noundef nonnull align 4 dereferenceable(36) %46, i64 36, i1 false)
   %50 = icmp sgt i64 %.04.i.i.i.i.i, %.0.i.i.i
   br i1 %50, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIP16sort_along_vec_tlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIZL27sort_collective_coordinatesP13gmx_enfrotgrpS1_E3$_0EEEvT_T0_SA_T1_T2_.exit.i.i.i", !llvm.loop !103
@@ -10837,15 +10837,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
   %.032.i.i.i22.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i21.i ], [ 0, %.lr.ph.i6.i ]
   %61 = shl i64 %.032.i.i.i22.i, 1
   %62 = add i64 %61, 2
-  %63 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %62
+  %63 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %62
   %64 = or disjoint i64 %61, 1
-  %65 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %64
+  %65 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %64
   %.val.i.i.i23.i = load float, ptr %63, align 4
   %.val28.i.i.i24.i = load float, ptr %65, align 4
   %66 = fcmp olt float %.val.i.i.i23.i, %.val28.i.i.i24.i
   %spec.select.i.i.i25.i = select i1 %66, i64 %64, i64 %62
-  %67 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %spec.select.i.i.i25.i
-  %68 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %.032.i.i.i22.i
+  %67 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %spec.select.i.i.i25.i
+  %68 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %.032.i.i.i22.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %68, ptr noundef nonnull align 4 dereferenceable(36) %67, i64 36, i1 false)
   %69 = icmp slt i64 %spec.select.i.i.i25.i, %59
   br i1 %69, label %.lr.ph.i.i.i21.i, label %._crit_edge.i.i.i9.i, !llvm.loop !102
@@ -10865,8 +10865,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIP16sort_along_vec_tlN9__gnu
 76:                                               ; preds = %72
   %77 = shl nsw i64 %.0.lcssa.i.i.i10.i, 1
   %78 = or disjoint i64 %77, 1
-  %79 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %78
-  %80 = getelementptr inbounds %struct.sort_along_vec_t, ptr %0, i64 %.0.lcssa.i.i.i10.i
+  %79 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %78
+  %80 = getelementptr inbounds nuw %struct.sort_along_vec_t, ptr %0, i64 %.0.lcssa.i.i.i10.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %80, ptr noundef nonnull align 4 dereferenceable(36) %79, i64 36, i1 false)
   br label %81
 

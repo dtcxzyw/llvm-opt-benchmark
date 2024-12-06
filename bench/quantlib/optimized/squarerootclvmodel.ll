@@ -7461,7 +7461,7 @@ while.cond.preheader:                             ; preds = %if.end
 
 while.cond.us:                                    ; preds = %if.end, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
   %__parent.0.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us ], [ %div9, %if.end ]
-  %add.ptr.us = getelementptr inbounds double, ptr %__first, i64 %__parent.0.us
+  %add.ptr.us = getelementptr inbounds nuw double, ptr %__first, i64 %__parent.0.us
   %1 = load double, ptr %add.ptr.us, align 8, !tbaa !108
   %cmp24.i.us = icmp slt i64 %__parent.0.us, %div.i1315
   br i1 %cmp24.i.us, label %while.body.i.us, label %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit.us
@@ -7513,7 +7513,7 @@ _ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit
   %__parent.0 = phi i64 [ %dec, %_ZSt13__adjust_heapIPdldN9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S5_T1_T2_.exit ], [ %div9, %while.cond.preheader ]
-  %add.ptr = getelementptr inbounds double, ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw double, ptr %__first, i64 %__parent.0
   %6 = load double, ptr %add.ptr, align 8, !tbaa !108
   %cmp24.i = icmp slt i64 %__parent.0, %div.i1315
   br i1 %cmp24.i, label %while.body.i, label %while.end.i

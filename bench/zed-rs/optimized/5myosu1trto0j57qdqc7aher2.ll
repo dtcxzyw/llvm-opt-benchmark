@@ -2187,7 +2187,7 @@ default.unreachable:                              ; preds = %110
   br i1 %215, label %216, label %.loopexit76
 
 216:                                              ; preds = %"_ZN7tendril7tendril20Tendril$LT$F$C$A$GT$13as_byte_slice17h2e2b1cb887a5fce7E.exit"
-  %217 = getelementptr inbounds [0 x i8], ptr %.sroa.0.0.i43, i64 0, i64 %24
+  %217 = getelementptr inbounds nuw [0 x i8], ptr %.sroa.0.0.i43, i64 0, i64 %24
   %218 = call noundef zeroext i1 %3(ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %217, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %7)
   br i1 %218, label %219, label %229
 

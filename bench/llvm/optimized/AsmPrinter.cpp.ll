@@ -28531,7 +28531,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefEj
 
 26:                                               ; preds = %26, %22
   %.0.i.i.i = phi i64 [ %25, %22 ], [ %29, %26 ]
-  %27 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %.0.i.i.i
+  %27 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_0EEEvT_T0_SC_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %23, ptr noundef nonnull byval(%"struct.std::pair.1052") align 8 %27)
   %28 = icmp eq i64 %.0.i.i.i, 0
   %29 = add nsw i64 %.0.i.i.i, -1
@@ -28919,9 +28919,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefEjElS
   %.038 = phi i64 [ %26, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit.thread34" ], [ %1, %4 ]
   %8 = shl i64 %.038, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %14 = load i32, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -28965,8 +28965,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %20
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit.thread34": ; preds = %18, %23, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit.thread"
   %25 = phi i32 [ %16, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit.thread" ], [ %14, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit" ], [ %14, %23 ], [ %14, %18 ]
   %26 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit.thread" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjESA_EEbT_T0_.exit" ], [ %9, %23 ], [ %9, %18 ]
-  %27 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %26
-  %28 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %.038
+  %27 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %26
+  %28 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %.038
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %28, ptr noundef nonnull align 8 dereferenceable(20) %27, i64 16, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store i32 %25, ptr %29, align 8
@@ -28988,8 +28988,8 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i: ; preds = %20
 37:                                               ; preds = %33
   %38 = shl nsw i64 %.0.lcssa, 1
   %39 = or disjoint i64 %38, 1
-  %40 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %39
-  %41 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %.0.lcssa
+  %40 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %39
+  %41 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %41, ptr noundef nonnull align 8 dereferenceable(20) %40, i64 16, i1 false)
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %43 = load i32, ptr %42, align 4
@@ -29043,7 +29043,7 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i.i.i.i: ; preds = %53
   br i1 %57, label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i", label %"_ZSt11__push_heapIPSt4pairIN4llvm9StringRefEjElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZNS1_10AsmPrinter16emitFunctionBodyEvE3$_0EEEvT_T0_SC_T1_RT2_.exit"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.thread.i": ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm10AsmPrinter16emitFunctionBodyEvE3$_0EclIPSt4pairINS2_9StringRefEjES9_EEbT_RT0_.exit.i", %56, %.lr.ph.i
-  %58 = getelementptr inbounds %"struct.std::pair.1052", ptr %0, i64 %.0136.i
+  %58 = getelementptr inbounds nuw %"struct.std::pair.1052", ptr %0, i64 %.0136.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %58, ptr noundef nonnull align 8 dereferenceable(20) %47, i64 16, i1 false)
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   store i32 %49, ptr %59, align 8

@@ -3346,7 +3346,7 @@ if.then:                                          ; preds = %_ZN4absl18debugging
   %conv = zext nneg i32 %out_size to i64
   %call4 = call ptr @strncpy(ptr noundef %out, ptr noundef nonnull %retval.0.i17, i64 noundef %conv) #21
   %sub = add nsw i64 %conv, -1
-  %arrayidx = getelementptr inbounds i8, ptr %out, i64 %sub
+  %arrayidx = getelementptr inbounds nuw i8, ptr %out, i64 %sub
   %163 = load i8, ptr %arrayidx, align 1
   %cmp7.not = icmp eq i8 %163, 0
   br i1 %cmp7.not, label %if.end19, label %if.then8

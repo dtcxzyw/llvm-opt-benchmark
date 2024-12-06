@@ -842,7 +842,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
 150:                                              ; preds = %.lr.ph187, %.backedge
   %.091.neg186 = phi i64 [ 0, %.lr.ph187 ], [ %.091.neg, %.backedge ]
   %.091185 = phi i64 [ 0, %.lr.ph187 ], [ %.089.lcssa, %.backedge ]
-  %151 = getelementptr inbounds i64, ptr %123, i64 %.091185
+  %151 = getelementptr inbounds nuw i64, ptr %123, i64 %.091185
   %152 = load i64, ptr %151, align 8
   %153 = load ptr, ptr %8, align 8
   %154 = getelementptr inbounds i64, ptr %153, i64 %152
@@ -859,7 +859,7 @@ _ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEElEC
 
 159:                                              ; preds = %158
   %.089 = add nuw nsw i64 %.089.in, 1
-  %160 = getelementptr inbounds i64, ptr %123, i64 %.089
+  %160 = getelementptr inbounds nuw i64, ptr %123, i64 %.089
   %161 = load i64, ptr %160, align 8
   %162 = getelementptr inbounds i64, ptr %153, i64 %161
   %163 = load i64, ptr %162, align 8

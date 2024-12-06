@@ -6347,7 +6347,7 @@ define hidden void @_ZN8arrayvec13arrayvec_impl12ArrayVecImpl8truncate17h789f81a
   %6 = trunc i64 %1 to i32
   store i32 %6, ptr %0, align 8, !alias.scope !1419
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
   %9 = sub nuw nsw i64 %4, %1
   br label %.lr.ph
 

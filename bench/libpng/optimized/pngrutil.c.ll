@@ -3830,7 +3830,7 @@ png_crc_read.exit:                                ; preds = %38, %31
 52:                                               ; preds = %50
   %53 = add nuw nsw i64 %51, 1
   store i64 %53, ptr %4, align 8
-  %54 = getelementptr inbounds i8, ptr %.1.i.ph, i64 %51
+  %54 = getelementptr inbounds nuw i8, ptr %.1.i.ph, i64 %51
   %55 = load i8, ptr %54, align 1
   %.not57 = icmp eq i8 %55, 0
   br i1 %.not57, label %57, label %56
@@ -3876,7 +3876,7 @@ png_crc_read.exit:                                ; preds = %38, %31
   %71 = load i8, ptr %.1.i.ph, align 1
   %72 = zext i8 %71 to i32
   %73 = getelementptr inbounds nuw i8, ptr %.1.i.ph, i64 1
-  %74 = getelementptr inbounds i8, ptr %.1.i.ph, i64 %53
+  %74 = getelementptr inbounds nuw i8, ptr %.1.i.ph, i64 %53
   call void @png_set_sCAL_s(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %72, ptr noundef nonnull %73, ptr noundef nonnull %74) #12
   br label %75
 
@@ -5202,7 +5202,7 @@ define void @png_combine_row(ptr noalias noundef %0, ptr noundef %1, i32 noundef
 
 51:                                               ; preds = %48, %45
   %52 = phi i64 [ %47, %45 ], [ %50, %48 ]
-  %53 = getelementptr inbounds i8, ptr %1, i64 %52
+  %53 = getelementptr inbounds nuw i8, ptr %1, i64 %52
   %54 = getelementptr inbounds i8, ptr %53, i64 -1
   %55 = load i8, ptr %54, align 1
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 308

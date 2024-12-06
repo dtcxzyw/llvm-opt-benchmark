@@ -21250,9 +21250,9 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
 51:                                               ; preds = %._crit_edge, %.lr.ph27
   %52 = phi i64 [ 0, %.lr.ph27 ], [ %50, %._crit_edge ]
   %53 = add nuw i64 %52, %13
-  %54 = getelementptr inbounds i32, ptr %5, i64 %.024225
+  %54 = getelementptr inbounds nuw i32, ptr %5, i64 %.024225
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %5, i64 %53
+  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %53
   %57 = load i32, ptr %56, align 4
   %58 = zext i32 %55 to i64
   %59 = getelementptr inbounds nuw i32, ptr %.pre78, i64 %58
@@ -21359,9 +21359,9 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   br i1 %97, label %98, label %132
 
 98:                                               ; preds = %.lr.ph57
-  %99 = getelementptr inbounds i32, ptr %5, i64 %94
+  %99 = getelementptr inbounds nuw i32, ptr %5, i64 %94
   %100 = load i32, ptr %99, align 4
-  %101 = getelementptr inbounds i32, ptr %5, i64 %96
+  %101 = getelementptr inbounds nuw i32, ptr %5, i64 %96
   %102 = load i32, ptr %101, align 4
   %103 = zext i32 %100 to i64
   %104 = getelementptr inbounds nuw i32, ptr %.pre80, i64 %103
@@ -21426,7 +21426,7 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
   %133 = phi i64 [ 0, %.lr.ph57 ], [ %131, %._crit_edge34 ]
   %134 = add i64 %133, %94
   %135 = getelementptr inbounds i32, ptr %5, i64 %.024055
-  %136 = getelementptr inbounds i32, ptr %5, i64 %134
+  %136 = getelementptr inbounds nuw i32, ptr %5, i64 %134
   %137 = load i32, ptr %136, align 4
   %138 = getelementptr inbounds nuw i32, ptr %.pre80, i64 %93
   %139 = load i32, ptr %138, align 4

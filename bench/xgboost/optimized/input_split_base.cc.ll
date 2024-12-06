@@ -8376,7 +8376,7 @@ define linkonce_odr void @_ZNSt6vectorImSaImEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !33
-  %53 = getelementptr inbounds i64, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i64, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !32
   %54 = getelementptr inbounds nuw i64, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !66
@@ -19982,7 +19982,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPcSt6
 
 16:                                               ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds i8, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %11
   br label %51
 
@@ -20015,20 +20015,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPcSt6
   %38 = phi i64 [ %40, %44 ], [ %33, %.preheader21 ]
   %39 = add nsw i64 %38, -1
   %40 = sdiv i64 %39, 2
-  %41 = getelementptr inbounds i8, ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !28
   %43 = icmp slt i8 %42, %22
   br i1 %43, label %44, label %.loopexit19
 
 44:                                               ; preds = %.preheader18
-  %45 = getelementptr inbounds i8, ptr %0, i64 %38
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %38
   store i8 %42, ptr %45, align 1, !tbaa !28
   %46 = icmp sgt i64 %40, %20
   br i1 %46, label %.preheader18, label %.loopexit19, !llvm.loop !490
 
 .loopexit19:                                      ; preds = %44, %.preheader18, %.preheader22
   %47 = phi i64 [ %20, %.preheader22 ], [ %38, %.preheader18 ], [ %40, %44 ]
-  %48 = getelementptr inbounds i8, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 %47
   store i8 %22, ptr %48, align 1, !tbaa !28
   %49 = icmp eq i64 %20, 0
   %50 = add nsw i64 %20, -1
@@ -20078,20 +20078,20 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPcSt6
   %77 = phi i64 [ %79, %83 ], [ %75, %74 ]
   %78 = add nsw i64 %77, -1
   %79 = sdiv i64 %78, 2
-  %80 = getelementptr inbounds i8, ptr %0, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !28
   %82 = icmp slt i8 %81, %54
   br i1 %82, label %83, label %.loopexit
 
 83:                                               ; preds = %.preheader
-  %84 = getelementptr inbounds i8, ptr %0, i64 %77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 %77
   store i8 %81, ptr %84, align 1, !tbaa !28
   %85 = icmp sgt i64 %79, %52
   br i1 %85, label %.preheader, label %.loopexit, !llvm.loop !490
 
 .loopexit:                                        ; preds = %83, %.preheader, %74
   %86 = phi i64 [ %75, %74 ], [ %77, %.preheader ], [ %79, %83 ]
-  %87 = getelementptr inbounds i8, ptr %0, i64 %86
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 %86
   store i8 %54, ptr %87, align 1, !tbaa !28
   %88 = icmp eq i64 %52, 0
   %89 = add nsw i64 %52, -1
@@ -40207,7 +40207,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef 
 
 52:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !64
-  %53 = getelementptr inbounds i32, ptr %39, i64 %1
+  %53 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %53, ptr %5, align 8, !tbaa !133
   %54 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %54, ptr %12, align 8, !tbaa !65

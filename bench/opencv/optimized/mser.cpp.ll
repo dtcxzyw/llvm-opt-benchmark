@@ -5646,7 +5646,7 @@ define linkonce_odr hidden void @_ZSt13__heap_selectIPN2cv8MSCREdgeEN9__gnu_cxx5
 
 19:                                               ; preds = %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i, %8
   %.0.i = phi i64 [ %11, %8 ], [ %45, %_ZSt13__adjust_heapIPN2cv8MSCREdgeElS1_N9__gnu_cxx5__ops15_Iter_comp_iterINS0_12LessThanEdgeEEEEvT_T0_S9_T1_T2_.exit.i ]
-  %20 = getelementptr inbounds %"struct.cv::MSCREdge", ptr %0, i64 %.0.i
+  %20 = getelementptr inbounds nuw %"struct.cv::MSCREdge", ptr %0, i64 %.0.i
   %.sroa.014.0.copyload.i = load double, ptr %20, align 8
   %.sroa.215.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.4.i)

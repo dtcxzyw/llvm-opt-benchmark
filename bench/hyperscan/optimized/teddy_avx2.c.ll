@@ -4617,7 +4617,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2367
 sw.bb8.i:                                         ; preds = %if.end.i2367, %if.end.i2367, %if.end.i2367
   %add.ptr.i2420 = getelementptr inbounds nuw i8, ptr %u.i2281, i64 %sub.ptr.sub3.i2365
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2420, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
   %add.ptr11.i2421 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %640 = load i32, ptr %add.ptr11.i2421, align 1
   store i32 %640, ptr %add.ptr9.i, align 1
@@ -4633,7 +4633,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2367
 sw.default.i2427:                                 ; preds = %if.end.i2367
   %add.ptr16.i2428 = getelementptr inbounds nuw i8, ptr %u.i2281, i64 %sub.ptr.sub3.i2365
   %add.ptr17.i2429 = getelementptr inbounds i8, ptr %add.ptr16.i2428, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %643 = load i64, ptr %add.ptr19.i, align 1
   store i64 %643, ptr %add.ptr17.i2429, align 1
@@ -10099,7 +10099,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2367
 sw.bb8.i:                                         ; preds = %if.end.i2367, %if.end.i2367, %if.end.i2367
   %add.ptr.i2420 = getelementptr inbounds nuw i8, ptr %u.i2281, i64 %sub.ptr.sub3.i2365
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2420, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
   %add.ptr11.i2421 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %640 = load i32, ptr %add.ptr11.i2421, align 1
   store i32 %640, ptr %add.ptr9.i, align 1
@@ -10115,7 +10115,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2367
 sw.default.i2427:                                 ; preds = %if.end.i2367
   %add.ptr16.i2428 = getelementptr inbounds nuw i8, ptr %u.i2281, i64 %sub.ptr.sub3.i2365
   %add.ptr17.i2429 = getelementptr inbounds i8, ptr %add.ptr16.i2428, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2365
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %643 = load i64, ptr %add.ptr19.i, align 1
   store i64 %643, ptr %add.ptr17.i2429, align 1
@@ -15644,7 +15644,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2479
 sw.bb8.i:                                         ; preds = %if.end.i2479, %if.end.i2479, %if.end.i2479
   %add.ptr.i2532 = getelementptr inbounds nuw i8, ptr %u.i2393, i64 %sub.ptr.sub3.i2477
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2532, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
   %add.ptr11.i2533 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %667 = load i32, ptr %add.ptr11.i2533, align 1
   store i32 %667, ptr %add.ptr9.i, align 1
@@ -15660,7 +15660,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2479
 sw.default.i2538:                                 ; preds = %if.end.i2479
   %add.ptr16.i2539 = getelementptr inbounds nuw i8, ptr %u.i2393, i64 %sub.ptr.sub3.i2477
   %add.ptr17.i2540 = getelementptr inbounds i8, ptr %add.ptr16.i2539, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %670 = load i64, ptr %add.ptr19.i, align 1
   store i64 %670, ptr %add.ptr17.i2540, align 1
@@ -21198,7 +21198,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2479
 sw.bb8.i:                                         ; preds = %if.end.i2479, %if.end.i2479, %if.end.i2479
   %add.ptr.i2532 = getelementptr inbounds nuw i8, ptr %u.i2393, i64 %sub.ptr.sub3.i2477
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2532, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
   %add.ptr11.i2533 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %667 = load i32, ptr %add.ptr11.i2533, align 1
   store i32 %667, ptr %add.ptr9.i, align 1
@@ -21214,7 +21214,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2479
 sw.default.i2538:                                 ; preds = %if.end.i2479
   %add.ptr16.i2539 = getelementptr inbounds nuw i8, ptr %u.i2393, i64 %sub.ptr.sub3.i2477
   %add.ptr17.i2540 = getelementptr inbounds i8, ptr %add.ptr16.i2539, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2477
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %670 = load i64, ptr %add.ptr19.i, align 1
   store i64 %670, ptr %add.ptr17.i2540, align 1
@@ -26800,7 +26800,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2606
 sw.bb8.i:                                         ; preds = %if.end.i2606, %if.end.i2606, %if.end.i2606
   %add.ptr.i2659 = getelementptr inbounds nuw i8, ptr %u.i2520, i64 %sub.ptr.sub3.i2604
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2659, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
   %add.ptr11.i2660 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %691 = load i32, ptr %add.ptr11.i2660, align 1
   store i32 %691, ptr %add.ptr9.i, align 1
@@ -26816,7 +26816,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2606
 sw.default.i2665:                                 ; preds = %if.end.i2606
   %add.ptr16.i2666 = getelementptr inbounds nuw i8, ptr %u.i2520, i64 %sub.ptr.sub3.i2604
   %add.ptr17.i2667 = getelementptr inbounds i8, ptr %add.ptr16.i2666, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %694 = load i64, ptr %add.ptr19.i, align 1
   store i64 %694, ptr %add.ptr17.i2667, align 1
@@ -32411,7 +32411,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2606
 sw.bb8.i:                                         ; preds = %if.end.i2606, %if.end.i2606, %if.end.i2606
   %add.ptr.i2659 = getelementptr inbounds nuw i8, ptr %u.i2520, i64 %sub.ptr.sub3.i2604
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2659, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
   %add.ptr11.i2660 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %691 = load i32, ptr %add.ptr11.i2660, align 1
   store i32 %691, ptr %add.ptr9.i, align 1
@@ -32427,7 +32427,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2606
 sw.default.i2665:                                 ; preds = %if.end.i2606
   %add.ptr16.i2666 = getelementptr inbounds nuw i8, ptr %u.i2520, i64 %sub.ptr.sub3.i2604
   %add.ptr17.i2667 = getelementptr inbounds i8, ptr %add.ptr16.i2666, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2604
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %694 = load i64, ptr %add.ptr19.i, align 1
   store i64 %694, ptr %add.ptr17.i2667, align 1
@@ -38070,7 +38070,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2738
 sw.bb8.i:                                         ; preds = %if.end.i2738, %if.end.i2738, %if.end.i2738
   %add.ptr.i2791 = getelementptr inbounds nuw i8, ptr %u.i2652, i64 %sub.ptr.sub3.i2736
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2791, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
   %add.ptr11.i2792 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %715 = load i32, ptr %add.ptr11.i2792, align 1
   store i32 %715, ptr %add.ptr9.i, align 1
@@ -38086,7 +38086,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2738
 sw.default.i2797:                                 ; preds = %if.end.i2738
   %add.ptr16.i2798 = getelementptr inbounds nuw i8, ptr %u.i2652, i64 %sub.ptr.sub3.i2736
   %add.ptr17.i2799 = getelementptr inbounds i8, ptr %add.ptr16.i2798, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %718 = load i64, ptr %add.ptr19.i, align 1
   store i64 %718, ptr %add.ptr17.i2799, align 1
@@ -43738,7 +43738,7 @@ sw.bb6.i:                                         ; preds = %if.end.i2738
 sw.bb8.i:                                         ; preds = %if.end.i2738, %if.end.i2738, %if.end.i2738
   %add.ptr.i2791 = getelementptr inbounds nuw i8, ptr %u.i2652, i64 %sub.ptr.sub3.i2736
   %add.ptr9.i = getelementptr inbounds i8, ptr %add.ptr.i2791, i64 -4
-  %add.ptr10.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
+  %add.ptr10.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
   %add.ptr11.i2792 = getelementptr inbounds i8, ptr %add.ptr10.i, i64 -4
   %715 = load i32, ptr %add.ptr11.i2792, align 1
   store i32 %715, ptr %add.ptr9.i, align 1
@@ -43754,7 +43754,7 @@ sw.bb14.i:                                        ; preds = %if.end.i2738
 sw.default.i2797:                                 ; preds = %if.end.i2738
   %add.ptr16.i2798 = getelementptr inbounds nuw i8, ptr %u.i2652, i64 %sub.ptr.sub3.i2736
   %add.ptr17.i2799 = getelementptr inbounds i8, ptr %add.ptr16.i2798, i64 -8
-  %add.ptr18.i = getelementptr inbounds i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %ptr.4, i64 %sub.ptr.sub3.i2736
   %add.ptr19.i = getelementptr inbounds i8, ptr %add.ptr18.i, i64 -8
   %718 = load i64, ptr %add.ptr19.i, align 1
   store i64 %718, ptr %add.ptr17.i2799, align 1

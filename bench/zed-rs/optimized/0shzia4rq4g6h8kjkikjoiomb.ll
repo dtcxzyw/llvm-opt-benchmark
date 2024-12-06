@@ -6444,7 +6444,7 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator4fold17hb47b8
 18:                                               ; preds = %16
   %19 = zext i32 %17 to i64
   %20 = add nsw i64 %19, -1
-  %21 = getelementptr inbounds [0 x { ptr, i64, {} }], ptr %10, i64 0, i64 %20
+  %21 = getelementptr inbounds nuw [0 x { ptr, i64, {} }], ptr %10, i64 0, i64 %20
   %22 = load ptr, ptr %21, align 8, !alias.scope !1587, !noalias !1576, !nonnull !9, !align !42, !noundef !9
   %23 = load ptr, ptr %22, align 8, !noalias !1588, !nonnull !9, !noundef !9
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -6481,7 +6481,7 @@ define internal fastcc void @_ZN4core4iter6traits8iterator8Iterator4fold17hb47b8
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %23, i64 192
-  %40 = getelementptr inbounds [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
+  %40 = getelementptr inbounds nuw [0 x { { i64, [2 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64 }], ptr %39, i64 0, i64 %29
   %41 = load i64, ptr %40, align 8, !range !372, !noalias !1589, !noundef !9
   %trunc.i.i = trunc nuw i64 %41 to i1
   br i1 %trunc.i.i, label %53, label %42

@@ -6001,7 +6001,7 @@ if.then:                                          ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %_ZN8rationalD2Ev.exit42.i.i.i, %if.then
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.then ], [ %dec.i.i.i, %_ZN8rationalD2Ev.exit42.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %class.rational, ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %__parent.0.i.i.i
   %0 = load i32, ptr %add.ptr.i.i.i, align 8
   store i32 %0, ptr %__value.i.i.i, align 8
   %m_kind3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 4
@@ -7050,9 +7050,9 @@ while.body:                                       ; preds = %entry, %"_ZN9__gnu_
   %__holeIndex.addr.078 = phi i64 [ %spec.select, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS5_S6_EE3$_0EclIP8rationalSH_EEbT_T0_.exit" ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.078, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds %class.rational, ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %mul
   %sub1 = or disjoint i64 %add, 1
-  %add.ptr2 = getelementptr inbounds %class.rational, ptr %__first, i64 %sub1
+  %add.ptr2 = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %sub1
   %0 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
   %m_den.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 16
   %m_kind.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2, i64 20
@@ -7107,8 +7107,8 @@ if.else.i.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS5_S6_EE3$_0EclIP8rationalSH_EEbT_T0_.exit": ; preds = %if.then.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i, %if.else.i.i.i.i.i
   %retval.0.i.i.i.i.i = phi i1 [ %call5.i.i.i.i.i, %if.else.i.i.i.i.i ], [ %cmp.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i ], [ %cmp5.i.i.i.i.i.i.i, %if.else.i.i.i.i.i.i.i ]
   %spec.select = select i1 %retval.0.i.i.i.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %class.rational, ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %class.rational, ptr %__first, i64 %__holeIndex.addr.078
+  %add.ptr3 = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %__holeIndex.addr.078
   %7 = load i32, ptr %add.ptr4, align 4
   %8 = load i32, ptr %add.ptr3, align 4
   store i32 %8, ptr %add.ptr4, align 4
@@ -7195,8 +7195,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %class.rational, ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %class.rational, ptr %__first, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %__holeIndex.addr.0.lcssa
   %15 = load i32, ptr %add.ptr15, align 4
   %16 = load i32, ptr %add.ptr14, align 4
   store i32 %16, ptr %add.ptr15, align 4
@@ -7358,7 +7358,7 @@ call4.i.i.i.i.i.i.i.i.noexc:                      ; preds = %"_ZN9__gnu_cxx5__op
   br i1 %cmp5.i.i.i.i.i.i.i.i, label %while.body.i, label %invoke.cont.loopexit
 
 while.body.i:                                     ; preds = %call4.i.i.i.i.i.i.i.i.noexc, %call5.i.i.i.i.i.i.noexc, %if.then.i.i.i.i.i.i.i.i
-  %add.ptr2.i = getelementptr inbounds %class.rational, ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %class.rational, ptr %__first, i64 %__holeIndex.addr.04.i
   %36 = load i32, ptr %add.ptr2.i, align 4
   %37 = load i32, ptr %add.ptr.i, align 4
   store i32 %37, ptr %add.ptr2.i, align 4

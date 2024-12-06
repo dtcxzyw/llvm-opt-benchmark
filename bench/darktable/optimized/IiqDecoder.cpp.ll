@@ -2851,7 +2851,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder17PhaseOneFlatFieldENS_10ByteStream
   %362 = add nsw i64 %360, -1
   %363 = mul nuw nsw i64 %362, %155
   %364 = mul nuw nsw i64 %360, %155
-  %365 = getelementptr inbounds float, ptr %151, i64 %363
+  %365 = getelementptr inbounds nuw float, ptr %151, i64 %363
   %366 = add nuw nsw i64 %364, %155
   %367 = icmp samesign ule i64 %366, %156
   tail call void @llvm.assume(i1 %367)
@@ -4420,7 +4420,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %826 = phi i64 [ %878, %.preheader ], [ %825, %.loopexit65 ]
   %827 = icmp ult i64 %826, %791
   call void @llvm.assume(i1 %827)
-  %828 = getelementptr inbounds i16, ptr %807, i64 %826
+  %828 = getelementptr inbounds nuw i16, ptr %807, i64 %826
   %829 = load i16, ptr %828, align 2, !tbaa !218
   %830 = zext i16 %829 to i32
   %831 = icmp ugt i32 %787, %830
@@ -4435,7 +4435,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %839 = add nuw nsw i64 %826, 1
   %840 = icmp ult i64 %839, %791
   call void @llvm.assume(i1 %840)
-  %841 = getelementptr inbounds i16, ptr %807, i64 %839
+  %841 = getelementptr inbounds nuw i16, ptr %807, i64 %839
   %842 = load i16, ptr %841, align 2, !tbaa !218
   %843 = zext i16 %842 to i32
   %844 = icmp ugt i32 %787, %843
@@ -4450,7 +4450,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %852 = add nuw nsw i64 %826, 2
   %853 = icmp ult i64 %852, %791
   call void @llvm.assume(i1 %853)
-  %854 = getelementptr inbounds i16, ptr %807, i64 %852
+  %854 = getelementptr inbounds nuw i16, ptr %807, i64 %852
   %855 = load i16, ptr %854, align 2, !tbaa !218
   %856 = zext i16 %855 to i32
   %857 = icmp ugt i32 %787, %856
@@ -4465,7 +4465,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder34CorrectQuadrantMultipliersCombine
   %865 = add nuw nsw i64 %826, 3
   %866 = icmp ult i64 %865, %791
   call void @llvm.assume(i1 %866)
-  %867 = getelementptr inbounds i16, ptr %807, i64 %865
+  %867 = getelementptr inbounds nuw i16, ptr %807, i64 %865
   %868 = load i16, ptr %867, align 2, !tbaa !218
   %869 = zext i16 %868 to i32
   %870 = icmp ugt i32 %787, %869
@@ -4978,7 +4978,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %68 = add i32 %13, %67
   %69 = icmp ule i32 %68, %19
   tail call void @llvm.assume(i1 %69)
-  %70 = getelementptr inbounds i16, ptr %8, i64 %66
+  %70 = getelementptr inbounds nuw i16, ptr %8, i64 %66
   %71 = getelementptr inbounds nuw i16, ptr %70, i64 %43
   %72 = load i16, ptr %71, align 2, !tbaa !218
   store i16 %72, ptr %3, align 2, !tbaa !218
@@ -4991,7 +4991,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %78 = add i32 %13, %77
   %79 = icmp ule i32 %78, %19
   tail call void @llvm.assume(i1 %79)
-  %80 = getelementptr inbounds i16, ptr %8, i64 %76
+  %80 = getelementptr inbounds nuw i16, ptr %8, i64 %76
   %81 = getelementptr inbounds nuw i16, ptr %80, i64 %43
   %82 = load i16, ptr %81, align 2, !tbaa !218
   store i16 %82, ptr %44, align 2, !tbaa !218
@@ -5066,7 +5066,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %135 = add i32 %13, %134
   %136 = icmp ule i32 %135, %19
   tail call void @llvm.assume(i1 %136)
-  %137 = getelementptr inbounds i16, ptr %8, i64 %133
+  %137 = getelementptr inbounds nuw i16, ptr %8, i64 %133
   %138 = getelementptr inbounds nuw i16, ptr %137, i64 %35
   %139 = load i16, ptr %138, align 2, !tbaa !218
   %140 = zext i16 %139 to i32
@@ -5078,7 +5078,7 @@ define hidden void @_ZNK8rawspeed10IiqDecoder16correctBadColumnEt(ptr nocapture 
   %145 = add i32 %13, %144
   %146 = icmp ule i32 %145, %19
   tail call void @llvm.assume(i1 %146)
-  %147 = getelementptr inbounds i16, ptr %8, i64 %143
+  %147 = getelementptr inbounds nuw i16, ptr %8, i64 %143
   %148 = getelementptr inbounds nuw i16, ptr %147, i64 %35
   %149 = load i16, ptr %148, align 2, !tbaa !218
   %150 = zext i16 %149 to i32
@@ -5364,7 +5364,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 26:                                               ; preds = %18
   %27 = or disjoint i64 %20, 1
-  %28 = getelementptr inbounds %"struct.rawspeed::IiqDecoder::IiqOffset", ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw %"struct.rawspeed::IiqDecoder::IiqOffset", ptr %0, i64 %27
   %29 = getelementptr inbounds nuw %"struct.rawspeed::IiqDecoder::IiqOffset", ptr %0, i64 %21
   br label %71
 

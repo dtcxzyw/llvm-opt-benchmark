@@ -27092,7 +27092,7 @@ _ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold
   %arrayidx4.i.i.i274 = getelementptr inbounds %"class.std::unique_ptr.403", ptr %atomic-temp.i.0.i2.i.i.i273, i64 %__begin1257.sroa.3.0763
   %293 = load ptr, ptr %arrayidx4.i.i.i274, align 8
   call void @_ZN4mold3elf13MergedSectionINS0_5ARM32EE11print_statsERNS0_7ContextIS2_EE(ptr noundef nonnull align 8 dereferenceable(252) %293, ptr noundef nonnull align 8 dereferenceable(4568) %ctx) #15
-  %inc.i276719 = add i64 %__begin1257.sroa.3.0763, 1
+  %inc.i276719 = add nuw i64 %__begin1257.sroa.3.0763, 1
   %cmp3.i.i260.not = icmp eq i64 %inc.i276719, %.sroa.speculated.i.i251
   br i1 %cmp3.i.i260.not, label %for.end267, label %_ZN3tbb6detail2d115vector_iteratorINS1_17concurrent_vectorISt10unique_ptrIN4mold3elf13MergedSectionINS6_5ARM32EEESt14default_deleteIS9_EENS1_23cache_aligned_allocatorISC_EEEESC_EppEv.exit
 

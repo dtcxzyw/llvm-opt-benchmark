@@ -17630,7 +17630,7 @@ lpad:                                             ; preds = %invoke.cont
           catch ptr null
   %8 = extractvalue { ptr, i32 } %7, 0
   %9 = tail call ptr @__cxa_begin_catch(ptr %8) #29
-  %add.ptr28 = getelementptr inbounds %struct.ItemStack, ptr %add.ptr, i64 %__n
+  %add.ptr28 = getelementptr inbounds nuw %struct.ItemStack, ptr %add.ptr, i64 %__n
   invoke void @_ZSt8_DestroyIP9ItemStackS0_EvT_S2_RSaIT0_E(ptr noundef nonnull %add.ptr, ptr noundef nonnull %add.ptr28, ptr noundef nonnull align 1 dereferenceable(1) %this)
           to label %if.then.i84 unwind label %lpad30
 
@@ -17687,7 +17687,7 @@ if.then.i86:                                      ; preds = %_ZSt8_DestroyIP9Ite
 
 _ZNSt12_Vector_baseI9ItemStackSaIS0_EE13_M_deallocateEPS0_m.exit87: ; preds = %if.then.i86, %_ZSt8_DestroyIP9ItemStackS0_EvT_S2_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !131
-  %add.ptr45 = getelementptr inbounds %struct.ItemStack, ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw %struct.ItemStack, ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !132
   %add.ptr48 = getelementptr inbounds nuw %struct.ItemStack, ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8, !tbaa !134

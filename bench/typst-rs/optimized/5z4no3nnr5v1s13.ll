@@ -4625,7 +4625,7 @@ _ZN12jpeg_decoder7decoder37decode_block_successive_approximation17h89386457fa4b7
           to label %892 unwind label %.loopexit.split-lp917.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 892:                                              ; preds = %888
-  %893 = getelementptr inbounds i16, ptr %890, i64 %871
+  %893 = getelementptr inbounds nuw i16, ptr %890, i64 %871
   %894 = extractvalue { i64, ptr } %891, 0
   %895 = extractvalue { i64, ptr } %891, 1
   %896 = icmp ne ptr %895, null
@@ -8166,7 +8166,7 @@ define hidden void @"_ZN12jpeg_decoder7decoder16Decoder$LT$R$GT$15decode_interna
   br i1 %790, label %791, label %.invoke.i, !prof !29
 
 791:                                              ; preds = %789
-  %792 = getelementptr inbounds [0 x i16], ptr %785, i64 0, i64 %.reass.reass.us.i
+  %792 = getelementptr inbounds nuw [0 x i16], ptr %785, i64 0, i64 %.reass.reass.us.i
   %793 = load i16, ptr %792, align 2, !noalias !768, !noundef !14
   %794 = getelementptr inbounds nuw [4 x i16], ptr %38, i64 0, i64 %.sroa.7456.0807.us.i
   store i16 %793, ptr %794, align 2, !noalias !769

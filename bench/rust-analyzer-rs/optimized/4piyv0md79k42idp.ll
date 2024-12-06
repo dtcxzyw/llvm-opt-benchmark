@@ -428,7 +428,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN100_$LT$core.
   %17 = sub nuw i64 %15, %16
   %18 = udiv exact i64 %17, 24
   %.not.i = icmp ult i64 %3, %18
-  %19 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %14, i64 %3
+  %19 = getelementptr inbounds nuw { { i8, [23 x i8] } }, ptr %14, i64 %3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %storemerge.i = select i1 %.not.i, ptr %20, ptr %13
   %.0.i2 = select i1 %.not.i, ptr %19, ptr null
@@ -881,7 +881,7 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %16 = sub nuw i64 %14, %15
   %17 = udiv exact i64 %16, 24
   %.not.i.i = icmp ult i64 %4, %17
-  %18 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %13, i64 %4
+  %18 = getelementptr inbounds nuw { { i8, [23 x i8] } }, ptr %13, i64 %4
   br i1 %.not.i.i, label %select.unfold, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08917d541ac1ccd0E.llvm.8330083114956406873.exit"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h08917d541ac1ccd0E.llvm.8330083114956406873.exit": ; preds = %10
@@ -26876,7 +26876,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN91_$LT$core..
   %8 = sub nuw i64 %6, %7
   %9 = udiv exact i64 %8, 24
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { i8, [23 x i8] } }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.0 = select i1 %.not, ptr %10, ptr null

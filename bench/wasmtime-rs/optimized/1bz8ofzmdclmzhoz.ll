@@ -11051,7 +11051,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode21VCodeBuilder$LT$I$GT
   %83 = xor i64 %.011.i.i.i, -1
   %84 = add nsw i64 %79, %83
   %85 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %76, i64 0, i64 %.011.i.i.i
-  %86 = getelementptr inbounds [0 x { i32, i32 }], ptr %82, i64 0, i64 %84
+  %86 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %82, i64 0, i64 %84
   %87 = load i32, ptr %85, align 4, !alias.scope !1304, !noalias !1307, !noundef !11
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
   %89 = load i32, ptr %88, align 4, !alias.scope !1304, !noalias !1307, !noundef !11
@@ -11085,7 +11085,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode21VCodeBuilder$LT$I$GT
   %102 = xor i64 %.011.i.i43.i, -1
   %103 = add nsw i64 %98, %102
   %104 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %95, i64 0, i64 %.011.i.i43.i
-  %105 = getelementptr inbounds [0 x { i32, i32 }], ptr %101, i64 0, i64 %103
+  %105 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %101, i64 0, i64 %103
   %106 = load i32, ptr %104, align 4, !alias.scope !1315, !noalias !1318, !noundef !11
   %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %108 = load i32, ptr %107, align 4, !alias.scope !1315, !noalias !1318, !noundef !11
@@ -11119,7 +11119,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode21VCodeBuilder$LT$I$GT
   %121 = xor i64 %.011.i.i47.i, -1
   %122 = add nsw i64 %117, %121
   %123 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %114, i64 0, i64 %.011.i.i47.i
-  %124 = getelementptr inbounds [0 x { i32, i32 }], ptr %120, i64 0, i64 %122
+  %124 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %120, i64 0, i64 %122
   %125 = load i32, ptr %123, align 4, !alias.scope !1326, !noalias !1329, !noundef !11
   %126 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %127 = load i32, ptr %126, align 4, !alias.scope !1326, !noalias !1329, !noundef !11
@@ -11151,7 +11151,7 @@ define hidden void @"_ZN17cranelift_codegen8machinst5vcode21VCodeBuilder$LT$I$GT
   %138 = xor i64 %.011.i.i51.i, -1
   %139 = add nsw i64 %134, %138
   %140 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %133, i64 0, i64 %.011.i.i51.i
-  %141 = getelementptr inbounds [0 x { i8, [39 x i8] }], ptr %137, i64 0, i64 %139
+  %141 = getelementptr inbounds nuw [0 x { i8, [39 x i8] }], ptr %137, i64 0, i64 %139
   br label %142
 
 142:                                              ; preds = %142, %.lr.ph.preheader.i.i.i
@@ -11190,7 +11190,7 @@ _ZN4core3ptr19swap_nonoverlapping17h31e52eda2b259d46E.exit.i.i.i: ; preds = %142
   %157 = xor i64 %.011.i.i54.i, -1
   %158 = add nsw i64 %153, %157
   %159 = getelementptr inbounds nuw [0 x i32], ptr %150, i64 0, i64 %.011.i.i54.i
-  %160 = getelementptr inbounds [0 x i32], ptr %156, i64 0, i64 %158
+  %160 = getelementptr inbounds nuw [0 x i32], ptr %156, i64 0, i64 %158
   %161 = load i32, ptr %159, align 4, !alias.scope !1348, !noalias !1351, !noundef !11
   %162 = load i32, ptr %160, align 4, !alias.scope !1352, !noalias !1353, !noundef !11
   store i32 %162, ptr %159, align 4, !alias.scope !1348, !noalias !1351
@@ -11218,7 +11218,7 @@ _ZN4core3ptr19swap_nonoverlapping17h31e52eda2b259d46E.exit.i.i.i: ; preds = %142
   %172 = xor i64 %.011.i.i58.i, -1
   %173 = add nsw i64 %168, %172
   %174 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %165, i64 0, i64 %.011.i.i58.i
-  %175 = getelementptr inbounds [0 x { i32, i32 }], ptr %171, i64 0, i64 %173
+  %175 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %171, i64 0, i64 %173
   %176 = load i32, ptr %174, align 4, !alias.scope !1359, !noalias !1362, !noundef !11
   %177 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %178 = load i32, ptr %177, align 4, !alias.scope !1359, !noalias !1362, !noundef !11
@@ -18112,7 +18112,7 @@ define hidden { ptr, i64 } @"_ZN90_$LT$cranelift_codegen..machinst..vcode..VCode
 
 30:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h251405455ba150f3E.exit"
   %31 = getelementptr inbounds nuw { i32, i32 }, ptr %19, i64 %16
-  %32 = getelementptr inbounds [0 x { i32, i32 }], ptr %31, i64 0, i64 %3
+  %32 = getelementptr inbounds nuw [0 x { i32, i32 }], ptr %31, i64 0, i64 %3
   %33 = load i32, ptr %32, align 4, !noundef !11
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4, !noundef !11
@@ -37178,7 +37178,7 @@ define hidden noundef zeroext i1 @_ZN17cranelift_codegen5write17write_instructio
 .noexc124:                                        ; preds = %"_ZN122_$LT$cranelift_codegen..ir..dfg..Insts$u20$as$u20$core..ops..index..Index$LT$cranelift_codegen..ir..entities..Inst$GT$$GT$5index17h3099bfddb000823eE.exit.i"
   %152 = zext i8 %151 to i64
   %153 = add nsw i64 %152, -1
-  %154 = getelementptr inbounds [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %153
+  %154 = getelementptr inbounds nuw [185 x { i16, i8, i8 }], ptr @anon.7173b3c5b10b09ddf4bd2faf440a3554.81.llvm.17911367524062806024, i64 0, i64 %153
   %.sroa.0.0.copyload.i.i = load i32, ptr %154, align 2, !noalias !6172
   %155 = icmp ult i32 %.sroa.0.0.copyload.i.i, 385875968
   br i1 %155, label %156, label %194

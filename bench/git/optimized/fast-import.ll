@@ -1057,7 +1057,7 @@ while.body.i.i98.i:                               ; preds = %land.rhs.i.i.i
   %shr5.i.i.i = lshr i64 %idnum.addr.019.i.i.i, %sh_prom4.i.i.i
   %shl.i.i.i = shl i64 %shr5.i.i.i, %sh_prom4.i.i.i
   %sub.i.i.i = sub i64 %idnum.addr.019.i.i.i, %shl.i.i.i
-  %arrayidx.i17.i.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i.i, i64 0, i64 %shr5.i.i.i
+  %arrayidx.i17.i.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i.i, i64 0, i64 %shr5.i.i.i
   %70 = load ptr, ptr %arrayidx.i17.i.i, align 8
   %tobool.not.i18.i.i = icmp eq ptr %70, null
   br i1 %tobool.not.i18.i.i, label %if.then14.i.i.i, label %land.rhs.i.i.i, !llvm.loop !11
@@ -1416,7 +1416,7 @@ while.body.i16.i.i:                               ; preds = %land.rhs.i.i164.i
   %shr5.i.i170.i = lshr i64 %idnum.addr.019.i.i166.i, %sh_prom4.i.i169.i
   %shl.i17.i.i = shl i64 %shr5.i.i170.i, %sh_prom4.i.i169.i
   %sub.i18.i.i = sub i64 %idnum.addr.019.i.i166.i, %shl.i17.i.i
-  %arrayidx.i.i171.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i165.i, i64 0, i64 %shr5.i.i170.i
+  %arrayidx.i.i171.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i165.i, i64 0, i64 %shr5.i.i170.i
   %114 = load ptr, ptr %arrayidx.i.i171.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %114, null
   br i1 %tobool.not.i.i.i, label %if.then14.i.i172.i, label %land.rhs.i.i164.i, !llvm.loop !11
@@ -1933,7 +1933,7 @@ while.body.i22.i.i:                               ; preds = %land.rhs.i.i320.i
   %shr5.i.i326.i = lshr i64 %idnum.addr.019.i.i322.i, %sh_prom4.i.i325.i
   %shl.i.i327.i = shl i64 %shr5.i.i326.i, %sh_prom4.i.i325.i
   %sub.i.i328.i = sub i64 %idnum.addr.019.i.i322.i, %shl.i.i327.i
-  %arrayidx.i.i329.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i321.i, i64 0, i64 %shr5.i.i326.i
+  %arrayidx.i.i329.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i321.i, i64 0, i64 %shr5.i.i326.i
   %179 = load ptr, ptr %arrayidx.i.i329.i, align 8
   %tobool.not.i23.i.i = icmp eq ptr %179, null
   br i1 %tobool.not.i23.i.i, label %if.then14.i.i330.i, label %land.rhs.i.i320.i, !llvm.loop !11
@@ -2142,7 +2142,7 @@ while.body.i57.i.i:                               ; preds = %land.rhs.i52.i.i
   %shr5.i59.i.i = lshr i64 %idnum.addr.019.i54.i.i, %sh_prom4.i58.i.i
   %shl.i60.i.i = shl i64 %shr5.i59.i.i, %sh_prom4.i58.i.i
   %sub.i61.i.i = sub i64 %idnum.addr.019.i54.i.i, %shl.i60.i.i
-  %arrayidx.i62.i.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i53.i.i, i64 0, i64 %shr5.i59.i.i
+  %arrayidx.i62.i.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i53.i.i, i64 0, i64 %shr5.i59.i.i
   %206 = load ptr, ptr %arrayidx.i62.i.i, align 8
   %tobool.not.i63.i.i = icmp eq ptr %206, null
   br i1 %tobool.not.i63.i.i, label %if.then14.i64.i.i, label %land.rhs.i52.i.i, !llvm.loop !11
@@ -3040,7 +3040,7 @@ while.body.i.i147:                                ; preds = %land.rhs.i.i
   %shr5.i.i = lshr i64 %idnum.addr.019.i.i, %sh_prom4.i.i
   %shl.i.i = shl i64 %shr5.i.i, %sh_prom4.i.i
   %sub.i.i = sub i64 %idnum.addr.019.i.i, %shl.i.i
-  %arrayidx.i24.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i, i64 0, i64 %shr5.i.i
+  %arrayidx.i24.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i, i64 0, i64 %shr5.i.i
   %323 = load ptr, ptr %arrayidx.i24.i, align 8
   %tobool.not.i25.i = icmp eq ptr %323, null
   br i1 %tobool.not.i25.i, label %if.then14.i.i, label %land.rhs.i.i, !llvm.loop !11
@@ -3526,7 +3526,7 @@ while.body.i.i275:                                ; preds = %land.rhs.i.i270
   %shr5.i.i277 = lshr i64 %idnum.addr.019.i.i272, %sh_prom4.i.i276
   %shl.i.i278 = shl i64 %shr5.i.i277, %sh_prom4.i.i276
   %sub.i.i279 = sub i64 %idnum.addr.019.i.i272, %shl.i.i278
-  %arrayidx.i.i280 = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i271, i64 0, i64 %shr5.i.i277
+  %arrayidx.i.i280 = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i271, i64 0, i64 %shr5.i.i277
   %381 = load ptr, ptr %arrayidx.i.i280, align 8
   %tobool.not.i.i281 = icmp eq ptr %381, null
   br i1 %tobool.not.i.i281, label %if.then14.i.i282, label %land.rhs.i.i270, !llvm.loop !11
@@ -3723,7 +3723,7 @@ while.body5.i.i:                                  ; preds = %if.end.i14.i, %whil
   %shr8.i.i = lshr i64 %idnum.addr.032.i.i, %sh_prom7.i.i
   %shl.i.i319 = shl i64 %shr8.i.i, %sh_prom7.i.i
   %sub.i.i320 = sub i64 %idnum.addr.032.i.i, %shl.i.i319
-  %arrayidx12.i.i = getelementptr inbounds [1024 x ptr], ptr %s.131.i.i, i64 0, i64 %shr8.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.131.i.i, i64 0, i64 %shr8.i.i
   %406 = load ptr, ptr %arrayidx12.i.i, align 8
   %tobool13.not.i.i321 = icmp eq ptr %406, null
   br i1 %tobool13.not.i.i321, label %if.then.i15.i, label %if.end.i14.i
@@ -4680,7 +4680,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i
   %shr5.i.i = lshr i64 %idnum.addr.019.i.i, %sh_prom4.i.i
   %shl.i.i = shl i64 %shr5.i.i, %sh_prom4.i.i
   %sub.i.i = sub i64 %idnum.addr.019.i.i, %shl.i.i
-  %arrayidx.i.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i.i, i64 0, i64 %shr5.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i.i, i64 0, i64 %shr5.i.i
   %9 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %9, null
   br i1 %tobool.not.i.i, label %if.then14.i.i, label %land.rhs.i.i, !llvm.loop !11
@@ -5323,7 +5323,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %shr5.i = lshr i64 %idnum.addr.019.i, %sh_prom4.i
   %shl.i = shl i64 %shr5.i, %sh_prom4.i
   %sub.i = sub i64 %idnum.addr.019.i, %shl.i
-  %arrayidx.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
+  %arrayidx.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %8, null
   br i1 %tobool.not.i, label %if.then14.i, label %land.rhs.i, !llvm.loop !11
@@ -6783,8 +6783,8 @@ if.then:                                          ; preds = %entry
 
 if.then3:                                         ; preds = %entry
   tail call void @strbuf_release(ptr noundef nonnull @last_blob) #24
-  store i64 0, ptr getelementptr inbounds (i8, ptr @last_blob, i64 24), align 8
-  store i32 0, ptr getelementptr inbounds (i8, ptr @last_blob, i64 32), align 8
+  store i64 0, ptr getelementptr inbounds nuw (i8, ptr @last_blob, i64 24), align 8
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @last_blob, i64 32), align 8
   %1 = load i64, ptr %len, align 8
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %oid.i)
   call void @llvm.lifetime.start.p0(i64 2400, ptr nonnull %c.i)
@@ -7057,7 +7057,7 @@ while.body5.i.i:                                  ; preds = %if.end.i.i, %while.
   %shr8.i.i = lshr i64 %idnum.addr.032.i.i, %sh_prom7.i.i
   %shl.i.i = shl i64 %shr8.i.i, %sh_prom7.i.i
   %sub.i.i = sub i64 %idnum.addr.032.i.i, %shl.i.i
-  %arrayidx12.i.i = getelementptr inbounds [1024 x ptr], ptr %s.131.i.i, i64 0, i64 %shr8.i.i
+  %arrayidx12.i.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.131.i.i, i64 0, i64 %shr8.i.i
   %43 = load ptr, ptr %arrayidx12.i.i, align 8
   %tobool13.not.i.i = icmp eq ptr %43, null
   br i1 %tobool13.not.i.i, label %if.then.i47.i, label %if.end.i.i
@@ -7533,7 +7533,7 @@ while.body5.i:                                    ; preds = %if.end.i, %while.bo
   %shr8.i = lshr i64 %idnum.addr.032.i, %sh_prom7.i
   %shl.i = shl i64 %shr8.i, %sh_prom7.i
   %sub.i = sub i64 %idnum.addr.032.i, %shl.i
-  %arrayidx12.i = getelementptr inbounds [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
+  %arrayidx12.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
   %30 = load ptr, ptr %arrayidx12.i, align 8
   %tobool13.not.i = icmp eq ptr %30, null
   br i1 %tobool13.not.i, label %if.then.i68, label %if.end.i
@@ -8806,7 +8806,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %shr5.i = lshr i64 %idnum.addr.019.i, %sh_prom4.i
   %shl.i = shl i64 %shr5.i, %sh_prom4.i
   %sub.i = sub i64 %idnum.addr.019.i, %shl.i
-  %arrayidx.i39 = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
+  %arrayidx.i39 = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
   %18 = load ptr, ptr %arrayidx.i39, align 8
   %tobool.not.i40 = icmp eq ptr %18, null
   br i1 %tobool.not.i40, label %if.then14.i, label %land.rhs.i, !llvm.loop !11
@@ -11870,7 +11870,7 @@ while.body5.i:                                    ; preds = %if.end.i, %while.bo
   %shr8.i = lshr i64 %idnum.addr.032.i, %sh_prom7.i
   %shl.i = shl i64 %shr8.i, %sh_prom7.i
   %sub.i = sub i64 %idnum.addr.032.i, %shl.i
-  %arrayidx12.i = getelementptr inbounds [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
+  %arrayidx12.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
   %17 = load ptr, ptr %arrayidx12.i, align 8
   %tobool13.not.i = icmp eq ptr %17, null
   br i1 %tobool13.not.i, label %if.then.i15, label %if.end.i
@@ -11966,7 +11966,7 @@ while.body5.i:                                    ; preds = %if.end.i, %while.bo
   %shr8.i = lshr i64 %idnum.addr.032.i, %sh_prom7.i
   %shl.i = shl i64 %shr8.i, %sh_prom7.i
   %sub.i = sub i64 %idnum.addr.032.i, %shl.i
-  %arrayidx12.i = getelementptr inbounds [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
+  %arrayidx12.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.131.i, i64 0, i64 %shr8.i
   %8 = load ptr, ptr %arrayidx12.i, align 8
   %tobool13.not.i = icmp eq ptr %8, null
   br i1 %tobool13.not.i, label %if.then.i, label %if.end.i
@@ -12293,7 +12293,7 @@ while.body.i:                                     ; preds = %land.rhs.i
   %shr5.i = lshr i64 %idnum.addr.019.i, %sh_prom4.i
   %shl.i = shl i64 %shr5.i, %sh_prom4.i
   %sub.i = sub i64 %idnum.addr.019.i, %shl.i
-  %arrayidx.i = getelementptr inbounds [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
+  %arrayidx.i = getelementptr inbounds nuw [1024 x ptr], ptr %s.addr.020.i, i64 0, i64 %shr5.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %tobool.not.i = icmp eq ptr %2, null
   br i1 %tobool.not.i, label %if.then14.i, label %land.rhs.i, !llvm.loop !11

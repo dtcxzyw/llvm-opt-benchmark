@@ -4321,7 +4321,7 @@ _ZNKSt6vectorISt10unique_ptrIS_IN3ue212graph_detail17vertex_descriptorINS1_9ue2_
           to label %_ZNSt12_Vector_baseISt10unique_ptrISt6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit.i379 unwind label %lpad132.loopexit.loopexit
 
 _ZNSt12_Vector_baseISt10unique_ptrISt6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit.i379: ; preds = %_ZNKSt6vectorISt10unique_ptrIS_IN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EESt14default_deleteISB_EESaISE_EE12_M_check_lenEmPKc.exit.i365
-  %add.ptr.i381 = getelementptr inbounds i8, ptr %call5.i.i.i.i408, i64 %sub.ptr.sub.i307
+  %add.ptr.i381 = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i408, i64 %sub.ptr.sub.i307
   %67 = load i64, ptr %new_path, align 8
   store i64 %67, ptr %add.ptr.i381, align 8
   store ptr null, ptr %new_path, align 8
@@ -4436,7 +4436,7 @@ if.end149:                                        ; preds = %for.body.i.i.i.i.i3
   %ind.end.pn = phi ptr [ %ind.end, %middle.block ], [ %call5.i.i.i.i408, %_ZNSt12_Vector_baseISt10unique_ptrISt6vectorIN3ue212graph_detail17vertex_descriptorINS2_9ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEEEEESaISA_EESt14default_deleteISC_EESaISF_EE11_M_allocateEm.exit.i379 ], [ %incdec.ptr1.i.i.i.i.i387, %for.body.i.i.i.i.i383 ]
   %incdec.ptr.i39162 = getelementptr i8, ptr %ind.end.pn, i64 8
   call void @_ZdlPv(ptr noundef nonnull %64) #28
-  %add.ptr19.i404 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %call5.i.i.i.i408, i64 %add.i.i368
+  %add.ptr19.i404 = getelementptr inbounds nuw %"class.std::unique_ptr.101", ptr %call5.i.i.i.i408, i64 %add.i.i368
   %.pr423.pre = load ptr, ptr %new_path, align 8
   %cmp.not.i328 = icmp eq ptr %.pr423.pre, null
   br i1 %cmp.not.i328, label %_ZNSt10unique_ptrISt6vectorIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEESaIS9_EESt14default_deleteISB_EED2Ev.exit334, label %delete.notnull.i.i329

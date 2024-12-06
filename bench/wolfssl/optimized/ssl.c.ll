@@ -3790,7 +3790,7 @@ if.then3:                                         ; preds = %do.end2
   call void @SetErrorString(i32 noundef %conv1.i8, ptr noundef nonnull %tmp) #20
   %sub = add nsw i64 %len, -1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %buf, ptr nonnull align 16 %tmp, i64 %sub, i1 false)
-  %arrayidx = getelementptr inbounds i8, ptr %buf, i64 %sub
+  %arrayidx = getelementptr inbounds nuw i8, ptr %buf, i64 %sub
   store i8 0, ptr %arrayidx, align 1
   br label %if.end7
 

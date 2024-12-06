@@ -348,7 +348,7 @@ define hidden void @correct_pixel_trilinear(ptr nocapture noundef readonly %0, p
   %58 = select <8 x i1> %57, <8 x float> %54, <8 x float> splat (float 1.000000e+00)
   %59 = select <8 x i1> %55, <8 x float> zeroinitializer, <8 x float> %58
   %60 = fmul reassoc nsz arcp contract afn <8 x float> %59, %43
-  %61 = getelementptr inbounds i8, <8 x ptr> %53, i64 4
+  %61 = getelementptr inbounds nuw i8, <8 x ptr> %53, i64 4
   %62 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %61, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !14
   %63 = fcmp reassoc nsz arcp contract afn ult <8 x float> %62, zeroinitializer
   %64 = fcmp reassoc nsz arcp contract afn ole <8 x float> %62, splat (float 1.000000e+00)
@@ -356,7 +356,7 @@ define hidden void @correct_pixel_trilinear(ptr nocapture noundef readonly %0, p
   %66 = select <8 x i1> %65, <8 x float> %62, <8 x float> splat (float 1.000000e+00)
   %67 = select <8 x i1> %63, <8 x float> zeroinitializer, <8 x float> %66
   %68 = fmul reassoc nsz arcp contract afn <8 x float> %67, %43
-  %69 = getelementptr inbounds i8, <8 x ptr> %53, i64 8
+  %69 = getelementptr inbounds nuw i8, <8 x ptr> %53, i64 8
   %70 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %69, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !14
   %71 = fcmp reassoc nsz arcp contract afn ult <8 x float> %70, zeroinitializer
   %72 = fcmp reassoc nsz arcp contract afn ole <8 x float> %70, splat (float 1.000000e+00)
@@ -452,12 +452,12 @@ define hidden void @correct_pixel_trilinear(ptr nocapture noundef readonly %0, p
   %162 = fadd reassoc nsz arcp contract afn <8 x float> %161, %148
   %163 = fmul reassoc nsz arcp contract afn <8 x float> %162, %93
   %164 = fadd reassoc nsz arcp contract afn <8 x float> %163, %120
-  %165 = getelementptr inbounds i8, <8 x ptr> %77, i64 4
+  %165 = getelementptr inbounds nuw i8, <8 x ptr> %77, i64 4
   %166 = fsub reassoc nsz arcp contract afn <8 x float> %151, %129
   %167 = fadd reassoc nsz arcp contract afn <8 x float> %166, %156
   %168 = fmul reassoc nsz arcp contract afn <8 x float> %167, %93
   %169 = fadd reassoc nsz arcp contract afn <8 x float> %168, %129
-  %170 = getelementptr inbounds i8, <8 x ptr> %77, i64 8
+  %170 = getelementptr inbounds nuw i8, <8 x ptr> %77, i64 8
   %171 = add nsw <8 x i32> %99, %49
   %172 = mul nsw <8 x i32> %171, splat (i32 3)
   %173 = add <8 x i32> %172, splat (i32 3)
@@ -857,7 +857,7 @@ define hidden void @correct_pixel_tetrahedral(ptr nocapture noundef readonly %0,
   %59 = select <8 x i1> %58, <8 x float> %55, <8 x float> splat (float 1.000000e+00)
   %60 = select <8 x i1> %56, <8 x float> zeroinitializer, <8 x float> %59
   %61 = fmul reassoc nsz arcp contract afn <8 x float> %60, %43
-  %62 = getelementptr inbounds i8, <8 x ptr> %54, i64 4
+  %62 = getelementptr inbounds nuw i8, <8 x ptr> %54, i64 4
   %63 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %62, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !23
   %64 = fcmp reassoc nsz arcp contract afn ult <8 x float> %63, zeroinitializer
   %65 = fcmp reassoc nsz arcp contract afn ole <8 x float> %63, splat (float 1.000000e+00)
@@ -865,7 +865,7 @@ define hidden void @correct_pixel_tetrahedral(ptr nocapture noundef readonly %0,
   %67 = select <8 x i1> %66, <8 x float> %63, <8 x float> splat (float 1.000000e+00)
   %68 = select <8 x i1> %64, <8 x float> zeroinitializer, <8 x float> %67
   %69 = fmul reassoc nsz arcp contract afn <8 x float> %68, %43
-  %70 = getelementptr inbounds i8, <8 x ptr> %54, i64 8
+  %70 = getelementptr inbounds nuw i8, <8 x ptr> %54, i64 8
   %71 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %70, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !23
   %72 = fcmp reassoc nsz arcp contract afn ult <8 x float> %71, zeroinitializer
   %73 = fcmp reassoc nsz arcp contract afn ole <8 x float> %71, splat (float 1.000000e+00)
@@ -954,7 +954,7 @@ define hidden void @correct_pixel_tetrahedral(ptr nocapture noundef readonly %0,
   %154 = fmul reassoc nsz arcp contract afn <8 x float> %96, %153
   %155 = fadd reassoc nsz arcp contract afn <8 x float> %146, %154
   %156 = fadd reassoc nsz arcp contract afn <8 x float> %155, %149
-  %157 = getelementptr inbounds i8, <8 x ptr> %78, i64 4
+  %157 = getelementptr inbounds nuw i8, <8 x ptr> %78, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %156, <8 x ptr> %157, i32 4, <8 x i1> %130), !tbaa !12, !alias.scope !26, !noalias !23
   %158 = getelementptr i8, <8 x ptr> %118, i64 8
   %159 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %158, i32 4, <8 x i1> %130, <8 x float> poison), !tbaa !12
@@ -1153,7 +1153,7 @@ define hidden void @correct_pixel_tetrahedral(ptr nocapture noundef readonly %0,
   %342 = fmul reassoc nsz arcp contract afn <8 x float> %341, %337
   %343 = fadd reassoc nsz arcp contract afn <8 x float> %342, %339
   %344 = fadd reassoc nsz arcp contract afn <8 x float> %343, %334
-  %345 = getelementptr inbounds i8, <8 x ptr> %78, i64 8
+  %345 = getelementptr inbounds nuw i8, <8 x ptr> %78, i64 8
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %344, <8 x ptr> %345, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !26, !noalias !23
   %346 = add nuw i64 %52, 8
   %347 = add <8 x i64> %53, splat (i64 32)
@@ -1648,7 +1648,7 @@ define hidden void @correct_pixel_pyramid(ptr nocapture noundef readonly %0, ptr
   %60 = select <8 x i1> %59, <8 x float> %56, <8 x float> splat (float 1.000000e+00)
   %61 = select <8 x i1> %57, <8 x float> zeroinitializer, <8 x float> %60
   %62 = fmul reassoc nsz arcp contract afn <8 x float> %61, %45
-  %63 = getelementptr inbounds i8, <8 x ptr> %55, i64 4
+  %63 = getelementptr inbounds nuw i8, <8 x ptr> %55, i64 4
   %64 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %63, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !30
   %65 = fcmp reassoc nsz arcp contract afn ult <8 x float> %64, zeroinitializer
   %66 = fcmp reassoc nsz arcp contract afn ole <8 x float> %64, splat (float 1.000000e+00)
@@ -1656,7 +1656,7 @@ define hidden void @correct_pixel_pyramid(ptr nocapture noundef readonly %0, ptr
   %68 = select <8 x i1> %67, <8 x float> %64, <8 x float> splat (float 1.000000e+00)
   %69 = select <8 x i1> %65, <8 x float> zeroinitializer, <8 x float> %68
   %70 = fmul reassoc nsz arcp contract afn <8 x float> %69, %45
-  %71 = getelementptr inbounds i8, <8 x ptr> %55, i64 8
+  %71 = getelementptr inbounds nuw i8, <8 x ptr> %55, i64 8
   %72 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %71, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !12, !alias.scope !30
   %73 = fcmp reassoc nsz arcp contract afn ult <8 x float> %72, zeroinitializer
   %74 = fcmp reassoc nsz arcp contract afn ole <8 x float> %72, splat (float 1.000000e+00)
@@ -1758,7 +1758,7 @@ define hidden void @correct_pixel_pyramid(ptr nocapture noundef readonly %0, ptr
   %168 = fadd reassoc nsz arcp contract afn <8 x float> %150, %146
   %169 = fadd reassoc nsz arcp contract afn <8 x float> %168, %161
   %170 = fadd reassoc nsz arcp contract afn <8 x float> %169, %167
-  %171 = getelementptr inbounds i8, <8 x ptr> %79, i64 4
+  %171 = getelementptr inbounds nuw i8, <8 x ptr> %79, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %170, <8 x ptr> %171, i32 4, <8 x i1> %126), !tbaa !12, !alias.scope !33, !noalias !30
   %172 = getelementptr i8, <8 x ptr> %117, i64 8
   %173 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %172, i32 4, <8 x i1> %126, <8 x float> poison), !tbaa !12
@@ -1909,7 +1909,7 @@ define hidden void @correct_pixel_pyramid(ptr nocapture noundef readonly %0, ptr
   %311 = fadd reassoc nsz arcp contract afn <8 x float> %310, %308
   %312 = select <8 x i1> %125, <8 x float> %255, <8 x float> %195
   %313 = select <8 x i1> %111, <8 x float> %311, <8 x float> %312
-  %314 = getelementptr inbounds i8, <8 x ptr> %79, i64 8
+  %314 = getelementptr inbounds nuw i8, <8 x ptr> %79, i64 8
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %313, <8 x ptr> %314, i32 4, <8 x i1> splat (i1 true)), !tbaa !12, !alias.scope !33, !noalias !30
   %315 = add nuw i64 %53, 8
   %316 = add <8 x i64> %54, splat (i64 32)

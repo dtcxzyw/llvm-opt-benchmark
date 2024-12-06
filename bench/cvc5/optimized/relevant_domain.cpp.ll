@@ -7872,7 +7872,7 @@ terminate.lpad.i576:                              ; preds = %if.then13.i.i575
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit577: ; preds = %invoke.cont82, %if.then.i.i569, %if.then13.i.i575
   %cmp85 = icmp eq i64 %varCh.1, 0
-  %arrayidx88 = getelementptr inbounds [2 x ptr], ptr %d_rd39, i64 0, i64 %varCh.1
+  %arrayidx88 = getelementptr inbounds nuw [2 x ptr], ptr %d_rd39, i64 0, i64 %varCh.1
   %153 = load ptr, ptr %arrayidx88, align 8
   store ptr %153, ptr %d_rd39, align 8
   %arrayidx92 = getelementptr inbounds nuw i8, ptr %__i.sroa.0.0.i223, i64 56

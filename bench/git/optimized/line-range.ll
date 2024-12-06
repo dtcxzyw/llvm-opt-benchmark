@@ -108,7 +108,7 @@ entry:
 
 while.cond:                                       ; preds = %if.end14, %entry
   %term.0.idx = phi i64 [ 1, %entry ], [ %term.1.add, %if.end14 ]
-  %term.0.ptr = getelementptr inbounds i8, ptr %spec.select48, i64 %term.0.idx
+  %term.0.ptr = getelementptr inbounds nuw i8, ptr %spec.select48, i64 %term.0.idx
   %1 = load i8, ptr %term.0.ptr, align 1
   switch i8 %1, label %if.end14 [
     i8 0, label %while.end
@@ -117,8 +117,8 @@ while.cond:                                       ; preds = %if.end14, %entry
   ]
 
 land.lhs.true:                                    ; preds = %while.cond
-  %term.0.add = add nsw i64 %term.0.idx, 1
-  %add.ptr9.ptr = getelementptr inbounds i8, ptr %spec.select48, i64 %term.0.add
+  %term.0.add = add nuw nsw i64 %term.0.idx, 1
+  %add.ptr9.ptr = getelementptr inbounds nuw i8, ptr %spec.select48, i64 %term.0.add
   %2 = load i8, ptr %add.ptr9.ptr, align 1
   %tobool11.not = icmp eq i8 %2, 0
   %spec.select49 = select i1 %tobool11.not, i64 %term.0.idx, i64 %term.0.add
@@ -126,11 +126,11 @@ land.lhs.true:                                    ; preds = %while.cond
 
 if.end14:                                         ; preds = %land.lhs.true, %while.cond
   %term.1.idx = phi i64 [ %term.0.idx, %while.cond ], [ %spec.select49, %land.lhs.true ]
-  %term.1.add = add nsw i64 %term.1.idx, 1
+  %term.1.add = add nuw nsw i64 %term.1.idx, 1
   br label %while.cond, !llvm.loop !5
 
 while.end:                                        ; preds = %while.cond, %while.cond
-  %term.0.ptr.le = getelementptr inbounds i8, ptr %spec.select48, i64 %term.0.idx
+  %term.0.ptr.le = getelementptr inbounds nuw i8, ptr %spec.select48, i64 %term.0.idx
   %cmp17 = icmp eq i64 %term.0.idx, 1
   br i1 %cmp17, label %return, label %if.end20
 
@@ -687,7 +687,7 @@ if.then:                                          ; preds = %entry, %land.lhs.tr
 
 while.cond.i:                                     ; preds = %if.end14.i, %if.then
   %term.0.idx.i = phi i64 [ 1, %if.then ], [ %term.1.add.i, %if.end14.i ]
-  %term.0.ptr.i = getelementptr inbounds i8, ptr %spec.select48.i, i64 %term.0.idx.i
+  %term.0.ptr.i = getelementptr inbounds nuw i8, ptr %spec.select48.i, i64 %term.0.idx.i
   %2 = load i8, ptr %term.0.ptr.i, align 1
   switch i8 %2, label %if.end14.i [
     i8 0, label %while.end.i
@@ -696,8 +696,8 @@ while.cond.i:                                     ; preds = %if.end14.i, %if.the
   ]
 
 land.lhs.true.i:                                  ; preds = %while.cond.i
-  %term.0.add.i = add nsw i64 %term.0.idx.i, 1
-  %add.ptr9.ptr.i = getelementptr inbounds i8, ptr %spec.select48.i, i64 %term.0.add.i
+  %term.0.add.i = add nuw nsw i64 %term.0.idx.i, 1
+  %add.ptr9.ptr.i = getelementptr inbounds nuw i8, ptr %spec.select48.i, i64 %term.0.add.i
   %3 = load i8, ptr %add.ptr9.ptr.i, align 1
   %tobool11.not.i = icmp eq i8 %3, 0
   %spec.select49.i = select i1 %tobool11.not.i, i64 %term.0.idx.i, i64 %term.0.add.i
@@ -705,11 +705,11 @@ land.lhs.true.i:                                  ; preds = %while.cond.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i, %while.cond.i
   %term.1.idx.i = phi i64 [ %term.0.idx.i, %while.cond.i ], [ %spec.select49.i, %land.lhs.true.i ]
-  %term.1.add.i = add nsw i64 %term.1.idx.i, 1
+  %term.1.add.i = add nuw nsw i64 %term.1.idx.i, 1
   br label %while.cond.i, !llvm.loop !5
 
 while.end.i:                                      ; preds = %while.cond.i, %while.cond.i
-  %term.0.ptr.i.le = getelementptr inbounds i8, ptr %spec.select48.i, i64 %term.0.idx.i
+  %term.0.ptr.i.le = getelementptr inbounds nuw i8, ptr %spec.select48.i, i64 %term.0.idx.i
   %cmp17.i = icmp eq i64 %term.0.idx.i, 1
   %spec.select = select i1 %cmp17.i, ptr null, ptr %term.0.ptr.i.le
   br label %return

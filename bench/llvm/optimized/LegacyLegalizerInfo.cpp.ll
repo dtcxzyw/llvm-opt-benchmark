@@ -6860,7 +6860,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
 39:                                               ; preds = %35, %.loopexit
   %.0.i17 = phi i64 [ %38, %35 ], [ %7, %.loopexit ]
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %.0.i17
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.0.i17
   %42 = load ptr, ptr %41, align 8
   %.not.i.i18 = icmp eq ptr %42, null
   br i1 %.not.i.i18, label %46, label %43
@@ -6893,7 +6893,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNSt8__det
 
 56:                                               ; preds = %49, %46
   %57 = phi ptr [ %.pre, %49 ], [ %40, %46 ]
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %.0.i17
+  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.0.i17
   store ptr %47, ptr %58, align 8
   br label %_ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLegalizeActions20LegacyLegalizeActionEESaIS7_EELj1EEEESaISB_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb0ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSD_10_Hash_nodeISB_Lb0EEEm.exit
 
@@ -6974,7 +6974,7 @@ _ZNSt10_HashtableItSt4pairIKtN4llvm11SmallVectorISt6vectorIS0_ItNS2_21LegacyLega
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8
   br label %31
 

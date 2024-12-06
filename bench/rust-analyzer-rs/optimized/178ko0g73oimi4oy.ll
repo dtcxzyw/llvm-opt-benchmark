@@ -16807,7 +16807,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %29, %
   %56 = xor i64 %.011.i.i, -1
   %57 = add nsw i64 %52, %56
   %58 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4.0.copyload127, i64 0, i64 %.011.i.i
-  %59 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.preheader.i.i
@@ -17023,7 +17023,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %60
   %130 = xor i64 %.011.i.i61, -1
   %131 = add nsw i64 %126, %130
   %132 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4130.0.copyload, i64 0, i64 %.011.i.i61
-  %133 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.preheader.i.i60
@@ -17319,7 +17319,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %29, %
   %56 = xor i64 %.011.i.i, -1
   %57 = add nsw i64 %52, %56
   %58 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4.0.copyload127, i64 0, i64 %.011.i.i
-  %59 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.preheader.i.i
@@ -17535,7 +17535,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %60
   %130 = xor i64 %.011.i.i61, -1
   %131 = add nsw i64 %126, %130
   %132 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4130.0.copyload, i64 0, i64 %.011.i.i61
-  %133 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.preheader.i.i60
@@ -17831,7 +17831,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %29, %
   %56 = xor i64 %.011.i.i, -1
   %57 = add nsw i64 %52, %56
   %58 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4.0.copyload127, i64 0, i64 %.011.i.i
-  %59 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.preheader.i.i
@@ -18047,7 +18047,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %60
   %130 = xor i64 %.011.i.i61, -1
   %131 = add nsw i64 %126, %130
   %132 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4130.0.copyload, i64 0, i64 %.011.i.i61
-  %133 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.preheader.i.i60
@@ -18343,7 +18343,7 @@ _ZN4core4hash11BuildHasher8hash_one17h2a4326378a2cff1dE.exit.i: ; preds = %29, %
   %56 = xor i64 %.011.i.i, -1
   %57 = add nsw i64 %52, %56
   %58 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4.0.copyload127, i64 0, i64 %.011.i.i
-  %59 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
+  %59 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %55, i64 0, i64 %57
   br label %60
 
 60:                                               ; preds = %60, %.lr.ph.preheader.i.i
@@ -18559,7 +18559,7 @@ _ZN4core3ptr19swap_nonoverlapping17h3dd71bfaf882fe1aE.exit.i.i: ; preds = %60
   %130 = xor i64 %.011.i.i61, -1
   %131 = add nsw i64 %126, %130
   %132 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %.sroa.4130.0.copyload, i64 0, i64 %.011.i.i61
-  %133 = getelementptr inbounds [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
+  %133 = getelementptr inbounds nuw [0 x { i32, [13 x i32] }], ptr %129, i64 0, i64 %131
   br label %134
 
 134:                                              ; preds = %134, %.lr.ph.preheader.i.i60
@@ -25330,7 +25330,7 @@ define hidden void @_ZN8smol_str4Repr12new_on_stack17h473d2f61ac2c59d3E.llvm.342
   unreachable
 
 43:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit7.i", %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.i"
-  %44 = getelementptr inbounds i8, ptr @anon.118df5f38d093105bc282afba1d7eb24.164, i64 %31
+  %44 = getelementptr inbounds nuw i8, ptr @anon.118df5f38d093105bc282afba1d7eb24.164, i64 %31
   store i8 25, ptr %0, align 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %44, ptr %.sroa.47.0..sroa_idx, align 8

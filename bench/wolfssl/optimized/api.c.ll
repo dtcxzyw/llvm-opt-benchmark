@@ -14395,7 +14395,7 @@ do.body530:                                       ; preds = %if.then516
   br label %do.end735.sink.split
 
 if.then548:                                       ; preds = %if.then516
-  %call553 = call i32 @memcmp(ptr noundef nonnull dereferenceable(128) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 64), ptr noundef nonnull dereferenceable(128) %cipher, i64 noundef 128) #30
+  %call553 = call i32 @memcmp(ptr noundef nonnull dereferenceable(128) getelementptr inbounds nuw (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 64), ptr noundef nonnull dereferenceable(128) %cipher, i64 noundef 128) #30
   %cmp559 = icmp eq i32 %call553, 0
   br i1 %cmp559, label %if.then580, label %do.body562
 
@@ -14426,7 +14426,7 @@ do.body594:                                       ; preds = %if.then580
   br label %do.end735.sink.split
 
 if.then612:                                       ; preds = %if.then580
-  %call617 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 192), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #30
+  %call617 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds nuw (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 192), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #30
   %cmp623 = icmp eq i32 %call617, 0
   br i1 %cmp623, label %if.then644, label %do.body626
 
@@ -14457,7 +14457,7 @@ do.body658:                                       ; preds = %if.then644
   br label %do.end735.sink.split
 
 if.then676:                                       ; preds = %if.then644
-  %call681 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 224), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #30
+  %call681 = call i32 @memcmp(ptr noundef nonnull dereferenceable(32) getelementptr inbounds nuw (i8, ptr @__const.test_wc_Chacha_Process.expected, i64 224), ptr noundef nonnull dereferenceable(32) %cipher, i64 noundef 32) #30
   %cmp687 = icmp eq i32 %call681, 0
   br i1 %cmp687, label %if.then708, label %do.body690
 

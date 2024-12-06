@@ -21,13 +21,13 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 .lr.ph102:                                        ; preds = %.lr.ph, %23
   %.183101.in = phi i64 [ %.183101, %23 ], [ %0, %.lr.ph ]
   %.183101 = add nsw i64 %.183101.in, -1
-  %13 = getelementptr inbounds i64, ptr %2, i64 %.183101
+  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %.183101
   %14 = load i64, ptr %13, align 8
   %15 = icmp sgt i64 %14, 0
   br i1 %15, label %16, label %23
 
 16:                                               ; preds = %.lr.ph102
-  %17 = getelementptr inbounds i64, ptr %1, i64 %.183101
+  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %.183101
   %18 = load i64, ptr %17, align 8
   %.not94 = icmp eq i64 %18, -1
   br i1 %.not94, label %23, label %19
@@ -35,7 +35,7 @@ define void @amd_l_postorder(i64 noundef %0, ptr nocapture noundef readonly %1, 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds i64, ptr %5, i64 %18
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i64, ptr %6, i64 %.183101
+  %22 = getelementptr inbounds nuw i64, ptr %6, i64 %.183101
   store i64 %21, ptr %22, align 8
   store i64 %.183101, ptr %20, align 8
   br label %23

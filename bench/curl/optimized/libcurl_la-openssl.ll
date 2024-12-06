@@ -3638,7 +3638,7 @@ entry:
   br i1 %cmp, label %if.then, label %if.end
 
 if.then:                                          ; preds = %entry
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %conv.i
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %conv.i
   %sub3 = sub nuw nsw i64 %sub, %conv.i
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %add.ptr, i64 1
   store i8 58, ptr %add.ptr, align 1

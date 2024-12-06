@@ -4653,7 +4653,7 @@ _ZN12regex_syntax3hir9translate8HirFrame23unwrap_alternation_pipe17h4ee215a17c04
   %1038 = xor i64 %.011.i.i, -1
   %1039 = add nsw i64 %1034, %1038
   %1040 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, ptr }], ptr %1032, i64 0, i64 %.011.i.i
-  %1041 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %1037, i64 0, i64 %1039
+  %1041 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, ptr }], ptr %1037, i64 0, i64 %1039
   call void @llvm.experimental.noalias.scope.decl(metadata !947)
   call void @llvm.experimental.noalias.scope.decl(metadata !950)
   br label %1042
@@ -4998,7 +4998,7 @@ _ZN12regex_syntax3hir9translate11TranslatorI3pop17hf2cebff0c2c04b30E.llvm.178589
   %1123 = xor i64 %.011.i.i369, -1
   %1124 = add nsw i64 %1119, %1123
   %1125 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, ptr }], ptr %1117, i64 0, i64 %.011.i.i369
-  %1126 = getelementptr inbounds [0 x { { i64, [4 x i64] }, ptr }], ptr %1122, i64 0, i64 %1124
+  %1126 = getelementptr inbounds nuw [0 x { { i64, [4 x i64] }, ptr }], ptr %1122, i64 0, i64 %1124
   call void @llvm.experimental.noalias.scope.decl(metadata !1023)
   call void @llvm.experimental.noalias.scope.decl(metadata !1026)
   br label %1127

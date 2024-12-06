@@ -47309,7 +47309,7 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   %__holeIndex.addr.07.i.i.us.i.i.i = phi i64 [ %spec.select.i.us.i.i.i, %while.end.i.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ]
   %__parent.08.in.i.i.us.i.i.i = add nsw i64 %__holeIndex.addr.07.i.i.us.i.i.i, -1
   %__parent.08.i.i.us.i.i.i = sdiv i64 %__parent.08.in.i.i.us.i.i.i, 2
-  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__parent.08.i.i.us.i.i.i
+  %add.ptr.i.i.i.us.i.i.i = getelementptr inbounds nuw %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__parent.08.i.i.us.i.i.i
   %__value.val.val.i.i.us.i.i.i = load i64, ptr %4, align 8, !tbaa !770
   %call.val.i.i.i.us.i.i.i = load ptr, ptr %add.ptr.i.i.i.us.i.i.i, align 8
   %5 = getelementptr i8, ptr %call.val.i.i.i.us.i.i.i, i64 8
@@ -47319,14 +47319,14 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
   %6 = ptrtoint ptr %call.val.i.i.i.us.i.i.i to i64
-  %add.ptr.i25.i.i.us.i.i.i = getelementptr inbounds %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.us.i.i.i
+  %add.ptr.i25.i.i.us.i.i.i = getelementptr inbounds nuw %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__holeIndex.addr.07.i.i.us.i.i.i
   store i64 %6, ptr %add.ptr.i25.i.i.us.i.i.i, align 8
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.08.i.i.us.i.i.i, %__parent.0.us.i.i.i
   br i1 %cmp.i.i.us.i.i.i, label %land.rhs.i.i.us.i.i.i, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_14PhysicalExport7GetDataERNS3_16ExecutionContextERNS3_9DataChunkERNS3_19OperatorSourceInputEE3$_0EEEvT_T0_SN_T1_T2_.exit.us.i.i.i", !llvm.loop !1344
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt17reference_wrapperIN6duckdb12CatalogEntryEESt6vectorIS5_SaIS5_EEEElS5_NS0_5__ops15_Iter_comp_iterIZNKS3_14PhysicalExport7GetDataERNS3_16ExecutionContextERNS3_9DataChunkERNS3_19OperatorSourceInputEE3$_0EEEvT_T0_SN_T1_T2_.exit.us.i.i.i": ; preds = %while.body.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i, %while.cond.us.i.i.i
   %__holeIndex.addr.0.lcssa.i.i.us.i.i.i = phi i64 [ %__parent.0.us.i.i.i, %while.cond.us.i.i.i ], [ %__parent.08.i.i.us.i.i.i, %while.body.i.i.us.i.i.i ], [ %__holeIndex.addr.07.i.i.us.i.i.i, %land.rhs.i.i.us.i.i.i ]
-  %add.ptr.i26.i.i.us.i.i.i = getelementptr inbounds %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
+  %add.ptr.i26.i.i.us.i.i.i = getelementptr inbounds nuw %"class.std::reference_wrapper.1258", ptr %__first.coerce.fr, i64 %__holeIndex.addr.0.lcssa.i.i.us.i.i.i
   %7 = ptrtoint ptr %__value.sroa.0.0.copyload.us.i.i.i to i64
   store i64 %7, ptr %add.ptr.i26.i.i.us.i.i.i, align 8
   %cmp10.not.us.i.i.i = icmp eq i64 %__parent.0.us.i.i.i, 0

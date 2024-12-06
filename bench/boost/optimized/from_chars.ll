@@ -5412,7 +5412,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
 
 30:                                               ; preds = %26
   %31 = add nsw i64 %0, 325
-  %32 = getelementptr inbounds [634 x i64], ptr @_ZN5boost8charconv6detail20significand_templateILb1EE14significand_64E, i64 0, i64 %31
+  %32 = getelementptr inbounds nuw [634 x i64], ptr @_ZN5boost8charconv6detail20significand_templateILb1EE14significand_64E, i64 0, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !7
   %34 = mul nsw i64 %0, 217706
   %35 = ashr i64 %34, 16
@@ -5435,7 +5435,7 @@ define linkonce_odr hidden noundef double @_ZN5boost8charconv6detail15compute_fl
   br i1 %49, label %50, label %60
 
 50:                                               ; preds = %47
-  %51 = getelementptr inbounds [634 x i64], ptr @_ZN5boost8charconv6detail20significand_templateILb1EE15significand_128E, i64 0, i64 %31
+  %51 = getelementptr inbounds nuw [634 x i64], ptr @_ZN5boost8charconv6detail20significand_templateILb1EE15significand_128E, i64 0, i64 %31
   %52 = load i64, ptr %51, align 8, !tbaa !7
   %53 = zext i64 %52 to i128
   %54 = mul nuw i128 %53, %39

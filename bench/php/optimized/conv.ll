@@ -213,7 +213,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br i1 %17, label %18, label %19
 
 18:                                               ; preds = %16
-  %.073.add = add nsw i64 %.073.idx95, 1
+  %.073.add = add nuw nsw i64 %.073.idx95, 1
   store i8 %13, ptr %.073.ptr.ptr97, align 1
   br label %21
 
@@ -225,7 +225,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   %.179 = phi i32 [ %.07894, %18 ], [ %20, %19 ]
   %.174.idx = phi i64 [ %.073.add, %18 ], [ %.073.idx95, %19 ]
   %22 = getelementptr inbounds nuw i8, ptr %.06496, i64 1
-  %.073.ptr.ptr = getelementptr inbounds i8, ptr %3, i64 %.174.idx
+  %.073.ptr.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.174.idx
   %23 = icmp ult ptr %22, %5
   br i1 %23, label %.lr.ph, label %.critedge
 
@@ -235,7 +235,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
 
 .preheader:                                       ; preds = %24
   %.266100 = getelementptr inbounds nuw i8, ptr %.06496, i64 1
-  %.376.ptr101 = getelementptr inbounds i8, ptr %3, i64 %.073.idx95
+  %.376.ptr101 = getelementptr inbounds nuw i8, ptr %3, i64 %.073.idx95
   %26 = icmp ult ptr %.266100, %5
   br i1 %26, label %.lr.ph106, label %.critedge
 
@@ -254,7 +254,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %30
-  %.376.add = add nsw i64 %.376.idx102, 1
+  %.376.add = add nuw nsw i64 %.376.idx102, 1
   store i8 %27, ptr %.376.ptr105, align 1
   %33 = add nsw i32 %.1103, -1
   br label %34
@@ -263,7 +263,7 @@ define hidden double @lexbor_conv_data_to_double(ptr nocapture noundef %0, i64 n
   %.477.idx = phi i64 [ %.376.add, %32 ], [ %.376.idx102, %30 ]
   %.2 = phi i32 [ %33, %32 ], [ %.1103, %30 ]
   %.266 = getelementptr inbounds nuw i8, ptr %.266104, i64 1
-  %.376.ptr = getelementptr inbounds i8, ptr %3, i64 %.477.idx
+  %.376.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.477.idx
   %35 = icmp ult ptr %.266, %5
   br i1 %35, label %.lr.ph106, label %.critedge
 

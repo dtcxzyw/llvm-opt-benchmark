@@ -694,21 +694,21 @@ if.end125:                                        ; preds = %do.end119, %do.end1
   ]
 
 sw.bb126:                                         ; preds = %if.end125
-  %arrayidx127 = getelementptr inbounds i8, ptr %src, i64 %pos.0
+  %arrayidx127 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.0
   %9 = load i8, ptr %arrayidx127, align 1
   %conv128 = zext i8 %9 to i32
   %inc129 = add nuw nsw i64 %pos.0, 1
   br label %sw.epilog
 
 sw.bb130:                                         ; preds = %if.end125
-  %add.ptr131 = getelementptr inbounds i8, ptr %src, i64 %pos.0
+  %add.ptr131 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.0
   %add.ptr131.val = load i16, ptr %add.ptr131, align 1
   %conv133 = zext i16 %add.ptr131.val to i32
   %add134 = add nuw nsw i64 %pos.0, 2
   br label %sw.epilog
 
 sw.bb135:                                         ; preds = %if.end125
-  %add.ptr136 = getelementptr inbounds i8, ptr %src, i64 %pos.0
+  %add.ptr136 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.0
   %add.ptr136.val = load i32, ptr %add.ptr136, align 1
   %add138 = add nuw nsw i64 %pos.0, 4
   br label %sw.epilog
@@ -730,26 +730,26 @@ sw.bb140:                                         ; preds = %sw.epilog
   br i1 %tobool.not, label %sw.epilog159, label %if.then142
 
 if.then142:                                       ; preds = %sw.bb140
-  %arrayidx143 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %arrayidx143 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %10 = load i8, ptr %arrayidx143, align 1
   %conv144 = zext i8 %10 to i64
   br label %sw.epilog159
 
 sw.bb146:                                         ; preds = %sw.epilog
-  %add.ptr147 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr147 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr147.val = load i16, ptr %add.ptr147, align 1
   %conv149 = zext i16 %add.ptr147.val to i64
   %add150 = add nuw nsw i64 %conv149, 256
   br label %sw.epilog159
 
 sw.bb152:                                         ; preds = %sw.epilog
-  %add.ptr153 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr153 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr153.val = load i32, ptr %add.ptr153, align 1
   %conv155 = zext i32 %add.ptr153.val to i64
   br label %sw.epilog159
 
 sw.bb156:                                         ; preds = %sw.epilog
-  %add.ptr157 = getelementptr inbounds i8, ptr %src, i64 %pos.1
+  %add.ptr157 = getelementptr inbounds nuw i8, ptr %src, i64 %pos.1
   %add.ptr157.val = load i64, ptr %add.ptr157, align 1
   br label %sw.epilog159
 
@@ -2453,7 +2453,7 @@ if.then178:                                       ; preds = %do.end175
 
 if.end180:                                        ; preds = %if.then178, %do.end175
   %36 = phi i64 [ %.pre, %if.then178 ], [ %32, %do.end175 ]
-  %add.ptr181 = getelementptr inbounds i8, ptr %dst, i64 %rSize.0168
+  %add.ptr181 = getelementptr inbounds nuw i8, ptr %dst, i64 %rSize.0168
   %previousDstEnd = getelementptr inbounds nuw i8, ptr %dctx, i64 29888
   store ptr %add.ptr181, ptr %previousDstEnd, align 8
   %expected182 = getelementptr inbounds nuw i8, ptr %dctx, i64 29920

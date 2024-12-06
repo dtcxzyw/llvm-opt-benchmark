@@ -31264,9 +31264,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val.i.i.i.i, i64 8
@@ -31275,9 +31275,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i.i.i.i = load i64, ptr %26, align 8
   %27 = icmp ult i64 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !463
@@ -31294,9 +31294,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -31322,7 +31322,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %50, align 8
   %51 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %51, label %45, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !464
@@ -31339,14 +31339,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %54 = or disjoint i64 %13, 1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %57, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %57 = add nsw i64 %.06.us.i.i.i, -1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i", label %.lr.ph.i27.us.i.i.i
@@ -31355,9 +31355,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i28.us.i.i.i = phi i64 [ %spec.select.i33.us.i.i.i, %.lr.ph.i27.us.i.i.i ], [ %57, %.split14.us.i.i.i ]
   %60 = shl i64 %.030.i28.us.i.i.i, 1
   %61 = add i64 %60, 2
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
   %.val.i29.us.i.i.i = load ptr, ptr %62, align 8
   %.val29.i30.us.i.i.i = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val.i29.us.i.i.i, i64 8
@@ -31366,9 +31366,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i32.us.i.i.i = load i64, ptr %66, align 8
   %67 = icmp ult i64 %.val.val.i31.us.i.i.i, %.val29.val.i32.us.i.i.i
   %spec.select.i33.us.i.i.i = select i1 %67, i64 %63, i64 %61
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.us.i.i.i
+  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.us.i.i.i
   store ptr %69, ptr %70, align 8
   %71 = icmp slt i64 %spec.select.i33.us.i.i.i, %18
   br i1 %71, label %.lr.ph.i27.us.i.i.i, label %._crit_edge.i16.us.i.i.i, !llvm.loop !463
@@ -31390,7 +31390,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %76, label %77, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i"
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
   store ptr %.val.i.i24.us.i.i.i, ptr %78, align 8
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i", label %73, !llvm.loop !464
@@ -31405,7 +31405,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %81, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %81 = add nsw i64 %.06.i.i.i, -1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i27.i.i.i
@@ -31414,9 +31414,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i28.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i27.i.i.i ], [ %81, %.split14.i.i.i ]
   %84 = shl i64 %.030.i28.i.i.i, 1
   %85 = add i64 %84, 2
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %87 = or disjoint i64 %84, 1
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %87
   %.val.i29.i.i.i = load ptr, ptr %86, align 8
   %.val29.i30.i.i.i = load ptr, ptr %88, align 8
   %89 = getelementptr i8, ptr %.val.i29.i.i.i, i64 8
@@ -31425,9 +31425,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i32.i.i.i = load i64, ptr %90, align 8
   %91 = icmp ult i64 %.val.val.i31.i.i.i, %.val29.val.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %91, i64 %87, i64 %85
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.i.i.i
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.i.i.i
   store ptr %93, ptr %94, align 8
   %95 = icmp slt i64 %spec.select.i33.i.i.i, %18
   br i1 %95, label %.lr.ph.i27.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !463
@@ -31464,7 +31464,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %104, label %105, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i"
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %106, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl18getAllArgListUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i", label %101, !llvm.loop !464
@@ -31497,9 +31497,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i.i.i20.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %118 = shl i64 %.030.i.i.i20.i, 1
   %119 = add i64 %118, 2
-  %120 = getelementptr inbounds ptr, ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %121 = or disjoint i64 %118, 1
-  %122 = getelementptr inbounds ptr, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %0, i64 %121
   %.val.i.i.i21.i = load ptr, ptr %120, align 8
   %.val29.i.i.i22.i = load ptr, ptr %122, align 8
   %123 = getelementptr i8, ptr %.val.i.i.i21.i, i64 8
@@ -31508,9 +31508,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i.i.i24.i = load i64, ptr %124, align 8
   %125 = icmp ult i64 %.val.val.i.i.i23.i, %.val29.val.i.i.i24.i
   %spec.select.i.i.i25.i = select i1 %125, i64 %121, i64 %119
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i25.i
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i25.i
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i20.i
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i20.i
   store ptr %127, ptr %128, align 8
   %129 = icmp slt i64 %spec.select.i.i.i25.i, %116
   br i1 %129, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i6.i, !llvm.loop !463
@@ -31530,9 +31530,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 136:                                              ; preds = %132
   %137 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %138 = or disjoint i64 %137, 1
-  %139 = getelementptr inbounds ptr, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %0, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %140, ptr %141, align 8
   br label %142
 
@@ -31726,9 +31726,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %14, %.split.i.i.i ]
   %20 = shl i64 %.030.i.i.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds ptr, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %21
   %23 = or disjoint i64 %20, 1
-  %24 = getelementptr inbounds ptr, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw ptr, ptr %0, i64 %23
   %.val.i.i.i.i = load ptr, ptr %22, align 8
   %.val29.i.i.i.i = load ptr, ptr %24, align 8
   %25 = getelementptr i8, ptr %.val.i.i.i.i, i64 8
@@ -31737,9 +31737,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i.i.i.i = load i64, ptr %26, align 8
   %27 = icmp ugt i64 %.val.val.i.i.i.i, %.val29.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %27, i64 %23, i64 %21
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %28 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i.i
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i.i
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i.i
   store ptr %29, ptr %30, align 8
   %31 = icmp slt i64 %spec.select.i.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !471
@@ -31756,9 +31756,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 36:                                               ; preds = %._crit_edge.i.i.i.i
   %37 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %38 = or disjoint i64 %37, 1
-  %39 = getelementptr inbounds ptr, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw ptr, ptr %0, i64 %38
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %40, ptr %41, align 8
   br label %42
 
@@ -31784,7 +31784,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %48, label %49, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i"
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i.i.i.i
+  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i.i.i.i
   store ptr %.val.i.i.i.i.i, ptr %50, align 8
   %51 = icmp sgt i64 %.04.i.i.i.i.i, %14
   br i1 %51, label %45, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit.i.i.i", !llvm.loop !472
@@ -31801,14 +31801,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 
 .split14.preheader.i.i.i:                         ; preds = %.split14.lr.ph.i.i.i
   %54 = or disjoint i64 %13, 1
-  %55 = getelementptr inbounds ptr, ptr %0, i64 %54
-  %56 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %54
+  %56 = getelementptr inbounds nuw ptr, ptr %0, i64 %34
   br label %.split14.i.i.i
 
 .split14.us.i.i.i:                                ; preds = %.split14.lr.ph.i.i.i, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i"
   %.06.us.i.i.i = phi i64 [ %57, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i" ], [ %14, %.split14.lr.ph.i.i.i ]
   %57 = add nsw i64 %.06.us.i.i.i, -1
-  %58 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %57
   %59 = load ptr, ptr %58, align 8
   %.not.us.i.i.i = icmp sgt i64 %.06.us.i.i.i, %18
   br i1 %.not.us.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i", label %.lr.ph.i27.us.i.i.i
@@ -31817,9 +31817,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i28.us.i.i.i = phi i64 [ %spec.select.i33.us.i.i.i, %.lr.ph.i27.us.i.i.i ], [ %57, %.split14.us.i.i.i ]
   %60 = shl i64 %.030.i28.us.i.i.i, 1
   %61 = add i64 %60, 2
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %61
+  %62 = getelementptr inbounds nuw ptr, ptr %0, i64 %61
   %63 = or disjoint i64 %60, 1
-  %64 = getelementptr inbounds ptr, ptr %0, i64 %63
+  %64 = getelementptr inbounds nuw ptr, ptr %0, i64 %63
   %.val.i29.us.i.i.i = load ptr, ptr %62, align 8
   %.val29.i30.us.i.i.i = load ptr, ptr %64, align 8
   %65 = getelementptr i8, ptr %.val.i29.us.i.i.i, i64 8
@@ -31828,9 +31828,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i32.us.i.i.i = load i64, ptr %66, align 8
   %67 = icmp ugt i64 %.val.val.i31.us.i.i.i, %.val29.val.i32.us.i.i.i
   %spec.select.i33.us.i.i.i = select i1 %67, i64 %63, i64 %61
-  %68 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
+  %68 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.us.i.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.us.i.i.i
+  %70 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.us.i.i.i
   store ptr %69, ptr %70, align 8
   %71 = icmp slt i64 %spec.select.i33.us.i.i.i, %18
   br i1 %71, label %.lr.ph.i27.us.i.i.i, label %._crit_edge.i16.us.i.i.i, !llvm.loop !471
@@ -31852,7 +31852,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %76, label %77, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i"
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
+  %78 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.us.i.i.i
   store ptr %.val.i.i24.us.i.i.i, ptr %78, align 8
   %.not5.us.i.i.i = icmp slt i64 %.04.i.i23.us.i.i.i, %.06.us.i.i.i
   br i1 %.not5.us.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.us.i.i.i", label %73, !llvm.loop !472
@@ -31867,7 +31867,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 .split14.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i", %.split14.preheader.i.i.i
   %.06.i.i.i = phi i64 [ %81, %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i" ], [ %14, %.split14.preheader.i.i.i ]
   %81 = add nsw i64 %.06.i.i.i, -1
-  %82 = getelementptr inbounds ptr, ptr %0, i64 %81
+  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %18
   br i1 %.not.i.i.i, label %._crit_edge.i16.i.i.i, label %.lr.ph.i27.i.i.i
@@ -31876,9 +31876,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i28.i.i.i = phi i64 [ %spec.select.i33.i.i.i, %.lr.ph.i27.i.i.i ], [ %81, %.split14.i.i.i ]
   %84 = shl i64 %.030.i28.i.i.i, 1
   %85 = add i64 %84, 2
-  %86 = getelementptr inbounds ptr, ptr %0, i64 %85
+  %86 = getelementptr inbounds nuw ptr, ptr %0, i64 %85
   %87 = or disjoint i64 %84, 1
-  %88 = getelementptr inbounds ptr, ptr %0, i64 %87
+  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %87
   %.val.i29.i.i.i = load ptr, ptr %86, align 8
   %.val29.i30.i.i.i = load ptr, ptr %88, align 8
   %89 = getelementptr i8, ptr %.val.i29.i.i.i, i64 8
@@ -31887,9 +31887,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i32.i.i.i = load i64, ptr %90, align 8
   %91 = icmp ugt i64 %.val.val.i31.i.i.i, %.val29.val.i32.i.i.i
   %spec.select.i33.i.i.i = select i1 %91, i64 %87, i64 %85
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i33.i.i.i
+  %92 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i33.i.i.i
   %93 = load ptr, ptr %92, align 8
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %.030.i28.i.i.i
+  %94 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i28.i.i.i
   store ptr %93, ptr %94, align 8
   %95 = icmp slt i64 %spec.select.i33.i.i.i, %18
   br i1 %95, label %.lr.ph.i27.i.i.i, label %._crit_edge.i16.i.i.i, !llvm.loop !471
@@ -31926,7 +31926,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   br i1 %104, label %105, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i"
 
 105:                                              ; preds = %101
-  %106 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i.i21.i.i.i
+  %106 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i.i21.i.i.i
   store ptr %.val.i.i24.i.i.i, ptr %106, align 8
   %.not5.i.i.i = icmp slt i64 %.04.i.i23.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPPSt4pairIN4llvm12PointerUnionIJPNS1_15MetadataAsValueEPNS1_8MetadataEPNS1_14DebugValueUserEEEEmElSB_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_23ReplaceableMetadataImpl28getAllDbgVariableRecordUsersEvE3$_0EEEvT_T0_SK_T1_T2_.exit34.i.i.i", label %101, !llvm.loop !472
@@ -31959,9 +31959,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.030.i.i.i20.i = phi i64 [ %spec.select.i.i.i25.i, %.lr.ph.i.i.i19.i ], [ 0, %.lr.ph.i5.i ]
   %118 = shl i64 %.030.i.i.i20.i, 1
   %119 = add i64 %118, 2
-  %120 = getelementptr inbounds ptr, ptr %0, i64 %119
+  %120 = getelementptr inbounds nuw ptr, ptr %0, i64 %119
   %121 = or disjoint i64 %118, 1
-  %122 = getelementptr inbounds ptr, ptr %0, i64 %121
+  %122 = getelementptr inbounds nuw ptr, ptr %0, i64 %121
   %.val.i.i.i21.i = load ptr, ptr %120, align 8
   %.val29.i.i.i22.i = load ptr, ptr %122, align 8
   %123 = getelementptr i8, ptr %.val.i.i.i21.i, i64 8
@@ -31970,9 +31970,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
   %.val29.val.i.i.i24.i = load i64, ptr %124, align 8
   %125 = icmp ugt i64 %.val.val.i.i.i23.i, %.val29.val.i.i.i24.i
   %spec.select.i.i.i25.i = select i1 %125, i64 %121, i64 %119
-  %126 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i25.i
+  %126 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select.i.i.i25.i
   %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds ptr, ptr %0, i64 %.030.i.i.i20.i
+  %128 = getelementptr inbounds nuw ptr, ptr %0, i64 %.030.i.i.i20.i
   store ptr %127, ptr %128, align 8
   %129 = icmp slt i64 %spec.select.i.i.i25.i, %116
   br i1 %129, label %.lr.ph.i.i.i19.i, label %._crit_edge.i.i.i6.i, !llvm.loop !471
@@ -31992,9 +31992,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPSt4pairIN4llvm12PointerUn
 136:                                              ; preds = %132
   %137 = shl nsw i64 %.0.lcssa.i.i.i7.i, 1
   %138 = or disjoint i64 %137, 1
-  %139 = getelementptr inbounds ptr, ptr %0, i64 %138
+  %139 = getelementptr inbounds nuw ptr, ptr %0, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
+  %141 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i7.i
   store ptr %140, ptr %141, align 8
   br label %142
 
@@ -32269,7 +32269,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %22 = and i64 %17, 1
   %23 = icmp eq i64 %22, 0
   %24 = or disjoint i64 %18, 1
-  %25 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %24
   %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %19
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -32279,7 +32279,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 
 31:                                               ; preds = %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", %16
   %.0.i.i.i = phi i64 [ %19, %16 ], [ %72, %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i" ]
-  %32 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.i.i.i
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.i.i.i
   %.sroa.02.0.copyload.i.i.i = load ptr, ptr %32, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
@@ -32299,8 +32299,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.val28.i.i.i.i = load i64, ptr %38, align 8
   %39 = icmp ult i64 %.val.i.i.i.i, %.val28.i.i.i.i
   %spec.select.i.i.i.i = select i1 %39, i64 %36, i64 %35
-  %40 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %41 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030.i.i.i.i
+  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.030.i.i.i.i
   %42 = load ptr, ptr %40, align 8
   store ptr %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -32345,7 +32345,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl18replaceAllUsesWithES7_E3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
+  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
   %62 = load ptr, ptr %57, align 8
   store ptr %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -32402,8 +32402,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.val28.i.i18 = load i64, ptr %87, align 8
   %88 = icmp ult i64 %.val.i.i, %.val28.i.i18
   %spec.select.i.i = select i1 %88, i64 %85, i64 %84
-  %89 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i
-  %90 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030.i.i
+  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i
+  %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.030.i.i
   %91 = load ptr, ptr %89, align 8
   store ptr %91, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -32432,8 +32432,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 105:                                              ; preds = %101
   %106 = shl nsw i64 %.0.lcssa.i.i, 1
   %107 = or disjoint i64 %106, 1
-  %108 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %107
-  %109 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
+  %108 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %107
+  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
   %110 = load ptr, ptr %108, align 8
   store ptr %110, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8
@@ -32818,7 +32818,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %22 = and i64 %17, 1
   %23 = icmp eq i64 %22, 0
   %24 = or disjoint i64 %18, 1
-  %25 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %24
+  %25 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %24
   %26 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %19
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -32828,7 +32828,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 
 31:                                               ; preds = %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", %16
   %.0.i.i.i = phi i64 [ %19, %16 ], [ %72, %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i" ]
-  %32 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.i.i.i
+  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.i.i.i
   %.sroa.02.0.copyload.i.i.i = load ptr, ptr %32, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
@@ -32848,8 +32848,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.val28.i.i.i.i = load i64, ptr %38, align 8
   %39 = icmp ult i64 %.val.i.i.i.i, %.val28.i.i.i.i
   %spec.select.i.i.i.i = select i1 %39, i64 %36, i64 %35
-  %40 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
-  %41 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030.i.i.i.i
+  %40 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i.i.i
+  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.030.i.i.i.i
   %42 = load ptr, ptr %40, align 8
   store ptr %42, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -32894,7 +32894,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   br i1 %59, label %60, label %"_ZSt13__adjust_heapIPSt4pairIPvS0_IN4llvm12PointerUnionIJPNS2_15MetadataAsValueEPNS2_8MetadataEPNS2_14DebugValueUserEEEEmEElSC_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS2_23ReplaceableMetadataImpl14resolveAllUsesEbE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 60:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %61 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
+  %61 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0133.i.i.i.i.i
   %62 = load ptr, ptr %57, align 8
   store ptr %62, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -32951,8 +32951,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
   %.val28.i.i18 = load i64, ptr %87, align 8
   %88 = icmp ult i64 %.val.i.i, %.val28.i.i18
   %spec.select.i.i = select i1 %88, i64 %85, i64 %84
-  %89 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %spec.select.i.i
-  %90 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.030.i.i
+  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %spec.select.i.i
+  %90 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.030.i.i
   %91 = load ptr, ptr %89, align 8
   store ptr %91, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -32981,8 +32981,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPvS0_IN4llvm12Poin
 105:                                              ; preds = %101
   %106 = shl nsw i64 %.0.lcssa.i.i, 1
   %107 = or disjoint i64 %106, 1
-  %108 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %107
-  %109 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
+  %108 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %107
+  %109 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.0.lcssa.i.i
   %110 = load ptr, ptr %108, align 8
   store ptr %110, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 8

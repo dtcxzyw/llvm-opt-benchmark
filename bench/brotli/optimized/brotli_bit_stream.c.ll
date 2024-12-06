@@ -1503,10 +1503,10 @@ NextBlockTypeCode.exit.i.i:                       ; preds = %cond.false.i.i.i, %
   %cond10.i.i.i = phi i64 [ %97, %cond.false.i.i.i ], [ 1, %if.then.i303 ]
   store i64 %95, ptr %second_last_type.i.i, align 8
   store i64 %conv3.i, ptr %block_split_code_.i, align 8
-  %arrayidx.i10.i = getelementptr inbounds [258 x i8], ptr %type_depths.i.i354, i64 0, i64 %cond10.i.i.i
+  %arrayidx.i10.i = getelementptr inbounds nuw [258 x i8], ptr %type_depths.i.i354, i64 0, i64 %cond10.i.i.i
   %98 = load i8, ptr %arrayidx.i10.i, align 1
   %conv.i11.i = zext i8 %98 to i64
-  %arrayidx1.i.i = getelementptr inbounds [258 x i16], ptr %type_bits.i.i355, i64 0, i64 %cond10.i.i.i
+  %arrayidx1.i.i = getelementptr inbounds nuw [258 x i16], ptr %type_bits.i.i355, i64 0, i64 %cond10.i.i.i
   %99 = load i16, ptr %arrayidx1.i.i, align 2
   %conv2.i.i = zext i16 %99 to i64
   %100 = load i64, ptr %storage_ix, align 8
@@ -1667,10 +1667,10 @@ NextBlockTypeCode.exit.i.i351:                    ; preds = %cond.false.i.i.i347
   %cond10.i.i.i352 = phi i64 [ %133, %cond.false.i.i.i347 ], [ 1, %if.then.i333 ]
   store i64 %131, ptr %second_last_type.i.i, align 8
   store i64 %conv3.i341, ptr %block_split_code_.i, align 8
-  %arrayidx.i13.i = getelementptr inbounds [258 x i8], ptr %type_depths.i.i354, i64 0, i64 %cond10.i.i.i352
+  %arrayidx.i13.i = getelementptr inbounds nuw [258 x i8], ptr %type_depths.i.i354, i64 0, i64 %cond10.i.i.i352
   %134 = load i8, ptr %arrayidx.i13.i, align 1
   %conv.i14.i = zext i8 %134 to i64
-  %arrayidx1.i.i356 = getelementptr inbounds [258 x i16], ptr %type_bits.i.i355, i64 0, i64 %cond10.i.i.i352
+  %arrayidx1.i.i356 = getelementptr inbounds nuw [258 x i16], ptr %type_bits.i.i355, i64 0, i64 %cond10.i.i.i352
   %135 = load i16, ptr %arrayidx1.i.i356, align 2
   %conv2.i.i357 = zext i16 %135 to i64
   %136 = load i64, ptr %storage_ix, align 8
@@ -1869,10 +1869,10 @@ NextBlockTypeCode.exit.i.i442:                    ; preds = %cond.false.i.i.i438
   %cond10.i.i.i443 = phi i64 [ %173, %cond.false.i.i.i438 ], [ 1, %if.then.i424 ]
   store i64 %171, ptr %second_last_type.i.i235, align 8
   store i64 %conv3.i432, ptr %block_split_code_.i234, align 8
-  %arrayidx.i13.i446 = getelementptr inbounds [258 x i8], ptr %type_depths.i.i445, i64 0, i64 %cond10.i.i.i443
+  %arrayidx.i13.i446 = getelementptr inbounds nuw [258 x i8], ptr %type_depths.i.i445, i64 0, i64 %cond10.i.i.i443
   %174 = load i8, ptr %arrayidx.i13.i446, align 1
   %conv.i14.i447 = zext i8 %174 to i64
-  %arrayidx1.i.i449 = getelementptr inbounds [258 x i16], ptr %type_bits.i.i448, i64 0, i64 %cond10.i.i.i443
+  %arrayidx1.i.i449 = getelementptr inbounds nuw [258 x i16], ptr %type_bits.i.i448, i64 0, i64 %cond10.i.i.i443
   %175 = load i16, ptr %arrayidx1.i.i449, align 2
   %conv2.i.i450 = zext i16 %175 to i64
   %176 = load i64, ptr %storage_ix, align 8
@@ -2367,7 +2367,7 @@ if.then:                                          ; preds = %StoreVarLenUint8.ex
   %add.i84 = add i64 %14, 4
   store i64 %add.i84, ptr %storage_ix, align 8
   %conv9 = trunc i64 %num_types to i32
-  %arrayidx = getelementptr inbounds i32, ptr %arena, i64 %sub1
+  %arrayidx = getelementptr inbounds nuw i32, ptr %arena, i64 %sub1
   store i32 %conv9, ptr %arrayidx, align 4
   store i32 1, ptr %arena, align 4
   %cmp1175 = icmp ult i64 %context_bits, %add
@@ -2383,8 +2383,8 @@ for.body:                                         ; preds = %if.then, %for.body
 
 for.end:                                          ; preds = %for.body, %if.then
   tail call fastcc void @BuildAndStoreHuffmanTree(ptr noundef nonnull %arena, i64 noundef %add, i64 noundef %add, ptr noundef %tree, ptr noundef nonnull %depths4, ptr noundef nonnull %bits6, ptr noundef nonnull %storage_ix, ptr noundef %storage)
-  %arrayidx26 = getelementptr inbounds i8, ptr %depths4, i64 %sub1
-  %arrayidx28 = getelementptr inbounds i16, ptr %bits6, i64 %sub1
+  %arrayidx26 = getelementptr inbounds nuw i8, ptr %depths4, i64 %sub1
+  %arrayidx28 = getelementptr inbounds nuw i16, ptr %bits6, i64 %sub1
   %umax = tail call i64 @llvm.umax.i64(i64 %num_types, i64 1)
   %.pre = load i64, ptr %storage_ix, align 8
   br label %for.body17
@@ -2958,11 +2958,11 @@ NextBlockTypeCode.exit.i:                         ; preds = %if.then, %cond.fals
   store i64 %7, ptr %second_last_type13.i.i, align 8
   store i64 %conv3, ptr %block_split_code_, align 8
   %type_depths.i = getelementptr inbounds nuw i8, ptr %self, i64 56
-  %arrayidx.i10 = getelementptr inbounds [258 x i8], ptr %type_depths.i, i64 0, i64 %cond10.i.i
+  %arrayidx.i10 = getelementptr inbounds nuw [258 x i8], ptr %type_depths.i, i64 0, i64 %cond10.i.i
   %10 = load i8, ptr %arrayidx.i10, align 1
   %conv.i11 = zext i8 %10 to i64
   %type_bits.i = getelementptr inbounds nuw i8, ptr %self, i64 314
-  %arrayidx1.i = getelementptr inbounds [258 x i16], ptr %type_bits.i, i64 0, i64 %cond10.i.i
+  %arrayidx1.i = getelementptr inbounds nuw [258 x i16], ptr %type_bits.i, i64 0, i64 %cond10.i.i
   %11 = load i16, ptr %arrayidx1.i, align 2
   %conv2.i = zext i16 %11 to i64
   %12 = load i64, ptr %storage_ix, align 8

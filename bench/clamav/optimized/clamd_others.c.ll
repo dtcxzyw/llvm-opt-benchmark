@@ -98,7 +98,7 @@ define dso_local void @virusaction(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 30:                                               ; preds = %26, %22
   %.170 = phi i64 [ %28, %26 ], [ %.069, %22 ]
-  %31 = getelementptr inbounds [4 x ptr], ptr %4, i64 0, i64 %.170
+  %31 = getelementptr inbounds nuw [4 x ptr], ptr %4, i64 0, i64 %.170
   store ptr null, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load ptr, ptr %32, align 8

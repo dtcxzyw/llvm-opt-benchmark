@@ -1205,8 +1205,8 @@ define internal fastcc void @_ZN4core5slice4sort6stable9quicksort9quicksort17hf0
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !105
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %134 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %135 = getelementptr inbounds ptr, ptr %.sroa.0.0.ph.lcssa109, i64 %134
-  %136 = getelementptr inbounds ptr, ptr %2, i64 %134
+  %135 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.ph.lcssa109, i64 %134
+  %136 = getelementptr inbounds nuw ptr, ptr %2, i64 %134
   %137 = getelementptr ptr, ptr %2, i64 %21
   %138 = getelementptr i8, ptr %137, i64 -8
   br label %.lr.ph.i.i
@@ -1360,7 +1360,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17haa0d775ead72dc74E.llvm.25864
   %210 = add nsw i32 %.sroa.019.0110, -1
   call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %211 = lshr i64 %.sroa.12.0111, 3
-  %.idx.i = shl nsw i64 %211, 5
+  %.idx.i = shl nuw nsw i64 %211, 5
   %212 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.ph118, i64 %.idx.i
   %.idx1.i = mul i64 %211, 56
   %213 = getelementptr inbounds i8, ptr %.sroa.0.0.ph118, i64 %.idx1.i

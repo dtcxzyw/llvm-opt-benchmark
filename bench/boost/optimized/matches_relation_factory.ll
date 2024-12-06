@@ -24562,7 +24562,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIcS
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 %1
-  %20 = getelementptr inbounds i8, ptr %10, i64 %13
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %19, ptr %14, align 8, !tbaa !470
   store ptr %20, ptr %7, align 8, !tbaa !468
   br label %38
@@ -24574,7 +24574,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIcS
   br i1 %or.cond34, label %.critedge, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds i8, ptr %10, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %26 = sub nsw i64 0, %1
   %27 = getelementptr inbounds i8, ptr %25, i64 %26
   store ptr %27, ptr %14, align 8, !tbaa !470
@@ -24593,7 +24593,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIcS
 
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 %32
-  %37 = getelementptr inbounds i8, ptr %10, i64 %13
+  %37 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %36, ptr %14, align 8, !tbaa !470
   store ptr %37, ptr %7, align 8, !tbaa !468
   br label %38
@@ -62297,7 +62297,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIwS
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i32, ptr %10, i64 %1
-  %21 = getelementptr inbounds i8, ptr %10, i64 %13
+  %21 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %20, ptr %15, align 8, !tbaa !1021
   store ptr %21, ptr %7, align 8, !tbaa !1019
   br label %40
@@ -62309,7 +62309,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIwS
   br i1 %or.cond34, label %.critedge, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %10, i64 %13
+  %26 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   %27 = sub nsw i64 0, %1
   %28 = getelementptr inbounds i32, ptr %26, i64 %27
   store ptr %28, ptr %15, align 8, !tbaa !1021
@@ -62329,7 +62329,7 @@ define linkonce_odr hidden { i64, i64 } @_ZN5boost13re_detail_50010parser_bufIwS
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i32, ptr %10, i64 %34
-  %39 = getelementptr inbounds i8, ptr %10, i64 %13
+  %39 = getelementptr inbounds nuw i8, ptr %10, i64 %13
   store ptr %38, ptr %15, align 8, !tbaa !1021
   store ptr %39, ptr %7, align 8, !tbaa !1019
   br label %40
@@ -95174,7 +95174,7 @@ _ZNK5boost16cpp_regex_traitsIwE9translateEwb.exit: ; preds = %7, %13
   br label %26
 
 26:                                               ; preds = %26, %24
-  %.0.i.i = phi ptr [ getelementptr inbounds (i8, ptr @__const._ZN5boost13re_detail_50027is_combining_implementationEt.combining_ranges, i64 2), %24 ], [ %29, %26 ]
+  %.0.i.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost13re_detail_50027is_combining_implementationEt.combining_ranges, i64 2), %24 ], [ %29, %26 ]
   %27 = load i16, ptr %.0.i.i, align 2, !tbaa !152
   %28 = icmp ult i16 %27, %25
   %29 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
@@ -95225,7 +95225,7 @@ _ZNK5boost16cpp_regex_traitsIwE9translateEwb.exit4: ; preds = %33, %37
   br label %50
 
 50:                                               ; preds = %50, %48
-  %.0.i.i6 = phi ptr [ getelementptr inbounds (i8, ptr @__const._ZN5boost13re_detail_50027is_combining_implementationEt.combining_ranges, i64 2), %48 ], [ %53, %50 ]
+  %.0.i.i6 = phi ptr [ getelementptr inbounds nuw (i8, ptr @__const._ZN5boost13re_detail_50027is_combining_implementationEt.combining_ranges, i64 2), %48 ], [ %53, %50 ]
   %51 = load i16, ptr %.0.i.i6, align 2, !tbaa !152
   %52 = icmp ult i16 %51, %49
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i6, i64 4
@@ -101399,7 +101399,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPSt4pairIN5boost9typeind
 
 13:                                               ; preds = %13, %.lr.ph._crit_edge
   %.015.i.i = phi i64 [ %12, %.lr.ph._crit_edge ], [ %15, %13 ]
-  %14 = getelementptr inbounds %"struct.std::pair.342", ptr %0, i64 %.015.i.i
+  %14 = getelementptr inbounds nuw %"struct.std::pair.342", ptr %0, i64 %.015.i.i
   %.sroa.02.0.copyload.i.i = load ptr, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8

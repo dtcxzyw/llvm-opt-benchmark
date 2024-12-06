@@ -175,9 +175,9 @@ entry:
   ]
 
 sw.bb:                                            ; preds = %entry
-  %1 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  %1 = load i64, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i = add i64 %1, 1
-  store i64 %inc.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  store i64 %inc.i.i, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   br label %return
 
 sw.bb2:                                           ; preds = %entry

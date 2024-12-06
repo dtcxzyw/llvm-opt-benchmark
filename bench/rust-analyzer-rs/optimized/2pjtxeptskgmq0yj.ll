@@ -8682,7 +8682,7 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$itertools..format..FormatWith$LT$I$
   %22 = sub nuw i64 %20, %21
   %23 = lshr exact i64 %22, 5
   %.not.i.i.i = icmp ult i64 %15, %23
-  %24 = getelementptr inbounds { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %.sroa.0.0.copyload, i64 %15
+  %24 = getelementptr inbounds nuw { { ptr, ptr }, i64, i32, [1 x i32] }, ptr %.sroa.0.0.copyload, i64 %15
   br i1 %.not.i.i.i, label %25, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h967f169e85c76580E.exit.thread"
 
 25:                                               ; preds = %19, %17

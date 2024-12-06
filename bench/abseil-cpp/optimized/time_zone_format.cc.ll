@@ -177,7 +177,7 @@ if.end28.i:                                       ; preds = %if.else22.i, %if.el
   %add11.i.i = add nsw i64 %add6.i.i, %conv10.i.i
   %rem12.i.i = srem i64 %add11.i.i, 7
   %add13.i.i = add nsw i64 %rem12.i.i, 6
-  %arrayidx14.i.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
+  %arrayidx14.i.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i
   %10 = load i32, ptr %arrayidx14.i.i, align 4, !noalias !5
   %.not = icmp eq i64 %rem12.i.i, 0
   %switch.offset = add nsw i32 %10, 1
@@ -3519,7 +3519,7 @@ _ZN4absl13time_internal4cctz6detail12prev_weekdayENS2_10civil_timeINS2_7day_tagE
   %add11.i.i31.i = add nsw i64 %add6.i.i30.i, %conv10.i.i27.i
   %rem12.i.i32.i = srem i64 %add11.i.i31.i, 7
   %add13.i.i33.i = add nsw i64 %rem12.i.i32.i, 6
-  %arrayidx14.i.i34.i = getelementptr inbounds [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i33.i
+  %arrayidx14.i.i34.i = getelementptr inbounds nuw [13 x i32], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 0, i64 %add13.i.i33.i
   %70 = load i32, ptr %arrayidx14.i.i34.i, align 4
   br label %for.cond.i35.i
 

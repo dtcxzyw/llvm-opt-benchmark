@@ -5763,7 +5763,7 @@ define internal fastcc void @html_tag_contents_append(ptr nocapture noundef nonn
   br label %48
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds [1025 x i8], ptr %9, i64 0, i64 %.1
+  %47 = getelementptr inbounds nuw [1025 x i8], ptr %9, i64 0, i64 %.1
   store i8 %12, ptr %47, align 1
   br label %48
 

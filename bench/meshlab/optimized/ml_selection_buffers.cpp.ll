@@ -1015,7 +1015,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE6resizeEm.exit83: ; preds = %_ZNKSt6vectorI
   br i1 %or.cond147, label %208, label %223
 
 208:                                              ; preds = %199
-  %209 = getelementptr inbounds %"class.vcg::Point3", ptr %.sroa.0104.1, i64 %204
+  %209 = getelementptr inbounds nuw %"class.vcg::Point3", ptr %.sroa.0104.1, i64 %204
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0161, i64 8
   %211 = load float, ptr %210, align 4
   store float %211, ptr %209, align 4

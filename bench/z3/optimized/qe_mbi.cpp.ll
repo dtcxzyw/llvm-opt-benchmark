@@ -15633,7 +15633,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEED2Ev.exit, %if.end
   %__parent.0 = phi i64 [ %div9, %if.end ], [ %dec, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt8functionIFbP3appS4_EEED2Ev.exit ]
-  %add.ptr = getelementptr inbounds ptr, ptr %__first, i64 %__parent.0
+  %add.ptr = getelementptr inbounds nuw ptr, ptr %__first, i64 %__parent.0
   %0 = load ptr, ptr %add.ptr, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, i8 0, i64 32, i1 false)
   %1 = load ptr, ptr %_M_manager.i.i.i.i, align 8

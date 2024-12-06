@@ -5125,7 +5125,7 @@ while.body9.i:                                    ; preds = %while.body9.i, %whi
   %18 = load ptr, ptr %values_10.i, align 8
   %inc12.i = add nuw nsw i64 %17, 1
   store i64 %inc12.i, ptr %8, align 8
-  %arrayidx13.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %18, i64 %17
+  %arrayidx13.i = getelementptr inbounds nuw %"class.rocksdb::ProtectionInfoKVOC", ptr %18, i64 %17
   store i64 0, ptr %arrayidx13.i, align 8
   %19 = load i64, ptr %8, align 8
   %cmp8.i = icmp ult i64 %19, %conv
@@ -9948,7 +9948,7 @@ while.body9.i:                                    ; preds = %while.body9.i, %whi
   %16 = load ptr, ptr %values_10.i, align 8
   %inc12.i = add nuw nsw i64 %15, 1
   store i64 %inc12.i, ptr %7, align 8
-  %arrayidx13.i = getelementptr inbounds %"class.rocksdb::ProtectionInfoKVOC", ptr %16, i64 %15
+  %arrayidx13.i = getelementptr inbounds nuw %"class.rocksdb::ProtectionInfoKVOC", ptr %16, i64 %15
   store i64 0, ptr %arrayidx13.i, align 8
   %17 = load i64, ptr %7, align 8
   %cmp8.i = icmp ult i64 %17, %conv

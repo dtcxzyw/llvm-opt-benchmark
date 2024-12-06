@@ -122,7 +122,7 @@ if.end.i:                                         ; preds = %entry
   store i64 %2, ptr %B.i, align 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub.i, i1 false)
-  %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub.i
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %out, i64 %sub.i
   %cmp727.not.i = icmp eq i64 %sub.i, 0
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %B.i, i64 7
   %arrayidx20.i = getelementptr inbounds nuw i8, ptr %B.i, i64 6
@@ -391,7 +391,7 @@ for.body.us.preheader.i:                          ; preds = %if.else
   store i64 %5, ptr %B.i, align 16
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %in, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %out, ptr nonnull readonly align 1 %add.ptr.i, i64 %sub10, i1 false)
-  %add.ptr4.i = getelementptr inbounds i8, ptr %out, i64 %sub10
+  %add.ptr4.i = getelementptr inbounds nuw i8, ptr %out, i64 %sub10
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %B.i, i64 7
   %arrayidx20.i = getelementptr inbounds nuw i8, ptr %B.i, i64 6
   %arrayidx28.i = getelementptr inbounds nuw i8, ptr %B.i, i64 5

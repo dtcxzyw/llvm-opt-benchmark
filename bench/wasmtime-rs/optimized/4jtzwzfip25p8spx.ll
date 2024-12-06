@@ -6571,7 +6571,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   %616 = xor i64 %.011.i.i.i, -1
   %617 = add nsw i64 %612, %616
   %618 = getelementptr inbounds nuw [0 x { i32, { i32, [2 x i32] } }], ptr %.pre.i, i64 0, i64 %.011.i.i.i
-  %619 = getelementptr inbounds [0 x { i32, { i32, [2 x i32] } }], ptr %615, i64 0, i64 %617
+  %619 = getelementptr inbounds nuw [0 x { i32, { i32, [2 x i32] } }], ptr %615, i64 0, i64 %617
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %.sroa.0.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %.sroa.0.i.i.i.i, ptr noundef nonnull align 4 dereferenceable(16) %618, i64 16, i1 false), !noalias !981
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %618, ptr noundef nonnull align 4 dereferenceable(16) %619, i64 16, i1 false), !alias.scope !983

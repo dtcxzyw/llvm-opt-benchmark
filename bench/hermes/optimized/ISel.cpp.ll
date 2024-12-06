@@ -54636,7 +54636,7 @@ if.end.i.i.i:                                     ; preds = %while.body
 
 while.body.i.i.i:                                 ; preds = %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEED2Ev.exit22.i.i.i, %if.end.i.i.i
   %__parent.0.i.i.i = phi i64 [ %div9.i.i.i, %if.end.i.i.i ], [ %dec.i.i.i, %_ZN4llvh6detail12DenseMapPairIPN6hermes13SwitchImmInstENS2_3hbc7HBCISel13SwitchImmInfoEED2Ev.exit22.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__parent.0.i.i.i
   %1 = load ptr, ptr %add.ptr.i.i.i, align 8
   %second3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %second.i.i10.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %second3.i.i.i.i.i, i64 16, i1 false)
@@ -55003,8 +55003,8 @@ while.body:                                       ; preds = %entry, %_ZN4llvh6de
   %add.ptr2.val = load i32, ptr %1, align 8
   %cmp.i.i = icmp ult i32 %add.ptr.val, %add.ptr2.val
   %spec.select = select i1 %cmp.i.i, i64 %sub1, i64 %mul
-  %add.ptr3 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %spec.select
-  %add.ptr4 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__secondChild.045
+  %add.ptr3 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %spec.select
+  %add.ptr4 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__secondChild.045
   %2 = load ptr, ptr %add.ptr3, align 8
   store ptr %2, ptr %add.ptr4, align 8
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr3, i64 8
@@ -55050,8 +55050,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %sub13
-  %add.ptr15 = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr14 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %sub13
+  %add.ptr15 = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__secondChild.0.lcssa
   %7 = load ptr, ptr %add.ptr14, align 8
   store ptr %7, ptr %add.ptr15, align 8
   %second.i.i23 = getelementptr inbounds nuw i8, ptr %add.ptr14, i64 8
@@ -55106,7 +55106,7 @@ land.rhs.i:                                       ; preds = %if.end18, %_ZN4llvh
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr2.i = getelementptr inbounds %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.llvh::detail::DenseMapPair.98", ptr %__first, i64 %__holeIndex.addr.04.i
   %17 = load ptr, ptr %add.ptr.i, align 8
   store ptr %17, ptr %add.ptr2.i, align 8
   %second3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr2.i, i64 8

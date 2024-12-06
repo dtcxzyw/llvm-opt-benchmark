@@ -67131,7 +67131,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIN4llvm11AssertingV
 .split20.i.i.i:                                   ; preds = %.split.i.i.i, %.split20.i.i.i
   %.026.i.i.i = phi i64 [ %33, %.split20.i.i.i ], [ %31, %.split.i.i.i ]
   %33 = add nsw i64 %.026.i.i.i, -1
-  %34 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %33
   %.sroa.02.0.copyload21.i.i.i = load ptr, ptr %34, align 8
   %.sroa.23.0..sroa_idx22.i.i.i = getelementptr inbounds nuw i8, ptr %34, i64 8
   %.sroa.23.0.copyload23.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx22.i.i.i, align 8
@@ -69318,9 +69318,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
   %.037 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %13 ]
   %14 = shl i64 %.037, 1
   %15 = add i64 %14, 2
-  %16 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %15
   %17 = or disjoint i64 %14, 1
-  %18 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %17
   %.val30 = load ptr, ptr %16, align 8
   %19 = getelementptr i8, ptr %16, i64 8
   %.val31 = load i64, ptr %19, align 8
@@ -69333,8 +69333,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
   %21 = call fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvENK3$_0clERKSt4pairIPN4llvm17GetElementPtrInstElES8_"(ptr %5, ptr %.val30, i64 %.val31, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   %spec.select = select i1 %21, i64 %17, i64 %15
-  %22 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %spec.select
-  %23 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %.037
+  %22 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %spec.select
+  %23 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %.037
   %24 = load ptr, ptr %22, align 8
   store ptr %24, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -69359,8 +69359,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
 35:                                               ; preds = %31
   %36 = shl nsw i64 %.0.lcssa, 1
   %37 = or disjoint i64 %36, 1
-  %38 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %.0.lcssa
+  %38 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %.0.lcssa
   %40 = load ptr, ptr %38, align 8
   store ptr %40, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -69394,7 +69394,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIN4llvm11AssertingVHIN
   br i1 %50, label %51, label %"_ZSt11__push_heapIPSt4pairIN4llvm11AssertingVHINS1_17GetElementPtrInstEEElElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_114CodeGenPrepare20splitLargeGEPOffsetsEvE3$_0EEEvT_T0_SF_T1_RT2_.exit"
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds %"struct.std::pair.699", ptr %0, i64 %.0134.i
+  %52 = getelementptr inbounds nuw %"struct.std::pair.699", ptr %0, i64 %.0134.i
   %53 = load ptr, ptr %48, align 8
   store ptr %53, ptr %52, align 8
   %54 = load i64, ptr %49, align 8

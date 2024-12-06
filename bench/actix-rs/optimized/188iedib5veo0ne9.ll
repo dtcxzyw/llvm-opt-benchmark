@@ -11896,7 +11896,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header6shared7quality8itoa_fmt
   %30 = zext nneg i16 %29 to i64
   %31 = add nsw i64 %.127.i, -2
   %32 = getelementptr inbounds nuw i8, ptr @anon.8f37cc3906fcce93576d9d7b4606f951.89, i64 %30
-  %33 = getelementptr inbounds i8, ptr %3, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %31
   %34 = load i16, ptr %32, align 1, !noalias !1785
   store i16 %34, ptr %33, align 1, !alias.scope !1785
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h3251caf2dea4f466E.llvm.448588166012416074.exit"
@@ -11906,7 +11906,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header6shared7quality8itoa_fmt
   %.12743.i = phi i64 [ 1, %.thread.i ], [ %.127.i, %26 ]
   %36 = add nsw i64 %.12743.i, -1
   %37 = trunc nuw i16 %.02544.i to i8
-  %38 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = or disjoint i8 %37, 48
   store i8 %39, ptr %38, align 1, !alias.scope !1785
   br label %"_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h3251caf2dea4f466E.llvm.448588166012416074.exit"
@@ -11914,7 +11914,7 @@ define hidden noundef zeroext i1 @_ZN10actix_http6header6shared7quality8itoa_fmt
 "_ZN4itoa55_$LT$impl$u20$itoa..private..Sealed$u20$for$u20$u16$GT$5write17h3251caf2dea4f466E.llvm.448588166012416074.exit": ; preds = %28, %35
   %.2.i = phi i64 [ %36, %35 ], [ %31, %28 ]
   %40 = sub nuw nsw i64 5, %.2.i
-  %41 = getelementptr inbounds i8, ptr %3, i64 %.2.i
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 %.2.i
   %42 = call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %0, ptr noalias noundef nonnull readonly align 1 %41, i64 noundef %40), !noalias !1788
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3)
   ret i1 %42

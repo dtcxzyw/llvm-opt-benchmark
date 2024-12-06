@@ -2965,7 +2965,7 @@ _ZSt13__adjust_heapIP6t_distlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EE
 .split22:                                         ; preds = %.split22.lr.ph, %_ZSt13__adjust_heapIP6t_distlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit40
   %.046 = phi i64 [ %12, %.split22.lr.ph ], [ %47, %_ZSt13__adjust_heapIP6t_distlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit40 ]
   %47 = add nsw i64 %.046, -1
-  %48 = getelementptr inbounds %struct.t_dist, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw %struct.t_dist, ptr %0, i64 %47
   %.sroa.04.0.copyload23 = load i64, ptr %48, align 4
   %.sroa.25.0..sroa_idx24 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.sroa.25.0.copyload25 = load float, ptr %.sroa.25.0..sroa_idx24, align 4
@@ -3574,7 +3574,7 @@ _ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6
 .split17.us:                                      ; preds = %.split17.lr.ph, %_ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35.us
   %.041.us = phi i64 [ %51, %_ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35.us ], [ %12, %.split17.lr.ph ]
   %51 = add nsw i64 %.041.us, -1
-  %52 = getelementptr inbounds %struct.t_clustid, ptr %0, i64 %51
+  %52 = getelementptr inbounds nuw %struct.t_clustid, ptr %0, i64 %51
   %.sroa.02.0.copyload18.us = load i64, ptr %52, align 4
   %.sroa.0.0.copyload19.us = load ptr, ptr %2, align 8
   %.not.us = icmp sgt i64 %.041.us, %15
@@ -3638,7 +3638,7 @@ _ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6
 .split17:                                         ; preds = %.split17.preheader, %_ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35
   %.041 = phi i64 [ %71, %_ZSt13__adjust_heapIP9t_clustidlS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit35 ], [ %12, %.split17.preheader ]
   %71 = add nsw i64 %.041, -1
-  %72 = getelementptr inbounds %struct.t_clustid, ptr %0, i64 %71
+  %72 = getelementptr inbounds nuw %struct.t_clustid, ptr %0, i64 %71
   %.sroa.02.0.copyload18 = load i64, ptr %72, align 4
   %.sroa.0.0.copyload19 = load ptr, ptr %2, align 8
   %.not = icmp sgt i64 %.041, %15
@@ -5611,7 +5611,7 @@ _ZSt13__adjust_heapIP5t_nnblS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEE
 .split22:                                         ; preds = %.split22.lr.ph, %_ZSt13__adjust_heapIP5t_nnblS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit40
   %.046 = phi i64 [ %12, %.split22.lr.ph ], [ %49, %_ZSt13__adjust_heapIP5t_nnblS0_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS0_S6_EEEEvT_T0_SB_T1_T2_.exit40 ]
   %49 = add nsw i64 %.046, -1
-  %50 = getelementptr inbounds %struct.t_nnb, ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw %struct.t_nnb, ptr %0, i64 %49
   %.sroa.03.0.copyload23 = load i32, ptr %50, align 8
   %.sroa.3.0..sroa_idx25 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.3.0.copyload26 = load ptr, ptr %.sroa.3.0..sroa_idx25, align 8

@@ -2769,7 +2769,7 @@ if.then298.cont:                                  ; preds = %if.then298.invoke
   unreachable
 
 if.else300:                                       ; preds = %land.lhs.true295, %if.else292
-  %remainArgvLimit.0.add = add nsw i64 %remainArgvLimit.0.idx854, 8
+  %remainArgvLimit.0.add = add nuw nsw i64 %remainArgvLimit.0.idx854, 8
   store ptr %4, ptr %remainArgvLimit.0.ptr861, align 8
   br label %for.inc
 
@@ -2792,7 +2792,7 @@ for.inc:                                          ; preds = %if.else253.tail, %l
   %printName.1 = phi ptr [ %printName.0859, %if.then19 ], [ %printName.0859, %if.then32 ], [ %printName.0859, %if.then42 ], [ %printName.0859, %if.then63 ], [ %call113, %invoke.cont112 ], [ %printName.0859, %if.then286 ], [ %printName.0859, %if.then290 ], [ %printName.0859, %if.else300 ], [ %printName.0859, %if.then279 ], [ %printName.0859, %if.then228 ], [ %printName.0859, %if.then198 ], [ %printName.0859, %if.then172 ], [ %printName.0859, %if.else46 ], [ %printName.0859, %if.else50 ], [ %printName.0859, %if.then86 ], [ %call100, %if.end98 ], [ %printName.0859, %if.else132 ], [ %printName.0859, %if.then142 ], [ %printName.0859, %if.else158.tail ], [ %printName.0859, %if.else213.tail ], [ %printName.0859, %lor.lhs.false249 ], [ %printName.0859, %if.else246.tail ], [ %printName.0859, %lor.lhs.false256 ], [ %printName.0859, %if.else253.tail ]
   %verbose.1 = phi i8 [ %verbose.0860, %if.then19 ], [ %verbose.0860, %if.then32 ], [ %verbose.0860, %if.then42 ], [ %verbose.0860, %if.then63 ], [ %verbose.0860, %invoke.cont112 ], [ %verbose.0860, %if.then286 ], [ %verbose.0860, %if.then290 ], [ %verbose.0860, %if.else300 ], [ %verbose.0860, %if.then279 ], [ %verbose.0860, %if.then228 ], [ %verbose.0860, %if.then198 ], [ %verbose.0860, %if.then172 ], [ %verbose.0860, %if.else46 ], [ %verbose.0860, %if.else50 ], [ %verbose.0860, %if.then86 ], [ %verbose.0860, %if.end98 ], [ %verbose.0860, %if.else132 ], [ %verbose.0860, %if.then142 ], [ %verbose.0860, %if.else158.tail ], [ %verbose.0860, %if.else213.tail ], [ 0, %lor.lhs.false249 ], [ 0, %if.else246.tail ], [ 1, %lor.lhs.false256 ], [ 1, %if.else253.tail ]
   %incdec.ptr326 = getelementptr inbounds nuw i8, ptr %iter.1, i64 8
-  %remainArgvLimit.0.ptr.ptr = getelementptr inbounds i8, ptr %argv, i64 %remainArgvLimit.1.idx
+  %remainArgvLimit.0.ptr.ptr = getelementptr inbounds nuw i8, ptr %argv, i64 %remainArgvLimit.1.idx
   %cmp.not = icmp eq ptr %incdec.ptr326, %add.ptr
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !15
 
@@ -2800,7 +2800,7 @@ for.end:                                          ; preds = %for.inc
   %172 = icmp ne i8 %printConvs.1, 0
   %173 = icmp eq i8 %printCanon.1, 0
   %174 = zext nneg i8 %verbose.1 to i32
-  %remainArgvLimit.0.ptr.lcssa.ptr = getelementptr inbounds i8, ptr %argv, i64 %remainArgvLimit.1.idx
+  %remainArgvLimit.0.ptr.lcssa.ptr = getelementptr inbounds nuw i8, ptr %argv, i64 %remainArgvLimit.1.idx
   %tobool329 = icmp ne ptr %printName.1, null
   %or.cond2 = select i1 %172, i1 true, i1 %tobool329
   br i1 %or.cond2, label %if.then330, label %if.else334
@@ -3499,7 +3499,7 @@ if.end383:                                        ; preds = %if.then363, %if.els
 
 call.i.noexc248:                                  ; preds = %if.end383
   store ptr %call.i249, ptr %cf, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %call.i249, i64 %bufsz.0.lcssa97710051048
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i249, i64 %bufsz.0.lcssa97710051048
   %outbuf.i = getelementptr inbounds nuw i8, ptr %cf, i64 8
   store ptr %add.ptr.i, ptr %outbuf.i, align 8
   %add.i = shl i64 %bufsz.0.lcssa97710051048, 2

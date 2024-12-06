@@ -135863,7 +135863,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPZN5clang4Sema13ActOnPopSco
 
 27:                                               ; preds = %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit19.i.i.i, %20
   %.013.i.i.i = phi i64 [ %23, %20 ], [ %49, %_ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagD2Ev.exit19.i.i.i ]
-  %28 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.013.i.i.i
+  %28 = getelementptr inbounds nuw %struct.LocAndDiag, ptr %0, i64 %.013.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %28, i64 12, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 32
@@ -136388,7 +136388,7 @@ _ZZN5clang4Sema13ActOnPopScopeENS_14SourceLocationEPNS_5ScopeEEN10LocAndDiagaSEO
   br i1 %86, label %87, label %.critedge.i
 
 87:                                               ; preds = %.lr.ph.i
-  %88 = getelementptr inbounds %struct.LocAndDiag, ptr %0, i64 %.0133.i
+  %88 = getelementptr inbounds nuw %struct.LocAndDiag, ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %85, i64 12, i1 false)
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8

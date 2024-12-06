@@ -589,7 +589,7 @@ define hidden i32 @mbedtls_x509write_crt_der(ptr noundef %0, ptr noundef %1, i64
 151:                                              ; preds = %147
   %152 = load ptr, ptr %8, align 8
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %1, ptr align 1 %152, i64 %142, i1 false)
-  %153 = getelementptr inbounds i8, ptr %1, i64 %142
+  %153 = getelementptr inbounds nuw i8, ptr %1, i64 %142
   store ptr %153, ptr %8, align 8
   store ptr %13, ptr %9, align 8
   %154 = load ptr, ptr %6, align 8

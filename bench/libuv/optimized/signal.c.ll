@@ -1897,7 +1897,7 @@ do.body.outer:                                    ; preds = %do.cond, %entry
   %cmp46.ph = phi i1 [ true, %do.cond ], [ false, %entry ]
   %end.0.ph = phi i64 [ 512, %do.cond ], [ 0, %entry ]
   %bytes.0.ph = phi i64 [ %bytes.1, %do.cond ], [ 0, %entry ]
-  %add.ptr = getelementptr inbounds i8, ptr %buf, i64 %bytes.0.ph
+  %add.ptr = getelementptr inbounds nuw i8, ptr %buf, i64 %bytes.0.ph
   %sub = sub nuw nsw i64 512, %bytes.0.ph
   %cmp15.not = icmp eq i64 %bytes.0.ph, 0
   br i1 %cmp15.not, label %do.body.outer.split.us, label %do.body

@@ -8811,7 +8811,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   %19 = and i64 %11, 4
   %20 = icmp eq i64 %19, 0
   %21 = or disjoint i64 %15, 1
-  %22 = getelementptr inbounds i32, ptr %0, i64 %21
+  %22 = getelementptr inbounds nuw i32, ptr %0, i64 %21
   %23 = getelementptr inbounds nuw i32, ptr %0, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.036.sroa.0.0.copyload, i64 32
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.036.sroa.2.0.copyload, i64 8
@@ -8821,7 +8821,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
 
 28:                                               ; preds = %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", %13
   %.0.i.i.i = phi i64 [ %16, %13 ], [ %215, %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i" ]
-  %29 = getelementptr inbounds i32, ptr %0, i64 %.0.i.i.i
+  %29 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.i.i.i
   %30 = load i32, ptr %29, align 4
   %31 = icmp slt i64 %.0.i.i.i, %18
   br i1 %31, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -8830,9 +8830,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_Iter
   %.030.i.i.i.i = phi i64 [ %118, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread42.i.i.i" ], [ %.0.i.i.i, %28 ]
   %32 = shl i64 %.030.i.i.i.i, 1
   %33 = add i64 %32, 2
-  %34 = getelementptr inbounds i32, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw i32, ptr %0, i64 %33
   %35 = or disjoint i64 %32, 1
-  %36 = getelementptr inbounds i32, ptr %0, i64 %35
+  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %35
   %.val.i.i.i.i = load i32, ptr %34, align 4
   %.val29.i.i.i.i = load i32, ptr %36, align 4
   %37 = load ptr, ptr %24, align 8
@@ -8972,9 +8972,9 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i26.i.i
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread42.i.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread.i.i.i", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.i.i.i", %93
   %118 = phi i64 [ %35, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread.i.i.i" ], [ %33, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.i.i.i" ], [ %33, %93 ]
-  %119 = getelementptr inbounds i32, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw i32, ptr %0, i64 %118
   %120 = load i32, ptr %119, align 4
-  %121 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i.i.i
+  %121 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i.i.i
   store i32 %120, ptr %121, align 4
   %122 = icmp slt i64 %118, %18
   br i1 %122, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !161
@@ -9137,7 +9137,7 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.thread.i.i.i": ; preds = %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit.i.i.i", %205, %_ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
   %210 = load i32, ptr %129, align 4
-  %211 = getelementptr inbounds i32, ptr %0, i64 %.01318.i.i.i.i.i
+  %211 = getelementptr inbounds nuw i32, ptr %0, i64 %.01318.i.i.i.i.i
   store i32 %210, ptr %211, align 4
   %212 = icmp sgt i64 %.019.i.i.i.i.i, %.0.i.i.i
   br i1 %212, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEE3$_0EEEvT_T0_SD_T1_T2_.exit.i.i.i", !llvm.loop !162
@@ -9168,9 +9168,9 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i.i.i.i
   %.030.i.i = phi i64 [ %311, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread49" ], [ 0, %.lr.ph.i5.i ]
   %225 = shl i64 %.030.i.i, 1
   %226 = add i64 %225, 2
-  %227 = getelementptr inbounds i32, ptr %0, i64 %226
+  %227 = getelementptr inbounds nuw i32, ptr %0, i64 %226
   %228 = or disjoint i64 %225, 1
-  %229 = getelementptr inbounds i32, ptr %0, i64 %228
+  %229 = getelementptr inbounds nuw i32, ptr %0, i64 %228
   %.val.i.i13 = load i32, ptr %227, align 4
   %.val29.i.i14 = load i32, ptr %229, align 4
   %230 = load ptr, ptr %24, align 8
@@ -9310,9 +9310,9 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i26: ; 
 
 "_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread49": ; preds = %286, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35", %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread"
   %311 = phi i64 [ %228, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35.thread" ], [ %226, %"_ZZN12_GLOBAL__N_116RegAllocFastImpl28findAndSortDefOperandIndexesERKN4llvm12MachineInstrEENK3$_0clEjj.exit35" ], [ %226, %286 ]
-  %312 = getelementptr inbounds i32, ptr %0, i64 %311
+  %312 = getelementptr inbounds nuw i32, ptr %0, i64 %311
   %313 = load i32, ptr %312, align 4
-  %314 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i
+  %314 = getelementptr inbounds nuw i32, ptr %0, i64 %.030.i.i
   store i32 %313, ptr %314, align 4
   %315 = icmp slt i64 %311, %223
   br i1 %315, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !161
@@ -9332,9 +9332,9 @@ _ZNK4llvm17RegisterClassInfo8getOrderEPKNS_19TargetRegisterClassE.exit41.i26: ; 
 322:                                              ; preds = %318
   %323 = shl nsw i64 %.0.lcssa.i.i, 1
   %324 = or disjoint i64 %323, 1
-  %325 = getelementptr inbounds i32, ptr %0, i64 %324
+  %325 = getelementptr inbounds nuw i32, ptr %0, i64 %324
   %326 = load i32, ptr %325, align 4
-  %327 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %327 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
   store i32 %326, ptr %327, align 4
   br label %328
 

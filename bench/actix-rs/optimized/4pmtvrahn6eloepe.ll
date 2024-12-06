@@ -7063,7 +7063,7 @@ _ZN6brotli3enc19backward_references2hq28ComputeShortestPathFromNodes17hfd9e46c3c
           to label %151 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i, !noalias !634
 
 143:                                              ; preds = %138
-  %144 = getelementptr inbounds [128 x i64], ptr %23, i64 0, i64 %139
+  %144 = getelementptr inbounds nuw [128 x i64], ptr %23, i64 0, i64 %139
   %145 = load i64, ptr %144, align 8, !noalias !642, !noundef !13
   %sum.shift.i = lshr i64 %145, 37
   %146 = icmp samesign ugt i64 %sum.shift.i, %..i

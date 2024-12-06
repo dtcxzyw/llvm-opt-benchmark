@@ -1706,7 +1706,7 @@ if.end10:                                         ; preds = %if.then6
 
 if.end12:                                         ; preds = %if.end10, %if.end3
   %cnt.1 = phi i64 [ %inc11, %if.end10 ], [ %cnt.0, %if.end3 ]
-  %arrayidx = getelementptr inbounds %struct.ossl_param_st, ptr %params, i64 %cnt.1
+  %arrayidx = getelementptr inbounds nuw %struct.ossl_param_st, ptr %params, i64 %cnt.1
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp13 = icmp eq ptr %2, null
   %. = zext i1 %cmp13 to i32

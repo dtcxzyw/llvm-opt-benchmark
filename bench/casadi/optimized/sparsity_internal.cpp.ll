@@ -574,7 +574,7 @@ define void @_ZN6casadi16SparsityInternal9postorderEPKxxPxS3_(ptr nocapture noun
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %17
   %.145.in = phi i64 [ %.145, %17 ], [ %1, %.lr.ph46.preheader ]
   %.145 = add nsw i64 %.145.in, -1
-  %9 = getelementptr inbounds i64, ptr %0, i64 %.145
+  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.145
   %10 = load i64, ptr %9, align 8
   %.not = icmp eq i64 %10, -1
   br i1 %.not, label %17, label %11
@@ -582,7 +582,7 @@ define void @_ZN6casadi16SparsityInternal9postorderEPKxxPxS3_(ptr nocapture noun
 11:                                               ; preds = %.lr.ph46
   %12 = getelementptr inbounds i64, ptr %3, i64 %10
   %13 = load i64, ptr %12, align 8
-  %14 = getelementptr inbounds i64, ptr %5, i64 %.145
+  %14 = getelementptr inbounds nuw i64, ptr %5, i64 %.145
   store i64 %13, ptr %14, align 8
   %15 = load i64, ptr %9, align 8
   %16 = getelementptr inbounds i64, ptr %3, i64 %15
@@ -1025,7 +1025,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
 .lr.ph155:                                        ; preds = %.preheader139, %.loopexit
   %.3127.in153 = phi i64 [ %.3127154, %.loopexit ], [ %9, %.preheader139 ]
   %.3127154 = add nsw i64 %.3127.in153, -1
-  %23 = getelementptr inbounds i64, ptr %10, i64 %.3127154
+  %23 = getelementptr inbounds nuw i64, ptr %10, i64 %.3127154
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i64, ptr %10, i64 %.3127.in153
   %26 = load i64, ptr %25, align 8
@@ -1049,9 +1049,9 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
 .lr.ph158:                                        ; preds = %.preheader138, %49
   %.1122157.in = phi i64 [ %.1122157, %49 ], [ %7, %.preheader138 ]
   %.1122157 = add nsw i64 %.1122157.in, -1
-  %34 = getelementptr inbounds i64, ptr %1, i64 %.1122157
+  %34 = getelementptr inbounds nuw i64, ptr %1, i64 %.1122157
   store i64 -1, ptr %34, align 8
-  %35 = getelementptr inbounds i64, ptr %2, i64 %.1122157
+  %35 = getelementptr inbounds nuw i64, ptr %2, i64 %.1122157
   %36 = load i64, ptr %35, align 8
   %37 = icmp eq i64 %36, -1
   br i1 %37, label %49, label %38
@@ -1072,7 +1072,7 @@ define noundef range(i64 0, -9223372036854775808) i64 @_ZN6casadi16SparsityInter
 45:                                               ; preds = %43, %38
   %46 = getelementptr inbounds i64, ptr %13, i64 %36
   %47 = load i64, ptr %46, align 8
-  %48 = getelementptr inbounds i64, ptr %5, i64 %.1122157
+  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %.1122157
   store i64 %47, ptr %48, align 8
   store i64 %.1122157, ptr %46, align 8
   br label %49
@@ -1197,7 +1197,7 @@ define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr
 .lr.ph46.i:                                       ; preds = %25, %.lr.ph46.preheader.i
   %.145.in.i = phi i64 [ %.145.i, %25 ], [ %11, %.lr.ph46.preheader.i ]
   %.145.i = add nsw i64 %.145.in.i, -1
-  %17 = getelementptr inbounds i64, ptr %3, i64 %.145.i
+  %17 = getelementptr inbounds nuw i64, ptr %3, i64 %.145.i
   %18 = load i64, ptr %17, align 8
   %.not.i = icmp eq i64 %18, -1
   br i1 %.not.i, label %25, label %19
@@ -1205,7 +1205,7 @@ define void @_ZN6casadi16SparsityInternal7qr_initEPKxS2_PxS3_S3_S3_S3_S3_S3_(ptr
 19:                                               ; preds = %.lr.ph46.i
   %20 = getelementptr inbounds i64, ptr %12, i64 %18
   %21 = load i64, ptr %20, align 8
-  %22 = getelementptr inbounds i64, ptr %13, i64 %.145.i
+  %22 = getelementptr inbounds nuw i64, ptr %13, i64 %.145.i
   store i64 %21, ptr %22, align 8
   %23 = load i64, ptr %17, align 8
   %24 = getelementptr inbounds i64, ptr %12, i64 %23
@@ -1368,7 +1368,7 @@ define void @_ZN6casadi16SparsityInternal13qr_sparsitiesEPKxxPxS3_S2_S2_S2_S3_(p
   %.1120139 = phi i64 [ %51, %.lr.ph140 ], [ %46, %.lr.ph137 ]
   %.1122138 = phi i64 [ %54, %.lr.ph140 ], [ %.0121143, %.lr.ph137 ]
   %51 = add nsw i64 %.1120139, -1
-  %52 = getelementptr inbounds i64, ptr %7, i64 %51
+  %52 = getelementptr inbounds nuw i64, ptr %7, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = add nsw i64 %.1122138, -1
   %55 = getelementptr inbounds i64, ptr %7, i64 %54

@@ -4724,7 +4724,7 @@ _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i: ; preds = %if.el
   br i1 %cmp.not.i33, label %if.else34, label %_ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit
 
 _ZN4node6crypto12_GLOBAL__N_125IsEncryptedPrivateKeyInfoEPKhm.exit: ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit.i
-  %arrayidx.i = getelementptr inbounds i8, ptr %key, i64 %offset.0.i
+  %arrayidx.i = getelementptr inbounds nuw i8, ptr %key, i64 %offset.0.i
   %12 = load i8, ptr %arrayidx.i, align 1
   %cmp1.i.not = icmp eq i8 %12, 2
   br i1 %cmp1.i.not, label %if.else34, label %if.then31
@@ -5639,7 +5639,7 @@ _ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit: ; preds = %for.end
   br i1 %cmp, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %_ZN4node6crypto12_GLOBAL__N_114IsASN1SequenceEPKhmPmS4_.exit
-  %arrayidx = getelementptr inbounds i8, ptr %data, i64 %offset.0
+  %arrayidx = getelementptr inbounds nuw i8, ptr %data, i64 %offset.0
   %4 = load i8, ptr %arrayidx, align 1
   %cmp1 = icmp eq i8 %4, 2
   br i1 %cmp1, label %land.lhs.true2, label %return

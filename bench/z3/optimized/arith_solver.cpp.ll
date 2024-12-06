@@ -37102,7 +37102,7 @@ if.then:                                          ; preds = %while.body
 if.end7.split.i.i:                                ; preds = %if.then, %if.end7.split.i.i
   %__parent.013.i.i = phi i64 [ %dec.i.i, %if.end7.split.i.i ], [ %div11.i.i, %if.then ]
   %dec.i.i = add nsw i64 %__parent.013.i.i, -1
-  %add.ptr10.i.i = getelementptr inbounds ptr, ptr %__first, i64 %dec.i.i
+  %add.ptr10.i.i = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.i.i
   %1 = load ptr, ptr %add.ptr10.i.i, align 8
   tail call void @_ZSt13__adjust_heapIPPN6lp_api5boundIN3sat7literalEEElS5_N9__gnu_cxx5__ops15_Iter_comp_iterIN5arith6solver14compare_boundsEEEEvT_T0_SF_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i, i64 noundef %sub.ptr.div.i.i, ptr noundef %1)
   %cmp5.i.i = icmp eq i64 %dec.i.i, 0

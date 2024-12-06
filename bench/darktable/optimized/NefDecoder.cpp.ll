@@ -1407,7 +1407,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder18DecodeUncompressedEv(ptr noundef 
 64:                                               ; preds = %55
   %65 = mul nuw nsw i64 %60, 12
   %66 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #29
-  %67 = getelementptr inbounds %"struct.rawspeed::NefDecoder::NefSlice", ptr %66, i64 %60
+  %67 = getelementptr inbounds nuw %"struct.rawspeed::NefDecoder::NefSlice", ptr %66, i64 %60
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %71
 

@@ -1363,9 +1363,9 @@ if.else24.i:                                      ; preds = %if.else7.i
   br i1 %tobool28.not.i, label %if.then29.i76, label %if.end43.i
 
 if.then29.i76:                                    ; preds = %if.else24.i
-  %189 = load i64, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  %189 = load i64, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   %inc.i.i.i = add i64 %189, 1
-  store i64 %inc.i.i.i, ptr getelementptr inbounds (i8, ptr @qnull_, i64 8), align 8
+  store i64 %inc.i.i.i, ptr getelementptr inbounds nuw (i8, ptr @qnull_, i64 8), align 8
   br label %return
 
 if.end43.i:                                       ; preds = %if.else24.i

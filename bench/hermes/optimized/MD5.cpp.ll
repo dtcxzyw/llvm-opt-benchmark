@@ -970,15 +970,16 @@ if.then:                                          ; preds = %entry
   %arrayidx3 = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %inc
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3, i8 0, i64 %sub, i1 false)
   %call5 = tail call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %this, ptr nonnull %buffer, i64 64)
+  %.pre = load i32, ptr %lo, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
+  %1 = phi i32 [ %.pre, %if.then ], [ %0, %entry ]
   %free.0 = phi i64 [ 64, %if.then ], [ %sub, %entry ]
   %used.0 = phi i64 [ 0, %if.then ], [ %inc, %entry ]
-  %arrayidx7 = getelementptr inbounds [64 x i8], ptr %buffer, i64 0, i64 %used.0
+  %arrayidx7 = getelementptr inbounds nuw [64 x i8], ptr %buffer, i64 0, i64 %used.0
   %sub8 = add nsw i64 %free.0, -8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7, i8 0, i64 %sub8, i1 false)
-  %1 = load i32, ptr %lo, align 4
   %shl = shl i32 %1, 3
   store i32 %shl, ptr %lo, align 4
   %arrayidx11 = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1261,15 +1262,16 @@ if.then.i:                                        ; preds = %_ZN4llvh3MD56update
   %arrayidx3.i = getelementptr inbounds nuw [64 x i8], ptr %buffer30.i, i64 0, i64 %inc.i5
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx3.i, i8 0, i64 %sub.i7, i1 false)
   %call5.i = call noundef ptr @_ZN4llvh3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %Hash, ptr nonnull %buffer30.i, i64 64)
+  %.pre.i = load i32, ptr %lo.i, align 4
   br label %_ZN4llvh3MD55finalERNS0_9MD5ResultE.exit
 
 _ZN4llvh3MD55finalERNS0_9MD5ResultE.exit:         ; preds = %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit, %if.then.i
+  %3 = phi i32 [ %.pre.i, %if.then.i ], [ %2, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
   %free.0.i = phi i64 [ 64, %if.then.i ], [ %sub.i7, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
   %used.0.i = phi i64 [ 0, %if.then.i ], [ %inc.i5, %_ZN4llvh3MD56updateENS_8ArrayRefIhEE.exit ]
-  %arrayidx7.i = getelementptr inbounds [64 x i8], ptr %buffer30.i, i64 0, i64 %used.0.i
+  %arrayidx7.i = getelementptr inbounds nuw [64 x i8], ptr %buffer30.i, i64 0, i64 %used.0.i
   %sub8.i = add nsw i64 %free.0.i, -8
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %arrayidx7.i, i8 0, i64 %sub8.i, i1 false)
-  %3 = load i32, ptr %lo.i, align 4
   %shl.i = shl i32 %3, 3
   store i32 %shl.i, ptr %lo.i, align 4
   %arrayidx11.i = getelementptr inbounds nuw i8, ptr %Hash, i64 80

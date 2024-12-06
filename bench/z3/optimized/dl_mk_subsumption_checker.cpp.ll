@@ -5690,7 +5690,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPPN7datalog4ruleElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SB_T1_T2_.exit56.us
   %__parent.061.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPPN7datalog4ruleElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SB_T1_T2_.exit56.us ], [ %div13, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.061.us, -1
-  %add.ptr11.us = getelementptr inbounds ptr, ptr %__first, i64 %dec.us
+  %add.ptr11.us = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec.us
   %8 = load ptr, ptr %add.ptr11.us, align 8
   %agg.tmp.sroa.0.0.copyload12.us = load ptr, ptr %__comp, align 8
   %cmp24.i16.not.us = icmp sgt i64 %__parent.061.us, %div.i5759
@@ -5744,7 +5744,7 @@ _ZSt13__adjust_heapIPPN7datalog4ruleElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPPN7datalog4ruleElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SB_T1_T2_.exit56
   %__parent.061 = phi i64 [ %dec, %_ZSt13__adjust_heapIPPN7datalog4ruleElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbS2_S2_EEEEvT_T0_SB_T1_T2_.exit56 ], [ %div13, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.061, -1
-  %add.ptr11 = getelementptr inbounds ptr, ptr %__first, i64 %dec
+  %add.ptr11 = getelementptr inbounds nuw ptr, ptr %__first, i64 %dec
   %14 = load ptr, ptr %add.ptr11, align 8
   %agg.tmp.sroa.0.0.copyload12 = load ptr, ptr %__comp, align 8
   %cmp24.i16.not = icmp sgt i64 %__parent.061, %div.i5759

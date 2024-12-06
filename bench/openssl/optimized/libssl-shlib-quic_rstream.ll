@@ -456,7 +456,7 @@ if.then6.i:                                       ; preds = %land.lhs.true.i
 
 if.then17.i:                                      ; preds = %if.then6.i
   %17 = load ptr, ptr %rbuf64, align 8
-  %add.ptr.i45 = getelementptr inbounds i8, ptr %17, i64 %rem.i42
+  %add.ptr.i45 = getelementptr inbounds nuw i8, ptr %17, i64 %rem.i42
   call void @OPENSSL_cleanse(ptr noundef %add.ptr.i45, i64 noundef %sub15.i) #9
   %18 = load i64, ptr %alloc.i41, align 8
   %sub22.neg.i = add i64 %sub.i44, %rem.i42
@@ -471,7 +471,7 @@ if.end24.i:                                       ; preds = %if.then17.i, %if.th
 
 if.then26.i:                                      ; preds = %if.end24.i
   %19 = load ptr, ptr %rbuf64, align 8
-  %add.ptr28.i = getelementptr inbounds i8, ptr %19, i64 %idx.0.i
+  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %19, i64 %idx.0.i
   call void @OPENSSL_cleanse(ptr noundef %add.ptr28.i, i64 noundef %l.0.i) #9
   br label %if.end30.i
 
@@ -710,7 +710,7 @@ if.then6.i:                                       ; preds = %land.lhs.true.i
 
 if.then17.i:                                      ; preds = %if.then6.i
   %6 = load ptr, ptr %rbuf, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %rem.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %rem.i
   tail call void @OPENSSL_cleanse(ptr noundef %add.ptr.i, i64 noundef %sub15.i) #9
   %7 = load i64, ptr %alloc.i, align 8
   %sub22.neg.i = add i64 %sub.i, %rem.i
@@ -725,7 +725,7 @@ if.end24.i:                                       ; preds = %if.then17.i, %if.th
 
 if.then26.i:                                      ; preds = %if.end24.i
   %8 = load ptr, ptr %rbuf, align 8
-  %add.ptr28.i = getelementptr inbounds i8, ptr %8, i64 %idx.0.i
+  %add.ptr28.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.0.i
   tail call void @OPENSSL_cleanse(ptr noundef %add.ptr28.i, i64 noundef %l.0.i) #9
   br label %if.end30.i
 

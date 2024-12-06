@@ -1510,7 +1510,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %35 = phi i8 [ 0, %31 ], [ %102, %101 ]
   %36 = add nsw i64 %34, -1
   %37 = load ptr, ptr %21, align 8, !tbaa !9
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %36
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = icmp eq ptr %39, %19
   br i1 %40, label %101, label %41, !llvm.loop !170
@@ -1531,7 +1531,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass18buildCFGDominatorsE
   %50 = phi i64 [ %48, %45 ], [ %52, %.loopexit17 ]
   %51 = phi ptr [ null, %45 ], [ %86, %.loopexit17 ]
   %52 = add nsw i64 %50, -1
-  %53 = getelementptr inbounds ptr, ptr %47, i64 %52
+  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 80
   %56 = load ptr, ptr %55, align 8, !tbaa !168

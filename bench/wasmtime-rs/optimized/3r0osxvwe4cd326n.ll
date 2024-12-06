@@ -32024,7 +32024,7 @@ define internal fastcc noundef zeroext i1 @"_ZN92_$LT$cpp_demangle..ast..Functio
   %67 = xor i64 %.011.i.i.i, -1
   %68 = add nsw i64 %63, %67
   %69 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %.pre.i, i64 0, i64 %.011.i.i.i
-  %70 = getelementptr inbounds [0 x { ptr, ptr }], ptr %66, i64 0, i64 %68
+  %70 = getelementptr inbounds nuw [0 x { ptr, ptr }], ptr %66, i64 0, i64 %68
   %71 = load ptr, ptr %69, align 8, !alias.scope !3831, !noalias !3834, !nonnull !9, !align !284, !noundef !9
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %73 = load ptr, ptr %72, align 8, !alias.scope !3831, !noalias !3834, !nonnull !9, !align !125, !noundef !9

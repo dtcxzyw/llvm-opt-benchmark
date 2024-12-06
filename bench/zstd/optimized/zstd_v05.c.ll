@@ -1789,7 +1789,7 @@ if.then2:                                         ; preds = %if.end
 
 if.then5:                                         ; preds = %if.then2
   %sub = add nsw i64 %conv, -242
-  %arrayidx6 = getelementptr inbounds [14 x i32], ptr @HUFv05_readStats.l, i64 0, i64 %sub
+  %arrayidx6 = getelementptr inbounds nuw [14 x i32], ptr @HUFv05_readStats.l, i64 0, i64 %sub
   %1 = load i32, ptr %arrayidx6, align 4
   %conv7 = sext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %huffWeight, i8 1, i64 256, i1 false)
@@ -1937,7 +1937,7 @@ if.end83:                                         ; preds = %if.end77
 if.end93:                                         ; preds = %if.end83
   %add89 = sub nuw nsw i32 32, %15
   %conv94 = trunc nuw nsw i32 %add89 to i8
-  %arrayidx95 = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.0
+  %arrayidx95 = getelementptr inbounds nuw i8, ptr %huffWeight, i64 %oSize.0
   store i8 %conv94, ptr %arrayidx95, align 1
   %idxprom96 = zext nneg i32 %add89 to i64
   %arrayidx97 = getelementptr inbounds nuw i32, ptr %rankStats, i64 %idxprom96
@@ -6148,7 +6148,7 @@ if.end45.i.i:                                     ; preds = %if.else.i.i
 if.end55.i.i:                                     ; preds = %if.end45.i.i, %if.end32.i.i
   %ip.1.i.i = phi ptr [ %add.ptr28.i.i, %if.end32.i.i ], [ %add.ptr41.i.i, %if.end45.i.i ]
   %dumpsLength.0.i.i = phi i64 [ %add39.i.i, %if.end32.i.i ], [ %add53.i.i, %if.end45.i.i ]
-  %add.ptr56.i.i = getelementptr inbounds i8, ptr %ip.1.i.i, i64 %dumpsLength.0.i.i
+  %add.ptr56.i.i = getelementptr inbounds nuw i8, ptr %ip.1.i.i, i64 %dumpsLength.0.i.i
   %add.ptr57.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 -3
   %cmp58.i.i = icmp ugt ptr %add.ptr56.i.i, %add.ptr57.i.i
   br i1 %cmp58.i.i, label %ZSTDv05_decodeSeqHeaders.exit.thread.i, label %if.end61.i.i
@@ -6945,10 +6945,10 @@ ZSTDv05_decodeSequence.exit.i:                    ; preds = %if.end112.i.i, %if.
   %add41.i.i = add nuw i64 %shr3.i.i.i181.i, %conv39.i182.i
   %offset.0.i.i = select i1 %cmp35.i.i, i64 %cond.i.sroa.speculated.i, i64 %add41.i.i
   %add119.i.i = add nuw nsw i64 %matchLength.0.i.i, 4
-  %add.ptr.i192.i = getelementptr inbounds i8, ptr %op.1316.i, i64 %litLength.0.i.i
+  %add.ptr.i192.i = getelementptr inbounds nuw i8, ptr %op.1316.i, i64 %litLength.0.i.i
   %add.i193.i = add nuw nsw i64 %add119.i.i, %litLength.0.i.i
-  %add.ptr2.i.i = getelementptr inbounds i8, ptr %op.1316.i, i64 %add.i193.i
-  %add.ptr5.i.i = getelementptr inbounds i8, ptr %litPtr.1312.i, i64 %litLength.0.i.i
+  %add.ptr2.i.i = getelementptr inbounds nuw i8, ptr %op.1316.i, i64 %add.i193.i
+  %add.ptr5.i.i = getelementptr inbounds nuw i8, ptr %litPtr.1312.i, i64 %litLength.0.i.i
   %idx.neg.i195.i = sub i64 0, %offset.0.i.i
   %add.ptr6.i.i = getelementptr inbounds i8, ptr %add.ptr.i192.i, i64 %idx.neg.i195.i
   %sub.ptr.rhs.cast.i197.i = ptrtoint ptr %op.1316.i to i64
@@ -6997,7 +6997,7 @@ if.end39.i.i:                                     ; preds = %if.then32.i.i
   %sub.ptr.rhs.cast41.i.i = ptrtoint ptr %add.ptr6.i.i to i64
   %sub.ptr.sub42.neg.i.i = sub i64 %sub.ptr.rhs.cast41.i.i, %sub.ptr.rhs.cast29.i.i
   %add.ptr44.i.i = getelementptr inbounds i8, ptr %24, i64 %sub.ptr.sub42.neg.i.i
-  %add.ptr46.i.i = getelementptr inbounds i8, ptr %add.ptr44.i.i, i64 %add119.i.i
+  %add.ptr46.i.i = getelementptr inbounds nuw i8, ptr %add.ptr44.i.i, i64 %add119.i.i
   %cmp47.not.i.i = icmp ugt ptr %add.ptr46.i.i, %24
   br i1 %cmp47.not.i.i, label %if.end50.i.i, label %if.then48.i.i
 

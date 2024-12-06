@@ -30971,7 +30971,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN4llvm3UseEjElN9
 
 19:                                               ; preds = %19, %15
   %.0.i.i.i = phi i64 [ %18, %15 ], [ %22, %19 ]
-  %20 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.0.i.i.i
+  %20 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.0.i.i.i
   %.sroa.01.0.copyload.i.i.i = load ptr, ptr %20, align 8
   %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %.sroa.22.0.copyload.i.i.i = load i32, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8
@@ -31492,15 +31492,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   %.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %6 ]
   %10 = shl i64 %.031, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %13
   %.val = load ptr, ptr %12, align 8
   %.val30 = load ptr, ptr %14, align 8
   %15 = call fastcc noundef zeroext i1 @"_ZZL24predictValueUseListOrderPKN4llvm5ValueEjRKNS_9MapVectorIS2_jNS_8DenseMapIS2_jNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEENS_11SmallVectorISt4pairIS2_jELj0EEEEEENK3$_0clERKSC_IPKNS_3UseEjESO_"(ptr noundef nonnull readonly align 8 dereferenceable(24) %5, ptr %.val, ptr %.val30)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.031
+  %16 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.031
   %18 = load ptr, ptr %16, align 8
   store ptr %18, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -31525,8 +31525,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
 29:                                               ; preds = %25
   %30 = shl nsw i64 %.0.lcssa, 1
   %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.0.lcssa
   %34 = load ptr, ptr %32, align 8
   store ptr %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -31550,7 +31550,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN4llvm3UseEjElS5_N9
   br i1 %41, label %42, label %"_ZSt11__push_heapIPSt4pairIPKN4llvm3UseEjElS5_N9__gnu_cxx5__ops14_Iter_comp_valIZL24predictValueUseListOrderPKNS1_5ValueEjRKNS1_9MapVectorISC_jNS1_8DenseMapISC_jNS1_12DenseMapInfoISC_vEENS1_6detail12DenseMapPairISC_jEEEENS1_11SmallVectorIS0_ISC_jELj0EEEEEE3$_0EEEvT_T0_SU_T1_RT2_.exit"
 
 42:                                               ; preds = %.lr.ph.i
-  %43 = getelementptr inbounds %"struct.std::pair.417", ptr %0, i64 %.01317.i
+  %43 = getelementptr inbounds nuw %"struct.std::pair.417", ptr %0, i64 %.01317.i
   %44 = load ptr, ptr %40, align 8
   store ptr %44, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 8

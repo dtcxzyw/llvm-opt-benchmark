@@ -447,11 +447,11 @@ if.then80:                                        ; preds = %while.end77
 
 if.end90:                                         ; preds = %if.then80
   %sub93 = sub i64 %dlen.addr.3.lcssa, %mul84
-  %add.ptr96 = getelementptr inbounds i8, ptr %data.3.lcssa, i64 %mul84
+  %add.ptr96 = getelementptr inbounds nuw i8, ptr %data.3.lcssa, i64 %mul84
   %tbl97 = getelementptr inbounds nuw i8, ptr %ctx, i64 72
   %sub99 = add nsw i64 %cipher_blocks.0.lcssa, -1
   %mul101 = mul i64 %sub99, %conv37
-  %arrayidx = getelementptr inbounds [2048 x i8], ptr %buf, i64 0, i64 %mul101
+  %arrayidx = getelementptr inbounds nuw [2048 x i8], ptr %buf, i64 0, i64 %mul101
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %tbl97, ptr nonnull align 1 %arrayidx, i64 %conv37, i1 false)
   br label %if.end104
 

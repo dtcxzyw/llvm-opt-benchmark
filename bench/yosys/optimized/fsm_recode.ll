@@ -473,7 +473,7 @@ define internal void @_ZN12_GLOBAL__N_113FsmRecodePass7executeESt6vectorINSt7__c
   %.241.ph = phi ptr [ %.039252, %91 ], [ %75, %72 ], [ %.039252, %46 ]
   %.2.ph = phi ptr [ %.0253, %91 ], [ %.0253, %72 ], [ %49, %46 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  %97 = add nuw i64 %.251.ph, 1
+  %97 = add nuw nsw i64 %.251.ph, 1
   %98 = load ptr, ptr %24, align 8
   %99 = load ptr, ptr %1, align 8
   %100 = ptrtoint ptr %98 to i64

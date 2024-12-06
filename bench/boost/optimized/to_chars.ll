@@ -1518,7 +1518,7 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_c
 92:                                               ; preds = %88
   %93 = sext i32 %47 to i64
   %94 = sub nsw i64 0, %93
-  %95 = getelementptr inbounds i8, ptr %.056, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %.056, i64 %94
   %sext = shl i64 %45, 32
   %96 = ashr exact i64 %sext, 32
   %97 = sub nsw i64 0, %96

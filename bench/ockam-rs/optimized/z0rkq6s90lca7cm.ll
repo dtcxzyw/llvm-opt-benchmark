@@ -2420,7 +2420,7 @@ default.unreachable:                              ; preds = %6
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h1a571acdc65b7e18E.exit": ; preds = %13
-  %17 = getelementptr inbounds i8, ptr %4, i64 %14
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 %14
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr nonnull readonly align 1 %1, i64 %2, i1 false), !alias.scope !713
   br label %23
 

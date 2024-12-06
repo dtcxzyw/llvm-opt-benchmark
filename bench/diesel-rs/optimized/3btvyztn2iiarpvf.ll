@@ -5176,7 +5176,7 @@ define { ptr, i64 } @"_ZN129_$LT$diesel..mysql..connection..stmt..iterator..Mysq
 
 15:                                               ; preds = %1
   %.sroa.0.0.i = select i1 %10, ptr @anon.90c1904676608adc7b7fc776e0ff2b83.11.llvm.3868854263495710559, ptr %9
-  %16 = getelementptr inbounds [0 x { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [1 x i32], ptr }, {} }], ptr %.sroa.0.0.i, i64 0, i64 %13
+  %16 = getelementptr inbounds nuw [0 x { { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [1 x i32], ptr }, {} }], ptr %.sroa.0.0.i, i64 0, i64 %13
   %.val = load ptr, ptr %16, align 8, !noundef !10
   %17 = icmp eq ptr %.val, null
   br i1 %17, label %_ZN6diesel5mysql10connection4stmt8metadata18MysqlFieldMetadata10field_name17h9cc4d80927ed6ee9E.exit, label %18

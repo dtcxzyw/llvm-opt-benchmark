@@ -121,7 +121,7 @@ _ZNSt6vectorIDsSaIDsEE6resizeEm.exit:             ; preds = %if.then.i, %if.else
   %add.ptr.i.i = getelementptr inbounds i8, ptr %5, i64 -2
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %add.ptr.i.i, ptr %end_, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub
+  %add.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %sub.ptr.sub
   store ptr %add.ptr, ptr %beginCapture_, align 8
   %add.ptr20 = getelementptr inbounds i8, ptr %4, i64 %sub.ptr.sub8
   br label %if.end
@@ -214,7 +214,7 @@ if.then.i.i.i:                                    ; preds = %if.then5.i.i
 _ZNSt6vectorIDsSaIDsEE6resizeEm.exit.i:           ; preds = %if.then.i.i.i, %if.then5.i.i, %if.else.i.i, %if.then.i.i
   %6 = phi ptr [ %.pre10.i, %if.then.i.i ], [ %3, %if.else.i.i ], [ %3, %if.then5.i.i ], [ %3, %if.then.i.i.i ]
   %7 = phi ptr [ %.pre9.i, %if.then.i.i ], [ %4, %if.else.i.i ], [ %4, %if.then5.i.i ], [ %add.ptr.i.i, %if.then.i.i.i ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub.i
+  %add.ptr.i = getelementptr inbounds nuw i8, ptr %6, i64 %sub.ptr.sub.i
   store ptr %add.ptr.i, ptr %beginCapture_, align 8
   %add.ptr20.i = getelementptr inbounds i8, ptr %6, i64 %sub.ptr.sub8.i
   br label %if.end9

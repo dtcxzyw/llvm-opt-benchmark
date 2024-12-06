@@ -518,7 +518,7 @@ _ZL17_hb_next_syllableP11hb_buffer_tj.exit.split.loop.exit: ; preds = %18
   br i1 %or.cond.i.i, label %59, label %91
 
 59:                                               ; preds = %52
-  %60 = add i64 %indvars.iv22.i.i, 1
+  %60 = add nuw nsw i64 %indvars.iv22.i.i, 1
   %61 = icmp ult i64 %60, %48
   br i1 %61, label %62, label %.thread.i.i
 

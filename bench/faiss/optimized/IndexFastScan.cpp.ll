@@ -520,7 +520,7 @@ _ZN5faiss12AlignedTableIhLi32EE14round_capacityEm.exit.i: ; preds = %45
 
 84:                                               ; preds = %83
   %85 = load ptr, ptr %79, align 8
-  %86 = getelementptr inbounds i8, ptr %85, i64 %81
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 %81
   %87 = sub nsw i64 %78, %81
   call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %87, i1 false)
   %.pre = load i64, ptr %64, align 8

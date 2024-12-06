@@ -1924,7 +1924,7 @@ if.end129:                                        ; preds = %if.end127, %land.lh
   %lp.addr.0 = phi ptr [ %call123, %if.end127 ], [ %lp, %land.lhs.true ], [ %lp, %if.end115 ]
   %dst.0 = phi ptr [ %add.ptr128, %if.end127 ], [ %add.ptr116, %land.lhs.true ], [ %add.ptr116, %if.end115 ]
   %cmp130 = icmp eq i32 %where.addr.1, 0
-  %add.ptr133 = getelementptr inbounds i8, ptr %dst.0, i64 %enclen.0152
+  %add.ptr133 = getelementptr inbounds nuw i8, ptr %dst.0, i64 %enclen.0152
   %add.ptr134 = getelementptr inbounds nuw i8, ptr %add.ptr133, i64 %cond
   %43 = select i1 %cmp130, i64 0, i64 %conv111
   %.sink = add i64 %sub.ptr.sub, %43
@@ -2031,7 +2031,7 @@ if.else174:                                       ; preds = %if.else171
   unreachable
 
 if.end180:                                        ; preds = %if.then170, %lpEncodeString.exit
-  %add.ptr177 = getelementptr inbounds i8, ptr %dst.1, i64 %enclen.0152
+  %add.ptr177 = getelementptr inbounds nuw i8, ptr %dst.1, i64 %enclen.0152
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr177, ptr nonnull align 1 %backlen, i64 %cond, i1 false)
   %cmp181 = icmp ne i32 %where.addr.1, 2
   %or.cond = or i1 %0, %cmp181

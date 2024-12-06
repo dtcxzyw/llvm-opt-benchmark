@@ -8845,7 +8845,7 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %232, %2
 247:                                              ; preds = %246
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %239, ptr align 1 %.sroa.0153.2182, i64 %.sroa.3154.2180, i1 false)
   %248 = load ptr, ptr %238, align 8
-  %249 = getelementptr inbounds i8, ptr %248, i64 %.sroa.3154.2180
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 %.sroa.3154.2180
   store ptr %249, ptr %238, align 8
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit100
 

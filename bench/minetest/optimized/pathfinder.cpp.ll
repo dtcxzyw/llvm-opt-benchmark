@@ -5261,7 +5261,7 @@ if.then.i104:                                     ; preds = %try.cont
 
 _ZNSt12_Vector_baseI12PathGridnodeSaIS0_EE13_M_deallocateEPS0_m.exit105: ; preds = %if.then.i104, %try.cont
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !153
-  %add.ptr45 = getelementptr inbounds %class.PathGridnode, ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw %class.PathGridnode, ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !180
   %add.ptr48 = getelementptr inbounds nuw %class.PathGridnode, ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8, !tbaa !181

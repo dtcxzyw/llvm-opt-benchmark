@@ -2478,7 +2478,7 @@ cond.false394:                                    ; preds = %cond.true387
 cond.true400:                                     ; preds = %cond.false394
   %array = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %array, align 8
-  %arrayidx403 = getelementptr inbounds %struct.TValue, ptr %71, i64 %sub395
+  %arrayidx403 = getelementptr inbounds nuw %struct.TValue, ptr %71, i64 %sub395
   br label %cond.end414
 
 cond.false404:                                    ; preds = %cond.false394
@@ -3103,7 +3103,7 @@ cond.false737:                                    ; preds = %cond.true730
 cond.true744:                                     ; preds = %cond.false737
   %array746 = getelementptr inbounds nuw i8, ptr %172, i64 16
   %174 = load ptr, ptr %array746, align 8
-  %arrayidx748 = getelementptr inbounds %struct.TValue, ptr %174, i64 %sub738
+  %arrayidx748 = getelementptr inbounds nuw %struct.TValue, ptr %174, i64 %sub738
   br label %cond.end761
 
 cond.false749:                                    ; preds = %cond.false737

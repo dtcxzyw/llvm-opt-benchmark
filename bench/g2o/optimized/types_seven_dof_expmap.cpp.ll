@@ -11156,7 +11156,7 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %144 = load ptr, ptr %0, align 8
   %145 = load ptr, ptr %144, align 8
-  %146 = getelementptr inbounds double, ptr %145, i64 %141
+  %146 = getelementptr inbounds nuw double, ptr %145, i64 %141
   %147 = load ptr, ptr %143, align 8
   %148 = load ptr, ptr %147, align 8, !noalias !424
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16

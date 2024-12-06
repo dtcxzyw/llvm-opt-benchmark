@@ -381,13 +381,13 @@ for.body.i39.i:                                   ; preds = %if.then.i.i, %for.i
   %i.053.in.i.i = phi i64 [ %i.053.i.i, %for.inc.i41.i ], [ %40, %if.then.i.i ]
   %max_end.052.i.i = phi i64 [ %max_end.1.i.i, %for.inc.i41.i ], [ 0, %if.then.i.i ]
   %i.053.i.i = add nsw i64 %i.053.in.i.i, -1
-  %arrayidx6.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i36.i.i, i64 %i.053.i.i
+  %arrayidx6.i.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i36.i.i, i64 %i.053.i.i
   %41 = load i32, ptr %arrayidx6.i.i, align 4
   %cmp7.i40.i = icmp sgt i32 %41, 0
   br i1 %cmp7.i40.i, label %if.then8.i.i, label %for.inc.i41.i
 
 if.then8.i.i:                                     ; preds = %for.body.i39.i
-  %arrayidx5.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i15.i, i64 %i.053.i.i
+  %arrayidx5.i.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i15.i, i64 %i.053.i.i
   %42 = load i32, ptr %arrayidx5.i.i, align 4
   %conv.i42.i = sext i32 %42 to i64
   %conv9.i.i = zext nneg i32 %41 to i64
@@ -739,13 +739,13 @@ for.body.i38.i:                                   ; preds = %if.then.i.i120, %fo
   %i.053.in.i.i122 = phi i64 [ %i.053.i.i124, %for.inc.i40.i ], [ %74, %if.then.i.i120 ]
   %max_end.052.i.i123 = phi i64 [ %max_end.1.i.i126, %for.inc.i40.i ], [ 0, %if.then.i.i120 ]
   %i.053.i.i124 = add nsw i64 %i.053.in.i.i122, -1
-  %arrayidx6.i.i125 = getelementptr inbounds i64, ptr %add.ptr.i.i36.i.i88, i64 %i.053.i.i124
+  %arrayidx6.i.i125 = getelementptr inbounds nuw i64, ptr %add.ptr.i.i36.i.i88, i64 %i.053.i.i124
   %75 = load i64, ptr %arrayidx6.i.i125, align 8
   %cmp7.i39.i = icmp sgt i64 %75, 0
   br i1 %cmp7.i39.i, label %if.then8.i.i128, label %for.inc.i40.i
 
 if.then8.i.i128:                                  ; preds = %for.body.i38.i
-  %arrayidx5.i.i129 = getelementptr inbounds i64, ptr %add.ptr.i.i.i15.i87, i64 %i.053.i.i124
+  %arrayidx5.i.i129 = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i15.i87, i64 %i.053.i.i124
   %76 = load i64, ptr %arrayidx5.i.i129, align 8
   %add.i41.i = add nsw i64 %76, %75
   %cmp9.i42.i = icmp sgt i64 %add.i41.i, %max_end.052.i.i123

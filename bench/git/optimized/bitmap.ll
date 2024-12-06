@@ -411,7 +411,7 @@ st_mult.exit:                                     ; preds = %entry
   %mul.i = shl nuw nsw i64 %add, 3
   %call4 = tail call ptr @xrealloc(ptr noundef %2, i64 noundef %mul.i) #12
   store ptr %call4, ptr %self, align 8
-  %add.ptr = getelementptr inbounds i64, ptr %call4, i64 %0
+  %add.ptr = getelementptr inbounds nuw i64, ptr %call4, i64 %0
   %3 = load i64, ptr %word_alloc, align 8
   %sub = sub i64 %3, %0
   %mul = shl i64 %sub, 3

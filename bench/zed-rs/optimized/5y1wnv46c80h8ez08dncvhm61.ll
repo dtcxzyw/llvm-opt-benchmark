@@ -7150,7 +7150,7 @@ _ZN4core3ops8function2Fn4call17hae62364ec96f019aE.exit.i: ; preds = %203, %202, 
 264:                                              ; preds = %250
   %265 = add i64 %.sroa.03.0.i, -2
   %.not.i.not.i.i = icmp ult i64 %265, %251
-  %266 = getelementptr inbounds ptr, ptr %252, i64 %265
+  %266 = getelementptr inbounds nuw ptr, ptr %252, i64 %265
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
   br i1 %.not.i.not.i.i, label %._crit_edge.i.preheader, label %.loopexit646
 

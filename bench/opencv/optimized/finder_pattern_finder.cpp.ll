@@ -12654,7 +12654,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.35", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.35", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -15037,7 +15037,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -17390,7 +17390,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -19662,7 +19662,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -21719,7 +21719,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 19:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %18, %._crit_edge ], [ %.134.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %20 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %20 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %22
@@ -23804,7 +23804,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -25910,7 +25910,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20
@@ -28017,7 +28017,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 19:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %18, %._crit_edge ], [ %.134.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %20 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %20 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %21 = load ptr, ptr %20, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %22
@@ -30242,7 +30242,7 @@ define internal fastcc void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iterat
 
 17:                                               ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i, %._crit_edge
   %.010.i.i.i = phi i64 [ %16, %._crit_edge ], [ %.111.i.i.i, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit19.i.i.i ]
-  %18 = getelementptr inbounds %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
+  %18 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %0, i64 %.010.i.i.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit.thread.i.i.i, label %20

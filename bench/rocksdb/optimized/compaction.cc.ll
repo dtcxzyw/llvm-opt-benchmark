@@ -2712,7 +2712,7 @@ while.body9.i:                                    ; preds = %_ZNSt6vectorIN7rock
   %80 = load ptr, ptr %values_.i, align 8
   %inc12.i75 = add nuw nsw i64 %79, 1
   store i64 %inc12.i75, ptr %input_levels_, align 16
-  %arrayidx13.i = getelementptr inbounds %"struct.rocksdb::LevelFilesBrief", ptr %80, i64 %79
+  %arrayidx13.i = getelementptr inbounds nuw %"struct.rocksdb::LevelFilesBrief", ptr %80, i64 %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx13.i, i8 0, i64 16, i1 false)
   %81 = load i64, ptr %input_levels_, align 16
   %cmp8.i76 = icmp ult i64 %81, %sub.ptr.div.i.i69

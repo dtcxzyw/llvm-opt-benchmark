@@ -1483,7 +1483,7 @@ _ZN4llvm5ErrorD2Ev.exit27:                        ; preds = %_ZN4llvm5ErrorD2Ev.
 
 36:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit27
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 %.02043
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 %.02043
   %39 = load i32, ptr %7, align 8
   %40 = zext i32 %39 to i64
   %41 = sub nsw i64 %40, %.02043

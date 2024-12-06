@@ -43325,7 +43325,7 @@ define hidden void @_ZN13rust_analyzer3lsp5utils22apply_document_changes17h605a9
 47:                                               ; preds = %25
   %48 = icmp ult i64 %27, %20
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }], ptr %18, i64 0, i64 %27
+  %49 = getelementptr inbounds nuw [0 x { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }], ptr %18, i64 0, i64 %27
   %.sroa.0.0.copyload = load i64, ptr %49, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
@@ -43337,7 +43337,7 @@ define hidden void @_ZN13rust_analyzer3lsp5utils22apply_document_changes17h605a9
   %.sroa.021.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i64 0, ptr %.sroa.021.sroa.3.0..sroa_idx, align 8
   %50 = sub nuw i64 %20, %.0.i
-  %51 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %18, i64 %.0.i
+  %51 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %18, i64 %.0.i
   br label %45
 
 52:                                               ; preds = %45

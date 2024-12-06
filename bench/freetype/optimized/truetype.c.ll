@@ -4392,7 +4392,7 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 
 1155:                                             ; preds = %1148
   %1156 = load ptr, ptr %196, align 8
-  %1157 = getelementptr inbounds i64, ptr %1156, i64 %1149
+  %1157 = getelementptr inbounds nuw i64, ptr %1156, i64 %1149
   %1158 = load i64, ptr %1157, align 8
   store i64 %1158, ptr %299, align 8
   br label %Ins_SPVTL.exit
@@ -4460,7 +4460,7 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 1186:                                             ; preds = %1184
   %1187 = load ptr, ptr %179, align 8
   %1188 = load ptr, ptr %169, align 8
-  %1189 = getelementptr inbounds %struct.FT_Vector_, ptr %1188, i64 %1178
+  %1189 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1188, i64 %1178
   %1190 = load i64, ptr %1189, align 8
   %1191 = getelementptr inbounds nuw i8, ptr %1189, i64 8
   %1192 = load i64, ptr %1191, align 8
@@ -4470,7 +4470,7 @@ Ins_MIAP.exit:                                    ; preds = %1091, %1093, %1142
 1194:                                             ; preds = %1184
   %1195 = load ptr, ptr %178, align 8
   %1196 = load ptr, ptr %173, align 8
-  %1197 = getelementptr inbounds %struct.FT_Vector_, ptr %1196, i64 %1178
+  %1197 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %1196, i64 %1178
   %1198 = load i64, ptr %1197, align 8
   %1199 = getelementptr inbounds nuw i8, ptr %1197, i64 8
   %1200 = load i64, ptr %1199, align 8
@@ -4957,7 +4957,7 @@ Ins_NROUND.exit:                                  ; preds = %1462, %1464
   %1481 = getelementptr i64, ptr %1480, i64 %1472
   %1482 = getelementptr i8, ptr %1481, i64 -8
   %1483 = load i64, ptr %1482, align 8
-  %1484 = getelementptr inbounds i64, ptr %1480, i64 %1479
+  %1484 = getelementptr inbounds nuw i64, ptr %1480, i64 %1479
   %1485 = load i64, ptr %1484, align 8
   %1486 = load i64, ptr %22, align 8
   %.not42.i = icmp ult i64 %1483, %1486
@@ -7365,7 +7365,7 @@ define internal fastcc void @Ins_LOOPCALL(ptr nocapture noundef %0, ptr nocaptur
   br i1 %.not51, label %14, label %19
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds %struct.TT_DefRecord_, ptr %11, i64 %4
+  %15 = getelementptr inbounds nuw %struct.TT_DefRecord_, ptr %11, i64 %4
   %spec.select = select i1 %.not50, ptr null, ptr %15
   %16 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
   %17 = load i32, ptr %16, align 8
@@ -7532,7 +7532,7 @@ define internal fastcc void @Ins_CALL(ptr nocapture noundef %0, i64 %.0.val) unn
   br i1 %.not42, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = getelementptr inbounds %struct.TT_DefRecord_, ptr %8, i64 %.0.val
+  %13 = getelementptr inbounds nuw %struct.TT_DefRecord_, ptr %8, i64 %.0.val
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
@@ -9018,7 +9018,7 @@ define internal fastcc void @Ins_WS(ptr nocapture noundef %0, ptr nocapture noun
   %37 = phi ptr [ %36, %31 ], [ %18, %19 ], [ %18, %13 ]
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i64, ptr %37, i64 %4
+  %40 = getelementptr inbounds nuw i64, ptr %37, i64 %4
   store i64 %39, ptr %40, align 8
   br label %41
 
@@ -9244,7 +9244,7 @@ define internal fastcc void @Ins_DELTAP(ptr noundef %0, ptr nocapture noundef re
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load i64, ptr %34, align 8
   %36 = trunc i64 %35 to i16
-  %37 = getelementptr inbounds i64, ptr %32, i64 %31
+  %37 = getelementptr inbounds nuw i64, ptr %32, i64 %31
   %38 = load i64, ptr %37, align 8
   %39 = trunc i64 %35 to i32
   %40 = and i32 %39, 65535

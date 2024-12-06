@@ -2305,7 +2305,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i.i:                              ; preds = %if.then, %if.end8.split.i.i.i
   %__parent.02.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %div17.i.i.i, %if.then ]
   %dec.i.i.i = add nsw i64 %__parent.02.i.i.i, -1
-  %add.ptr13.i.i.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %dec.i.i.i
+  %add.ptr13.i.i.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %dec.i.i.i
   %__value.sroa.0.0.copyload14.i.i.i = load ptr, ptr %add.ptr13.i.i.i, align 8
   %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr13.i.i.i, i64 8
   %__value.sroa.2.0.copyload16.i.i.i = load ptr, ptr %__value.sroa.2.0.add.ptr.sroa_idx15.i.i.i, align 8
@@ -2691,7 +2691,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZN4llvh9StringRef1
   br i1 %cmp12.i.i.i.i.i, label %while.body.i, label %"_ZSt11__push_heapIPSt4pairIPN6hermes6parser10JSONStringEPNS2_9JSONValueEElS7_N9__gnu_cxx5__ops14_Iter_comp_valIZNS2_11JSONFactory9sortPropsES8_S8_E3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes6parser11JSONFactory9sortPropsEPSt4pairIPNS3_10JSONStringEPNS3_9JSONValueEESB_E3$_0EclISB_SA_EEbT_RT0_.exit.i", %if.then.i.i.i.i.i
-  %add.ptr2.i = getelementptr inbounds %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.04.i
+  %add.ptr2.i = getelementptr inbounds nuw %"struct.std::pair", ptr %__first, i64 %__holeIndex.addr.04.i
   store ptr %add.ptr.val.i, ptr %add.ptr2.i, align 8
   %second.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %12 = load ptr, ptr %second.i.i, align 8

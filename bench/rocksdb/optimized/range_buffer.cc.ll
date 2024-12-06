@@ -231,7 +231,7 @@ if.then14:                                        ; preds = %if.then11
   br label %if.end24
 
 if.else:                                          ; preds = %if.then11
-  %add.ptr18 = getelementptr inbounds i8, ptr %buf, i64 %current.0
+  %add.ptr18 = getelementptr inbounds nuw i8, ptr %buf, i64 %current.0
   %conv21 = zext i16 %8 to i64
   %call22 = tail call noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef nonnull %_right_key, ptr noundef nonnull %add.ptr18, i64 noundef %conv21)
   br label %if.end24
@@ -347,7 +347,7 @@ if.then14.i:                                      ; preds = %if.then11.i
   br label %_ZN4toku12range_buffer8iterator6record11deserializeEPKc.exit
 
 if.else.i:                                        ; preds = %if.then11.i
-  %add.ptr18.i = getelementptr inbounds i8, ptr %add.ptr, i64 %current.0.i
+  %add.ptr18.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %current.0.i
   %conv21.i = zext i16 %11 to i64
   %call22.i = tail call noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef nonnull %_right_key.i, ptr noundef nonnull %add.ptr18.i, i64 noundef %conv21.i)
   br label %_ZN4toku12range_buffer8iterator6record11deserializeEPKc.exit

@@ -321,7 +321,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %181 = zext <4 x i1> %166 to <4 x i32>
   %182 = add nuw nsw <4 x i32> %180, %181
   %183 = zext nneg <4 x i32> %182 to <4 x i64>
-  %184 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %183
+  %184 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %183
   %185 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %184, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %186 = and <4 x i32> %128, splat (i32 255)
   %187 = zext <4 x i1> %155 to <4 x i32>
@@ -338,7 +338,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %198 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %197
   %199 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %198, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %200 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %199
-  %201 = getelementptr inbounds i8, <4 x ptr> %200, i64 8
+  %201 = getelementptr inbounds nuw i8, <4 x ptr> %200, i64 8
   %202 = xor <4 x i1> %176, splat (i1 true)
   %203 = select <4 x i1> %148, <4 x i1> %202, <4 x i1> zeroinitializer
   %204 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %201, i32 8, <4 x i1> %203, <4 x double> poison), !tbaa !54
@@ -346,7 +346,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %206 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %200, i32 8, <4 x i1> %203, <4 x double> poison), !tbaa !54
   %207 = fmul reassoc nsz arcp contract afn <4 x double> %206, %174
   %208 = fadd reassoc nsz arcp contract afn <4 x double> %207, %205
-  %209 = getelementptr inbounds i8, <4 x ptr> %200, i64 16
+  %209 = getelementptr inbounds nuw i8, <4 x ptr> %200, i64 16
   %210 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %209, i32 8, <4 x i1> %203, <4 x double> poison), !tbaa !54
   %211 = fmul reassoc nsz arcp contract afn <4 x double> %210, %169
   %212 = fadd reassoc nsz arcp contract afn <4 x double> %208, %211
@@ -363,7 +363,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %218 = fmul reassoc nsz arcp contract afn <4 x double> %215, %215
   %219 = fmul reassoc nsz arcp contract afn <4 x double> %218, %218
   %220 = zext nneg <4 x i32> %180 to <4 x i64>
-  %221 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %220
+  %221 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %220
   %222 = xor <4 x i1> %216, splat (i1 true)
   %223 = select <4 x i1> %148, <4 x i1> %222, <4 x i1> zeroinitializer
   %224 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %221, i32 8, <4 x i1> %223, <4 x i64> poison), !tbaa !53
@@ -376,13 +376,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %231 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %230
   %232 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %231, i32 8, <4 x i1> %223, <4 x i64> poison), !tbaa !53
   %233 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %232
-  %234 = getelementptr inbounds i8, <4 x ptr> %233, i64 8
+  %234 = getelementptr inbounds nuw i8, <4 x ptr> %233, i64 8
   %235 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %234, i32 8, <4 x i1> %223, <4 x double> poison), !tbaa !54
   %236 = fmul reassoc nsz arcp contract afn <4 x double> %235, %143
   %237 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %233, i32 8, <4 x i1> %223, <4 x double> poison), !tbaa !54
   %238 = fmul reassoc nsz arcp contract afn <4 x double> %237, %140
   %239 = fadd reassoc nsz arcp contract afn <4 x double> %238, %236
-  %240 = getelementptr inbounds i8, <4 x ptr> %233, i64 16
+  %240 = getelementptr inbounds nuw i8, <4 x ptr> %233, i64 16
   %241 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %240, i32 8, <4 x i1> %223, <4 x double> poison), !tbaa !54
   %242 = fmul reassoc nsz arcp contract afn <4 x double> %241, %151
   %243 = fadd reassoc nsz arcp contract afn <4 x double> %239, %242
@@ -418,7 +418,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %268 = zext <4 x i1> %254 to <4 x i32>
   %269 = add nuw nsw <4 x i32> %180, %268
   %270 = zext nneg <4 x i32> %269 to <4 x i64>
-  %271 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %270
+  %271 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %270
   %272 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %271, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %273 = zext <4 x i1> %248 to <4 x i32>
   %274 = add nuw nsw <4 x i32> %186, %273
@@ -433,7 +433,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %283 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %282
   %284 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %283, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %285 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %284
-  %286 = getelementptr inbounds i8, <4 x ptr> %285, i64 8
+  %286 = getelementptr inbounds nuw i8, <4 x ptr> %285, i64 8
   %287 = xor <4 x i1> %264, splat (i1 true)
   %288 = select <4 x i1> %148, <4 x i1> %287, <4 x i1> zeroinitializer
   %289 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %286, i32 8, <4 x i1> %288, <4 x double> poison), !tbaa !54
@@ -441,7 +441,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %291 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %285, i32 8, <4 x i1> %288, <4 x double> poison), !tbaa !54
   %292 = fmul reassoc nsz arcp contract afn <4 x double> %291, %262
   %293 = fadd reassoc nsz arcp contract afn <4 x double> %292, %290
-  %294 = getelementptr inbounds i8, <4 x ptr> %285, i64 16
+  %294 = getelementptr inbounds nuw i8, <4 x ptr> %285, i64 16
   %295 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %294, i32 8, <4 x i1> %288, <4 x double> poison), !tbaa !54
   %296 = fmul reassoc nsz arcp contract afn <4 x double> %295, %257
   %297 = fadd reassoc nsz arcp contract afn <4 x double> %293, %296
@@ -464,7 +464,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %309 = add nuw nsw <4 x i64> %229, splat (i64 1)
   %310 = add nuw nsw <4 x i64> %225, splat (i64 1)
   %311 = add nuw nsw <4 x i64> %220, splat (i64 1)
-  %312 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %311
+  %312 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %311
   %313 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %312, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %314 = add <4 x i64> %310, %313
   %315 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %314
@@ -473,7 +473,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %318 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %317
   %319 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %318, i32 8, <4 x i1> %148, <4 x i64> poison), !tbaa !53
   %320 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %319
-  %321 = getelementptr inbounds i8, <4 x ptr> %320, i64 8
+  %321 = getelementptr inbounds nuw i8, <4 x ptr> %320, i64 8
   %322 = xor <4 x i1> %305, splat (i1 true)
   %323 = select <4 x i1> %148, <4 x i1> %322, <4 x i1> zeroinitializer
   %324 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %321, i32 8, <4 x i1> %323, <4 x double> poison), !tbaa !54
@@ -481,7 +481,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %326 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %320, i32 8, <4 x i1> %323, <4 x double> poison), !tbaa !54
   %327 = fmul reassoc nsz arcp contract afn <4 x double> %326, %303
   %328 = fadd reassoc nsz arcp contract afn <4 x double> %327, %325
-  %329 = getelementptr inbounds i8, <4 x ptr> %320, i64 16
+  %329 = getelementptr inbounds nuw i8, <4 x ptr> %320, i64 16
   %330 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %329, i32 8, <4 x i1> %323, <4 x double> poison), !tbaa !54
   %331 = fmul reassoc nsz arcp contract afn <4 x double> %330, %302
   %332 = fadd reassoc nsz arcp contract afn <4 x double> %328, %331
@@ -664,7 +664,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %495 = zext <4 x i1> %481 to <4 x i32>
   %496 = add nuw nsw <4 x i32> %494, %495
   %497 = zext nneg <4 x i32> %496 to <4 x i64>
-  %498 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %497
+  %498 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %497
   %499 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %498, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %500 = and <4 x i32> %443, splat (i32 255)
   %501 = zext <4 x i1> %470 to <4 x i32>
@@ -681,7 +681,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %512 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %511
   %513 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %512, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %514 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %513
-  %515 = getelementptr inbounds i8, <4 x ptr> %514, i64 8
+  %515 = getelementptr inbounds nuw i8, <4 x ptr> %514, i64 8
   %516 = xor <4 x i1> %491, splat (i1 true)
   %517 = select <4 x i1> %463, <4 x i1> %516, <4 x i1> zeroinitializer
   %518 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %515, i32 8, <4 x i1> %517, <4 x double> poison), !tbaa !54
@@ -689,7 +689,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %520 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %514, i32 8, <4 x i1> %517, <4 x double> poison), !tbaa !54
   %521 = fmul reassoc nsz arcp contract afn <4 x double> %489, %520
   %522 = fadd reassoc nsz arcp contract afn <4 x double> %521, %519
-  %523 = getelementptr inbounds i8, <4 x ptr> %514, i64 16
+  %523 = getelementptr inbounds nuw i8, <4 x ptr> %514, i64 16
   %524 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %523, i32 8, <4 x i1> %517, <4 x double> poison), !tbaa !54
   %525 = fmul reassoc nsz arcp contract afn <4 x double> %484, %524
   %526 = fadd reassoc nsz arcp contract afn <4 x double> %522, %525
@@ -706,7 +706,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %532 = select <4 x i1> %463, <4 x i1> %531, <4 x i1> <i1 false, i1 false, i1 false, i1 poison>
   %533 = fmul reassoc nsz arcp contract afn <4 x double> %530, %530
   %534 = zext nneg <4 x i32> %494 to <4 x i64>
-  %535 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %534
+  %535 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %534
   %536 = xor <4 x i1> %531, splat (i1 true)
   %537 = select <4 x i1> %463, <4 x i1> %536, <4 x i1> zeroinitializer
   %538 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %535, i32 8, <4 x i1> %537, <4 x i64> poison), !tbaa !53
@@ -719,13 +719,13 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %545 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %544
   %546 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %545, i32 8, <4 x i1> %537, <4 x i64> poison), !tbaa !53
   %547 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %546
-  %548 = getelementptr inbounds i8, <4 x ptr> %547, i64 8
+  %548 = getelementptr inbounds nuw i8, <4 x ptr> %547, i64 8
   %549 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %548, i32 8, <4 x i1> %537, <4 x double> poison), !tbaa !54
   %550 = fmul reassoc nsz arcp contract afn <4 x double> %458, %549
   %551 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %547, i32 8, <4 x i1> %537, <4 x double> poison), !tbaa !54
   %552 = fmul reassoc nsz arcp contract afn <4 x double> %455, %551
   %553 = fadd reassoc nsz arcp contract afn <4 x double> %552, %550
-  %554 = getelementptr inbounds i8, <4 x ptr> %547, i64 16
+  %554 = getelementptr inbounds nuw i8, <4 x ptr> %547, i64 16
   %555 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %554, i32 8, <4 x i1> %537, <4 x double> poison), !tbaa !54
   %556 = fmul reassoc nsz arcp contract afn <4 x double> %466, %555
   %557 = fadd reassoc nsz arcp contract afn <4 x double> %553, %556
@@ -760,7 +760,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %581 = zext <4 x i1> %568 to <4 x i32>
   %582 = add nuw nsw <4 x i32> %494, %581
   %583 = zext nneg <4 x i32> %582 to <4 x i64>
-  %584 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %583
+  %584 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %583
   %585 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %584, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %586 = zext <4 x i1> %562 to <4 x i32>
   %587 = add nuw nsw <4 x i32> %500, %586
@@ -775,7 +775,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %596 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %595
   %597 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %596, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %598 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %597
-  %599 = getelementptr inbounds i8, <4 x ptr> %598, i64 8
+  %599 = getelementptr inbounds nuw i8, <4 x ptr> %598, i64 8
   %600 = xor <4 x i1> %578, splat (i1 true)
   %601 = select <4 x i1> %463, <4 x i1> %600, <4 x i1> zeroinitializer
   %602 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %599, i32 8, <4 x i1> %601, <4 x double> poison), !tbaa !54
@@ -783,7 +783,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %604 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %598, i32 8, <4 x i1> %601, <4 x double> poison), !tbaa !54
   %605 = fmul reassoc nsz arcp contract afn <4 x double> %576, %604
   %606 = fadd reassoc nsz arcp contract afn <4 x double> %605, %603
-  %607 = getelementptr inbounds i8, <4 x ptr> %598, i64 16
+  %607 = getelementptr inbounds nuw i8, <4 x ptr> %598, i64 16
   %608 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %607, i32 8, <4 x i1> %601, <4 x double> poison), !tbaa !54
   %609 = fmul reassoc nsz arcp contract afn <4 x double> %571, %608
   %610 = fadd reassoc nsz arcp contract afn <4 x double> %606, %609
@@ -803,7 +803,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %619 = select <4 x i1> %463, <4 x i1> %618, <4 x i1> <i1 false, i1 false, i1 false, i1 poison>
   %620 = fmul reassoc nsz arcp contract afn <4 x double> %617, %617
   %621 = add nuw nsw <4 x i64> %534, splat (i64 1)
-  %622 = getelementptr inbounds [512 x i64], ptr @perm, i64 0, <4 x i64> %621
+  %622 = getelementptr inbounds nuw [512 x i64], ptr @perm, i64 0, <4 x i64> %621
   %623 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %622, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %624 = add <4 x i64> %623, splat (i64 1)
   %625 = add <4 x i64> %624, %539
@@ -814,14 +814,14 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %630 = getelementptr inbounds [512 x i64], ptr @perm_mod, i64 0, <4 x i64> %629
   %631 = tail call <4 x i64> @llvm.masked.gather.v4i64.v4p0(<4 x ptr> %630, i32 8, <4 x i1> %463, <4 x i64> poison), !tbaa !53
   %632 = getelementptr inbounds [12 x [3 x double]], ptr @grad3, i64 0, <4 x i64> %631
-  %633 = getelementptr inbounds i8, <4 x ptr> %632, i64 8
+  %633 = getelementptr inbounds nuw i8, <4 x ptr> %632, i64 8
   %634 = xor <4 x i1> %618, splat (i1 true)
   %635 = select <4 x i1> %463, <4 x i1> %634, <4 x i1> zeroinitializer
   %636 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %633, i32 8, <4 x i1> %635, <4 x double> poison), !tbaa !54
   %637 = fmul reassoc nsz arcp contract afn <4 x double> %614, %636
   %638 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %632, i32 8, <4 x i1> %635, <4 x double> poison), !tbaa !54
   %639 = fmul reassoc nsz arcp contract afn <4 x double> %616, %638
-  %640 = getelementptr inbounds i8, <4 x ptr> %632, i64 16
+  %640 = getelementptr inbounds nuw i8, <4 x ptr> %632, i64 16
   %641 = tail call <4 x double> @llvm.masked.gather.v4f64.v4p0(<4 x ptr> %640, i32 8, <4 x i1> %635, <4 x double> poison), !tbaa !54
   %642 = fmul reassoc nsz arcp contract afn <4 x double> %615, %641
   %643 = fadd reassoc nsz arcp contract afn <4 x double> %637, %642

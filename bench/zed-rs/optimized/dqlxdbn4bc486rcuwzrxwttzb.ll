@@ -122973,7 +122973,7 @@ define internal noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core
   %8 = sub nuw i64 %6, %7
   %9 = lshr exact i64 %8, 4
   %.not = icmp ult i64 %1, %9
-  %10 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %5, i64 %1
+  %10 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %5, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %storemerge = select i1 %.not, ptr %11, ptr %4
   %.sroa.0.0 = select i1 %.not, ptr %10, ptr null

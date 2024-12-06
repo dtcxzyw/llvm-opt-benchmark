@@ -1694,7 +1694,7 @@ _ZN14num_bigint_dig7biguint7BigUint10normalized17h0033912b23334545E.exit: ; pred
   %50 = xor i64 %.sroa.0.08.i.i, -1
   %51 = add nsw i64 %46, %50
   %52 = getelementptr inbounds nuw [0 x i8], ptr %45, i64 0, i64 %.sroa.0.08.i.i
-  %53 = getelementptr inbounds [0 x i8], ptr %49, i64 0, i64 %51
+  %53 = getelementptr inbounds nuw [0 x i8], ptr %49, i64 0, i64 %51
   %54 = load i8, ptr %52, align 1, !alias.scope !443, !noalias !441, !noundef !23
   %55 = load i8, ptr %53, align 1, !alias.scope !446, !noalias !438
   store i8 %55, ptr %52, align 1, !alias.scope !443, !noalias !441
@@ -2581,7 +2581,7 @@ _ZN14num_bigint_dig7biguint7BigUint11to_bytes_le17ha195162582573453E.exit.i.i.i:
   %120 = xor i64 %.sroa.0.08.i.i.i.i.i, -1
   %121 = add nsw i64 %116, %120
   %122 = getelementptr inbounds nuw [0 x i8], ptr %.pre.i.i.i, i64 0, i64 %.sroa.0.08.i.i.i.i.i
-  %123 = getelementptr inbounds [0 x i8], ptr %119, i64 0, i64 %121
+  %123 = getelementptr inbounds nuw [0 x i8], ptr %119, i64 0, i64 %121
   %124 = load i8, ptr %122, align 1, !alias.scope !655, !noalias !658, !noundef !23
   %125 = load i8, ptr %123, align 1, !alias.scope !659, !noalias !660
   store i8 %125, ptr %122, align 1, !alias.scope !655, !noalias !658
@@ -4939,7 +4939,7 @@ _ZN14num_bigint_dig7biguint7BigUint11to_bytes_le17ha195162582573453E.exit.i.i.i:
   %699 = xor i64 %.sroa.0.08.i.i.i.i.i, -1
   %700 = add nsw i64 %695, %699
   %701 = getelementptr inbounds nuw [0 x i8], ptr %.pre.i.i.i, i64 0, i64 %.sroa.0.08.i.i.i.i.i
-  %702 = getelementptr inbounds [0 x i8], ptr %698, i64 0, i64 %700
+  %702 = getelementptr inbounds nuw [0 x i8], ptr %698, i64 0, i64 %700
   %703 = load i8, ptr %701, align 1, !alias.scope !1327, !noalias !1330, !noundef !23
   %704 = load i8, ptr %702, align 1, !alias.scope !1331, !noalias !1332
   store i8 %704, ptr %701, align 1, !alias.scope !1327, !noalias !1330

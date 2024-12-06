@@ -528,7 +528,7 @@ while.body.i:                                     ; preds = %while.body.i, %whil
   %rem.i.i = urem i64 %call.i.i.i, %add13.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   %incdec.ptr15.i = getelementptr inbounds nuw i8, ptr %__i.128.i.ptr, i64 1
-  %add.ptr16.i = getelementptr inbounds i8, ptr %cards, i64 %div.i.i
+  %add.ptr16.i = getelementptr inbounds nuw i8, ptr %cards, i64 %div.i.i
   %42 = load i8, ptr %__i.128.i.ptr, align 2
   %43 = load i8, ptr %add.ptr16.i, align 1
   store i8 %43, ptr %__i.128.i.ptr, align 2

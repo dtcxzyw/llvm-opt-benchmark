@@ -19827,7 +19827,7 @@ check_nesting_at_end.exit:                        ; preds = %7636, %report_bad_n
 
 7707:                                             ; preds = %7690
   %7708 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  %7709 = getelementptr inbounds i8, ptr %7708, i64 %7692
+  %7709 = getelementptr inbounds nuw i8, ptr %7708, i64 %7692
   store ptr %7709, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7710 = trunc nuw i64 %7692 to i32
   store i32 %7710, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8

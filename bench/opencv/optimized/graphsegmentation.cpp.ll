@@ -2590,7 +2590,7 @@ _ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_It
 .split19:                                         ; preds = %.split19.lr.ph, %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit36
   %.042 = phi i64 [ %10, %.split19.lr.ph ], [ %49, %_ZSt13__adjust_heapIPN2cv8ximgproc12segmentation4EdgeElS3_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_S9_T1_T2_.exit36 ]
   %49 = add nsw i64 %.042, -1
-  %50 = getelementptr inbounds %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %49
+  %50 = getelementptr inbounds nuw %"class.cv::ximgproc::segmentation::Edge", ptr %0, i64 %49
   %.sroa.03.0.copyload20 = load i64, ptr %50, align 4
   %.sroa.24.0..sroa_idx21 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.24.0.copyload22 = load float, ptr %.sroa.24.0..sroa_idx21, align 4

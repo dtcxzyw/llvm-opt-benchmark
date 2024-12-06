@@ -2548,7 +2548,7 @@ if.end70:                                         ; preds = %if.end40, %land.lhs
   %pkt.val.i.i71115 = phi i64 [ %sub.i.i68, %if.end66 ], [ %or7.i.i, %land.lhs.true47 ], [ %or7.i.i, %if.end40 ]
   %21 = phi ptr [ %add.ptr.i2.i67, %if.end66 ], [ %add.ptr.i2.i, %land.lhs.true47 ], [ %add.ptr.i2.i, %if.end40 ]
   store ptr %21, ptr %spki, align 8
-  %add.ptr.i.i74 = getelementptr inbounds i8, ptr %21, i64 %spki_len.0116
+  %add.ptr.i.i74 = getelementptr inbounds nuw i8, ptr %21, i64 %spki_len.0116
   store ptr %add.ptr.i.i74, ptr %pkt, align 8
   %sub.i.i75 = sub nuw nsw i64 %pkt.val.i.i71115, %spki_len.0116
   store i64 %sub.i.i75, ptr %9, align 8

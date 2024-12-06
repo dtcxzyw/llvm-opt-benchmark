@@ -286,7 +286,7 @@ define noundef i32 @dsymm_thread_RL(ptr noundef %0, ptr noundef %1, ptr noundef 
   %175 = getelementptr inbounds nuw i8, ptr %11, i64 56
   store ptr %4, ptr %175, align 8, !tbaa !39
   %176 = add nsw i64 %71, -1
-  %177 = getelementptr inbounds [16 x %struct.blas_queue], ptr %11, i64 0, i64 %176, i32 8
+  %177 = getelementptr inbounds nuw [16 x %struct.blas_queue], ptr %11, i64 0, i64 %176, i32 8
   store ptr null, ptr %177, align 8, !tbaa !36
   br i1 %27, label %181, label %178
 

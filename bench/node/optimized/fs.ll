@@ -1838,7 +1838,7 @@ for.body.i.i:                                     ; preds = %land.rhs.i.i
 if.then.i29.i:                                    ; preds = %land.rhs.i.i
   %arrayidx5.i.i = getelementptr inbounds %struct.uv_buf_t, ptr %215, i64 %offset.018.i.i
   %217 = load ptr, ptr %arrayidx5.i.i, align 8
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %217, i64 %size.addr.017.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %217, i64 %size.addr.017.i.i
   store ptr %add.ptr.i.i, ptr %arrayidx5.i.i, align 8
   %len7.i.i = getelementptr inbounds nuw i8, ptr %arrayidx5.i.i, i64 8
   %sub8.i.i = sub nuw i64 %216, %size.addr.017.i.i

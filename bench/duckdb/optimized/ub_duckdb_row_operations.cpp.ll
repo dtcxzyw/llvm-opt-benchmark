@@ -21755,8 +21755,8 @@ vector.body:                                      ; preds = %vector.body, %vecto
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 16
   store <2 x ptr> %wide.load, ptr %143, align 16, !tbaa !22
   store <2 x ptr> %wide.load397, ptr %144, align 16, !tbaa !22
-  %145 = getelementptr inbounds i8, <2 x ptr> %wide.load, i64 %div25.i
-  %146 = getelementptr inbounds i8, <2 x ptr> %wide.load397, i64 %div25.i
+  %145 = getelementptr inbounds nuw i8, <2 x ptr> %wide.load, i64 %div25.i
+  %146 = getelementptr inbounds nuw i8, <2 x ptr> %wide.load397, i64 %div25.i
   store <2 x ptr> %145, ptr %141, align 8, !tbaa !22
   store <2 x ptr> %146, ptr %142, align 8, !tbaa !22
   %index.next = add nuw i64 %index, 4

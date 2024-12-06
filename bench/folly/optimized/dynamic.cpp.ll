@@ -5437,7 +5437,7 @@ while.body.i.i.i:                                 ; preds = %for.inc.i, %while.c
   %incdec.ptr.i810.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.cond.i.i.i ], [ %__begin0.sroa.0.028.i123, %for.inc.i ]
   %dec.i.i.i = add nsw i64 %26, -1
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i, i64 -8
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i, i64 0, i64 %dec.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i, i64 0, i64 %dec.i.i.i
   %27 = load i8, ptr %arrayidx.i.i.i.i.i, align 1, !tbaa !28
   %cmp.i.not.i.i = icmp eq i8 %27, 0
   br i1 %cmp.i.not.i.i, label %while.cond.i.i.i, label %_ZN5folly3f146detail21NodeContainerIteratorIPKSt4pairIKNS_7dynamicES4_EEppEv.exit.i, !prof !54, !llvm.loop !209
@@ -5669,7 +5669,7 @@ while.body.i.i.i.i:                               ; preds = %for.body.i, %while.
   %incdec.ptr.i810.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.cond.i.i.i.i ], [ %agg.tmp.sroa.0.0109, %for.body.i ]
   %dec.i.i.i.i = add nsw i64 %5, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i, i64 -8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
   %6 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !28
   %cmp.i.not.i.i.i = icmp eq i8 %6, 0
   br i1 %cmp.i.not.i.i.i, label %while.cond.i.i.i.i, label %_ZN5folly6detail14IteratorFacadeINS_7dynamic19const_item_iteratorEKSt4pairIKS2_S2_ESt20forward_iterator_tagEppEv.exit, !prof !54, !llvm.loop !225
@@ -6613,7 +6613,7 @@ do.end:                                           ; preds = %invoke.cont81
 
 if.end.i:                                         ; preds = %do.end, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
   %and.i25.i = phi i64 [ %and.i.i, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ], [ %and.i21.i, %do.end ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and.i25.i, i32 2
+  %outboundOverflowCount_.i.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and.i25.i, i32 2
   %24 = load i8, ptr %outboundOverflowCount_.i.i, align 1, !tbaa !220
   %cmp.not.i.i = icmp eq i8 %24, -1
   br i1 %cmp.not.i.i, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i, label %if.then.i.i
@@ -6635,8 +6635,8 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %and.i.lcssa.i = phi i64 [ %and.i21.i, %do.end ], [ %and.i.i, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
   %hostedOp.0.lcssa.i = phi i8 [ 0, %do.end ], [ 16, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %23, %do.end ], [ %25, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
-  %add.ptr.lcssa.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and.i.lcssa.i
-  %arrayidx.le.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.lcssa.i
+  %add.ptr.lcssa.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %22, i64 %and.i.lcssa.i
+  %arrayidx.le.i = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i.lcssa.i
   %inc.i236 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i236, ptr %arrayidx.le.i, align 1, !tbaa !28
   %conv6.i = zext nneg i8 %.lcssa.i to i64
@@ -6683,7 +6683,7 @@ if.then.i251:                                     ; preds = %while.cond106
   %conv117 = zext nneg i8 %30 to i64
   %sub118 = add nsw i64 %conv117, -1
   %rawItems_.i.i.i241 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %31, i64 %i.0, i32 3
-  %arrayidx.i.i.i.i.i242 = getelementptr inbounds [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i241, i64 0, i64 %sub118
+  %arrayidx.i.i.i.i.i242 = getelementptr inbounds nuw [14 x %"union.std::aligned_storage<8, 8>::type"], ptr %rawItems_.i.i.i241, i64 0, i64 %sub118
   %cmp.i.i246 = icmp ult i8 %30, 17
   call void @llvm.assume(i1 %cmp.i.i246)
   %shr.i.i247 = lshr i64 %sub118, 1
@@ -7074,7 +7074,7 @@ invoke.cont33:                                    ; preds = %if.else.i152, %whil
 
 if.end.i:                                         ; preds = %invoke.cont33, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i
   %and.i25.i = phi i64 [ %and.i.i, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ], [ %and.i21.i, %invoke.cont33 ]
-  %outboundOverflowCount_.i.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %and.i25.i, i32 2
+  %outboundOverflowCount_.i.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %and.i25.i, i32 2
   %21 = load i8, ptr %outboundOverflowCount_.i.i, align 1, !tbaa !220
   %cmp.not.i.i = icmp eq i8 %21, -1
   br i1 %cmp.not.i.i, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i, label %if.then.i.i
@@ -7096,8 +7096,8 @@ while.end.i:                                      ; preds = %_ZN5folly3f146detai
   %and.i.lcssa.i = phi i64 [ %and.i21.i, %invoke.cont33 ], [ %and.i.i, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
   %hostedOp.0.lcssa.i = phi i8 [ 0, %invoke.cont33 ], [ 16, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %20, %invoke.cont33 ], [ %22, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i ]
-  %add.ptr.lcssa.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %and.i.lcssa.i
-  %arrayidx.le.i = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.lcssa.i
+  %add.ptr.lcssa.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %and.i.lcssa.i
+  %arrayidx.le.i = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i.lcssa.i
   %inc.i = add nuw nsw i8 %.lcssa.i, 1
   store i8 %inc.i, ptr %arrayidx.le.i, align 1, !tbaa !28
   %conv6.i = zext nneg i8 %.lcssa.i to i64
@@ -7260,7 +7260,7 @@ do.end78:                                         ; preds = %invoke.cont70
 
 if.end.i202:                                      ; preds = %do.end78, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208
   %and.i25.i203 = phi i64 [ %and.i.i210, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208 ], [ %and.i21.i199, %do.end78 ]
-  %outboundOverflowCount_.i.i204 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %41, i64 %and.i25.i203, i32 2
+  %outboundOverflowCount_.i.i204 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %41, i64 %and.i25.i203, i32 2
   %43 = load i8, ptr %outboundOverflowCount_.i.i204, align 1, !tbaa !220
   %cmp.not.i.i205 = icmp eq i8 %43, -1
   br i1 %cmp.not.i.i205, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208, label %if.then.i.i206
@@ -7282,8 +7282,8 @@ while.end.i213:                                   ; preds = %_ZN5folly3f146detai
   %and.i.lcssa.i214 = phi i64 [ %and.i21.i199, %do.end78 ], [ %and.i.i210, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208 ]
   %hostedOp.0.lcssa.i215 = phi i8 [ 0, %do.end78 ], [ 16, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208 ]
   %.lcssa.i216 = phi i8 [ %42, %do.end78 ], [ %44, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit.i208 ]
-  %add.ptr.lcssa.i217 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %41, i64 %and.i.lcssa.i214
-  %arrayidx.le.i218 = getelementptr inbounds i8, ptr %fullness.0, i64 %and.i.lcssa.i214
+  %add.ptr.lcssa.i217 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %41, i64 %and.i.lcssa.i214
+  %arrayidx.le.i218 = getelementptr inbounds nuw i8, ptr %fullness.0, i64 %and.i.lcssa.i214
   %inc.i219 = add nuw nsw i8 %.lcssa.i216, 1
   store i8 %inc.i219, ptr %arrayidx.le.i218, align 1, !tbaa !28
   %conv6.i220 = zext nneg i8 %.lcssa.i216 to i64
@@ -7570,7 +7570,7 @@ if.then:                                          ; preds = %_ZN5folly3f146detai
 cleanup.thread:                                   ; preds = %cleanup, %if.then
   %hostedOp.0.lcssa = phi i8 [ 0, %if.then ], [ -16, %cleanup ]
   %4 = phi i64 [ %and.i37, %if.then ], [ %and.i, %cleanup ]
-  %control_.i24 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %4, i32 1
+  %control_.i24 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %4, i32 1
   %5 = load i8, ptr %control_.i24, align 2, !tbaa !210
   %add.i25 = add i8 %5, %hostedOp.0.lcssa
   store i8 %add.i25, ptr %control_.i24, align 2, !tbaa !210
@@ -7579,7 +7579,7 @@ cleanup.thread:                                   ; preds = %cleanup, %if.then
 if.end:                                           ; preds = %if.then, %cleanup
   %6 = phi i64 [ %and.i, %cleanup ], [ %and.i37, %if.then ]
   %index.040 = phi i64 [ %add, %cleanup ], [ %hp.coerce0, %if.then ]
-  %outboundOverflowCount_.i = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %6, i32 2
+  %outboundOverflowCount_.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %2, i64 %6, i32 2
   %7 = load i8, ptr %outboundOverflowCount_.i, align 1, !tbaa !220
   %cmp.not.i26 = icmp eq i8 %7, -1
   br i1 %cmp.not.i26, label %cleanup, label %if.then.i27
@@ -10120,7 +10120,7 @@ if.then11:                                        ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, %if.then11
   %30 = phi i64 [ %and.i62, %if.then11 ], [ %and.i74, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then11 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i66 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %30, i32 2
+  %outboundOverflowCount_.i66 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %25, i64 %30, i32 2
   %31 = load i8, ptr %outboundOverflowCount_.i66, align 1, !tbaa !220
   %cmp.not.i67 = icmp eq i8 %31, -1
   br i1 %cmp.not.i67, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, label %if.then.i68
@@ -12021,7 +12021,7 @@ while.body.i.i.i.i:                               ; preds = %if.end69, %while.co
   %incdec.ptr.i810.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %while.cond.i.i.i.i ], [ %__begin1.sroa.0.0341120, %if.end69 ]
   %dec.i.i.i.i = add nsw i64 %36, -1
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i, i64 -8
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i, i64 0, i64 %dec.i.i.i.i
   %37 = load i8, ptr %arrayidx.i.i.i.i.i.i, align 1, !tbaa !28
   %cmp.i.not.i.i.i = icmp eq i8 %37, 0
   br i1 %cmp.i.not.i.i.i, label %while.cond.i.i.i.i, label %invoke.cont10.backedge, !prof !54, !llvm.loop !365
@@ -12282,7 +12282,7 @@ while.body.i.i.i.i270:                            ; preds = %if.end119, %while.c
   %incdec.ptr.i810.i.i.i271 = phi ptr [ %incdec.ptr.i.i.i.i273, %while.cond.i.i.i.i276 ], [ %__begin184.sroa.0.0344123, %if.end119 ]
   %dec.i.i.i.i272 = add nsw i64 %68, -1
   %incdec.ptr.i.i.i.i273 = getelementptr inbounds i8, ptr %incdec.ptr.i810.i.i.i271, i64 -8
-  %arrayidx.i.i.i.i.i.i274 = getelementptr inbounds [14 x i8], ptr %add.ptr1.i.i.i.i.i268, i64 0, i64 %dec.i.i.i.i272
+  %arrayidx.i.i.i.i.i.i274 = getelementptr inbounds nuw [14 x i8], ptr %add.ptr1.i.i.i.i.i268, i64 0, i64 %dec.i.i.i.i272
   %69 = load i8, ptr %arrayidx.i.i.i.i.i.i274, align 1, !tbaa !28
   %cmp.i.not.i.i.i275 = icmp eq i8 %69, 0
   br i1 %cmp.i.not.i.i.i275, label %while.cond.i.i.i.i276, label %invoke.cont97.backedge, !prof !54, !llvm.loop !376
@@ -12479,7 +12479,7 @@ if.then11:                                        ; preds = %_ZN5folly3f146detai
 do.body:                                          ; preds = %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, %if.then11
   %19 = phi i64 [ %and.i60, %if.then11 ], [ %and.i72, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
   %index.0 = phi i64 [ %hp.coerce0, %if.then11 ], [ %add, %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit ]
-  %outboundOverflowCount_.i64 = getelementptr inbounds %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %19, i32 2
+  %outboundOverflowCount_.i64 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %14, i64 %19, i32 2
   %20 = load i8, ptr %outboundOverflowCount_.i64, align 1, !tbaa !220
   %cmp.not.i65 = icmp eq i8 %20, -1
   br i1 %cmp.not.i65, label %_ZN5folly3f146detail8F14ChunkIPSt4pairIKNS_7dynamicES4_EE25incrOutboundOverflowCountEv.exit, label %if.then.i66

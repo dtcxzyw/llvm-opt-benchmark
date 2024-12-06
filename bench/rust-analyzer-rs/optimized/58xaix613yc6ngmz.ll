@@ -37679,7 +37679,7 @@ _ZN7hir_def4path5lower10lower_path9qualifier17haf42dd9cdecd23abE.exit.thread: ; 
   %963 = xor i64 %.011.i.i, -1
   %964 = add nsw i64 %959, %963
   %965 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] } }], ptr %957, i64 0, i64 %.011.i.i
-  %966 = getelementptr inbounds [0 x { { i8, [23 x i8] } }], ptr %962, i64 0, i64 %964
+  %966 = getelementptr inbounds nuw [0 x { { i8, [23 x i8] } }], ptr %962, i64 0, i64 %964
   br label %967
 
 967:                                              ; preds = %967, %.lr.ph.preheader.i.i
@@ -37762,7 +37762,7 @@ _ZN4core3ptr19swap_nonoverlapping17h6945ded45a6c7284E.exit.i.i: ; preds = %967
   %995 = xor i64 %.011.i.i411, -1
   %996 = add nsw i64 %991, %995
   %997 = getelementptr inbounds nuw [0 x ptr], ptr %989, i64 0, i64 %.011.i.i411
-  %998 = getelementptr inbounds [0 x ptr], ptr %994, i64 0, i64 %996
+  %998 = getelementptr inbounds nuw [0 x ptr], ptr %994, i64 0, i64 %996
   %999 = load ptr, ptr %997, align 8, !alias.scope !10010, !noalias !10008, !noundef !13
   %1000 = load ptr, ptr %998, align 8, !alias.scope !10013, !noalias !10005, !noundef !13
   store ptr %1000, ptr %997, align 8, !alias.scope !10010, !noalias !10008

@@ -4279,7 +4279,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !202
-  %52 = getelementptr inbounds i16, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i16, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !226
   %53 = getelementptr inbounds nuw i16, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !225

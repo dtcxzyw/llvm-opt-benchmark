@@ -109459,7 +109459,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPPN5clang13CXXRecordDeclElN
 .split15.i.i.i:                                   ; preds = %.split.i.i.i, %.split15.i.i.i
   %.018.i.i.i = phi i64 [ %19, %.split15.i.i.i ], [ %16, %.split.i.i.i ]
   %19 = add nsw i64 %.018.i.i.i, -1
-  %20 = getelementptr inbounds ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_T2_"(ptr noundef nonnull %0, i64 noundef %19, i64 noundef %14, ptr noundef %21, ptr %3)
   %22 = icmp eq i64 %19, 0
@@ -112102,18 +112102,18 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N
   %.034 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %9 = shl i64 %.034, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw ptr, ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
   %.val = load ptr, ptr %11, align 8
   %.val29 = load ptr, ptr %13, align 8
   %14 = tail call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %.val)
   %15 = tail call i64 @_ZNK5clang15ASTRecordLayout18getBaseClassOffsetEPKNS_13CXXRecordDeclE(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef %.val29)
   %16 = icmp slt i64 %14, %15
   %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds nuw ptr, ptr %0, i64 %spec.select
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds ptr, ptr %0, i64 %.034
+  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %.034
   store ptr %18, ptr %19, align 8
   %20 = icmp slt i64 %spec.select, %7
   br i1 %20, label %.lr.ph, label %._crit_edge, !llvm.loop !379
@@ -112133,9 +112133,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw ptr, ptr %0, i64 %29
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa
   store ptr %31, ptr %32, align 8
   br label %33
 
@@ -112157,7 +112157,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPPN5clang13CXXRecordDeclElS2_N
 
 39:                                               ; preds = %.lr.ph.i
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds ptr, ptr %0, i64 %.0133.i
+  %41 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0133.i
   store ptr %40, ptr %41, align 8
   %42 = icmp sgt i64 %.04.i, %1
   br i1 %42, label %.lr.ph.i, label %"_ZSt11__push_heapIPPN5clang13CXXRecordDeclElS2_N9__gnu_cxx5__ops14_Iter_comp_valIZL36structHasUniqueObjectRepresentationsRKNS0_10ASTContextEPKNS0_10RecordDeclEbE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !380
@@ -131190,7 +131190,7 @@ define linkonce_odr void @_ZSt13__heap_selectIPNSt7__cxx1112basic_stringIcSt11ch
 
 16:                                               ; preds = %16, %13
   %.012.i = phi i64 [ %15, %13 ], [ %18, %16 ]
-  %17 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
+  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %0, i64 %.012.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %17) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %6) #29
   call void @_ZSt13__adjust_heapIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElS5_N9__gnu_cxx5__ops15_Iter_less_iterEEvT_T0_SB_T1_T2_(ptr noundef %0, i64 noundef %.012.i, i64 noundef %11, ptr noundef nonnull %7)

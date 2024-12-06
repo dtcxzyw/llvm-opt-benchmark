@@ -8567,8 +8567,8 @@ fmap_readn.exit841.thread:                        ; preds = %214, %209, %fmap_re
   %.2930 = phi i64 [ 0, %.lr.ph931 ], [ %748, %747 ]
   %.0678928 = phi i64 [ 0, %.lr.ph931 ], [ %749, %747 ]
   %534 = load ptr, ptr %1, align 8
-  %535 = getelementptr inbounds %struct.cli_exe_section, ptr %534, i64 %.2930
-  %536 = getelementptr inbounds %struct.pe_image_section_hdr, ptr %495, i64 %.2930
+  %535 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %534, i64 %.2930
+  %536 = getelementptr inbounds nuw %struct.pe_image_section_hdr, ptr %495, i64 %.2930
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 12
   %538 = load i32, ptr %537, align 4
   %.fr = freeze i32 %538
@@ -8773,7 +8773,7 @@ fmap_readn.exit841.thread:                        ; preds = %214, %209, %fmap_re
 
 646:                                              ; preds = %644
   %647 = load ptr, ptr %1, align 8
-  %648 = getelementptr inbounds %struct.cli_exe_section, ptr %647, i64 %.2930
+  %648 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %647, i64 %.2930
   call fastcc void @add_section_info(ptr noundef %3, ptr noundef %648)
   %649 = call i32 @cli_json_timeout_cycle_check(ptr noundef %3, ptr noundef nonnull %10) #20
   %.not790 = icmp eq i32 %649, 0
@@ -8908,7 +8908,7 @@ thread-pre-split:                                 ; preds = %695
 
 704:                                              ; preds = %702, %700
   %705 = load ptr, ptr %1, align 8
-  %706 = getelementptr inbounds %struct.cli_exe_section, ptr %705, i64 %.2930, i32 8
+  %706 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %705, i64 %.2930, i32 8
   %707 = load i32, ptr %706, align 4
   %.not802 = icmp sgt i32 %707, -1
   br i1 %.not802, label %709, label %708

@@ -1334,7 +1334,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorIP10Hud
 _ZNSt6vectorIP10HudElementSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorIP10HudElementSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit38.i.i
   store ptr %call5.i.i.i.i.i19, ptr %hud.i, align 8, !tbaa !57
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8, !tbaa !58
-  %add.ptr19.i.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i.i19, i64 %add.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i19, i64 %add.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !86
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit26
 

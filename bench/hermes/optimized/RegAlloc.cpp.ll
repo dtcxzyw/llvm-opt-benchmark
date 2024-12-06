@@ -8606,7 +8606,7 @@ _ZNK6hermes8Interval3endEv.exit97.i:              ; preds = %for.body.i89.i, %_Z
   br i1 %50, label %while.body.i.i.i99, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit"
 
 while.body.i.i.i99:                               ; preds = %_ZNK6hermes8Interval5startEv.exit45.i, %_ZNK6hermes8Interval3endEv.exit97.i, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit"
-  %add.ptr2.i.i.i = getelementptr inbounds i32, ptr %31, i64 %__holeIndex.addr.014.i.i.i
+  %add.ptr2.i.i.i = getelementptr inbounds nuw i32, ptr %31, i64 %__holeIndex.addr.014.i.i.i
   store i32 %add.ptr.val.i.i.i, ptr %add.ptr2.i.i.i, align 4
   %cmp.i.not.i.i = icmp ult i64 %__parent.015.in.i.i.i, 2
   br i1 %cmp.i.not.i.i, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_0E4pushEOj.exit", label %land.rhs.i.i.i, !llvm.loop !50
@@ -8681,9 +8681,9 @@ while.body.i.i.i.i166:                            ; preds = %71, %while.body.lr.
   %__secondChild.025.i.i.i.i167 = phi i64 [ 0, %while.body.lr.ph.i.i.i.i165 ], [ %73, %71 ]
   %add.i.i.i.i168 = shl i64 %__secondChild.025.i.i.i.i167, 1
   %mul.i.i.i.i169 = add i64 %add.i.i.i.i168, 2
-  %add.ptr.i.i.i.i170 = getelementptr inbounds i32, ptr %intervals.val30, i64 %mul.i.i.i.i169
+  %add.ptr.i.i.i.i170 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %mul.i.i.i.i169
   %sub2.i.i.i.i171 = or disjoint i64 %add.i.i.i.i168, 1
-  %add.ptr3.i.i.i.i172 = getelementptr inbounds i32, ptr %intervals.val30, i64 %sub2.i.i.i.i171
+  %add.ptr3.i.i.i.i172 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %sub2.i.i.i.i171
   %add.ptr.val.i.i.i.i173 = load i32, ptr %add.ptr.i.i.i.i170, align 4
   %add.ptr3.val.i.i.i.i174 = load i32, ptr %add.ptr3.i.i.i.i172, align 4
   %__comp.val.val.i.i.i.i175 = load ptr, ptr %53, align 8
@@ -8842,7 +8842,7 @@ _ZNK6hermes8Interval3endEv.exit97.i603:           ; preds = %for.body.i89.i596, 
 71:                                               ; preds = %_ZNK6hermes8Interval3endEv.exit97.i603, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644", %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644.thread"
   %72 = phi i32 [ %add.ptr3.val.i.i.i.i174, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644.thread" ], [ %add.ptr.val.i.i.i.i173, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644" ], [ %add.ptr.val.i.i.i.i173, %_ZNK6hermes8Interval3endEv.exit97.i603 ]
   %73 = phi i64 [ %sub2.i.i.i.i171, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644.thread" ], [ %mul.i.i.i.i169, %"_ZZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS_10BasicBlockEEEENK3$_0clEjj.exit644" ], [ %mul.i.i.i.i169, %_ZNK6hermes8Interval3endEv.exit97.i603 ]
-  %add.ptr5.i.i.i.i179 = getelementptr inbounds i32, ptr %intervals.val30, i64 %__secondChild.025.i.i.i.i167
+  %add.ptr5.i.i.i.i179 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %__secondChild.025.i.i.i.i167
   store i32 %72, ptr %add.ptr5.i.i.i.i179, align 4
   %cmp.i.i.i.i180 = icmp slt i64 %73, %div.i.i.i.i
   br i1 %cmp.i.i.i.i180, label %while.body.i.i.i.i166, label %while.end.i.i.i.i139, !llvm.loop !52
@@ -8862,9 +8862,9 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i13
 if.then10.i.i.i.i160:                             ; preds = %land.lhs.true.i.i.i.i
   %add11.i.i.i.i161 = shl nsw i64 %__secondChild.0.lcssa.i.i.i.i140, 1
   %sub13.i.i.i.i162 = or disjoint i64 %add11.i.i.i.i161, 1
-  %add.ptr14.i.i.i.i163 = getelementptr inbounds i32, ptr %intervals.val30, i64 %sub13.i.i.i.i162
+  %add.ptr14.i.i.i.i163 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %sub13.i.i.i.i162
   %75 = load i32, ptr %add.ptr14.i.i.i.i163, align 4
-  %add.ptr15.i.i.i.i164 = getelementptr inbounds i32, ptr %intervals.val30, i64 %__secondChild.0.lcssa.i.i.i.i140
+  %add.ptr15.i.i.i.i164 = getelementptr inbounds nuw i32, ptr %intervals.val30, i64 %__secondChild.0.lcssa.i.i.i.i140
   store i32 %75, ptr %add.ptr15.i.i.i.i164, align 4
   br label %if.end17.i.i.i.i142
 
@@ -9583,7 +9583,7 @@ for.body.i33.i.i.i.i.i:                           ; preds = %_ZNK6hermes8Interva
   br i1 %174, label %while.body.i.i.i316, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit"
 
 while.body.i.i.i316:                              ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i.i.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i.i.i
-  %add.ptr2.i.i.i317 = getelementptr inbounds i32, ptr %161, i64 %__holeIndex.addr.014.i.i.i307
+  %add.ptr2.i.i.i317 = getelementptr inbounds nuw i32, ptr %161, i64 %__holeIndex.addr.014.i.i.i307
   store i32 %add.ptr.val.i.i.i311, ptr %add.ptr2.i.i.i317, align 4
   %cmp.i.not.i.i318 = icmp ult i64 %__parent.015.in.i.i.i308, 2
   br i1 %cmp.i.not.i.i318, label %"_ZNSt14priority_queueIjN4llvh11SmallVectorIjLj32EEEZN6hermes17RegisterAllocator8allocateENS0_8ArrayRefIPNS3_10BasicBlockEEEE3$_1E4pushERKj.exit", label %land.rhs.i.i.i306, !llvm.loop !54
@@ -13824,9 +13824,9 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %__secondChild.026 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %13, %while.cond ]
   %add = shl i64 %__secondChild.026, 1
   %mul = add i64 %add, 2
-  %add.ptr = getelementptr inbounds i32, ptr %__first, i64 %mul
+  %add.ptr = getelementptr inbounds nuw i32, ptr %__first, i64 %mul
   %sub2 = or disjoint i64 %add, 1
-  %add.ptr3 = getelementptr inbounds i32, ptr %__first, i64 %sub2
+  %add.ptr3 = getelementptr inbounds nuw i32, ptr %__first, i64 %sub2
   %add.ptr.val = load i32, ptr %add.ptr, align 4
   %add.ptr3.val = load i32, ptr %add.ptr3, align 4
   %__comp.val.val = load ptr, ptr %0, align 8
@@ -13916,7 +13916,7 @@ for.body.i33.i.i:                                 ; preds = %_ZNK6hermes8Interva
 while.cond:                                       ; preds = %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread"
   %12 = phi i32 [ %add.ptr3.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %add.ptr.val, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
   %13 = phi i64 [ %sub2, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit.thread" ], [ %mul, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjSC_EEbT_T0_.exit" ]
-  %add.ptr5 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.026
+  %add.ptr5 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.026
   store i32 %12, ptr %add.ptr5, align 4
   %cmp = icmp slt i64 %13, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !71
@@ -13936,9 +13936,9 @@ land.lhs.true:                                    ; preds = %while.end
 if.then10:                                        ; preds = %land.lhs.true
   %add11 = shl nsw i64 %__secondChild.0.lcssa, 1
   %sub13 = or disjoint i64 %add11, 1
-  %add.ptr14 = getelementptr inbounds i32, ptr %__first, i64 %sub13
+  %add.ptr14 = getelementptr inbounds nuw i32, ptr %__first, i64 %sub13
   %14 = load i32, ptr %add.ptr14, align 4
-  %add.ptr15 = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.0.lcssa
+  %add.ptr15 = getelementptr inbounds nuw i32, ptr %__first, i64 %__secondChild.0.lcssa
   store i32 %14, ptr %add.ptr15, align 4
   br label %if.end17
 
@@ -14038,7 +14038,7 @@ for.body.i33.i.i.i:                               ; preds = %_ZNK6hermes8Interva
   br i1 %26, label %while.body.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit"
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS2_10BasicBlockEEEE3$_1EclIPjjEEbT_RT0_.exit.i", %_ZNK6hermes8Interval5startEv.exit16.i.i.i
-  %add.ptr2.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.014.i
+  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.014.i
   store i32 %add.ptr.val.i, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.015.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIZN6hermes17RegisterAllocator8allocateEN4llvh8ArrayRefIPNS4_10BasicBlockEEEE3$_1EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !54

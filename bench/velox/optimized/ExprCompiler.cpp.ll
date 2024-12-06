@@ -19563,7 +19563,7 @@ _ZN5folly6detail18rawOverAlignedImplISaIhELm16ELb1EEEvRKT_mRPv.exit.i.i.i.i: ; p
   %call5.i.i2.i.i7.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i.i) #31
   store ptr %call5.i.i2.i.i7.i.i.i, ptr %rawAllocation.i.i, align 8
   %5 = load ptr, ptr %this, align 8
-  %add.ptr.i.i9.i = getelementptr inbounds i8, ptr %call5.i.i2.i.i7.i.i.i, i64 %sub1.i.i.i.i
+  %add.ptr.i.i9.i = getelementptr inbounds nuw i8, ptr %call5.i.i2.i.i7.i.i.i, i64 %sub1.i.i.i.i
   %cmp.not.i.i.i = icmp eq i32 %this.val, 0
   br i1 %cmp.not.i.i.i, label %_ZN5folly3f146detail21VectorContainerPolicyIPKN8facebook5velox4core10ITypedExprESt10shared_ptrINS4_4exec4ExprEENSA_12_GLOBAL__N_116ITypedExprHasherENSD_18ITypedExprComparerEvSt17integral_constantIbLb1EEE12beforeRehashEmmmmRPh.exit.i.i, label %for.body.i.i.i.i
 

@@ -234,7 +234,7 @@ if.end11.i:                                       ; preds = %if.end7.i
 
 if.then19.i:                                      ; preds = %if.end11.i
   %7 = load ptr, ptr %aad8.i, align 8
-  %arrayidx22.i = getelementptr inbounds i8, ptr %7, i64 %add16.i
+  %arrayidx22.i = getelementptr inbounds nuw i8, ptr %7, i64 %add16.i
   %sub.i = sub nuw nsw i64 %and.i13, %add16.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %arrayidx22.i, i8 0, i64 %sub.i, i1 false)
   br label %return

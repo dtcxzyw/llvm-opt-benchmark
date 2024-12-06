@@ -5541,8 +5541,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.val30.i.i.i.i = load i16, ptr %32, align 2
   %33 = icmp ult i16 %.val.i.i.i.i, %.val30.i.i.i.i
   %spec.select.i.i.i.i = select i1 %33, i64 %30, i64 %29
-  %34 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i.i.i.i
-  %35 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i.i.i.i
+  %34 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i.i.i.i
+  %35 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %35, ptr noundef nonnull align 2 dereferenceable(6) %34, i64 6, i1 false)
   %36 = icmp slt i64 %spec.select.i.i.i.i, %26
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !69
@@ -5559,8 +5559,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
 41:                                               ; preds = %._crit_edge.i.i.i.i
   %42 = shl nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %43
-  %45 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %44 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %43
+  %45 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0.lcssa.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %45, ptr noundef nonnull align 2 dereferenceable(6) %44, i64 6, i1 false)
   br label %46
 
@@ -5582,7 +5582,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   br i1 %50, label %51, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i.i.i.i
+  %52 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %52, ptr noundef nonnull align 2 dereferenceable(6) %48, i64 6, i1 false)
   %53 = icmp sgt i64 %.04.i.i.i.i.i, %23
   br i1 %53, label %.lr.ph.i.i.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i", !llvm.loop !70
@@ -5603,14 +5603,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
 
 .split17.lr.ph.i.i.i:                             ; preds = %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit.i.i.i"
   %56 = or disjoint i64 %22, 1
-  %57 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %56
-  %58 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %39
+  %57 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %56
+  %58 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %39
   br label %.split17.i.i.i
 
 .split17.i.i.i:                                   ; preds = %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit41.i.i.i", %.split17.lr.ph.i.i.i
   %.06.i.i.i = phi i64 [ %23, %.split17.lr.ph.i.i.i ], [ %59, %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit41.i.i.i" ]
   %59 = add nsw i64 %.06.i.i.i, -1
-  %60 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %59
+  %60 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %59
   %.sroa.02.0.copyload18.i.i.i = load i48, ptr %60, align 2
   %.not.i.i.i = icmp sgt i64 %.06.i.i.i, %26
   br i1 %.not.i.i.i, label %._crit_edge.i20.i.i.i, label %.lr.ph.i36.i.i.i
@@ -5626,8 +5626,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.val30.i39.i.i.i = load i16, ptr %65, align 2
   %66 = icmp ult i16 %.val.i38.i.i.i, %.val30.i39.i.i.i
   %spec.select.i40.i.i.i = select i1 %66, i64 %63, i64 %62
-  %67 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i40.i.i.i
-  %68 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i37.i.i.i
+  %67 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i40.i.i.i
+  %68 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i37.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %68, ptr noundef nonnull align 2 dereferenceable(6) %67, i64 6, i1 false)
   %69 = icmp slt i64 %spec.select.i40.i.i.i, %26
   br i1 %69, label %.lr.ph.i36.i.i.i, label %._crit_edge.i20.i.i.i, !llvm.loop !69
@@ -5660,7 +5660,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   br i1 %75, label %76, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit41.i.i.i"
 
 76:                                               ; preds = %.lr.ph.i.i31.i.i.i
-  %77 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i32.i.i.i
+  %77 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0133.i.i32.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %77, ptr noundef nonnull align 2 dereferenceable(6) %73, i64 6, i1 false)
   %.not5.i.i.i = icmp slt i64 %.04.i.i34.i.i.i, %.06.i.i.i
   br i1 %.not5.i.i.i, label %"_ZSt13__adjust_heapIPN4llvm9StackMaps10LiveOutRegElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIZNKS1_24parseRegisterLiveOutMaskEPKjE3$_0EEEvT_T0_SC_T1_T2_.exit41.i.i.i", label %.lr.ph.i.i31.i.i.i, !llvm.loop !70
@@ -5706,8 +5706,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
   %.val30.i.i.i28.i = load i16, ptr %91, align 2
   %92 = icmp ult i16 %.val.i.i.i27.i, %.val30.i.i.i28.i
   %spec.select.i.i.i29.i = select i1 %92, i64 %89, i64 %88
-  %93 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i.i.i29.i
-  %94 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i.i.i26.i
+  %93 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %spec.select.i.i.i29.i
+  %94 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.031.i.i.i26.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %94, ptr noundef nonnull align 2 dereferenceable(6) %93, i64 6, i1 false)
   %95 = icmp slt i64 %spec.select.i.i.i29.i, %85
   br i1 %95, label %.lr.ph.i.i.i25.i, label %._crit_edge.i.i.i7.i, !llvm.loop !69
@@ -5727,8 +5727,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN4llvm9StackMaps10LiveOutR
 102:                                              ; preds = %98
   %103 = shl nsw i64 %.0.lcssa.i.i.i8.i, 1
   %104 = or disjoint i64 %103, 1
-  %105 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %104
-  %106 = getelementptr inbounds %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0.lcssa.i.i.i8.i
+  %105 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %104
+  %106 = getelementptr inbounds nuw %"struct.llvm::StackMaps::LiveOutReg", ptr %0, i64 %.0.lcssa.i.i.i8.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %106, ptr noundef nonnull align 2 dereferenceable(6) %105, i64 6, i1 false)
   br label %107
 

@@ -6227,7 +6227,7 @@ gv_strdup.exit:                                   ; preds = %72
   br label %206
 
 95:                                               ; preds = %.split.us, %.split.us, %.split.us
-  %.0156.ptr.le.le508 = getelementptr inbounds i8, ptr %3, i64 %.0156.idx.ph251.ph
+  %.0156.ptr.le.le508 = getelementptr inbounds nuw i8, ptr %3, i64 %.0156.idx.ph251.ph
   %.not172 = icmp ne i8 %.us-phi227, 0
   %brmerge = or i1 %2, %.not172
   %96 = and i32 %.0131.ph256, 16
@@ -6282,14 +6282,14 @@ gv_alloc.exit202:                                 ; preds = %100
 
 115:                                              ; preds = %113
   %116 = or disjoint i32 %.0131.ph256, 1
-  %.0156.add = add nsw i64 %.0156.idx.ph251.ph, 1
+  %.0156.add = add nuw nsw i64 %.0156.idx.ph251.ph, 1
   store i8 32, ptr %.0156.ptr.le.le508, align 1
   br label %117
 
 117:                                              ; preds = %115, %113
   %.3159.idx = phi i64 [ %.0156.idx.ph251.ph, %113 ], [ %.0156.add, %115 ]
   %.3134 = phi i32 [ %.0131.ph256, %113 ], [ %116, %115 ]
-  %.3159.ptr = getelementptr inbounds i8, ptr %3, i64 %.3159.idx
+  %.3159.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.3159.idx
   %118 = and i32 %.3134, 1
   %.not177 = icmp eq i32 %118, 0
   br i1 %.not177, label %136, label %119
@@ -6347,7 +6347,7 @@ gv_alloc.exit202:                                 ; preds = %100
   br label %.outer.sink.split
 
 144:                                              ; preds = %.split.us
-  %.0156.ptr.le.le = getelementptr inbounds i8, ptr %3, i64 %.0156.idx.ph251.ph
+  %.0156.ptr.le.le = getelementptr inbounds nuw i8, ptr %3, i64 %.0156.idx.ph251.ph
   %145 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
   %146 = load i8, ptr %145, align 1
   switch i8 %146, label %150 [
@@ -6366,7 +6366,7 @@ gv_alloc.exit202:                                 ; preds = %100
   br i1 %149, label %150, label %152
 
 150:                                              ; preds = %144, %147
-  %.0156.add178 = add nsw i64 %.0156.idx.ph251.ph, 1
+  %.0156.add178 = add nuw nsw i64 %.0156.idx.ph251.ph, 1
   store i8 92, ptr %.0156.ptr.le.le, align 1
   %151 = or i32 %.0131.ph256, 9
   br label %152
@@ -6383,7 +6383,7 @@ gv_alloc.exit202:                                 ; preds = %100
   %.1132 = phi i32 [ %.4, %152 ], [ %.0131.ph256, %144 ], [ %.0131.ph256, %59 ], [ %.0131.ph256, %53 ], [ %.0131.ph256, %.split.us ]
   %.1 = phi i8 [ %.3, %152 ], [ %.0.ph260.ph, %144 ], [ %.0.ph260.ph, %59 ], [ %.0.ph260.ph, %53 ], [ %.0.ph260.ph, %.split.us ]
   %.1.fr = freeze i8 %.1
-  %.1157.ptr = getelementptr inbounds i8, ptr %3, i64 %.1157.idx
+  %.1157.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.1157.idx
   %153 = and i32 %.1132, 4
   %.not190 = icmp eq i32 %153, 0
   br i1 %.not190, label %158, label %154
@@ -6440,7 +6440,7 @@ gv_alloc.exit202:                                 ; preds = %100
   br i1 %178, label %179, label %.thread280
 
 179:                                              ; preds = %166, %170, %172, %176
-  %.1157.add = add nsw i64 %.1157.idx, 1
+  %.1157.add = add nuw nsw i64 %.1157.idx, 1
   store i8 %168, ptr %.1157.ptr, align 1
   %.pre278 = trunc i8 %.1.fr to i1
   %gep = getelementptr i8, ptr %3, i64 %.1157.idx
@@ -6500,9 +6500,9 @@ gv_alloc.exit202:                                 ; preds = %100
   %200 = phi i8 [ %203, %.lr.ph247 ], [ %197, %.lr.ph247.preheader ]
   %.9.idx245 = phi i64 [ %.9.add, %.lr.ph247 ], [ %.8.idx, %.lr.ph247.preheader ]
   %201 = phi ptr [ %202, %.lr.ph247 ], [ %199, %.lr.ph247.preheader ]
-  %.9.ptr = getelementptr inbounds i8, ptr %3, i64 %.9.idx245
+  %.9.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.9.idx245
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 1
-  %.9.add = add nsw i64 %.9.idx245, 1
+  %.9.add = add nuw nsw i64 %.9.idx245, 1
   store i8 %200, ptr %.9.ptr, align 1
   %203 = load i8, ptr %202, align 1
   %204 = icmp slt i8 %203, -64

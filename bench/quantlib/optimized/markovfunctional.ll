@@ -39980,7 +39980,7 @@ while.end.i.i.i.i.i.i:                            ; preds = %while.end.i.i.loope
 
 if.then.i.i.i.i.i.i:                              ; preds = %while.end.i.i.i.i.i.i
   %sub8.i.i.i.i.i.i = add nsw i64 %n.0.lcssa.i.i.i.i.i.i, -4
-  %add.ptr9.i.i.i.i.i.i = getelementptr inbounds i8, ptr %p.0.lcssa.i.i.i.i.i.i, i64 %sub8.i.i.i.i.i.i
+  %add.ptr9.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %p.0.lcssa.i.i.i.i.i.i, i64 %sub8.i.i.i.i.i.i
   %7 = load i32, ptr %add.ptr9.i.i.i.i.i.i, align 1
   %conv.i.i.i.i.i.i = zext i32 %7 to i64
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub8.i.i.i.i.i.i, 3

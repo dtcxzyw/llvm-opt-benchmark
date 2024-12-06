@@ -19873,7 +19873,7 @@ if.else.i.i.i.i11029:                             ; preds = %invoke.cont5495
   %add3.i.i.i.i11030 = add nuw nsw i64 %i5485.013863, 16777216
   %div.i.i.i.i1103113091 = lshr i64 %add3.i.i.i.i11030, 6
   %sub.i.i.i.i11032 = add nsw i64 %div.i.i.i.i1103113091, -262144
-  %add.ptr4.i.i.i.i11033 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i10954, i64 %sub.i.i.i.i11032
+  %add.ptr4.i.i.i.i11033 = getelementptr inbounds nuw ptr, ptr %add.ptr.i.i.i10954, i64 %sub.i.i.i.i11032
   %1998 = load ptr, ptr %add.ptr4.i.i.i.i11033, align 8, !noalias !658
   %add.ptr.i.i.i.i.i11034 = getelementptr inbounds nuw i8, ptr %1998, i64 256
   %mul.i.i.i.i11035 = shl nuw nsw i64 %sub.i.i.i.i11032, 6
@@ -25220,7 +25220,7 @@ if.then.i.i17:                                    ; preds = %if.then
 do.body.i.i:                                      ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i, %if.then.i.i17
   %parentPosition.0.i.i = phi i64 [ %add.i.i, %if.then.i.i17 ], [ %dec.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i ]
   %dec.i.i = add nsw i64 %parentPosition.0.i.i, -1
-  %add.ptr.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
   %8 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr null, ptr %add.ptr.i.i, align 8
   store ptr %8, ptr %temp.i.i, align 8
@@ -25582,7 +25582,7 @@ if.then.i.i17:                                    ; preds = %if.then
 do.body.i.i:                                      ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i, %if.then.i.i17
   %parentPosition.0.i.i = phi i64 [ %add.i.i, %if.then.i.i17 ], [ %dec.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i ]
   %dec.i.i = add nsw i64 %parentPosition.0.i.i, -1
-  %add.ptr.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr null, ptr %add.ptr.i.i, align 8
   store ptr %2, ptr %temp.i.i, align 8
@@ -25739,7 +25739,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5ea
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
   store ptr null, ptr %add.ptr.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr3.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %4
@@ -25897,7 +25897,7 @@ if.then.i.i17:                                    ; preds = %if.then
 do.body.i.i:                                      ; preds = %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i, %if.then.i.i17
   %parentPosition.0.i.i = phi i64 [ %add.i.i, %if.then.i.i17 ], [ %dec.i.i, %_ZN5eastl10unique_ptrIiNS_14default_deleteIiEEED2Ev.exit.i.i ]
   %dec.i.i = add nsw i64 %parentPosition.0.i.i, -1
-  %add.ptr.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %dec.i.i
   %2 = load ptr, ptr %add.ptr.i.i, align 8
   store ptr null, ptr %add.ptr.i.i, align 8
   store ptr %2, ptr %temp.i.i, align 8
@@ -26054,7 +26054,7 @@ land.rhs.i.i.i:                                   ; preds = %if.end16.i, %_ZN5ea
   br i1 %cmp.i.i.i.i, label %for.body.i.i.i, label %for.end.i.i.i
 
 for.body.i.i.i:                                   ; preds = %land.rhs.i.i.i
-  %add.ptr3.i.i.i = getelementptr inbounds %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds nuw %"class.eastl::unique_ptr", ptr %first, i64 %position.addr.019.i.i.i
   store ptr null, ptr %add.ptr.i.i.i, align 8
   %4 = load ptr, ptr %add.ptr3.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %add.ptr.val.i.i.i, %4

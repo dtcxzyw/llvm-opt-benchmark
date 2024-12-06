@@ -1493,7 +1493,7 @@ define range(i32 -1, 1) i32 @phpdbg_resolve_op_array_break(ptr noundef %0, ptr n
   %28 = load i32, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds %struct._zend_op, ptr %30, i64 %8
+  %31 = getelementptr inbounds nuw %struct._zend_op, ptr %30, i64 %8
   %32 = ptrtoint ptr %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store i64 %32, ptr %33, align 8

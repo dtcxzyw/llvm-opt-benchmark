@@ -1956,7 +1956,7 @@ _RNvMs6_NtNtCsgrIngBG6lgl_14regex_automata4util8capturesNtB5_14GroupInfoInner9gr
   br i1 %or.cond.i, label %35, label %39
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds i64, ptr %26, i64 %.sroa.041.0.i
+  %36 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.041.0.i
   %37 = load i64, ptr %36, align 8, !noalias !316, !noundef !5
   %38 = icmp eq i64 %37, 0
   br i1 %38, label %39, label %40

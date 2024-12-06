@@ -331,7 +331,7 @@ _ZN5faiss12AlignedTableIfLi32EEC2Em.exit:         ; preds = %_ZN5faiss12AlignedT
   %67 = mul i64 %62, %.033
   %68 = getelementptr inbounds i8, ptr %4, i64 %67
   call void @llvm.memmove.p0.p0.i64(ptr align 1 %66, ptr align 1 %68, i64 %62, i1 false)
-  %69 = getelementptr inbounds i64, ptr %3, i64 %.033
+  %69 = getelementptr inbounds nuw i64, ptr %3, i64 %.033
   %70 = load i64, ptr %69, align 8
   call void @_ZNK5faiss15Level1Quantizer13encode_listnoElPh(ptr noundef nonnull align 8 dereferenceable(72) %57, i64 noundef %70, ptr noundef %65)
   %71 = icmp samesign ugt i64 %.033.in45, 1

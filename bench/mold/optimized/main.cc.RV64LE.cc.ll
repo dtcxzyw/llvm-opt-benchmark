@@ -2884,7 +2884,7 @@ for.cond10.preheader.i.i.i:                       ; preds = %for.body.i.i.i
 
 for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %entry
   %i.07.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %entry ]
-  %node_list.idx.i.i.i = shl nsw i64 %i.07.i.i.i, 4
+  %node_list.idx.i.i.i = shl nuw nsw i64 %i.07.i.i.i, 4
   %node_list.offs.i.i.i = or disjoint i64 %node_list.idx.i.i.i, 8
   %node_list.i.i.i = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i, i64 %node_list.offs.i.i.i
   store atomic i64 0, ptr %node_list.i.i.i monotonic, align 8
@@ -2917,7 +2917,7 @@ for.cond10.preheader.i.i.i11:                     ; preds = %for.body.i.i.i4
 
 for.body.i.i.i4:                                  ; preds = %for.body.i.i.i4, %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEEC2Ev.exit
   %i.07.i.i.i5 = phi i64 [ %inc.i.i.i9, %for.body.i.i.i4 ], [ 0, %_ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcEEN4mold3elf6SymbolINS8_6RV64LEEEE7HashCmpNS0_2d113tbb_allocatorISt4pairIKS6_SB_EEEEC2Ev.exit ]
-  %node_list.idx.i.i.i6 = shl nsw i64 %i.07.i.i.i5, 4
+  %node_list.idx.i.i.i6 = shl nuw nsw i64 %i.07.i.i.i5, 4
   %node_list.offs.i.i.i7 = or disjoint i64 %node_list.idx.i.i.i6, 8
   %node_list.i.i.i8 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i3, i64 %node_list.offs.i.i.i7
   store atomic i64 0, ptr %node_list.i.i.i8 monotonic, align 8
@@ -3120,7 +3120,7 @@ for.cond10.preheader.i.i.i85:                     ; preds = %for.body.i.i.i78
 
 for.body.i.i.i78:                                 ; preds = %for.body.i.i.i78, %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13OutputSectionINS5_6RV64LEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEEC2Ev.exit
   %i.07.i.i.i79 = phi i64 [ %inc.i.i.i83, %for.body.i.i.i78 ], [ 0, %_ZN3tbb6detail2d117concurrent_vectorISt10unique_ptrIN4mold3elf13OutputSectionINS5_6RV64LEEEESt14default_deleteIS8_EENS1_23cache_aligned_allocatorISB_EEEC2Ev.exit ]
-  %node_list.idx.i.i.i80 = shl nsw i64 %i.07.i.i.i79, 4
+  %node_list.idx.i.i.i80 = shl nuw nsw i64 %i.07.i.i.i79, 4
   %node_list.offs.i.i.i81 = or disjoint i64 %node_list.idx.i.i.i80, 8
   %node_list.i.i.i82 = getelementptr inbounds nuw i8, ptr %my_embedded_segment.ptr.i.i.i77, i64 %node_list.offs.i.i.i81
   store atomic i64 0, ptr %node_list.i.i.i82 monotonic, align 8

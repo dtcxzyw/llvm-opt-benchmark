@@ -1982,7 +1982,7 @@ json_append_unicode_escape.exit.i:                ; preds = %if.then29.i.i.i, %i
   %add.i120.i.i = add i64 %58, %retval.0.i119.ph.i.i
   store i64 %add.i120.i.i, ptr %length.i.i.i, align 8, !tbaa !15
   %59 = load ptr, ptr %ptr, align 8, !tbaa !21
-  %add.ptr44.i.i = getelementptr inbounds i8, ptr %59, i64 %escape_len.0138.ph.i.i
+  %add.ptr44.i.i = getelementptr inbounds nuw i8, ptr %59, i64 %escape_len.0138.ph.i.i
   store ptr %add.ptr44.i.i, ptr %ptr, align 8, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %utf8.sroa.0.i.i)
   br label %while.cond.i.backedge

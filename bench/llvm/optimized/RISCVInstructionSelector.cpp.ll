@@ -13258,7 +13258,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_124RISCVInstr
 
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %1335, %1337
   %.sroa.0.0.i.i1394 = phi ptr [ %1330, %1335 ], [ %1341, %1337 ]
-  %1342 = getelementptr inbounds ptr, ptr %.sroa.0.0.i.i1394, i64 %.0.i1385
+  %1342 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1394, i64 %.0.i1385
   %1343 = load ptr, ptr %1342, align 8
   %1344 = call noundef i32 @_ZNK4llvm18MachinePointerInfo12getAddrSpaceEv(ptr noundef nonnull align 8 dereferenceable(80) %1343) #24
   %1345 = zext i8 %1296 to i32
@@ -13470,7 +13470,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_124RISCVInstr
 
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1423: ; preds = %1457, %1459
   %.sroa.0.0.i.i1420 = phi ptr [ %1452, %1457 ], [ %1463, %1459 ]
-  %1464 = getelementptr inbounds ptr, ptr %.sroa.0.0.i.i1420, i64 %.0.i1410
+  %1464 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1420, i64 %.0.i1410
   %1465 = load ptr, ptr %1464, align 8
   %1466 = call i8 @_ZNK4llvm17MachineMemOperand8getAlignEv(ptr noundef nonnull align 8 dereferenceable(80) %1465) #24
   %1467 = zext nneg i8 %1466 to i64
@@ -13637,7 +13637,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_124RISCVInstr
 
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1446: ; preds = %1556, %1558
   %.sroa.0.0.i.i1443 = phi ptr [ %1551, %1556 ], [ %1562, %1558 ]
-  %1563 = getelementptr inbounds ptr, ptr %.sroa.0.0.i.i1443, i64 %.0.i1432
+  %1563 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1443, i64 %.0.i1432
   %1564 = load ptr, ptr %1563, align 8
   %1565 = getelementptr inbounds nuw i8, ptr %1564, i64 24
   %1566 = load i64, ptr %1565, align 8
@@ -13917,7 +13917,7 @@ _ZZNK4llvm20GIMatchTableExecutor17executeMatchTableIKN12_GLOBAL__N_124RISCVInstr
 
 _ZNK4llvm12MachineInstr17memoperands_beginEv.exit1475: ; preds = %1716, %1718
   %.sroa.0.0.i.i1472 = phi ptr [ %1711, %1716 ], [ %1722, %1718 ]
-  %1723 = getelementptr inbounds ptr, ptr %.sroa.0.0.i.i1472, i64 %.0.i1455
+  %1723 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i.i1472, i64 %.0.i1455
   %1724 = load ptr, ptr %1723, align 8
   %1725 = getelementptr inbounds nuw i8, ptr %1669, i64 4
   %1726 = load i32, ptr %1725, align 4

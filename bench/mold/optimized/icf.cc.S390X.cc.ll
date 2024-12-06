@@ -18141,7 +18141,7 @@ cond.false23.i40:                                 ; preds = %cond.false17.i37
 
 _ZNK3tbb6detail2d116quick_sort_rangeIN9__gnu_cxx17__normal_iteratorIPSt5arrayIhLm16EESt6vectorIS6_SaIS6_EEEESt4lessIS6_EE15median_of_threeERKSB_mmm.exit52: ; preds = %cond.true.i45, %cond.false.i48, %cond.false17.i37, %cond.false23.i40
   %cond35.i44 = phi i64 [ %cond.i51, %cond.false.i48 ], [ %cond31.i43, %cond.false23.i40 ], [ %mul7, %cond.true.i45 ], [ %mul7, %cond.false17.i37 ]
-  %arrayidx.i.i53 = getelementptr inbounds %"struct.std::array", ptr %1, i64 %cond35.i
+  %arrayidx.i.i53 = getelementptr inbounds nuw %"struct.std::array", ptr %1, i64 %cond35.i
   %arrayidx.i23.i54 = getelementptr inbounds %"struct.std::array", ptr %1, i64 %cond35.i23
   %call2.i.i.i55 = tail call i32 @memcmp(ptr noundef nonnull align 1 dereferenceable(16) %arrayidx.i.i53, ptr noundef nonnull align 1 dereferenceable(16) %arrayidx.i23.i54, i64 noundef 16) #13
   %cmp.i.i.i56 = icmp slt i32 %call2.i.i.i55, 0

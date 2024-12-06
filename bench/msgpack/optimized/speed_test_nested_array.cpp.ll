@@ -11959,7 +11959,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   store ptr %95, ptr %58, align 8, !tbaa !184
   %114 = getelementptr inbounds nuw %"class.std::vector.31", ptr %96, i64 %79
   store ptr %114, ptr %70, align 8, !tbaa !186
-  %115 = getelementptr inbounds %"class.std::vector.31", ptr %95, i64 %93
+  %115 = getelementptr inbounds nuw %"class.std::vector.31", ptr %95, i64 %93
   store ptr %115, ptr %80, align 8, !tbaa !196
   br label %153
 
@@ -12128,7 +12128,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   store ptr %196, ptr %159, align 8, !tbaa !187
   %215 = getelementptr inbounds nuw %"class.std::vector.36", ptr %197, i64 %180
   store ptr %215, ptr %171, align 8, !tbaa !189
-  %216 = getelementptr inbounds %"class.std::vector.36", ptr %196, i64 %194
+  %216 = getelementptr inbounds nuw %"class.std::vector.36", ptr %196, i64 %194
   store ptr %216, ptr %181, align 8, !tbaa !194
   br label %235
 
@@ -12272,7 +12272,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
   store ptr %284, ptr %241, align 8, !tbaa !190
   %299 = getelementptr inbounds nuw i32, ptr %285, i64 %262
   store ptr %299, ptr %253, align 8, !tbaa !202
-  %300 = getelementptr inbounds i32, ptr %284, i64 %282
+  %300 = getelementptr inbounds nuw i32, ptr %284, i64 %282
   store ptr %300, ptr %263, align 8, !tbaa !192
   br label %307
 
@@ -12468,7 +12468,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_IS_IS_IS_IiSaIiEESaIS1_EESaIS
 
 50:                                               ; preds = %46, %.loopexit
   store ptr %32, ptr %0, align 8, !tbaa !64
-  %51 = getelementptr inbounds %"class.std::vector.21", ptr %33, i64 %1
+  %51 = getelementptr inbounds nuw %"class.std::vector.21", ptr %33, i64 %1
   store ptr %51, ptr %5, align 8, !tbaa !66
   %52 = getelementptr inbounds nuw %"class.std::vector.21", ptr %32, i64 %30
   store ptr %52, ptr %12, align 8, !tbaa !69
@@ -12677,7 +12677,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIS_IS_IS_IiSaIiEESaIS1_EESaIS3_E
 
 50:                                               ; preds = %46, %.loopexit
   store ptr %32, ptr %0, align 8, !tbaa !181
-  %51 = getelementptr inbounds %"class.std::vector.26", ptr %33, i64 %1
+  %51 = getelementptr inbounds nuw %"class.std::vector.26", ptr %33, i64 %1
   store ptr %51, ptr %5, align 8, !tbaa !183
   %52 = getelementptr inbounds nuw %"class.std::vector.26", ptr %32, i64 %30
   store ptr %52, ptr %12, align 8, !tbaa !198

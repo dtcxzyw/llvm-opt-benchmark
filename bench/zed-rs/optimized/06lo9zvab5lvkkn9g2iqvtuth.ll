@@ -2550,7 +2550,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h5fff2fb1639722c9E.exit.i: ; p
   br i1 %or.cond.i, label %294, label %324
 
 294:                                              ; preds = %289
-  %295 = getelementptr inbounds i64, ptr %285, i64 %.sroa.041.0.i
+  %295 = getelementptr inbounds nuw i64, ptr %285, i64 %.sroa.041.0.i
   %296 = load i64, ptr %295, align 8, !noalias !637, !noundef !13
   %297 = icmp eq i64 %296, 0
   br i1 %297, label %324, label %301

@@ -165,13 +165,13 @@ cond.false:                                       ; preds = %entry
 
 cond.end:                                         ; preds = %entry
   %call = tail call i64 @pthread_self() #10
-  %arrayidx = getelementptr inbounds [3 x ptr], ptr @bio_worker_title, i64 0, i64 %0
+  %arrayidx = getelementptr inbounds nuw [3 x ptr], ptr @bio_worker_title, i64 0, i64 %0
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call i32 @pthread_setname_np(i64 noundef %call, ptr noundef %1) #9
   %2 = load ptr, ptr getelementptr inbounds (i8, ptr @server, i64 5584), align 8
   tail call void @redisSetCpuAffinity(ptr noundef %2) #9
   tail call void @makeThreadKillable() #9
-  %arrayidx3 = getelementptr inbounds [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %0
+  %arrayidx3 = getelementptr inbounds nuw [3 x %union.pthread_mutex_t], ptr @bio_mutex, i64 0, i64 %0
   %call4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %arrayidx3) #9
   %call5 = call i32 @sigemptyset(ptr noundef nonnull %sigset) #9
   %call6 = call i32 @sigaddset(ptr noundef nonnull %sigset, i32 noundef 14) #9
@@ -190,8 +190,8 @@ if.end:                                           ; preds = %cond.end
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end, %cond.end
-  %arrayidx15 = getelementptr inbounds [3 x ptr], ptr @bio_jobs, i64 0, i64 %0
-  %arrayidx151 = getelementptr inbounds [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %0
+  %arrayidx15 = getelementptr inbounds nuw [3 x ptr], ptr @bio_jobs, i64 0, i64 %0
+  %arrayidx151 = getelementptr inbounds nuw [3 x %union.pthread_cond_t], ptr @bio_newjob_cond, i64 0, i64 %0
   br label %while.body
 
 while.body:                                       ; preds = %while.body.backedge, %if.end14

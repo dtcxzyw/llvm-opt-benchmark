@@ -1768,9 +1768,9 @@ for.cond.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i:                             ; preds = %for.cond.i.i.i.i.i.i
   %i.0.i.i.i.i.i.i = add nsw i64 %i.0.in.i.i.i.i.i.i, -1
-  %add.ptr.i37.i.i.i.i.i.i = getelementptr inbounds i64, ptr %83, i64 %i.0.i.i.i.i.i.i
+  %add.ptr.i37.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %83, i64 %i.0.i.i.i.i.i.i
   %86 = load i64, ptr %add.ptr.i37.i.i.i.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i.i.i.i = getelementptr inbounds i64, ptr %85, i64 %i.0.i.i.i.i.i.i
+  %add.ptr.i38.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %85, i64 %i.0.i.i.i.i.i.i
   %87 = load i64, ptr %add.ptr.i38.i.i.i.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i.i.i.i = icmp eq i64 %86, %87
   br i1 %cmp9.not.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i, label %cleanup.thread.i.i.i.i.i.i
@@ -1811,9 +1811,9 @@ for.cond.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.cond.i.i.i.i.i.i.i
   %i.0.i.i.i.i.i.i.i = add nsw i64 %i.0.in.i.i.i.i.i.i.i, -1
-  %add.ptr.i37.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %83, i64 %i.0.i.i.i.i.i.i.i
+  %add.ptr.i37.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %83, i64 %i.0.i.i.i.i.i.i.i
   %91 = load i64, ptr %add.ptr.i37.i.i.i.i.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %90, i64 %i.0.i.i.i.i.i.i.i
+  %add.ptr.i38.i.i.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %90, i64 %i.0.i.i.i.i.i.i.i
   %92 = load i64, ptr %add.ptr.i38.i.i.i.i.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i.i.i.i.i = icmp eq i64 %91, %92
   br i1 %cmp9.not.i.i.i.i.i.i.i, label %for.cond.i.i.i.i.i.i.i, label %cleanup.thread.i.i.i.i.i.i.i
@@ -1883,9 +1883,9 @@ for.cond.i.i.i.i41.i.i.i:                         ; preds = %for.body.i.i.i.i44.
 
 for.body.i.i.i.i44.i.i.i:                         ; preds = %for.cond.i.i.i.i41.i.i.i
   %i.0.i.i.i.i45.i.i.i = add nsw i64 %i.0.in.i.i.i.i42.i.i.i, -1
-  %add.ptr.i37.i.i.i.i46.i.i.i = getelementptr inbounds i64, ptr %95, i64 %i.0.i.i.i.i45.i.i.i
+  %add.ptr.i37.i.i.i.i46.i.i.i = getelementptr inbounds nuw i64, ptr %95, i64 %i.0.i.i.i.i45.i.i.i
   %99 = load i64, ptr %add.ptr.i37.i.i.i.i46.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i.i47.i.i.i = getelementptr inbounds i64, ptr %98, i64 %i.0.i.i.i.i45.i.i.i
+  %add.ptr.i38.i.i.i.i47.i.i.i = getelementptr inbounds nuw i64, ptr %98, i64 %i.0.i.i.i.i45.i.i.i
   %100 = load i64, ptr %add.ptr.i38.i.i.i.i47.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i.i48.i.i.i = icmp eq i64 %99, %100
   br i1 %cmp9.not.i.i.i.i48.i.i.i, label %for.cond.i.i.i.i41.i.i.i, label %cleanup.thread.i.i.i.i49.i.i.i
@@ -1946,9 +1946,9 @@ for.cond.i.i.i79.i.i.i:                           ; preds = %for.body.i.i.i82.i.
 
 for.body.i.i.i82.i.i.i:                           ; preds = %for.cond.i.i.i79.i.i.i
   %i.0.i.i.i83.i.i.i = add nsw i64 %i.0.in.i.i.i80.i.i.i, -1
-  %add.ptr.i37.i.i.i84.i.i.i = getelementptr inbounds i64, ptr %104, i64 %i.0.i.i.i83.i.i.i
+  %add.ptr.i37.i.i.i84.i.i.i = getelementptr inbounds nuw i64, ptr %104, i64 %i.0.i.i.i83.i.i.i
   %107 = load i64, ptr %add.ptr.i37.i.i.i84.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i85.i.i.i = getelementptr inbounds i64, ptr %106, i64 %i.0.i.i.i83.i.i.i
+  %add.ptr.i38.i.i.i85.i.i.i = getelementptr inbounds nuw i64, ptr %106, i64 %i.0.i.i.i83.i.i.i
   %108 = load i64, ptr %add.ptr.i38.i.i.i85.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i86.i.i.i = icmp eq i64 %107, %108
   br i1 %cmp9.not.i.i.i86.i.i.i, label %for.cond.i.i.i79.i.i.i, label %cleanup.thread.i.i.i87.i.i.i
@@ -1995,9 +1995,9 @@ for.cond.i.i.i.i103.i.i.i:                        ; preds = %for.body.i.i.i.i106
 
 for.body.i.i.i.i106.i.i.i:                        ; preds = %for.cond.i.i.i.i103.i.i.i
   %i.0.i.i.i.i107.i.i.i = add nsw i64 %i.0.in.i.i.i.i104.i.i.i, -1
-  %add.ptr.i37.i.i.i.i108.i.i.i = getelementptr inbounds i64, ptr %104, i64 %i.0.i.i.i.i107.i.i.i
+  %add.ptr.i37.i.i.i.i108.i.i.i = getelementptr inbounds nuw i64, ptr %104, i64 %i.0.i.i.i.i107.i.i.i
   %112 = load i64, ptr %add.ptr.i37.i.i.i.i108.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i.i109.i.i.i = getelementptr inbounds i64, ptr %111, i64 %i.0.i.i.i.i107.i.i.i
+  %add.ptr.i38.i.i.i.i109.i.i.i = getelementptr inbounds nuw i64, ptr %111, i64 %i.0.i.i.i.i107.i.i.i
   %113 = load i64, ptr %add.ptr.i38.i.i.i.i109.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i.i110.i.i.i = icmp eq i64 %112, %113
   br i1 %cmp9.not.i.i.i.i110.i.i.i, label %for.cond.i.i.i.i103.i.i.i, label %cleanup.thread.i.i.i.i111.i.i.i
@@ -2520,9 +2520,9 @@ for.cond.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 
 for.body.i.i.i.i:                                 ; preds = %for.cond.i.i.i.i
   %i.0.i.i.i.i = add nsw i64 %i.0.in.i.i.i.i, -1
-  %add.ptr.i37.i.i.i.i = getelementptr inbounds i64, ptr %7, i64 %i.0.i.i.i.i
+  %add.ptr.i37.i.i.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.0.i.i.i.i
   %10 = load i64, ptr %add.ptr.i37.i.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i.i = getelementptr inbounds i64, ptr %9, i64 %i.0.i.i.i.i
+  %add.ptr.i38.i.i.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %i.0.i.i.i.i
   %11 = load i64, ptr %add.ptr.i38.i.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i.i = icmp eq i64 %10, %11
   br i1 %cmp9.not.i.i.i.i, label %for.cond.i.i.i.i, label %cleanup.thread.i.i.i.i
@@ -2557,9 +2557,9 @@ for.cond.i.i82.i.i:                               ; preds = %for.body.i.i85.i.i,
 
 for.body.i.i85.i.i:                               ; preds = %for.cond.i.i82.i.i
   %i.0.i.i86.i.i = add nsw i64 %i.0.in.i.i83.i.i, -1
-  %add.ptr.i37.i.i87.i.i = getelementptr inbounds i64, ptr %9, i64 %i.0.i.i86.i.i
+  %add.ptr.i37.i.i87.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %i.0.i.i86.i.i
   %15 = load i64, ptr %add.ptr.i37.i.i87.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i88.i.i = getelementptr inbounds i64, ptr %14, i64 %i.0.i.i86.i.i
+  %add.ptr.i38.i.i88.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %i.0.i.i86.i.i
   %16 = load i64, ptr %add.ptr.i38.i.i88.i.i, align 8, !tbaa !37
   %cmp9.not.i.i89.i.i = icmp eq i64 %15, %16
   br i1 %cmp9.not.i.i89.i.i, label %for.cond.i.i82.i.i, label %cleanup.thread.i.i90.i.i
@@ -2591,9 +2591,9 @@ for.cond.i.i109.i.i:                              ; preds = %for.body.i.i112.i.i
 
 for.body.i.i112.i.i:                              ; preds = %for.cond.i.i109.i.i
   %i.0.i.i113.i.i = add nsw i64 %i.0.in.i.i110.i.i, -1
-  %add.ptr.i37.i.i114.i.i = getelementptr inbounds i64, ptr %7, i64 %i.0.i.i113.i.i
+  %add.ptr.i37.i.i114.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.0.i.i113.i.i
   %18 = load i64, ptr %add.ptr.i37.i.i114.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i115.i.i = getelementptr inbounds i64, ptr %14, i64 %i.0.i.i113.i.i
+  %add.ptr.i38.i.i115.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %i.0.i.i113.i.i
   %19 = load i64, ptr %add.ptr.i38.i.i115.i.i, align 8, !tbaa !37
   %cmp9.not.i.i116.i.i = icmp eq i64 %18, %19
   br i1 %cmp9.not.i.i116.i.i, label %for.cond.i.i109.i.i, label %cleanup.thread.i.i117.i.i
@@ -2630,9 +2630,9 @@ for.cond.i.i136.i.i:                              ; preds = %for.body.i.i139.i.i
 
 for.body.i.i139.i.i:                              ; preds = %for.cond.i.i136.i.i
   %i.0.i.i140.i.i = add nsw i64 %i.0.in.i.i137.i.i, -1
-  %add.ptr.i37.i.i141.i.i = getelementptr inbounds i64, ptr %7, i64 %i.0.i.i140.i.i
+  %add.ptr.i37.i.i141.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %i.0.i.i140.i.i
   %21 = load i64, ptr %add.ptr.i37.i.i141.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i142.i.i = getelementptr inbounds i64, ptr %14, i64 %i.0.i.i140.i.i
+  %add.ptr.i38.i.i142.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %i.0.i.i140.i.i
   %22 = load i64, ptr %add.ptr.i38.i.i142.i.i, align 8, !tbaa !37
   %cmp9.not.i.i143.i.i = icmp eq i64 %21, %22
   br i1 %cmp9.not.i.i143.i.i, label %for.cond.i.i136.i.i, label %cleanup.thread.i.i144.i.i
@@ -2664,9 +2664,9 @@ for.cond.i.i163.i.i:                              ; preds = %for.body.i.i166.i.i
 
 for.body.i.i166.i.i:                              ; preds = %for.cond.i.i163.i.i
   %i.0.i.i167.i.i = add nsw i64 %i.0.in.i.i164.i.i, -1
-  %add.ptr.i37.i.i168.i.i = getelementptr inbounds i64, ptr %9, i64 %i.0.i.i167.i.i
+  %add.ptr.i37.i.i168.i.i = getelementptr inbounds nuw i64, ptr %9, i64 %i.0.i.i167.i.i
   %24 = load i64, ptr %add.ptr.i37.i.i168.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i169.i.i = getelementptr inbounds i64, ptr %14, i64 %i.0.i.i167.i.i
+  %add.ptr.i38.i.i169.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %i.0.i.i167.i.i
   %25 = load i64, ptr %add.ptr.i38.i.i169.i.i, align 8, !tbaa !37
   %cmp9.not.i.i170.i.i = icmp eq i64 %24, %25
   br i1 %cmp9.not.i.i170.i.i, label %for.cond.i.i163.i.i, label %cleanup.thread.i.i171.i.i
@@ -2730,9 +2730,9 @@ for.cond.i.i.i50.i:                               ; preds = %for.body.i.i.i53.i,
 
 for.body.i.i.i53.i:                               ; preds = %for.cond.i.i.i50.i
   %i.0.i.i.i54.i = add nsw i64 %i.0.in.i.i.i51.i, -1
-  %add.ptr.i37.i.i.i55.i = getelementptr inbounds i64, ptr %32, i64 %i.0.i.i.i54.i
+  %add.ptr.i37.i.i.i55.i = getelementptr inbounds nuw i64, ptr %32, i64 %i.0.i.i.i54.i
   %33 = load i64, ptr %add.ptr.i37.i.i.i55.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i56.i = getelementptr inbounds i64, ptr %29, i64 %i.0.i.i.i54.i
+  %add.ptr.i38.i.i.i56.i = getelementptr inbounds nuw i64, ptr %29, i64 %i.0.i.i.i54.i
   %34 = load i64, ptr %add.ptr.i38.i.i.i56.i, align 8, !tbaa !37
   %cmp9.not.i.i.i57.i = icmp eq i64 %33, %34
   br i1 %cmp9.not.i.i.i57.i, label %for.cond.i.i.i50.i, label %cleanup.thread.i.i.i58.i
@@ -2770,9 +2770,9 @@ for.cond.i.i43.i.i:                               ; preds = %for.body.i.i46.i.i,
 
 for.body.i.i46.i.i:                               ; preds = %for.cond.i.i43.i.i
   %i.0.i.i47.i.i = add nsw i64 %i.0.in.i.i44.i.i, -1
-  %add.ptr.i37.i.i48.i.i = getelementptr inbounds i64, ptr %29, i64 %i.0.i.i47.i.i
+  %add.ptr.i37.i.i48.i.i = getelementptr inbounds nuw i64, ptr %29, i64 %i.0.i.i47.i.i
   %38 = load i64, ptr %add.ptr.i37.i.i48.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i49.i.i = getelementptr inbounds i64, ptr %37, i64 %i.0.i.i47.i.i
+  %add.ptr.i38.i.i49.i.i = getelementptr inbounds nuw i64, ptr %37, i64 %i.0.i.i47.i.i
   %39 = load i64, ptr %add.ptr.i38.i.i49.i.i, align 8, !tbaa !37
   %cmp9.not.i.i50.i.i = icmp eq i64 %38, %39
   br i1 %cmp9.not.i.i50.i.i, label %for.cond.i.i43.i.i, label %cleanup.thread.i.i51.i.i
@@ -2855,9 +2855,9 @@ for.cond.i.i:                                     ; preds = %for.body.i.i, %whil
 
 for.body.i.i:                                     ; preds = %for.cond.i.i
   %i.0.i.i = add nsw i64 %i.0.in.i.i, -1
-  %add.ptr.i37.i.i = getelementptr inbounds i64, ptr %3, i64 %i.0.i.i
+  %add.ptr.i37.i.i = getelementptr inbounds nuw i64, ptr %3, i64 %i.0.i.i
   %6 = load i64, ptr %add.ptr.i37.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i = getelementptr inbounds i64, ptr %5, i64 %i.0.i.i
+  %add.ptr.i38.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %i.0.i.i
   %7 = load i64, ptr %add.ptr.i38.i.i, align 8, !tbaa !37
   %cmp9.not.i.i = icmp eq i64 %6, %7
   br i1 %cmp9.not.i.i, label %for.cond.i.i, label %cleanup.thread.i.i
@@ -2940,9 +2940,9 @@ for.cond.i.i.i:                                   ; preds = %for.body.i.i.i, %la
 
 for.body.i.i.i:                                   ; preds = %for.cond.i.i.i
   %i.0.i.i.i = add nsw i64 %i.0.in.i.i.i, -1
-  %add.ptr.i37.i.i.i = getelementptr inbounds i64, ptr %14, i64 %i.0.i.i.i
+  %add.ptr.i37.i.i.i = getelementptr inbounds nuw i64, ptr %14, i64 %i.0.i.i.i
   %15 = load i64, ptr %add.ptr.i37.i.i.i, align 8, !tbaa !37
-  %add.ptr.i38.i.i.i = getelementptr inbounds i64, ptr %11, i64 %i.0.i.i.i
+  %add.ptr.i38.i.i.i = getelementptr inbounds nuw i64, ptr %11, i64 %i.0.i.i.i
   %16 = load i64, ptr %add.ptr.i38.i.i.i, align 8, !tbaa !37
   %cmp9.not.i.i.i = icmp eq i64 %15, %16
   br i1 %cmp9.not.i.i.i, label %for.cond.i.i.i, label %cleanup.thread.i.i.i

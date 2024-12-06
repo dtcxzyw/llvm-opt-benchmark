@@ -1350,7 +1350,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit.i77: ; preds = %263
   br i1 %280, label %283, label %281
 
 281:                                              ; preds = %279
-  %282 = getelementptr inbounds { i64, [3 x i64] }, ptr %.val.i, i64 %.062.i
+  %282 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %.val.i, i64 %.062.i
   br label %284
 
 283:                                              ; preds = %279
@@ -1592,7 +1592,7 @@ _ZN7globset4glob4Glob12required_ext17hd8548eb7dc82c4e0E.exit.thread: ; preds = %
   %364 = xor i64 %.011.i.i.i, -1
   %365 = add nsw i64 %360, %364
   %366 = getelementptr inbounds nuw [0 x i32], ptr %326, i64 0, i64 %.011.i.i.i
-  %367 = getelementptr inbounds [0 x i32], ptr %363, i64 0, i64 %365
+  %367 = getelementptr inbounds nuw [0 x i32], ptr %363, i64 0, i64 %365
   %368 = load i32, ptr %366, align 4, !range !94, !alias.scope !212, !noalias !215, !noundef !5
   %369 = load i32, ptr %367, align 4, !range !94, !alias.scope !216, !noalias !217, !noundef !5
   store i32 %369, ptr %366, align 4, !alias.scope !212, !noalias !215

@@ -28766,7 +28766,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   %45 = ptrtoint ptr %44 to i64
   %46 = sub nuw i64 %6, %45
-  %47 = getelementptr inbounds i8, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr %44, i64 %46
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11066)
   br label %.lr.ph.i
 
@@ -28919,7 +28919,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %46 = load ptr, ptr %45, align 8, !nonnull !4, !noundef !4
   %47 = ptrtoint ptr %46 to i64
   %48 = sub nuw i64 %6, %47
-  %49 = getelementptr inbounds i8, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 %48
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %44, %"_ZN4core3ptr100drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..scheduler..multi_thread..worker..Worker$GT$$GT$17hbe49d4b818debec7E.llvm.700930863383756518.exit.i"

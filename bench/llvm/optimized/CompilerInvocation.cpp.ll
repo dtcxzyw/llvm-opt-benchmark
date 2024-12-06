@@ -109028,7 +109028,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIPSt4pairIN4llvm9StringRefES2_El
 
 14:                                               ; preds = %14, %.lr.ph._crit_edge
   %.0.i.i = phi i64 [ %13, %.lr.ph._crit_edge ], [ %17, %14 ]
-  %15 = getelementptr inbounds %"struct.std::pair.544", ptr %0, i64 %.0.i.i
+  %15 = getelementptr inbounds nuw %"struct.std::pair.544", ptr %0, i64 %.0.i.i
   tail call void @_ZSt13__adjust_heapIPSt4pairIN4llvm9StringRefES2_ElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_10less_firstEEEEvT_T0_SB_T1_T2_(ptr noundef %0, i64 noundef %.0.i.i, i64 noundef %11, ptr noundef nonnull byval(%"struct.std::pair.544") align 8 %15)
   %16 = icmp eq i64 %.0.i.i, 0
   %17 = add nsw i64 %.0.i.i, -1

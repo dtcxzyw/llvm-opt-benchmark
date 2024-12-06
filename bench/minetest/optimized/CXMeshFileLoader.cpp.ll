@@ -1597,7 +1597,7 @@ if.then.i69.i1185:                                ; preds = %_ZNSt6vectorIsSaIsE
 
 _ZNSt12_Vector_baseIsSaIsEE13_M_deallocateEPsm.exit.i1186: ; preds = %if.then.i69.i1185, %_ZNSt6vectorIsSaIsEE11_S_relocateEPsS2_S2_RS0_.exit.i1183
   %add.ptr34.i1187 = getelementptr inbounds nuw i16, ptr %add.ptr.i1177, i64 %sub.i.i736
-  %add.ptr37.i1188 = getelementptr inbounds i16, ptr %call5.i.i.i.i1176, i64 %add.i.i1174
+  %add.ptr37.i1188 = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i1176, i64 %add.i.i1174
   %.pre1418 = load ptr, ptr %Indices128, align 8, !tbaa !112
   %add.ptr.i.i741.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre1418, i64 %conv.i687
   %.pre1425 = load i32, ptr %add.ptr.i.i741.phi.trans.insert, align 4, !tbaa !110
@@ -1710,7 +1710,7 @@ for.end195.loopexit.unr-lcssa:                    ; preds = %for.inc193.1, %for.
   br i1 %lcmp.mod.not, label %for.end195, label %for.body185.epil
 
 for.body185.epil:                                 ; preds = %for.end195.loopexit.unr-lcssa
-  %add.ptr.i.i769.epil = getelementptr inbounds i16, ptr %verticesLinkBuffer.sroa.0.4.lcssa, i64 %indvars.iv1385.unr
+  %add.ptr.i.i769.epil = getelementptr inbounds nuw i16, ptr %verticesLinkBuffer.sroa.0.4.lcssa, i64 %indvars.iv1385.unr
   %132 = load i16, ptr %add.ptr.i.i769.epil, align 2, !tbaa !119
   %cmp188.not.epil = icmp eq i16 %132, -1
   br i1 %cmp188.not.epil, label %for.end195, label %if.then189.epil
@@ -5285,7 +5285,7 @@ if.then.i69.i:                                    ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %if.then.i69.i, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i
   %add.ptr34.i = getelementptr inbounds nuw i32, ptr %add.ptr.i, i64 %sub.i.i675
-  %add.ptr37.i = getelementptr inbounds i32, ptr %call5.i.i.i.i, i64 %add.i.i913
+  %add.ptr37.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i, i64 %add.i.i913
   br label %_ZN3irr4core5arrayIjE8set_usedEj.exit676
 
 if.else.i.i668:                                   ; preds = %if.end36
@@ -9442,7 +9442,7 @@ if.then.i69.i401:                                 ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i402: ; preds = %if.then.i69.i401, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit.i399
   %add.ptr34.i403 = getelementptr inbounds nuw i32, ptr %add.ptr.i393, i64 %sub.i.i199
-  %add.ptr37.i404 = getelementptr inbounds i32, ptr %call5.i.i.i.i392, i64 %add.i.i390
+  %add.ptr37.i404 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i392, i64 %add.i.i390
   br label %_ZN3irr4core5arrayIjE8set_usedEj.exit200
 
 if.else.i.i192:                                   ; preds = %if.else
@@ -17078,7 +17078,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5scene15SSkinMeshBufferESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIPN3irr5scene15SSkinMeshBufferESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !77
-  %add.ptr34 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !78
   %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !75
@@ -17180,7 +17180,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %if.then.i69, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !112
-  %add.ptr34 = getelementptr inbounds i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !111
   %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !109
@@ -17366,7 +17366,7 @@ if.then.i74:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i74, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !136
-  %add.ptr34 = getelementptr inbounds %"struct.irr::video::S3DVertex2TCoords", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !137
   %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !134
@@ -17552,7 +17552,7 @@ if.then.i75:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video9S3DVertexESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i75, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !116
-  %add.ptr34 = getelementptr inbounds %"struct.irr::video::S3DVertex", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !118
   %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !122
@@ -17651,7 +17651,7 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorItSaItE
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %if.then.i69, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !181
-  %add.ptr34 = getelementptr inbounds i16, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !182
   %add.ptr37 = getelementptr inbounds nuw i16, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !180
@@ -17795,7 +17795,7 @@ if.then.i65.i:                                    ; preds = %middle.block, %_ZNS
 
 _ZNSt12_Vector_baseIN3irr4core8vector2dIfEESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i65.i, %_ZNSt6vectorIN3irr4core8vector2dIfEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !133
-  %add.ptr34.i = getelementptr inbounds %"class.irr::core::vector2d", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"class.irr::core::vector2d", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !132
   %add.ptr37.i = getelementptr inbounds nuw %"class.irr::core::vector2d", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !234
@@ -18412,7 +18412,7 @@ if.then.i66:                                      ; preds = %_ZSt8_DestroyIPN3ir
 
 _ZNSt12_Vector_baseIN3irr5video9SMaterialESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i66, %_ZSt8_DestroyIPN3irr5video9SMaterialES2_EvT_S4_RSaIT0_E.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !44
-  %add.ptr36 = getelementptr inbounds %"class.irr::video::SMaterial", ptr %add.ptr, i64 %__n
+  %add.ptr36 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %add.ptr, i64 %__n
   store ptr %add.ptr36, ptr %_M_finish.i, align 8, !tbaa !68
   %add.ptr39 = getelementptr inbounds nuw %"class.irr::video::SMaterial", ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr39, ptr %_M_end_of_storage, align 8, !tbaa !67
@@ -18496,7 +18496,7 @@ if.then.i65.i:                                    ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SPositionKeyESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i65.i, %_ZNSt6vectorIN3irr5scene12ISkinnedMesh12SPositionKeyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !335
-  %add.ptr34.i = getelementptr inbounds %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !336
   %add.ptr37.i = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SPositionKey", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !337
@@ -18593,7 +18593,7 @@ if.then.i65.i:                                    ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh9SScaleKeyESaIS3_EE13_M_deallocateEPS3_m.exit.i: ; preds = %if.then.i65.i, %_ZNSt6vectorIN3irr5scene12ISkinnedMesh9SScaleKeyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !344
-  %add.ptr34.i = getelementptr inbounds %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8, !tbaa !345
   %add.ptr37.i = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SScaleKey", ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8, !tbaa !346
@@ -18816,7 +18816,7 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i73, %_ZNSt6vectorIN3irr5scene12ISkinnedMesh12SRotationKeyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !357
-  %add.ptr34 = getelementptr inbounds %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !358
   %add.ptr37 = getelementptr inbounds nuw %"struct.irr::scene::ISkinnedMesh::SRotationKey", ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !359

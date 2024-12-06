@@ -129,7 +129,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %40, %44
   br i1 %68, label %69, label %81
 
 69:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit
-  %70 = getelementptr inbounds %"class.llvm::Use", ptr %62, i64 %.0.i.i
+  %70 = getelementptr inbounds nuw %"class.llvm::Use", ptr %62, i64 %.0.i.i
   %71 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
   %72 = add i64 %71, 1
   %73 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE8capacityEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #3

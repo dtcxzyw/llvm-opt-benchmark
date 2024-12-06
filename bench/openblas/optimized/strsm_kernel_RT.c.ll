@@ -50,12 +50,12 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %43 = mul nsw i64 %42, %24
   %44 = getelementptr inbounds float, ptr %32, i64 %43
   %45 = mul nuw nsw i64 %41, %24
-  %46 = getelementptr inbounds float, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw float, ptr %44, i64 %45
   %47 = sub nsw i64 0, %24
   %48 = and i64 %41, 2147483647
   %.idx = shl nsw i64 %23, 6
   %.idx17 = shl nsw i64 %42, 6
-  %.idx18 = shl nsw i64 %41, 6
+  %.idx18 = shl nuw nsw i64 %41, 6
   %49 = getelementptr inbounds nuw float, ptr %46, i64 %48
   %50 = mul nsw i64 %48, %7
   %.not = icmp eq i64 %48, 0
@@ -78,7 +78,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
 
 62:                                               ; preds = %55, %59
   %63 = getelementptr inbounds i8, ptr %57, i64 %.idx17
-  %64 = getelementptr inbounds i8, ptr %63, i64 %.idx18
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %.idx18
   %65 = load float, ptr %49, align 4, !tbaa !3
   br i1 %.not, label %.split, label %.split.us.preheader
 
@@ -152,7 +152,7 @@ define noundef i32 @strsm_kernel_RT(i64 noundef %0, i64 noundef %1, i64 noundef 
   %101 = mul nsw i64 %100, %24
   %102 = getelementptr inbounds float, ptr %32, i64 %101
   %103 = mul nuw nsw i64 %99, %24
-  %104 = getelementptr inbounds float, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw float, ptr %102, i64 %103
   %105 = sub nsw i64 0, %24
   %106 = and i64 %99, 2147483647
   %107 = getelementptr inbounds nuw float, ptr %104, i64 %106

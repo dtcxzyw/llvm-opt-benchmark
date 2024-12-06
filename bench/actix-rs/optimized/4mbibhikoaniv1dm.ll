@@ -2373,7 +2373,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN128_$LT$brotli..enc..backward_references..H54Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17h5fcba09346797d9fE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.040
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !315, !noalias !319
   %33 = mul i64 %.sroa.0.0.copyload.i, 3866266742567714048
   %34 = lshr i64 %33, 44
@@ -2465,7 +2465,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN127_$LT$brotli..enc..backward_references..H3Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17he4419086d6ec5ef9E.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.040
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !338, !noalias !342
   %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
   %34 = lshr i64 %33, 48
@@ -2557,7 +2557,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN127_$LT$brotli..enc..backward_references..H2Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hb113d2ea939206bdE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.040
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !361, !noalias !365
   %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
   %34 = lshr i64 %33, 48
@@ -2649,7 +2649,7 @@ define hidden noundef zeroext i1 @"_ZN118_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN127_$LT$brotli..enc..backward_references..H4Sub$LT$AllocU32$GT$$u20$as$u20$brotli..enc..backward_references..BasicHashComputer$GT$9HashBytes17hed7f7bc694bd72dfE.llvm.6642645476840219850.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.040
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.040
   %.sroa.0.0.copyload.i = load i64, ptr %32, align 1, !alias.scope !384, !noalias !388
   %33 = mul i64 %.sroa.0.0.copyload.i, -4819355556693147648
   %34 = lshr i64 %33, 47
@@ -5569,7 +5569,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17hfdb3b5f465ee5ca3E.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.030
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.030
   %.sroa.0.0.copyload.i = load i32, ptr %32, align 1, !alias.scope !811, !noalias !815
   %33 = zext i32 %.sroa.0.0.copyload.i to i64
   %34 = mul nuw nsw i64 %33, 506832829
@@ -5665,7 +5665,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h20f6dfb8c76d8cb3E.exit": ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.030
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.030
   %.sroa.0.0.copyload.i = load i32, ptr %32, align 1, !alias.scope !832, !noalias !836
   %33 = zext i32 %.sroa.0.0.copyload.i to i64
   %34 = mul nuw nsw i64 %33, 506832829
@@ -5750,7 +5750,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
 
 29:                                               ; preds = %25
   %30 = sub nuw i64 %4, %.sroa.01.030
-  %31 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.030
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.030
   %32 = load i32, ptr %10, align 8, !alias.scope !844, !noalias !849, !noundef !4
   %33 = tail call noundef i64 @"_ZN115_$LT$brotli..enc..backward_references..H5Sub$u20$as$u20$brotli..enc..backward_references..AdvHashSpecialization$GT$17load_and_mix_word17heae5f99664a0af67E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %31, i64 noundef %30)
   %34 = and i32 %32, 63
@@ -5865,7 +5865,7 @@ define hidden noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_references..
   unreachable
 
 "_ZN137_$LT$brotli..enc..backward_references..AdvHasher$LT$Specialization$C$Alloc$GT$$u20$as$u20$brotli..enc..backward_references..AnyHasher$GT$9HashBytes17h3d1115d926fac27bE.exit": ; preds = %36
-  %43 = getelementptr inbounds i8, ptr %3, i64 %.sroa.01.031
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.01.031
   %.sroa.0.0.copyload.i = load i64, ptr %43, align 1, !alias.scope !874, !noalias !878
   %44 = and i64 %.sroa.0.0.copyload.i, %.val
   %45 = mul i64 %44, 2297779722762296275

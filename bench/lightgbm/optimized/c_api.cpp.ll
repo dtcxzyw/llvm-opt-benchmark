@@ -34109,11 +34109,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.loopexit.split-lp.i
 
 158:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.i, %145
-  %159 = add i64 %.02312.i, 1
+  %159 = add nuw i64 %.02312.i, 1
   br label %161
 
 .critedge.i:                                      ; preds = %134
-  %160 = add i64 %.02312.i, 1
+  %160 = add nuw i64 %.02312.i, 1
   br label %161
 
 161:                                              ; preds = %.critedge.i, %158

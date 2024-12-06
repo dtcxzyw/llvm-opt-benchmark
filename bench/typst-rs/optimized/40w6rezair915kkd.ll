@@ -73967,7 +73967,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17hb712e6326a397aa7E.exit
   br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %128, label %_ZN14regex_automata4util4iter8Searcher7advance17he682d14bc60f8bdeE.exitthread-pre-split.i.i.i.i
 
 128:                                              ; preds = %123
-  %129 = getelementptr inbounds i64, ptr %57, i64 %.0.i.i.i.i.i.i.i.i.i
+  %129 = getelementptr inbounds nuw i64, ptr %57, i64 %.0.i.i.i.i.i.i.i.i.i
   %130 = load i64, ptr %129, align 8, !noalias !21336, !noundef !4
   %131 = icmp eq i64 %130, 0
   br i1 %131, label %_ZN14regex_automata4util4iter8Searcher7advance17he682d14bc60f8bdeE.exitthread-pre-split.i.i.i.i, label %132

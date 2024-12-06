@@ -48191,7 +48191,7 @@ _ZN7hir_def8resolver8Resolver21update_to_inner_scope17append_expr_scope17h57f518
   %212 = xor i64 %.011.i.i, -1
   %213 = add nsw i64 %208, %212
   %214 = getelementptr inbounds nuw [0 x { i32, [5 x i32] }], ptr %207, i64 0, i64 %.011.i.i
-  %215 = getelementptr inbounds [0 x { i32, [5 x i32] }], ptr %211, i64 0, i64 %213
+  %215 = getelementptr inbounds nuw [0 x { i32, [5 x i32] }], ptr %211, i64 0, i64 %213
   br label %216
 
 216:                                              ; preds = %216, %.lr.ph.preheader.i.i

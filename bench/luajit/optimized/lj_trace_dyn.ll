@@ -447,7 +447,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.027.in = phi i64 [ %conv3, %for.body.lr.ph ], [ %i.027, %for.inc ]
   %i.027 = add nsw i64 %i.027.in, -1
   %5 = load ptr, ptr %trace, align 8
-  %arrayidx = getelementptr inbounds %struct.GCRef, ptr %5, i64 %i.027
+  %arrayidx = getelementptr inbounds nuw %struct.GCRef, ptr %5, i64 %i.027
   %6 = load i64, ptr %arrayidx, align 8
   %7 = inttoptr i64 %6 to ptr
   %tobool5.not = icmp eq i64 %6, 0
@@ -469,7 +469,7 @@ if.end11:                                         ; preds = %if.then10, %if.then
   %traceno = getelementptr inbounds nuw i8, ptr %7, i64 104
   store i16 0, ptr %traceno, align 8
   %9 = load ptr, ptr %trace, align 8
-  %arrayidx13 = getelementptr inbounds %struct.GCRef, ptr %9, i64 %i.027
+  %arrayidx13 = getelementptr inbounds nuw %struct.GCRef, ptr %9, i64 %i.027
   store i64 0, ptr %arrayidx13, align 8
   br label %for.inc
 

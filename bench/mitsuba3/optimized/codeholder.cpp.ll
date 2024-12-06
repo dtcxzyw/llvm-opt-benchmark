@@ -76,7 +76,7 @@ define internal fastcc void @_ZN6asmjit9_abi_1_10L24CodeHolder_resetInternalEPNS
   %10 = phi i64 [ %8, %7 ], [ %11, %57 ]
   %11 = add nsw i64 %10, -1
   %12 = load ptr, ptr %3, align 8, !tbaa !39
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %15 = icmp eq ptr %14, null
   br i1 %15, label %57, label %16, !prof !41
@@ -1318,7 +1318,7 @@ define linkonce_odr hidden void @_ZN6asmjit9_abi_1_108ZoneTreeINS0_17AddressTabl
   %69 = inttoptr i64 %68 to ptr
   %70 = icmp eq ptr %16, %69
   %71 = zext i1 %70 to i64
-  %72 = getelementptr inbounds [2 x i64], ptr %17, i64 0, i64 %21
+  %72 = getelementptr inbounds nuw [2 x i64], ptr %17, i64 0, i64 %21
   %73 = load i64, ptr %72, align 8, !tbaa !104
   %74 = and i64 %73, -2
   %75 = inttoptr i64 %74 to ptr

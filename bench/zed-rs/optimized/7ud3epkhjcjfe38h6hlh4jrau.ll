@@ -4502,7 +4502,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %233
   %198 = sub nuw i64 %196, %197
   %199 = lshr exact i64 %198, 3
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %.sroa.0.0.i.i.i.i.i.i.i.i, %199
-  %200 = getelementptr inbounds ptr, ptr %191, i64 %.sroa.0.0.i.i.i.i.i.i.i.i
+  %200 = getelementptr inbounds nuw ptr, ptr %191, i64 %.sroa.0.0.i.i.i.i.i.i.i.i
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %storemerge.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %201, ptr %195
   store ptr %storemerge.i.i.i.i.i.i.i.i.i, ptr %.sroa.24.sroa.3.0..sroa.24.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !690, !noalias !677

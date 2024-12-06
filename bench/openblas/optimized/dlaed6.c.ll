@@ -464,7 +464,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %373 = phi double [ 0.000000e+00, %354 ], [ %393, %380 ]
   %374 = phi double [ 0.000000e+00, %354 ], [ %388, %380 ]
   %375 = add nsw i64 %370, -1
-  %376 = getelementptr inbounds [3 x double], ptr %9, i64 0, i64 %375
+  %376 = getelementptr inbounds nuw [3 x double], ptr %9, i64 0, i64 %375
   %377 = load double, ptr %376, align 8, !tbaa !7
   %378 = fsub double %377, %368
   %379 = fcmp une double %378, 0.000000e+00
@@ -472,7 +472,7 @@ define void @dlaed6_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
 
 380:                                              ; preds = %369
   %381 = fdiv double 1.000000e+00, %378
-  %382 = getelementptr inbounds [3 x double], ptr %10, i64 0, i64 %375
+  %382 = getelementptr inbounds nuw [3 x double], ptr %10, i64 0, i64 %375
   %383 = load double, ptr %382, align 8, !tbaa !7
   %384 = fmul double %381, %383
   %385 = fmul double %381, %384

@@ -292,7 +292,7 @@ while.body9.i:                                    ; preds = %while.body9.i, %whi
   %8 = load ptr, ptr %values_10.i, align 8
   %inc12.i = add nuw nsw i64 %7, 1
   store i64 %inc12.i, ptr %next_level_index_, align 8
-  %arrayidx13.i = getelementptr inbounds %"struct.rocksdb::FileIndexer::IndexLevel", ptr %8, i64 %7
+  %arrayidx13.i = getelementptr inbounds nuw %"struct.rocksdb::FileIndexer::IndexLevel", ptr %8, i64 %7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx13.i, i8 0, i64 16, i1 false)
   %9 = load i64, ptr %next_level_index_, align 8
   %cmp8.i = icmp ult i64 %9, %num_levels

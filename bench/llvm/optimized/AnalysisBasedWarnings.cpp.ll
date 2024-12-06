@@ -26419,7 +26419,7 @@ define internal fastcc void @_ZSt16__introsort_loopIPN5clang9UninitUseElN9__gnu_
 
 31:                                               ; preds = %_ZN5clang9UninitUseD2Ev.exit16.i.i.i, %23
   %.013.i.i.i = phi i64 [ %26, %23 ], [ %44, %_ZN5clang9UninitUseD2Ev.exit16.i.i.i ]
-  %32 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.013.i.i.i
+  %32 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.013.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %32, i64 11, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull %28, i64 noundef 2) #22
@@ -26858,13 +26858,13 @@ define internal fastcc void @_ZSt13__adjust_heapIPN5clang9UninitUseElS1_N9__gnu_
   %.028 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.028, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %12
   %14 = tail call fastcc noundef zeroext i1 @_ZZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvENKUlRKN5clang9UninitUseES4_E_clES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull align 8 dereferenceable(64) %13)
   %spec.select = select i1 %14, i64 %12, i64 %10
-  %15 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %spec.select
-  %16 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.028
+  %15 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %spec.select
+  %16 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.028
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %16, ptr noundef nonnull align 8 dereferenceable(64) %15, i64 11, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -26887,8 +26887,8 @@ define internal fastcc void @_ZSt13__adjust_heapIPN5clang9UninitUseElS1_N9__gnu_
 27:                                               ; preds = %23
   %28 = shl nsw i64 %.0.lcssa, 1
   %29 = or disjoint i64 %28, 1
-  %30 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %29
-  %31 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.0.lcssa
+  %30 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %29
+  %31 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef nonnull align 8 dereferenceable(64) %30, i64 11, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 16
@@ -26922,7 +26922,7 @@ _ZN5clang9UninitUseC2EOS0_.exit:                  ; preds = %35, %40
   br i1 %44, label %45, label %_ZSt11__push_heapIPN5clang9UninitUseElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_122UninitValsDiagReporter16flushDiagnosticsEvEUlRKS1_S9_E_EEEvT_T0_SD_T1_RT2_.exit
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds %"class.clang::UninitUse", ptr %0, i64 %.0133.i
+  %46 = getelementptr inbounds nuw %"class.clang::UninitUse", ptr %0, i64 %.0133.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %46, ptr noundef nonnull align 8 dereferenceable(64) %43, i64 11, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -57678,7 +57678,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairIPKN5clang4StmtEN4l
 
 27:                                               ; preds = %27, %23
   %.0.i.i.i = phi i64 [ %26, %23 ], [ %30, %27 ]
-  %28 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.0.i.i.i
+  %28 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops15_Iter_comp_iterIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %24, ptr noundef nonnull byval(%"struct.std::pair.2515") align 8 %28, ptr %3)
   %29 = icmp eq i64 %.0.i.i.i, 0
   %30 = add nsw i64 %.0.i.i.i, -1
@@ -57885,17 +57885,17 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
   %.035 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %9 = shl i64 %.035, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %12
   %.val28 = load ptr, ptr %11, align 8
   %.val29 = load ptr, ptr %13, align 8
   %14 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val28) #24
   %15 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.val29) #24
   %16 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %4, i32 %14, i32 %15) #22
   %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.035
+  %17 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %.035
   %19 = load ptr, ptr %17, align 8
   store ptr %19, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -57919,8 +57919,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
 29:                                               ; preds = %25
   %30 = shl nsw i64 %.0.lcssa, 1
   %31 = or disjoint i64 %30, 1
-  %32 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %31
-  %33 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.0.lcssa
+  %32 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %31
+  %33 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %.0.lcssa
   %34 = load ptr, ptr %32, align 8
   store ptr %34, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -57946,7 +57946,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt4pairIPKN5clang4StmtEN4llvm
   br i1 %42, label %43, label %"_ZSt11__push_heapIPSt4pairIPKN5clang4StmtEN4llvm16DenseMapIteratorINS1_4sema17FunctionScopeInfo19WeakObjectProfileTyENS5_11SmallVectorINS8_9WeakUseTyELj4EEENS9_12DenseMapInfoENS5_6detail12DenseMapPairIS9_SC_EELb1EEEElSI_N9__gnu_cxx5__ops14_Iter_comp_valIZL25diagnoseRepeatedUseOfWeakRNS1_4SemaEPKS8_PKNS1_4DeclERKNS1_9ParentMapEE3$_0EEEvT_T0_S10_T1_RT2_.exit"
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds %"struct.std::pair.2515", ptr %0, i64 %.0133.i
+  %44 = getelementptr inbounds nuw %"struct.std::pair.2515", ptr %0, i64 %.0133.i
   %45 = load ptr, ptr %39, align 8
   store ptr %45, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 8

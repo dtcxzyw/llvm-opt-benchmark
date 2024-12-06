@@ -44776,7 +44776,7 @@ default.unreachable111:                           ; preds = %100, %284, %374
 
 95:                                               ; preds = %88, %82
   %96 = phi i64 [ 20, %82 ], [ %94, %88 ]
-  %97 = getelementptr inbounds i8, ptr %79, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %79, i64 %96
   %98 = load i16, ptr %97, align 1
   %99 = getelementptr inbounds nuw i8, ptr %26, i64 30
   br label %100
@@ -45212,7 +45212,7 @@ default.unreachable111:                           ; preds = %100, %284, %374
 
 370:                                              ; preds = %363, %357
   %371 = phi i64 [ 20, %357 ], [ %369, %363 ]
-  %372 = getelementptr inbounds i8, ptr %354, i64 %371
+  %372 = getelementptr inbounds nuw i8, ptr %354, i64 %371
   %373 = load i16, ptr %372, align 1
   br label %374
 

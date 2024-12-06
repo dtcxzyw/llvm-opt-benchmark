@@ -897,7 +897,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %545 = fcmp ord <8 x float> %534, zeroinitializer
   %546 = select <8 x i1> %545, <8 x float> zeroinitializer, <8 x float> splat (float 5.000000e-01)
   %547 = select <8 x i1> %542, <8 x float> %546, <8 x float> %544
-  %548 = getelementptr inbounds i8, <8 x ptr> %529, i64 4
+  %548 = getelementptr inbounds nuw i8, <8 x ptr> %529, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %547, <8 x ptr> %548, i32 4, <8 x i1> splat (i1 true)), !tbaa !41, !alias.scope !91, !noalias !94
   %549 = fcmp reassoc nsz arcp contract afn ult <8 x float> %535, zeroinitializer
   %550 = fcmp reassoc nsz arcp contract afn olt <8 x float> %535, splat (float 1.000000e+00)
@@ -905,7 +905,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %552 = fcmp ord <8 x float> %535, zeroinitializer
   %553 = select <8 x i1> %552, <8 x float> zeroinitializer, <8 x float> splat (float 5.000000e-01)
   %554 = select <8 x i1> %549, <8 x float> %553, <8 x float> %551
-  %555 = getelementptr inbounds i8, <8 x ptr> %529, i64 8
+  %555 = getelementptr inbounds nuw i8, <8 x ptr> %529, i64 8
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> %554, <8 x ptr> %555, i32 4, <8 x i1> splat (i1 true)), !tbaa !41, !alias.scope !91, !noalias !94
   %556 = extractelement <8 x ptr> %529, i64 0
   %557 = fmul reassoc nsz arcp contract afn <8 x float> %541, %518
@@ -916,7 +916,7 @@ define void @process(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noun
   %562 = fadd reassoc nsz arcp contract afn <8 x float> %561, %559
   %563 = tail call reassoc nsz arcp contract afn <8 x float> @llvm.ceil.v8f32(<8 x float> %562)
   %564 = fmul reassoc nsz arcp contract afn <8 x float> %563, %522
-  %565 = getelementptr inbounds i8, <8 x ptr> %530, i64 12
+  %565 = getelementptr inbounds nuw i8, <8 x ptr> %530, i64 12
   %566 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %565, i32 4, <8 x i1> %516, <8 x float> poison), !tbaa !41, !alias.scope !94, !noalias !86
   %567 = fcmp reassoc nsz arcp contract afn ult <8 x float> %566, zeroinitializer
   %568 = fcmp ord <8 x float> %566, zeroinitializer

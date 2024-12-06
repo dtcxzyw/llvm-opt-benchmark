@@ -23593,7 +23593,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE2atEm.exit:       ; preds = %if.then1566
   %sub.ptr.lhs.cast.i.i2665 = ptrtoint ptr %529 to i64
   %530 = xor i64 %sub.ptr.rhs.cast.i.i2666, -1
   %sub1570 = add i64 %sub.ptr.lhs.cast.i.i2665, %530
-  %second = getelementptr inbounds %"struct.std::pair.128", ptr %527, i64 %sub1574, i32 1
+  %second = getelementptr inbounds nuw %"struct.std::pair.128", ptr %527, i64 %sub1574, i32 1
   store i64 %sub1570, ptr %second, align 8, !tbaa !430
   br label %return
 
@@ -43380,7 +43380,7 @@ for.inc.i.i.i.i.i184:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.inc.i.i.i.i.i184, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i189 = phi ptr [ %cond.i171, %invoke.cont57 ], [ %incdec.ptr1.i.i.i.i.i188, %for.inc.i.i.i.i.i184 ]
-  %add.ptr62 = getelementptr inbounds %"struct.boost::sub_match", ptr %__cur.0.lcssa.i.i.i.i.i189, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"struct.boost::sub_match", ptr %__cur.0.lcssa.i.i.i.i.i189, i64 %__n
   %cmp.not13.i.i.i.i.i190 = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not13.i.i.i.i.i190, label %invoke.cont64, label %for.inc.i.i.i.i.i191
 
@@ -59805,7 +59805,7 @@ for.inc.i.i.i.i.i186:                             ; preds = %invoke.cont57, %for
 
 invoke.cont60:                                    ; preds = %for.inc.i.i.i.i.i186, %invoke.cont57
   %__cur.0.lcssa.i.i.i.i.i191 = phi ptr [ %cond.i173, %invoke.cont57 ], [ %incdec.ptr1.i.i.i.i.i190, %for.inc.i.i.i.i.i186 ]
-  %add.ptr62 = getelementptr inbounds %"struct.boost::sub_match.224", ptr %__cur.0.lcssa.i.i.i.i.i191, i64 %__n
+  %add.ptr62 = getelementptr inbounds nuw %"struct.boost::sub_match.224", ptr %__cur.0.lcssa.i.i.i.i.i191, i64 %__n
   %cmp.not13.i.i.i.i.i192 = icmp eq ptr %1, %__position.coerce
   br i1 %cmp.not13.i.i.i.i.i192, label %invoke.cont64, label %for.inc.i.i.i.i.i193
 

@@ -10122,7 +10122,7 @@ define internal fastcc noundef i64 @_ZN5ahash12random_state11RandomState8hash_on
   %28 = load i16, ptr %1, align 1, !alias.scope !2061, !noalias !2062
   %29 = add nsw i64 %2, -1
   %30 = zext i16 %28 to i64
-  %31 = getelementptr inbounds [0 x i8], ptr %1, i64 0, i64 %29
+  %31 = getelementptr inbounds nuw [0 x i8], ptr %1, i64 0, i64 %29
   %32 = load i8, ptr %31, align 1, !alias.scope !2045, !noalias !2054, !noundef !23
   %33 = zext i8 %32 to i64
   br label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i
@@ -13225,7 +13225,7 @@ _ZN4core3ptr19swap_nonoverlapping17h984dcd14aa83f486E.exit.loopexit: ; preds = %
   %238 = load i16, ptr %215, align 1, !alias.scope !2274, !noalias !2275
   %239 = add nsw i64 %214, -1
   %240 = zext i16 %238 to i64
-  %241 = getelementptr inbounds [0 x i8], ptr %215, i64 0, i64 %239
+  %241 = getelementptr inbounds nuw [0 x i8], ptr %215, i64 0, i64 %239
   %242 = load i8, ptr %241, align 1, !alias.scope !2258, !noalias !2267, !noundef !23
   %243 = zext i8 %242 to i64
   br label %_ZN5ahash10operations10read_small17h54472519fa4a72adE.exit.i.i.i.i.i.i

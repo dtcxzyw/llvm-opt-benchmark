@@ -996,7 +996,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %569 = load i16, ptr %568, align 1
   %570 = trunc nuw i64 %565 to i32
   store i32 %570, ptr %80, align 8, !tbaa !20
-  %571 = getelementptr inbounds i16, ptr %430, i64 %564
+  %571 = getelementptr inbounds nuw i16, ptr %430, i64 %564
   store i16 %569, ptr %571, align 2, !tbaa !12
   %572 = add nuw nsw i64 %564, 1
   %573 = icmp eq i64 %572, %437
@@ -1024,7 +1024,7 @@ define hidden void @_ZN8rawspeed17NikonDecompressor11createCurveERNS_10ByteStrea
   %583 = tail call i16 @llvm.bswap.i16(i16 %582)
   %584 = trunc nuw i64 %577 to i32
   store i32 %584, ptr %80, align 8, !tbaa !20
-  %585 = getelementptr inbounds i16, ptr %430, i64 %576
+  %585 = getelementptr inbounds nuw i16, ptr %430, i64 %576
   store i16 %583, ptr %585, align 2, !tbaa !12
   %586 = add nuw nsw i64 %576, 1
   %587 = icmp eq i64 %586, %437
@@ -4469,7 +4469,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !6
-  %52 = getelementptr inbounds i16, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i16, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i16, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !11
@@ -5242,7 +5242,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !93
-  %52 = getelementptr inbounds i32, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !95
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !269
@@ -5542,7 +5542,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cx
 146:                                              ; preds = %143, %134
   %147 = phi ptr [ %145, %143 ], [ null, %134 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 %141
-  %149 = getelementptr inbounds i32, ptr %148, i64 %2
+  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %2
   %150 = load i32, ptr %3, align 4, !tbaa !52
   %151 = add nuw nsw i64 %2, 4611686018427387903
   %152 = and i64 %151, 4611686018427387903
@@ -6120,7 +6120,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 206:                                              ; preds = %203, %194
   %207 = phi ptr [ %205, %203 ], [ null, %194 ]
   %208 = getelementptr inbounds i8, ptr %207, i64 %201
-  %209 = getelementptr inbounds i16, ptr %208, i64 %2
+  %209 = getelementptr inbounds nuw i16, ptr %208, i64 %2
   %210 = load i16, ptr %3, align 2, !tbaa !12
   %211 = add nuw i64 %2, 9223372036854775807
   %212 = and i64 %211, 9223372036854775807
@@ -6322,7 +6322,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr n
 
 51:                                               ; preds = %50, %48
   store ptr %38, ptr %0, align 8, !tbaa !115
-  %52 = getelementptr inbounds i32, ptr %39, i64 %1
+  %52 = getelementptr inbounds nuw i32, ptr %39, i64 %1
   store ptr %52, ptr %5, align 8, !tbaa !113
   %53 = getelementptr inbounds nuw i32, ptr %38, i64 %36
   store ptr %53, ptr %12, align 8, !tbaa !291

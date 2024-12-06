@@ -11088,7 +11088,7 @@ define linkonce_odr void @_ZSt11__make_heapIPN5clang4ento11PackageInfoEN9__gnu_c
 
 18:                                               ; preds = %_ZN5clang4ento11PackageInfoD2Ev.exit16, %11
   %.013 = phi i64 [ %13, %11 ], [ %31, %_ZN5clang4ento11PackageInfoD2Ev.exit16 ]
-  %19 = getelementptr inbounds %"struct.clang::ento::PackageInfo", ptr %0, i64 %.013
+  %19 = getelementptr inbounds nuw %"struct.clang::ento::PackageInfo", ptr %0, i64 %.013
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 16, i1 false)
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @_ZN4llvm15SmallVectorBaseIjEC2EPvm(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull %15, i64 noundef 0) #16

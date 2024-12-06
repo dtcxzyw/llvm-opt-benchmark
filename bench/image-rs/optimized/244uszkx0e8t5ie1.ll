@@ -1520,7 +1520,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   br label %.thread.i
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i64, ptr %41, i64 %42
+  %46 = getelementptr inbounds nuw i64, ptr %41, i64 %42
   %47 = sub nsw i64 %40, %.sroa.422.0.copyload
   %48 = shl nsw i64 %47, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %46, ptr nonnull align 8 %43, i64 %48, i1 false), !alias.scope !208, !noalias !211
@@ -1529,7 +1529,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   %50 = getelementptr inbounds { [13 x i64] }, ptr %49, i64 %.sroa.422.0.copyload
-  %51 = getelementptr inbounds { [13 x i64] }, ptr %49, i64 %42
+  %51 = getelementptr inbounds nuw { [13 x i64] }, ptr %49, i64 %42
   %52 = mul nsw i64 %47, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %51, ptr nonnull align 8 %50, i64 %52, i1 false), !alias.scope !219, !noalias !221
   br label %.thread.i
@@ -1663,7 +1663,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
 
 101:                                              ; preds = %87
   %102 = add nuw nsw i64 %.sroa.726.0.i.i, 1
-  %103 = getelementptr inbounds i64, ptr %98, i64 %102
+  %103 = getelementptr inbounds nuw i64, ptr %98, i64 %102
   %104 = sub nuw nsw i64 %97, %.sroa.726.0.i.i
   %105 = shl nuw nsw i64 %104, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr nonnull align 8 %99, i64 %105, i1 false), !alias.scope !245, !noalias !240
@@ -1672,7 +1672,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %8, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 104, i1 false)
   %107 = getelementptr inbounds { [13 x i64] }, ptr %106, i64 %.sroa.726.0.i.i
-  %108 = getelementptr inbounds { [13 x i64] }, ptr %106, i64 %102
+  %108 = getelementptr inbounds nuw { [13 x i64] }, ptr %106, i64 %102
   %109 = mul nuw nsw i64 %104, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %108, ptr nonnull align 8 %107, i64 %109, i1 false), !alias.scope !251, !noalias !253
   br label %117
@@ -2174,7 +2174,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   br label %298
 
 290:                                              ; preds = %281
-  %291 = getelementptr inbounds i64, ptr %286, i64 %287
+  %291 = getelementptr inbounds nuw i64, ptr %286, i64 %287
   %292 = sub nsw i64 %284, %.sroa.7.0.i.i
   %293 = shl nsw i64 %292, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %291, ptr nonnull align 8 %288, i64 %293, i1 false), !alias.scope !333, !noalias !329
@@ -2183,7 +2183,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, ptr noundef nonnull align 8 dereferenceable(104) %12, i64 104, i1 false), !noalias !336
   %295 = getelementptr inbounds { [13 x i64] }, ptr %294, i64 %.sroa.7.0.i.i
-  %296 = getelementptr inbounds { [13 x i64] }, ptr %294, i64 %287
+  %296 = getelementptr inbounds nuw { [13 x i64] }, ptr %294, i64 %287
   %297 = mul nsw i64 %292, 104
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %296, ptr nonnull align 8 %295, i64 %297, i1 false), !alias.scope !340, !noalias !342
   br label %298
@@ -2201,7 +2201,7 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @"_ZN5alloc11coll
 
 305:                                              ; preds = %298
   %306 = getelementptr inbounds ptr, ptr %302, i64 %287
-  %307 = getelementptr inbounds ptr, ptr %302, i64 %303
+  %307 = getelementptr inbounds nuw ptr, ptr %302, i64 %303
   %308 = sub nsw i64 %284, %.sroa.7.0.i.i
   %309 = shl nsw i64 %308, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %307, ptr nonnull align 8 %306, i64 %309, i1 false), !alias.scope !344, !noalias !329
@@ -2432,7 +2432,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br label %.thread.i
 
 45:                                               ; preds = %39
-  %46 = getelementptr inbounds i16, ptr %41, i64 %42
+  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %42
   %47 = sub nsw i64 %40, %.sroa.419.0.copyload
   %48 = shl nsw i64 %47, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %46, ptr nonnull align 2 %43, i64 %48, i1 false), !alias.scope !362, !noalias !365
@@ -2440,7 +2440,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %49 = getelementptr inbounds { [4 x i64] }, ptr %15, i64 %.sroa.419.0.copyload
-  %50 = getelementptr inbounds { [4 x i64] }, ptr %15, i64 %42
+  %50 = getelementptr inbounds nuw { [4 x i64] }, ptr %15, i64 %42
   %51 = shl nsw i64 %47, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %49, i64 %51, i1 false), !alias.scope !373, !noalias !375
   br label %.thread.i
@@ -2570,7 +2570,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 
 98:                                               ; preds = %85
   %99 = add nuw nsw i64 %.sroa.726.0.i.i, 1
-  %100 = getelementptr inbounds i16, ptr %95, i64 %99
+  %100 = getelementptr inbounds nuw i16, ptr %95, i64 %99
   %101 = sub nuw nsw i64 %94, %.sroa.726.0.i.i
   %102 = shl nuw nsw i64 %101, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %100, ptr nonnull align 2 %96, i64 %102, i1 false), !alias.scope !399, !noalias !394
@@ -2578,7 +2578,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %103 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i.i, i64 %.sroa.726.0.i.i
-  %104 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.06.0.i.i, i64 %99
+  %104 = getelementptr inbounds nuw { [4 x i64] }, ptr %.sroa.06.0.i.i, i64 %99
   %105 = shl nuw nsw i64 %101, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %104, ptr nonnull align 8 %103, i64 %105, i1 false), !alias.scope !405, !noalias !407
   br label %111
@@ -3077,7 +3077,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   br label %290
 
 283:                                              ; preds = %274
-  %284 = getelementptr inbounds i16, ptr %279, i64 %280
+  %284 = getelementptr inbounds nuw i16, ptr %279, i64 %280
   %285 = sub nsw i64 %277, %.sroa.7.0.i.i
   %286 = shl nsw i64 %285, 1
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 2 %284, ptr nonnull align 2 %281, i64 %286, i1 false), !alias.scope !487, !noalias !483
@@ -3085,7 +3085,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %12, i64 32, i1 false), !noalias !490
   %287 = getelementptr inbounds { [4 x i64] }, ptr %spec.select.i.i, i64 %.sroa.7.0.i.i
-  %288 = getelementptr inbounds { [4 x i64] }, ptr %spec.select.i.i, i64 %280
+  %288 = getelementptr inbounds nuw { [4 x i64] }, ptr %spec.select.i.i, i64 %280
   %289 = shl nsw i64 %285, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %288, ptr nonnull align 8 %287, i64 %289, i1 false), !alias.scope !494, !noalias !496
   br label %290
@@ -3102,7 +3102,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5alloc11colle
 
 296:                                              ; preds = %290
   %297 = getelementptr inbounds ptr, ptr %293, i64 %280
-  %298 = getelementptr inbounds ptr, ptr %293, i64 %294
+  %298 = getelementptr inbounds nuw ptr, ptr %293, i64 %294
   %299 = sub nsw i64 %277, %.sroa.7.0.i.i
   %300 = shl nsw i64 %299, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %298, ptr nonnull align 8 %297, i64 %300, i1 false), !alias.scope !498, !noalias !483
@@ -3884,7 +3884,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node29BalancingContex
   %24 = getelementptr i64, ptr %10, i64 %1
   %25 = load i64, ptr %24, align 8, !noundef !7
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %27 = getelementptr inbounds { [13 x i64] }, ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw { [13 x i64] }, ptr %26, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %3, ptr noundef nonnull align 8 dereferenceable(104) %27, i64 104, i1 false)
   %.val60 = load ptr, ptr %0, align 8, !nonnull !7, !noundef !7
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4640,7 +4640,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree6remove259_$LT$impl$u2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %169, ptr nonnull readonly align 8 %168, i64 %170, i1 false), !alias.scope !674, !noalias !659
   %171 = getelementptr inbounds nuw i8, ptr %105, i64 1248
   %172 = add nuw nsw i64 %145, 1
-  %173 = getelementptr inbounds ptr, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw ptr, ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 8
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %173, ptr align 8 %174, i64 %156, i1 false), !alias.scope !678, !noalias !659
   %175 = icmp samesign ult i64 %172, %147

@@ -14502,7 +14502,7 @@ define internal void @_ZN2cvL7DCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7Co
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %.idx.i = shl nsw i64 %12, 3
+  %.idx.i = shl nuw nsw i64 %12, 3
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %22
 
@@ -14668,7 +14668,7 @@ define internal void @_ZN2cvL8IDCT_32fERKNS_13OcvDftOptionsEPKfmPfS5_S5_mPKNS_7C
   br i1 %48, label %.lr.ph75.i, label %_ZN2cvL4IDCTIfEEvRKNS_13OcvDftOptionsEPKT_mPS4_S7_S7_mPKNS_7ComplexIS4_EE.exit
 
 .lr.ph75.i:                                       ; preds = %._crit_edge.i
-  %.idx.i = shl nsw i64 %13, 3
+  %.idx.i = shl nuw nsw i64 %13, 3
   %wide.trip.count82.i = zext nneg i32 %11 to i64
   br label %49
 
@@ -14714,7 +14714,7 @@ define internal void @_ZN2cvL7DCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7Co
   br i1 %19, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %.idx.i = shl nsw i64 %12, 4
+  %.idx.i = shl nuw nsw i64 %12, 4
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %22
 
@@ -14880,7 +14880,7 @@ define internal void @_ZN2cvL8IDCT_64fERKNS_13OcvDftOptionsEPKdmPdS5_S5_mPKNS_7C
   br i1 %48, label %.lr.ph75.i, label %_ZN2cvL4IDCTIdEEvRKNS_13OcvDftOptionsEPKT_mPS4_S7_S7_mPKNS_7ComplexIS4_EE.exit
 
 .lr.ph75.i:                                       ; preds = %._crit_edge.i
-  %.idx.i = shl nsw i64 %13, 4
+  %.idx.i = shl nuw nsw i64 %13, 4
   %wide.trip.count82.i = zext nneg i32 %11 to i64
   br label %49
 

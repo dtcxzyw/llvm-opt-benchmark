@@ -942,7 +942,7 @@ define void @process(ptr nocapture noundef readnone %0, ptr nocapture noundef re
   %469 = lshr <8 x i32> %349, %468
   %470 = and <8 x i32> %469, splat (i32 3)
   %471 = zext nneg <8 x i32> %470 to <8 x i64>
-  %472 = getelementptr inbounds [4 x float], ptr %9, i64 0, <8 x i64> %471
+  %472 = getelementptr inbounds nuw [4 x float], ptr %9, i64 0, <8 x i64> %471
   %473 = call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %472, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !6
   %474 = add i64 %460, %462
   %475 = getelementptr inbounds float, ptr %2, i64 %474

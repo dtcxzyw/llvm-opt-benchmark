@@ -1170,7 +1170,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit:                ; preds = %109, %._crit_edge10
   %.147.i = phi nsz double [ %132, %._crit_edge101.i ], [ %.046.i, %109 ]
   %.not.i = icmp eq i8 %84, 45
   %133 = fptrunc double %.147.i to float
-  %134 = fneg fast float %133
+  %134 = fneg float %133
   %135 = select fast i1 %.not.i, float %134, float %133
   %136 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv
   store float %135, ptr %136, align 4
@@ -1398,7 +1398,7 @@ _ZN4ncnnL13vstr_to_floatEPKc.exit104:             ; preds = %196, %._crit_edge10
   %.147.i62 = phi nsz double [ %219, %._crit_edge101.i60 ], [ %.046.i54, %196 ]
   %.not.i63 = icmp eq i8 %171, 45
   %220 = fptrunc double %.147.i62 to float
-  %221 = fneg fast float %220
+  %221 = fneg float %220
   %222 = select fast i1 %.not.i63, float %221, float %220
   %223 = load ptr, ptr %7, align 8
   %224 = load i32, ptr %3, align 4

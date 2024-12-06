@@ -3119,7 +3119,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   br i1 %169, label %187, label %170
 
 170:                                              ; preds = %.loopexit26
-  %171 = getelementptr inbounds [2 x float], ptr %5, i64 %165
+  %171 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %165
   %172 = load float, ptr %171, align 4, !tbaa !66
   %173 = fcmp reassoc nsz arcp contract afn oeq float %172, 0.000000e+00
   br i1 %173, label %180, label %174
@@ -3133,10 +3133,10 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   br i1 %177, label %180, label %184
 
 180:                                              ; preds = %174, %170
-  %181 = getelementptr inbounds float, ptr %6, i64 %165
+  %181 = getelementptr inbounds nuw float, ptr %6, i64 %165
   store float 0.000000e+00, ptr %181, align 4, !tbaa !66
   store <2 x float> zeroinitializer, ptr %171, align 4, !tbaa !66
-  %182 = getelementptr inbounds [2 x float], ptr %4, i64 %165
+  %182 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %165
   store <2 x float> zeroinitializer, ptr %182, align 4, !tbaa !66
   %183 = load <2 x float>, ptr %171, align 4, !tbaa !66
   br label %184
@@ -3186,7 +3186,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   %217 = shufflevector <16 x float> %216, <16 x float> poison, <8 x i32> <i32 0, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14>
   %218 = fcmp reassoc nsz arcp contract afn oeq <8 x float> %217, zeroinitializer
   %219 = xor <8 x i1> %218, splat (i1 true)
-  %220 = getelementptr inbounds i8, <8 x ptr> %214, i64 4
+  %220 = getelementptr inbounds nuw i8, <8 x ptr> %214, i64 4
   %221 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %220, i32 4, <8 x i1> %219, <8 x float> poison), !tbaa !66, !alias.scope !141, !noalias !144
   %222 = fcmp reassoc nsz arcp contract afn oeq <8 x float> %221, zeroinitializer
   %223 = select <8 x i1> %218, <8 x i1> splat (i1 true), <8 x i1> %222
@@ -3195,7 +3195,7 @@ define internal fastcc void @kmeans(ptr nocapture noundef nonnull readonly %0, i
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %220, i32 4, <8 x i1> %223), !tbaa !66, !alias.scope !141, !noalias !144
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %214, i32 4, <8 x i1> %223), !tbaa !66, !alias.scope !141, !noalias !144
   %225 = getelementptr inbounds [2 x float], ptr %4, <8 x i64> %213
-  %226 = getelementptr inbounds i8, <8 x ptr> %225, i64 4
+  %226 = getelementptr inbounds nuw i8, <8 x ptr> %225, i64 4
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %226, i32 4, <8 x i1> %223), !tbaa !66, !alias.scope !144
   tail call void @llvm.masked.scatter.v8f32.v8p0(<8 x float> zeroinitializer, <8 x ptr> %225, i32 4, <8 x i1> %223), !tbaa !66, !alias.scope !144
   %227 = tail call <8 x float> @llvm.masked.gather.v8f32.v8p0(<8 x ptr> %214, i32 4, <8 x i1> splat (i1 true), <8 x float> poison), !tbaa !66, !alias.scope !141, !noalias !144

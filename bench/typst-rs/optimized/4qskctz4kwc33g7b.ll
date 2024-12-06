@@ -44004,7 +44004,7 @@ define noundef zeroext i1 @_ZN5typst11foundations7content7Content10is_guarded17h
   %28 = and i64 %1, 63
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %30 = load ptr, ptr %29, align 8, !noalias !9319, !nonnull !4, !noundef !4
-  %31 = getelementptr inbounds i64, ptr %30, i64 %23
+  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %23
   %32 = load i64, ptr %31, align 8, !noalias !9319, !noundef !4
   %33 = lshr i64 %32, %28
   %34 = trunc i64 %33 to i1
@@ -44105,7 +44105,7 @@ define void @_ZN5typst11foundations7content7Content7guarded17h9434853a33f7fca7E(
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
   %35 = shl nuw i64 1, %13
-  %36 = getelementptr inbounds [0 x i64], ptr %34, i64 0, i64 %12
+  %36 = getelementptr inbounds nuw [0 x i64], ptr %34, i64 0, i64 %12
   %37 = load i64, ptr %36, align 8, !noundef !4
   %38 = or i64 %37, %35
   store i64 %38, ptr %36, align 8
@@ -62067,7 +62067,7 @@ _ZN5alloc5alloc15exchange_malloc17ha641d2894b944555E.llvm.7325118056162354838.ex
   %191 = xor i64 %.011.i.i, -1
   %192 = add nsw i64 %187, %191
   %193 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %185, i64 0, i64 %.011.i.i
-  %194 = getelementptr inbounds [0 x { { { i64, ptr, {} }, i64 } }], ptr %190, i64 0, i64 %192
+  %194 = getelementptr inbounds nuw [0 x { { { i64, ptr, {} }, i64 } }], ptr %190, i64 0, i64 %192
   br label %195
 
 195:                                              ; preds = %195, %.lr.ph.preheader.i.i
@@ -76981,7 +76981,7 @@ define internal fastcc void @_ZN5typst9visualize8gradient12sample_stops17h6368a5
   unreachable
 
 19:                                               ; preds = %16
-  %20 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %1, i64 0, i64 %11
+  %20 = getelementptr inbounds nuw [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %1, i64 0, i64 %11
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load double, ptr %21, align 8, !noundef !4
   %23 = getelementptr inbounds [0 x { { i32, [4 x i32] }, [1 x i32], double }], ptr %1, i64 0, i64 %spec.store.select
@@ -87385,7 +87385,7 @@ _ZN5typst6layout3abs3Abs3min17hb85457ce4af6b9b7E.exit: ; preds = %390, %388
   %616 = sub nuw i64 %559, %615
   %617 = udiv exact i64 %616, 48
   %.not.i.i.not = icmp samesign ult i64 %.sroa.9485.0, %617
-  %618 = getelementptr inbounds { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.sroa.0481.0, i64 %.sroa.9485.0
+  %618 = getelementptr inbounds nuw { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, ptr %.sroa.0481.0, i64 %.sroa.9485.0
   br i1 %.not.i.i.not, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h508e736b96018b26E.exit.thread575", label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h508e736b96018b26E.exit.thread"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h508e736b96018b26E.exit.thread575": ; preds = %612, %614

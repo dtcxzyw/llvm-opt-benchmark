@@ -23049,9 +23049,9 @@ if.else:                                          ; preds = %if.then37
 
 if.end59:                                         ; preds = %if.then39, %if.else, %if.end35
   %offset.1 = phi i64 [ %inc50, %if.then39 ], [ %inc57, %if.else ], [ %offset.0, %if.end35 ]
-  %arrayidx60 = getelementptr inbounds ptr, ptr %call, i64 %offset.1
+  %arrayidx60 = getelementptr inbounds nuw ptr, ptr %call, i64 %offset.1
   store ptr @.str.309, ptr %arrayidx60, align 8
-  %arrayidx61 = getelementptr inbounds i64, ptr %call8, i64 %offset.1
+  %arrayidx61 = getelementptr inbounds nuw i64, ptr %call8, i64 %offset.1
   store i64 4, ptr %arrayidx61, align 8
   %inc62 = add nuw nsw i64 %offset.1, 1
   %7 = load i64, ptr %elements, align 8

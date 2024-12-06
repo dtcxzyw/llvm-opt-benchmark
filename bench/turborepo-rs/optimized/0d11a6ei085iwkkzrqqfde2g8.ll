@@ -87,7 +87,7 @@ define hidden { ptr, i64 } @_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5w
 22:                                               ; preds = %13, %19
   %.sroa.07.1 = phi i64 [ %.sroa.07.017, %19 ], [ 1, %13 ]
   %23 = sub nuw nsw i64 3, %.sroa.07.1
-  %24 = getelementptr inbounds i8, ptr %1, i64 %.sroa.07.1
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.07.1
   %25 = insertvalue { ptr, i64 } poison, ptr %24, 0
   %26 = insertvalue { ptr, i64 } %25, i64 %23, 1
   ret { ptr, i64 } %26
@@ -329,7 +329,7 @@ _RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.277294647238992513
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %27
   %28 = phi i64 [ %.pre.i, %27 ], [ %23, %_RNvXs5_CsfbvjWzJraAt_4itoahNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
-  %29 = getelementptr inbounds i8, ptr %3, i64 %.sroa.07.1.i
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.07.1.i
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !9, !nonnull !4, !noundef !4
   %32 = getelementptr inbounds i8, ptr %31, i64 %28
@@ -512,7 +512,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %30 = zext nneg i16 %29 to i64
   %31 = add nsw i64 %.sroa.010.1.i, -2
   %32 = getelementptr inbounds nuw i8, ptr @anon.bc959fc6a0d09a798b5e0201e8cd8999.3.llvm.2772946472389925136, i64 %30
-  %33 = getelementptr inbounds i8, ptr %3, i64 %31
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 %31
   %34 = load i16, ptr %32, align 1, !noalias !18
   store i16 %34, ptr %33, align 1, !alias.scope !18
   br label %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
@@ -522,7 +522,7 @@ define hidden void @_RINvNtCs8mTrBI1stz4_15turborepo_vt1004term11extend_itoatEB4
   %.sroa.010.136.i = phi i64 [ 1, %.thread.i ], [ %.sroa.010.1.i, %26 ]
   %36 = add nsw i64 %.sroa.010.136.i, -1
   %37 = trunc nuw i16 %.sroa.04.037.i to i8
-  %38 = getelementptr inbounds i8, ptr %3, i64 %36
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 %36
   %39 = or disjoint i8 %37, 48
   store i8 %39, ptr %38, align 1, !alias.scope !18
   br label %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit
@@ -544,7 +544,7 @@ _RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.277294647238992513
 
 _RNvMs_NtCs68wO5nsWeTG_5alloc3vecINtB4_3VechE15append_elementsCs8mTrBI1stz4_15turborepo_vt100.llvm.2772946472389925136.exit: ; preds = %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit, %45
   %46 = phi i64 [ %.pre.i, %45 ], [ %41, %_RNvXs9_CsfbvjWzJraAt_4itoatNtNtB5_7private6Sealed5write.llvm.2772946472389925136.exit ]
-  %47 = getelementptr inbounds i8, ptr %3, i64 %.sroa.010.2.i
+  %47 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.010.2.i
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %49 = load ptr, ptr %48, align 8, !alias.scope !21, !nonnull !4, !noundef !4
   %50 = getelementptr inbounds i8, ptr %49, i64 %46

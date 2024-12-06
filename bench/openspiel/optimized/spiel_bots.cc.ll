@@ -3285,7 +3285,7 @@ _ZN4absl7debian215random_internal13randen_engineImE4seedEm.exit:
   %7 = add nsw i64 %.028.i, -5
   %8 = getelementptr inbounds [60 x i32], ptr %2, i64 0, i64 %7
   %9 = add nsw i64 %6, -1
-  %10 = getelementptr inbounds [60 x i32], ptr %2, i64 0, i64 %9
+  %10 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %9
   %11 = load i32, ptr %8, align 4
   %12 = load i32, ptr %10, align 4
   store i32 %12, ptr %8, align 4
@@ -3293,7 +3293,7 @@ _ZN4absl7debian215random_internal13randen_engineImE4seedEm.exit:
   %13 = add nsw i64 %.028.i, -6
   %14 = getelementptr inbounds [60 x i32], ptr %2, i64 0, i64 %13
   %15 = add nsw i64 %6, -2
-  %16 = getelementptr inbounds [60 x i32], ptr %2, i64 0, i64 %15
+  %16 = getelementptr inbounds nuw [60 x i32], ptr %2, i64 0, i64 %15
   %17 = load i32, ptr %14, align 8
   %18 = load i32, ptr %16, align 8
   store i32 %18, ptr %14, align 8

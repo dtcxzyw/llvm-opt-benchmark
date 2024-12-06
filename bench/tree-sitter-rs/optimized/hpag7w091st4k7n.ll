@@ -572,7 +572,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %or.cond.i.i.i.i.i.i.i, label %117, label %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exitthread-pre-split.i.i
 
 117:                                              ; preds = %112
-  %118 = getelementptr inbounds i64, ptr %43, i64 %.0.i.i.i.i.i.i.i
+  %118 = getelementptr inbounds nuw i64, ptr %43, i64 %.0.i.i.i.i.i.i.i
   %119 = load i64, ptr %118, align 8, !noalias !165, !noundef !9
   %120 = icmp eq i64 %119, 0
   br i1 %120, label %_ZN14regex_automata4util4iter8Searcher7advance17hc4bfbfea668ebd42E.exitthread-pre-split.i.i, label %121
@@ -2753,7 +2753,7 @@ _ZN14regex_automata4util4pool5inner9THREAD_ID7__getit17hbfe95a96c38d7049E.exit.i
   br i1 %or.cond.i.i.i.i, label %610, label %615
 
 610:                                              ; preds = %605
-  %611 = getelementptr inbounds i64, ptr %604, i64 %.0.i.i.i.i280
+  %611 = getelementptr inbounds nuw i64, ptr %604, i64 %.0.i.i.i.i280
   %612 = load i64, ptr %611, align 8, !noalias !538, !noundef !9
   %613 = icmp eq i64 %612, 0
   br i1 %613, label %615, label %616

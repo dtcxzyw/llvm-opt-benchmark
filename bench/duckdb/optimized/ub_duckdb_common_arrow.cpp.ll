@@ -30022,7 +30022,7 @@ if.then.i77:                                      ; preds = %_ZNSt6vectorIP10Arr
 
 _ZNSt12_Vector_baseIP10ArrowArraySaIS1_EE13_M_deallocateEPS1_m.exit78: ; preds = %if.then.i77, %_ZNSt6vectorIP10ArrowArraySaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !103
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !120
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !690
@@ -30130,7 +30130,7 @@ if.then.i81:                                      ; preds = %_ZNSt6vectorI10Arro
 
 _ZNSt12_Vector_baseI10ArrowArraySaIS0_EE13_M_deallocateEPS0_m.exit82: ; preds = %if.then.i81, %_ZNSt6vectorI10ArrowArraySaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !102
-  %add.ptr37 = getelementptr inbounds %struct.ArrowArray, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %struct.ArrowArray, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !121
   %add.ptr40 = getelementptr inbounds nuw %struct.ArrowArray, ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !691
@@ -30434,7 +30434,7 @@ if.then.i81:                                      ; preds = %_ZNSt6vectorI11Arro
 
 _ZNSt12_Vector_baseI11ArrowSchemaSaIS0_EE13_M_deallocateEPS0_m.exit82: ; preds = %if.then.i81, %_ZNSt6vectorI11ArrowSchemaSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !184
-  %add.ptr37 = getelementptr inbounds %struct.ArrowSchema, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw %struct.ArrowSchema, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !182
   %add.ptr40 = getelementptr inbounds nuw %struct.ArrowSchema, ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !717
@@ -30535,7 +30535,7 @@ if.then.i77:                                      ; preds = %_ZNSt6vectorIP11Arr
 
 _ZNSt12_Vector_baseIP11ArrowSchemaSaIS1_EE13_M_deallocateEPS1_m.exit78: ; preds = %if.then.i77, %_ZNSt6vectorIP11ArrowSchemaSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !191
-  %add.ptr37 = getelementptr inbounds ptr, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !190
   %add.ptr40 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !188
@@ -30772,7 +30772,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIP11Ar
 if.end.i.i.i.i.i161:                              ; preds = %cond.true.i, %_ZNKSt6vectorIP11ArrowSchemaSaIS1_EE12_M_check_lenEmPKc.exit
   %cond.i159 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIP11ArrowSchemaSaIS1_EE12_M_check_lenEmPKc.exit ]
   %add.ptr54 = getelementptr inbounds i8, ptr %cond.i159, i64 %sub.ptr.sub51
-  %add.ptr.i.i.i.i.i162 = getelementptr inbounds ptr, ptr %add.ptr54, i64 %__n
+  %add.ptr.i.i.i.i.i162 = getelementptr inbounds nuw ptr, ptr %add.ptr54, i64 %__n
   %28 = load ptr, ptr %__x, align 8, !tbaa !3
   %29 = add nuw nsw i64 %__n, 2305843009213693951
   %30 = and i64 %29, 2305843009213693951

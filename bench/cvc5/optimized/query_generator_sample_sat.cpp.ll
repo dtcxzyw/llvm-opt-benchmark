@@ -3079,7 +3079,7 @@ invoke.cont36:                                    ; preds = %do.cond, %_ZNSt6vec
   %conv.i.i.i.i.i = zext i32 %retval.sroa.2.0.copyload.i.i to i64
   %add.i.i.i.i.i = add nsw i64 %conv.i.i.i.i.i, -1
   %div.i.i.i.i.i = sdiv i64 %add.i.i.i.i.i, 64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i, i64 %div.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %retval.sroa.0.0.copyload.i.i, i64 %div.i.i.i.i.i
   %19 = and i64 %add.i.i.i.i.i, -9223372036854775745
   %cmp.i.i.i.i.i191 = icmp ugt i64 %19, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %cmp.i.i.i.i.i191, i64 -8, i64 0
@@ -3101,7 +3101,7 @@ invoke.cont41:                                    ; preds = %invoke.cont36, %inv
   %conv.i.i.i.i.i198 = zext i32 %retval.sroa.2.0.copyload.i.i197 to i64
   %add.i.i.i.i.i199 = add nsw i64 %conv.i.i.i.i.i198, -1
   %div.i.i.i.i.i200 = sdiv i64 %add.i.i.i.i.i199, 64
-  %add.ptr.i.i.i.i.i201 = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i195, i64 %div.i.i.i.i.i200
+  %add.ptr.i.i.i.i.i201 = getelementptr inbounds nuw i64, ptr %retval.sroa.0.0.copyload.i.i195, i64 %div.i.i.i.i.i200
   %21 = and i64 %add.i.i.i.i.i199, -9223372036854775745
   %cmp.i.i.i.i.i202 = icmp ugt i64 %21, -9223372036854775808
   %storemerge.idx.i.i.i.i.i203 = select i1 %cmp.i.i.i.i.i202, i64 -8, i64 0
@@ -3143,7 +3143,7 @@ invoke.cont48:                                    ; preds = %invoke.cont41
   %conv.i.i.i.i.i216 = zext i32 %retval.sroa.2.0.copyload.i.i215 to i64
   %add.i.i.i.i.i217 = add nsw i64 %conv.i.i.i.i.i216, -1
   %div.i.i.i.i.i218 = sdiv i64 %add.i.i.i.i.i217, 64
-  %add.ptr.i.i.i.i.i219 = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i213, i64 %div.i.i.i.i.i218
+  %add.ptr.i.i.i.i.i219 = getelementptr inbounds nuw i64, ptr %retval.sroa.0.0.copyload.i.i213, i64 %div.i.i.i.i.i218
   %26 = and i64 %add.i.i.i.i.i217, -9223372036854775745
   %cmp.i.i.i.i.i220 = icmp ugt i64 %26, -9223372036854775808
   %storemerge.idx.i.i.i.i.i221 = select i1 %cmp.i.i.i.i.i220, i64 -8, i64 0
@@ -8498,7 +8498,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
+  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.021
   store ptr %__p.022, ptr %arrayidx16, align 8
   br label %if.end22
 

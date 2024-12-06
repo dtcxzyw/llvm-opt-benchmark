@@ -7979,7 +7979,7 @@ if.end29.i:                                       ; preds = %if.then.i, %if.end7
   %length34.i = getelementptr i8, ptr %29, i64 -24
   %31 = load i64, ptr %length34.i, align 8
   %sub35.i = add nsw i64 %stack_curr.addr.063.i34, -1
-  %length37.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i, i32 1
+  %length37.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i, i32 1
   %32 = load i64, ptr %length37.i, align 8
   %add38.i = add nsw i64 %32, %31
   %cmp39.not.i = icmp sgt i64 %30, %add38.i
@@ -7994,7 +7994,7 @@ if.then42.i:                                      ; preds = %if.then40.i
   %arrayidx47.i = getelementptr i8, ptr %29, i64 -32
   %add52.i = add nsw i64 %31, %30
   store i64 %add52.i, ptr %length31.i, align 8
-  %arrayidx53.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
+  %arrayidx53.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx53.i, i64 16, i1 false)
   br label %if.end79.i
 
@@ -8544,7 +8544,7 @@ if.end29.i:                                       ; preds = %if.then.i, %if.end7
   %length34.i = getelementptr i8, ptr %11, i64 -24
   %13 = load i64, ptr %length34.i, align 8
   %sub35.i = add nsw i64 %stack_curr.addr.063.i32, -1
-  %length37.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i, i32 1
+  %length37.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i, i32 1
   %14 = load i64, ptr %length37.i, align 8
   %add38.i = add nsw i64 %14, %13
   %cmp39.not.i = icmp sgt i64 %12, %add38.i
@@ -8559,7 +8559,7 @@ if.then42.i:                                      ; preds = %if.then40.i
   %arrayidx47.i = getelementptr i8, ptr %11, i64 -32
   %add52.i = add nsw i64 %13, %12
   store i64 %add52.i, ptr %length31.i, align 8
-  %arrayidx53.i = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
+  %arrayidx53.i = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx47.i, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx53.i, i64 16, i1 false)
   br label %if.end79.i
 
@@ -17572,7 +17572,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_T0_S9_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_T0_S9_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_T0_S9_T1_T2_.exit54.us, label %while.body.i42.us
@@ -17624,7 +17624,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_T0_S9_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIjEEEEEvT_T0_S9_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -18996,14 +18996,14 @@ if.then:                                          ; preds = %while.body
 
 while.body.preheader.i.i.i:                       ; preds = %if.then
   %sub13.i.i.i.i = or disjoint i64 %sub.i.i.i, 1
-  %add.ptr14.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub13.i.i.i.i
+  %add.ptr14.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub13.i.i.i.i
   %add.ptr15.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %div9.i.i.i
   br label %while.body.i.i.i
 
 while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i
   %inc.i12.i.i1.us.i.i.i = phi i32 [ %inc.i12.i.i.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i.i, %if.then ]
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i ], [ %div9.i.i.i, %if.then ]
-  %add.ptr.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
+  %add.ptr.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
   %add.ptr.val.us.i.i.i = load i32, ptr %add.ptr.us.i.i.i, align 4
   %cmp2.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
   br i1 %cmp2.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
@@ -19021,15 +19021,15 @@ while.body.i.us.i.i.i:                            ; preds = %while.body.i.us.i.i
   %inc.i13.i.us.i.i.i = phi i32 [ %inc.i.i.us.i.i.i, %while.body.i.us.i.i.i ], [ %inc.i10.us.i.i.i, %while.body.i.us.i.preheader.i.i ]
   %add.i.us.i.i.i = shl i64 %__secondChild.04.i.us.i.i.i, 1
   %mul.i.us.i.i.i = add i64 %add.i.us.i.i.i, 2
-  %add.ptr.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.us.i.i.i
+  %add.ptr.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.us.i.i.i
   %sub1.i.us.i.i.i = or disjoint i64 %add.i.us.i.i.i, 1
-  %add.ptr2.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.us.i.i.i
+  %add.ptr2.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.us.i.i.i
   %add.ptr.val.i.us.i.i.i = load i32, ptr %add.ptr.i.us.i.i.i, align 4
   %add.ptr2.val.i.us.i.i.i = load i32, ptr %add.ptr2.i.us.i.i.i, align 4
   %cmp.i.i.i.i.us.i.i.i = icmp ult i32 %add.ptr.val.i.us.i.i.i, %add.ptr2.val.i.us.i.i.i
   %spec.select.i.us.i.i.i = select i1 %cmp.i.i.i.i.us.i.i.i, i64 %sub1.i.us.i.i.i, i64 %mul.i.us.i.i.i
-  %add.ptr3.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.us.i.i.i
-  %add.ptr4.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.us.i.i.i
+  %add.ptr3.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.us.i.i.i
+  %add.ptr4.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.us.i.i.i
   %add.ptr3.val.i.us.i.i.i = load i32, ptr %add.ptr3.i.us.i.i.i, align 4
   %inc.i.i.us.i.i.i = add nsw i32 %inc.i13.i.us.i.i.i, 1
   store i32 %add.ptr3.val.i.us.i.i.i, ptr %add.ptr4.i.us.i.i.i, align 4
@@ -19051,7 +19051,7 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   br i1 %cmp.i.i.i.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.us.i.i.i
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
-  %add.ptr2.i.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.us.i.i.i
+  %add.ptr2.i.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.us.i.i.i
   %inc.i.i.i.us.i.i.i = add nsw i32 %inc.i15.i.i.us.i.i.i, 1
   store i32 %add.ptr.val10.i.i.us.i.i.i, ptr %add.ptr2.i.i.us.i.i.i, align 4
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.07.i.i.us.i.i.i, %__parent.0.us.i.i.i
@@ -19070,7 +19070,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter
 while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.i.i.i, %while.body.preheader.i.i.i
   %inc.i12.i.i1.i.i.i = phi i32 [ %inc.i12.i.i.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i.i, %while.body.preheader.i.i.i ]
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.i.i.i ], [ %div9.i.i.i, %while.body.preheader.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
   %add.ptr.val.i.i.i = load i32, ptr %add.ptr.i.i.i, align 4
   %inc.i10.i.i.i = add nsw i32 %inc.i12.i.i1.i.i.i, 2
   %cmp2.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
@@ -19081,15 +19081,15 @@ while.body.i.i.i.i:                               ; preds = %while.body.i.i.i, %
   %inc.i13.i.i.i.i = phi i32 [ %inc.i.i.i.i.i, %while.body.i.i.i.i ], [ %inc.i10.i.i.i, %while.body.i.i.i ]
   %add.i.i.i.i = shl i64 %__secondChild.04.i.i.i.i, 1
   %mul.i.i.i.i = add i64 %add.i.i.i.i, 2
-  %add.ptr.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i.i
   %sub1.i.i.i.i = or disjoint i64 %add.i.i.i.i, 1
-  %add.ptr2.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.i.i.i
+  %add.ptr2.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.i.i.i
   %add.ptr.val.i.i.i.i = load i32, ptr %add.ptr.i.i.i.i, align 4
   %add.ptr2.val.i.i.i.i = load i32, ptr %add.ptr2.i.i.i.i, align 4
   %cmp.i.i.i.i.i.i.i = icmp ult i32 %add.ptr.val.i.i.i.i, %add.ptr2.val.i.i.i.i
   %spec.select.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i, i64 %sub1.i.i.i.i, i64 %mul.i.i.i.i
-  %add.ptr3.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i.i
-  %add.ptr4.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i.i
+  %add.ptr3.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i.i
+  %add.ptr4.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i.i
   %add.ptr3.val.i.i.i.i = load i32, ptr %add.ptr3.i.i.i.i, align 4
   %inc.i.i.i.i.i = add nsw i32 %inc.i13.i.i.i.i, 1
   store i32 %add.ptr3.val.i.i.i.i, ptr %add.ptr4.i.i.i.i, align 4
@@ -19126,7 +19126,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end18.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterIN5eastl4lessIS2_EEEEEvT_T0_SC_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nsw i32 %inc.i15.i.i.i.i.i, 1
   store i32 %add.ptr.val10.i.i.i.i.i, ptr %add.ptr2.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.07.i.i.i.i.i, %__parent.0.i.i.i
@@ -19167,15 +19167,15 @@ while.body.i.i.i43.i:                             ; preds = %while.body.i.i, %wh
   %inc.i13.i.i.i45.i = phi i32 [ %inc.i.i.i.i58.i, %while.body.i.i.i43.i ], [ %inc.i5.i.i.i, %while.body.i.i ]
   %add.i.i.i46.i = shl i64 %__secondChild.04.i.i.i44.i, 1
   %mul.i.i.i47.i = add i64 %add.i.i.i46.i, 2
-  %add.ptr.i.i.i48.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i47.i
+  %add.ptr.i.i.i48.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %mul.i.i.i47.i
   %sub1.i.i.i49.i = or disjoint i64 %add.i.i.i46.i, 1
-  %add.ptr2.i.i.i50.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.i.i49.i
+  %add.ptr2.i.i.i50.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub1.i.i.i49.i
   %add.ptr.val.i.i.i51.i = load i32, ptr %add.ptr.i.i.i48.i, align 4
   %add.ptr2.val.i.i.i52.i = load i32, ptr %add.ptr2.i.i.i50.i, align 4
   %cmp.i.i.i.i.i.i53.i = icmp ult i32 %add.ptr.val.i.i.i51.i, %add.ptr2.val.i.i.i52.i
   %spec.select.i.i.i54.i = select i1 %cmp.i.i.i.i.i.i53.i, i64 %sub1.i.i.i49.i, i64 %mul.i.i.i47.i
-  %add.ptr3.i.i.i55.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i54.i
-  %add.ptr4.i.i.i56.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i44.i
+  %add.ptr3.i.i.i55.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %spec.select.i.i.i54.i
+  %add.ptr4.i.i.i56.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.04.i.i.i44.i
   %add.ptr3.val.i.i.i57.i = load i32, ptr %add.ptr3.i.i.i55.i, align 4
   %inc.i.i.i.i58.i = add nsw i32 %inc.i13.i.i.i45.i, 1
   store i32 %add.ptr3.val.i.i.i57.i, ptr %add.ptr4.i.i.i56.i, align 4
@@ -19198,8 +19198,8 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i11.i
 if.then10.i.i.i37.i:                              ; preds = %land.lhs.true.i.i.i.i
   %add11.i.i.i.i = shl nsw i64 %__secondChild.0.lcssa.i.i.i12.i, 1
   %sub13.i.i.i38.i = or disjoint i64 %add11.i.i.i.i, 1
-  %add.ptr14.i.i.i39.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub13.i.i.i38.i
-  %add.ptr15.i.i.i40.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i12.i
+  %add.ptr14.i.i.i39.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %sub13.i.i.i38.i
+  %add.ptr15.i.i.i40.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__secondChild.0.lcssa.i.i.i12.i
   %add.ptr14.val.i.i.i41.i = load i32, ptr %add.ptr14.i.i.i39.i, align 4
   %inc.i23.i.i.i42.i = add nsw i32 %5, 1
   store i32 %add.ptr14.val.i.i.i41.i, ptr %add.ptr15.i.i.i40.i, align 4
@@ -24083,7 +24083,7 @@ do.body:                                          ; preds = %_ZN10TestObjectD2Ev
   %inc.i = phi i64 [ %0, %if.then ], [ %8, %_ZN10TestObjectD2Ev.exit ]
   %parentPosition.0 = phi i64 [ %add, %if.then ], [ %dec, %_ZN10TestObjectD2Ev.exit ]
   %dec = add nsw i64 %parentPosition.0, -1
-  %add.ptr = getelementptr inbounds %struct.TestObject, ptr %first, i64 %dec
+  %add.ptr = getelementptr inbounds nuw %struct.TestObject, ptr %first, i64 %dec
   %1 = load i32, ptr %add.ptr, align 8
   store i32 %1, ptr %temp, align 8
   %mbThrowOnCopy3.i = getelementptr inbounds nuw i8, ptr %add.ptr, i64 4
@@ -25154,7 +25154,7 @@ if.end29:                                         ; preds = %while.body.preheade
   %length34 = getelementptr i8, ptr %2, i64 -24
   %4 = load i64, ptr %length34, align 8
   %sub35 = add nsw i64 %stack_curr.addr.06369, -1
-  %length37 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35, i32 1
+  %length37 = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35, i32 1
   %5 = load i64, ptr %length37, align 8
   %add38 = add nsw i64 %5, %4
   %cmp39.not = icmp sgt i64 %3, %add38
@@ -25171,7 +25171,7 @@ if.then42:                                        ; preds = %if.then40
   %7 = load i64, ptr %length31, align 8
   %add52 = add nsw i64 %7, %6
   store i64 %add52, ptr %length31, align 8
-  %arrayidx53 = getelementptr inbounds %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35
+  %arrayidx53 = getelementptr inbounds nuw %"struct.eastl::Internal::tim_sort_run", ptr %run_stack, i64 %sub35
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx47, ptr noundef nonnull align 8 dereferenceable(16) %arrayidx53, i64 16, i1 false)
   br label %if.end79
 
@@ -26017,7 +26017,7 @@ if.end7.split.preheader:                          ; preds = %if.end7.split.lr.ph
 if.end7.split.us:                                 ; preds = %if.end7.split.lr.ph, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8_T1_T2_.exit54.us
   %__parent.059.us = phi i64 [ %dec.us, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8_T1_T2_.exit54.us ], [ %div11, %if.end7.split.lr.ph ]
   %dec.us = add nsw i64 %__parent.059.us, -1
-  %add.ptr10.us = getelementptr inbounds i32, ptr %__first, i64 %dec.us
+  %add.ptr10.us = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.us
   %7 = load i32, ptr %add.ptr10.us, align 4
   %cmp23.i14.not.us = icmp sgt i64 %__parent.059.us, %div.i5557
   br i1 %cmp23.i14.not.us, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8_T1_T2_.exit54.us, label %while.body.i42.us
@@ -26069,7 +26069,7 @@ _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8
 if.end7.split:                                    ; preds = %if.end7.split.preheader, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8_T1_T2_.exit54
   %__parent.059 = phi i64 [ %dec, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIjEEEEvT_T0_S8_T1_T2_.exit54 ], [ %div11, %if.end7.split.preheader ]
   %dec = add nsw i64 %__parent.059, -1
-  %add.ptr10 = getelementptr inbounds i32, ptr %__first, i64 %dec
+  %add.ptr10 = getelementptr inbounds nuw i32, ptr %__first, i64 %dec
   %12 = load i32, ptr %add.ptr10, align 4
   %cmp23.i14.not = icmp sgt i64 %__parent.059, %div.i5557
   br i1 %cmp23.i14.not, label %while.end.i15, label %while.body.i42
@@ -29326,7 +29326,7 @@ if.then:                                          ; preds = %while.body
 if.end7.split.i.i.i:                              ; preds = %if.then, %if.end7.split.i.i.i
   %__parent.02.i.i.i = phi i64 [ %dec.i.i.i, %if.end7.split.i.i.i ], [ %div11.i.i.i, %if.then ]
   %dec.i.i.i = add nsw i64 %__parent.02.i.i.i, -1
-  %add.ptr10.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %dec.i.i.i
+  %add.ptr10.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.i.i.i
   %1 = load i32, ptr %add.ptr10.i.i.i, align 4
   tail call fastcc void @_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_111SlowCompareIiEEEEEvT_T0_S9_T1_T2_(ptr noundef nonnull %__first, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %1)
   %cmp5.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -29655,7 +29655,7 @@ land.rhs.i:                                       ; preds = %land.rhs.lr.ph.i, %
   br i1 %cmp.i.i.i, label %while.body.i, label %while.end.sink.split.i
 
 while.body.i:                                     ; preds = %land.rhs.i
-  %add.ptr2.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.07.i
+  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.07.i
   store i32 %add.ptr.val.i, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.08.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %while.end.sink.split.i, !llvm.loop !355
@@ -32626,7 +32626,7 @@ while.body.preheader.i.i.i:                       ; preds = %if.then
 while.body.us.i.i.i:                              ; preds = %if.then, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i
   %inc.i12.i.i1.us.i.i.i = phi i32 [ %inc.i12.i.i.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i.i, %if.then ]
   %__parent.0.us.i.i.i = phi i64 [ %dec.us.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i ], [ %div9.i.i.i, %if.then ]
-  %add.ptr.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
+  %add.ptr.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.us.i.i.i
   %add.ptr.val.us.i.i.i = load i32, ptr %add.ptr.us.i.i.i, align 4
   %cmp2.i.us.i.i.i = icmp slt i64 %__parent.0.us.i.i.i, %div.i710.i.i.i
   br i1 %cmp2.i.us.i.i.i, label %while.body.i.us.i.preheader.i.i, label %while.end.i.us.thread.i.i.i
@@ -32674,7 +32674,7 @@ land.rhs.i.i.us.i.i.i:                            ; preds = %while.body.i.i.us.i
   br i1 %cmp.i.i.i.i.i.us.i.i.i, label %while.body.i.i.us.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.us.i.i.i
 
 while.body.i.i.us.i.i.i:                          ; preds = %land.rhs.i.i.us.i.i.i
-  %add.ptr2.i.i.us.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.us.i.i.i
+  %add.ptr2.i.i.us.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.us.i.i.i
   %inc.i.i.i.us.i.i.i = add nsw i32 %inc.i15.i.i.us.i.i.i, 1
   store i32 %add.ptr.val10.i.i.us.i.i.i, ptr %add.ptr2.i.i.us.i.i.i, align 4
   %cmp.i.i.us.i.i.i = icmp sgt i64 %__parent.07.i.i.us.i.i.i, %__parent.0.us.i.i.i
@@ -32693,7 +32693,7 @@ _ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter
 while.body.i.i.i:                                 ; preds = %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.i.i.i, %while.body.preheader.i.i.i
   %inc.i12.i.i1.i.i.i = phi i32 [ %inc.i12.i.i.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.i.i.i ], [ %_ZN12_GLOBAL__N_110SlowAssignIjE12nAssignCountE.promoted.i.i.i, %while.body.preheader.i.i.i ]
   %__parent.0.i.i.i = phi i64 [ %dec.i.i.i, %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.i.i.i ], [ %div9.i.i.i, %while.body.preheader.i.i.i ]
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__parent.0.i.i.i
   %add.ptr.val.i.i.i = load i32, ptr %add.ptr.i.i.i, align 4
   %inc.i10.i.i.i = add nsw i32 %inc.i12.i.i1.i.i.i, 2
   %cmp2.i.i.i.i = icmp slt i64 %__parent.0.i.i.i, %div.i710.i.i.i
@@ -32749,7 +32749,7 @@ land.rhs.i.i.i.i.i:                               ; preds = %if.end18.i.i.i.i, %
   br i1 %cmp.i.i.i.i.i.i.i.i, label %while.body.i.i.i.i.i, label %_ZSt13__adjust_heapIPN12_GLOBAL__N_110SlowAssignIjEElS2_N9__gnu_cxx5__ops15_Iter_comp_iterISt4lessIS2_EEEEvT_T0_SB_T1_T2_.exit.i.i.i
 
 while.body.i.i.i.i.i:                             ; preds = %land.rhs.i.i.i.i.i
-  %add.ptr2.i.i.i.i.i = getelementptr inbounds %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
+  %add.ptr2.i.i.i.i.i = getelementptr inbounds nuw %"struct.(anonymous namespace)::SlowAssign", ptr %__first, i64 %__holeIndex.addr.06.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nsw i32 %inc.i15.i.i.i.i.i, 1
   store i32 %add.ptr.val10.i.i.i.i.i, ptr %add.ptr2.i.i.i.i.i, align 4
   %cmp.i.i.i.i.i = icmp sgt i64 %__parent.07.i.i.i.i.i, %__parent.0.i.i.i

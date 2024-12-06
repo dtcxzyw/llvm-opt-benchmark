@@ -35471,7 +35471,7 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h85a
   %7 = xor i64 %.sroa.0.08.i, -1
   %8 = add nsw i64 %3, %7
   %9 = getelementptr inbounds nuw [0 x i64], ptr %0, i64 0, i64 %.sroa.0.08.i
-  %10 = getelementptr inbounds [0 x i64], ptr %6, i64 0, i64 %8
+  %10 = getelementptr inbounds nuw [0 x i64], ptr %6, i64 0, i64 %8
   %11 = load i64, ptr %9, align 8, !alias.scope !8943, !noalias !8946, !noundef !9
   %12 = load i64, ptr %10, align 8, !alias.scope !8946, !noalias !8943
   store i64 %12, ptr %9, align 8, !alias.scope !8943, !noalias !8946
@@ -35631,7 +35631,7 @@ _ZN4core5slice4sort8unstable8heapsort9sift_down17h3c96d111892d3ccfE.exit20.i: ; 
 55:                                               ; preds = %.lr.ph
   %56 = add i32 %.sroa.020.072, -1
   %57 = lshr i64 %.sroa.11.074, 3
-  %.idx.i = shl nsw i64 %57, 5
+  %.idx.i = shl nuw nsw i64 %57, 5
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.075, i64 %.idx.i
   %.idx1.i = mul i64 %57, 56
   %59 = getelementptr inbounds i8, ptr %.sroa.0.075, i64 %.idx1.i
@@ -92748,7 +92748,7 @@ _ZN4gpui12key_dispatch12DispatchTree8pop_node17h2bfdf02f21fc1b7bE.exit: ; preds 
   %123 = xor i64 %.sroa.0.08.i.i, -1
   %124 = add nsw i64 %119, %123
   %125 = getelementptr inbounds nuw [0 x { { { [6 x i64] }, i64 } }], ptr %117, i64 0, i64 %.sroa.0.08.i.i
-  %126 = getelementptr inbounds [0 x { { { [6 x i64] }, i64 } }], ptr %122, i64 0, i64 %124
+  %126 = getelementptr inbounds nuw [0 x { { { [6 x i64] }, i64 } }], ptr %122, i64 0, i64 %124
   br label %127
 
 127:                                              ; preds = %127, %.lr.ph.preheader.i.i
@@ -92785,7 +92785,7 @@ _ZN4core10intrinsics10typed_swap17h860139113e68b543E.exit.i.i: ; preds = %127
   %140 = xor i64 %.sroa.0.08.i.i59, -1
   %141 = add nsw i64 %136, %140
   %142 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %134, i64 0, i64 %.sroa.0.08.i.i59
-  %143 = getelementptr inbounds [0 x { { i32, i32 } }], ptr %139, i64 0, i64 %141
+  %143 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %139, i64 0, i64 %141
   %144 = load i32, ptr %142, align 4, !range !14049, !alias.scope !19699, !noalias !19697, !noundef !9
   %145 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %146 = load i32, ptr %145, align 4, !alias.scope !19699, !noalias !19697, !noundef !9
@@ -92815,7 +92815,7 @@ _ZN4core10intrinsics10typed_swap17h860139113e68b543E.exit.i.i: ; preds = %127
   %156 = xor i64 %.sroa.0.08.i.i62, -1
   %157 = add nsw i64 %152, %156
   %158 = getelementptr inbounds nuw [0 x i64], ptr %150, i64 0, i64 %.sroa.0.08.i.i62
-  %159 = getelementptr inbounds [0 x i64], ptr %155, i64 0, i64 %157
+  %159 = getelementptr inbounds nuw [0 x i64], ptr %155, i64 0, i64 %157
   %160 = load i64, ptr %158, align 8, !alias.scope !19708, !noalias !19706, !noundef !9
   %161 = load i64, ptr %159, align 8, !alias.scope !19711, !noalias !19703
   store i64 %161, ptr %158, align 8, !alias.scope !19708, !noalias !19706
@@ -93574,7 +93574,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree13reuse_subtree17hd2b68b
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fc05babbe73b99aE.exit": ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3nth17hc51887b1f28b5f16E.exit"
   %69 = add i64 %.sroa.15.0121, %.sroa.10.0119
-  %70 = getelementptr inbounds { { i64, [7 x i64] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } }, ptr %.sroa.062.0120, i64 %.sroa.15.0121
+  %70 = getelementptr inbounds nuw { { i64, [7 x i64] }, { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i32, [1 x i32] }, { i32, [1 x i32] } }, ptr %.sroa.062.0120, i64 %.sroa.15.0121
   br label %.preheader
 
 .preheader:                                       ; preds = %64, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0fc05babbe73b99aE.exit"
@@ -96938,7 +96938,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree13dispatch_path17h30ecfe
   %46 = xor i64 %.sroa.0.08.i.i, -1
   %47 = add nsw i64 %42, %46
   %48 = getelementptr inbounds nuw [0 x i64], ptr %.sink10.i, i64 0, i64 %.sroa.0.08.i.i
-  %49 = getelementptr inbounds [0 x i64], ptr %45, i64 0, i64 %47
+  %49 = getelementptr inbounds nuw [0 x i64], ptr %45, i64 0, i64 %47
   %50 = load i64, ptr %48, align 8, !alias.scope !20653, !noalias !20651, !noundef !9
   %51 = load i64, ptr %49, align 8, !alias.scope !20656, !noalias !20648
   store i64 %51, ptr %48, align 8, !alias.scope !20653, !noalias !20651
@@ -97143,7 +97143,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree10focus_path17hfd03100d4
   %89 = xor i64 %.sroa.0.08.i.i, -1
   %90 = add nsw i64 %85, %89
   %91 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %.sink10.i, i64 0, i64 %.sroa.0.08.i.i
-  %92 = getelementptr inbounds [0 x { { i32, i32 } }], ptr %88, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %88, i64 0, i64 %90
   %93 = load i32, ptr %91, align 4, !range !14049, !alias.scope !20709, !noalias !20707, !noundef !9
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load i32, ptr %94, align 4, !alias.scope !20709, !noalias !20707, !noundef !9
@@ -97358,7 +97358,7 @@ define hidden void @_ZN4gpui12key_dispatch12DispatchTree9view_path17hbb4811eee16
   %89 = xor i64 %.sroa.0.08.i.i, -1
   %90 = add nsw i64 %85, %89
   %91 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %.sink10.i, i64 0, i64 %.sroa.0.08.i.i
-  %92 = getelementptr inbounds [0 x { { i32, i32 } }], ptr %88, i64 0, i64 %90
+  %92 = getelementptr inbounds nuw [0 x { { i32, i32 } }], ptr %88, i64 0, i64 %90
   %93 = load i32, ptr %91, align 4, !range !14049, !alias.scope !20763, !noalias !20761, !noundef !9
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 4
   %95 = load i32, ptr %94, align 4, !alias.scope !20763, !noalias !20761, !noundef !9

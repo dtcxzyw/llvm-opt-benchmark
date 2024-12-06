@@ -30299,7 +30299,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPN5clang9ThunkInfoElN9__gnu
 
 30:                                               ; preds = %30, %26
   %.0.i.i.i = phi i64 [ %29, %26 ], [ %33, %30 ]
-  %31 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.0.i.i.i
+  %31 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_T2_"(ptr noundef %0, i64 noundef %.0.i.i.i, i64 noundef %27, ptr noundef nonnull byval(%"struct.clang::ThunkInfo") align 8 %31)
   %32 = icmp eq i64 %.0.i.i.i, 0
   %33 = add nsw i64 %.0.i.i.i, -1
@@ -30717,9 +30717,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPN5clang9ThunkInfoElS1_N9__gnu
   %.028 = phi i64 [ %37, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EclIPN5clang9ThunkInfoESC_EEbT_T0_.exit" ], [ %1, %4 ]
   %9 = shl i64 %.028, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %16 = load i64, ptr %11, align 8
@@ -30769,8 +30769,8 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.thread9.i.i.i.i.i: ; preds = %_ZN5c
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EclIPN5clang9ThunkInfoESC_EEbT_T0_.exit": ; preds = %.lr.ph, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.thread12.i.i.i.i, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.i.i.i.i, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.thread9.i.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.thread9.thread.i.i.i.i
   %37 = phi i64 [ %10, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.thread9.thread.i.i.i.i ], [ %10, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.i.i.i.i ], [ %10, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.thread9.i.i.i.i.i ], [ %12, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.i.i.i.i ], [ %12, %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i ], [ %12, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.thread12.i.i.i.i ], [ %12, %.lr.ph ]
-  %38 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %37
-  %39 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.028
+  %38 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %37
+  %39 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.028
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %39, ptr noundef nonnull align 8 dereferenceable(56) %38, i64 56, i1 false)
   %40 = icmp slt i64 %37, %7
   br i1 %40, label %.lr.ph, label %._crit_edge, !llvm.loop !442
@@ -30790,8 +30790,8 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.thread9.i.i.i.i.i: ; preds = %_ZN5c
 47:                                               ; preds = %43
   %48 = shl nsw i64 %.0.lcssa, 1
   %49 = or disjoint i64 %48, 1
-  %50 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %49
-  %51 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.0.lcssa
+  %50 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %49
+  %51 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %51, ptr noundef nonnull align 8 dereferenceable(56) %50, i64 56, i1 false)
   br label %52
 
@@ -30855,7 +30855,7 @@ _ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i: ; preds = %74
   br i1 %78, label %79, label %"_ZSt11__push_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_RT2_.exit"
 
 79:                                               ; preds = %_ZN5clangltERKNS_16ReturnAdjustmentES2_.exit.i.i.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit7.thread12.i.i.i.i.i, %_ZN5clangltERKNS_14ThisAdjustmentES2_.exit.i.i.i.i.i, %59
-  %80 = getelementptr inbounds %"struct.clang::ThunkInfo", ptr %0, i64 %.0133.i
+  %80 = getelementptr inbounds nuw %"struct.clang::ThunkInfo", ptr %0, i64 %.0133.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %80, ptr noundef nonnull align 8 dereferenceable(56) %60, i64 56, i1 false)
   %81 = icmp sgt i64 %.04.i, %1
   br i1 %81, label %59, label %"_ZSt11__push_heapIPN5clang9ThunkInfoElS1_N9__gnu_cxx5__ops14_Iter_comp_valIZN12_GLOBAL__N_120ItaniumVTableBuilder10dumpLayoutERN4llvm11raw_ostreamEE3$_0EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !443
@@ -31922,7 +31922,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt17reference_wrapperIN5cl
 .split16.i.i.i:                                   ; preds = %.split.i.i.i, %.split16.i.i.i
   %.01.i.i.i = phi i64 [ %16, %.split16.i.i.i ], [ %14, %.split.i.i.i ]
   %16 = add nsw i64 %.01.i.i.i, -1
-  %17 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %16
   %.sroa.02.0.copyload17.i.i.i = load ptr, ptr %17, align 8
   tail call fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_T2_"(ptr noundef nonnull %0, i64 noundef %16, i64 noundef %12, ptr %.sroa.02.0.copyload17.i.i.i)
   %18 = icmp eq i64 %16, 0
@@ -32298,9 +32298,9 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
   %.038 = phi i64 [ %33, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread32" ], [ %1, %4 ]
   %8 = shl i64 %.038, 1
   %9 = add i64 %8, 2
-  %10 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %9
   %11 = or disjoint i64 %8, 1
-  %12 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %11
   %.val = load ptr, ptr %10, align 8
   %.val29 = load ptr, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -32347,8 +32347,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 
 "_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread32": ; preds = %27, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit", %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread"
   %33 = phi i64 [ %11, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit.thread" ], [ %9, %"_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESH_EEbT_T0_.exit" ], [ %9, %27 ]
-  %34 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %.038
+  %34 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %33
+  %35 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %.038
   %36 = load i64, ptr %34, align 8
   store i64 %36, ptr %35, align 8
   %37 = icmp slt i64 %33, %6
@@ -32369,8 +32369,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
 44:                                               ; preds = %40
   %45 = shl nsw i64 %.0.lcssa, 1
   %46 = or disjoint i64 %45, 1
-  %47 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %46
-  %48 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %.0.lcssa
+  %47 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %46
+  %48 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %.0.lcssa
   %49 = load i64, ptr %47, align 8
   store i64 %49, ptr %48, align 8
   br label %50
@@ -32428,7 +32428,7 @@ define internal fastcc void @"_ZSt13__adjust_heapIPSt17reference_wrapperIN5clang
   br i1 %.not.i, label %"_ZSt11__push_heapIPSt17reference_wrapperIN5clang8VPtrInfoEElS3_N9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIS2_St14default_deleteIS2_EELj2EEEE3$_0EEEvT_T0_SJ_T1_RT2_.exit", label %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.thread.i"
 
 "_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.thread.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZL13rebucketPathsRN4llvm11SmallVectorISt10unique_ptrIN5clang8VPtrInfoESt14default_deleteIS6_EELj2EEEE3$_0EclIPSt17reference_wrapperIS6_ESG_EEbT_RT0_.exit.i"
-  %73 = getelementptr inbounds %"class.std::reference_wrapper", ptr %0, i64 %.0139.i
+  %73 = getelementptr inbounds nuw %"class.std::reference_wrapper", ptr %0, i64 %.0139.i
   %74 = load i64, ptr %54, align 8
   store i64 %74, ptr %73, align 8
   %75 = icmp sgt i64 %.010.i, %1
@@ -40903,7 +40903,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
   %27 = and i64 %19, 64
   %28 = icmp eq i64 %27, 0
   %29 = or disjoint i64 %23, 1
-  %30 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %29
   %31 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %24
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -40911,7 +40911,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
 
 34:                                               ; preds = %"_ZSt13__adjust_heapIPSt4pairImN5clang9ThunkInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i", %21
   %.0.i.i.i = phi i64 [ %24, %21 ], [ %64, %"_ZSt13__adjust_heapIPSt4pairImN5clang9ThunkInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i" ]
-  %35 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %.0.i.i.i
+  %35 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %.0.i.i.i
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %35, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %35, i64 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %.sroa.4.i.i.i)
@@ -40923,15 +40923,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %34 ]
   %37 = shl i64 %.030.i.i.i.i, 1
   %38 = add i64 %37, 2
-  %39 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %38
   %40 = or disjoint i64 %37, 1
-  %41 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %40
+  %41 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %40
   %.val.i.i.i.i = load i64, ptr %39, align 8
   %.val28.i.i.i.i = load i64, ptr %41, align 8
   %42 = icmp ult i64 %.val.i.i.i.i, %.val28.i.i.i.i
   %spec.select.i.i.i.i = select i1 %42, i64 %40, i64 %38
-  %43 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %spec.select.i.i.i.i
-  %44 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %.030.i.i.i.i
+  %43 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %spec.select.i.i.i.i
+  %44 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %.030.i.i.i.i
   %45 = load i64, ptr %43, align 8
   store i64 %45, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -40967,7 +40967,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
   br i1 %55, label %56, label %"_ZSt13__adjust_heapIPSt4pairImN5clang9ThunkInfoEElS3_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS1_12VTableLayoutC1EN4llvm8ArrayRefImEENSA_INS1_15VTableComponentEEENSA_IS3_EERKNS9_8DenseMapINS1_13BaseSubobjectENS8_20AddressPointLocationENS9_12DenseMapInfoISG_vEENS9_6detail12DenseMapPairISG_SH_EEEEE3$_0EEEvT_T0_ST_T1_T2_.exit.i.i.i"
 
 56:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %57 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %.0133.i.i.i.i.i
+  %57 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %.0133.i.i.i.i.i
   store i64 %.val.i.i.i.i.i, ptr %57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -41008,15 +41008,15 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
   %.030.i.i.i21.i = phi i64 [ %spec.select.i.i.i24.i, %.lr.ph.i.i.i20.i ], [ 0, %.lr.ph.i6.i ]
   %73 = shl i64 %.030.i.i.i21.i, 1
   %74 = add i64 %73, 2
-  %75 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %74
   %76 = or disjoint i64 %73, 1
-  %77 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %76
+  %77 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %76
   %.val.i.i.i22.i = load i64, ptr %75, align 8
   %.val28.i.i.i23.i = load i64, ptr %77, align 8
   %78 = icmp ult i64 %.val.i.i.i22.i, %.val28.i.i.i23.i
   %spec.select.i.i.i24.i = select i1 %78, i64 %76, i64 %74
-  %79 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %spec.select.i.i.i24.i
-  %80 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %.030.i.i.i21.i
+  %79 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %spec.select.i.i.i24.i
+  %80 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %.030.i.i.i21.i
   %81 = load i64, ptr %79, align 8
   store i64 %81, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -41040,8 +41040,8 @@ define internal fastcc void @"_ZSt16__introsort_loopIPSt4pairImN5clang9ThunkInfo
 91:                                               ; preds = %87
   %92 = shl nsw i64 %.0.lcssa.i.i.i10.i, 1
   %93 = or disjoint i64 %92, 1
-  %94 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %93
-  %95 = getelementptr inbounds %"struct.std::pair.702", ptr %0, i64 %.0.lcssa.i.i.i10.i
+  %94 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %93
+  %95 = getelementptr inbounds nuw %"struct.std::pair.702", ptr %0, i64 %.0.lcssa.i.i.i10.i
   %96 = load i64, ptr %94, align 8
   store i64 %96, ptr %95, align 8
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8

@@ -3328,7 +3328,7 @@ BrotliGet16BitsUnmasked.exit1280.i:               ; preds = %if.then13.i.i1258.i
   %add.ptr.i87.i = getelementptr inbounds nuw %struct.HuffmanCode, ptr %431, i64 %and.i86.i
   %add.ptr2.i.i = getelementptr inbounds nuw %struct.HuffmanCode, ptr %add.ptr.i87.i, i64 %value.i.5.i
   %sub.i88.i = add nsw i64 %bits.i.5.i, -8
-  %arrayidx.i.i90.i = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %sub.i88.i
+  %arrayidx.i.i90.i = getelementptr inbounds nuw [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %sub.i88.i
   %436 = load i64, ptr %arrayidx.i.i90.i, align 8
   %sub.i18.i.i = add i64 %434, -8
   store i64 %sub.i18.i.i, ptr %bit_pos_.i693, align 8
@@ -8625,7 +8625,7 @@ if.end18.i:                                       ; preds = %if.end.if.end18_cri
   %37 = phi i64 [ %.pre70.i, %if.end.if.end18_crit_edge.i ], [ %34, %BrotliSafeGetBits.exit.i ]
   %38 = phi i64 [ %sub.i65.i, %if.end.if.end18_crit_edge.i ], [ %.lcssa.i116, %BrotliSafeGetBits.exit.i ]
   %ix.2.i = phi i64 [ %ix.3.i, %if.end.if.end18_crit_edge.i ], [ %and.i.i117, %BrotliSafeGetBits.exit.i ]
-  %arrayidx19.i = getelementptr inbounds [16 x i8], ptr @kCodeLengthPrefixValue, i64 0, i64 %ix.2.i
+  %arrayidx19.i = getelementptr inbounds nuw [16 x i8], ptr @kCodeLengthPrefixValue, i64 0, i64 %ix.2.i
   %39 = load i8, ptr %arrayidx19.i, align 1
   %sub.i.i118 = sub i64 %38, %conv22.pre-phi.i
   store i64 %sub.i.i118, ptr %bit_pos_.i, align 8
@@ -9011,7 +9011,7 @@ ProcessSingleCodeLength.exit.i208:                ; preds = %if.then.i73.i, %if.
 if.else.i167:                                     ; preds = %if.end16.i
   %sub.i168 = add nsw i64 %conv17.i, -14
   %shr.i169 = lshr i64 %bits.0.i, %conv12.i
-  %arrayidx.i.i171 = getelementptr inbounds [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %sub.i168
+  %arrayidx.i.i171 = getelementptr inbounds nuw [33 x i64], ptr @kBrotliBitMask, i64 0, i64 %sub.i168
   %86 = load i64, ptr %arrayidx.i.i171, align 8
   %and30.i = and i64 %86, %shr.i169
   %add.i174 = add nuw nsw i64 %sub.i168, %conv12.i

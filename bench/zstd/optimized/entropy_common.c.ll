@@ -710,7 +710,7 @@ if.end76.i.i:                                     ; preds = %if.end70.i.i
 if.end86.i.i:                                     ; preds = %if.end76.i.i
   %add82.i.i = sub nuw nsw i32 32, %12
   %conv87.i.i = trunc nuw nsw i32 %add82.i.i to i8
-  %arrayidx88.i.i = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.i.0.i
+  %arrayidx88.i.i = getelementptr inbounds nuw i8, ptr %huffWeight, i64 %oSize.i.0.i
   store i8 %conv87.i.i, ptr %arrayidx88.i.i, align 1
   %idxprom89.i.i = zext nneg i32 %add82.i.i to i64
   %arrayidx90.i.i = getelementptr inbounds nuw i32, ptr %rankStats, i64 %idxprom89.i.i
@@ -858,7 +858,7 @@ if.end76.i:                                       ; preds = %if.end70.i
 if.end86.i:                                       ; preds = %if.end76.i
   %add82.i = sub nuw nsw i32 32, %12
   %conv87.i = trunc nuw nsw i32 %add82.i to i8
-  %arrayidx88.i = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.i.0
+  %arrayidx88.i = getelementptr inbounds nuw i8, ptr %huffWeight, i64 %oSize.i.0
   store i8 %conv87.i, ptr %arrayidx88.i, align 1
   %idxprom89.i = zext nneg i32 %add82.i to i64
   %arrayidx90.i = getelementptr inbounds nuw i32, ptr %rankStats, i64 %idxprom89.i

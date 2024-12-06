@@ -7603,7 +7603,7 @@ define ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr nocapture no
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._zval_struct, ptr %14, i64 %1, i32 1
+  %15 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %1, i32 1
   %16 = load i8, ptr %15, align 8
   %.not195 = icmp eq i8 %16, 0
   br i1 %.not195, label %88, label %.loopexit
@@ -8051,7 +8051,7 @@ define ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr nocaptur
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._zval_struct, ptr %14, i64 %1, i32 1
+  %15 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %1, i32 1
   %16 = load i8, ptr %15, align 8
   %.not192 = icmp eq i8 %16, 0
   br i1 %.not192, label %88, label %197
@@ -8403,7 +8403,7 @@ define ptr @zend_hash_next_index_insert(ptr noundef %0, ptr nocapture noundef re
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %struct._zval_struct, ptr %16, i64 %spec.store.select, i32 1
+  %17 = getelementptr inbounds nuw %struct._zval_struct, ptr %16, i64 %spec.store.select, i32 1
   %18 = load i8, ptr %17, align 8
   %.not194 = icmp eq i8 %18, 0
   br i1 %.not194, label %89, label %.loopexit
@@ -9103,7 +9103,7 @@ define ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr nocapture
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds %struct._zval_struct, ptr %14, i64 %1
+  %15 = getelementptr inbounds nuw %struct._zval_struct, ptr %14, i64 %1
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i8, ptr %16, align 8
   %.not195 = icmp eq i8 %17, 0
@@ -9502,7 +9502,7 @@ define ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._zval_struct, ptr %13, i64 %1
+  %14 = getelementptr inbounds nuw %struct._zval_struct, ptr %13, i64 %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %.not194 = icmp eq i8 %16, 0
@@ -11547,7 +11547,7 @@ define range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1)
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct._zval_struct, ptr %15, i64 %1
+  %16 = getelementptr inbounds nuw %struct._zval_struct, ptr %15, i64 %1
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i8, ptr %17, align 8
   %.not135 = icmp eq i8 %18, 0
@@ -16688,7 +16688,7 @@ define ptr @zend_hash_index_find(ptr nocapture noundef readonly %0, i64 noundef 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr inbounds %struct._zval_struct, ptr %13, i64 %1
+  %14 = getelementptr inbounds nuw %struct._zval_struct, ptr %13, i64 %1
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i8, ptr %15, align 8
   %.not33 = icmp eq i8 %16, 0
@@ -18100,7 +18100,7 @@ zend_hash_index_find.exit.us:                     ; preds = %77, %73
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %24, align 8
-  %139 = getelementptr inbounds %struct._zval_struct, ptr %138, i64 %.0105222228
+  %139 = getelementptr inbounds nuw %struct._zval_struct, ptr %138, i64 %.0105222228
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i8, ptr %140, align 8
   %.not33.i = icmp eq i8 %141, 0

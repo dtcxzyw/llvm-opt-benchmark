@@ -842,7 +842,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..splice..Splice$
   %37 = load ptr, ptr %36, align 8, !noalias !239, !nonnull !4, !noundef !4
   %38 = ptrtoint ptr %37 to i64
   %39 = sub nuw i64 %33, %38
-  %40 = getelementptr inbounds i8, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 %39
   invoke void @"_ZN4core3ptr62drop_in_place$LT$$u5b$workspace..item..BreadcrumbText$u5d$$GT$17h4b9ea642114a51f5E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 %40, i64 noundef %35)
           to label %41 unwind label %29, !noalias !239
 
@@ -10763,7 +10763,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %32 = load ptr, ptr %31, align 8, !noalias !2884, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %28, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr62drop_in_place$LT$$u5b$workspace..item..BreadcrumbText$u5d$$GT$17h4b9ea642114a51f5E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24, !noalias !2884
 
@@ -13741,7 +13741,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   %32 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
   %33 = ptrtoint ptr %32 to i64
   %34 = sub nuw i64 %28, %33
-  %35 = getelementptr inbounds i8, ptr %32, i64 %34
+  %35 = getelementptr inbounds nuw i8, ptr %32, i64 %34
   invoke void @"_ZN4core3ptr62drop_in_place$LT$$u5b$workspace..item..BreadcrumbText$u5d$$GT$17h4b9ea642114a51f5E.llvm.13949071745391659084"(ptr noalias noundef nonnull align 8 %35, i64 noundef %30)
           to label %36 unwind label %24
 

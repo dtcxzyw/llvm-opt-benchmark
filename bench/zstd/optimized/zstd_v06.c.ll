@@ -1716,7 +1716,7 @@ if.then2:                                         ; preds = %if.end
 
 if.then5:                                         ; preds = %if.then2
   %sub = add nsw i64 %conv, -242
-  %arrayidx6 = getelementptr inbounds [14 x i32], ptr @HUFv06_readStats.l, i64 0, i64 %sub
+  %arrayidx6 = getelementptr inbounds nuw [14 x i32], ptr @HUFv06_readStats.l, i64 0, i64 %sub
   %1 = load i32, ptr %arrayidx6, align 4
   %conv7 = zext i32 %1 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %huffWeight, i8 1, i64 256, i1 false)
@@ -1865,7 +1865,7 @@ if.end84:                                         ; preds = %if.end78
 if.end94:                                         ; preds = %if.end84
   %add90 = sub nuw nsw i32 32, %15
   %conv95 = trunc nuw nsw i32 %add90 to i8
-  %arrayidx96 = getelementptr inbounds i8, ptr %huffWeight, i64 %oSize.0
+  %arrayidx96 = getelementptr inbounds nuw i8, ptr %huffWeight, i64 %oSize.0
   store i8 %conv95, ptr %arrayidx96, align 1
   %idxprom97 = zext nneg i32 %add90 to i64
   %arrayidx98 = getelementptr inbounds nuw i32, ptr %rankStats, i64 %idxprom97
@@ -7681,7 +7681,7 @@ if.end39:                                         ; preds = %sw.epilog
 if.end43:                                         ; preds = %if.end39
   %10 = getelementptr inbounds nuw i8, ptr %ip.081, i64 3
   %add.ptr44 = getelementptr inbounds i8, ptr %op.079, i64 %decodedSize.0
-  %add.ptr45 = getelementptr inbounds i8, ptr %10, i64 %retval.0.i.ph63
+  %add.ptr45 = getelementptr inbounds nuw i8, ptr %10, i64 %retval.0.i.ph63
   %sub46 = sub i64 %sub196569, %retval.0.i.ph63
   %sub.ptr.rhs.cast = ptrtoint ptr %add.ptr45 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast

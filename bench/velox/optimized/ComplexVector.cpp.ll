@@ -20082,7 +20082,7 @@ if.then:                                          ; preds = %while.body
 if.end8.split.i.i.i:                              ; preds = %if.then, %if.end8.split.i.i.i
   %__parent.015.i.i.i = phi i64 [ %dec.i.i.i, %if.end8.split.i.i.i ], [ %div13.i.i.i, %if.then ]
   %dec.i.i.i = add nsw i64 %__parent.015.i.i.i, -1
-  %add.ptr11.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %dec.i.i.i
+  %add.ptr11.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %dec.i.i.i
   %1 = load i32, ptr %add.ptr11.i.i.i, align 4
   tail call fastcc void @"_ZSt13__adjust_heapIPiliN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_T2_"(ptr noundef nonnull %__first, i64 noundef %dec.i.i.i, i64 noundef %sub.ptr.div.i.i.i, i32 noundef %1, ptr readonly %__comp.coerce)
   %cmp6.i.i.i = icmp eq i64 %dec.i.i.i, 0
@@ -20455,7 +20455,7 @@ if.end.i.i.i.i.i:                                 ; preds = %land.rhs.i
 
 while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS4_EbE3$_1EclIPiiEEbT_RT0_.exit.i"
   %10 = load i32, ptr %add.ptr.i, align 4
-  %add.ptr2.i = getelementptr inbounds i32, ptr %__first, i64 %__holeIndex.addr.06.i
+  %add.ptr2.i = getelementptr inbounds nuw i32, ptr %__first, i64 %__holeIndex.addr.06.i
   store i32 %10, ptr %add.ptr2.i, align 4
   %cmp.i = icmp sgt i64 %__parent.07.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %"_ZSt11__push_heapIPiliN9__gnu_cxx5__ops14_Iter_comp_valIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_T0_SE_T1_RT2_.exit", !llvm.loop !155
