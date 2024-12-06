@@ -7572,36 +7572,32 @@ define dso_local ptr @skb_pull_data(ptr nocapture noundef %0, i64 noundef %1) #0
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
   %6 = icmp ugt i64 %1, %5
-  br i1 %6, label %20, label %7
+  br i1 %6, label %18, label %7
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load ptr, ptr %8, align 8
   %10 = trunc nuw i64 %1 to i32
-  %11 = icmp ult i32 %4, %10
-  br i1 %11, label %20, label %12, !prof !6
+  %11 = sub nuw i32 %4, %10
+  store i32 %11, ptr %3, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %13 = load i32, ptr %12, align 4
+  %14 = icmp ult i32 %11, %13
+  br i1 %14, label %15, label %16, !prof !6
 
-12:                                               ; preds = %7
-  %13 = sub nuw i32 %4, %10
-  store i32 %13, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %15 = load i32, ptr %14, align 4
-  %16 = icmp ult i32 %13, %15
-  br i1 %16, label %17, label %18, !prof !6
-
-17:                                               ; preds = %12
+15:                                               ; preds = %7
   tail call void asm sideeffect "414: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 414b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 414) #23, !srcloc !149
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.110, i32 2660, i32 0, i64 12) #23, !srcloc !150
   unreachable
 
-18:                                               ; preds = %12
-  %19 = getelementptr i8, ptr %9, i64 %1
-  store ptr %19, ptr %8, align 8
-  br label %20
+16:                                               ; preds = %7
+  %17 = getelementptr i8, ptr %9, i64 %1
+  store ptr %17, ptr %8, align 8
+  br label %18
 
-20:                                               ; preds = %18, %7, %2
-  %21 = phi ptr [ null, %2 ], [ %9, %7 ], [ %9, %18 ]
-  ret ptr %21
+18:                                               ; preds = %16, %2
+  %19 = phi ptr [ null, %2 ], [ %9, %16 ]
+  ret ptr %19
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

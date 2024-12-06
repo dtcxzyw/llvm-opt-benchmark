@@ -112,8 +112,6 @@ $_ZZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKczE3buf = comdat an
 @_ZTIN8rawspeed11IOExceptionE = external constant ptr
 @_ZTVN8rawspeed11IOExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
 @_ZTVN8rawspeed17RawspeedExceptionE = external unnamed_addr constant { [6 x ptr] }, align 8
-@.str.14 = private unnamed_addr constant [58 x i8] c"%s, line 80: Buffer overflow: image file may be truncated\00", align 1
-@__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj = private unnamed_addr constant [64 x i8] c"Buffer rawspeed::Buffer::getSubView(size_type, size_type) const\00", align 1
 @_ZTVN8rawspeed11TiffRootIFDE = external unnamed_addr constant { [5 x ptr] }, align 8
 @__libc_single_threaded = external local_unnamed_addr global i8, align 1
 @_ZTVN8rawspeed7TiffIFDE = external unnamed_addr constant { [5 x ptr] }, align 8
@@ -362,28 +360,17 @@ define hidden { ptr, i32 } @_ZNK8rawspeed10KdcDecoder14getInputBufferEv(ptr noun
   unreachable
 
 82:                                               ; preds = %71
-  %83 = zext i32 %79 to i64
-  %84 = sub nuw i32 %79, %77
-  %85 = zext i32 %84 to i64
-  %86 = add nuw nsw i64 %76, %85
-  %87 = icmp samesign ugt i64 %86, %83
-  br i1 %87, label %88, label %89
-
-88:                                               ; preds = %82
-  tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_11IOExceptionEEEvPKcz(ptr noundef nonnull @.str.14, ptr noundef nonnull @__PRETTY_FUNCTION__._ZNK8rawspeed6Buffer10getSubViewEjj) #18
-  unreachable
-
-89:                                               ; preds = %82
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %91 = load ptr, ptr %90, align 8, !tbaa !32, !nonnull !33, !noundef !33
-  %92 = icmp sgt i32 %79, -1
-  tail call void @llvm.assume(i1 %92)
-  %93 = icmp sgt i32 %77, -1
-  tail call void @llvm.assume(i1 %93)
-  %94 = getelementptr inbounds nuw i8, ptr %91, i64 %76
-  %95 = insertvalue { ptr, i32 } poison, ptr %94, 0
-  %96 = insertvalue { ptr, i32 } %95, i32 %84, 1
-  ret { ptr, i32 } %96
+  %83 = sub nuw nsw i32 %79, %77
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %85 = load ptr, ptr %84, align 8, !tbaa !32, !nonnull !33, !noundef !33
+  %86 = icmp sgt i32 %79, -1
+  tail call void @llvm.assume(i1 %86)
+  %87 = icmp sgt i32 %77, -1
+  tail call void @llvm.assume(i1 %87)
+  %88 = getelementptr inbounds nuw i8, ptr %85, i64 %76
+  %89 = insertvalue { ptr, i32 } poison, ptr %88, 0
+  %90 = insertvalue { ptr, i32 } %89, i32 %83, 1
+  ret { ptr, i32 } %90
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)

@@ -1986,8 +1986,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %4
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.057.i = phi i32 [ %4, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -2017,9 +2016,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.
   %8 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.end.i.i
-  %begin.058.i = phi i32 [ %4, %while.end.i.i ], [ %begin.057.i, %land.rhs3.preheader.i.i ], [ %begin.057.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body9.i.i ], [ %url_len, %while.body.i.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body9.i.i ], [ %url_len, %while.body.i.i ]
+_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body9.i.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i
+  %begin.058.i = phi i32 [ %begin.057.i, %land.rhs3.preheader.i.i ], [ %begin.057.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body9.i.i ], [ %url_len, %while.body.i.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body9.i.i ], [ %url_len, %while.body.i.i ]
   %cmp13.i.i = icmp sgt i32 %spec_len.addr.1.i, 0
   br i1 %cmp13.i.i, label %land.rhs.preheader.i8.i, label %while.end.i6.i
 
@@ -2259,8 +2258,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %4
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.057.i = phi i32 [ %4, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -2290,9 +2288,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i: ; preds = %land.
   %8 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i, %while.end.i.i
-  %begin.058.i = phi i32 [ %4, %while.end.i.i ], [ %begin.057.i, %land.rhs3.preheader.i.i ], [ %begin.057.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body8.i.i ], [ %url_len, %while.body.i.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body8.i.i ], [ %url_len, %while.body.i.i ]
+_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %while.body.i.i, %while.body8.i.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i, %land.rhs3.preheader.i.i
+  %begin.058.i = phi i32 [ %begin.057.i, %land.rhs3.preheader.i.i ], [ %begin.057.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body8.i.i ], [ %url_len, %while.body.i.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.split.loop.exit.i ], [ %begin.057.i, %while.body8.i.i ], [ %url_len, %while.body.i.i ]
   %cmp13.i.i = icmp sgt i32 %spec_len.addr.1.i, 0
   br i1 %cmp13.i.i, label %land.rhs.preheader.i8.i, label %while.end.i6.i
 
@@ -3178,8 +3176,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %5 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %5
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.0153.i = phi i32 [ %5, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -3209,9 +3206,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
-  %begin.0124.i = phi i32 [ %5, %while.end.i.i ], [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %begin.0153.i, %land.rhs3.preheader.i.i ], [ %begin.0153.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
+  %begin.0124.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %begin.0153.i, %land.rhs3.preheader.i.i ], [ %begin.0153.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %cmp.i = icmp eq i32 %begin.0124.i, %spec_len.addr.1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -3597,8 +3594,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %5 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %5
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.0153.i = phi i32 [ %5, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -3628,9 +3624,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   %9 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
-  %begin.0124.i = phi i32 [ %5, %while.end.i.i ], [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %begin.0153.i, %land.rhs3.preheader.i.i ], [ %begin.0153.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i
+  %begin.0124.i = phi i32 [ 0, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %begin.0153.i, %land.rhs3.preheader.i.i ], [ %begin.0153.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %_ZN3url6Parsed18clear_inner_parsedEv.exit.i ], [ %url_len, %land.rhs3.preheader.i.i ], [ %9, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %cmp.i = icmp eq i32 %begin.0124.i, %spec_len.addr.1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -3996,8 +3992,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %4
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.084.i = phi i32 [ %4, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -4027,9 +4022,9 @@ _ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   %8 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
-  %begin.057.i = phi i32 [ %4, %while.end.i.i ], [ 0, %entry ], [ %begin.084.i, %land.rhs3.preheader.i.i ], [ %begin.084.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %entry ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %entry
+  %begin.057.i = phi i32 [ 0, %entry ], [ %begin.084.i, %land.rhs3.preheader.i.i ], [ %begin.084.i, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %entry ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLIcEEvPKT_PiS4_b.exit.loopexit.i ]
   %cmp.i = icmp eq i32 %begin.057.i, %spec_len.addr.1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 
@@ -4229,8 +4224,7 @@ while.body.i.i:                                   ; preds = %land.rhs.i.i, %whil
 
 while.end.i.i:                                    ; preds = %land.rhs.i.i
   %4 = trunc nsw i64 %indvars.iv.next.i.i to i32
-  %cmp211.i.i = icmp sgt i32 %url_len, %4
-  br i1 %cmp211.i.i, label %land.rhs3.preheader.i.i, label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
+  br label %land.rhs3.preheader.i.i
 
 land.rhs3.preheader.i.i:                          ; preds = %land.rhs.i.preheader.i, %while.end.i.i
   %begin.084.i = phi i32 [ %4, %while.end.i.i ], [ 0, %land.rhs.i.preheader.i ]
@@ -4260,9 +4254,9 @@ _ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i:   ; preds = %land.rhs3.i.i
   %8 = trunc nsw i64 %indvars.iv.next14.i.i to i32
   br label %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i
 
-_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %while.end.i.i, %entry
-  %begin.057.i = phi i32 [ %4, %while.end.i.i ], [ 0, %entry ], [ %begin.084.i, %land.rhs3.preheader.i.i ], [ %begin.084.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
-  %spec_len.addr.1.i = phi i32 [ %url_len, %while.end.i.i ], [ %url_len, %entry ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.i:            ; preds = %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i, %land.rhs3.preheader.i.i, %entry
+  %begin.057.i = phi i32 [ 0, %entry ], [ %begin.084.i, %land.rhs3.preheader.i.i ], [ %begin.084.i, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
+  %spec_len.addr.1.i = phi i32 [ %url_len, %entry ], [ %url_len, %land.rhs3.preheader.i.i ], [ %8, %_ZN3url7TrimURLItEEvPKT_PiS4_b.exit.loopexit.i ]
   %cmp.i = icmp eq i32 %begin.057.i, %spec_len.addr.1.i
   br i1 %cmp.i, label %if.then.i, label %if.end.i
 

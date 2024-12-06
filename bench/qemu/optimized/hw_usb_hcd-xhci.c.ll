@@ -8795,15 +8795,6 @@ if.else10:                                        ; preds = %if.end
   br i1 %or.cond13, label %if.end33, label %if.else29
 
 if.else29:                                        ; preds = %if.else10
-  %conv30 = trunc nuw i64 %shr to i32
-  %cmp1.not.i = icmp ult i32 %281, %conv30
-  br i1 %cmp1.not.i, label %if.else.i21, label %if.end7.i
-
-if.else.i21:                                      ; preds = %if.else29
-  tail call void @__assert_fail(ptr noundef nonnull @.str.186, ptr noundef nonnull @.str.16, i32 noundef 1848, ptr noundef nonnull @__PRETTY_FUNCTION__.xhci_kick_ep) #17
-  unreachable
-
-if.end7.i:                                        ; preds = %if.else29
   %slots.i = getelementptr inbounds nuw i8, ptr %ptr, i64 12496
   %sub.i = add nuw nsw i64 %shr, 4294967295
   %idxprom.i = and i64 %sub.i, 4294967295
@@ -8812,7 +8803,7 @@ if.end7.i:                                        ; preds = %if.else29
   %tobool.i = trunc i8 %283 to i1
   br i1 %tobool.i, label %if.end9.i, label %if.end33
 
-if.end9.i:                                        ; preds = %if.end7.i
+if.end9.i:                                        ; preds = %if.else29
   %eps.i = getelementptr inbounds nuw i8, ptr %arrayidx.i20, i64 24
   %sub14.i = add nsw i32 %conv11, -1
   %idxprom15.i = zext nneg i32 %sub14.i to i64
@@ -8831,7 +8822,7 @@ if.end24.i:                                       ; preds = %if.end21.i
   tail call fastcc void @xhci_kick_epctx(ptr noundef nonnull %284, i32 noundef %280)
   br label %if.end33
 
-if.end33:                                         ; preds = %if.end24.i, %if.end21.i, %if.end9.i, %if.end7.i, %if.else10, %xhci_process_commands.exit, %if.then3, %trace_usb_xhci_doorbell_write.exit
+if.end33:                                         ; preds = %if.end24.i, %if.end21.i, %if.end9.i, %if.else29, %if.else10, %xhci_process_commands.exit, %if.then3, %trace_usb_xhci_doorbell_write.exit
   ret void
 }
 
