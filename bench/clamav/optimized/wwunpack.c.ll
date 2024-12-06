@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nocapture noundef readonly %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
-  %8 = getelementptr i8, ptr %2, i64 673
+  %8 = getelementptr inbounds nuw i8, ptr %2, i64 673
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #5
   %9 = zext i16 %4 to i64
   %10 = getelementptr inbounds nuw %struct.cli_exe_section, ptr %3, i64 %9
@@ -28,11 +28,7 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %15 = ptrtoint ptr %0 to i64
   %16 = add i64 %13, %15
   %17 = icmp ult i32 %1, 2
-  br i1 %14, label %.split.us, label %.split.preheader
-
-.split.preheader:                                 ; preds = %7
-  %.not1232 = icmp ult ptr %8, %2
-  br label %.split
+  br i1 %14, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %7
   %18 = load i32, ptr %11, align 4
@@ -51,11 +47,12 @@ define range(i32 0, 27) i32 @wwunpack(ptr noundef %0, i32 noundef %1, ptr nounde
   %or.cond1339.us = and i1 %26, %or.cond1338.us
   br i1 %or.cond1339.us, label %.split1483, label %.loopexit1436.sink.split
 
-.split:                                           ; preds = %.split.preheader, %568
-  %.0985 = phi ptr [ %569, %568 ], [ %8, %.split.preheader ]
+.split:                                           ; preds = %7, %568
+  %.0985 = phi ptr [ %569, %568 ], [ %8, %7 ]
   %27 = load i32, ptr %11, align 4
   %28 = icmp ult i32 %27, 17
-  %or.cond = or i1 %28, %.not1232
+  %.not1232 = icmp ult ptr %.0985, %2
+  %or.cond = select i1 %28, i1 true, i1 %.not1232
   br i1 %or.cond, label %.loopexit1436.sink.split, label %29
 
 29:                                               ; preds = %.split

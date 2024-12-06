@@ -233,7 +233,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %
   %119 = uitofp nneg i32 %0 to double
   %120 = uitofp nneg i32 %0 to double
   %121 = add nuw i32 %0, 1
-  %wide.trip.count95 = zext i32 %121 to i64
+  %wide.trip.count92 = zext i32 %121 to i64
   br label %.lr.ph.preheader.i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -248,7 +248,7 @@ init_query_structure.exit:                        ; preds = %_max.exit.i, %52, %
   br i1 %exitcond.not, label %.lr.ph.preheader.i.lr.ph, label %.lr.ph
 
 .lr.ph.preheader.i:                               ; preds = %._crit_edge, %.lr.ph.preheader.i.lr.ph
-  %.079 = phi i32 [ 2, %.lr.ph.preheader.i.lr.ph ], [ %143, %._crit_edge ]
+  %.079 = phi i32 [ 2, %.lr.ph.preheader.i.lr.ph ], [ %.1, %._crit_edge ]
   %.03578 = phi i32 [ 1, %.lr.ph.preheader.i.lr.ph ], [ %167, %._crit_edge ]
   br label %.lr.ph.i
 
@@ -285,44 +285,40 @@ math_N.exit:                                      ; preds = %.lr.ph.i45, %128
   %133 = fdiv double %120, %.0.lcssa.i
   %134 = call double @llvm.ceil.f64(double %133)
   %135 = fptosi double %134 to i32
-  %136 = sext i32 %.079 to i64
-  br label %137
+  br label %136
 
-137:                                              ; preds = %144, %math_N.exit
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %144 ], [ %136, %math_N.exit ]
-  %.137.in = phi i32 [ %.137, %144 ], [ %135, %math_N.exit ]
+136:                                              ; preds = %142, %math_N.exit
+  %.137.in = phi i32 [ %135, %math_N.exit ], [ %.137, %142 ]
+  %.1 = phi i32 [ %.079, %math_N.exit ], [ %143, %142 ]
   br label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %137, %.lr.ph.i47
-  %.08.i48 = phi double [ %138, %.lr.ph.i47 ], [ %120, %137 ]
-  %.067.i49 = phi i32 [ %139, %.lr.ph.i47 ], [ 0, %137 ]
-  %138 = call double @log2(double noundef %.08.i48) #18
-  %139 = add nuw nsw i32 %.067.i49, 1
-  %exitcond.not.i50 = icmp eq i32 %139, %.03578
+.lr.ph.i47:                                       ; preds = %136, %.lr.ph.i47
+  %.08.i48 = phi double [ %137, %.lr.ph.i47 ], [ %120, %136 ]
+  %.067.i49 = phi i32 [ %138, %.lr.ph.i47 ], [ 0, %136 ]
+  %137 = call double @log2(double noundef %.08.i48) #18
+  %138 = add nuw nsw i32 %.067.i49, 1
+  %exitcond.not.i50 = icmp eq i32 %138, %.03578
   br i1 %exitcond.not.i50, label %math_N.exit51, label %.lr.ph.i47
 
 math_N.exit51:                                    ; preds = %.lr.ph.i47
-  %140 = fdiv double %120, %138
-  %141 = call double @llvm.ceil.f64(double %140)
-  %142 = fptosi double %141 to i32
-  %.not42.not = icmp slt i32 %.137.in, %142
-  br i1 %.not42.not, label %144, label %.lr.ph77.preheader
+  %139 = fdiv double %120, %137
+  %140 = call double @llvm.ceil.f64(double %139)
+  %141 = fptosi double %140 to i32
+  %.not42.not = icmp slt i32 %.137.in, %141
+  br i1 %.not42.not, label %142, label %.lr.ph77
 
-.lr.ph77.preheader:                               ; preds = %math_N.exit51
-  %143 = trunc nsw i64 %indvars.iv89 to i32
-  br label %.lr.ph77
-
-144:                                              ; preds = %math_N.exit51
+142:                                              ; preds = %math_N.exit51
   %.137 = add nsw i32 %.137.in, 1
-  %indvars.iv.next90 = add nsw i64 %indvars.iv89, 1
-  %145 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv89
+  %143 = add nsw i32 %.1, 1
+  %144 = sext i32 %.1 to i64
+  %145 = getelementptr inbounds i32, ptr %2, i64 %144
   %146 = load i32, ptr %145, align 4
   call fastcc void @add_segment(i32 noundef %146, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  br label %137
+  br label %136
 
-.lr.ph77:                                         ; preds = %.lr.ph77.preheader, %find_new_roots.exit
-  %indvars.iv92 = phi i64 [ 1, %.lr.ph77.preheader ], [ %indvars.iv.next93, %find_new_roots.exit ]
-  %147 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv92
+.lr.ph77:                                         ; preds = %math_N.exit51, %find_new_roots.exit
+  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %find_new_roots.exit ], [ 1, %math_N.exit51 ]
+  %147 = getelementptr inbounds nuw %struct.segment_t, ptr %1, i64 %indvars.iv89
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 32
   %149 = load i8, ptr %148, align 8
   %150 = trunc i8 %149 to i1
@@ -351,9 +347,9 @@ math_N.exit51:                                    ; preds = %.lr.ph.i47
   br label %find_new_roots.exit
 
 find_new_roots.exit:                              ; preds = %.lr.ph77, %151
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph77
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count92
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph77
 
 ._crit_edge:                                      ; preds = %find_new_roots.exit
   %167 = add nuw nsw i32 %.03578, 1
@@ -398,15 +394,15 @@ math_N.exit63:                                    ; preds = %.lr.ph.i59, %math_l
   br label %.lr.ph83
 
 .lr.ph83:                                         ; preds = %.lr.ph83.preheader, %.lr.ph83
-  %indvars.iv97 = phi i64 [ %177, %.lr.ph83.preheader ], [ %indvars.iv.next98, %.lr.ph83 ]
+  %indvars.iv94 = phi i64 [ %177, %.lr.ph83.preheader ], [ %indvars.iv.next95, %.lr.ph83 ]
   %.3.in81 = phi i32 [ %176, %.lr.ph83.preheader ], [ %.3, %.lr.ph83 ]
   %.3 = add i32 %.3.in81, 1
-  %indvars.iv.next98 = add nsw i64 %indvars.iv97, 1
-  %178 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv97
+  %indvars.iv.next95 = add nsw i64 %indvars.iv94, 1
+  %178 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv94
   %179 = load i32, ptr %178, align 4
   call fastcc void @add_segment(i32 noundef %179, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  %exitcond100.not = icmp eq i32 %.3, %0
-  br i1 %exitcond100.not, label %._crit_edge84, label %.lr.ph83
+  %exitcond97.not = icmp eq i32 %.3, %0
+  br i1 %exitcond97.not, label %._crit_edge84, label %.lr.ph83
 
 ._crit_edge84:                                    ; preds = %.lr.ph83, %math_N.exit63
   %180 = load ptr, ptr %6, align 8

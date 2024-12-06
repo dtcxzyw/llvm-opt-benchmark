@@ -307,54 +307,56 @@ _ZN3g2o8internal10readVectorIN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEEEbRSiRNS2_9D
   %35 = getelementptr double, ptr %27, i64 %indvars.iv.i3
   %.idx.i.i.i24.i = shl nuw nsw i64 %indvars.iv.i3, 4
   %invariant.gep.i = getelementptr i8, ptr %27, i64 %.idx.i.i.i24.i
-  br label %36
+  %36 = trunc nuw nsw i64 %indvars.iv.i3 to i32
+  br label %37
 
-36:                                               ; preds = %47, %.lr.ph.i
-  %indvars.iv28.i = phi i64 [ %indvars.iv.i3, %.lr.ph.i ], [ 1, %47 ]
-  %37 = load ptr, ptr %1, align 8
-  %38 = getelementptr i8, ptr %37, i64 -24
-  %39 = load i64, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %1, i64 %39
-  %41 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %40)
-  br i1 %41, label %42, label %.critedge2.i
+37:                                               ; preds = %49, %.lr.ph.i
+  %.025.i = phi i32 [ %36, %.lr.ph.i ], [ 1, %49 ]
+  %38 = zext nneg i32 %.025.i to i64
+  %39 = load ptr, ptr %1, align 8
+  %40 = getelementptr i8, ptr %39, i64 -24
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %1, i64 %41
+  %43 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %42)
+  br i1 %43, label %44, label %.critedge2.i
 
-42:                                               ; preds = %36
-  %.idx.i.i.i.i = shl nuw nsw i64 %indvars.iv28.i, 4
-  %43 = getelementptr i8, ptr %35, i64 %.idx.i.i.i.i
-  %44 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %43)
-  %.not.i = icmp eq i64 %indvars.iv.i3, %indvars.iv28.i
-  br i1 %.not.i, label %47, label %45
+44:                                               ; preds = %37
+  %.idx.i.i.i.i = shl nuw nsw i64 %38, 4
+  %45 = getelementptr i8, ptr %35, i64 %.idx.i.i.i.i
+  %46 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERd(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %45)
+  %.not.i = icmp eq i64 %indvars.iv.i3, %38
+  br i1 %.not.i, label %49, label %47
 
-45:                                               ; preds = %42
-  %46 = load double, ptr %43, align 8
-  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %indvars.iv28.i
-  store double %46, ptr %gep.i, align 8
-  br label %47
+47:                                               ; preds = %44
+  %48 = load double, ptr %45, align 8
+  %gep.i = getelementptr double, ptr %invariant.gep.i, i64 %38
+  store double %48, ptr %gep.i, align 8
+  br label %49
 
-47:                                               ; preds = %45, %42
-  %48 = icmp eq i64 %indvars.iv28.i, 0
-  br i1 %48, label %36, label %.critedge2.i, !llvm.loop !12
+49:                                               ; preds = %47, %44
+  %50 = icmp eq i32 %.025.i, 0
+  br i1 %50, label %37, label %.critedge2.i, !llvm.loop !12
 
-.critedge2.i:                                     ; preds = %47, %36
+.critedge2.i:                                     ; preds = %49, %37
   br i1 %29, label %28, label %.critedge.i4, !llvm.loop !13
 
 .critedge.i4:                                     ; preds = %.critedge2.i, %28
-  %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr i8, ptr %49, i64 -24
-  %51 = load i64, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %1, i64 %51
-  %53 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %52)
-  br i1 %53, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, label %54
+  %51 = load ptr, ptr %1, align 8
+  %52 = getelementptr i8, ptr %51, i64 -24
+  %53 = load i64, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %1, i64 %53
+  %55 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4goodEv(ptr noundef nonnull align 8 dereferenceable(264) %54)
+  br i1 %55, label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit, label %56
 
-54:                                               ; preds = %.critedge.i4
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr i8, ptr %55, i64 -24
-  %57 = load i64, ptr %56, align 8
-  %58 = getelementptr inbounds i8, ptr %1, i64 %57
-  %59 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %58)
+56:                                               ; preds = %.critedge.i4
+  %57 = load ptr, ptr %1, align 8
+  %58 = getelementptr i8, ptr %57, i64 -24
+  %59 = load i64, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %1, i64 %59
+  %61 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE3eofEv(ptr noundef nonnull align 8 dereferenceable(264) %60)
   br label %_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit
 
-_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %.critedge.i4, %54
+_ZN3g2o8BaseEdgeILi2EN5Eigen6MatrixIdLi2ELi1ELi0ELi2ELi1EEEE21readInformationMatrixERSi.exit: ; preds = %.critedge.i4, %56
   ret i1 true
 }
 

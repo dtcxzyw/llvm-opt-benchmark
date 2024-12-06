@@ -750,8 +750,8 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 37:                                               ; preds = %32, %16
   %.1.i = phi i32 [ %30, %16 ], [ %34, %32 ]
-  %.not11.i = icmp eq i32 %.0391.i, 0
-  br i1 %.not11.i, label %38, label %8, !llvm.loop !17
+  %.not6.i = icmp eq i32 %.0391.i, 0
+  br i1 %.not6.i, label %38, label %8, !llvm.loop !17
 
 38:                                               ; preds = %37
   %39 = icmp eq ptr %1, null
@@ -761,84 +761,79 @@ define void @png_chunk_warning(ptr noalias noundef %0, ptr noundef %1) local_unn
 
 42:                                               ; preds = %38
   store i8 0, ptr %41, align 1
-  br label %56
+  br label %55
 
 43:                                               ; preds = %38
   store i8 58, ptr %41, align 1
-  %44 = add i32 %.1.i, 2
+  %44 = add nsw i32 %.1.i, 2
   %45 = getelementptr i8, ptr %41, i64 1
   store i8 32, ptr %45, align 1
-  %46 = sext i32 %44 to i64
-  %47 = add i32 %.1.i, 197
-  br label %48
+  br label %46
 
-48:                                               ; preds = %51, %43
-  %indvars.iv5.i = phi i64 [ %46, %43 ], [ %indvars.iv.next6.i, %51 ]
-  %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %51 ]
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
-  %50 = load i8, ptr %49, align 1
-  %.not.i = icmp eq i8 %50, 0
-  br i1 %.not.i, label %.critedge.split.loop.exit12.i, label %51
+46:                                               ; preds = %49, %43
+  %indvars.iv.i = phi i64 [ 0, %43 ], [ %indvars.iv.next.i, %49 ]
+  %.23.i = phi i32 [ %44, %43 ], [ %50, %49 ]
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
+  %48 = load i8, ptr %47, align 1
+  %.not.i = icmp eq i8 %48, 0
+  br i1 %.not.i, label %.critedge.i, label %49
 
-51:                                               ; preds = %48
+49:                                               ; preds = %46
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %indvars.iv.next6.i = add nsw i64 %indvars.iv5.i, 1
-  %52 = getelementptr inbounds i8, ptr %3, i64 %indvars.iv5.i
-  store i8 %50, ptr %52, align 1
+  %50 = add nsw i32 %.23.i, 1
+  %51 = sext i32 %.23.i to i64
+  %52 = getelementptr inbounds i8, ptr %3, i64 %51
+  store i8 %48, ptr %52, align 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 195
-  br i1 %exitcond.not.i, label %.critedge.i, label %48, !llvm.loop !18
+  br i1 %exitcond.not.i, label %.critedge.i, label %46, !llvm.loop !18
 
-.critedge.split.loop.exit12.i:                    ; preds = %48
-  %53 = trunc nsw i64 %indvars.iv5.i to i32
-  br label %.critedge.i
+.critedge.i:                                      ; preds = %49, %46
+  %.2.lcssa.i = phi i32 [ %50, %49 ], [ %.23.i, %46 ]
+  %53 = sext i32 %.2.lcssa.i to i64
+  %54 = getelementptr inbounds i8, ptr %3, i64 %53
+  store i8 0, ptr %54, align 1
+  br label %55
 
-.critedge.i:                                      ; preds = %51, %.critedge.split.loop.exit12.i
-  %.2.lcssa.i = phi i32 [ %53, %.critedge.split.loop.exit12.i ], [ %47, %51 ]
-  %54 = sext i32 %.2.lcssa.i to i64
-  %55 = getelementptr inbounds i8, ptr %3, i64 %54
-  store i8 0, ptr %55, align 1
-  br label %56
-
-56:                                               ; preds = %.critedge.i, %42
+55:                                               ; preds = %.critedge.i, %42
   tail call void @llvm.experimental.noalias.scope.decl(metadata !19)
-  %57 = load i8, ptr %3, align 16, !noalias !19
-  %58 = icmp eq i8 %57, 35
-  br i1 %58, label %.preheader.i, label %.thread20.i
+  %56 = load i8, ptr %3, align 16, !noalias !19
+  %57 = icmp eq i8 %56, 35
+  br i1 %57, label %.preheader.i, label %.thread20.i
 
-.preheader.i:                                     ; preds = %56, %62
-  %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %62 ], [ 1, %56 ]
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i7
-  %60 = load i8, ptr %59, align 1, !noalias !19
-  %61 = icmp eq i8 %60, 32
-  br i1 %61, label %.thread20.loopexit.i, label %62
+.preheader.i:                                     ; preds = %55, %61
+  %indvars.iv.i7 = phi i64 [ %indvars.iv.next.i8, %61 ], [ 1, %55 ]
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 %indvars.iv.i7
+  %59 = load i8, ptr %58, align 1, !noalias !19
+  %60 = icmp eq i8 %59, 32
+  br i1 %60, label %.thread20.loopexit.i, label %61
 
-62:                                               ; preds = %.preheader.i
+61:                                               ; preds = %.preheader.i
   %indvars.iv.next.i8 = add nuw nsw i64 %indvars.iv.i7, 1
   %exitcond.not.i9 = icmp eq i64 %indvars.iv.next.i8, 15
   br i1 %exitcond.not.i9, label %.thread20.loopexit.i, label %.preheader.i, !llvm.loop !7
 
-.thread20.loopexit.i:                             ; preds = %62, %.preheader.i
-  %.022.ph.i = phi i64 [ 15, %62 ], [ %indvars.iv.i7, %.preheader.i ]
-  %63 = and i64 %.022.ph.i, 4294967295
+.thread20.loopexit.i:                             ; preds = %61, %.preheader.i
+  %.022.ph.i = phi i64 [ 15, %61 ], [ %indvars.iv.i7, %.preheader.i ]
+  %62 = and i64 %.022.ph.i, 4294967295
   br label %.thread20.i
 
-.thread20.i:                                      ; preds = %.thread20.loopexit.i, %56
-  %.022.i = phi i64 [ 0, %56 ], [ %63, %.thread20.loopexit.i ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %65 = load ptr, ptr %64, align 8, !alias.scope !19
-  %.not17.i = icmp eq ptr %65, null
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
-  br i1 %.not17.i, label %.split14.i, label %67
+.thread20.i:                                      ; preds = %.thread20.loopexit.i, %55
+  %.022.i = phi i64 [ 0, %55 ], [ %62, %.thread20.loopexit.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %64 = load ptr, ptr %63, align 8, !alias.scope !19
+  %.not17.i = icmp eq ptr %64, null
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 %.022.i
+  br i1 %.not17.i, label %.split14.i, label %66
 
 .split14.i:                                       ; preds = %.thread20.i
-  call fastcc void @png_default_warning(ptr noundef nonnull %66)
+  call fastcc void @png_default_warning(ptr noundef nonnull %65)
   br label %png_warning.exit
 
-67:                                               ; preds = %.thread20.i
-  call void %65(ptr noundef nonnull %0, ptr noundef nonnull %66) #20
+66:                                               ; preds = %.thread20.i
+  call void %64(ptr noundef nonnull %0, ptr noundef nonnull %65) #20
   br label %png_warning.exit
 
-png_warning.exit:                                 ; preds = %67, %.split14.i, %5
+png_warning.exit:                                 ; preds = %66, %.split14.i, %5
   ret void
 }
 
@@ -1019,8 +1014,8 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
 
 32:                                               ; preds = %27, %11
   %.1 = phi i32 [ %25, %11 ], [ %29, %27 ]
-  %.not11 = icmp eq i32 %.0391, 0
-  br i1 %.not11, label %33, label %3, !llvm.loop !17
+  %.not6 = icmp eq i32 %.0391, 0
+  br i1 %.not6, label %33, label %3, !llvm.loop !17
 
 33:                                               ; preds = %32
   %34 = icmp eq ptr %1, null
@@ -1030,45 +1025,40 @@ define internal fastcc void @png_format_buffer(i32 %.536.val, ptr nocapture noun
 
 37:                                               ; preds = %33
   store i8 0, ptr %36, align 1
-  br label %51
+  br label %50
 
 38:                                               ; preds = %33
   store i8 58, ptr %36, align 1
-  %39 = add i32 %.1, 2
+  %39 = add nsw i32 %.1, 2
   %40 = getelementptr i8, ptr %36, i64 1
   store i8 32, ptr %40, align 1
-  %41 = sext i32 %39 to i64
-  %42 = add i32 %.1, 197
-  br label %43
+  br label %41
 
-43:                                               ; preds = %38, %46
-  %indvars.iv5 = phi i64 [ %41, %38 ], [ %indvars.iv.next6, %46 ]
-  %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %46 ]
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
-  %45 = load i8, ptr %44, align 1
-  %.not = icmp eq i8 %45, 0
-  br i1 %.not, label %.critedge.split.loop.exit12, label %46
+41:                                               ; preds = %38, %44
+  %indvars.iv = phi i64 [ 0, %38 ], [ %indvars.iv.next, %44 ]
+  %.23 = phi i32 [ %39, %38 ], [ %45, %44 ]
+  %42 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
+  %43 = load i8, ptr %42, align 1
+  %.not = icmp eq i8 %43, 0
+  br i1 %.not, label %.critedge, label %44
 
-46:                                               ; preds = %43
+44:                                               ; preds = %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next6 = add nsw i64 %indvars.iv5, 1
-  %47 = getelementptr inbounds i8, ptr %0, i64 %indvars.iv5
-  store i8 %45, ptr %47, align 1
+  %45 = add nsw i32 %.23, 1
+  %46 = sext i32 %.23 to i64
+  %47 = getelementptr inbounds i8, ptr %0, i64 %46
+  store i8 %43, ptr %47, align 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 195
-  br i1 %exitcond.not, label %.critedge, label %43, !llvm.loop !18
+  br i1 %exitcond.not, label %.critedge, label %41, !llvm.loop !18
 
-.critedge.split.loop.exit12:                      ; preds = %43
-  %48 = trunc nsw i64 %indvars.iv5 to i32
-  br label %.critedge
+.critedge:                                        ; preds = %44, %41
+  %.2.lcssa = phi i32 [ %45, %44 ], [ %.23, %41 ]
+  %48 = sext i32 %.2.lcssa to i64
+  %49 = getelementptr inbounds i8, ptr %0, i64 %48
+  store i8 0, ptr %49, align 1
+  br label %50
 
-.critedge:                                        ; preds = %46, %.critedge.split.loop.exit12
-  %.2.lcssa = phi i32 [ %48, %.critedge.split.loop.exit12 ], [ %42, %46 ]
-  %49 = sext i32 %.2.lcssa to i64
-  %50 = getelementptr inbounds i8, ptr %0, i64 %49
-  store i8 0, ptr %50, align 1
-  br label %51
-
-51:                                               ; preds = %.critedge, %37
+50:                                               ; preds = %.critedge, %37
   ret void
 }
 

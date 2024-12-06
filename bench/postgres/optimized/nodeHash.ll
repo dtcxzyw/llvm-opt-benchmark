@@ -1009,35 +1009,36 @@ list_length.exit:                                 ; preds = %35, %88
 
 list_length.exit.split:                           ; preds = %list_length.exit, %131
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %list_length.exit ]
+  %indvars133 = trunc i64 %indvars.iv to i32
   br i1 %.not.i, label %114, label %107
 
 107:                                              ; preds = %list_length.exit.split
   %108 = load i32, ptr %103, align 4
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv, %109
-  br i1 %110, label %111, label %114
+  %109 = icmp sgt i32 %108, %indvars133
+  br i1 %109, label %110, label %114
 
-111:                                              ; preds = %107
-  %112 = load ptr, ptr %104, align 8
-  %113 = getelementptr %union.ListCell, ptr %112, i64 %indvars.iv
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %104, align 8
+  %112 = and i64 %indvars.iv, 4294967295
+  %113 = getelementptr %union.ListCell, ptr %111, i64 %112
   br label %114
 
-114:                                              ; preds = %list_length.exit.split, %107, %111
-  %115 = phi ptr [ %113, %111 ], [ null, %107 ], [ null, %list_length.exit.split ]
+114:                                              ; preds = %list_length.exit.split, %107, %110
+  %115 = phi ptr [ %113, %110 ], [ null, %107 ], [ null, %list_length.exit.split ]
   %116 = load i32, ptr %105, align 4
-  %117 = sext i32 %116 to i64
-  %118 = icmp slt i64 %indvars.iv, %117
-  br i1 %118, label %119, label %.thread
+  %117 = icmp sgt i32 %116, %indvars133
+  br i1 %117, label %118, label %.thread
 
-119:                                              ; preds = %114
-  %120 = load ptr, ptr %106, align 8
-  %121 = getelementptr %union.ListCell, ptr %120, i64 %indvars.iv
+118:                                              ; preds = %114
+  %119 = load ptr, ptr %106, align 8
+  %120 = and i64 %indvars.iv, 4294967295
+  %121 = getelementptr %union.ListCell, ptr %119, i64 %120
   %122 = icmp ne ptr %115, null
   %123 = icmp ne ptr %121, null
   %124 = select i1 %122, i1 %123, i1 false
   br i1 %124, label %125, label %.thread
 
-125:                                              ; preds = %119
+125:                                              ; preds = %118
   %126 = load i32, ptr %115, align 8
   %127 = call zeroext i1 @get_op_hash_functions(i32 noundef %126, ptr noundef nonnull %10, ptr noundef nonnull %11) #16
   br i1 %127, label %131, label %128
@@ -1070,7 +1071,7 @@ list_length.exit.split:                           ; preds = %list_length.exit, %
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %list_length.exit.split, !llvm.loop !13
 
-.thread:                                          ; preds = %119, %114, %list_length.exit
+.thread:                                          ; preds = %118, %114, %list_length.exit
   %145 = icmp sgt i32 %52, 1
   br i1 %145, label %146, label %156
 

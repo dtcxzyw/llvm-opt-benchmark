@@ -69654,7 +69654,7 @@ if.else56:                                        ; preds = %for.inc, %if.else.i
 
 for.inc66:                                        ; preds = %if.then24, %if.else56, %if.then52
   %numIndices.1 = phi i64 [ %numIndices.0573, %if.then24 ], [ %inc54, %if.then52 ], [ %inc62, %if.else56 ]
-  %numOps.1 = add nuw i64 %numOps.0572, 1
+  %numOps.1 = add i64 %numOps.0572, 1
   %k.0 = add nsw i64 %k.0574, 1
   %exitcond595.not = icmp eq i64 %numOps.1, %29
   br i1 %exitcond595.not, label %for.end68.loopexit, label %for.body20, !llvm.loop !669

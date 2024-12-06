@@ -325,45 +325,47 @@ define noundef zeroext i1 @_ZN5draco26SequentialAttributeDecoder12DecodeValuesER
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i64, ptr %14, align 8
+  %16 = trunc i64 %15 to i32
   %sext = shl i64 %15, 32
-  %16 = ashr exact i64 %sext, 32
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #15
-  %18 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %19 = icmp slt i32 %11, 1
-  br i1 %19, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %.lr.ph
+  %17 = ashr exact i64 %sext, 32
+  %18 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %17) #15
+  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %20 = icmp slt i32 %11, 1
+  br i1 %20, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br label %21
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  br label %22
 
-21:                                               ; preds = %.lr.ph, %25
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.01723 = phi i32 [ 0, %.lr.ph ], [ %33, %25 ]
-  %22 = load i64, ptr %18, align 8
-  %23 = load i64, ptr %20, align 8
-  %24 = add i64 %23, %16
-  %.not.not.not = icmp sge i64 %22, %24
-  br i1 %.not.not.not, label %25, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20
+22:                                               ; preds = %.lr.ph, %26
+  %.01624 = phi i32 [ 0, %.lr.ph ], [ %35, %26 ]
+  %.01723 = phi i32 [ 0, %.lr.ph ], [ %36, %26 ]
+  %23 = load i64, ptr %19, align 8
+  %24 = load i64, ptr %21, align 8
+  %25 = add i64 %24, %17
+  %.not.not.not = icmp sge i64 %23, %25
+  br i1 %.not.not.not, label %26, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %2, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 %23
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %27, i64 %16, i1 false)
-  store i64 %24, ptr %20, align 8
-  %28 = load ptr, ptr %12, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  %30 = load ptr, ptr %29, align 8
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr inbounds i8, ptr %27, i64 %24
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %18, ptr align 1 %28, i64 %17, i1 false)
+  store i64 %25, ptr %21, align 8
+  %29 = load ptr, ptr %12, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 %indvars.iv
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %32, ptr nonnull align 1 %17, i64 %16, i1 false)
-  %indvars.iv.next = add nsw i64 %indvars.iv, %16
-  %33 = add nuw nsw i32 %.01723, 1
-  %exitcond.not = icmp eq i32 %33, %11
-  br i1 %exitcond.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %21, !llvm.loop !7
+  %32 = sext i32 %.01624 to i64
+  %33 = load ptr, ptr %31, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %34, ptr nonnull align 1 %18, i64 %17, i1 false)
+  %35 = add nsw i32 %.01624, %16
+  %36 = add nuw nsw i32 %.01723, 1
+  %exitcond.not = icmp eq i32 %36, %11
+  br i1 %exitcond.not, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20, label %22, !llvm.loop !7
 
-_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20: ; preds = %25, %21, %3
-  %.lcssa = phi i1 [ true, %3 ], [ %.not.not.not, %21 ], [ %.not.not.not, %25 ]
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #16
+_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit20: ; preds = %26, %22, %3
+  %.lcssa = phi i1 [ true, %3 ], [ %.not.not.not, %22 ], [ %.not.not.not, %26 ]
+  tail call void @_ZdaPv(ptr noundef nonnull %18) #16
   ret i1 %.lcssa
 }
 

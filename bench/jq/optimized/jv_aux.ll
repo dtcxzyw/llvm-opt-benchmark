@@ -1809,7 +1809,7 @@ define { i64, ptr } @jv_keys_unsorted(i64 %0, ptr %1) local_unnamed_addr #0 {
 define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   %3 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #6
   %4 = icmp eq i32 %3, 7
-  br i1 %4, label %.preheader, label %29
+  br i1 %4, label %.preheader, label %31
 
 .preheader:                                       ; preds = %2
   %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #6
@@ -1834,76 +1834,77 @@ define { i64, ptr } @jv_keys(i64 %0, ptr %1) local_unnamed_addr #0 {
   br label %.lr.ph89
 
 .lr.ph82:                                         ; preds = %.preheader, %.lr.ph82
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph82 ], [ 0, %.preheader ]
-  %.15980 = phi i32 [ %22, %.lr.ph82 ], [ %11, %.preheader ]
+  %.181 = phi i32 [ %21, %.lr.ph82 ], [ 0, %.preheader ]
+  %.15980 = phi i32 [ %24, %.lr.ph82 ], [ %11, %.preheader ]
   %15 = tail call { i64, ptr } @jv_object_iter_key(i64 %0, ptr %1, i32 noundef %.15980) #6
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
   %18 = tail call { i64, ptr } @jv_object_iter_value(i64 %0, ptr %1, i32 noundef %.15980) #6
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %indvars.iv
-  store i64 %16, ptr %21, align 8
-  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %21 = add nuw nsw i32 %.181, 1
+  %22 = zext nneg i32 %.181 to i64
+  %23 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %22
+  store i64 %16, ptr %23, align 8
+  %.sroa.219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %17, ptr %.sroa.219.0..sroa_idx, align 8
   tail call void @jv_free(i64 %19, ptr %20) #6
-  %22 = tail call i32 @jv_object_iter_next(i64 %0, ptr %1, i32 noundef %.15980) #6
-  %23 = tail call i32 @jv_object_iter_valid(i64 %0, ptr %1, i32 noundef %22) #6
-  %.not66 = icmp eq i32 %23, 0
+  %24 = tail call i32 @jv_object_iter_next(i64 %0, ptr %1, i32 noundef %.15980) #6
+  %25 = tail call i32 @jv_object_iter_valid(i64 %0, ptr %1, i32 noundef %24) #6
+  %.not66 = icmp eq i32 %25, 0
   br i1 %.not66, label %.loopexit, label %.lr.ph82, !llvm.loop !19
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
-  %indvars.iv93 = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next94, %.lr.ph89 ]
-  %.pn6488 = phi { i64, ptr } [ %13, %.lr.ph89.preheader ], [ %28, %.lr.ph89 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
+  %.pn6488 = phi { i64, ptr } [ %13, %.lr.ph89.preheader ], [ %30, %.lr.ph89 ]
   %.sroa.8.0 = extractvalue { i64, ptr } %.pn6488, 1
   %.sroa.054.0 = extractvalue { i64, ptr } %.pn6488, 0
-  %24 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %indvars.iv93
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.054.0, ptr %.sroa.8.0, i64 %25, ptr %27) #6
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count
-  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !20
+  %26 = getelementptr inbounds nuw %struct.jv, ptr %10, i64 %indvars.iv
+  %27 = load i64, ptr %26, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.054.0, ptr %.sroa.8.0, i64 %27, ptr %29) #6
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond93.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond93.not, label %._crit_edge, label %.lr.ph89, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %.lr.ph89, %.loopexit
-  %.pn64.lcssa = phi { i64, ptr } [ %13, %.loopexit ], [ %28, %.lr.ph89 ]
+  %.pn64.lcssa = phi { i64, ptr } [ %13, %.loopexit ], [ %30, %.lr.ph89 ]
   tail call void @jv_mem_free(ptr noundef %10) #6
   tail call void @jv_free(i64 %0, ptr %1) #6
   br label %.loopexit76
 
-29:                                               ; preds = %2
-  %30 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #6
-  %31 = icmp eq i32 %30, 6
-  br i1 %31, label %32, label %42
+31:                                               ; preds = %2
+  %32 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #6
+  %33 = icmp eq i32 %32, 6
+  br i1 %33, label %34, label %44
 
-32:                                               ; preds = %29
-  %33 = tail call i32 @jv_array_length(i64 %0, ptr %1) #6
-  %34 = tail call { i64, ptr } @jv_array() #6
-  %35 = icmp sgt i32 %33, 0
-  br i1 %35, label %.lr.ph, label %.loopexit76
+34:                                               ; preds = %31
+  %35 = tail call i32 @jv_array_length(i64 %0, ptr %1) #6
+  %36 = tail call { i64, ptr } @jv_array() #6
+  %37 = icmp sgt i32 %35, 0
+  br i1 %37, label %.lr.ph, label %.loopexit76
 
-.lr.ph:                                           ; preds = %32, %.lr.ph
-  %.pn78 = phi { i64, ptr } [ %40, %.lr.ph ], [ %34, %32 ]
-  %.06077 = phi i32 [ %41, %.lr.ph ], [ 0, %32 ]
+.lr.ph:                                           ; preds = %34, %.lr.ph
+  %.pn78 = phi { i64, ptr } [ %42, %.lr.ph ], [ %36, %34 ]
+  %.06077 = phi i32 [ %43, %.lr.ph ], [ 0, %34 ]
   %.sroa.8.2 = extractvalue { i64, ptr } %.pn78, 1
   %.sroa.054.2 = extractvalue { i64, ptr } %.pn78, 0
-  %36 = uitofp nneg i32 %.06077 to double
-  %37 = tail call { i64, ptr } @jv_number(double noundef %36) #6
-  %38 = extractvalue { i64, ptr } %37, 0
-  %39 = extractvalue { i64, ptr } %37, 1
-  %40 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.054.2, ptr %.sroa.8.2, i32 noundef %.06077, i64 %38, ptr %39) #6
-  %41 = add nuw nsw i32 %.06077, 1
-  %exitcond.not = icmp eq i32 %41, %33
+  %38 = uitofp nneg i32 %.06077 to double
+  %39 = tail call { i64, ptr } @jv_number(double noundef %38) #6
+  %40 = extractvalue { i64, ptr } %39, 0
+  %41 = extractvalue { i64, ptr } %39, 1
+  %42 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.054.2, ptr %.sroa.8.2, i32 noundef %.06077, i64 %40, ptr %41) #6
+  %43 = add nuw nsw i32 %.06077, 1
+  %exitcond.not = icmp eq i32 %43, %35
   br i1 %exitcond.not, label %.loopexit76, label %.lr.ph, !llvm.loop !21
 
-42:                                               ; preds = %29
-  %43 = tail call { i64, ptr } @jv_invalid() #6
+44:                                               ; preds = %31
+  %45 = tail call { i64, ptr } @jv_invalid() #6
   br label %.loopexit76
 
-.loopexit76:                                      ; preds = %.lr.ph, %32, %42, %._crit_edge
-  %.fca.1.insert.merged = phi { i64, ptr } [ %.pn64.lcssa, %._crit_edge ], [ %43, %42 ], [ %34, %32 ], [ %40, %.lr.ph ]
+.loopexit76:                                      ; preds = %.lr.ph, %34, %44, %._crit_edge
+  %.fca.1.insert.merged = phi { i64, ptr } [ %.pn64.lcssa, %._crit_edge ], [ %45, %44 ], [ %36, %34 ], [ %42, %.lr.ph ]
   ret { i64, ptr } %.fca.1.insert.merged
 }
 

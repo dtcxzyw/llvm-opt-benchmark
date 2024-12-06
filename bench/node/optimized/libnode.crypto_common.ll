@@ -3060,7 +3060,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStac
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit ]
+  %j.0120 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit ]
   %n.0119 = phi i64 [ 0, %for.body.lr.ph ], [ %add, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit ]
   %3 = load ptr, ptr %ssl, align 8
   %4 = load ptr, ptr %buf, align 8
@@ -3248,8 +3248,9 @@ _ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_IN
   br i1 %tobool.i.i74, label %if.end, label %cleanup
 
 if.end:                                           ; preds = %if.end5.i.i80, %_ZN4node6crypto12_GLOBAL__N_13SetIN2v85ValueEEEbNS3_5LocalINS3_7ContextEEENS5_INS3_6ObjectEEENS5_IS4_EENS3_10MaybeLocalIT_EE.exit84
+  %conv = zext nneg i32 %j.0120 to i64
   %49 = load i64, ptr %ciphers, align 8
-  %cmp.not.i = icmp ugt i64 %49, %indvars.iv
+  %cmp.not.i = icmp ugt i64 %49, %conv
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end
@@ -3258,9 +3259,9 @@ do.body4.i:                                       ; preds = %if.end
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit: ; preds = %if.end
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %j.0120, 1
   %50 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local", ptr %50, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local", ptr %50, i64 %conv
   store ptr %call6, ptr %arrayidx.i, align 8
   %add = add i64 %n.0119, 2
   %cmp = icmp ult i64 %add, %call2

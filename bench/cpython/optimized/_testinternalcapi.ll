@@ -1705,13 +1705,15 @@ cond.false34:                                     ; preds = %cond.end28
   unreachable
 
 for.cond36:                                       ; preds = %cond.end55
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %exitcond47.not = icmp eq i64 %indvars.iv.next45, 123
-  br i1 %exitcond47.not, label %for.body73, label %for.body40, !llvm.loop !6
+  %inc67 = add nuw nsw i8 %key.140, 1
+  %conv37 = zext nneg i8 %inc67 to i64
+  %exitcond44.not = icmp eq i8 %inc67, 123
+  br i1 %exitcond44.not, label %for.body73, label %for.body40, !llvm.loop !6
 
 for.body40:                                       ; preds = %for.cond36.preheader, %for.cond36
-  %indvars.iv44 = phi i64 [ 97, %for.cond36.preheader ], [ %indvars.iv.next45, %for.cond36 ]
-  %6 = inttoptr i64 %indvars.iv44 to ptr
+  %conv3741 = phi i64 [ 97, %for.cond36.preheader ], [ %conv37, %for.cond36 ]
+  %key.140 = phi i8 [ 97, %for.cond36.preheader ], [ %inc67, %for.cond36 ]
+  %6 = inttoptr i64 %conv3741 to ptr
   %7 = load ptr, ptr %get_entry_func.i, align 8
   %call.i = tail call ptr %7(ptr noundef nonnull %call, ptr noundef nonnull %6) #9
   %cmp44.not = icmp eq ptr %call.i, null
@@ -1734,7 +1736,7 @@ cond.false54:                                     ; preds = %cond.end48
 cond.end55:                                       ; preds = %cond.end48
   %value56 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   %9 = load ptr, ptr %value56, align 8
-  %add59 = add nsw i64 %indvars.iv44, -96
+  %add59 = add nsw i64 %conv3741, -96
   %10 = inttoptr i64 %add59 to ptr
   %cmp61 = icmp eq ptr %9, %10
   br i1 %cmp61, label %for.cond36, label %cond.false64
@@ -1744,14 +1746,14 @@ cond.false64:                                     ; preds = %cond.end55
   unreachable
 
 for.cond69:                                       ; preds = %for.body73
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %exitcond51.not = icmp eq i64 %indvars.iv.next49, 123
-  br i1 %exitcond51.not, label %for.end87, label %for.body73, !llvm.loop !7
+  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
+  %exitcond48.not = icmp eq i64 %indvars.iv.next46, 123
+  br i1 %exitcond48.not, label %for.end87, label %for.body73, !llvm.loop !7
 
 for.body73:                                       ; preds = %for.cond36, %for.cond69
-  %indvars.iv48 = phi i64 [ %indvars.iv.next49, %for.cond69 ], [ 97, %for.cond36 ]
-  %11 = trunc nuw nsw i64 %indvars.iv48 to i32
-  %12 = inttoptr i64 %indvars.iv48 to ptr
+  %indvars.iv45 = phi i64 [ %indvars.iv.next46, %for.cond69 ], [ 97, %for.cond36 ]
+  %11 = trunc nuw nsw i64 %indvars.iv45 to i32
+  %12 = inttoptr i64 %indvars.iv45 to ptr
   %call75 = tail call ptr @_Py_hashtable_get(ptr noundef nonnull %call, ptr noundef nonnull %12) #9
   %13 = ptrtoint ptr %call75 to i64
   %conv76 = trunc i64 %13 to i32

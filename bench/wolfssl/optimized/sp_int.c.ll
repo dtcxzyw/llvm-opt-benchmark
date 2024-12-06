@@ -12486,10 +12486,9 @@ _sp_copy.exit:                                    ; preds = %if.then.i, %if.else
   br label %do.body42
 
 do.body42:                                        ; preds = %_sp_copy.exit, %sp_div_d.exit
-  %indvars.iv42 = phi i32 [ 0, %_sp_copy.exit ], [ %indvars.iv.next43, %sp_div_d.exit ]
-  %indvars.iv = phi i64 [ 0, %_sp_copy.exit ], [ %indvars.iv.next, %sp_div_d.exit ]
   %5 = phi i32 [ %3, %_sp_copy.exit ], [ %13, %sp_div_d.exit ]
   %d.0 = phi i64 [ 0, %_sp_copy.exit ], [ %d.1, %sp_div_d.exit ]
+  %i.0 = phi i32 [ 0, %_sp_copy.exit ], [ %inc, %sp_div_d.exit ]
   %cmp5.i = icmp ugt i32 %5, %4
   br i1 %cmp5.i, label %sp_div_d.exit, label %if.then9.i
 
@@ -12552,34 +12551,33 @@ sp_div_d.exit:                                    ; preds = %do.body42, %for.end
   %d.1 = phi i64 [ %d.0, %do.body42 ], [ %tr.1.lcssa.i.i, %for.end51.i.i ]
   %14 = trunc nuw nsw i64 %d.1 to i8
   %conv44 = add nuw nsw i8 %14, 48
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 %indvars.iv
+  %inc = add nuw nsw i32 %i.0, 1
+  %idxprom = zext nneg i32 %i.0 to i64
+  %arrayidx = getelementptr inbounds nuw i8, ptr %str, i64 %idxprom
   store i8 %conv44, ptr %arrayidx, align 1
   %cmp47.not = icmp eq i32 %13, 0
-  %indvars.iv.next43 = add nuw i32 %indvars.iv42, 1
   br i1 %cmp47.not, label %do.end49, label %do.body42, !llvm.loop !110
 
 do.end49:                                         ; preds = %sp_div_d.exit
-  %idxprom50 = and i64 %indvars.iv.next, 4294967295
+  %idxprom50 = zext nneg i32 %inc to i64
   %arrayidx51 = getelementptr inbounds nuw i8, ptr %str, i64 %idxprom50
   store i8 0, ptr %arrayidx51, align 1
-  %15 = and i64 %indvars.iv, 4294967295
-  %16 = lshr i32 %indvars.iv42, 1
-  %17 = add nuw nsw i32 %16, 1
-  %wide.trip.count = zext nneg i32 %17 to i64
+  %15 = lshr i32 %i.0, 1
+  %16 = add nuw nsw i32 %15, 1
+  %wide.trip.count = zext nneg i32 %16 to i64
   br label %for.body
 
 for.body:                                         ; preds = %do.end49, %for.body
-  %indvars.iv38 = phi i64 [ 0, %do.end49 ], [ %indvars.iv.next39, %for.body ]
-  %arrayidx59 = getelementptr inbounds nuw i8, ptr %str, i64 %indvars.iv38
-  %18 = load i8, ptr %arrayidx59, align 1
-  %19 = sub nuw nsw i64 %15, %indvars.iv38
-  %arrayidx64 = getelementptr inbounds nuw i8, ptr %str, i64 %19
-  %20 = load i8, ptr %arrayidx64, align 1
-  store i8 %20, ptr %arrayidx59, align 1
-  store i8 %18, ptr %arrayidx64, align 1
-  %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count
+  %indvars.iv = phi i64 [ 0, %do.end49 ], [ %indvars.iv.next, %for.body ]
+  %arrayidx59 = getelementptr inbounds nuw i8, ptr %str, i64 %indvars.iv
+  %17 = load i8, ptr %arrayidx59, align 1
+  %18 = sub nuw nsw i64 %idxprom, %indvars.iv
+  %arrayidx64 = getelementptr inbounds nuw i8, ptr %str, i64 %18
+  %19 = load i8, ptr %arrayidx64, align 1
+  store i8 %19, ptr %arrayidx59, align 1
+  store i8 %17, ptr %arrayidx64, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %do.end77, label %for.body, !llvm.loop !111
 
 do.end77:                                         ; preds = %for.body, %cond.end

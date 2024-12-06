@@ -3610,33 +3610,34 @@ define range(i32 11, 10) i32 @openFile(ptr nocapture noundef %0, ptr nocapture n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %5
 
-5:                                                ; preds = %3, %8
-  %indvars.iv = phi i64 [ 3, %3 ], [ %indvars.iv.next, %8 ]
-  %6 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %7 = load ptr, ptr %6, align 8
-  %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread, label %8
+5:                                                ; preds = %3, %9
+  %6 = phi i64 [ 3, %3 ], [ %11, %9 ]
+  %.018 = phi i32 [ 3, %3 ], [ %10, %9 ]
+  %7 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %6
+  %8 = load ptr, ptr %7, align 8
+  %.not = icmp eq ptr %8, null
+  br i1 %.not, label %.thread, label %9
 
-8:                                                ; preds = %5
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %9, label %5
+9:                                                ; preds = %5
+  %10 = add nuw nsw i32 %.018, 1
+  %11 = zext nneg i32 %10 to i64
+  %exitcond.not = icmp eq i32 %10, 10
+  br i1 %exitcond.not, label %12, label %5
 
-9:                                                ; preds = %8
+12:                                               ; preds = %9
   tail call void (ptr, ...) @exerror(ptr noundef nonnull @.str.25) #24
-  br label %13
+  br label %15
 
 .thread:                                          ; preds = %5
-  %10 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %indvars.iv
-  %11 = trunc nuw nsw i64 %indvars.iv to i32
-  %12 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef %2)
-  store ptr %12, ptr %10, align 8
-  %.not14 = icmp eq ptr %12, null
-  %..0 = select i1 %.not14, i32 -1, i32 %11
-  br label %13
+  %13 = getelementptr inbounds nuw [10 x ptr], ptr %4, i64 0, i64 %6
+  %14 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef %2)
+  store ptr %14, ptr %13, align 8
+  %.not14 = icmp eq ptr %14, null
+  %..0 = select i1 %.not14, i32 -1, i32 %.018
+  br label %15
 
-13:                                               ; preds = %.thread, %9
-  %.012 = phi i32 [ -1, %9 ], [ %..0, %.thread ]
+15:                                               ; preds = %.thread, %12
+  %.012 = phi i32 [ -1, %12 ], [ %..0, %.thread ]
   ret i32 %.012
 }
 

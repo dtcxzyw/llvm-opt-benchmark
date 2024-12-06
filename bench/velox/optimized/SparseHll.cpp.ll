@@ -497,13 +497,13 @@ while.cond52.preheader:                           ; preds = %if.end51
   br i1 %cmp5478, label %while.body55.preheader, label %while.cond64.preheader
 
 while.body55.preheader:                           ; preds = %while.cond52.preheader
-  %5 = and i64 %indvars.iv.next, 4294967295
+  %5 = zext nneg i32 %pos.1 to i64
   br label %while.body55
 
 while.body:                                       ; preds = %invoke.cont, %if.end51
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end51 ], [ 0, %invoke.cont ]
   %conv374 = phi i64 [ %conv3, %if.end51 ], [ 0, %invoke.cont ]
   %conv73 = phi i64 [ %conv, %if.end51 ], [ 0, %invoke.cont ]
+  %pos.071 = phi i32 [ %pos.1, %if.end51 ], [ 0, %invoke.cont ]
   %rightPos.070 = phi i32 [ %rightPos.1, %if.end51 ], [ 0, %invoke.cont ]
   %leftPos.069 = phi i32 [ %leftPos.1, %if.end51 ], [ 0, %invoke.cont ]
   %add.ptr2.i = getelementptr inbounds i32, ptr %1, i64 %conv73
@@ -541,9 +541,10 @@ if.end51:                                         ; preds = %if.then22, %if.else
   %.sink = phi i32 [ %7, %if.then22 ], [ %or.i, %if.else29 ], [ %6, %if.then14 ]
   %leftPos.1 = phi i32 [ %leftPos.069, %if.then22 ], [ %inc32, %if.else29 ], [ %inc, %if.then14 ]
   %rightPos.1 = phi i32 [ %inc23, %if.then22 ], [ %inc38, %if.else29 ], [ %rightPos.070, %if.then14 ]
-  %add.ptr.i38 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv
+  %conv27 = zext nneg i32 %pos.071 to i64
+  %add.ptr.i38 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %conv27
   store i32 %.sink, ptr %add.ptr.i38, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %pos.1 = add nuw nsw i32 %pos.071, 1
   %conv = sext i32 %leftPos.1 to i64
   %cmp2 = icmp ugt i64 %sub.ptr.div.i, %conv
   %conv3 = sext i32 %rightPos.1 to i64
@@ -551,90 +552,96 @@ if.end51:                                         ; preds = %if.then22, %if.else
   %8 = select i1 %cmp2, i1 %cmp4, i1 false
   br i1 %8, label %while.body, label %while.cond52.preheader, !llvm.loop !7
 
-while.cond64.preheader:                           ; preds = %while.body55, %while.cond52.preheader
-  %pos.2.lcssa.in = phi i64 [ %indvars.iv.next, %while.cond52.preheader ], [ %indvars.iv.next93, %while.body55 ]
+while.cond64.preheader.loopexit:                  ; preds = %while.body55
+  %9 = trunc nuw i64 %indvars.iv.next to i32
+  br label %while.cond64.preheader
+
+while.cond64.preheader:                           ; preds = %while.cond64.preheader.loopexit, %while.cond52.preheader
+  %pos.2.lcssa = phi i32 [ %pos.1, %while.cond52.preheader ], [ %9, %while.cond64.preheader.loopexit ]
   %cmp6684 = icmp ugt i64 %otherSize, %4
   br i1 %cmp6684, label %while.body67.preheader, label %while.end74
 
 while.body67.preheader:                           ; preds = %invoke.cont, %while.cond64.preheader
-  %pos.2.lcssa118 = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ 0, %invoke.cont ]
-  %rightPos.0.lcssa113117 = phi i64 [ %4, %while.cond64.preheader ], [ 0, %invoke.cont ]
-  %9 = and i64 %pos.2.lcssa118, 4294967295
+  %pos.2.lcssa115 = phi i32 [ %pos.2.lcssa, %while.cond64.preheader ], [ 0, %invoke.cont ]
+  %rightPos.0.lcssa110114 = phi i64 [ %4, %while.cond64.preheader ], [ 0, %invoke.cont ]
+  %10 = zext i32 %pos.2.lcssa115 to i64
   br label %while.body67
 
 while.body55:                                     ; preds = %while.body55.preheader, %while.body55
-  %indvars.iv94 = phi i64 [ %3, %while.body55.preheader ], [ %indvars.iv.next95, %while.body55 ]
-  %indvars.iv92 = phi i64 [ %5, %while.body55.preheader ], [ %indvars.iv.next93, %while.body55 ]
-  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
-  %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv94
-  %10 = load i32, ptr %add.ptr2.i44, align 4
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv92
-  store i32 %10, ptr %add.ptr.i45, align 4
-  %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next95
-  br i1 %cmp54, label %while.body55, label %while.cond64.preheader, !llvm.loop !8
+  %indvars.iv91 = phi i64 [ %3, %while.body55.preheader ], [ %indvars.iv.next92, %while.body55 ]
+  %indvars.iv = phi i64 [ %5, %while.body55.preheader ], [ %indvars.iv.next, %while.body55 ]
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %add.ptr2.i44 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv91
+  %11 = load i32, ptr %add.ptr2.i44, align 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %add.ptr.i45 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv
+  store i32 %11, ptr %add.ptr.i45, align 4
+  %cmp54 = icmp ugt i64 %sub.ptr.div.i, %indvars.iv.next92
+  br i1 %cmp54, label %while.body55, label %while.cond64.preheader.loopexit, !llvm.loop !8
 
 while.body67:                                     ; preds = %while.body67.preheader, %while.body67
-  %indvars.iv101 = phi i64 [ %rightPos.0.lcssa113117, %while.body67.preheader ], [ %indvars.iv.next102, %while.body67 ]
-  %indvars.iv99 = phi i64 [ %9, %while.body67.preheader ], [ %indvars.iv.next100, %while.body67 ]
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv101
-  %11 = load i32, ptr %arrayidx70, align 4
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv99
-  store i32 %11, ptr %add.ptr.i46, align 4
-  %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next102
-  br i1 %cmp66, label %while.body67, label %while.end74, !llvm.loop !9
+  %indvars.iv98 = phi i64 [ %rightPos.0.lcssa110114, %while.body67.preheader ], [ %indvars.iv.next99, %while.body67 ]
+  %indvars.iv96 = phi i64 [ %10, %while.body67.preheader ], [ %indvars.iv.next97, %while.body67 ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %arrayidx70 = getelementptr inbounds i32, ptr %otherEntries, i64 %indvars.iv98
+  %12 = load i32, ptr %arrayidx70, align 4
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %add.ptr.i46 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv96
+  store i32 %12, ptr %add.ptr.i46, align 4
+  %cmp66 = icmp ugt i64 %otherSize, %indvars.iv.next99
+  br i1 %cmp66, label %while.body67, label %while.end74.loopexit, !llvm.loop !9
 
-while.end74:                                      ; preds = %while.body67, %while.cond64.preheader
-  %pos.3.lcssa.in = phi i64 [ %pos.2.lcssa.in, %while.cond64.preheader ], [ %indvars.iv.next100, %while.body67 ]
-  %conv76 = and i64 %pos.3.lcssa.in, 4294967295
+while.end74.loopexit:                             ; preds = %while.body67
+  %13 = trunc nuw i64 %indvars.iv.next97 to i32
+  br label %while.end74
+
+while.end74:                                      ; preds = %while.end74.loopexit, %while.cond64.preheader
+  %pos.3.lcssa = phi i32 [ %pos.2.lcssa, %while.cond64.preheader ], [ %13, %while.end74.loopexit ]
+  %conv76 = zext i32 %pos.3.lcssa to i64
   %cmp.i47 = icmp ult i64 %sub.ptr.div.i, %conv76
   br i1 %cmp.i47, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %while.end74
   %sub.i = sub nuw nsw i64 %conv76, %sub.ptr.div.i
   invoke void @_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %sub.i)
-          to label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit unwind label %eh.resume
+          to label %for.body.preheader unwind label %eh.resume
 
 if.else.i:                                        ; preds = %while.end74
   %cmp4.i = icmp ugt i64 %sub.ptr.div.i, %conv76
-  br i1 %cmp4.i, label %if.then5.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
+  br i1 %cmp4.i, label %if.then5.i, label %for.body.preheader
 
 if.then5.i:                                       ; preds = %if.else.i
   %add.ptr6.i = getelementptr inbounds nuw i32, ptr %1, i64 %conv76
   %tobool.not.i.i = icmp eq ptr %0, %add.ptr6.i
-  br i1 %tobool.not.i.i, label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, label %if.then.i.i48
+  br i1 %tobool.not.i.i, label %for.body.preheader, label %if.then.i.i48
 
 if.then.i.i48:                                    ; preds = %if.then5.i
   store ptr %add.ptr6.i, ptr %_M_finish.i, align 8
-  br label %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
+  br label %for.body.preheader
 
-_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit: ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i48
-  %12 = and i64 %pos.3.lcssa.in, 4294967295
-  %cmp7889.not = icmp eq i64 %12, 0
-  br i1 %cmp7889.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body
+for.body.preheader:                               ; preds = %if.then.i, %if.else.i, %if.then5.i, %if.then.i.i48
+  br label %for.body
 
-for.body:                                         ; preds = %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit, %for.body
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %for.body ], [ 0, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit ]
-  %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv106
-  %13 = load i32, ptr %add.ptr.i50, align 4
-  %14 = load ptr, ptr %add.ptr.i, align 8
-  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv106
-  store i32 %13, ptr %add.ptr2.i52, align 4
-  %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next107, %conv76
+for.body:                                         ; preds = %for.body.preheader, %for.body
+  %indvars.iv103 = phi i64 [ %indvars.iv.next104, %for.body ], [ 0, %for.body.preheader ]
+  %add.ptr.i50 = getelementptr inbounds nuw i32, ptr %merged.sroa.0.0, i64 %indvars.iv103
+  %14 = load i32, ptr %add.ptr.i50, align 4
+  %15 = load ptr, ptr %add.ptr.i, align 8
+  %add.ptr2.i52 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv103
+  store i32 %14, ptr %add.ptr2.i52, align 4
+  %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next104, %conv76
   br i1 %exitcond.not, label %_ZNSt6vectorIjSaIjEED2Ev.exit55, label %for.body, !llvm.loop !10
 
-_ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body, %_ZNSt6vectorIjN8facebook5velox12StlAllocatorIjEEE6resizeEm.exit
+_ZNSt6vectorIjSaIjEED2Ev.exit55:                  ; preds = %for.body
   tail call void @_ZdlPv(ptr noundef nonnull %merged.sroa.0.0) #26
   ret void
 
 eh.resume:                                        ; preds = %if.then.i
-  %15 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %merged.sroa.0.0) #26
-  resume { ptr, i32 } %15
+  resume { ptr, i32 } %16
 }
 
 ; Function Attrs: mustprogress uwtable

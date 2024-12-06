@@ -890,23 +890,20 @@ entry:
   store ptr %call6, ptr @helpEntries, align 8
   %call7 = tail call ptr @dictNext(ptr noundef %call) #34
   %cmp.not9 = icmp eq ptr %call7, null
-  br i1 %cmp.not9, label %for.end, label %for.body.preheader
+  br i1 %cmp.not9, label %for.end, label %for.body
 
-for.body.preheader:                               ; preds = %entry
-  %4 = sext i32 %2 to i64
-  br label %for.body
-
-for.body:                                         ; preds = %for.body.preheader, %for.body
-  %indvars.iv = phi i64 [ %4, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %entry1.010 = phi ptr [ %call7, %for.body.preheader ], [ %call24, %for.body ]
+for.body:                                         ; preds = %entry, %for.body
+  %pos.011 = phi i32 [ %inc, %for.body ], [ %2, %entry ]
+  %entry1.010 = phi ptr [ %call24, %for.body ], [ %call7, %entry ]
   %call9 = tail call noalias dereferenceable_or_null(8) ptr @zmalloc(i64 noundef 8) #36
   %call10 = tail call ptr @hi_sdsempty() #34
   %call11 = tail call ptr @dictGetKey(ptr noundef nonnull %entry1.010) #34
   %call12 = tail call ptr (ptr, ptr, ...) @hi_sdscatprintf(ptr noundef %call10, ptr noundef nonnull @.str, ptr noundef %call11) #34
   store ptr %call12, ptr %call9, align 8
-  %5 = load ptr, ptr @helpEntries, align 8
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %arrayidx23 = getelementptr inbounds %struct.helpEntry, ptr %5, i64 %indvars.iv
+  %4 = load ptr, ptr @helpEntries, align 8
+  %inc = add nsw i32 %pos.011, 1
+  %idxprom = sext i32 %pos.011 to i64
+  %arrayidx23 = getelementptr inbounds %struct.helpEntry, ptr %4, i64 %idxprom
   store i32 2, ptr %arrayidx23, align 8
   %tmp.sroa.2.0.arrayidx23.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx23, i64 4
   store i32 1, ptr %tmp.sroa.2.0.arrayidx23.sroa_idx, align 4

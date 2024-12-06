@@ -268,8 +268,8 @@ nb_lines.exit:                                    ; preds = %18, %21
   %25 = shl nuw nsw i64 %24, 3
   %26 = call noalias ptr @malloc(i64 noundef %25) #18
   %27 = call noalias ptr @malloc(i64 noundef %25) #18
-  %.not32 = icmp eq i32 %.0.i, 0
-  br i1 %.not32, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i32 %.0.i, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %nb_lines.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %nb_lines.exit ]
@@ -310,7 +310,7 @@ nb_lines.exit:                                    ; preds = %18, %21
   br i1 %43, label %44, label %.preheader.i19
 
 .preheader.i19:                                   ; preds = %41
-  br i1 %.not32, label %init_mat_mmap.exit, label %.lr.ph.i
+  br i1 %.not34, label %init_mat_mmap.exit, label %.lr.ph.i
 
 44:                                               ; preds = %41
   %.not.i20 = icmp eq i32 %30, 0
@@ -326,26 +326,26 @@ nb_lines.exit:                                    ; preds = %18, %21
   unreachable
 
 .lr.ph.i:                                         ; preds = %.preheader.i19, %parse_line.exit.i
-  %indvars.iv54.i = phi i64 [ %indvars.iv.next55.i, %parse_line.exit.i ], [ 0, %.preheader.i19 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %parse_line.exit.i ], [ 0, %.preheader.i19 ]
   %.040.i = phi ptr [ %81, %parse_line.exit.i ], [ %42, %.preheader.i19 ]
   %.02738.i = phi i64 [ %.2.i, %parse_line.exit.i ], [ 0, %.preheader.i19 ]
   %49 = call i32 @tm_get_verbose_level() #17
-  %50 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv54.i
+  %50 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv.i
   store double 0.000000e+00, ptr %50, align 8
   %51 = load i8, ptr %.040.i, align 1
   %.not50.i.i = icmp eq i8 %51, 10
   br i1 %.not50.i.i, label %._crit_edge.i.i, label %.preheader48.lr.ph.i.i
 
 .preheader48.lr.ph.i.i:                           ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv54.i
+  %52 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
   br label %.preheader48.i.i
 
 .preheader48.i.i:                                 ; preds = %.loopexit.i.i, %.preheader48.lr.ph.i.i
-  %53 = phi double [ %71, %.loopexit.i.i ], [ 0.000000e+00, %.preheader48.lr.ph.i.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i.i ], [ 0, %.preheader48.lr.ph.i.i ]
-  %.1.i = phi i64 [ %.3.i, %.loopexit.i.i ], [ %.02738.i, %.preheader48.lr.ph.i.i ]
-  %54 = phi i8 [ %.pre55.i.i, %.loopexit.i.i ], [ %51, %.preheader48.lr.ph.i.i ]
-  %.03651.i.i = phi ptr [ %.3.i.i, %.loopexit.i.i ], [ %.040.i, %.preheader48.lr.ph.i.i ]
+  %53 = phi double [ 0.000000e+00, %.preheader48.lr.ph.i.i ], [ %72, %.loopexit.i.i ]
+  %.1.i = phi i64 [ %.02738.i, %.preheader48.lr.ph.i.i ], [ %.3.i, %.loopexit.i.i ]
+  %54 = phi i8 [ %51, %.preheader48.lr.ph.i.i ], [ %.pre55.i.i, %.loopexit.i.i ]
+  %.052.i.i = phi i32 [ 0, %.preheader48.lr.ph.i.i ], [ %73, %.loopexit.i.i ]
+  %.03651.i.i = phi ptr [ %.040.i, %.preheader48.lr.ph.i.i ], [ %.3.i.i, %.loopexit.i.i ]
   br label %55
 
 55:                                               ; preds = %.critedge.i.i, %.preheader48.i.i
@@ -354,7 +354,7 @@ nb_lines.exit:                                    ; preds = %18, %21
   switch i8 %56, label %.preheader.i.i [
     i8 32, label %.critedge.i.i
     i8 9, label %.critedge.i.i
-    i8 10, label %._crit_edge.i.loopexit.i
+    i8 10, label %._crit_edge.i.i
   ]
 
 .critedge.i.i:                                    ; preds = %55, %55
@@ -384,37 +384,30 @@ nb_lines.exit:                                    ; preds = %18, %21
 .critedge2.i.i:                                   ; preds = %.preheader.i.i, %.preheader.i.i, %.preheader.i.i
   %65 = sitofp i64 %.035.i.i to double
   %66 = load ptr, ptr %52, align 8
-  %67 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv.i
-  store double %65, ptr %67, align 8
+  %67 = zext nneg i32 %.052.i.i to i64
+  %68 = getelementptr inbounds nuw double, ptr %66, i64 %67
+  store double %65, ptr %68, align 8
   %.not47.i.i = icmp eq i64 %.035.i.i, 0
-  br i1 %.not47.i.i, label %.loopexit.i.i, label %68
+  br i1 %.not47.i.i, label %.loopexit.i.i, label %69
 
-68:                                               ; preds = %.critedge2.i.i
-  %69 = add nsw i64 %.1.i, 1
-  %70 = fadd double %53, %65
-  store double %70, ptr %50, align 8
+69:                                               ; preds = %.critedge2.i.i
+  %70 = add nsw i64 %.1.i, 1
+  %71 = fadd double %53, %65
+  store double %71, ptr %50, align 8
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %68, %.critedge2.i.i
-  %71 = phi double [ %53, %.critedge2.i.i ], [ %70, %68 ]
-  %.3.i = phi i64 [ %.1.i, %.critedge2.i.i ], [ %69, %68 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+.loopexit.i.i:                                    ; preds = %69, %.critedge2.i.i
+  %72 = phi double [ %53, %.critedge2.i.i ], [ %71, %69 ]
+  %.3.i = phi i64 [ %.1.i, %.critedge2.i.i ], [ %70, %69 ]
+  %73 = add nuw nsw i32 %.052.i.i, 1
   %.pre55.i.i = load i8, ptr %.3.i.i, align 1
   %.not.i.i = icmp eq i8 %.pre55.i.i, 10
-  br i1 %.not.i.i, label %._crit_edge.i.loopexit42.i, label %.preheader48.i.i, !llvm.loop !14
+  br i1 %.not.i.i, label %._crit_edge.i.i, label %.preheader48.i.i, !llvm.loop !14
 
-._crit_edge.i.loopexit.i:                         ; preds = %55
-  %72 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %._crit_edge.i.i
-
-._crit_edge.i.loopexit42.i:                       ; preds = %.loopexit.i.i
-  %73 = trunc nuw i64 %indvars.iv.next.i to i32
-  br label %._crit_edge.i.i
-
-._crit_edge.i.i:                                  ; preds = %._crit_edge.i.loopexit42.i, %._crit_edge.i.loopexit.i, %.lr.ph.i
-  %.2.i = phi i64 [ %.02738.i, %.lr.ph.i ], [ %.1.i, %._crit_edge.i.loopexit.i ], [ %.3.i, %._crit_edge.i.loopexit42.i ]
-  %.036.lcssa.i.i = phi ptr [ %.040.i, %.lr.ph.i ], [ %.137.i.i, %._crit_edge.i.loopexit.i ], [ %.3.i.i, %._crit_edge.i.loopexit42.i ]
-  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %72, %._crit_edge.i.loopexit.i ], [ %73, %._crit_edge.i.loopexit42.i ]
+._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %55, %.lr.ph.i
+  %.2.i = phi i64 [ %.02738.i, %.lr.ph.i ], [ %.1.i, %55 ], [ %.3.i, %.loopexit.i.i ]
+  %.036.lcssa.i.i = phi ptr [ %.040.i, %.lr.ph.i ], [ %.137.i.i, %55 ], [ %.3.i.i, %.loopexit.i.i ]
+  %.0.lcssa.i.i = phi i32 [ 0, %.lr.ph.i ], [ %.052.i.i, %55 ], [ %73, %.loopexit.i.i ]
   %.not41.i.i = icmp eq i32 %.0.lcssa.i.i, %.0.i
   br i1 %.not41.i.i, label %parse_line.exit.i, label %74
 
@@ -423,7 +416,7 @@ nb_lines.exit:                                    ; preds = %18, %21
   br i1 %.not42.i.i, label %80, label %75
 
 75:                                               ; preds = %74
-  %76 = trunc nuw nsw i64 %indvars.iv54.i to i32
+  %76 = trunc nuw nsw i64 %indvars.iv.i to i32
   %77 = load ptr, ptr @stderr, align 8
   %78 = add nuw nsw i32 %76, 1
   %79 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %77, ptr noundef nonnull @.str.18, i32 noundef %76, i32 noundef %.0.lcssa.i.i, i32 noundef %.0.lcssa.i.i, i32 noundef %.0.i, i32 noundef %78, ptr noundef %0) #19
@@ -435,8 +428,8 @@ nb_lines.exit:                                    ; preds = %18, %21
 
 parse_line.exit.i:                                ; preds = %._crit_edge.i.i
   %81 = getelementptr inbounds nuw i8, ptr %.036.lcssa.i.i, i64 1
-  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next55.i, %24
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %24
   br i1 %exitcond.not.i, label %init_mat_mmap.exit, label %.lr.ph.i, !llvm.loop !15
 
 init_mat_mmap.exit:                               ; preds = %parse_line.exit.i, %.preheader.i19

@@ -1342,27 +1342,29 @@ define internal fastcc noundef ptr @read_attr_value(ptr nocapture noundef nonnul
 define internal fastcc void @sanitize_str(ptr nocapture noundef readonly %0) unnamed_addr #8 {
   br label %2
 
-2:                                                ; preds = %1, %6
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr i8, ptr %0, i64 %indvars.iv
-  %4 = load i8, ptr %3, align 1
-  %5 = icmp eq i8 %4, 0
-  br i1 %5, label %9, label %6
+2:                                                ; preds = %1, %7
+  %3 = phi i64 [ 0, %1 ], [ %11, %7 ]
+  %.014 = phi i32 [ 0, %1 ], [ %10, %7 ]
+  %4 = getelementptr i8, ptr %0, i64 %3
+  %5 = load i8, ptr %4, align 1
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %12, label %7
 
-6:                                                ; preds = %2
-  %7 = add i8 %4, -33
-  %or.cond = icmp ult i8 %7, 94
-  %spec.select = select i1 %or.cond, i8 %4, i8 63
-  %8 = getelementptr [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %indvars.iv
-  store i8 %spec.select, ptr %8, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 30
-  br i1 %exitcond.not, label %9, label %2, !llvm.loop !11
+7:                                                ; preds = %2
+  %8 = add i8 %5, -33
+  %or.cond = icmp ult i8 %8, 94
+  %spec.select = select i1 %or.cond, i8 %5, i8 63
+  %9 = getelementptr [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %3
+  store i8 %spec.select, ptr %9, align 1
+  %10 = add nuw nsw i32 %.014, 1
+  %11 = zext nneg i32 %10 to i64
+  %exitcond.not = icmp eq i32 %10, 30
+  br i1 %exitcond.not, label %12, label %2, !llvm.loop !11
 
-9:                                                ; preds = %2, %6
-  %.lcssa = phi i64 [ %indvars.iv, %2 ], [ 30, %6 ]
-  %10 = getelementptr [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %.lcssa
-  store i8 0, ptr %10, align 1
+12:                                               ; preds = %2, %7
+  %.lcssa = phi i64 [ %3, %2 ], [ 30, %7 ]
+  %13 = getelementptr [31 x i8], ptr @sanitize_str.buf, i64 0, i64 %.lcssa
+  store i8 0, ptr %13, align 1
   ret void
 }
 

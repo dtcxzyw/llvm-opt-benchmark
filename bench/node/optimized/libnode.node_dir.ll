@@ -2843,10 +2843,10 @@ for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStac
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17
-  %indvars.iv29 = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next30, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17 ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17 ]
+  %j.027 = phi i32 [ 0, %for.body.lr.ph ], [ %inc23, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17 ]
   store ptr null, ptr %error, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %ents, i64 %indvars.iv29
+  %arrayidx = getelementptr inbounds nuw %struct.uv_dirent_s, ptr %ents, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %call = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #24
   %2 = load ptr, ptr %isolate_.i, align 8
@@ -2860,8 +2860,9 @@ if.then:                                          ; preds = %for.body
   br label %cleanup
 
 if.end:                                           ; preds = %for.body
+  %conv10 = zext nneg i32 %j.027 to i64
   %4 = load i64, ptr %entries, align 8
-  %cmp.not.i = icmp ugt i64 %4, %indvars.iv
+  %cmp.not.i = icmp ugt i64 %4, %conv10
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end
@@ -2870,16 +2871,17 @@ do.body4.i:                                       ; preds = %if.end
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit: ; preds = %if.end
-  %5 = or disjoint i64 %indvars.iv, 1
-  %6 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local.298", ptr %6, i64 %indvars.iv
+  %inc = or disjoint i32 %j.027, 1
+  %5 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local.298", ptr %5, i64 %conv10
   store ptr %call5, ptr %arrayidx.i, align 8
-  %7 = load ptr, ptr %isolate_.i, align 8
+  %6 = load ptr, ptr %isolate_.i, align 8
   %type = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
-  %8 = load i32, ptr %type, align 8
-  %call16 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %7, i32 noundef %8) #20
-  %9 = load i64, ptr %entries, align 8
-  %cmp.not.i13 = icmp ugt i64 %9, %5
+  %7 = load i32, ptr %type, align 8
+  %call16 = call ptr @_ZN2v87Integer3NewEPNS_7IsolateEi(ptr noundef %6, i32 noundef %7) #20
+  %conv24 = zext nneg i32 %inc to i64
+  %8 = load i64, ptr %entries, align 8
+  %cmp.not.i13 = icmp ugt i64 %8, %conv24
   br i1 %cmp.not.i13, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17, label %do.body4.i14
 
 do.body4.i14:                                     ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit
@@ -2888,36 +2890,36 @@ do.body4.i14:                                     ; preds = %_ZN4node16MaybeStac
   unreachable
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17: ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %10 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i16 = getelementptr inbounds nuw %"class.v8::Local.298", ptr %10, i64 %5
+  %inc23 = add nuw nsw i32 %j.027, 2
+  %9 = load ptr, ptr %buf_.i.i, align 8
+  %arrayidx.i16 = getelementptr inbounds nuw %"class.v8::Local.298", ptr %9, i64 %conv24
   store ptr %call16, ptr %arrayidx.i16, align 8
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end.loopexit, label %for.body, !llvm.loop !19
 
 for.end.loopexit:                                 ; preds = %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEixEm.exit17
-  %11 = and i64 %indvars.iv.next, 4294967294
+  %10 = zext nneg i32 %inc23 to i64
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEC2Em.exit
-  %j.0.lcssa = phi i64 [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEC2Em.exit ], [ %11, %for.end.loopexit ]
+  %j.0.lcssa = phi i64 [ 0, %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EEC2Em.exit ], [ %10, %for.end.loopexit ]
   %isolate_.i18 = getelementptr inbounds nuw i8, ptr %env, i64 88
-  %12 = load ptr, ptr %isolate_.i18, align 8
-  %13 = load ptr, ptr %buf_.i.i, align 8
-  %call31 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %12, ptr noundef %13, i64 noundef %j.0.lcssa) #20
+  %11 = load ptr, ptr %isolate_.i18, align 8
+  %12 = load ptr, ptr %buf_.i.i, align 8
+  %call31 = call ptr @_ZN2v85Array3NewEPNS_7IsolateEPNS_5LocalINS_5ValueEEEm(ptr noundef %11, ptr noundef %12, i64 noundef %j.0.lcssa) #20
   br label %cleanup
 
 cleanup:                                          ; preds = %for.end, %if.then
   %retval.sroa.0.0 = phi ptr [ null, %if.then ], [ %call31, %for.end ]
-  %14 = load ptr, ptr %buf_.i.i, align 8
-  %cmp.i.i.i20 = icmp ne ptr %14, null
-  %cmp.i.i21 = icmp ne ptr %14, %buf_st_.ptr.i.i
-  %15 = and i1 %cmp.i.i.i20, %cmp.i.i21
-  br i1 %15, label %if.then.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EED2Ev.exit
+  %13 = load ptr, ptr %buf_.i.i, align 8
+  %cmp.i.i.i20 = icmp ne ptr %13, null
+  %cmp.i.i21 = icmp ne ptr %13, %buf_st_.ptr.i.i
+  %14 = and i1 %cmp.i.i.i20, %cmp.i.i21
+  br i1 %14, label %if.then.i, label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EED2Ev.exit
 
 if.then.i:                                        ; preds = %cleanup
-  call void @free(ptr noundef nonnull %14) #20
+  call void @free(ptr noundef nonnull %13) #20
   br label %_ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EED2Ev.exit
 
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm64EED2Ev.exit: ; preds = %cleanup, %if.then.i

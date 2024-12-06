@@ -44616,15 +44616,16 @@ invoke.cont6.preheader:                           ; preds = %invoke.cont3
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont6.preheader, %_ZN4absl4CordD2Ev.exit101
-  %indvars.iv = phi i64 [ 0, %invoke.cont6.preheader ], [ %indvars.iv.next, %_ZN4absl4CordD2Ev.exit101 ]
-  %offset.0 = phi i64 [ 0, %invoke.cont6.preheader ], [ %add, %_ZN4absl4CordD2Ev.exit101 ]
+  %fragment.0 = phi i32 [ %inc, %_ZN4absl4CordD2Ev.exit101 ], [ 0, %invoke.cont6.preheader ]
+  %offset.0 = phi i64 [ %add, %_ZN4absl4CordD2Ev.exit101 ], [ 0, %invoke.cont6.preheader ]
   %2 = load i64, ptr %bytes_remaining_.i.i, align 8
   %cmp.i.i17.not = icmp eq i64 %2, 0
   br i1 %cmp.i.i17.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %invoke.cont6
   %retval.sroa.0.0.copyload.i = load i64, ptr %__begin1, align 8
-  %arrayidx = getelementptr inbounds nuw [8 x %"class.std::basic_string_view"], ptr %fragments, i64 0, i64 %indvars.iv
+  %idxprom = zext nneg i32 %fragment.0 to i64
+  %arrayidx = getelementptr inbounds nuw [8 x %"class.std::basic_string_view"], ptr %fragments, i64 0, i64 %idxprom
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %expected, ptr noundef nonnull align 16 dereferenceable(16) %arrayidx, i64 16, i1 false)
   %sext = shl i64 %offset.0, 32
   %conv = ashr exact i64 %sext, 32
@@ -44989,7 +44990,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit94:          ; preds = %if.end52, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i93
   store ptr null, ptr %message_.i.i75, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %fragment.0, 1
   %add = add i64 %retval.sroa.0.0.copyload.i, %conv
   %33 = load i8, ptr %subcord2, align 8
   %34 = and i8 %33, 1
@@ -104441,7 +104442,7 @@ invoke.cont45:                                    ; preds = %while.cond.if.end.l
           to label %for.inc unwind label %lpad41.loopexit
 
 for.inc:                                          ; preds = %invoke.cont45
-  %inc = add nuw i32 %j.0604, 1
+  %inc = add i32 %j.0604, 1
   %exitcond.not = icmp eq i32 %inc, %16
   br i1 %exitcond.not, label %invoke.cont49, label %for.body40, !llvm.loop !1477
 

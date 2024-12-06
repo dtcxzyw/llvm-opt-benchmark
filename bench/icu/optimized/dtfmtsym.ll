@@ -14764,7 +14764,7 @@ if.end20:                                         ; preds = %if.end12
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont54, %if.end20
-  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont54 ], [ 0, %if.end20 ]
+  %i.0 = phi i32 [ 0, %if.end20 ], [ %inc, %invoke.cont54 ]
   %vtable22 = load ptr, ptr %call, align 8
   %vfn23 = getelementptr inbounds nuw i8, ptr %vtable22, i64 56
   %6 = load ptr, ptr %vfn23, align 8
@@ -14804,7 +14804,7 @@ invoke.cont35:                                    ; preds = %new.notnull, %invok
   br i1 %arrayctor.done, label %if.end44, label %invoke.cont35
 
 if.then43:                                        ; preds = %if.end30
-  %idxprom38 = and i64 %indvars.iv, 4294967295
+  %idxprom38 = zext nneg i32 %i.0 to i64
   %arrayidx39 = getelementptr inbounds nuw ptr, ptr %call9, i64 %idxprom38
   store ptr null, ptr %arrayidx39, align 8
   store i32 7, ptr %status, align 4
@@ -14812,7 +14812,8 @@ if.then43:                                        ; preds = %if.end30
 
 if.end44:                                         ; preds = %invoke.cont35
   %.ptr = getelementptr inbounds nuw i8, ptr %call31, i64 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %call9, i64 %indvars.iv
+  %idxprom = zext nneg i32 %i.0 to i64
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %call9, i64 %idxprom
   store ptr %.ptr, ptr %arrayidx, align 8
   %call.i35 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %.ptr, ptr noundef nonnull align 8 dereferenceable(64) %call24, i8 noundef signext 0)
           to label %invoke.cont48 unwind label %lpad
@@ -14827,7 +14828,7 @@ invoke.cont48:                                    ; preds = %if.end44
           to label %invoke.cont54 unwind label %lpad
 
 invoke.cont54:                                    ; preds = %invoke.cont48
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %i.0, 1
   br label %while.cond, !llvm.loop !29
 
 do.end:                                           ; preds = %invoke.cont, %if.then43
@@ -14845,8 +14846,8 @@ for.body.preheader:                               ; preds = %for.cond.preheader
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %indvars.iv59 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next60, %for.inc ]
-  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %call9, i64 %indvars.iv59
+  %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
+  %arrayidx63 = getelementptr inbounds nuw ptr, ptr %call9, i64 %indvars.iv
   %12 = load ptr, ptr %arrayidx63, align 8
   %tobool64.not = icmp eq ptr %12, null
   br i1 %tobool64.not, label %for.inc, label %delete.notnull
@@ -14873,8 +14874,8 @@ arraydestroy.done73:                              ; preds = %arraydestroy.body69
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %arraydestroy.done73
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !30
 
 for.end:                                          ; preds = %for.inc, %for.cond.preheader

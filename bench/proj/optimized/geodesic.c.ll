@@ -164,20 +164,18 @@ A3coeff.exit:                                     ; preds = %polyvalx.exit.i
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %96, %A3coeff.exit
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %96 ], [ 5, %A3coeff.exit ]
-  %indvars.iv64 = phi i32 [ %indvars.iv.next65, %96 ], [ 5, %A3coeff.exit ]
-  %indvars.iv = phi i32 [ %indvars.iv.next, %96 ], [ 4, %A3coeff.exit ]
-  %.026.i = phi i32 [ %94, %96 ], [ 0, %A3coeff.exit ]
-  %.01825.i = phi i32 [ %99, %96 ], [ 1, %A3coeff.exit ]
-  %.01924.i = phi i32 [ %98, %96 ], [ 0, %A3coeff.exit ]
-  %75 = sext i32 %.01924.i to i64
+.preheader.i:                                     ; preds = %98, %A3coeff.exit
+  %indvars.iv.i32 = phi i32 [ 5, %A3coeff.exit ], [ %indvars.iv.next.i42, %98 ]
+  %.026.i = phi i32 [ 0, %A3coeff.exit ], [ %96, %98 ]
+  %.01825.i = phi i32 [ 1, %A3coeff.exit ], [ %99, %98 ]
+  %.01924.i = phi i32 [ 0, %A3coeff.exit ], [ %75, %98 ]
+  %75 = add i32 %.01924.i, %indvars.iv.i32
   br label %76
 
 76:                                               ; preds = %.preheader.i, %polyvalx.exit.i39
-  %indvars.iv.i32 = phi i64 [ %75, %.preheader.i ], [ %indvars.iv.next.i41, %polyvalx.exit.i39 ]
-  %.123.i = phi i32 [ %.026.i, %.preheader.i ], [ %94, %polyvalx.exit.i39 ]
-  %.01722.i = phi i32 [ 5, %.preheader.i ], [ %95, %polyvalx.exit.i39 ]
+  %.123.i = phi i32 [ %.026.i, %.preheader.i ], [ %96, %polyvalx.exit.i39 ]
+  %.01722.i = phi i32 [ 5, %.preheader.i ], [ %97, %polyvalx.exit.i39 ]
+  %.12021.i = phi i32 [ %.01924.i, %.preheader.i ], [ %93, %polyvalx.exit.i39 ]
   %77 = sub nuw nsw i32 5, %.01722.i
   %78 = tail call i32 @llvm.smin.i32(i32 %77, i32 %.01722.i)
   %79 = load double, ptr %15, align 8
@@ -206,43 +204,37 @@ polyvalx.exit.i39:                                ; preds = %.lr.ph.i.i34, %76
   %90 = getelementptr inbounds [45 x double], ptr @C3coeff.coeff, i64 0, i64 %89
   %91 = load double, ptr %90, align 8
   %92 = fdiv double %.0.lcssa.i.i40, %91
-  %indvars.iv.next.i41 = add nsw i64 %indvars.iv.i32, 1
-  %93 = getelementptr inbounds [15 x double], ptr %74, i64 0, i64 %indvars.iv.i32
-  store double %92, ptr %93, align 8
-  %94 = add i32 %87, 2
-  %95 = add nsw i32 %.01722.i, -1
-  %lftr.wideiv = trunc i64 %indvars.iv.next.i41 to i32
-  %exitcond = icmp eq i32 %indvars.iv64, %lftr.wideiv
-  br i1 %exitcond, label %96, label %76
+  %93 = add i32 %.12021.i, 1
+  %94 = sext i32 %.12021.i to i64
+  %95 = getelementptr inbounds [15 x double], ptr %74, i64 0, i64 %94
+  store double %92, ptr %95, align 8
+  %96 = add i32 %87, 2
+  %97 = add nsw i32 %.01722.i, -1
+  %exitcond.not.i41 = icmp eq i32 %93, %75
+  br i1 %exitcond.not.i41, label %98, label %76
 
-96:                                               ; preds = %polyvalx.exit.i39
-  %97 = trunc nuw nsw i64 %indvars.iv66 to i32
-  %98 = add i32 %.01924.i, %97
+98:                                               ; preds = %polyvalx.exit.i39
   %99 = add nuw nsw i32 %.01825.i, 1
-  %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
-  %exitcond32.not.i = icmp eq i32 %99, 6
-  %indvars.iv.next = add nsw i32 %indvars.iv, -1
-  %indvars.iv.next65 = add i32 %indvars.iv64, %indvars.iv
-  br i1 %exitcond32.not.i, label %C3coeff.exit, label %.preheader.i
+  %indvars.iv.next.i42 = add nsw i32 %indvars.iv.i32, -1
+  %exitcond29.not.i = icmp eq i32 %99, 6
+  br i1 %exitcond29.not.i, label %C3coeff.exit, label %.preheader.i
 
-C3coeff.exit:                                     ; preds = %96
+C3coeff.exit:                                     ; preds = %98
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %.preheader.i43
 
-.preheader.i43:                                   ; preds = %120, %C3coeff.exit
-  %indvars.iv75 = phi i64 [ %indvars.iv.next76, %120 ], [ 6, %C3coeff.exit ]
-  %indvars.iv71 = phi i32 [ %indvars.iv.next72, %120 ], [ 6, %C3coeff.exit ]
-  %indvars.iv69 = phi i32 [ %indvars.iv.next70, %120 ], [ 5, %C3coeff.exit ]
-  %.023.i = phi i32 [ %119, %120 ], [ 0, %C3coeff.exit ]
-  %.01522.i = phi i32 [ %123, %120 ], [ 0, %C3coeff.exit ]
-  %.01621.i = phi i32 [ %122, %120 ], [ 0, %C3coeff.exit ]
-  %101 = sext i32 %.01621.i to i64
+.preheader.i43:                                   ; preds = %122, %C3coeff.exit
+  %indvars.iv29.i = phi i32 [ 6, %C3coeff.exit ], [ %indvars.iv.next30.i, %122 ]
+  %.023.i = phi i32 [ 0, %C3coeff.exit ], [ %121, %122 ]
+  %.01522.i = phi i32 [ 0, %C3coeff.exit ], [ %123, %122 ]
+  %.01621.i = phi i32 [ 0, %C3coeff.exit ], [ %101, %122 ]
+  %101 = add i32 %.01621.i, %indvars.iv29.i
   br label %102
 
 102:                                              ; preds = %polyvalx.exit.i51, %.preheader.i43
-  %indvars.iv28.i = phi i64 [ %101, %.preheader.i43 ], [ %indvars.iv.next29.i, %polyvalx.exit.i51 ]
   %indvars.iv.i44 = phi i64 [ 5, %.preheader.i43 ], [ %indvars.iv.next.i53, %polyvalx.exit.i51 ]
-  %.120.i = phi i32 [ %.023.i, %.preheader.i43 ], [ %119, %polyvalx.exit.i51 ]
+  %.120.i = phi i32 [ %.023.i, %.preheader.i43 ], [ %121, %polyvalx.exit.i51 ]
+  %.11718.i = phi i32 [ %.01621.i, %.preheader.i43 ], [ %118, %polyvalx.exit.i51 ]
   %103 = load double, ptr %15, align 8
   %104 = sext i32 %.120.i to i64
   %105 = getelementptr inbounds double, ptr @C4coeff.coeff, i64 %104
@@ -275,26 +267,22 @@ polyvalx.exit.i51:                                ; preds = %.lr.ph.i.i46, %102
   %115 = getelementptr inbounds [77 x double], ptr @C4coeff.coeff, i64 0, i64 %114
   %116 = load double, ptr %115, align 8
   %117 = fdiv double %.0.lcssa.i.i52, %116
-  %indvars.iv.next29.i = add nsw i64 %indvars.iv28.i, 1
-  %118 = getelementptr inbounds [21 x double], ptr %100, i64 0, i64 %indvars.iv28.i
-  store double %117, ptr %118, align 8
-  %119 = add i32 %reass.sub24.i, 7
+  %118 = add i32 %.11718.i, 1
+  %119 = sext i32 %.11718.i to i64
+  %120 = getelementptr inbounds [21 x double], ptr %100, i64 0, i64 %119
+  store double %117, ptr %120, align 8
+  %121 = add i32 %reass.sub24.i, 7
   %indvars.iv.next.i53 = add nsw i64 %indvars.iv.i44, -1
-  %lftr.wideiv73 = trunc i64 %indvars.iv.next29.i to i32
-  %exitcond74 = icmp eq i32 %indvars.iv71, %lftr.wideiv73
-  br i1 %exitcond74, label %120, label %102
+  %exitcond.not.i54 = icmp eq i32 %118, %101
+  br i1 %exitcond.not.i54, label %122, label %102
 
-120:                                              ; preds = %polyvalx.exit.i51
-  %121 = trunc nuw nsw i64 %indvars.iv75 to i32
-  %122 = add i32 %.01621.i, %121
+122:                                              ; preds = %polyvalx.exit.i51
   %123 = add nuw nsw i32 %.01522.i, 1
-  %indvars.iv.next76 = add nsw i64 %indvars.iv75, -1
-  %exitcond35.not.i = icmp eq i32 %123, 6
-  %indvars.iv.next70 = add nsw i32 %indvars.iv69, -1
-  %indvars.iv.next72 = add i32 %indvars.iv71, %indvars.iv69
-  br i1 %exitcond35.not.i, label %C4coeff.exit, label %.preheader.i43
+  %indvars.iv.next30.i = add nsw i32 %indvars.iv29.i, -1
+  %exitcond31.not.i = icmp eq i32 %123, 6
+  br i1 %exitcond31.not.i, label %C4coeff.exit, label %.preheader.i43
 
-C4coeff.exit:                                     ; preds = %120
+C4coeff.exit:                                     ; preds = %122
   ret void
 }
 

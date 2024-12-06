@@ -2556,7 +2556,7 @@ lpad144:                                          ; preds = %if.then151
 
 invoke.cont148:                                   ; preds = %invoke.cont148.lr.ph, %if.end219
   %__begin1138.sroa.2.0437 = phi i64 [ 0, %invoke.cont148.lr.ph ], [ %inc.i378, %if.end219 ]
-  %cmp.i.i286 = icmp samesign ult i64 %__begin1138.sroa.2.0437, 16
+  %cmp.i.i286 = icmp ult i64 %__begin1138.sroa.2.0437, 16
   %121 = load ptr, ptr %values_.i, align 8
   %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %121, i64 %__begin1138.sroa.2.0437
   %122 = load ptr, ptr %vect_.i, align 8
@@ -2577,10 +2577,11 @@ invoke.cont152:                                   ; preds = %if.then151
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %self_space_.i) #17
   store i8 0, ptr %pinned_.i, align 8
   store ptr %self_space_.i, ptr %buf_.i289, align 8
+  %conv = and i64 %__begin1138.sroa.2.0437, 4294967295
   %125 = load ptr, ptr %values, align 8
-  %add.ptr.i291 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %125, i64 %__begin1138.sroa.2.0437
+  %add.ptr.i291 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %125, i64 %conv
   %126 = load ptr, ptr %keys, align 8
-  %add.ptr.i292 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %126, i64 %__begin1138.sroa.2.0437
+  %add.ptr.i292 = getelementptr inbounds nuw %"class.rocksdb::Slice", ptr %126, i64 %conv
   %127 = load ptr, ptr %timestamp, align 8
   invoke void @_ZN7rocksdb9LookupKeyC1ERKNS_5SliceEmPS2_(ptr noundef nonnull align 8 dereferenceable(224) %lkey154, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i292, i64 noundef 72057594037927935, ptr noundef %127)
           to label %invoke.cont159 unwind label %lpad158
@@ -2590,7 +2591,7 @@ invoke.cont159:                                   ; preds = %invoke.cont152
 
 cond.true:                                        ; preds = %invoke.cont159
   %128 = load ptr, ptr %timestamps, align 8
-  %add.ptr.i293 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %__begin1138.sroa.2.0437
+  %add.ptr.i293 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %conv
   br label %invoke.cont167
 
 invoke.cont167:                                   ; preds = %cond.true, %invoke.cont159
@@ -2632,7 +2633,7 @@ invoke.cont187:                                   ; preds = %invoke.cont181
 
 if.then192:                                       ; preds = %invoke.cont187
   %137 = load ptr, ptr %agg.result, align 8
-  %add.ptr.i312 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %137, i64 %__begin1138.sroa.2.0437
+  %add.ptr.i312 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %137, i64 %conv
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i)
   %cmp.not.i313 = icmp eq ptr %add.ptr.i312, %s178
   br i1 %cmp.not.i313, label %_ZN7rocksdb6StatusaSERKS0_.exit, label %if.then.i314
@@ -2734,7 +2735,7 @@ invoke.cont202:                                   ; preds = %if.else197
 
 invoke.cont209:                                   ; preds = %invoke.cont202
   %154 = load ptr, ptr %agg.result, align 8
-  %add.ptr.i334 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %154, i64 %__begin1138.sroa.2.0437
+  %add.ptr.i334 = getelementptr inbounds nuw %"class.rocksdb::Status", ptr %154, i64 %conv
   %state_16.i350 = getelementptr inbounds nuw i8, ptr %add.ptr.i334, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %add.ptr.i334, i8 0, i64 6, i1 false)
   %155 = load ptr, ptr %state_16.i350, align 8
@@ -2799,7 +2800,7 @@ ehcleanup218:                                     ; preds = %delete.notnull.i374
   br label %ehcleanup229
 
 if.end219:                                        ; preds = %_ZN7rocksdb9LookupKeyD2Ev.exit367, %invoke.cont148
-  %inc.i378 = add nuw nsw i64 %__begin1138.sroa.2.0437, 1
+  %inc.i378 = add nuw i64 %__begin1138.sroa.2.0437, 1
   %cmp.i.i282.not = icmp eq i64 %inc.i378, %add.i.i
   br i1 %cmp.i.i282.not, label %invoke.cont145.for.cond.cleanup_crit_edge, label %invoke.cont148
 

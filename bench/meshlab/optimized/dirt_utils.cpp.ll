@@ -4575,6 +4575,7 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit:           ; preds = %.lr.ph, %197
 
 .lr.ph150.preheader:                              ; preds = %._crit_edge
   %214 = add i32 %212, 1
+  %smax = tail call i32 @llvm.smax.i32(i32 %214, i32 0)
   br label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %.lr.ph150.preheader, %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit76
@@ -4613,7 +4614,7 @@ _ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit76:         ; preds = %.lr.ph150, %222
   %235 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %231, i64 %230, i32 1, i64 %.pre-phi158
   %236 = load i8, ptr %235, align 1
   %237 = add nuw i32 %.055147, 1
-  %exitcond = icmp eq i32 %.055147, %214
+  %exitcond = icmp eq i32 %.055147, %smax
   br i1 %exitcond, label %._crit_edge151, label %.lr.ph150, !llvm.loop !38
 
 ._crit_edge151:                                   ; preds = %_ZN3vcg4face3PosI6CFaceOE5FlipEEv.exit76, %._crit_edge

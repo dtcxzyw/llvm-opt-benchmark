@@ -43,52 +43,53 @@ define void @circo_init_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not27.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %1 ]
-  %.029.i = phi ptr [ %25, %.lr.ph.i ], [ %16, %1 ]
+  %.029.i = phi ptr [ %27, %.lr.ph.i ], [ %16, %1 ]
+  %.02328.i = phi i32 [ %25, %.lr.ph.i ], [ 0, %1 ]
   tail call void @neato_init_node(ptr noundef nonnull %.029.i) #10
-  %17 = getelementptr inbounds nuw %struct.ndata, ptr %8, i64 %indvars.iv.i
-  %18 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 152
-  store ptr %17, ptr %20, align 8
-  %21 = load ptr, ptr %13, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 184
-  %23 = load ptr, ptr %22, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
-  store ptr %.029.i, ptr %24, align 8
-  %25 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.029.i) #10
-  %.not.i = icmp eq ptr %25, null
+  %17 = zext nneg i32 %.02328.i to i64
+  %18 = getelementptr inbounds nuw %struct.ndata, ptr %8, i64 %17
+  %19 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 152
+  store ptr %18, ptr %21, align 8
+  %22 = load ptr, ptr %13, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 184
+  %24 = load ptr, ptr %23, align 8
+  %25 = add nuw nsw i32 %.02328.i, 1
+  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %17
+  store ptr %.029.i, ptr %26, align 8
+  %27 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.029.i) #10
+  %.not.i = icmp eq ptr %27, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %1
-  %26 = tail call ptr @agfstnode(ptr noundef nonnull %0) #10
-  %.not2535.i = icmp eq ptr %26, null
+  %28 = tail call ptr @agfstnode(ptr noundef nonnull %0) #10
+  %.not2535.i = icmp eq ptr %28, null
   br i1 %.not2535.i, label %circular_init_node_edge.exit, label %.lr.ph38.i
 
 .lr.ph38.i:                                       ; preds = %._crit_edge.i, %._crit_edge34.i
-  %.136.i = phi ptr [ %36, %._crit_edge34.i ], [ %26, %._crit_edge.i ]
-  %27 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.136.i) #10
-  %.not2630.i = icmp eq ptr %27, null
+  %.136.i = phi ptr [ %38, %._crit_edge34.i ], [ %28, %._crit_edge.i ]
+  %29 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.136.i) #10
+  %.not2630.i = icmp eq ptr %29, null
   br i1 %.not2630.i, label %._crit_edge34.i, label %.lr.ph33.i
 
 .lr.ph33.i:                                       ; preds = %.lr.ph38.i, %.lr.ph33.i
-  %.02431.i = phi ptr [ %35, %.lr.ph33.i ], [ %27, %.lr.ph38.i ]
-  %28 = tail call ptr @agbindrec(ptr noundef nonnull %.02431.i, ptr noundef nonnull @.str.2, i32 noundef 240, i32 noundef 1) #10
-  %29 = tail call i32 @common_init_edge(ptr noundef nonnull %.02431.i) #10
-  %30 = load ptr, ptr @E_weight, align 8
-  %31 = tail call double @late_double(ptr noundef nonnull %.02431.i, ptr noundef %30, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
-  %32 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 176
-  store double %31, ptr %34, align 8
-  %35 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02431.i) #10
-  %.not26.i = icmp eq ptr %35, null
+  %.02431.i = phi ptr [ %37, %.lr.ph33.i ], [ %29, %.lr.ph38.i ]
+  %30 = tail call ptr @agbindrec(ptr noundef nonnull %.02431.i, ptr noundef nonnull @.str.2, i32 noundef 240, i32 noundef 1) #10
+  %31 = tail call i32 @common_init_edge(ptr noundef nonnull %.02431.i) #10
+  %32 = load ptr, ptr @E_weight, align 8
+  %33 = tail call double @late_double(ptr noundef nonnull %.02431.i, ptr noundef %32, double noundef 1.000000e+00, double noundef 0.000000e+00) #10
+  %34 = getelementptr inbounds nuw i8, ptr %.02431.i, i64 16
+  %35 = load ptr, ptr %34, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 176
+  store double %33, ptr %36, align 8
+  %37 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02431.i) #10
+  %.not26.i = icmp eq ptr %37, null
   br i1 %.not26.i, label %._crit_edge34.i, label %.lr.ph33.i
 
 ._crit_edge34.i:                                  ; preds = %.lr.ph33.i, %.lr.ph38.i
-  %36 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.136.i) #10
-  %.not25.i = icmp eq ptr %36, null
+  %38 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.136.i) #10
+  %.not25.i = icmp eq ptr %38, null
   br i1 %.not25.i, label %circular_init_node_edge.exit, label %.lr.ph38.i
 
 circular_init_node_edge.exit:                     ; preds = %._crit_edge34.i, %._crit_edge.i

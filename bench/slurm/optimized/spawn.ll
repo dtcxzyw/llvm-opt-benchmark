@@ -1492,33 +1492,28 @@ define range(i32 -1, 1) i32 @spawn_job_do_spawn(ptr nocapture noundef readonly %
 
 190:                                              ; preds = %189, %._crit_edge64.i.i
   %191 = icmp sgt i32 %.3.in.lcssa.i.i, -2
-  br i1 %191, label %.lr.ph69.preheader.i.i, label %_exec_srun_single.exit.i
+  br i1 %191, label %.lr.ph69.i.i, label %_exec_srun_single.exit.i
 
-.lr.ph69.preheader.i.i:                           ; preds = %190
-  %192 = add i32 %.3.in.lcssa.i.i, 2
-  %wide.trip.count.i.i = zext i32 %192 to i64
-  br label %.lr.ph69.i.i
+.lr.ph69.i.i:                                     ; preds = %190, %199
+  %.267.i.i = phi i32 [ %200, %199 ], [ 0, %190 ]
+  %192 = call i32 @slurm_get_log_level() #10
+  %193 = icmp sgt i32 %192, 6
+  br i1 %193, label %194, label %199
 
-.lr.ph69.i.i:                                     ; preds = %200, %.lr.ph69.preheader.i.i
-  %indvars.iv83.i.i = phi i64 [ 0, %.lr.ph69.preheader.i.i ], [ %indvars.iv.next84.i.i, %200 ]
-  %193 = call i32 @slurm_get_log_level() #10
-  %194 = icmp sgt i32 %193, 6
-  br i1 %194, label %195, label %200
-
-195:                                              ; preds = %.lr.ph69.i.i
-  %196 = load ptr, ptr %6, align 8
-  %197 = getelementptr inbounds nuw ptr, ptr %196, i64 %indvars.iv83.i.i
+194:                                              ; preds = %.lr.ph69.i.i
+  %195 = load ptr, ptr %6, align 8
+  %196 = zext nneg i32 %.267.i.i to i64
+  %197 = getelementptr inbounds nuw ptr, ptr %195, i64 %196
   %198 = load ptr, ptr %197, align 8
-  %199 = trunc nuw nsw i64 %indvars.iv83.i.i to i32
-  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single, i32 noundef %199, ptr noundef %198) #10
-  br label %200
+  call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.38, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._exec_srun_single, i32 noundef %.267.i.i, ptr noundef %198) #10
+  br label %199
 
-200:                                              ; preds = %195, %.lr.ph69.i.i
-  %indvars.iv.next84.i.i = add nuw nsw i64 %indvars.iv83.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next84.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !27
+199:                                              ; preds = %194, %.lr.ph69.i.i
+  %200 = add nuw nsw i32 %.267.i.i, 1
+  %.not73.i.i = icmp sgt i32 %.267.i.i, %.3.in.lcssa.i.i
+  br i1 %.not73.i.i, label %_exec_srun_single.exit.i, label %.lr.ph69.i.i, !llvm.loop !27
 
-_exec_srun_single.exit.i:                         ; preds = %200, %190
+_exec_srun_single.exit.i:                         ; preds = %199, %190
   %201 = load ptr, ptr %6, align 8
   %202 = load ptr, ptr %5, align 8
   %203 = call i32 @execve(ptr noundef nonnull @.str.39, ptr noundef %201, ptr noundef %202) #10

@@ -9610,8 +9610,8 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture no
   br label %22
 
 22:                                               ; preds = %.lr.ph, %81
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %23 = phi ptr [ %16, %.lr.ph ], [ %86, %81 ]
+  %23 = phi ptr [ %16, %.lr.ph ], [ %88, %81 ]
+  %.078 = phi i32 [ 0, %.lr.ph ], [ %84, %81 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const._het_job_limit_check.locks, i64 28, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -9688,39 +9688,35 @@ define internal fastcc noundef zeroext i1 @_het_job_limit_check(ptr nocapture no
   %77 = fptoui double %76 to i64
   store i64 %77, ptr %21, align 16
   %78 = call zeroext i1 @acct_policy_job_runnable_pre_select(ptr noundef nonnull %25, i1 noundef zeroext true) #16
-  br i1 %78, label %79, label %87
+  br i1 %78, label %79, label %89
 
 79:                                               ; preds = %48
   %80 = call zeroext i1 @acct_policy_job_runnable_post_select(ptr noundef nonnull %25, ptr noundef nonnull %7, i1 noundef zeroext true) #16
-  br i1 %80, label %81, label %87
+  br i1 %80, label %81, label %89
 
 81:                                               ; preds = %79
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #16
   %82 = getelementptr inbounds nuw i8, ptr %25, i64 1040
   %83 = load ptr, ptr %82, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %84 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
-  store ptr %83, ptr %84, align 8
-  %85 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3822, ptr noundef nonnull @__func__._het_job_limit_check) #16
-  store ptr %85, ptr %82, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %85, ptr nonnull align 16 %7, i64 %18, i1 false)
+  %84 = add nuw nsw i32 %.078, 1
+  %85 = zext nneg i32 %.078 to i64
+  %86 = getelementptr inbounds nuw ptr, ptr %12, i64 %85
+  store ptr %83, ptr %86, align 8
+  %87 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %18, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 3822, ptr noundef nonnull @__func__._het_job_limit_check) #16
+  store ptr %87, ptr %82, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %87, ptr nonnull align 16 %7, i64 %18, i1 false)
   call void @acct_policy_job_begin(ptr noundef nonnull %25, i1 noundef zeroext false) #16
-  %86 = call ptr @list_next(ptr noundef %15) #16
-  %.not = icmp eq ptr %86, null
-  br i1 %.not, label %.loopexit.loopexit, label %22, !llvm.loop !33
+  %88 = call ptr @list_next(ptr noundef %15) #16
+  %.not = icmp eq ptr %88, null
+  br i1 %.not, label %.loopexit, label %22, !llvm.loop !33
 
-87:                                               ; preds = %79, %48
-  %88 = trunc nuw nsw i64 %indvars.iv to i32
+89:                                               ; preds = %79, %48
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #16
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %81
-  %89 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %2, %87
-  %.076 = phi i32 [ %88, %87 ], [ 0, %2 ], [ %89, %.loopexit.loopexit ]
-  %.not74 = phi i1 [ false, %87 ], [ true, %2 ], [ true, %.loopexit.loopexit ]
+.loopexit:                                        ; preds = %81, %2, %89
+  %.076 = phi i32 [ %.078, %89 ], [ 0, %2 ], [ %84, %81 ]
+  %.not74 = phi i1 [ false, %89 ], [ true, %2 ], [ true, %81 ]
   call void @list_iterator_reset(ptr noundef %15) #16
   %90 = call ptr @list_next(ptr noundef %15) #16
   %.not7281 = icmp eq ptr %90, null

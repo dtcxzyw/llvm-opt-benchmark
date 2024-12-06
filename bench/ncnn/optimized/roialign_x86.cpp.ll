@@ -870,8 +870,8 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %21 = add nsw i32 %1, -1
   %22 = sitofp i32 %21 to float
   %23 = icmp slt i32 %4, 1
-  %or.cond.not166 = or i1 %15, %23
-  %brmerge = or i1 %or.cond.not166, %16
+  %or.cond.not163 = or i1 %15, %23
+  %brmerge = or i1 %or.cond.not163, %16
   br i1 %brmerge, label %._crit_edge142, label %.preheader110.us.us.us.preheader
 
 .preheader110.us.us.us.preheader:                 ; preds = %.preheader110.lr.ph
@@ -882,24 +882,24 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   br label %.preheader110.us.us.us
 
 .preheader110.us.us.us:                           ; preds = %.preheader110.us.us.us.preheader, %._crit_edge.split.us.split.us.us.us.us
-  %.0141.us.us.us = phi i64 [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
-  %.087140.us.us.us = phi i32 [ %82, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
+  %.0141.us.us.us = phi i32 [ %.us-phi.us.us.us.us.us.us, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
+  %.087140.us.us.us = phi i32 [ %85, %._crit_edge.split.us.split.us.us.us.us ], [ 0, %.preheader110.us.us.us.preheader ]
   %28 = uitofp nneg i32 %.087140.us.us.us to float
   %29 = fmul fast float %8, %28
   %30 = fadd fast float %29, %6
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge116.split.us.us.us.us.us.us, %.preheader110.us.us.us
-  %.1134.us.us.us.us.us = phi i64 [ %.0141.us.us.us, %.preheader110.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge116.split.us.us.us.us.us.us ]
-  %.088133.us.us.us.us.us = phi i32 [ 0, %.preheader110.us.us.us ], [ %81, %._crit_edge116.split.us.us.us.us.us.us ]
+  %.1134.us.us.us.us.us = phi i32 [ %.0141.us.us.us, %.preheader110.us.us.us ], [ %.us-phi.us.us.us.us.us.us, %._crit_edge116.split.us.us.us.us.us.us ]
+  %.088133.us.us.us.us.us = phi i32 [ 0, %.preheader110.us.us.us ], [ %84, %._crit_edge116.split.us.us.us.us.us.us ]
   %31 = uitofp nneg i32 %.088133.us.us.us.us.us to float
   %32 = fmul fast float %9, %31
   %33 = fadd fast float %32, %7
   br label %.lr.ph.us.us.us.us.us.us
 
 .lr.ph.us.us.us.us.us.us:                         ; preds = %._crit_edge.us.us.us.us.us.us, %.preheader.us.us.us.us.us
-  %.2114.us.us.us.us.us.us = phi i64 [ %.1134.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us.in, %._crit_edge.us.us.us.us.us.us ]
-  %.089113.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %77, %._crit_edge.us.us.us.us.us.us ]
+  %.2114.us.us.us.us.us.us = phi i32 [ %.1134.us.us.us.us.us, %.preheader.us.us.us.us.us ], [ %.us-phi.us.us.us.us.us.us, %._crit_edge.us.us.us.us.us.us ]
+  %.089113.us.us.us.us.us.us = phi i32 [ 0, %.preheader.us.us.us.us.us ], [ %80, %._crit_edge.us.us.us.us.us.us ]
   %34 = uitofp nneg i32 %.089113.us.us.us.us.us.us to float
   %35 = fadd fast float %34, 5.000000e-01
   %36 = fmul fast float %8, %35
@@ -921,13 +921,15 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %46 = mul nsw i32 %.095.us.us.us.us.us.us, %1
   %47 = mul nsw i32 %.097.us.us.us.us.us.us, %1
   %or.cond.fr.us.us.us.us.us.us = freeze i1 %or.cond.us.us.us.us.us.us
-  %sext = shl i64 %.2114.us.us.us.us.us.us, 32
-  %48 = ashr exact i64 %sext, 32
-  br i1 %or.cond.fr.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, label %.lr.ph.split.us130.us.us.us.us.us
+  br i1 %or.cond.fr.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us.preheader, label %.lr.ph.split.us130.us.us.us.us.us
 
-.lr.ph.split.us130.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %75
-  %indvars.iv = phi i64 [ %indvars.iv.next, %75 ], [ %48, %.lr.ph.us.us.us.us.us.us ]
-  %.090111.us119.us.us.us.us.us = phi i32 [ %76, %75 ], [ 0, %.lr.ph.us.us.us.us.us.us ]
+.lr.ph.split.us.us.us.us.us.us.us.preheader:      ; preds = %.lr.ph.us.us.us.us.us.us
+  %48 = sext i32 %.2114.us.us.us.us.us.us to i64
+  br label %.lr.ph.split.us.us.us.us.us.us.us
+
+.lr.ph.split.us130.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %77
+  %.3112.us118.us.us.us.us.us = phi i32 [ %.4.us127.us.us.us.us.us, %77 ], [ %.2114.us.us.us.us.us.us, %.lr.ph.us.us.us.us.us.us ]
+  %.090111.us119.us.us.us.us.us = phi i32 [ %78, %77 ], [ 0, %.lr.ph.us.us.us.us.us.us ]
   %49 = uitofp nneg i32 %.090111.us119.us.us.us.us.us to float
   %50 = fadd fast float %49, 5.000000e-01
   %51 = fmul fast float %9, %50
@@ -936,7 +938,7 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %54 = fcmp fast olt float %53, -1.000000e+00
   %55 = fcmp fast ogt float %53, %18
   %or.cond109.us.us.us.us.us.us = select i1 %54, i1 true, i1 %55
-  br i1 %or.cond109.us.us.us.us.us.us, label %72, label %56
+  br i1 %or.cond109.us.us.us.us.us.us, label %73, label %56
 
 56:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
   %.091.us.us.us.us.us.us = tail call fast float @llvm.maxnum.f32(float %53, float 0.000000e+00)
@@ -957,63 +959,69 @@ define linkonce_odr hidden void @_ZN4ncnn44detectron2_pre_calc_for_bilinear_inte
   %67 = add nsw i32 %.098.us.us.us.us.us.us, %46
   %68 = add nsw i32 %.096.us.us.us.us.us.us, %47
   %69 = add nsw i32 %.098.us.us.us.us.us.us, %47
-  %70 = load ptr, ptr %12, align 8
-  %71 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %70, i64 %indvars.iv
-  store i32 %66, ptr %71, align 4
-  %.sroa.2.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 4
+  %70 = sext i32 %.3112.us118.us.us.us.us.us to i64
+  %71 = load ptr, ptr %12, align 8
+  %72 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %71, i64 %70
+  store i32 %66, ptr %72, align 4
+  %.sroa.2.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %67, ptr %.sroa.2.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.3.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %.sroa.3.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 8
   store i32 %68, ptr %.sroa.3.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.4.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 12
+  %.sroa.4.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 12
   store i32 %69, ptr %.sroa.4.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.5.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %.sroa.5.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 16
   store float %62, ptr %.sroa.5.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.6.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 20
+  %.sroa.6.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 20
   store float %63, ptr %.sroa.6.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.7.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 24
+  %.sroa.7.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 24
   store float %64, ptr %.sroa.7.0..sroa_idx.us.us.us.us.us.us, align 4
-  %.sroa.8.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %71, i64 28
+  %.sroa.8.0..sroa_idx.us.us.us.us.us.us = getelementptr inbounds nuw i8, ptr %72, i64 28
   store float %65, ptr %.sroa.8.0..sroa_idx.us.us.us.us.us.us, align 4
-  br label %75
+  br label %77
 
-72:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
-  %73 = load ptr, ptr %12, align 8
-  %74 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %73, i64 %indvars.iv
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %74, i8 0, i64 32, i1 false)
-  br label %75
+73:                                               ; preds = %.lr.ph.split.us130.us.us.us.us.us
+  %74 = sext i32 %.3112.us118.us.us.us.us.us to i64
+  %75 = load ptr, ptr %12, align 8
+  %76 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %75, i64 %74
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %76, i8 0, i64 32, i1 false)
+  br label %77
 
-75:                                               ; preds = %72, %56
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %76 = add nuw nsw i32 %.090111.us119.us.us.us.us.us, 1
-  %exitcond.not = icmp eq i32 %76, %5
+77:                                               ; preds = %73, %56
+  %.4.us127.us.us.us.us.us = add nsw i32 %.3112.us118.us.us.us.us.us, 1
+  %78 = add nuw nsw i32 %.090111.us119.us.us.us.us.us, 1
+  %exitcond.not = icmp eq i32 %78, %5
   br i1 %exitcond.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us130.us.us.us.us.us, !llvm.loop !21
 
-._crit_edge.us.us.us.us.us.us:                    ; preds = %75, %.lr.ph.split.us.us.us.us.us.us.us
-  %.us-phi.us.us.us.us.us.us.in = phi i64 [ %indvars.iv.next157, %.lr.ph.split.us.us.us.us.us.us.us ], [ %indvars.iv.next, %75 ]
-  %77 = add nuw nsw i32 %.089113.us.us.us.us.us.us, 1
-  %exitcond160.not = icmp eq i32 %77, %4
-  br i1 %exitcond160.not, label %._crit_edge116.split.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us, !llvm.loop !22
+._crit_edge.us.us.us.us.us.us.loopexit:           ; preds = %.lr.ph.split.us.us.us.us.us.us.us
+  %79 = trunc nsw i64 %indvars.iv.next to i32
+  br label %._crit_edge.us.us.us.us.us.us
 
-.lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.lr.ph.us.us.us.us.us.us, %.lr.ph.split.us.us.us.us.us.us.us
-  %indvars.iv156 = phi i64 [ %indvars.iv.next157, %.lr.ph.split.us.us.us.us.us.us.us ], [ %48, %.lr.ph.us.us.us.us.us.us ]
-  %.090111.us.us.us.us.us.us.us = phi i32 [ %80, %.lr.ph.split.us.us.us.us.us.us.us ], [ 0, %.lr.ph.us.us.us.us.us.us ]
-  %78 = load ptr, ptr %12, align 8
-  %79 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %78, i64 %indvars.iv156
-  %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
-  %80 = add nuw nsw i32 %.090111.us.us.us.us.us.us.us, 1
-  %exitcond159.not = icmp eq i32 %80, %5
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %79, i8 0, i64 32, i1 false)
-  br i1 %exitcond159.not, label %._crit_edge.us.us.us.us.us.us, label %.lr.ph.split.us.us.us.us.us.us.us, !llvm.loop !21
+._crit_edge.us.us.us.us.us.us:                    ; preds = %77, %._crit_edge.us.us.us.us.us.us.loopexit
+  %.us-phi.us.us.us.us.us.us = phi i32 [ %79, %._crit_edge.us.us.us.us.us.us.loopexit ], [ %.4.us127.us.us.us.us.us, %77 ]
+  %80 = add nuw nsw i32 %.089113.us.us.us.us.us.us, 1
+  %exitcond157.not = icmp eq i32 %80, %4
+  br i1 %exitcond157.not, label %._crit_edge116.split.us.us.us.us.us.us, label %.lr.ph.us.us.us.us.us.us, !llvm.loop !22
+
+.lr.ph.split.us.us.us.us.us.us.us:                ; preds = %.lr.ph.split.us.us.us.us.us.us.us.preheader, %.lr.ph.split.us.us.us.us.us.us.us
+  %indvars.iv = phi i64 [ %48, %.lr.ph.split.us.us.us.us.us.us.us.preheader ], [ %indvars.iv.next, %.lr.ph.split.us.us.us.us.us.us.us ]
+  %.090111.us.us.us.us.us.us.us = phi i32 [ 0, %.lr.ph.split.us.us.us.us.us.us.us.preheader ], [ %83, %.lr.ph.split.us.us.us.us.us.us.us ]
+  %81 = load ptr, ptr %12, align 8
+  %82 = getelementptr inbounds %"struct.ncnn::PreCalc", ptr %81, i64 %indvars.iv
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %83 = add nuw nsw i32 %.090111.us.us.us.us.us.us.us, 1
+  %exitcond156.not = icmp eq i32 %83, %5
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %82, i8 0, i64 32, i1 false)
+  br i1 %exitcond156.not, label %._crit_edge.us.us.us.us.us.us.loopexit, label %.lr.ph.split.us.us.us.us.us.us.us, !llvm.loop !21
 
 ._crit_edge116.split.us.us.us.us.us.us:           ; preds = %._crit_edge.us.us.us.us.us.us
-  %81 = add nuw nsw i32 %.088133.us.us.us.us.us, 1
-  %exitcond161.not = icmp eq i32 %81, %3
-  br i1 %exitcond161.not, label %._crit_edge.split.us.split.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !23
+  %84 = add nuw nsw i32 %.088133.us.us.us.us.us, 1
+  %exitcond158.not = icmp eq i32 %84, %3
+  br i1 %exitcond158.not, label %._crit_edge.split.us.split.us.us.us.us, label %.preheader.us.us.us.us.us, !llvm.loop !23
 
 ._crit_edge.split.us.split.us.us.us.us:           ; preds = %._crit_edge116.split.us.us.us.us.us.us
-  %82 = add nuw nsw i32 %.087140.us.us.us, 1
-  %exitcond162.not = icmp eq i32 %82, %2
-  br i1 %exitcond162.not, label %._crit_edge142, label %.preheader110.us.us.us, !llvm.loop !24
+  %85 = add nuw nsw i32 %.087140.us.us.us, 1
+  %exitcond159.not = icmp eq i32 %85, %2
+  br i1 %exitcond159.not, label %._crit_edge142, label %.preheader110.us.us.us, !llvm.loop !24
 
 ._crit_edge142:                                   ; preds = %._crit_edge.split.us.split.us.us.us.us, %.preheader110.lr.ph, %13
   ret void

@@ -3599,87 +3599,88 @@ define internal fastcc i64 @build_cipher_string(i64 noundef %0) unnamed_addr #0 
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   br label %15
 
-15:                                               ; preds = %50, %12
-  %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %12 ]
-  %16 = load i64, ptr %8, align 8
-  %17 = and i64 %16, 8192
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %21, label %18
+15:                                               ; preds = %51, %12
+  %.0 = phi i32 [ 0, %12 ], [ %52, %51 ]
+  %16 = zext nneg i32 %.0 to i64
+  %17 = load i64, ptr %8, align 8
+  %18 = and i64 %17, 8192
+  %.not.i = icmp eq i64 %18, 0
+  br i1 %.not.i, label %22, label %19
 
-18:                                               ; preds = %15
-  %19 = lshr i64 %16, 15
-  %20 = and i64 %19, 127
+19:                                               ; preds = %15
+  %20 = lshr i64 %17, 15
+  %21 = and i64 %20, 127
   br label %rb_array_len.exit
 
-21:                                               ; preds = %15
-  %22 = load i64, ptr %14, align 8
+22:                                               ; preds = %15
+  %23 = load i64, ptr %14, align 8
   br label %rb_array_len.exit
 
-rb_array_len.exit:                                ; preds = %18, %21
-  %.0.i = phi i64 [ %20, %18 ], [ %22, %21 ]
-  %23 = icmp sgt i64 %.0.i, %indvars.iv
-  br i1 %23, label %24, label %.loopexit
+rb_array_len.exit:                                ; preds = %19, %22
+  %.0.i = phi i64 [ %21, %19 ], [ %23, %22 ]
+  %24 = icmp sgt i64 %.0.i, %16
+  br i1 %24, label %25, label %.loopexit
 
-24:                                               ; preds = %rb_array_len.exit
-  %25 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %indvars.iv) #15
-  %26 = and i64 %25, 7
-  %27 = icmp ne i64 %26, 0
-  %28 = icmp eq i64 %25, 0
-  %29 = or i1 %28, %27
-  br i1 %29, label %.critedge54, label %30
+25:                                               ; preds = %rb_array_len.exit
+  %26 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %16) #15
+  %27 = and i64 %26, 7
+  %28 = icmp ne i64 %27, 0
+  %29 = icmp eq i64 %26, 0
+  %30 = or i1 %29, %28
+  br i1 %30, label %.critedge54, label %31
 
-30:                                               ; preds = %24
-  %31 = inttoptr i64 %25 to ptr
-  %32 = load i64, ptr %31, align 8
-  %33 = and i64 %32, 31
-  %34 = icmp eq i64 %33, 7
-  br i1 %34, label %35, label %.critedge54
+31:                                               ; preds = %25
+  %32 = inttoptr i64 %26 to ptr
+  %33 = load i64, ptr %32, align 8
+  %34 = and i64 %33, 31
+  %35 = icmp eq i64 %34, 7
+  br i1 %35, label %36, label %.critedge54
 
-35:                                               ; preds = %30
-  %36 = tail call i64 @rb_ary_entry(i64 noundef %25, i64 noundef 0) #15
+36:                                               ; preds = %31
+  %37 = tail call i64 @rb_ary_entry(i64 noundef %26, i64 noundef 0) #15
   br label %.critedge54
 
-.critedge54:                                      ; preds = %24, %35, %30
-  %.048 = phi i64 [ %36, %35 ], [ %25, %30 ], [ %25, %24 ]
-  %37 = tail call i64 @rb_String(i64 noundef %.048) #10
-  %38 = tail call i64 @rb_str_append(i64 noundef %13, i64 noundef %37) #10
-  %39 = load i64, ptr %8, align 8
-  %40 = and i64 %39, 8192
-  %.not.i55 = icmp eq i64 %40, 0
-  br i1 %.not.i55, label %44, label %41
+.critedge54:                                      ; preds = %25, %36, %31
+  %.048 = phi i64 [ %37, %36 ], [ %26, %31 ], [ %26, %25 ]
+  %38 = tail call i64 @rb_String(i64 noundef %.048) #10
+  %39 = tail call i64 @rb_str_append(i64 noundef %13, i64 noundef %38) #10
+  %40 = load i64, ptr %8, align 8
+  %41 = and i64 %40, 8192
+  %.not.i55 = icmp eq i64 %41, 0
+  br i1 %.not.i55, label %45, label %42
 
-41:                                               ; preds = %.critedge54
-  %42 = lshr i64 %39, 15
-  %43 = and i64 %42, 127
+42:                                               ; preds = %.critedge54
+  %43 = lshr i64 %40, 15
+  %44 = and i64 %43, 127
   br label %rb_array_len.exit57
 
-44:                                               ; preds = %.critedge54
-  %45 = load i64, ptr %14, align 8
+45:                                               ; preds = %.critedge54
+  %46 = load i64, ptr %14, align 8
   br label %rb_array_len.exit57
 
-rb_array_len.exit57:                              ; preds = %41, %44
-  %.0.i56 = phi i64 [ %43, %41 ], [ %45, %44 ]
-  %46 = add nsw i64 %.0.i56, -1
-  %47 = icmp sgt i64 %46, %indvars.iv
-  br i1 %47, label %48, label %50
+rb_array_len.exit57:                              ; preds = %42, %45
+  %.0.i56 = phi i64 [ %44, %42 ], [ %46, %45 ]
+  %47 = add nsw i64 %.0.i56, -1
+  %48 = icmp sgt i64 %47, %16
+  br i1 %48, label %49, label %51
 
-48:                                               ; preds = %rb_array_len.exit57
-  %49 = tail call i64 @rb_str_cat(i64 noundef %13, ptr noundef nonnull @.str.197, i64 noundef 1) #10
-  br label %50
+49:                                               ; preds = %rb_array_len.exit57
+  %50 = tail call i64 @rb_str_cat(i64 noundef %13, ptr noundef nonnull @.str.197, i64 noundef 1) #10
+  br label %51
 
-50:                                               ; preds = %rb_array_len.exit57, %48
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+51:                                               ; preds = %rb_array_len.exit57, %49
+  %52 = add nuw nsw i32 %.0, 1
   br label %15, !llvm.loop !34
 
 .critedge:                                        ; preds = %1, %7
   store i64 %0, ptr %2, align 8
-  %51 = call i64 @rb_string_value(ptr noundef nonnull %2) #10
+  %53 = call i64 @rb_string_value(ptr noundef nonnull %2) #10
   %.pre = load i64, ptr %2, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %.critedge
-  %52 = phi i64 [ %.pre, %.critedge ], [ %13, %rb_array_len.exit ]
-  ret i64 %52
+  %54 = phi i64 [ %.pre, %.critedge ], [ %13, %rb_array_len.exit ]
+  ret i64 %54
 }
 
 declare i32 @SSL_CTX_set_cipher_list(ptr noundef, ptr noundef) local_unnamed_addr #1

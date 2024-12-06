@@ -1790,44 +1790,42 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124X86OutgoingValueAssigner9
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %18 = load i8, ptr %17, align 8
   %19 = trunc i8 %18 to i1
-  br i1 %19, label %36, label %.lr.ph.i
+  br i1 %19, label %38, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %21 = load ptr, ptr %20, align 8
   br label %22
 
-22:                                               ; preds = %33, %.lr.ph.i
-  %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.lr.ph.i ]
-  %23 = getelementptr inbounds nuw i16, ptr @_ZZN12_GLOBAL__N_124X86OutgoingValueAssigner9assignArgEjN4llvm3EVTENS1_3MVTES3_NS1_11CCValAssign7LocInfoERKNS1_12CallLowering7ArgInfoENS1_3ISD10ArgFlagsTyERNS1_7CCStateEE10XMMArgRegs, i64 %indvars.iv
-  %24 = load i16, ptr %23, align 2
-  %25 = zext i16 %24 to i32
-  %26 = lshr i32 %25, 5
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %27
-  %29 = load i32, ptr %28, align 4
-  %30 = and i32 %25, 31
-  %31 = shl nuw i32 1, %30
-  %32 = and i32 %31, %29
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.split.loop.exit13, label %33
+22:                                               ; preds = %34, %.lr.ph.i
+  %23 = phi i64 [ 0, %.lr.ph.i ], [ %36, %34 ]
+  %.010.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %34 ]
+  %24 = getelementptr inbounds nuw i16, ptr @_ZZN12_GLOBAL__N_124X86OutgoingValueAssigner9assignArgEjN4llvm3EVTENS1_3MVTES3_NS1_11CCValAssign7LocInfoERKNS1_12CallLowering7ArgInfoENS1_3ISD10ArgFlagsTyERNS1_7CCStateEE10XMMArgRegs, i64 %23
+  %25 = load i16, ptr %24, align 2
+  %26 = zext i16 %25 to i32
+  %27 = lshr i32 %26, 5
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %28
+  %30 = load i32, ptr %29, align 4
+  %31 = and i32 %26, 31
+  %32 = shl nuw i32 1, %31
+  %33 = and i32 %32, %30
+  %.not.i = icmp eq i32 %33, 0
+  br i1 %.not.i, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit, label %34
 
-33:                                               ; preds = %22
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+34:                                               ; preds = %22
+  %35 = add nuw nsw i32 %.010.i, 1
+  %36 = zext nneg i32 %35 to i64
+  %exitcond.not = icmp eq i32 %35, 8
   br i1 %exitcond.not, label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit, label %22, !llvm.loop !42
 
-_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.split.loop.exit13: ; preds = %22
-  %34 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit
+_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %34, %22
+  %.05.i = phi i32 [ %.010.i, %22 ], [ 8, %34 ]
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store i32 %.05.i, ptr %37, align 8
+  br label %38
 
-_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %33, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.split.loop.exit13
-  %.05.i = phi i32 [ %34, %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit.split.loop.exit13 ], [ 8, %33 ]
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %.05.i, ptr %35, align 8
-  br label %36
-
-36:                                               ; preds = %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit, %10
+38:                                               ; preds = %_ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit, %10
   ret i1 %13
 }
 

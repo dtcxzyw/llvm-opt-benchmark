@@ -1848,8 +1848,8 @@ entry:
 
 for.cond45.preheader:                             ; preds = %for.inc
   %nr47.phi.trans.insert = getelementptr inbounds nuw i8, ptr %reversed, i64 8
-  %.pre47 = load i64, ptr %nr47.phi.trans.insert, align 8
-  %cmp4832.not = icmp eq i64 %.pre47, 0
+  %.pre44 = load i64, ptr %nr47.phi.trans.insert, align 8
+  %cmp4832.not = icmp eq i64 %.pre44, 0
   br i1 %cmp4832.not, label %for.end60, label %for.body50.lr.ph
 
 for.body50.lr.ph:                                 ; preds = %for.cond45.preheader
@@ -1863,8 +1863,9 @@ for.body50.lr.ph.split.us:                        ; preds = %for.body50.lr.ph
   br label %for.body50.us
 
 for.body50.us:                                    ; preds = %omit_name_by_refspec.exit.loopexit.us, %for.body50.lr.ph.split.us
-  %indvars.iv44 = phi i64 [ %indvars.iv.next45, %omit_name_by_refspec.exit.loopexit.us ], [ 0, %for.body50.lr.ph.split.us ]
-  %arrayidx53.us = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %indvars.iv44
+  %conv35.us = phi i64 [ 0, %for.body50.lr.ph.split.us ], [ %conv.us, %omit_name_by_refspec.exit.loopexit.us ]
+  %i.134.us = phi i32 [ 0, %for.body50.lr.ph.split.us ], [ %inc59.us, %omit_name_by_refspec.exit.loopexit.us ]
+  %arrayidx53.us = getelementptr inbounds nuw %struct.string_list_item, ptr %3, i64 %conv35.us
   %6 = load ptr, ptr %arrayidx53.us, align 8
   br label %for.body.i.us
 
@@ -1921,8 +1922,9 @@ for.inc.i.us:                                     ; preds = %if.end.i.us, %if.en
   br i1 %exitcond.not, label %omit_name_by_refspec.exit.loopexit.us, label %for.body.i.us, !llvm.loop !15
 
 omit_name_by_refspec.exit.loopexit.us:            ; preds = %for.inc.i.us
-  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %cmp48.us = icmp ugt i64 %.pre47, %indvars.iv.next45
+  %inc59.us = add nuw nsw i32 %i.134.us, 1
+  %conv.us = zext nneg i32 %inc59.us to i64
+  %cmp48.us = icmp ugt i64 %.pre44, %conv.us
   br i1 %cmp48.us, label %for.body50.us, label %for.end60, !llvm.loop !19
 
 for.body:                                         ; preds = %entry, %for.inc
@@ -6120,16 +6122,18 @@ query_refspecs_multiple.exit:                     ; preds = %for.inc.us.i, %if.e
   br i1 %or.cond, label %for.body, label %clean_exit
 
 for.body:                                         ; preds = %query_refspecs_multiple.exit, %for.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %query_refspecs_multiple.exit ]
+  %conv11 = phi i64 [ %conv, %for.body ], [ 0, %query_refspecs_multiple.exit ]
+  %i.010 = phi i32 [ %inc, %for.body ], [ 0, %query_refspecs_multiple.exit ]
   %10 = load ptr, ptr %cb_data, align 8
   %11 = load ptr, ptr %matches, align 8
-  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw %struct.string_list_item, ptr %11, i64 %conv11
   %12 = load ptr, ptr %arrayidx, align 8
   %call = call i32 @string_list_has_string(ptr noundef %10, ptr noundef %12) #21
   %tobool7.not = icmp eq i32 %call, 0
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %i.010, 1
+  %conv = zext nneg i32 %inc to i64
   %13 = load i64, ptr %nr, align 8
-  %cmp5 = icmp ugt i64 %13, %indvars.iv.next
+  %cmp5 = icmp ugt i64 %13, %conv
   %14 = select i1 %tobool7.not, i1 %cmp5, i1 false
   br i1 %14, label %for.body, label %for.end, !llvm.loop !44
 

@@ -25693,8 +25693,8 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit: ; preds = %.preheader.i.i, %1,
   br i1 %.b10, label %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, label %10
 
 _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
-  %.pre20 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
-  br label %49
+  %.pre19 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
+  br label %51
 
 10:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit
   store i1 true, ptr @_ZZN19VerilatedContextImp9argc_argvEvE8s_loaded, align 1
@@ -25730,8 +25730,8 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
-  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph.preheader ]
-  %.sroa.011.016 = phi ptr [ %41, %36 ], [ %27, %.lr.ph.preheader ]
+  %.017 = phi i32 [ %42, %36 ], [ 0, %.lr.ph.preheader ]
+  %.sroa.011.016 = phi ptr [ %43, %36 ], [ %27, %.lr.ph.preheader ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
   %33 = load i64, ptr %32, align 8
   %34 = add i64 %33, 1
@@ -25739,51 +25739,52 @@ _ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge: ; preds = %_ZN18Ver
           to label %36 unwind label %.loopexit
 
 36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
-  store ptr %35, ptr %37, align 8
-  %38 = load ptr, ptr %.sroa.011.016, align 8
-  %39 = load i64, ptr %32, align 8
-  %40 = add i64 %39, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %38, i64 %40, i1 false)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 32
-  %42 = icmp eq ptr %41, %29
-  br i1 %42, label %._crit_edge.loopexit, label %.lr.ph
+  %37 = zext nneg i32 %.017 to i64
+  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %37
+  store ptr %35, ptr %38, align 8
+  %39 = load ptr, ptr %.sroa.011.016, align 8
+  %40 = load i64, ptr %32, align 8
+  %41 = add i64 %40, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 1 %39, i64 %41, i1 false)
+  %42 = add nuw nsw i32 %.017, 1
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 32
+  %44 = icmp eq ptr %43, %29
+  br i1 %44, label %._crit_edge.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %45
 
 .loopexit.split-lp:                               ; preds = %10
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %43
+  br label %45
 
-43:                                               ; preds = %.loopexit.split-lp, %.loopexit
+45:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %44 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
+  %46 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge.loopexit:                             ; preds = %36
   %.pre = load ptr, ptr @_ZZN19VerilatedContextImp9argc_argvEvE7s_argvp, align 8
-  %.pre19 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
+  %.pre18 = load i32, ptr @_ZZN19VerilatedContextImp9argc_argvEvE6s_argc, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %25
-  %45 = phi i32 [ %.pre19, %._crit_edge.loopexit ], [ %20, %25 ]
-  %46 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %24, %25 ]
-  %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
-  store ptr null, ptr %48, align 8
-  br label %49
+  %47 = phi i32 [ %.pre18, %._crit_edge.loopexit ], [ %20, %25 ]
+  %48 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %24, %25 ]
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  store ptr null, ptr %50, align 8
+  br label %51
 
-49:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, %._crit_edge
-  %50 = phi i32 [ %.pre20, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge ], [ %45, %._crit_edge ]
-  %51 = load ptr, ptr @_ZZN19VerilatedContextImp9argc_argvEvE7s_argvp, align 8
-  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %50, 0
-  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %51, 1
-  %52 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
+51:                                               ; preds = %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge, %._crit_edge
+  %52 = phi i32 [ %.pre19, %_ZN18VerilatedLockGuardC2ER14VerilatedMutex.exit._crit_edge ], [ %47, %._crit_edge ]
+  %53 = load ptr, ptr @_ZZN19VerilatedContextImp9argc_argvEvE7s_argvp, align 8
+  %.fca.0.insert.i = insertvalue { i32, ptr } poison, i32 %52, 0
+  %.fca.1.insert.i = insertvalue { i32, ptr } %.fca.0.insert.i, ptr %53, 1
+  %54 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %2) #23
   ret { i32, ptr } %.fca.1.insert.i
 }
 

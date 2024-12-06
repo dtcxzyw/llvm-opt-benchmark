@@ -1634,70 +1634,69 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %147 = zext nneg i32 %140 to i64
   %wide.trip.count = zext nneg i32 %spec.select102 to i64
-  %148 = zext i32 %spec.select103 to i64
-  br label %149
+  br label %148
 
-149:                                              ; preds = %136, %176
-  %indvars.iv128 = phi i64 [ 0, %136 ], [ %indvars.iv.next129, %176 ]
-  %indvars.iv = phi i64 [ 0, %136 ], [ %indvars.iv.next, %176 ]
-  %150 = load ptr, ptr %4, align 8
-  %151 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %150, i64 %indvars.iv
+148:                                              ; preds = %136, %175
+  %indvars.iv = phi i64 [ 0, %136 ], [ %indvars.iv.next, %175 ]
+  %.078119 = phi i32 [ 0, %136 ], [ %176, %175 ]
+  %149 = load ptr, ptr %4, align 8
+  %150 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %149, i64 %indvars.iv
   store i32 0, ptr %5, align 4
-  %152 = trunc nuw i64 %indvars.iv128 to i32
-  store i32 %152, ptr %143, align 4
-  %153 = load i32, ptr %0, align 8
-  store i32 %153, ptr %144, align 4
-  %154 = icmp eq i64 %indvars.iv, %147
-  %155 = select i1 %154, i32 %142, i32 %spec.select103
-  store i32 %155, ptr %145, align 4
-  %156 = getelementptr inbounds nuw i8, ptr %151, i64 8
-  %157 = call i32 @avifImageSetViewRect(ptr noundef nonnull %156, ptr noundef nonnull %0, ptr noundef nonnull %5) #10
-  %.not95 = icmp eq i32 %157, 0
-  br i1 %.not95, label %158, label %.loopexit.sink.split
+  store i32 %.078119, ptr %143, align 4
+  %151 = load i32, ptr %0, align 8
+  store i32 %151, ptr %144, align 4
+  %152 = icmp eq i64 %indvars.iv, %147
+  %153 = select i1 %152, i32 %142, i32 %spec.select103
+  store i32 %153, ptr %145, align 4
+  %154 = getelementptr inbounds nuw i8, ptr %150, i64 8
+  %155 = call i32 @avifImageSetViewRect(ptr noundef nonnull %154, ptr noundef nonnull %0, ptr noundef nonnull %5) #10
+  %.not95 = icmp eq i32 %155, 0
+  br i1 %.not95, label %156, label %.loopexit.sink.split
 
-158:                                              ; preds = %149
-  %159 = getelementptr inbounds nuw i8, ptr %151, i64 208
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %159, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
-  %160 = load i32, ptr %146, align 8
-  %161 = zext i32 %160 to i64
-  %162 = mul nuw nsw i64 %indvars.iv128, %161
-  %163 = getelementptr inbounds nuw i8, ptr %151, i64 256
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 %162
-  store ptr %165, ptr %163, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %151, i64 12
-  %167 = load i32, ptr %166, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %151, i64 212
-  store i32 %167, ptr %168, align 4
-  %169 = getelementptr inbounds nuw i8, ptr %151, i64 272
-  store ptr %3, ptr %169, align 8
-  %170 = getelementptr inbounds nuw i8, ptr %151, i64 280
-  store i32 %.075, ptr %170, align 8
+156:                                              ; preds = %148
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 208
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %157, ptr noundef nonnull align 8 dereferenceable(64) %1, i64 64, i1 false)
+  %158 = zext nneg i32 %.078119 to i64
+  %159 = load i32, ptr %146, align 8
+  %160 = zext i32 %159 to i64
+  %161 = mul nuw nsw i64 %160, %158
+  %162 = getelementptr inbounds nuw i8, ptr %150, i64 256
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 %161
+  store ptr %164, ptr %162, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %150, i64 12
+  %166 = load i32, ptr %165, align 4
+  %167 = getelementptr inbounds nuw i8, ptr %150, i64 212
+  store i32 %166, ptr %167, align 4
+  %168 = getelementptr inbounds nuw i8, ptr %150, i64 272
+  store ptr %3, ptr %168, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %150, i64 280
+  store i32 %.075, ptr %169, align 8
   %.not96 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not96, label %176, label %171
+  br i1 %.not96, label %175, label %170
 
-171:                                              ; preds = %158
-  %172 = call i32 @pthread_create(ptr noundef nonnull %151, ptr noundef null, ptr noundef nonnull @avifImageYUVToRGBThreadWorker, ptr noundef nonnull %151) #10
-  %173 = icmp eq i32 %172, 0
-  %174 = zext i1 %173 to i32
-  %175 = getelementptr inbounds nuw i8, ptr %151, i64 288
-  store i32 %174, ptr %175, align 8
-  br i1 %173, label %176, label %.loopexit.sink.split
+170:                                              ; preds = %156
+  %171 = call i32 @pthread_create(ptr noundef nonnull %150, ptr noundef null, ptr noundef nonnull @avifImageYUVToRGBThreadWorker, ptr noundef nonnull %150) #10
+  %172 = icmp eq i32 %171, 0
+  %173 = zext i1 %172 to i32
+  %174 = getelementptr inbounds nuw i8, ptr %150, i64 288
+  store i32 %173, ptr %174, align 8
+  br i1 %172, label %175, label %.loopexit.sink.split
 
-176:                                              ; preds = %158, %171
+175:                                              ; preds = %156, %170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %indvars.iv.next129 = add nuw nsw i64 %indvars.iv128, %148
+  %176 = add nuw nsw i32 %.078119, %spec.select103
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %149, !llvm.loop !14
+  br i1 %exitcond.not, label %.loopexit, label %148, !llvm.loop !14
 
-.loopexit.sink.split:                             ; preds = %171, %149
+.loopexit.sink.split:                             ; preds = %170, %148
   %177 = trunc nuw nsw i64 %indvars.iv to i32
-  %178 = getelementptr inbounds nuw i8, ptr %151, i64 284
+  %178 = getelementptr inbounds nuw i8, ptr %150, i64 284
   store i32 5, ptr %178, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %176, %.loopexit.sink.split
-  %.076117 = phi i32 [ %177, %.loopexit.sink.split ], [ %spec.select102, %176 ]
+.loopexit:                                        ; preds = %175, %.loopexit.sink.split
+  %.076117 = phi i32 [ %177, %.loopexit.sink.split ], [ %spec.select102, %175 ]
   %179 = icmp eq i32 %.076117, %119
   br i1 %179, label %180, label %190
 
@@ -1715,14 +1714,14 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   br label %190
 
 190:                                              ; preds = %180, %.loopexit
-  %wide.trip.count134 = zext nneg i32 %119 to i64
+  %wide.trip.count132 = zext nneg i32 %119 to i64
   br label %191
 
 191:                                              ; preds = %190, %198
-  %indvars.iv131 = phi i64 [ 0, %190 ], [ %indvars.iv.next132, %198 ]
+  %indvars.iv129 = phi i64 [ 0, %190 ], [ %indvars.iv.next130, %198 ]
   %.074122 = phi i32 [ 0, %190 ], [ %spec.select105, %198 ]
   %192 = load ptr, ptr %4, align 8
-  %193 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %192, i64 %indvars.iv131
+  %193 = getelementptr inbounds nuw %struct.YUVToRGBThreadData, ptr %192, i64 %indvars.iv129
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 288
   %195 = load i32, ptr %194, align 8
   %.not98 = icmp eq i32 %195, 0
@@ -1741,9 +1740,9 @@ avifPrepareReformatState.exit:                    ; preds = %96, %91
   %200 = load i32, ptr %199, align 4
   %.not100 = icmp eq i32 %200, 0
   %spec.select105 = select i1 %.not100, i32 %.1, i32 %200
-  %indvars.iv.next132 = add nuw nsw i64 %indvars.iv131, 1
-  %exitcond135.not = icmp eq i64 %indvars.iv.next132, %wide.trip.count134
-  br i1 %exitcond135.not, label %201, label %191, !llvm.loop !15
+  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
+  %exitcond133.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count132
+  br i1 %exitcond133.not, label %201, label %191, !llvm.loop !15
 
 201:                                              ; preds = %198
   call void @avifArrayDestroy(ptr noundef nonnull %4) #10

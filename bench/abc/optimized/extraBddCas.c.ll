@@ -324,53 +324,46 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   br label %.critedge.lr.ph
 
 .critedge.lr.ph:                                  ; preds = %.critedge.lr.ph.lr.ph, %.outer
-  %indvars.iv = phi i64 [ 0, %.critedge.lr.ph.lr.ph ], [ %indvars.iv.next, %.outer ]
+  %.085.ph93 = phi i32 [ 0, %.critedge.lr.ph.lr.ph ], [ %31, %.outer ]
   br label %.critedge
 
-.outer._crit_edge.loopexit:                       ; preds = %26
-  %15 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.outer._crit_edge
-
-.outer._crit_edge.loopexit97:                     ; preds = %.outer
-  %16 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.outer._crit_edge
-
-.outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit97, %.outer._crit_edge.loopexit, %9
-  %.085.ph.lcssa = phi i32 [ 0, %9 ], [ %15, %.outer._crit_edge.loopexit ], [ %16, %.outer._crit_edge.loopexit97 ]
+.outer._crit_edge:                                ; preds = %.outer, %24, %9
+  %.085.ph.lcssa = phi i32 [ 0, %9 ], [ %.085.ph93, %24 ], [ %31, %.outer ]
   call void @st__free_gen(ptr noundef %12) #11
   call void @st__free_table(ptr noundef %11) #11
-  %17 = load i32, ptr @s_MultiStart, align 4
-  %18 = icmp eq i32 %17, %2
-  br i1 %18, label %33, label %36
+  %15 = load i32, ptr @s_MultiStart, align 4
+  %16 = icmp eq i32 %15, %2
+  br i1 %16, label %33, label %36
 
-.critedge:                                        ; preds = %.critedge.lr.ph, %26
-  %19 = load ptr, ptr %6, align 8
-  %20 = load ptr, ptr %14, align 8
-  %21 = ptrtoint ptr %20 to i64
-  %22 = xor i64 %21, 1
-  %23 = inttoptr i64 %22 to ptr
-  %24 = icmp eq ptr %19, %23
-  %25 = load ptr, ptr %5, align 8
-  br i1 %24, label %26, label %.outer
+.critedge:                                        ; preds = %.critedge.lr.ph, %24
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %14, align 8
+  %19 = ptrtoint ptr %18 to i64
+  %20 = xor i64 %19, 1
+  %21 = inttoptr i64 %20 to ptr
+  %22 = icmp eq ptr %17, %21
+  %23 = load ptr, ptr %5, align 8
+  br i1 %22, label %24, label %.outer
 
-26:                                               ; preds = %.critedge
+24:                                               ; preds = %.critedge
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %23) #11
+  %25 = load ptr, ptr %6, align 8
   call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %25) #11
-  %27 = load ptr, ptr %6, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %27) #11
-  %28 = call i32 @st__gen(ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
-  %.not = icmp eq i32 %28, 0
-  br i1 %.not, label %.outer._crit_edge.loopexit, label %.critedge, !llvm.loop !9
+  %26 = call i32 @st__gen(ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
+  %.not = icmp eq i32 %26, 0
+  br i1 %.not, label %.outer._crit_edge, label %.critedge, !llvm.loop !9
 
 .outer:                                           ; preds = %.critedge
-  %29 = load ptr, ptr @s_pbTemp, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  store ptr %25, ptr %30, align 8
-  %31 = load ptr, ptr %6, align 8
-  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %31) #11
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %27 = load ptr, ptr @s_pbTemp, align 8
+  %28 = zext nneg i32 %.085.ph93 to i64
+  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  store ptr %23, ptr %29, align 8
+  %30 = load ptr, ptr %6, align 8
+  call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %30) #11
+  %31 = add nuw nsw i32 %.085.ph93, 1
   %32 = call i32 @st__gen(ptr noundef %12, ptr noundef nonnull %6, ptr noundef nonnull %5) #11
   %.not90 = icmp eq i32 %32, 0
-  br i1 %.not90, label %.outer._crit_edge.loopexit97, label %.critedge.lr.ph, !llvm.loop !9
+  br i1 %.not90, label %.outer._crit_edge, label %.critedge.lr.ph, !llvm.loop !9
 
 33:                                               ; preds = %.outer._crit_edge
   %34 = load ptr, ptr @s_pbTemp, align 8
@@ -378,7 +371,7 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   br label %42
 
 36:                                               ; preds = %.outer._crit_edge
-  %37 = sub nsw i32 %17, %2
+  %37 = sub nsw i32 %15, %2
   %38 = load ptr, ptr @s_pbTemp, align 8
   %39 = zext nneg i32 %2 to i64
   %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %39
@@ -396,13 +389,13 @@ define internal fastcc noundef ptr @CreateTheCodes_rec(ptr noundef %0, ptr nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv100 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next101, %.lr.ph ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %44 = load ptr, ptr @s_pbTemp, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv100
+  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8
   call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %46) #11
-  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !10
 
 47:                                               ; preds = %4

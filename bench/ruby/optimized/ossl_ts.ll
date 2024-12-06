@@ -1902,97 +1902,98 @@ rbimpl_intern_const.exit121:                      ; preds = %.lr.ph.i119, %68
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 16
   br label %75
 
-75:                                               ; preds = %.preheader, %88
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %88 ]
-  %76 = load i64, ptr %73, align 8
-  %77 = and i64 %76, 8192
-  %.not.i122 = icmp eq i64 %77, 0
-  br i1 %.not.i122, label %81, label %78
+75:                                               ; preds = %.preheader, %89
+  %.064 = phi i32 [ %92, %89 ], [ 0, %.preheader ]
+  %76 = zext nneg i32 %.064 to i64
+  %77 = load i64, ptr %73, align 8
+  %78 = and i64 %77, 8192
+  %.not.i122 = icmp eq i64 %78, 0
+  br i1 %.not.i122, label %82, label %79
 
-78:                                               ; preds = %75
-  %79 = lshr i64 %76, 15
-  %80 = and i64 %79, 127
+79:                                               ; preds = %75
+  %80 = lshr i64 %77, 15
+  %81 = and i64 %80, 127
   br label %rb_array_len.exit
 
-81:                                               ; preds = %75
-  %82 = load i64, ptr %74, align 8
+82:                                               ; preds = %75
+  %83 = load i64, ptr %74, align 8
   br label %rb_array_len.exit
 
-rb_array_len.exit:                                ; preds = %78, %81
-  %.0.i123 = phi i64 [ %80, %78 ], [ %82, %81 ]
-  %83 = icmp sgt i64 %.0.i123, %indvars.iv
-  br i1 %83, label %84, label %.loopexit
+rb_array_len.exit:                                ; preds = %79, %82
+  %.0.i123 = phi i64 [ %81, %79 ], [ %83, %82 ]
+  %84 = icmp sgt i64 %.0.i123, %76
+  br i1 %84, label %85, label %.loopexit
 
-84:                                               ; preds = %rb_array_len.exit
-  %85 = call i64 @rb_ary_entry(i64 noundef %70, i64 noundef %indvars.iv) #10
-  %86 = call i64 @rb_protect(ptr noundef nonnull @ossl_evp_get_digestbyname_i, i64 noundef %85, ptr noundef nonnull %8) #7
-  %87 = load i32, ptr %8, align 4
-  %.not88 = icmp eq i32 %87, 0
-  br i1 %.not88, label %88, label %.loopexit124
+85:                                               ; preds = %rb_array_len.exit
+  %86 = call i64 @rb_ary_entry(i64 noundef %70, i64 noundef %76) #10
+  %87 = call i64 @rb_protect(ptr noundef nonnull @ossl_evp_get_digestbyname_i, i64 noundef %86, ptr noundef nonnull %8) #7
+  %88 = load i32, ptr %8, align 4
+  %.not88 = icmp eq i32 %88, 0
+  br i1 %.not88, label %89, label %.loopexit124
 
-88:                                               ; preds = %84
-  %89 = inttoptr i64 %86 to ptr
-  %90 = call i32 @TS_RESP_CTX_add_md(ptr noundef nonnull %44, ptr noundef %89) #7
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+89:                                               ; preds = %85
+  %90 = inttoptr i64 %87 to ptr
+  %91 = call i32 @TS_RESP_CTX_add_md(ptr noundef nonnull %44, ptr noundef %90) #7
+  %92 = add nuw nsw i32 %.064, 1
   br label %75, !llvm.loop !45
 
 .loopexit:                                        ; preds = %rb_array_len.exit, %rbimpl_intern_const.exit121
-  %91 = call i64 @rb_protect(ptr noundef nonnull @ossl_to_der, i64 noundef %3, ptr noundef nonnull %8) #7
-  store i64 %91, ptr %5, align 8
-  %92 = load i32, ptr %8, align 4
-  %.not85 = icmp eq i32 %92, 0
-  br i1 %.not85, label %93, label %.loopexit124
+  %93 = call i64 @rb_protect(ptr noundef nonnull @ossl_to_der, i64 noundef %3, ptr noundef nonnull %8) #7
+  store i64 %93, ptr %5, align 8
+  %94 = load i32, ptr %8, align 4
+  %.not85 = icmp eq i32 %94, 0
+  br i1 %.not85, label %95, label %.loopexit124
 
-93:                                               ; preds = %.loopexit
-  %94 = ptrtoint ptr %5 to i64
-  %95 = call i64 @rb_protect(ptr noundef nonnull @ossl_obj2bio_i, i64 noundef %94, ptr noundef nonnull %8) #7
-  %96 = load i32, ptr %8, align 4
-  %.not86 = icmp eq i32 %96, 0
-  br i1 %.not86, label %97, label %.loopexit124
+95:                                               ; preds = %.loopexit
+  %96 = ptrtoint ptr %5 to i64
+  %97 = call i64 @rb_protect(ptr noundef nonnull @ossl_obj2bio_i, i64 noundef %96, ptr noundef nonnull %8) #7
+  %98 = load i32, ptr %8, align 4
+  %.not86 = icmp eq i32 %98, 0
+  br i1 %.not86, label %99, label %.loopexit124
 
-97:                                               ; preds = %93
-  %98 = inttoptr i64 %95 to ptr
-  %99 = call ptr @TS_RESP_create_response(ptr noundef nonnull %44, ptr noundef %98) #7
-  %100 = call i32 @BIO_free(ptr noundef %98) #7
-  %.not87 = icmp eq ptr %99, null
-  br i1 %.not87, label %.loopexit124, label %101
+99:                                               ; preds = %95
+  %100 = inttoptr i64 %97 to ptr
+  %101 = call ptr @TS_RESP_create_response(ptr noundef nonnull %44, ptr noundef %100) #7
+  %102 = call i32 @BIO_free(ptr noundef %100) #7
+  %.not87 = icmp eq ptr %101, null
+  br i1 %.not87, label %.loopexit124, label %103
 
-101:                                              ; preds = %97
+103:                                              ; preds = %99
   call void @ossl_clear_error() #7
-  %102 = inttoptr i64 %10 to ptr
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 32
-  store ptr %99, ptr %103, align 8
+  %104 = inttoptr i64 %10 to ptr
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
+  store ptr %101, ptr %105, align 8
   br label %.loopexit124
 
-.loopexit124:                                     ; preds = %84, %97, %45, %43, %38, %rbimpl_intern_const.exit103, %rbimpl_intern_const.exit, %93, %.loopexit, %52, %39, %101
-  %.not89 = phi i1 [ true, %52 ], [ true, %.loopexit ], [ true, %93 ], [ true, %101 ], [ true, %39 ], [ false, %rbimpl_intern_const.exit ], [ false, %rbimpl_intern_const.exit103 ], [ false, %38 ], [ false, %43 ], [ false, %45 ], [ false, %97 ], [ true, %84 ]
-  %.067 = phi ptr [ null, %52 ], [ null, %.loopexit ], [ null, %93 ], [ null, %101 ], [ null, %39 ], [ @.str.76, %rbimpl_intern_const.exit ], [ @.str.81, %rbimpl_intern_const.exit103 ], [ @.str.84, %38 ], [ @.str.85, %43 ], [ @.str.86, %45 ], [ @.str.91, %97 ], [ null, %84 ]
-  %.066 = phi ptr [ %.1, %52 ], [ %.1, %.loopexit ], [ %.1, %93 ], [ %.1, %101 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %97 ], [ %.1, %84 ]
-  %.065 = phi ptr [ %44, %52 ], [ %44, %.loopexit ], [ %44, %93 ], [ %44, %101 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ null, %43 ], [ %44, %45 ], [ %44, %97 ], [ %44, %84 ]
-  %.0 = phi i64 [ 4, %52 ], [ 4, %.loopexit ], [ 4, %93 ], [ %10, %101 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit ], [ 4, %rbimpl_intern_const.exit103 ], [ 4, %38 ], [ 4, %43 ], [ 4, %45 ], [ 4, %97 ], [ 4, %84 ]
-  %104 = load ptr, ptr %6, align 8
-  call void @ASN1_INTEGER_free(ptr noundef %104) #7
+.loopexit124:                                     ; preds = %85, %99, %45, %43, %38, %rbimpl_intern_const.exit103, %rbimpl_intern_const.exit, %95, %.loopexit, %52, %39, %103
+  %.not89 = phi i1 [ true, %52 ], [ true, %.loopexit ], [ true, %95 ], [ true, %103 ], [ true, %39 ], [ false, %rbimpl_intern_const.exit ], [ false, %rbimpl_intern_const.exit103 ], [ false, %38 ], [ false, %43 ], [ false, %45 ], [ false, %99 ], [ true, %85 ]
+  %.067 = phi ptr [ null, %52 ], [ null, %.loopexit ], [ null, %95 ], [ null, %103 ], [ null, %39 ], [ @.str.76, %rbimpl_intern_const.exit ], [ @.str.81, %rbimpl_intern_const.exit103 ], [ @.str.84, %38 ], [ @.str.85, %43 ], [ @.str.86, %45 ], [ @.str.91, %99 ], [ null, %85 ]
+  %.066 = phi ptr [ %.1, %52 ], [ %.1, %.loopexit ], [ %.1, %95 ], [ %.1, %103 ], [ %41, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ %.1, %43 ], [ %.1, %45 ], [ %.1, %99 ], [ %.1, %85 ]
+  %.065 = phi ptr [ %44, %52 ], [ %44, %.loopexit ], [ %44, %95 ], [ %44, %103 ], [ null, %39 ], [ null, %rbimpl_intern_const.exit ], [ null, %rbimpl_intern_const.exit103 ], [ null, %38 ], [ null, %43 ], [ %44, %45 ], [ %44, %99 ], [ %44, %85 ]
+  %.0 = phi i64 [ 4, %52 ], [ 4, %.loopexit ], [ 4, %95 ], [ %10, %103 ], [ 4, %39 ], [ 4, %rbimpl_intern_const.exit ], [ 4, %rbimpl_intern_const.exit103 ], [ 4, %38 ], [ 4, %43 ], [ 4, %45 ], [ 4, %99 ], [ 4, %85 ]
+  %106 = load ptr, ptr %6, align 8
+  call void @ASN1_INTEGER_free(ptr noundef %106) #7
   call void @ASN1_OBJECT_free(ptr noundef %.066) #7
   call void @TS_RESP_CTX_free(ptr noundef %.065) #7
-  br i1 %.not89, label %109, label %105
+  br i1 %.not89, label %111, label %107
 
-105:                                              ; preds = %.loopexit124
-  %106 = load i64, ptr @eTimestampError, align 8
-  %107 = call i64 @rb_str_new_cstr(ptr noundef %.067) #7
-  %108 = call i64 @ossl_make_error(i64 noundef %106, i64 noundef %107) #7
-  call void @rb_exc_raise(i64 noundef %108) #8
+107:                                              ; preds = %.loopexit124
+  %108 = load i64, ptr @eTimestampError, align 8
+  %109 = call i64 @rb_str_new_cstr(ptr noundef %.067) #7
+  %110 = call i64 @ossl_make_error(i64 noundef %108, i64 noundef %109) #7
+  call void @rb_exc_raise(i64 noundef %110) #8
   unreachable
 
-109:                                              ; preds = %.loopexit124
-  %110 = load i32, ptr %8, align 4
-  %.not90 = icmp eq i32 %110, 0
-  br i1 %.not90, label %112, label %111
+111:                                              ; preds = %.loopexit124
+  %112 = load i32, ptr %8, align 4
+  %.not90 = icmp eq i32 %112, 0
+  br i1 %.not90, label %114, label %113
 
-111:                                              ; preds = %109
-  call void @rb_jump_tag(i32 noundef %110) #8
+113:                                              ; preds = %111
+  call void @rb_jump_tag(i32 noundef %112) #8
   unreachable
 
-112:                                              ; preds = %109
+114:                                              ; preds = %111
   ret i64 %.0
 }
 

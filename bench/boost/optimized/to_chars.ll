@@ -3462,88 +3462,84 @@ declare i64 @llvm.abs.i64(i64, i1 immarg) #6
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden { ptr, i32 } @_ZN5boost8charconv6detail24to_chars_128integer_implIoEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 comdat {
   %5 = alloca [5 x [10 x i8]], align 16
-  %6 = alloca [5 x i32], align 16
   %.sroa.240.0.insert.ext = zext i64 %3 to i128
   %.sroa.240.0.insert.shift = shl nuw i128 %.sroa.240.0.insert.ext, 64
   %.sroa.039.0.insert.ext = zext i64 %2 to i128
   %.sroa.039.0.insert.insert = or disjoint i128 %.sroa.240.0.insert.shift, %.sroa.039.0.insert.ext
-  %7 = icmp ugt ptr %0, %1
-  br i1 %7, label %69, label %8
+  %6 = icmp ugt ptr %0, %1
+  br i1 %6, label %67, label %7
 
-8:                                                ; preds = %4
-  %9 = ptrtoint ptr %1 to i64
-  %10 = ptrtoint ptr %0 to i64
-  %11 = sub i64 %9, %10
-  %12 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %2, i64 noundef %3) #15
-  %13 = sext i32 %12 to i64
-  %14 = icmp slt i64 %11, %13
-  br i1 %14, label %69, label %15
+7:                                                ; preds = %4
+  %8 = ptrtoint ptr %1 to i64
+  %9 = ptrtoint ptr %0 to i64
+  %10 = sub i64 %8, %9
+  %11 = tail call noundef i32 @_ZN5boost8charconv6detail10num_digitsEo(i64 noundef %2, i64 noundef %3) #15
+  %12 = sext i32 %11 to i64
+  %13 = icmp slt i64 %10, %12
+  br i1 %13, label %67, label %14
 
-15:                                               ; preds = %8
-  %16 = icmp ult i128 %.sroa.039.0.insert.insert, 18446744073709551615
-  br i1 %16, label %17, label %21
+14:                                               ; preds = %7
+  %15 = icmp ult i128 %.sroa.039.0.insert.insert, 18446744073709551615
+  br i1 %15, label %16, label %20
 
-17:                                               ; preds = %15
-  %18 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
-  %19 = extractvalue { ptr, i32 } %18, 0
-  %20 = extractvalue { ptr, i32 } %18, 1
-  br label %69
+16:                                               ; preds = %14
+  %17 = tail call { ptr, i32 } @_ZN5boost8charconv6detail21to_chars_integer_implImEENS0_15to_chars_resultEPcS4_T_(ptr noundef %0, ptr noundef %1, i64 noundef %2) #15
+  %18 = extractvalue { ptr, i32 } %17, 0
+  %19 = extractvalue { ptr, i32 } %17, 1
+  br label %67
 
-21:                                               ; preds = %15
+20:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(i64 50, ptr nonnull %5) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(50) %5, i8 0, i64 50, i1 false)
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %6, i8 0, i64 20, i1 false)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %_ZN5boost8charconv6detail11decompose32EjPc.exit
-  %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
-  %.04449 = phi i128 [ %.sroa.039.0.insert.insert, %21 ], [ %23, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
+21:                                               ; preds = %20, %_ZN5boost8charconv6detail11decompose32EjPc.exit
+  %.04250 = phi i32 [ 0, %20 ], [ %55, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
+  %.04449 = phi i128 [ %.sroa.039.0.insert.insert, %20 ], [ %22, %_ZN5boost8charconv6detail11decompose32EjPc.exit ]
   %.04449.frozen = freeze i128 %.04449
-  %23 = udiv i128 %.04449.frozen, 1000000000
-  %24 = mul i128 %23, 1000000000
-  %.decomposed = sub i128 %.04449.frozen, %24
-  %25 = trunc nuw nsw i128 %.decomposed to i32
-  %26 = icmp samesign ugt i32 %25, 9999
-  br i1 %26, label %27, label %35
+  %22 = udiv i128 %.04449.frozen, 1000000000
+  %23 = mul i128 %22, 1000000000
+  %.decomposed = sub i128 %.04449.frozen, %23
+  %24 = trunc nuw nsw i128 %.decomposed to i32
+  %25 = icmp samesign ugt i32 %24, 9999
+  br i1 %25, label %26, label %34
 
-27:                                               ; preds = %22
-  %28 = icmp samesign ugt i32 %25, 9999999
-  br i1 %28, label %29, label %31
+26:                                               ; preds = %21
+  %27 = icmp samesign ugt i32 %24, 9999999
+  br i1 %27, label %28, label %30
 
-29:                                               ; preds = %27
-  %30 = icmp samesign ugt i32 %25, 99999999
-  %spec.select = select i1 %30, i32 9, i32 8
+28:                                               ; preds = %26
+  %29 = icmp samesign ugt i32 %24, 99999999
+  %spec.select = select i1 %29, i64 9, i64 8
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
-31:                                               ; preds = %27
-  %32 = icmp samesign ugt i32 %25, 99999
-  br i1 %32, label %33, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
+30:                                               ; preds = %26
+  %31 = icmp samesign ugt i32 %24, 99999
+  br i1 %31, label %32, label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
-33:                                               ; preds = %31
-  %34 = icmp samesign ugt i32 %25, 999999
-  %.11.i = select i1 %34, i32 7, i32 6
+32:                                               ; preds = %30
+  %33 = icmp samesign ugt i32 %24, 999999
+  %.11.i = select i1 %33, i64 7, i64 6
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
-35:                                               ; preds = %22
-  %36 = icmp samesign ugt i32 %25, 99
-  br i1 %36, label %37, label %39
+34:                                               ; preds = %21
+  %35 = icmp samesign ugt i32 %24, 99
+  br i1 %35, label %36, label %38
 
-37:                                               ; preds = %35
-  %38 = icmp samesign ugt i32 %25, 999
-  %.12.i = select i1 %38, i32 4, i32 3
+36:                                               ; preds = %34
+  %37 = icmp samesign ugt i32 %24, 999
+  %.12.i = select i1 %37, i64 4, i64 3
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
-39:                                               ; preds = %35
-  %40 = icmp samesign ugt i32 %25, 9
-  %.13.i = select i1 %40, i32 2, i32 1
+38:                                               ; preds = %34
+  %39 = icmp samesign ugt i32 %24, 9
+  %.13.i = select i1 %39, i64 2, i64 1
   br label %_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit
 
-_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %29, %31, %33, %37, %39
-  %.0.i = phi i32 [ %.11.i, %33 ], [ 5, %31 ], [ %.12.i, %37 ], [ %.13.i, %39 ], [ %spec.select, %29 ]
-  %41 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %indvars.iv
-  store i32 %.0.i, ptr %41, align 4, !tbaa !32
-  %42 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %indvars.iv
+_ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %28, %30, %32, %36, %38
+  %40 = phi i64 [ %.11.i, %32 ], [ 5, %30 ], [ %.12.i, %36 ], [ %.13.i, %38 ], [ %spec.select, %28 ]
+  %41 = zext nneg i32 %.04250 to i64
+  %42 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %41
   %43 = trunc nuw nsw i128 %.decomposed to i64
   %44 = mul nuw nsw i64 %43, 1441151881
   br label %45
@@ -3564,43 +3560,38 @@ _ZN5boost8charconv6detail10num_digitsIjEEiT_.exit: ; preds = %29, %31, %33, %37,
   br i1 %54, label %45, label %_ZN5boost8charconv6detail11decompose32EjPc.exit, !llvm.loop !31
 
 _ZN5boost8charconv6detail11decompose32EjPc.exit:  ; preds = %45
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %55 = add nuw nsw i32 %.04250, 1
   %.not = icmp ult i128 %.04449, 1000000000
-  br i1 %.not, label %55, label %22, !llvm.loop !33
+  br i1 %.not, label %56, label %21, !llvm.loop !33
 
-55:                                               ; preds = %_ZN5boost8charconv6detail11decompose32EjPc.exit
-  %56 = and i64 %indvars.iv, 4294967295
-  %57 = getelementptr inbounds nuw [5 x i32], ptr %6, i64 0, i64 %56
-  %58 = load i32, ptr %57, align 4, !tbaa !32
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %56
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 10
-  %62 = sub nsw i64 0, %59
-  %63 = getelementptr inbounds i8, ptr %61, i64 %62
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr nonnull align 1 %63, i64 %59, i1 false)
-  %.not53 = icmp eq i64 %indvars.iv, 0
+56:                                               ; preds = %_ZN5boost8charconv6detail11decompose32EjPc.exit
+  %57 = getelementptr inbounds nuw i8, ptr %42, i64 10
+  %58 = sub nsw i64 0, %40
+  %59 = getelementptr inbounds i8, ptr %57, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 1 dereferenceable(1) %59, i64 %40, i1 false)
+  %.not53 = icmp eq i32 %.04250, 0
   br i1 %.not53, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %.lr.ph
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %.lr.ph ], [ %indvars.iv, %55 ]
-  %.052 = phi i64 [ %66, %.lr.ph ], [ %59, %55 ]
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, -1
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 %.052
-  %65 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %indvars.iv.next56, i64 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %64, ptr noundef nonnull align 1 dereferenceable(9) %65, i64 9, i1 false)
-  %66 = add nsw i64 %.052, 9
-  %67 = icmp sgt i64 %indvars.iv55, 1
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+.lr.ph:                                           ; preds = %56, %.lr.ph
+  %indvars.iv = phi i64 [ %60, %.lr.ph ], [ %41, %56 ]
+  %.052 = phi i64 [ %63, %.lr.ph ], [ %40, %56 ]
+  %60 = add nsw i64 %indvars.iv, -1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 %.052
+  %62 = getelementptr inbounds nuw [5 x [10 x i8]], ptr %5, i64 0, i64 %60, i64 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %61, ptr noundef nonnull align 1 dereferenceable(9) %62, i64 9, i1 false)
+  %63 = add nuw nsw i64 %.052, 9
+  %64 = trunc nuw i64 %indvars.iv to i32
+  %65 = icmp sgt i32 %64, 1
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph, %55
-  %68 = getelementptr inbounds i8, ptr %0, i64 %13
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %6) #15
+._crit_edge:                                      ; preds = %.lr.ph, %56
+  %66 = getelementptr inbounds i8, ptr %0, i64 %12
   call void @llvm.lifetime.end.p0(i64 50, ptr nonnull %5) #15
-  br label %69
+  br label %67
 
-69:                                               ; preds = %17, %._crit_edge, %8, %4
-  %.sroa.041.0 = phi ptr [ %1, %4 ], [ %19, %17 ], [ %68, %._crit_edge ], [ %1, %8 ]
-  %.sroa.5.0 = phi i32 [ 22, %4 ], [ %20, %17 ], [ 0, %._crit_edge ], [ 75, %8 ]
+67:                                               ; preds = %16, %._crit_edge, %7, %4
+  %.sroa.041.0 = phi ptr [ %1, %4 ], [ %18, %16 ], [ %66, %._crit_edge ], [ %1, %7 ]
+  %.sroa.5.0 = phi i32 [ 22, %4 ], [ %19, %16 ], [ 0, %._crit_edge ], [ 75, %7 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.041.0, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.0, 1
   ret { ptr, i32 } %.fca.1.insert

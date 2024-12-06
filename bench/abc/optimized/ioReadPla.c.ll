@@ -1077,51 +1077,52 @@ define noalias noundef ptr @Io_ReadPlaCubeSetup(ptr nocapture noundef readonly %
   br i1 %exitcond.not, label %.preheader39, label %20, !llvm.loop !21
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %23 = phi i8 [ %18, %.preheader.lr.ph ], [ %40, %.critedge ]
-  %indvars.iv48 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next49, %.critedge ]
-  %.043 = phi ptr [ %.val, %.preheader.lr.ph ], [ %39, %.critedge ]
-  %24 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv48
-  br label %25
+  %23 = phi i8 [ %18, %.preheader.lr.ph ], [ %42, %.critedge ]
+  %.043 = phi ptr [ %.val, %.preheader.lr.ph ], [ %41, %.critedge ]
+  %.142 = phi i32 [ 0, %.preheader.lr.ph ], [ %39, %.critedge ]
+  %24 = zext nneg i32 %.142 to i64
+  %25 = getelementptr inbounds nuw ptr, ptr %12, i64 %24
+  br label %26
 
-25:                                               ; preds = %.preheader, %37
-  %26 = phi i8 [ %23, %.preheader ], [ %.pre, %37 ]
-  %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %37 ]
-  switch i8 %26, label %37 [
+26:                                               ; preds = %.preheader, %38
+  %27 = phi i8 [ %23, %.preheader ], [ %.pre, %38 ]
+  %indvars.iv45 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next46, %38 ]
+  switch i8 %27, label %38 [
     i8 32, label %.critedge
     i8 0, label %.critedge
     i8 48, label %.sink.split
-    i8 49, label %27
+    i8 49, label %28
   ]
 
-27:                                               ; preds = %25
+28:                                               ; preds = %26
   br label %.sink.split
 
-.sink.split:                                      ; preds = %25, %27
-  %.sink = phi i64 [ 2, %27 ], [ 1, %25 ]
-  %28 = load ptr, ptr %24, align 8
-  %29 = shl nuw i64 %indvars.iv45, 1
-  %30 = and i64 %29, 62
-  %31 = shl nuw i64 %.sink, %30
-  %32 = lshr i64 %indvars.iv45, 5
-  %33 = and i64 %32, 134217727
-  %34 = getelementptr inbounds nuw i64, ptr %28, i64 %33
-  %35 = load i64, ptr %34, align 8
-  %36 = or i64 %35, %31
-  store i64 %36, ptr %34, align 8
-  br label %37
+.sink.split:                                      ; preds = %26, %28
+  %.sink = phi i64 [ 2, %28 ], [ 1, %26 ]
+  %29 = load ptr, ptr %25, align 8
+  %30 = shl nuw i64 %indvars.iv45, 1
+  %31 = and i64 %30, 62
+  %32 = shl nuw i64 %.sink, %31
+  %33 = lshr i64 %indvars.iv45, 5
+  %34 = and i64 %33, 134217727
+  %35 = getelementptr inbounds nuw i64, ptr %29, i64 %34
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %32
+  store i64 %37, ptr %35, align 8
+  br label %38
 
-37:                                               ; preds = %.sink.split, %25
+38:                                               ; preds = %.sink.split, %26
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.043, i64 %indvars.iv.next46
   %.pre = load i8, ptr %.phi.trans.insert, align 1
-  br label %25, !llvm.loop !22
+  br label %26, !llvm.loop !22
 
-.critedge:                                        ; preds = %25, %25
-  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
-  %38 = getelementptr i8, ptr %.043, i64 %19
-  %39 = getelementptr i8, ptr %38, i64 3
-  %40 = load i8, ptr %39, align 1
-  %.not = icmp eq i8 %40, 0
+.critedge:                                        ; preds = %26, %26
+  %39 = add nuw nsw i32 %.142, 1
+  %40 = getelementptr i8, ptr %.043, i64 %19
+  %41 = getelementptr i8, ptr %40, i64 3
+  %42 = load i8, ptr %41, align 1
+  %.not = icmp eq i8 %42, 0
   br i1 %.not, label %._crit_edge, label %.preheader, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %.critedge, %.preheader39

@@ -193,145 +193,146 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal9Minimizer12RunCallbacksERKN
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 272
   br label %12
 
-12:                                               ; preds = %21, %3
-  %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %3 ]
-  %.030 = phi i32 [ %27, %21 ], [ 0, %3 ]
-  switch i32 %.030, label %68 [
+12:                                               ; preds = %22, %3
+  %.034 = phi i32 [ 0, %3 ], [ %29, %22 ]
+  %.030 = phi i32 [ 0, %3 ], [ %28, %22 ]
+  switch i32 %.030, label %70 [
     i32 0, label %13
-    i32 2, label %28
-    i32 1, label %48
+    i32 2, label %30
+    i32 1, label %50
   ]
 
 13:                                               ; preds = %12
-  %14 = load ptr, ptr %11, align 8
-  %15 = load ptr, ptr %10, align 8
-  %16 = ptrtoint ptr %14 to i64
+  %14 = zext nneg i32 %.034 to i64
+  %15 = load ptr, ptr %11, align 8
+  %16 = load ptr, ptr %10, align 8
   %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = ashr exact i64 %18, 3
-  %20 = icmp ugt i64 %19, %indvars.iv
-  br i1 %20, label %21, label %.critedge40
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 3
+  %21 = icmp ugt i64 %20, %14
+  br i1 %21, label %22, label %.critedge40
 
-21:                                               ; preds = %13
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
-  %23 = load ptr, ptr %22, align 8
+22:                                               ; preds = %13
+  %23 = getelementptr inbounds nuw ptr, ptr %16, i64 %14
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef i32 %26(ptr noundef nonnull align 8 dereferenceable(8) %23, ptr noundef nonnull align 8 dereferenceable(120) %1)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %25 = load ptr, ptr %24, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef i32 %27(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef nonnull align 8 dereferenceable(120) %1)
+  %29 = add nuw nsw i32 %.034, 1
   br label %12, !llvm.loop !10
 
-28:                                               ; preds = %12
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 3, ptr %29, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %31 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull @.str.4)
-  br i1 %9, label %.critedge40, label %32
+30:                                               ; preds = %12
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 3, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %33 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %32, ptr noundef nonnull @.str.4)
+  br i1 %9, label %.critedge40, label %34
 
-32:                                               ; preds = %28
-  %33 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal__, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %37
+34:                                               ; preds = %30
+  %35 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal__, align 8
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %37, label %39
 
-35:                                               ; preds = %32
-  %36 = tail call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 1)
-  br i1 %36, label %40, label %.critedge40
+37:                                               ; preds = %34
+  %38 = tail call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal__, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 1)
+  br i1 %38, label %42, label %.critedge40
 
-37:                                               ; preds = %32
-  %38 = load i32, ptr %33, align 4
-  %39 = icmp sgt i32 %38, 0
-  br i1 %39, label %40, label %.critedge40
+39:                                               ; preds = %34
+  %40 = load i32, ptr %35, align 4
+  %41 = icmp sgt i32 %40, 0
+  br i1 %41, label %42, label %.critedge40
 
-40:                                               ; preds = %35, %37
+42:                                               ; preds = %37, %39
   call void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull @.str, i32 noundef 75)
-  %41 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
-          to label %42 unwind label %46
-
-42:                                               ; preds = %40
-  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull @.str.5)
-          to label %44 unwind label %46
+  %43 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %4)
+          to label %44 unwind label %48
 
 44:                                               ; preds = %42
-  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(32) %30)
-          to label %.critedge40.sink.split unwind label %46
+  %45 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull @.str.5)
+          to label %46 unwind label %48
 
-46:                                               ; preds = %44, %42, %40
-  %47 = landingpad { ptr, i32 }
+46:                                               ; preds = %44
+  %47 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(32) %32)
+          to label %.critedge40.sink.split unwind label %48
+
+48:                                               ; preds = %46, %44, %42
+  %49 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %77
 
-48:                                               ; preds = %12
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 4, ptr %49, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %51 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef nonnull @.str.6)
-  br i1 %9, label %.critedge40, label %52
+50:                                               ; preds = %12
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 4, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %53 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.6)
+  br i1 %9, label %.critedge40, label %54
 
-52:                                               ; preds = %48
-  %53 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal___0, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %57
+54:                                               ; preds = %50
+  %55 = load ptr, ptr @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal___0, align 8
+  %56 = icmp eq ptr %55, null
+  br i1 %56, label %57, label %59
 
-55:                                               ; preds = %52
-  %56 = tail call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal___0, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 1)
-  br i1 %56, label %60, label %.critedge40
+57:                                               ; preds = %54
+  %58 = tail call noundef zeroext i1 @_ZN6google11InitVLOG3__EPNS_8SiteFlagEPiPKci(ptr noundef nonnull @_ZZN5ceres8internal9Minimizer12RunCallbacksERKNS1_7OptionsERKNS_16IterationSummaryEPNS_6Solver7SummaryEE8vlocal___0, ptr noundef nonnull @_ZN3fLI7FLAGS_vE, ptr noundef nonnull @.str, i32 noundef 1)
+  br i1 %58, label %62, label %.critedge40
 
-57:                                               ; preds = %52
-  %58 = load i32, ptr %53, align 4
-  %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %60, label %.critedge40
+59:                                               ; preds = %54
+  %60 = load i32, ptr %55, align 4
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %.critedge40
 
-60:                                               ; preds = %55, %57
+62:                                               ; preds = %57, %59
   call void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull @.str, i32 noundef 82)
-  %61 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
-          to label %62 unwind label %66
-
-62:                                               ; preds = %60
-  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %61, ptr noundef nonnull @.str.5)
-          to label %64 unwind label %66
+  %63 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
+          to label %64 unwind label %68
 
 64:                                               ; preds = %62
-  %65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull align 8 dereferenceable(32) %50)
-          to label %.critedge40.sink.split unwind label %66
+  %65 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %63, ptr noundef nonnull @.str.5)
+          to label %66 unwind label %68
 
-66:                                               ; preds = %64, %62, %60
-  %67 = landingpad { ptr, i32 }
+66:                                               ; preds = %64
+  %67 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %65, ptr noundef nonnull align 8 dereferenceable(32) %52)
+          to label %.critedge40.sink.split unwind label %68
+
+68:                                               ; preds = %66, %64, %62
+  %69 = landingpad { ptr, i32 }
           cleanup
-  br label %75
+  br label %77
 
-68:                                               ; preds = %12
+70:                                               ; preds = %12
   call void @_ZN6google15LogMessageFatalC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull @.str, i32 noundef 86)
-  %69 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
-          to label %70 unwind label %73
-
-70:                                               ; preds = %68
-  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef nonnull @.str.7)
-          to label %72 unwind label %73
+  %71 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google10LogMessage6streamEv(ptr noundef nonnull align 8 dereferenceable(96) %6)
+          to label %72 unwind label %75
 
 72:                                               ; preds = %70
+  %73 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull @.str.7)
+          to label %74 unwind label %75
+
+74:                                               ; preds = %72
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   unreachable
 
-73:                                               ; preds = %70, %68
-  %74 = landingpad { ptr, i32 }
+75:                                               ; preds = %72, %70
+  %76 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6google15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %6) #18
   unreachable
 
-.critedge40.sink.split:                           ; preds = %64, %44
-  %.sink = phi ptr [ %4, %44 ], [ %5, %64 ]
+.critedge40.sink.split:                           ; preds = %66, %46
+  %.sink = phi ptr [ %4, %46 ], [ %5, %66 ]
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink) #19
   br label %.critedge40
 
-.critedge40:                                      ; preds = %13, %.critedge40.sink.split, %55, %35, %48, %57, %28, %37
-  %.029 = phi i1 [ false, %37 ], [ false, %28 ], [ false, %57 ], [ false, %48 ], [ false, %35 ], [ false, %55 ], [ false, %.critedge40.sink.split ], [ true, %13 ]
+.critedge40:                                      ; preds = %13, %.critedge40.sink.split, %57, %37, %50, %59, %30, %39
+  %.029 = phi i1 [ false, %39 ], [ false, %30 ], [ false, %59 ], [ false, %50 ], [ false, %37 ], [ false, %57 ], [ false, %.critedge40.sink.split ], [ true, %13 ]
   ret i1 %.029
 
-75:                                               ; preds = %66, %46
-  %.sink44 = phi ptr [ %5, %66 ], [ %4, %46 ]
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %47, %46 ]
-  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink44) #19
+77:                                               ; preds = %68, %48
+  %.sink43 = phi ptr [ %5, %68 ], [ %4, %48 ]
+  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %49, %48 ]
+  call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %.sink43) #19
   resume { ptr, i32 } %.pn
 }
 

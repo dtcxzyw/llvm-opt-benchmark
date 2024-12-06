@@ -1402,39 +1402,36 @@ define dso_local void @_ZN5cmsys20CommandLineArguments21GetRemainingArgumentsEPi
   br i1 %38, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %3 ]
-  %39 = phi ptr [ %53, %.lr.ph ], [ %33, %3 ]
+  %39 = phi ptr [ %55, %.lr.ph ], [ %33, %3 ]
   %.01619 = phi i64 [ %.016, %.lr.ph ], [ %.01617, %3 ]
+  %.018 = phi i32 [ %51, %.lr.ph ], [ 1, %3 ]
   %40 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %39, i64 %.01619
   %41 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %40) #24
   %42 = add i64 %41, 1
   %43 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %42) #25
-  %44 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
-  store ptr %43, ptr %44, align 8
-  %45 = load ptr, ptr %0, align 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %46, i64 %.01619
-  %48 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %47) #24
-  %49 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %48) #24
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %44 = zext nneg i32 %.018 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %19, i64 %44
+  store ptr %43, ptr %45, align 8
+  %46 = load ptr, ptr %0, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %47, i64 %.01619
+  %49 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #24
+  %50 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %49) #24
+  %51 = add nuw nsw i32 %.018, 1
   %.016 = add nuw i64 %.01619, 1
-  %50 = load ptr, ptr %0, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = load ptr, ptr %50, align 8
-  %54 = ptrtoint ptr %52 to i64
-  %55 = ptrtoint ptr %53 to i64
-  %56 = sub i64 %54, %55
-  %57 = ashr exact i64 %56, 5
-  %58 = icmp ult i64 %.016, %57
-  br i1 %58, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !13
+  %52 = load ptr, ptr %0, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %52, align 8
+  %56 = ptrtoint ptr %54 to i64
+  %57 = ptrtoint ptr %55 to i64
+  %58 = sub i64 %56, %57
+  %59 = ashr exact i64 %58, 5
+  %60 = icmp ult i64 %.016, %59
+  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %59 = trunc nuw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.0.lcssa = phi i32 [ 1, %3 ], [ %59, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.0.lcssa = phi i32 [ 1, %3 ], [ %51, %.lr.ph ]
   store i32 %.0.lcssa, ptr %1, align 4
   store ptr %19, ptr %2, align 8
   ret void
@@ -1480,37 +1477,34 @@ define dso_local void @_ZN5cmsys20CommandLineArguments18GetUnusedArgumentsEPiPPP
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 1, %3 ]
-  %31 = phi ptr [ %44, %.lr.ph ], [ %30, %3 ]
-  %.019 = phi i64 [ %39, %.lr.ph ], [ 0, %3 ]
+  %31 = phi ptr [ %46, %.lr.ph ], [ %30, %3 ]
+  %.019 = phi i64 [ %41, %.lr.ph ], [ 0, %3 ]
+  %.01718 = phi i32 [ %40, %.lr.ph ], [ 1, %3 ]
   %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %31, i64 %.019
   %33 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
   %34 = add i64 %33, 1
   %35 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %34) #25
-  %36 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
-  store ptr %35, ptr %36, align 8
-  %37 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
-  %38 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %37) #24
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %39 = add nuw i64 %.019, 1
-  %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 128
-  %42 = getelementptr inbounds nuw i8, ptr %40, i64 136
-  %43 = load ptr, ptr %42, align 8
-  %44 = load ptr, ptr %41, align 8
-  %45 = ptrtoint ptr %43 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = ashr exact i64 %47, 5
-  %49 = icmp ult i64 %39, %48
-  br i1 %49, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !14
+  %36 = zext nneg i32 %.01718 to i64
+  %37 = getelementptr inbounds nuw ptr, ptr %17, i64 %36
+  store ptr %35, ptr %37, align 8
+  %38 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %32) #24
+  %39 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %35, ptr noundef nonnull dereferenceable(1) %38) #24
+  %40 = add nuw nsw i32 %.01718, 1
+  %41 = add nuw i64 %.019, 1
+  %42 = load ptr, ptr %0, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 128
+  %44 = getelementptr inbounds nuw i8, ptr %42, i64 136
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %43, align 8
+  %47 = ptrtoint ptr %45 to i64
+  %48 = ptrtoint ptr %46 to i64
+  %49 = sub i64 %47, %48
+  %50 = ashr exact i64 %49, 5
+  %51 = icmp ult i64 %41, %50
+  br i1 %51, label %.lr.ph, label %._crit_edge, !llvm.loop !14
 
-._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %50 = trunc nuw i64 %indvars.iv.next to i32
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %.017.lcssa = phi i32 [ 1, %3 ], [ %50, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %.017.lcssa = phi i32 [ 1, %3 ], [ %40, %.lr.ph ]
   store i32 %.017.lcssa, ptr %1, align 4
   store ptr %17, ptr %2, align 8
   ret void

@@ -76,7 +76,7 @@ if.end.lr.ph:                                     ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.end.lr.ph, %xstrdup_or_null.exit
-  %indvars.iv = phi i64 [ 0, %if.end.lr.ph ], [ %indvars.iv.next, %xstrdup_or_null.exit ]
+  %targets.027 = phi i32 [ 0, %if.end.lr.ph ], [ %inc, %xstrdup_or_null.exit ]
   %targets_alloc.026 = phi i32 [ 0, %if.end.lr.ph ], [ %targets_alloc.1, %xstrdup_or_null.exit ]
   %1 = load ptr, ptr %buf1, align 8
   %call2 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 9) #15
@@ -90,8 +90,7 @@ if.then3:                                         ; preds = %if.end
 
 if.end4:                                          ; preds = %if.then3, %if.end
   %rf_one.0 = phi ptr [ %incdec.ptr, %if.then3 ], [ null, %if.end ]
-  %2 = sext i32 %targets_alloc.026 to i64
-  %cmp5.not = icmp slt i64 %indvars.iv, %2
+  %cmp5.not = icmp slt i32 %targets.027, %targets_alloc.026
   br i1 %cmp5.not, label %if.end13, label %if.then6
 
 if.then6:                                         ; preds = %if.end4
@@ -107,20 +106,21 @@ if.then.i:                                        ; preds = %if.then6
   unreachable
 
 st_mult.exit22:                                   ; preds = %if.then6
-  %3 = load ptr, ptr %target, align 8
+  %2 = load ptr, ptr %target, align 8
   %mul.i = shl nuw nsw i64 %conv, 3
-  %call9 = call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #14
+  %call9 = call ptr @xrealloc(ptr noundef %2, i64 noundef %mul.i) #14
   store ptr %call9, ptr %target, align 8
-  %4 = load ptr, ptr %write_ref, align 8
-  %call12 = call ptr @xrealloc(ptr noundef %4, i64 noundef %mul.i) #14
+  %3 = load ptr, ptr %write_ref, align 8
+  %call12 = call ptr @xrealloc(ptr noundef %3, i64 noundef %mul.i) #14
   store ptr %call12, ptr %write_ref, align 8
   br label %if.end13
 
 if.end13:                                         ; preds = %st_mult.exit22, %if.end4
   %targets_alloc.1 = phi i32 [ %cond, %st_mult.exit22 ], [ %targets_alloc.026, %if.end4 ]
   %call14 = call ptr @xstrdup(ptr noundef %1) #14
-  %5 = load ptr, ptr %target, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %4 = load ptr, ptr %target, align 8
+  %idxprom = zext nneg i32 %targets.027 to i64
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %4, i64 %idxprom
   store ptr %call14, ptr %arrayidx, align 8
   %tobool.not.i = icmp eq ptr %rf_one.0, null
   br i1 %tobool.not.i, label %xstrdup_or_null.exit, label %cond.true.i
@@ -131,21 +131,17 @@ cond.true.i:                                      ; preds = %if.end13
 
 xstrdup_or_null.exit:                             ; preds = %if.end13, %cond.true.i
   %cond.i = phi ptr [ %call.i, %cond.true.i ], [ null, %if.end13 ]
-  %6 = load ptr, ptr %write_ref, align 8
-  %arrayidx17 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %5 = load ptr, ptr %write_ref, align 8
+  %arrayidx17 = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom
   store ptr %cond.i, ptr %arrayidx17, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load ptr, ptr @stdin, align 8
-  %call = call i32 @strbuf_getline_lf(ptr noundef nonnull %buf, ptr noundef %7) #14
+  %inc = add nuw nsw i32 %targets.027, 1
+  %6 = load ptr, ptr @stdin, align 8
+  %call = call i32 @strbuf_getline_lf(ptr noundef nonnull %buf, ptr noundef %6) #14
   %cmp = icmp eq i32 %call, -1
-  br i1 %cmp, label %while.end.loopexit, label %if.end
+  br i1 %cmp, label %while.end, label %if.end
 
-while.end.loopexit:                               ; preds = %xstrdup_or_null.exit
-  %8 = trunc nuw i64 %indvars.iv.next to i32
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %targets.0.lcssa = phi i32 [ 0, %entry ], [ %8, %while.end.loopexit ]
+while.end:                                        ; preds = %xstrdup_or_null.exit, %entry
+  %targets.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %xstrdup_or_null.exit ]
   call void @strbuf_release(ptr noundef nonnull %buf) #14
   ret i32 %targets.0.lcssa
 }

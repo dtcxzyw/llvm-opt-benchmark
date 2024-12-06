@@ -1626,76 +1626,74 @@ define internal fastcc void @"_ZZN4nori11loadFromXMLERKNSt7__cxx1112basic_string
 
 17:                                               ; preds = %16
   %18 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %6, i64 noundef 1024)
-          to label %.preheader.preheader unwind label %.loopexit.split-lp.loopexit
+          to label %.preheader unwind label %.loopexit.split-lp.loopexit
 
-.preheader.preheader:                             ; preds = %17
-  %19 = sext i32 %.018 to i64
-  br label %.preheader
-
-.preheader:                                       ; preds = %.preheader.preheader, %45
-  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %45 ]
-  %.121 = phi i32 [ %.020, %.preheader.preheader ], [ %.222, %45 ]
-  %.1 = phi i32 [ %.019, %.preheader.preheader ], [ %.2, %45 ]
+.preheader:                                       ; preds = %17, %44
+  %.121 = phi i32 [ %.222, %44 ], [ %.020, %17 ]
+  %.1 = phi i32 [ %.2, %44 ], [ %.019, %17 ]
+  %.0 = phi i32 [ %45, %44 ], [ 0, %17 ]
+  %19 = zext nneg i32 %.0 to i64
   %20 = invoke noundef i64 @_ZNKSi6gcountEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %21 unwind label %.loopexit
 
 21:                                               ; preds = %.preheader
-  %22 = icmp sgt i64 %20, %indvars.iv
+  %22 = icmp sgt i64 %20, %19
   br i1 %22, label %23, label %46
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [1024 x i8], ptr %6, i64 0, i64 %19
   %25 = load i8, ptr %24, align 1
   %26 = icmp eq i8 %25, 10
-  br i1 %26, label %27, label %45
+  br i1 %26, label %27, label %44
 
 27:                                               ; preds = %23
-  %28 = add nsw i64 %indvars.iv, %19
-  %.not = icmp sgt i64 %1, %28
-  %29 = add nsw i32 %.121, 1
-  br i1 %.not, label %43, label %30
+  %28 = add nsw i32 %.0, %.018
+  %29 = sext i32 %28 to i64
+  %.not = icmp sgt i64 %1, %29
+  %30 = add nsw i32 %.121, 1
+  br i1 %.not, label %44, label %31
 
-30:                                               ; preds = %27
-  store i32 %29, ptr %7, align 4
-  %31 = sext i32 %.1 to i64
-  %32 = sub nsw i64 %1, %31
-  store i64 %32, ptr %8, align 8
+31:                                               ; preds = %27
+  store i32 %30, ptr %7, align 4
+  %32 = sext i32 %.1 to i64
+  %33 = sub nsw i64 %1, %32
+  store i64 %33, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %4)
   invoke void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc:                                           ; preds = %30
+.noexc:                                           ; preds = %31
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !5
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %33, ptr %3, align 8, !alias.scope !8, !noalias !5
-  %34 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 2, ptr %34, align 8, !alias.scope !8, !noalias !5
-  store ptr %7, ptr %33, align 8, !alias.scope !8, !noalias !5
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIiEEvRSoPKcS5_iPKv, ptr %35, align 8, !alias.scope !8, !noalias !5
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIiEEiPKv, ptr %36, align 8, !alias.scope !8, !noalias !5
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store ptr %8, ptr %37, align 8, !alias.scope !8, !noalias !5
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIlEEvRSoPKcS5_iPKv, ptr %38, align 8, !alias.scope !8, !noalias !5
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIlEEiPKv, ptr %39, align 8, !alias.scope !8, !noalias !5
-  invoke void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_9FormatArgEi(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %33, i32 noundef 2)
-          to label %40 unwind label %41, !noalias !5
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %34, ptr %3, align 8, !alias.scope !8, !noalias !5
+  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 2, ptr %35, align 8, !alias.scope !8, !noalias !5
+  store ptr %7, ptr %34, align 8, !alias.scope !8, !noalias !5
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIiEEvRSoPKcS5_iPKv, ptr %36, align 8, !alias.scope !8, !noalias !5
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIiEEiPKv, ptr %37, align 8, !alias.scope !8, !noalias !5
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store ptr %8, ptr %38, align 8, !alias.scope !8, !noalias !5
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  store ptr @_ZN10tinyformat6detail9FormatArg10formatImplIlEEvRSoPKcS5_iPKv, ptr %39, align 8, !alias.scope !8, !noalias !5
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 56
+  store ptr @_ZN10tinyformat6detail9FormatArg9toIntImplIlEEiPKv, ptr %40, align 8, !alias.scope !8, !noalias !5
+  invoke void @_ZN10tinyformat6detail10formatImplERSoPKcPKNS0_9FormatArgEi(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.25, ptr noundef nonnull %34, i32 noundef 2)
+          to label %41 unwind label %42, !noalias !5
 
-40:                                               ; preds = %.noexc
+41:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !5
   invoke void @_ZNKSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEE3strEv(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(112) %4)
-          to label %_ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit unwind label %41
+          to label %_ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit unwind label %42
 
-41:                                               ; preds = %40, %.noexc
-  %42 = landingpad { ptr, i32 }
+42:                                               ; preds = %41, %.noexc
+  %43 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
   br label %.body
 
-_ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit: ; preds = %40
+_ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcDpRKT_.exit: ; preds = %41
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #24
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %4)
   br label %57
@@ -1710,19 +1708,15 @@ _ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
           cleanup
   br label %.body
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %30, %51
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %31, %51
   %lpad.loopexit.split-lp2 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-43:                                               ; preds = %27
-  %44 = trunc nsw i64 %28 to i32
-  br label %45
-
-45:                                               ; preds = %23, %43
-  %.222 = phi i32 [ %29, %43 ], [ %.121, %23 ]
-  %.2 = phi i32 [ %44, %43 ], [ %.1, %23 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+44:                                               ; preds = %27, %23
+  %.222 = phi i32 [ %.121, %23 ], [ %30, %27 ]
+  %.2 = phi i32 [ %.1, %23 ], [ %28, %27 ]
+  %45 = add nuw nsw i32 %.0, 1
   br label %.preheader, !llvm.loop !11
 
 46:                                               ; preds = %21
@@ -1757,8 +1751,8 @@ _ZN10tinyformat6formatIJilEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #24
   ret void
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %41, %55
-  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %42, %41 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2, %.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %42, %55
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %43, %42 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit1, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp2, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt13basic_fstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(264) %5) #24
   resume { ptr, i32 } %.pn
 }

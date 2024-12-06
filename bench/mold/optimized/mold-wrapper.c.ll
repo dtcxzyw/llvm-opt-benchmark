@@ -253,46 +253,45 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
-  %reg_save_area.i11 = load ptr, ptr %6, align 16
+  %reg_save_area.i13 = load ptr, ptr %6, align 16
   br label %while.cond.i3
 
 while.cond.i3:                                    ; preds = %while.body.i, %count_args.exit
-  %overflow_arg_area.next.i613 = phi ptr [ %overflow_arg_area.next.i612, %while.body.i ], [ %overflow_arg_area_p.i2.promoted, %count_args.exit ]
-  %7 = phi i32 [ %11, %while.body.i ], [ %ap.promoted, %count_args.exit ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 1, %count_args.exit ]
-  %fits_in_gp.i4 = icmp ult i32 %7, 41
-  br i1 %fits_in_gp.i4, label %vaarg.in_reg.i10, label %vaarg.in_mem.i5
+  %overflow_arg_area.next.i715 = phi ptr [ %overflow_arg_area_p.i2.promoted, %count_args.exit ], [ %overflow_arg_area.next.i714, %while.body.i ]
+  %7 = phi i32 [ %ap.promoted, %count_args.exit ], [ %11, %while.body.i ]
+  %i.0.i4 = phi i32 [ 1, %count_args.exit ], [ %inc.i11, %while.body.i ]
+  %fits_in_gp.i5 = icmp ult i32 %7, 41
+  br i1 %fits_in_gp.i5, label %vaarg.in_reg.i12, label %vaarg.in_mem.i6
 
-vaarg.in_reg.i10:                                 ; preds = %while.cond.i3
+vaarg.in_reg.i12:                                 ; preds = %while.cond.i3
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr i8, ptr %reg_save_area.i11, i64 %8
+  %9 = getelementptr i8, ptr %reg_save_area.i13, i64 %8
   %10 = add nuw nsw i32 %7, 8
   store i32 %10, ptr %ap, align 16
-  br label %vaarg.end.i7
+  br label %vaarg.end.i8
 
-vaarg.in_mem.i5:                                  ; preds = %while.cond.i3
-  %overflow_arg_area.next.i6 = getelementptr i8, ptr %overflow_arg_area.next.i613, i64 8
-  store ptr %overflow_arg_area.next.i6, ptr %overflow_arg_area_p.i2, align 8
-  br label %vaarg.end.i7
+vaarg.in_mem.i6:                                  ; preds = %while.cond.i3
+  %overflow_arg_area.next.i7 = getelementptr i8, ptr %overflow_arg_area.next.i715, i64 8
+  store ptr %overflow_arg_area.next.i7, ptr %overflow_arg_area_p.i2, align 8
+  br label %vaarg.end.i8
 
-vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %vaarg.in_reg.i10
-  %overflow_arg_area.next.i612 = phi ptr [ %overflow_arg_area.next.i613, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i6, %vaarg.in_mem.i5 ]
-  %11 = phi i32 [ %10, %vaarg.in_reg.i10 ], [ %7, %vaarg.in_mem.i5 ]
-  %vaarg.addr.i8 = phi ptr [ %9, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i613, %vaarg.in_mem.i5 ]
-  %12 = load ptr, ptr %vaarg.addr.i8, align 8
-  %tobool.not.i9 = icmp eq ptr %12, null
-  br i1 %tobool.not.i9, label %copy_args.exit, label %while.body.i
+vaarg.end.i8:                                     ; preds = %vaarg.in_mem.i6, %vaarg.in_reg.i12
+  %overflow_arg_area.next.i714 = phi ptr [ %overflow_arg_area.next.i715, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i7, %vaarg.in_mem.i6 ]
+  %11 = phi i32 [ %10, %vaarg.in_reg.i12 ], [ %7, %vaarg.in_mem.i6 ]
+  %vaarg.addr.i9 = phi ptr [ %9, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i715, %vaarg.in_mem.i6 ]
+  %12 = load ptr, ptr %vaarg.addr.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
+  %idxprom2.i = zext nneg i32 %i.0.i4 to i64
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
+  br i1 %tobool.not.i10, label %copy_args.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %vaarg.end.i7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
-  store ptr %12, ptr %arrayidx.i, align 8
+while.body.i:                                     ; preds = %vaarg.end.i8
+  %inc.i11 = add nuw nsw i32 %i.0.i4, 1
+  store ptr %12, ptr %arrayidx3.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
-copy_args.exit:                                   ; preds = %vaarg.end.i7
+copy_args.exit:                                   ; preds = %vaarg.end.i8
   store ptr %arg0, ptr %5, align 16
-  %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %13 = load ptr, ptr @environ, align 8
@@ -372,46 +371,45 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
-  %reg_save_area.i11 = load ptr, ptr %6, align 16
+  %reg_save_area.i13 = load ptr, ptr %6, align 16
   br label %while.cond.i3
 
 while.cond.i3:                                    ; preds = %while.body.i, %count_args.exit
-  %overflow_arg_area.next.i613 = phi ptr [ %overflow_arg_area.next.i612, %while.body.i ], [ %overflow_arg_area_p.i2.promoted, %count_args.exit ]
-  %7 = phi i32 [ %11, %while.body.i ], [ %ap.promoted, %count_args.exit ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 1, %count_args.exit ]
-  %fits_in_gp.i4 = icmp ult i32 %7, 41
-  br i1 %fits_in_gp.i4, label %vaarg.in_reg.i10, label %vaarg.in_mem.i5
+  %overflow_arg_area.next.i715 = phi ptr [ %overflow_arg_area_p.i2.promoted, %count_args.exit ], [ %overflow_arg_area.next.i714, %while.body.i ]
+  %7 = phi i32 [ %ap.promoted, %count_args.exit ], [ %11, %while.body.i ]
+  %i.0.i4 = phi i32 [ 1, %count_args.exit ], [ %inc.i11, %while.body.i ]
+  %fits_in_gp.i5 = icmp ult i32 %7, 41
+  br i1 %fits_in_gp.i5, label %vaarg.in_reg.i12, label %vaarg.in_mem.i6
 
-vaarg.in_reg.i10:                                 ; preds = %while.cond.i3
+vaarg.in_reg.i12:                                 ; preds = %while.cond.i3
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr i8, ptr %reg_save_area.i11, i64 %8
+  %9 = getelementptr i8, ptr %reg_save_area.i13, i64 %8
   %10 = add nuw nsw i32 %7, 8
   store i32 %10, ptr %ap, align 16
-  br label %vaarg.end.i7
+  br label %vaarg.end.i8
 
-vaarg.in_mem.i5:                                  ; preds = %while.cond.i3
-  %overflow_arg_area.next.i6 = getelementptr i8, ptr %overflow_arg_area.next.i613, i64 8
-  store ptr %overflow_arg_area.next.i6, ptr %overflow_arg_area_p.i2, align 8
-  br label %vaarg.end.i7
+vaarg.in_mem.i6:                                  ; preds = %while.cond.i3
+  %overflow_arg_area.next.i7 = getelementptr i8, ptr %overflow_arg_area.next.i715, i64 8
+  store ptr %overflow_arg_area.next.i7, ptr %overflow_arg_area_p.i2, align 8
+  br label %vaarg.end.i8
 
-vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %vaarg.in_reg.i10
-  %overflow_arg_area.next.i612 = phi ptr [ %overflow_arg_area.next.i613, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i6, %vaarg.in_mem.i5 ]
-  %11 = phi i32 [ %10, %vaarg.in_reg.i10 ], [ %7, %vaarg.in_mem.i5 ]
-  %vaarg.addr.i8 = phi ptr [ %9, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i613, %vaarg.in_mem.i5 ]
-  %12 = load ptr, ptr %vaarg.addr.i8, align 8
-  %tobool.not.i9 = icmp eq ptr %12, null
-  br i1 %tobool.not.i9, label %copy_args.exit, label %while.body.i
+vaarg.end.i8:                                     ; preds = %vaarg.in_mem.i6, %vaarg.in_reg.i12
+  %overflow_arg_area.next.i714 = phi ptr [ %overflow_arg_area.next.i715, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i7, %vaarg.in_mem.i6 ]
+  %11 = phi i32 [ %10, %vaarg.in_reg.i12 ], [ %7, %vaarg.in_mem.i6 ]
+  %vaarg.addr.i9 = phi ptr [ %9, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i715, %vaarg.in_mem.i6 ]
+  %12 = load ptr, ptr %vaarg.addr.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %12, null
+  %idxprom2.i = zext nneg i32 %i.0.i4 to i64
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
+  br i1 %tobool.not.i10, label %copy_args.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %vaarg.end.i7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
-  store ptr %12, ptr %arrayidx.i, align 8
+while.body.i:                                     ; preds = %vaarg.end.i8
+  %inc.i11 = add nuw nsw i32 %i.0.i4, 1
+  store ptr %12, ptr %arrayidx3.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
-copy_args.exit:                                   ; preds = %vaarg.end.i7
+copy_args.exit:                                   ; preds = %vaarg.end.i8
   store ptr %arg0, ptr %5, align 16
-  %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   call void @llvm.va_end.p0(ptr nonnull %ap)
   %13 = load ptr, ptr @environ, align 8
@@ -473,53 +471,52 @@ count_args.exit:                                  ; preds = %vaarg.end.i
   %6 = getelementptr inbounds nuw i8, ptr %ap, i64 16
   %ap.promoted = load i32, ptr %ap, align 16
   %overflow_arg_area_p.i2.promoted = load ptr, ptr %overflow_arg_area_p.i2, align 8
-  %reg_save_area.i11 = load ptr, ptr %6, align 16
+  %reg_save_area.i13 = load ptr, ptr %6, align 16
   br label %while.cond.i3
 
 while.cond.i3:                                    ; preds = %while.body.i, %count_args.exit
-  %overflow_arg_area.next.i613 = phi ptr [ %overflow_arg_area, %while.body.i ], [ %overflow_arg_area_p.i2.promoted, %count_args.exit ]
-  %7 = phi i32 [ %gp_offset, %while.body.i ], [ %ap.promoted, %count_args.exit ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %while.body.i ], [ 1, %count_args.exit ]
-  %fits_in_gp.i4 = icmp ult i32 %7, 41
-  br i1 %fits_in_gp.i4, label %vaarg.in_reg.i10, label %vaarg.in_mem.i5
+  %overflow_arg_area.next.i715 = phi ptr [ %overflow_arg_area_p.i2.promoted, %count_args.exit ], [ %overflow_arg_area, %while.body.i ]
+  %7 = phi i32 [ %ap.promoted, %count_args.exit ], [ %gp_offset, %while.body.i ]
+  %i.0.i4 = phi i32 [ 1, %count_args.exit ], [ %inc.i11, %while.body.i ]
+  %fits_in_gp.i5 = icmp ult i32 %7, 41
+  br i1 %fits_in_gp.i5, label %vaarg.in_reg.i12, label %vaarg.in_mem.i6
 
-vaarg.in_reg.i10:                                 ; preds = %while.cond.i3
+vaarg.in_reg.i12:                                 ; preds = %while.cond.i3
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr i8, ptr %reg_save_area.i11, i64 %8
+  %9 = getelementptr i8, ptr %reg_save_area.i13, i64 %8
   %10 = add nuw nsw i32 %7, 8
   store i32 %10, ptr %ap, align 16
-  br label %vaarg.end.i7
+  br label %vaarg.end.i8
 
-vaarg.in_mem.i5:                                  ; preds = %while.cond.i3
-  %overflow_arg_area.next.i6 = getelementptr i8, ptr %overflow_arg_area.next.i613, i64 8
-  store ptr %overflow_arg_area.next.i6, ptr %overflow_arg_area_p.i2, align 8
-  br label %vaarg.end.i7
+vaarg.in_mem.i6:                                  ; preds = %while.cond.i3
+  %overflow_arg_area.next.i7 = getelementptr i8, ptr %overflow_arg_area.next.i715, i64 8
+  store ptr %overflow_arg_area.next.i7, ptr %overflow_arg_area_p.i2, align 8
+  br label %vaarg.end.i8
 
-vaarg.end.i7:                                     ; preds = %vaarg.in_mem.i5, %vaarg.in_reg.i10
-  %overflow_arg_area = phi ptr [ %overflow_arg_area.next.i613, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i6, %vaarg.in_mem.i5 ]
-  %gp_offset = phi i32 [ %10, %vaarg.in_reg.i10 ], [ %7, %vaarg.in_mem.i5 ]
-  %vaarg.addr.i8 = phi ptr [ %9, %vaarg.in_reg.i10 ], [ %overflow_arg_area.next.i613, %vaarg.in_mem.i5 ]
-  %11 = load ptr, ptr %vaarg.addr.i8, align 8
-  %tobool.not.i9 = icmp eq ptr %11, null
-  br i1 %tobool.not.i9, label %copy_args.exit, label %while.body.i
+vaarg.end.i8:                                     ; preds = %vaarg.in_mem.i6, %vaarg.in_reg.i12
+  %overflow_arg_area = phi ptr [ %overflow_arg_area.next.i715, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i7, %vaarg.in_mem.i6 ]
+  %gp_offset = phi i32 [ %10, %vaarg.in_reg.i12 ], [ %7, %vaarg.in_mem.i6 ]
+  %vaarg.addr.i9 = phi ptr [ %9, %vaarg.in_reg.i12 ], [ %overflow_arg_area.next.i715, %vaarg.in_mem.i6 ]
+  %11 = load ptr, ptr %vaarg.addr.i9, align 8
+  %tobool.not.i10 = icmp eq ptr %11, null
+  %idxprom2.i = zext nneg i32 %i.0.i4 to i64
+  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
+  br i1 %tobool.not.i10, label %copy_args.exit, label %while.body.i
 
-while.body.i:                                     ; preds = %vaarg.end.i7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
-  store ptr %11, ptr %arrayidx.i, align 8
+while.body.i:                                     ; preds = %vaarg.end.i8
+  %inc.i11 = add nuw nsw i32 %i.0.i4, 1
+  store ptr %11, ptr %arrayidx3.i, align 8
   br label %while.cond.i3, !llvm.loop !8
 
-copy_args.exit:                                   ; preds = %vaarg.end.i7
+copy_args.exit:                                   ; preds = %vaarg.end.i8
   store ptr %arg0, ptr %5, align 16
-  %idxprom2.i = and i64 %indvars.iv.i, 4294967295
-  %arrayidx3.i = getelementptr inbounds nuw ptr, ptr %5, i64 %idxprom2.i
   store ptr null, ptr %arrayidx3.i, align 8
   %fits_in_gp = icmp ult i32 %gp_offset, 41
   br i1 %fits_in_gp, label %vaarg.in_reg, label %vaarg.in_mem
 
 vaarg.in_reg:                                     ; preds = %copy_args.exit
   %12 = zext nneg i32 %gp_offset to i64
-  %13 = getelementptr i8, ptr %reg_save_area.i11, i64 %12
+  %13 = getelementptr i8, ptr %reg_save_area.i13, i64 %12
   %14 = add nuw nsw i32 %gp_offset, 8
   store i32 %14, ptr %ap, align 16
   br label %vaarg.end

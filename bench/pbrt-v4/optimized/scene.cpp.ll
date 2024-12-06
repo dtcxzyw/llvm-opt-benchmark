@@ -35316,9 +35316,9 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26
   br i1 %tobool18.not103, label %while.end, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26, %if.else27
-  %indvars.iv111 = phi i64 [ %indvars.iv.next112, %if.else27 ], [ 1, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26 ]
   %10 = phi ptr [ %16, %if.else27 ], [ %9, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26 ]
   %offset7.0105 = phi i64 [ %rem30, %if.else27 ], [ %rem12, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26 ]
+  %step13.0104 = phi i32 [ %inc, %if.else27 ], [ 1, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit26 ]
   %call.i32 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #29
   %call1.i = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %item) #29
   %cmp.i = icmp eq i64 %call.i32, %call1.i
@@ -35343,8 +35343,9 @@ if.then23:                                        ; preds = %land.rhs.i, %_ZSteq
   br label %return
 
 if.else27:                                        ; preds = %if.else, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %add = add i64 %offset7.0105, %indvars.iv111
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
+  %conv = zext nneg i32 %step13.0104 to i64
+  %add = add i64 %offset7.0105, %conv
+  %inc = add nuw nsw i32 %step13.0104, 1
   %14 = load i64, ptr %nStored.i, align 8
   %rem30 = urem i64 %add, %14
   %15 = load ptr, ptr %ptr.i, align 8
@@ -35402,12 +35403,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4
 
 _ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit: ; preds = %for.body.i.i
   %.pre = load ptr, ptr %ptr.i, align 8
-  %.pre114 = load i64, ptr %nStored.i, align 8
+  %.pre110 = load i64, ptr %nStored.i, align 8
   br label %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit
 
 _ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit: ; preds = %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit, %if.then34
   %23 = phi ptr [ %22, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit ], [ null, %if.then34 ]
-  %24 = phi i64 [ %.pre114, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit ], [ %18, %if.then34 ]
+  %24 = phi i64 [ %.pre110, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit ], [ %18, %if.then34 ]
   %25 = phi ptr [ %.pre, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit.loopexit ], [ %17, %if.then34 ]
   store i64 %mul37, ptr %nStored.i.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %25, i64 %24
@@ -35469,11 +35470,11 @@ for.inc:                                          ; preds = %for.body, %_ZN4pbrt
   br i1 %cmp45.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre115 = load ptr, ptr %newHash, align 8
+  %.pre111 = load ptr, ptr %newHash, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit
-  %32 = phi ptr [ %.pre115, %for.end.loopexit ], [ %retval.sroa.0.0.copyload.i, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit ]
+  %32 = phi ptr [ %.pre111, %for.end.loopexit ], [ %retval.sroa.0.0.copyload.i, %_ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEEC2EmRKSB_.exit ]
   %33 = load ptr, ptr %hashTable, align 16
   %cmp.i.i46 = icmp eq ptr %33, %32
   br i1 %cmp.i.i46, label %invoke.cont51, label %land.rhs.i47
@@ -35561,9 +35562,9 @@ _ZN4pbrt11InternCacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4has
   br label %return
 
 if.else59:                                        ; preds = %while.body.preheader, %if.else68
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.else68 ], [ 1, %while.body.preheader ]
   %48 = phi ptr [ %54, %if.else68 ], [ %4, %while.body.preheader ]
   %offset.0101 = phi i64 [ %rem74, %if.else68 ], [ %rem, %while.body.preheader ]
+  %step.0100 = phi i32 [ %inc71, %if.else68 ], [ 1, %while.body.preheader ]
   %call.i77 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %48) #29
   %call1.i78 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %item) #29
   %cmp.i79 = icmp eq i64 %call.i77, %call1.i78
@@ -35588,8 +35589,9 @@ if.then63:                                        ; preds = %land.rhs.i80, %_ZSt
   br label %return
 
 if.else68:                                        ; preds = %if.else59, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit87
-  %add70 = add i64 %offset.0101, %indvars.iv
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %conv69 = zext nneg i32 %step.0100 to i64
+  %add70 = add i64 %offset.0101, %conv69
+  %inc71 = add nuw nsw i32 %step.0100, 1
   %52 = load i64, ptr %nStored.i, align 8
   %rem74 = urem i64 %add70, %52
   %53 = load ptr, ptr %ptr.i, align 8
@@ -42043,9 +42045,9 @@ _ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41:    ; preds = %while.body.i.i.i23
   br i1 %tobool18.not116, label %while.end, label %if.else
 
 if.else:                                          ; preds = %_ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41, %if.else27
-  %indvars.iv124 = phi i64 [ %indvars.iv.next125, %if.else27 ], [ 1, %_ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41 ]
   %6 = phi ptr [ %11, %if.else27 ], [ %5, %_ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41 ]
   %offset7.0118 = phi i64 [ %rem30, %if.else27 ], [ %rem12, %_ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41 ]
+  %step13.0117 = phi i32 [ %inc, %if.else27 ], [ 1, %_ZNKSt4hashIN4pbrt9TransformEEclERKS1_.exit41 ]
   %call.i = tail call noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEeqERKS1_(ptr noundef nonnull align 4 dereferenceable(128) %item, ptr noundef nonnull align 4 dereferenceable(128) %6)
   br i1 %call.i, label %if.then23, label %if.else27
 
@@ -42056,8 +42058,9 @@ if.then23:                                        ; preds = %if.else
   br label %return
 
 if.else27:                                        ; preds = %if.else
-  %add = add i64 %offset7.0118, %indvars.iv124
-  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %conv = zext nneg i32 %step13.0117 to i64
+  %add = add i64 %offset7.0118, %conv
+  %inc = add nuw nsw i32 %step13.0117, 1
   %9 = load i64, ptr %nStored.i, align 8
   %rem30 = urem i64 %add, %9
   %10 = load ptr, ptr %ptr.i, align 8
@@ -42115,12 +42118,12 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %_ZN4
 
 _ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit: ; preds = %for.body.i.i
   %.pre = load ptr, ptr %ptr.i, align 8
-  %.pre127 = load i64, ptr %nStored.i, align 8
+  %.pre123 = load i64, ptr %nStored.i, align 8
   br label %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit
 
 _ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit: ; preds = %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit, %if.then34
   %18 = phi ptr [ %17, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit ], [ null, %if.then34 ]
-  %19 = phi i64 [ %.pre127, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit ], [ %13, %if.then34 ]
+  %19 = phi i64 [ %.pre123, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit ], [ %13, %if.then34 ]
   %20 = phi ptr [ %.pre, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit.loopexit ], [ %12, %if.then34 ]
   store i64 %mul37, ptr %nStored.i.i, align 8
   %add.ptr.i = getelementptr inbounds ptr, ptr %20, i64 %19
@@ -42195,11 +42198,11 @@ for.inc:                                          ; preds = %_ZN4pbrt11InternCac
   br i1 %cmp44.not, label %for.end.loopexit, label %for.body
 
 for.end.loopexit:                                 ; preds = %for.inc
-  %.pre128 = load ptr, ptr %newHash, align 8
+  %.pre124 = load ptr, ptr %newHash, align 8
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit
-  %25 = phi ptr [ %.pre128, %for.end.loopexit ], [ %retval.sroa.0.0.copyload.i, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit ]
+  %25 = phi ptr [ %.pre124, %for.end.loopexit ], [ %retval.sroa.0.0.copyload.i, %_ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEEC2EmRKS7_.exit ]
   %26 = load ptr, ptr %hashTable, align 16
   %cmp.i.i58 = icmp eq ptr %26, %25
   br i1 %cmp.i.i58, label %invoke.cont50, label %land.rhs.i
@@ -42300,9 +42303,9 @@ _ZN4pbrt11InternCacheINS_9TransformESt4hashIS1_EE6InsertEPKS1_PN4pstd6vectorIS6_
   br label %return
 
 if.else58:                                        ; preds = %while.body.preheader, %if.else67
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.else67 ], [ 1, %while.body.preheader ]
   %39 = phi ptr [ %44, %if.else67 ], [ %2, %while.body.preheader ]
   %offset.0114 = phi i64 [ %rem73, %if.else67 ], [ %rem, %while.body.preheader ]
+  %step.0113 = phi i32 [ %inc70, %if.else67 ], [ 1, %while.body.preheader ]
   %call.i102 = tail call noundef zeroext i1 @_ZNK4pbrt12SquareMatrixILi4EEeqERKS1_(ptr noundef nonnull align 4 dereferenceable(128) %item, ptr noundef nonnull align 4 dereferenceable(128) %39)
   br i1 %call.i102, label %if.then62, label %if.else67
 
@@ -42313,8 +42316,9 @@ if.then62:                                        ; preds = %if.else58
   br label %return
 
 if.else67:                                        ; preds = %if.else58
-  %add69 = add i64 %offset.0114, %indvars.iv
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %conv68 = zext nneg i32 %step.0113 to i64
+  %add69 = add i64 %offset.0114, %conv68
+  %inc70 = add nuw nsw i32 %step.0113, 1
   %42 = load i64, ptr %nStored.i, align 8
   %rem73 = urem i64 %add69, %42
   %43 = load ptr, ptr %ptr.i, align 8

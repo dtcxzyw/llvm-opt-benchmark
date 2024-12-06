@@ -15473,7 +15473,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE2atEm.exit3365: ; preds = %5800
   %5805 = getelementptr inbounds nuw i8, ptr %5804, i64 80
   %5806 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %5805, ptr noundef nonnull align 8 dereferenceable(32) %150) #34
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %150) #34
-  %5807 = add nuw i32 %.018866082, 1
+  %5807 = add i32 %.018866082, 1
   %exitcond6653.not = icmp eq i32 %.018866082, %smax
   br i1 %exitcond6653.not, label %_ZN5Yosys5RTLIL5ConstD2Ev.exit3083, label %5736, !llvm.loop !90
 
@@ -35269,7 +35269,7 @@ _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx
 
 _ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %1031
   %1054 = phi ptr [ %1051, %_ZNSt6vectorIN5Yosys5RTLIL5StateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i ], [ %1033, %1031 ]
-  %1055 = add nuw i32 %.0152861, 1
+  %1055 = add i32 %.0152861, 1
   %exitcond973.not = icmp eq i32 %.0152861, %smax972
   br i1 %exitcond973.not, label %1059, label %1028, !llvm.loop !177
 
@@ -37547,7 +37547,7 @@ define void @_ZN5Yosys3AST7AstNode13label_genblksERSt3setINSt7__cxx1112basic_str
           to label %28 unwind label %.loopexit
 
 28:                                               ; preds = %.lr.ph
-  %29 = add nuw nsw i32 %.02749, 1
+  %29 = add nuw i32 %.02749, 1
   %exitcond.not = icmp eq i32 %29, %.050
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !185
 
@@ -40344,19 +40344,20 @@ define internal fastcc void @_ZN5YosysL14prepend_rangesERPNS_3AST7AstNodeES2_(pt
   br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %24 ]
-  %.sroa.019.025 = phi ptr [ %36, %.lr.ph ], [ %26, %24 ]
+  %.026 = phi i32 [ %33, %.lr.ph ], [ 0, %24 ]
+  %.sroa.019.025 = phi ptr [ %38, %.lr.ph ], [ %26, %24 ]
   %29 = load ptr, ptr %.sroa.019.025, align 8
   %30 = load ptr, ptr %0, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
-  %34 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %29)
-  store ptr %34, ptr %4, align 8
-  %35 = call ptr @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr %33, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 8
-  %.not = icmp eq ptr %36, %28
+  %33 = add nuw nsw i32 %.026, 1
+  %34 = zext nneg i32 %.026 to i64
+  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %34
+  %36 = call noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %29)
+  store ptr %36, ptr %4, align 8
+  %37 = call ptr @_ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE14_M_insert_rvalEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EEOS3_(ptr noundef nonnull align 8 dereferenceable(24) %31, ptr %35, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.019.025, i64 8
+  %.not = icmp eq ptr %38, %28
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %24, %19

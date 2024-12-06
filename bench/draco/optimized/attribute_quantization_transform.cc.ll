@@ -466,16 +466,16 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform25InverseTra
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %6 = load i32, ptr %5, align 4
   %.not = icmp eq i32 %6, 9
-  br i1 %.not, label %7, label %53
+  br i1 %.not, label %7, label %56
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %11 = load i8, ptr %10, align 8
-  %12 = zext i8 %11 to i64
+  %12 = zext i8 %11 to i32
   %13 = zext i8 %11 to i64
-  %14 = shl nuw nsw i64 %12, 2
+  %14 = shl nuw nsw i32 %12, 2
   %15 = shl nuw nsw i64 %13, 2
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #14
   invoke void @_ZN5draco11DequantizerC1Ev(ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -513,6 +513,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %17, %7
   %.not45 = icmp eq i8 %11, 0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %34 = zext nneg i32 %14 to i64
   br i1 %.not45, label %.preheader, label %.preheader.us.preheader
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -520,56 +521,57 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit: ; preds = %17, %7
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
-  %indvars.iv52 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next53, %._crit_edge.us ]
-  %.02843.us = phi i32 [ 0, %.preheader.us.preheader ], [ %49, %._crit_edge.us ]
-  %.02942.us = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next48, %._crit_edge.us ]
-  %34 = load float, ptr %4, align 4
-  %35 = load ptr, ptr %32, align 8
+  %.02843.us = phi i32 [ %52, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.02942.us = phi i64 [ %indvars.iv.next48, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %.03141.us = phi i32 [ %51, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
+  %35 = load float, ptr %4, align 4
+  %36 = load ptr, ptr %32, align 8
   %sext = shl i64 %.02942.us, 32
-  %36 = ashr exact i64 %sext, 32
-  br label %37
+  %37 = ashr exact i64 %sext, 32
+  br label %38
 
-37:                                               ; preds = %.preheader.us, %37
-  %indvars.iv47 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next48, %37 ]
-  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %37 ]
+38:                                               ; preds = %.preheader.us, %38
+  %indvars.iv47 = phi i64 [ %37, %.preheader.us ], [ %indvars.iv.next48, %38 ]
+  %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %38 ]
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
-  %38 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv47
-  %39 = load i32, ptr %38, align 4
-  %40 = sitofp i32 %39 to float
-  %41 = fmul float %34, %40
-  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
-  %43 = load float, ptr %42, align 4
-  %44 = fadd float %41, %43
-  %45 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
-  store float %44, ptr %45, align 4
+  %39 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv47
+  %40 = load i32, ptr %39, align 4
+  %41 = sitofp i32 %40 to float
+  %42 = fmul float %35, %41
+  %43 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv
+  %44 = load float, ptr %43, align 4
+  %45 = fadd float %42, %44
+  %46 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  store float %45, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.us, label %37, !llvm.loop !11
+  br i1 %exitcond.not, label %._crit_edge.us, label %38, !llvm.loop !11
 
-._crit_edge.us:                                   ; preds = %37
-  %46 = load ptr, ptr %33, align 8
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv52
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr nonnull align 1 %16, i64 %14, i1 false)
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, %15
-  %49 = add nuw i32 %.02843.us, 1
-  %exitcond55.not = icmp eq i32 %49, %31
-  br i1 %exitcond55.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34, label %.preheader.us, !llvm.loop !12
+._crit_edge.us:                                   ; preds = %38
+  %47 = load ptr, ptr %33, align 8
+  %48 = zext nneg i32 %.03141.us to i64
+  %49 = load ptr, ptr %47, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %50, ptr nonnull align 1 %16, i64 %34, i1 false)
+  %51 = add nuw nsw i32 %.03141.us, %14
+  %52 = add nuw i32 %.02843.us, 1
+  %exitcond52.not = icmp eq i32 %52, %31
+  br i1 %exitcond52.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34, label %.preheader.us, !llvm.loop !12
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.preheader
-  %.02843 = phi i32 [ %52, %.preheader ], [ 0, %.preheader.lr.ph ]
-  %50 = load ptr, ptr %33, align 8
-  %51 = load ptr, ptr %50, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %51, ptr nonnull align 1 %16, i64 %14, i1 false)
-  %52 = add nuw i32 %.02843, 1
-  %exitcond56.not = icmp eq i32 %52, %31
-  br i1 %exitcond56.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34, label %.preheader, !llvm.loop !12
+  %.02843 = phi i32 [ %55, %.preheader ], [ 0, %.preheader.lr.ph ]
+  %53 = load ptr, ptr %33, align 8
+  %54 = load ptr, ptr %53, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr nonnull align 1 %16, i64 %34, i1 false)
+  %55 = add nuw i32 %.02843, 1
+  %exitcond53.not = icmp eq i32 %55, %31
+  br i1 %exitcond53.not, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34, label %.preheader, !llvm.loop !12
 
 _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34: ; preds = %._crit_edge.us, %.preheader, %24, %22
   call void @_ZdaPv(ptr noundef nonnull %16) #15
-  br label %53
+  br label %56
 
-53:                                               ; preds = %3, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34
+56:                                               ; preds = %3, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34
   %.0 = phi i1 [ %21, %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit34 ], [ false, %3 ]
   ret i1 %.0
 }

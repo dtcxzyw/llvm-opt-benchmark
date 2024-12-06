@@ -714,46 +714,47 @@ define noalias noundef ptr @Extra_UnateComputeSlow(ptr noundef %0, ptr noundef %
   %13 = getelementptr inbounds nuw i8, ptr %calloc.i, i64 8
   br label %14
 
-14:                                               ; preds = %.lr.ph, %26
-  %15 = phi i32 [ 0, %.lr.ph ], [ %29, %26 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.033 = phi ptr [ %3, %.lr.ph ], [ %31, %26 ]
+14:                                               ; preds = %.lr.ph, %27
+  %15 = phi i32 [ 0, %.lr.ph ], [ %30, %27 ]
+  %.033 = phi ptr [ %3, %.lr.ph ], [ %32, %27 ]
+  %.02932 = phi i32 [ 0, %.lr.ph ], [ %33, %27 ]
   %16 = load i32, ptr %.033, align 8
   %17 = tail call i32 @Extra_bddCheckUnateNaive(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %16)
   %18 = load i32, ptr %.033, align 8
-  %19 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %indvars.iv
-  %20 = load i32, ptr %19, align 4
-  %21 = and i32 %18, 1073741823
-  %22 = and i32 %20, -1073741824
-  %23 = or disjoint i32 %22, %21
-  store i32 %23, ptr %19, align 4
-  switch i32 %17, label %26 [
+  %19 = zext nneg i32 %.02932 to i64
+  %20 = getelementptr inbounds nuw %struct.Extra_UnateVar_t_, ptr %calloc7.i, i64 %19
+  %21 = load i32, ptr %20, align 4
+  %22 = and i32 %18, 1073741823
+  %23 = and i32 %21, -1073741824
+  %24 = or disjoint i32 %23, %22
+  store i32 %24, ptr %20, align 4
+  switch i32 %17, label %27 [
     i32 -1, label %.sink.split
-    i32 1, label %24
+    i32 1, label %25
   ]
 
-24:                                               ; preds = %14
+25:                                               ; preds = %14
   br label %.sink.split
 
-.sink.split:                                      ; preds = %14, %24
-  %.sink35 = phi i32 [ 1073741824, %24 ], [ -2147483648, %14 ]
-  %25 = or i32 %23, %.sink35
-  store i32 %25, ptr %19, align 4
-  br label %26
+.sink.split:                                      ; preds = %14, %25
+  %.sink34 = phi i32 [ 1073741824, %25 ], [ -2147483648, %14 ]
+  %26 = or i32 %24, %.sink34
+  store i32 %26, ptr %20, align 4
+  br label %27
 
-26:                                               ; preds = %.sink.split, %14
-  %27 = icmp ne i32 %17, 0
-  %28 = zext i1 %27 to i32
-  %29 = add nuw nsw i32 %15, %28
-  store i32 %29, ptr %13, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.033, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = load ptr, ptr %11, align 8
-  %.not = icmp eq ptr %31, %32
+27:                                               ; preds = %.sink.split, %14
+  %28 = icmp ne i32 %17, 0
+  %29 = zext i1 %28 to i32
+  %30 = add nuw nsw i32 %15, %29
+  store i32 %30, ptr %13, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %.033, i64 16
+  %32 = load ptr, ptr %31, align 8
+  %33 = add nuw nsw i32 %.02932, 1
+  %34 = load ptr, ptr %11, align 8
+  %.not = icmp eq ptr %32, %34
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %26, %2
+._crit_edge:                                      ; preds = %27, %2
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %3) #9
   ret ptr %calloc.i
 }

@@ -76,12 +76,12 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %2, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %43, label %9
+  br i1 %or.cond, label %44, label %9
 
 9:                                                ; preds = %4
   %10 = call fastcc i64 @_read_cg_file(ptr noundef %0, ptr noundef %5)
   %11 = icmp slt i64 %10, 0
-  br i1 %11, label %43, label %12
+  br i1 %11, label %44, label %12
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %5, align 8
@@ -117,13 +117,13 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
   br i1 %.not4669, label %.sink.split.sink.split, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %20, %.lr.ph73
-  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.lr.ph73 ], [ 0, %20 ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph73 ], [ 0, %20 ]
   %.171 = phi ptr [ %27, %.lr.ph73 ], [ %13, %20 ]
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv79
+  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   %25 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.171, ptr noundef nonnull @.str.1, ptr noundef %24) #8
   %26 = tail call ptr @xstrchr(ptr noundef %.171, i32 noundef 10) #8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = tail call ptr @xstrchr(ptr noundef nonnull %27, i32 noundef 10) #8
   %.not46 = icmp eq ptr %28, null
   br i1 %.not46, label %.loopexit.loopexit, label %.lr.ph73, !llvm.loop !8
@@ -136,53 +136,50 @@ define range(i32 -1, 1) i32 @common_file_read_uints(ptr noundef %0, ptr noundef 
   br i1 %.not4463, label %.sink.split.sink.split, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %29, %.lr.ph67
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph67 ], [ 0, %29 ]
-  %.265 = phi ptr [ %37, %.lr.ph67 ], [ %13, %29 ]
+  %.265 = phi ptr [ %39, %.lr.ph67 ], [ %13, %29 ]
+  %.364 = phi i32 [ %35, %.lr.ph67 ], [ 0, %29 ]
   %33 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.265, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #8
   %34 = load i64, ptr %6, align 8
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = getelementptr inbounds nuw i64, ptr %31, i64 %indvars.iv
-  store i64 %34, ptr %35, align 8
-  %36 = call ptr @xstrchr(ptr noundef %.265, i32 noundef 10) #8
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
-  %38 = call ptr @xstrchr(ptr noundef nonnull %37, i32 noundef 10) #8
-  %.not44 = icmp eq ptr %38, null
-  br i1 %.not44, label %.loopexit, label %.lr.ph67, !llvm.loop !9
+  %35 = add nuw nsw i32 %.364, 1
+  %36 = zext nneg i32 %.364 to i64
+  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %36
+  store i64 %34, ptr %37, align 8
+  %38 = call ptr @xstrchr(ptr noundef %.265, i32 noundef 10) #8
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
+  %40 = call ptr @xstrchr(ptr noundef nonnull %39, i32 noundef 10) #8
+  %.not44 = icmp eq ptr %40, null
+  br i1 %.not44, label %.thread53, label %.lr.ph67, !llvm.loop !9
 
 .loopexit.loopexit:                               ; preds = %.lr.ph73
-  %39 = trunc nuw i64 %indvars.iv.next80 to i32
+  %41 = trunc nuw i64 %indvars.iv.next to i32
   br label %.sink.split.sink.split
 
-.loopexit:                                        ; preds = %.lr.ph67
-  %40 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.thread53
-
-.thread53:                                        ; preds = %._crit_edge, %._crit_edge.thread, %.loopexit
-  %.058 = phi ptr [ %31, %.loopexit ], [ null, %._crit_edge.thread ], [ null, %._crit_edge ]
-  %.23957 = phi i32 [ %40, %.loopexit ], [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ]
+.thread53:                                        ; preds = %.lr.ph67, %._crit_edge, %._crit_edge.thread
+  %.058 = phi ptr [ null, %._crit_edge.thread ], [ null, %._crit_edge ], [ %31, %.lr.ph67 ]
+  %.23957 = phi i32 [ 0, %._crit_edge.thread ], [ %15, %._crit_edge ], [ %35, %.lr.ph67 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
-  %41 = icmp eq i32 %3, 64
-  br i1 %41, label %.sink.split, label %42
+  %42 = icmp eq i32 %3, 64
+  br i1 %42, label %.sink.split, label %43
 
 .sink.split.sink.split:                           ; preds = %.loopexit.loopexit, %._crit_edge.thread, %20, %29
-  %.058102.sink.ph = phi ptr [ %31, %29 ], [ %22, %.loopexit.loopexit ], [ null, %._crit_edge.thread ], [ %22, %20 ]
-  %.23950.ph.ph = phi i32 [ 0, %29 ], [ %39, %.loopexit.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %20 ]
+  %.05899.sink.ph = phi ptr [ %31, %29 ], [ %22, %.loopexit.loopexit ], [ null, %._crit_edge.thread ], [ %22, %20 ]
+  %.23950.ph.ph = phi i32 [ 0, %29 ], [ %41, %.loopexit.loopexit ], [ 0, %._crit_edge.thread ], [ 0, %20 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #8
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %.thread53
-  %.058102.sink = phi ptr [ %.058, %.thread53 ], [ %.058102.sink.ph, %.sink.split.sink.split ]
+  %.05899.sink = phi ptr [ %.058, %.thread53 ], [ %.05899.sink.ph, %.sink.split.sink.split ]
   %.23950.ph = phi i32 [ %.23957, %.thread53 ], [ %.23950.ph.ph, %.sink.split.sink.split ]
-  store ptr %.058102.sink, ptr %1, align 8
-  br label %42
-
-42:                                               ; preds = %.sink.split, %.thread53
-  %.23950 = phi i32 [ %.23957, %.thread53 ], [ %.23950.ph, %.sink.split ]
-  store i32 %.23950, ptr %2, align 4
+  store ptr %.05899.sink, ptr %1, align 8
   br label %43
 
-43:                                               ; preds = %9, %4, %42
-  %.036 = phi i32 [ 0, %42 ], [ -1, %4 ], [ -1, %9 ]
+43:                                               ; preds = %.sink.split, %.thread53
+  %.23950 = phi i32 [ %.23957, %.thread53 ], [ %.23950.ph, %.sink.split ]
+  store i32 %.23950, ptr %2, align 4
+  br label %44
+
+44:                                               ; preds = %9, %4, %43
+  %.036 = phi i32 [ 0, %43 ], [ -1, %4 ], [ -1, %9 ]
   ret i32 %.036
 }
 

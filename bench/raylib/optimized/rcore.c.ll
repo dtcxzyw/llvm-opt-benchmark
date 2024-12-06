@@ -45394,8 +45394,8 @@ define noalias noundef ptr @EncodeDataBase64(ptr nocapture noundef readonly %0, 
   br label %.lr.ph50
 
 .lr.ph:                                           ; preds = %.preheader46, %39
-  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %.preheader46 ]
   %.04148 = phi i32 [ %.3, %39 ], [ 0, %.preheader46 ]
+  %.04247 = phi i32 [ %67, %39 ], [ 0, %.preheader46 ]
   %17 = add nsw i32 %.04148, 1
   %18 = sext i32 %.04148 to i64
   %19 = getelementptr inbounds i8, ptr %0, i64 %18
@@ -45437,43 +45437,45 @@ define noalias noundef ptr @EncodeDataBase64(ptr nocapture noundef readonly %0, 
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %45
   %47 = load i8, ptr %46, align 1
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
-  store i8 %47, ptr %48, align 1
-  %49 = lshr i32 %42, 12
-  %50 = and i32 %49, 63
-  %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  %54 = getelementptr i8, ptr %48, i64 1
-  store i8 %53, ptr %54, align 1
-  %55 = lshr i32 %43, 6
-  %56 = and i32 %55, 63
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %57
-  %59 = load i8, ptr %58, align 1
-  %60 = or disjoint i64 %indvars.iv, 3
-  %61 = getelementptr i8, ptr %48, i64 2
-  store i8 %59, ptr %61, align 1
-  %62 = and i32 %40, 63
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %63
-  %65 = load i8, ptr %64, align 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 4
-  %66 = getelementptr inbounds nuw i8, ptr %8, i64 %60
-  store i8 %65, ptr %66, align 1
-  %67 = icmp slt i32 %.3, %1
-  br i1 %67, label %.lr.ph, label %.preheader
+  %48 = zext nneg i32 %.04247 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 %48
+  store i8 %47, ptr %49, align 1
+  %50 = lshr i32 %42, 12
+  %51 = and i32 %50, 63
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %52
+  %54 = load i8, ptr %53, align 1
+  %55 = getelementptr i8, ptr %49, i64 1
+  store i8 %54, ptr %55, align 1
+  %56 = lshr i32 %43, 6
+  %57 = and i32 %56, 63
+  %58 = zext nneg i32 %57 to i64
+  %59 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = or disjoint i32 %.04247, 3
+  %62 = getelementptr i8, ptr %49, i64 2
+  store i8 %60, ptr %62, align 1
+  %63 = and i32 %40, 63
+  %64 = zext nneg i32 %63 to i64
+  %65 = getelementptr inbounds nuw [64 x i8], ptr @EncodeDataBase64.base64encodeTable, i64 0, i64 %64
+  %66 = load i8, ptr %65, align 1
+  %67 = add nuw nsw i32 %.04247, 4
+  %68 = zext nneg i32 %61 to i64
+  %69 = getelementptr inbounds nuw i8, ptr %8, i64 %68
+  store i8 %66, ptr %69, align 1
+  %70 = icmp slt i32 %.3, %1
+  br i1 %70, label %.lr.ph, label %.preheader
 
 .lr.ph50:                                         ; preds = %.lr.ph50.preheader, %.lr.ph50
-  %indvars.iv52 = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next53, %.lr.ph50 ]
-  %68 = trunc i64 %indvars.iv52 to i32
-  %69 = xor i32 %68, -1
-  %70 = add i32 %6, %69
-  %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds i8, ptr %8, i64 %71
-  store i8 61, ptr %72, align 1
-  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
+  %indvars.iv = phi i64 [ 0, %.lr.ph50.preheader ], [ %indvars.iv.next, %.lr.ph50 ]
+  %71 = trunc i64 %indvars.iv to i32
+  %72 = xor i32 %71, -1
+  %73 = add i32 %6, %72
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i8, ptr %8, i64 %74
+  store i8 61, ptr %75, align 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph50
 
 .loopexit:                                        ; preds = %.lr.ph50, %.preheader, %3

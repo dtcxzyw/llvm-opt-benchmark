@@ -2647,61 +2647,54 @@ define internal fastcc void @_set_cpu_set_bitstr(ptr noundef %0, ptr nocapture n
   unreachable
 
 .preheader31:                                     ; preds = %2, %21
-  %indvars.iv43 = phi i64 [ %indvars.iv.next44, %21 ], [ 511, %2 ]
+  %indvars.iv40 = phi i64 [ %indvars.iv.next41, %21 ], [ 511, %2 ]
   %.02737 = phi i32 [ %.2, %21 ], [ 32767, %2 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv43
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv40
   br label %7
 
 7:                                                ; preds = %.preheader31, %.loopexit
-  %indvars.iv40 = phi i64 [ 7, %.preheader31 ], [ %indvars.iv.next41, %.loopexit ]
+  %indvars.iv = phi i64 [ 7, %.preheader31 ], [ %indvars.iv.next, %.loopexit ]
   %.135 = phi i32 [ %.02737, %.preheader31 ], [ %.2, %.loopexit ]
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv40
+  %8 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
   %11 = icmp eq i8 %9, 0
-  br i1 %11, label %13, label %.preheader.preheader
+  br i1 %11, label %12, label %.preheader
 
-.preheader.preheader:                             ; preds = %7
-  %12 = sext i32 %.135 to i64
-  br label %.preheader
-
-13:                                               ; preds = %7
-  %14 = add nsw i32 %.135, -8
+12:                                               ; preds = %7
+  %13 = add nsw i32 %.135, -8
   br label %.loopexit
 
-.preheader:                                       ; preds = %.preheader.preheader, %17
-  %indvars.iv = phi i64 [ %12, %.preheader.preheader ], [ %indvars.iv.next, %17 ]
-  %.034 = phi i32 [ 128, %.preheader.preheader ], [ %18, %17 ]
-  %.02633 = phi i32 [ 0, %.preheader.preheader ], [ %19, %17 ]
-  %15 = and i32 %.034, %10
-  %.not30 = icmp eq i32 %15, 0
-  br i1 %.not30, label %17, label %16
+.preheader:                                       ; preds = %7, %17
+  %.034 = phi i32 [ %18, %17 ], [ 128, %7 ]
+  %.02633 = phi i32 [ %20, %17 ], [ 0, %7 ]
+  %.332 = phi i32 [ %19, %17 ], [ %.135, %7 ]
+  %14 = and i32 %.034, %10
+  %.not30 = icmp eq i32 %14, 0
+  br i1 %.not30, label %17, label %15
 
-16:                                               ; preds = %.preheader
-  tail call void @slurm_bit_set(ptr noundef %0, i64 noundef %indvars.iv) #12
+15:                                               ; preds = %.preheader
+  %16 = sext i32 %.332 to i64
+  tail call void @slurm_bit_set(ptr noundef %0, i64 noundef %16) #12
   br label %17
 
-17:                                               ; preds = %16, %.preheader
+17:                                               ; preds = %15, %.preheader
   %18 = lshr i32 %.034, 1
+  %19 = add nsw i32 %.332, -1
+  %20 = add nuw nsw i32 %.02633, 1
+  %exitcond.not = icmp eq i32 %20, 8
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !20
+
+.loopexit:                                        ; preds = %17, %12
+  %.2 = phi i32 [ %13, %12 ], [ %19, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %19 = add nuw nsw i32 %.02633, 1
-  %exitcond.not = icmp eq i32 %19, 8
-  br i1 %exitcond.not, label %.loopexit.loopexit, label %.preheader, !llvm.loop !20
-
-.loopexit.loopexit:                               ; preds = %17
-  %20 = trunc nsw i64 %indvars.iv.next to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit, %13
-  %.2 = phi i32 [ %14, %13 ], [ %20, %.loopexit.loopexit ]
-  %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
-  %.not46 = icmp eq i64 %indvars.iv40, 0
-  br i1 %.not46, label %21, label %7, !llvm.loop !21
+  %.not43 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not43, label %21, label %7, !llvm.loop !21
 
 21:                                               ; preds = %.loopexit
-  %indvars.iv.next44 = add nsw i64 %indvars.iv43, -1
-  %.not47 = icmp eq i64 %indvars.iv43, 0
-  br i1 %.not47, label %22, label %.preheader31, !llvm.loop !22
+  %indvars.iv.next41 = add nsw i64 %indvars.iv40, -1
+  %.not44 = icmp eq i64 %indvars.iv40, 0
+  br i1 %.not44, label %22, label %.preheader31, !llvm.loop !22
 
 22:                                               ; preds = %21
   %23 = tail call i32 @slurm_bit_set_count(ptr noundef %0) #12

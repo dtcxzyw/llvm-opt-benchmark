@@ -91,16 +91,15 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 .outer:                                           ; preds = %create_rel_filename_map.exit, %5
   %.062.ph = phi i32 [ %90, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.061.ph = phi i1 [ %.061, %create_rel_filename_map.exit ], [ true, %5 ]
-  %.060.ph = phi i64 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
+  %.060.ph = phi i32 [ %92, %create_rel_filename_map.exit ], [ 0, %5 ]
   %.0.ph = phi i32 [ %91, %create_rel_filename_map.exit ], [ 0, %5 ]
-  %sext = shl i64 %.060.ph, 32
-  %15 = ashr exact i64 %sext, 32
   br label %.outer73
 
 .outer73:                                         ; preds = %.outer73.backedge, %.outer
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.outer73.backedge ], [ %15, %.outer ]
-  %.061.ph74 = phi i1 [ %.061.ph74.be, %.outer73.backedge ], [ %.061.ph, %.outer ]
-  %.0.ph76 = phi i32 [ %.0.ph76.be, %.outer73.backedge ], [ %.0.ph, %.outer ]
+  %.061.ph74 = phi i1 [ %.061.ph, %.outer ], [ %.061.ph74.be, %.outer73.backedge ]
+  %.060.ph75 = phi i32 [ %.060.ph, %.outer ], [ %.060.ph75.be, %.outer73.backedge ]
+  %.0.ph76 = phi i32 [ %.0.ph, %.outer ], [ %.0.ph76.be, %.outer73.backedge ]
+  %15 = sext i32 %.060.ph75 to i64
   br label %16
 
 16:                                               ; preds = %.backedge, %.outer73
@@ -108,31 +107,29 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
   %.0 = phi i32 [ %.0.ph76, %.outer73 ], [ %.0.be, %.backedge ]
   %17 = load i32, ptr %7, align 8
   %18 = icmp slt i32 %.0, %17
-  br i1 %18, label %23, label %19
+  br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %12, align 8
-  %21 = sext i32 %20 to i64
-  %22 = icmp slt i64 %indvars.iv, %21
-  br i1 %22, label %.critedge, label %93
+  %21 = icmp slt i32 %.060.ph75, %20
+  br i1 %21, label %.critedge, label %93
 
-23:                                               ; preds = %16
-  %24 = load ptr, ptr %6, align 8
-  %25 = sext i32 %.0 to i64
-  %26 = getelementptr %struct.RelInfo, ptr %24, i64 %25
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %6, align 8
+  %24 = sext i32 %.0 to i64
+  %25 = getelementptr %struct.RelInfo, ptr %23, i64 %24
   %.pre = load i32, ptr %12, align 8
-  %.pre101 = sext i32 %.pre to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %19, %23
-  %.pre-phi = phi i64 [ %21, %19 ], [ %.pre101, %23 ]
-  %27 = phi ptr [ null, %19 ], [ %26, %23 ]
-  %28 = icmp slt i64 %indvars.iv, %.pre-phi
+.critedge:                                        ; preds = %19, %22
+  %26 = phi i32 [ %.pre, %22 ], [ %20, %19 ]
+  %27 = phi ptr [ %25, %22 ], [ null, %19 ]
+  %28 = icmp slt i32 %.060.ph75, %26
   br i1 %28, label %29, label %.backedge
 
 29:                                               ; preds = %.critedge
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr %struct.RelInfo, ptr %30, i64 %indvars.iv
+  %31 = getelementptr %struct.RelInfo, ptr %30, i64 %15
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %.backedge, label %32
 
@@ -180,7 +177,7 @@ define dso_local ptr @gen_db_file_maps(ptr nocapture noundef readonly %0, ptr no
 .outer73.backedge:                                ; preds = %45, %48, %33, %36, %._crit_edge
   %.061.ph74.be = phi i1 [ false, %._crit_edge ], [ false, %36 ], [ %.061, %33 ], [ false, %48 ], [ %.061, %45 ]
   %.0.ph76.be = phi i32 [ %60, %._crit_edge ], [ %.0, %36 ], [ %.0, %33 ], [ %.0, %48 ], [ %.0, %45 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %.060.ph75.be = add nsw i32 %.060.ph75, 1
   br label %.outer73, !llvm.loop !5
 
 49:                                               ; preds = %43
@@ -263,7 +260,7 @@ create_rel_filename_map.exit:                     ; preds = %77, %78
   store ptr %88, ptr %89, align 8
   %90 = add i32 %.062.ph, 1
   %91 = add i32 %.0, 1
-  %92 = add nsw i64 %indvars.iv, 1
+  %92 = add nsw i32 %.060.ph75, 1
   br label %.outer, !llvm.loop !5
 
 93:                                               ; preds = %19

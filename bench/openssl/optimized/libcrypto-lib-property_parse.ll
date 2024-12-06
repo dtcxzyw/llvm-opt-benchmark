@@ -1098,10 +1098,11 @@ while.body.lr.ph.lr.ph.preheader:                 ; preds = %entry
   br label %while.body.lr.ph.lr.ph
 
 while.body.lr.ph.lr.ph:                           ; preds = %while.body.lr.ph.lr.ph.preheader, %while.cond.outer.backedge
-  %indvars.iv96 = phi i64 [ 0, %while.body.lr.ph.lr.ph.preheader ], [ %indvars.iv.next97, %while.cond.outer.backedge ]
-  %i.0.ph78 = phi i32 [ 0, %while.body.lr.ph.lr.ph.preheader ], [ %i.0.ph.be, %while.cond.outer.backedge ]
-  %matches.0.ph77 = phi i32 [ 0, %while.body.lr.ph.lr.ph.preheader ], [ %matches.0.ph.be, %while.cond.outer.backedge ]
-  %arrayidx11 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %properties1, i64 %indvars.iv96
+  %i.0.ph78 = phi i32 [ %i.0.ph.be, %while.cond.outer.backedge ], [ 0, %while.body.lr.ph.lr.ph.preheader ]
+  %matches.0.ph77 = phi i32 [ %matches.0.ph.be, %while.cond.outer.backedge ], [ 0, %while.body.lr.ph.lr.ph.preheader ]
+  %j.0.ph76 = phi i32 [ %j.0.ph.be, %while.cond.outer.backedge ], [ 0, %while.body.lr.ph.lr.ph.preheader ]
+  %idxprom10 = zext nneg i32 %j.0.ph76 to i64
+  %arrayidx11 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %properties1, i64 %idxprom10
   br label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %while.body.lr.ph.lr.ph, %if.end104
@@ -1126,33 +1127,32 @@ if.then:                                          ; preds = %while.body
 if.end:                                           ; preds = %while.body
   %4 = trunc nsw i64 %indvars.iv to i32
   %5 = load i32, ptr %defn, align 8
-  %6 = sext i32 %5 to i64
-  %cmp6 = icmp slt i64 %indvars.iv96, %6
+  %cmp6 = icmp slt i32 %j.0.ph76, %5
   br i1 %cmp6, label %if.then7, label %if.end52
 
 if.then7:                                         ; preds = %if.end
-  %7 = load i32, ptr %arrayidx, align 8
-  %8 = load i32, ptr %arrayidx11, align 8
-  %cmp13 = icmp sgt i32 %7, %8
+  %6 = load i32, ptr %arrayidx, align 8
+  %7 = load i32, ptr %arrayidx11, align 8
+  %cmp13 = icmp sgt i32 %6, %7
   br i1 %cmp13, label %while.cond.outer.backedge, label %if.end16
 
 while.cond.outer.backedge:                        ; preds = %if.then7, %if.end48
   %matches.0.ph.be = phi i32 [ %matches.1, %if.end48 ], [ %matches.0.ph5271, %if.then7 ]
   %i.0.ph.be = phi i32 [ %inc49, %if.end48 ], [ %4, %if.then7 ]
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %j.0.ph.be = add nuw nsw i32 %j.0.ph76, 1
   %cmp6770 = icmp slt i32 %i.0.ph.be, %0
   br i1 %cmp6770, label %while.body.lr.ph.lr.ph, label %return, !llvm.loop !11
 
 if.end16:                                         ; preds = %if.then7
-  %cmp23 = icmp eq i32 %7, %8
+  %cmp23 = icmp eq i32 %6, %7
   br i1 %cmp23, label %if.then24, label %if.end52
 
 if.then24:                                        ; preds = %if.end16
   %type = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %9 = load i32, ptr %type, align 4
+  %8 = load i32, ptr %type, align 4
   %type29 = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 4
-  %10 = load i32, ptr %type29, align 4
-  %cmp30 = icmp eq i32 %9, %10
+  %9 = load i32, ptr %type29, align 4
+  %cmp30 = icmp eq i32 %8, %9
   br i1 %cmp30, label %land.rhs, label %land.end
 
 land.rhs:                                         ; preds = %if.then24
@@ -1160,11 +1160,11 @@ land.rhs:                                         ; preds = %if.then24
   %v35 = getelementptr inbounds nuw i8, ptr %arrayidx11, i64 16
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %v, ptr noundef nonnull dereferenceable(8) %v35, i64 8)
   %cmp36 = icmp ne i32 %bcmp, 0
-  %11 = zext i1 %cmp36 to i32
+  %10 = zext i1 %cmp36 to i32
   br label %land.end
 
 land.end:                                         ; preds = %land.rhs, %if.then24
-  %not. = phi i32 [ 1, %if.then24 ], [ %11, %land.rhs ]
+  %not. = phi i32 [ 1, %if.then24 ], [ %10, %land.rhs ]
   %or.cond50.not = icmp eq i32 %3, %not.
   br i1 %or.cond50.not, label %if.then41, label %if.else
 
@@ -1186,8 +1186,8 @@ if.end48:                                         ; preds = %if.else, %if.then41
 
 if.end52:                                         ; preds = %if.end16, %if.end
   %type55 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 4
-  %12 = load i32, ptr %type55, align 4
-  switch i32 %12, label %if.then91 [
+  %11 = load i32, ptr %type55, align 4
+  switch i32 %11, label %if.then91 [
     i32 2, label %if.then57
     i32 0, label %lor.lhs.false77
   ]
@@ -1215,14 +1215,14 @@ lor.lhs.false77:                                  ; preds = %if.end52
 
 land.lhs.true79:                                  ; preds = %lor.lhs.false77
   %v82 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %13 = load i32, ptr %v82, align 8
-  %cmp83.not = icmp eq i32 %13, 2
+  %12 = load i32, ptr %v82, align 8
+  %cmp83.not = icmp eq i32 %12, 2
   br i1 %cmp83.not, label %if.else101, label %if.then91
 
 land.lhs.true86:                                  ; preds = %lor.lhs.false77
   %v89 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 16
-  %14 = load i32, ptr %v89, align 8
-  %cmp90 = icmp eq i32 %14, 2
+  %13 = load i32, ptr %v89, align 8
+  %cmp90 = icmp eq i32 %13, 2
   br i1 %cmp90, label %if.then91, label %if.else101
 
 if.then91:                                        ; preds = %if.end52, %land.lhs.true86, %land.lhs.true79
@@ -1281,10 +1281,10 @@ if.end:                                           ; preds = %entry
   br label %for.cond
 
 for.cond:                                         ; preds = %if.end53, %if.end
-  %bf.load59 = phi i8 [ %bf.set64, %if.end53 ], [ %bf.clear, %if.end ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end53 ], [ 0, %if.end ]
-  %i.0 = phi i32 [ %i.1, %if.end53 ], [ 0, %if.end ]
-  %j.0 = phi i32 [ %j.1, %if.end53 ], [ 0, %if.end ]
+  %bf.load59 = phi i8 [ %bf.clear, %if.end ], [ %bf.set64, %if.end53 ]
+  %i.0 = phi i32 [ 0, %if.end ], [ %i.1, %if.end53 ]
+  %j.0 = phi i32 [ 0, %if.end ], [ %j.1, %if.end53 ]
+  %n.0 = phi i32 [ 0, %if.end ], [ %inc65, %if.end53 ]
   %cmp8 = icmp slt i32 %i.0, %2
   %cmp18.not = icmp slt i32 %j.0, %3
   br i1 %cmp8, label %if.else, label %lor.rhs
@@ -1332,26 +1332,25 @@ if.end53:                                         ; preds = %if.then20, %if.else
   %copy.0 = phi ptr [ %arrayidx, %if.then16 ], [ %arrayidx23, %if.then20 ], [ %arrayidx26, %if.then32 ], [ %arrayidx28, %if.else47 ]
   %i.1 = phi i32 [ %i.0, %if.then16 ], [ %inc21, %if.then20 ], [ %inc44, %if.then32 ], [ %i.0, %if.else47 ]
   %j.1 = phi i32 [ %inc, %if.then16 ], [ %j.0, %if.then20 ], [ %spec.select, %if.then32 ], [ %inc48, %if.else47 ]
-  %add.ptr = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %properties54, i64 %indvars.iv
+  %idx.ext = zext nneg i32 %n.0 to i64
+  %add.ptr = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %properties54, i64 %idx.ext
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %add.ptr, ptr noundef nonnull align 8 dereferenceable(24) %copy.0, i64 24, i1 false)
   %optional = getelementptr inbounds nuw i8, ptr %copy.0, i64 12
   %bf.load56 = load i8, ptr %optional, align 4
   %6 = and i8 %bf.load56, 1
   %bf.set64 = or i8 %6, %bf.load59
   store i8 %bf.set64, ptr %has_optional, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc65 = add nuw nsw i32 %n.0, 1
   br label %for.cond, !llvm.loop !12
 
 for.end:                                          ; preds = %lor.rhs
-  %7 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %7, ptr %call, align 8
-  %cmp67.not = icmp eq i32 %add, %7
+  store i32 %n.0, ptr %call, align 8
+  %cmp67.not = icmp eq i32 %n.0, %add
   br i1 %cmp67.not, label %return, label %if.then69
 
 if.then69:                                        ; preds = %for.end
-  %sub70 = shl i64 %indvars.iv, 32
-  %sext = add i64 %sub70, -4294967296
-  %conv71 = ashr exact i64 %sext, 32
+  %sub70 = add nsw i32 %n.0, -1
+  %conv71 = sext i32 %sub70 to i64
   %mul72 = mul nsw i64 %conv71, 24
   %add73 = add nsw i64 %mul72, 32
   %call74 = tail call ptr @CRYPTO_realloc(ptr noundef nonnull %call, i64 noundef %add73, ptr noundef nonnull @.str, i32 noundef 570) #9

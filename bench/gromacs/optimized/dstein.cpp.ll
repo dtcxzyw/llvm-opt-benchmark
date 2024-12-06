@@ -98,8 +98,8 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 56:                                               ; preds = %54
   %57 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   %58 = load double, ptr %57, align 8
-  %gep392 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
-  %59 = load double, ptr %gep392, align 8
+  %gep387 = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %59 = load double, ptr %gep387, align 8
   %60 = fcmp olt double %58, %59
   br i1 %60, label %61, label %62
 
@@ -116,10 +116,10 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %.pr = load i32, ptr %12, align 4
   %.not264 = icmp ne i32 %.pr, 0
   %63 = icmp eq i32 %38, 0
-  %or.cond395 = or i1 %.not264, %63
+  %or.cond390 = or i1 %.not264, %63
   %64 = icmp eq i32 %42, 0
-  %or.cond396 = or i1 %or.cond395, %64
-  br i1 %or.cond396, label %.thread, label %65
+  %or.cond391 = or i1 %or.cond390, %64
+  br i1 %or.cond391, label %.thread, label %65
 
 65:                                               ; preds = %._crit_edge285
   %66 = icmp eq i32 %38, 1
@@ -165,25 +165,25 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %86 = shl nsw i64 %31, 3
   %scevgep = getelementptr i8, ptr %7, i64 %86
   %87 = add nuw i32 %74, 1
-  %wide.trip.count384 = zext i32 %87 to i64
+  %wide.trip.count379 = zext i32 %87 to i64
   br label %88
 
 88:                                               ; preds = %.lr.ph337, %.loopexit276
-  %indvars.iv381 = phi i64 [ 1, %.lr.ph337 ], [ %indvars.iv.next382, %.loopexit276 ]
+  %indvars.iv376 = phi i64 [ 1, %.lr.ph337 ], [ %indvars.iv.next377, %.loopexit276 ]
   %.0240334 = phi double [ 0.000000e+00, %.lr.ph337 ], [ %.1241, %.loopexit276 ]
   %.0244333 = phi i32 [ 1, %.lr.ph337 ], [ %.1245, %.loopexit276 ]
-  %89 = icmp eq i64 %indvars.iv381, 1
+  %89 = icmp eq i64 %indvars.iv376, 1
   br i1 %89, label %93, label %90
 
 90:                                               ; preds = %88
-  %gep331 = getelementptr i32, ptr %invariant.gep330, i64 %indvars.iv381
+  %gep331 = getelementptr i32, ptr %invariant.gep330, i64 %indvars.iv376
   %91 = load i32, ptr %gep331, align 4
   %92 = add nsw i32 %91, 1
   br label %93
 
 93:                                               ; preds = %88, %90
   %.0246 = phi i32 [ %92, %90 ], [ 1, %88 ]
-  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv381
+  %94 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv376
   %95 = load i32, ptr %94, align 4
   %96 = sub nsw i32 %95, %.0246
   %97 = add nsw i32 %96, 1
@@ -251,43 +251,41 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %140 = sext i32 %.0244333 to i64
   %141 = add i32 %136, 1
   %142 = sub i32 %141, %.0244333
-  %wide.trip.count379 = zext i32 %142 to i64
-  %invariant.gep393 = getelementptr double, ptr %32, i64 %100
+  %invariant.gep388 = getelementptr double, ptr %32, i64 %100
   br label %143
 
 143:                                              ; preds = %.lr.ph324, %._crit_edge313
-  %indvars.iv374 = phi i64 [ %140, %.lr.ph324 ], [ %indvars.iv.next375, %._crit_edge313 ]
-  %indvars.iv372 = phi i64 [ 0, %.lr.ph324 ], [ %indvars.iv.next373, %._crit_edge313 ]
+  %indvars.iv372 = phi i64 [ %140, %.lr.ph324 ], [ %indvars.iv.next373, %._crit_edge313 ]
   %.0237322 = phi i32 [ %.0246, %.lr.ph324 ], [ %.1, %._crit_edge313 ]
+  %.0239321 = phi i32 [ 0, %.lr.ph324 ], [ %153, %._crit_edge313 ]
   %.2242320 = phi double [ %.0240334, %.lr.ph324 ], [ %263, %._crit_edge313 ]
-  %144 = trunc nuw nsw i64 %indvars.iv372 to i32
-  %145 = mul i32 %30, %144
-  %146 = add i32 %139, %145
-  %147 = sext i32 %146 to i64
-  %148 = shl nsw i64 %147, 3
-  %scevgep363 = getelementptr i8, ptr %scevgep, i64 %148
-  %149 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv374
-  %150 = load i32, ptr %149, align 4
-  %151 = zext i32 %150 to i64
-  %.not268 = icmp eq i64 %indvars.iv381, %151
-  %152 = trunc nsw i64 %indvars.iv374 to i32
-  br i1 %.not268, label %153, label %.loopexit276
+  %144 = mul i32 %30, %.0239321
+  %145 = add i32 %139, %144
+  %146 = sext i32 %145 to i64
+  %147 = shl nsw i64 %146, 3
+  %scevgep363 = getelementptr i8, ptr %scevgep, i64 %147
+  %148 = getelementptr inbounds i32, ptr %28, i64 %indvars.iv372
+  %149 = load i32, ptr %148, align 4
+  %150 = zext i32 %149 to i64
+  %.not268 = icmp eq i64 %indvars.iv376, %150
+  %151 = trunc nsw i64 %indvars.iv372 to i32
+  br i1 %.not268, label %152, label %.loopexit276
 
-153:                                              ; preds = %143
-  %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
-  %154 = getelementptr inbounds double, ptr %27, i64 %indvars.iv374
+152:                                              ; preds = %143
+  %153 = add i32 %.0239321, 1
+  %154 = getelementptr inbounds double, ptr %27, i64 %indvars.iv372
   %155 = load double, ptr %154, align 8
   store double %155, ptr %15, align 8
   %156 = load i32, ptr %21, align 4
   %157 = icmp eq i32 %156, 1
   br i1 %157, label %158, label %159
 
-158:                                              ; preds = %153
+158:                                              ; preds = %152
   store double 1.000000e+00, ptr %9, align 8
   br label %247
 
-159:                                              ; preds = %153
-  %.not269 = icmp eq i64 %indvars.iv372, 0
+159:                                              ; preds = %152
+  %.not269 = icmp eq i32 %.0239321, 0
   br i1 %.not269, label %168, label %160
 
 160:                                              ; preds = %159
@@ -319,7 +317,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not269, label %.outer.us, label %.outer.preheader
 
 .outer.preheader:                                 ; preds = %168
-  %173 = trunc i64 %indvars.iv374 to i32
+  %173 = trunc i64 %indvars.iv372 to i32
   %174 = add i32 %173, -1
   br label %.outer
 
@@ -400,24 +398,24 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   %215 = fsub double %214, %.2242320
   %216 = call noundef double @llvm.fabs.f64(double %215)
   %217 = fcmp ogt double %216, %132
-  %.4 = select i1 %217, i32 %152, i32 %.2
-  %.not270 = icmp eq i32 %.4, %152
+  %.4 = select i1 %217, i32 %151, i32 %.2
+  %.not270 = icmp eq i32 %.4, %151
   br i1 %.not270, label %.loopexit, label %218
 
 218:                                              ; preds = %200
   store i32 %174, ptr %14, align 4
   %219 = sext i32 %.4 to i64
-  %.not271293.not = icmp sgt i64 %indvars.iv374, %219
+  %.not271293.not = icmp sgt i64 %indvars.iv372, %219
   br i1 %.not271293.not, label %.lr.ph296, label %.loopexit
 
 .lr.ph296:                                        ; preds = %218, %.lr.ph296
   %indvars.iv355 = phi i64 [ %indvars.iv.next356, %.lr.ph296 ], [ %219, %218 ]
   %220 = mul nsw i64 %indvars.iv355, %85
-  %gep394 = getelementptr double, ptr %invariant.gep393, i64 %220
-  %221 = call double @ddot_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23, ptr noundef %gep394, ptr noundef nonnull %23)
+  %gep389 = getelementptr double, ptr %invariant.gep388, i64 %220
+  %221 = call double @ddot_(ptr noundef nonnull %21, ptr noundef %9, ptr noundef nonnull %23, ptr noundef %gep389, ptr noundef nonnull %23)
   %222 = fneg double %221
   store double %222, ptr %18, align 8
-  call void @daxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep394, ptr noundef nonnull %23, ptr noundef %9, ptr noundef nonnull %23)
+  call void @daxpy_(ptr noundef nonnull %21, ptr noundef nonnull %18, ptr noundef %gep389, ptr noundef nonnull %23, ptr noundef %9, ptr noundef nonnull %23)
   %indvars.iv.next356 = add nsw i64 %indvars.iv355, 1
   %223 = load i32, ptr %14, align 4
   %224 = sext i32 %223 to i64
@@ -445,7 +443,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   store i32 %233, ptr %12, align 4
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds i32, ptr %34, i64 %234
-  store i32 %152, ptr %235, align 4
+  store i32 %151, ptr %235, align 4
   br label %.loopexit275
 
 .loopexit275:                                     ; preds = %.split298, %.split298.us.us, %.split.us.split.us
@@ -489,7 +487,7 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
   br i1 %.not273309, label %._crit_edge313, label %.lr.ph312
 
 .lr.ph312:                                        ; preds = %._crit_edge308
-  %252 = trunc i64 %indvars.iv374 to i32
+  %252 = trunc i64 %indvars.iv372 to i32
   %253 = mul i32 %30, %252
   %254 = add i32 %137, %253
   %255 = add nuw i32 %251, 1
@@ -511,16 +509,16 @@ define void @dstein_(ptr nocapture noundef readonly %0, ptr noundef %1, ptr noun
 
 ._crit_edge313:                                   ; preds = %256, %._crit_edge308
   %263 = load double, ptr %15, align 8
-  %indvars.iv.next375 = add nsw i64 %indvars.iv374, 1
-  %exitcond380.not = icmp eq i64 %indvars.iv.next373, %wide.trip.count379
-  br i1 %exitcond380.not, label %.loopexit276, label %143, !llvm.loop !10
+  %indvars.iv.next373 = add nsw i64 %indvars.iv372, 1
+  %exitcond375.not = icmp eq i32 %153, %142
+  br i1 %exitcond375.not, label %.loopexit276, label %143, !llvm.loop !10
 
 .loopexit276:                                     ; preds = %._crit_edge313, %143, %._crit_edge292, %93
-  %.1245 = phi i32 [ %.0244333, %93 ], [ %.0244333, %._crit_edge292 ], [ %.0244333, %._crit_edge313 ], [ %152, %143 ]
+  %.1245 = phi i32 [ %.0244333, %93 ], [ %.0244333, %._crit_edge292 ], [ %.0244333, %._crit_edge313 ], [ %151, %143 ]
   %.1241 = phi double [ %.0240334, %93 ], [ %.0240334, %._crit_edge292 ], [ %263, %._crit_edge313 ], [ %.2242320, %143 ]
-  %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
-  %exitcond385.not = icmp eq i64 %indvars.iv.next382, %wide.trip.count384
-  br i1 %exitcond385.not, label %.thread, label %88, !llvm.loop !11
+  %indvars.iv.next377 = add nuw nsw i64 %indvars.iv376, 1
+  %exitcond380.not = icmp eq i64 %indvars.iv.next377, %wide.trip.count379
+  br i1 %exitcond380.not, label %.thread, label %88, !llvm.loop !11
 
 .thread:                                          ; preds = %.loopexit276, %70, %40, %48, %61, %53, %43, %._crit_edge285, %67
   ret void

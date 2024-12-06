@@ -4108,13 +4108,12 @@ land.lhs.true33.i:                                ; preds = %lor.lhs.false.i
 
 while.cond5.preheader:                            ; preds = %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit, %land.rhs.i, %land.lhs.true33.i
   %9 = trunc nsw i64 %indvars.iv to i32
-  %10 = sext i32 %j.0 to i64
   br label %while.cond5
 
 land.rhs.i:                                       ; preds = %land.lhs.true33.i
   %m_algorithm.i = getelementptr inbounds nuw i8, ptr %arrayidx4, i64 16
-  %11 = load ptr, ptr %m_algorithm.i, align 8
-  %cmp38.i = icmp ugt ptr %11, %x.sroa.5.0.copyload
+  %10 = load ptr, ptr %m_algorithm.i, align 8
+  %cmp38.i = icmp ugt ptr %10, %x.sroa.5.0.copyload
   br i1 %cmp38.i, label %while.body, label %while.cond5.preheader
 
 _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit: ; preds = %lor.lhs.false.i
@@ -4126,65 +4125,66 @@ while.body:                                       ; preds = %cond.end24.i, %land
   br label %while.cond, !llvm.loop !34
 
 while.cond5:                                      ; preds = %while.cond5.preheader, %while.body10
-  %indvars.iv65 = phi i64 [ %10, %while.cond5.preheader ], [ %indvars.iv.next66, %while.body10 ]
-  %arrayidx8 = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %indvars.iv65
+  %j.1 = phi i32 [ %dec, %while.body10 ], [ %j.0, %while.cond5.preheader ]
+  %idxprom7 = sext i32 %j.1 to i64
+  %arrayidx8 = getelementptr inbounds %struct.btBroadphasePair, ptr %1, i64 %idxprom7
   br i1 %tobool4.not.i, label %cond.end.i27, label %cond.true.i25
 
 cond.true.i25:                                    ; preds = %while.cond5
-  %12 = load i32, ptr %m_uniqueId7.i, align 8
+  %11 = load i32, ptr %m_uniqueId7.i, align 8
   br label %cond.end.i27
 
 cond.end.i27:                                     ; preds = %cond.true.i25, %while.cond5
-  %cond.i28 = phi i32 [ %12, %cond.true.i25 ], [ -1, %while.cond5 ]
-  %13 = load ptr, ptr %arrayidx8, align 8
-  %tobool4.not.i29 = icmp eq ptr %13, null
+  %cond.i28 = phi i32 [ %11, %cond.true.i25 ], [ -1, %while.cond5 ]
+  %12 = load ptr, ptr %arrayidx8, align 8
+  %tobool4.not.i29 = icmp eq ptr %12, null
   br i1 %tobool4.not.i29, label %cond.end9.i32, label %cond.true5.i30
 
 cond.true5.i30:                                   ; preds = %cond.end.i27
-  %m_uniqueId7.i31 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %14 = load i32, ptr %m_uniqueId7.i31, align 8
+  %m_uniqueId7.i31 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %13 = load i32, ptr %m_uniqueId7.i31, align 8
   br label %cond.end9.i32
 
 cond.end9.i32:                                    ; preds = %cond.true5.i30, %cond.end.i27
-  %cond10.i33 = phi i32 [ %14, %cond.true5.i30 ], [ -1, %cond.end.i27 ]
+  %cond10.i33 = phi i32 [ %13, %cond.true5.i30 ], [ -1, %cond.end.i27 ]
   br i1 %tobool19.not.i, label %cond.end16.i38, label %cond.true12.i36
 
 cond.true12.i36:                                  ; preds = %cond.end9.i32
-  %15 = load i32, ptr %m_uniqueId22.i, align 8
+  %14 = load i32, ptr %m_uniqueId22.i, align 8
   br label %cond.end16.i38
 
 cond.end16.i38:                                   ; preds = %cond.true12.i36, %cond.end9.i32
-  %cond17.i39 = phi i32 [ %15, %cond.true12.i36 ], [ -1, %cond.end9.i32 ]
+  %cond17.i39 = phi i32 [ %14, %cond.true12.i36 ], [ -1, %cond.end9.i32 ]
   %m_pProxy118.i40 = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 8
-  %16 = load ptr, ptr %m_pProxy118.i40, align 8
-  %tobool19.not.i41 = icmp eq ptr %16, null
+  %15 = load ptr, ptr %m_pProxy118.i40, align 8
+  %tobool19.not.i41 = icmp eq ptr %15, null
   br i1 %tobool19.not.i41, label %cond.end24.i44, label %cond.true20.i42
 
 cond.true20.i42:                                  ; preds = %cond.end16.i38
-  %m_uniqueId22.i43 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %17 = load i32, ptr %m_uniqueId22.i43, align 8
+  %m_uniqueId22.i43 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %16 = load i32, ptr %m_uniqueId22.i43, align 8
   br label %cond.end24.i44
 
 cond.end24.i44:                                   ; preds = %cond.true20.i42, %cond.end16.i38
-  %cond25.i45 = phi i32 [ %17, %cond.true20.i42 ], [ -1, %cond.end16.i38 ]
+  %cond25.i45 = phi i32 [ %16, %cond.true20.i42 ], [ -1, %cond.end16.i38 ]
   %cmp.i46 = icmp sgt i32 %cond.i28, %cond10.i33
   br i1 %cmp.i46, label %while.body10, label %lor.lhs.false.i47
 
 lor.lhs.false.i47:                                ; preds = %cond.end24.i44
-  %cmp28.i48 = icmp eq ptr %x.sroa.0.0.copyload, %13
+  %cmp28.i48 = icmp eq ptr %x.sroa.0.0.copyload, %12
   %cmp29.i49 = icmp sgt i32 %cond17.i39, %cond25.i45
   %cmp28.not.i51 = xor i1 %cmp28.i48, true
   %brmerge.i52 = select i1 %cmp28.not.i51, i1 true, i1 %cmp29.i49
   br i1 %brmerge.i52, label %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59, label %land.lhs.true33.i53
 
 land.lhs.true33.i53:                              ; preds = %lor.lhs.false.i47
-  %cmp36.i54 = icmp eq ptr %x.sroa.3.0.copyload, %16
+  %cmp36.i54 = icmp eq ptr %x.sroa.3.0.copyload, %15
   br i1 %cmp36.i54, label %land.rhs.i55, label %while.end11
 
 land.rhs.i55:                                     ; preds = %land.lhs.true33.i53
   %m_algorithm37.i57 = getelementptr inbounds nuw i8, ptr %arrayidx8, i64 16
-  %18 = load ptr, ptr %m_algorithm37.i57, align 8
-  %cmp38.i58 = icmp ugt ptr %x.sroa.5.0.copyload, %18
+  %17 = load ptr, ptr %m_algorithm37.i57, align 8
+  %cmp38.i58 = icmp ugt ptr %x.sroa.5.0.copyload, %17
   br i1 %cmp38.i58, label %while.body10, label %while.end11
 
 _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59: ; preds = %lor.lhs.false.i47
@@ -4192,29 +4192,28 @@ _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59: ; preds = 
   br i1 %or.cond.i50, label %while.body10, label %while.end11
 
 while.body10:                                     ; preds = %cond.end24.i44, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59
-  %indvars.iv.next66 = add nsw i64 %indvars.iv65, -1
+  %dec = add nsw i32 %j.1, -1
   br label %while.cond5, !llvm.loop !35
 
 while.end11:                                      ; preds = %land.lhs.true33.i53, %land.rhs.i55, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit59
-  %19 = trunc nsw i64 %indvars.iv65 to i32
-  %cmp.not = icmp sgt i64 %indvars.iv, %indvars.iv65
+  %cmp.not = icmp slt i32 %j.1, %9
   br i1 %cmp.not, label %do.cond, label %if.then
 
 if.then:                                          ; preds = %while.end11
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %temp.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %temp.i, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx4, i64 32, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx4, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx8, i64 32, i1 false)
-  %20 = load ptr, ptr %m_data, align 8
-  %arrayidx10.i = getelementptr inbounds %struct.btBroadphasePair, ptr %20, i64 %indvars.iv65
+  %18 = load ptr, ptr %m_data, align 8
+  %arrayidx10.i = getelementptr inbounds %struct.btBroadphasePair, ptr %18, i64 %idxprom7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx10.i, ptr noundef nonnull align 8 dereferenceable(32) %temp.i, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %temp.i)
   %inc12 = add nsw i32 %9, 1
-  %dec13 = add nsw i32 %19, -1
+  %dec13 = add nsw i32 %j.1, -1
   br label %do.cond
 
 do.cond:                                          ; preds = %while.end11, %if.then
   %i.2 = phi i32 [ %inc12, %if.then ], [ %9, %while.end11 ]
-  %j.2 = phi i32 [ %dec13, %if.then ], [ %19, %while.end11 ]
+  %j.2 = phi i32 [ %dec13, %if.then ], [ %j.1, %while.end11 ]
   %cmp14.not = icmp sgt i32 %i.2, %j.2
   br i1 %cmp14.not, label %do.end, label %do.body, !llvm.loop !36
 

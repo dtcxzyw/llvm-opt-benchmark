@@ -5133,16 +5133,12 @@ invoke.cont15:                                    ; preds = %if.end.i.i60, %invo
   %add = add i32 %retval.0.i.i56, %retval.0.i.i
   %mul = shl i32 %retval.0.i.i62, 1
   %cmp.not = icmp eq i32 %add, %mul
-  br i1 %cmp.not, label %while.cond.preheader, label %cleanup
+  br i1 %cmp.not, label %while.cond, label %cleanup
 
-while.cond.preheader:                             ; preds = %invoke.cont15
-  %wide.trip.count = zext i32 %retval.0.i.i62 to i64
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.cond.preheader, %if.end52
-  %indvars.iv = phi i64 [ 0, %while.cond.preheader ], [ %indvars.iv.next, %if.end52 ]
-  %i1.0 = phi i32 [ 0, %while.cond.preheader ], [ %i1.1, %if.end52 ]
-  %i2.0 = phi i32 [ 0, %while.cond.preheader ], [ %i2.1, %if.end52 ]
+while.cond:                                       ; preds = %invoke.cont15, %if.end52
+  %i1.0 = phi i32 [ %i1.1, %if.end52 ], [ 0, %invoke.cont15 ]
+  %i2.0 = phi i32 [ %i2.1, %if.end52 ], [ 0, %invoke.cont15 ]
+  %i12.0 = phi i32 [ %i12.1, %if.end52 ], [ 0, %invoke.cont15 ]
   %cmp19 = icmp ult i32 %i1.0, %retval.0.i.i
   br i1 %cmp19, label %if.then20, label %if.end23
 
@@ -5165,7 +5161,7 @@ if.then25:                                        ; preds = %if.end23
 
 if.end28:                                         ; preds = %if.then25, %if.end23
   %v2.0 = phi ptr [ null, %if.end23 ], [ %23, %if.then25 ]
-  %exitcond.not = icmp eq i64 %indvars.iv, %wide.trip.count
+  %exitcond.not = icmp eq i32 %i12.0, %retval.0.i.i62
   br i1 %exitcond.not, label %if.end33.thread, label %if.end33
 
 if.end33.thread:                                  ; preds = %if.end28
@@ -5175,7 +5171,8 @@ if.end33.thread:                                  ; preds = %if.end28
   br label %cleanup
 
 if.end33:                                         ; preds = %if.end28
-  %arrayidx.i.i71 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %idxprom.i.i70 = zext i32 %i12.0 to i64
+  %arrayidx.i.i71 = getelementptr inbounds nuw ptr, ptr %20, i64 %idxprom.i.i70
   %24 = load ptr, ptr %arrayidx.i.i71, align 8
   %cmp37 = icmp eq ptr %24, null
   br i1 %cmp37, label %cleanup.loopexit.split.loop.exit82, label %if.end42
@@ -5199,7 +5196,7 @@ if.then47:                                        ; preds = %if.else
 if.end52:                                         ; preds = %if.then47, %if.then44
   %i1.1 = phi i32 [ %add45, %if.then44 ], [ %i1.0, %if.then47 ]
   %i2.1 = phi i32 [ %i2.0, %if.then44 ], [ %add48, %if.then47 ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %i12.1 = add i32 %i12.0, 1
   br label %while.cond, !llvm.loop !6
 
 cleanup.loopexit.split.loop.exit82:               ; preds = %if.end33

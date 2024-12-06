@@ -24864,7 +24864,7 @@ _ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit: ; pr
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit
   %.pre = load i32, ptr %17, align 8
-  %.pre130 = load ptr, ptr %8, align 8
+  %.pre129 = load ptr, ptr %8, align 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -24879,14 +24879,14 @@ _ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EEC2EmRKS2_.exit: ; pr
   store i32 %33, ptr %35, align 4
   %36 = add i32 %.pre, %33
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre130, i64 %37, i32 2
+  %38 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre129, i64 %37, i32 2
   %.sroa.0.0.copyload.i = load i8, ptr %38, align 8
   %39 = getelementptr inbounds %"struct.(anonymous namespace)::X86FrameSortingObject", ptr %.sroa.083.0, i64 %34, i32 3
   store i8 %.sroa.0.0.copyload.i, ptr %39, align 4
   %40 = load i32, ptr %.097, align 4
   %41 = add i32 %.pre, %40
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre130, i64 %42, i32 1
+  %43 = getelementptr inbounds nuw %"struct.llvm::MachineFrameInfo::StackObject", ptr %.pre129, i64 %42, i32 1
   %44 = load i64, ptr %43, align 8
   %45 = trunc i64 %44 to i32
   %46 = icmp eq i32 %45, 0
@@ -25084,8 +25084,8 @@ _ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EE
   br label %.lr.ph117
 
 .lr.ph117:                                        ; preds = %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit, %120
-  %indvars.iv = phi i64 [ %indvars.iv.next, %120 ], [ 0, %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit ]
-  %.sroa.074.0115 = phi ptr [ %125, %120 ], [ %.sroa.083.0, %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit ]
+  %.054116 = phi i32 [ %123, %120 ], [ 0, %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit ]
+  %.sroa.074.0115 = phi ptr [ %127, %120 ], [ %.sroa.083.0, %_ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EENS2_25X86FrameSortingComparatorEEEvOT_T0_.exit ]
   %118 = load i8, ptr %.sroa.074.0115, align 4
   %119 = trunc i8 %118 to i1
   br i1 %119, label %120, label %._crit_edge118
@@ -25093,70 +25093,71 @@ _ZN4llvm11stable_sortIRSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS3_EE
 120:                                              ; preds = %.lr.ph117
   %121 = getelementptr inbounds nuw i8, ptr %.sroa.074.0115, i64 4
   %122 = load i32, ptr %121, align 4
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %123 = load ptr, ptr %2, align 8
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %indvars.iv
-  store i32 %122, ptr %124, align 4
-  %125 = getelementptr inbounds nuw i8, ptr %.sroa.074.0115, i64 20
-  %.not87 = icmp eq ptr %125, %.0.lcssa.i.i.i.i.i
+  %123 = add nuw nsw i32 %.054116, 1
+  %124 = zext nneg i32 %.054116 to i64
+  %125 = load ptr, ptr %2, align 8
+  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %124
+  store i32 %122, ptr %126, align 4
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.074.0115, i64 20
+  %.not87 = icmp eq ptr %127, %.0.lcssa.i.i.i.i.i
   br i1 %.not87, label %._crit_edge118, label %.lr.ph117
 
 ._crit_edge118:                                   ; preds = %120, %.lr.ph117, %._crit_edge113
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %127 = load ptr, ptr %126, align 8
-  %128 = load ptr, ptr %127, align 8
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 480
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %129, align 8
-  %131 = tail call noundef zeroext i1 %130(ptr noundef nonnull align 8 dereferenceable(308) %127, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
-  br i1 %131, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
+  %131 = getelementptr inbounds nuw i8, ptr %130, i64 480
+  %132 = load ptr, ptr %131, align 8
+  %133 = tail call noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(308) %129, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
+  br i1 %133, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit: ; preds = %._crit_edge118
-  %132 = load ptr, ptr %127, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 472
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call noundef zeroext i1 %134(ptr noundef nonnull align 8 dereferenceable(308) %127, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
-  br i1 %135, label %_ZSt7reverseIPiEvT_S1_.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
+  %134 = load ptr, ptr %129, align 8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 472
+  %136 = load ptr, ptr %135, align 8
+  %137 = tail call noundef zeroext i1 %136(ptr noundef nonnull align 8 dereferenceable(308) %129, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
+  br i1 %137, label %_ZSt7reverseIPiEvT_S1_.exit, label %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
 
 _ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread: ; preds = %._crit_edge118, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
-  %136 = load ptr, ptr %0, align 8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 200
-  %138 = load ptr, ptr %137, align 8
-  %139 = tail call noundef zeroext i1 %138(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
-  br i1 %139, label %140, label %_ZSt7reverseIPiEvT_S1_.exit
+  %138 = load ptr, ptr %0, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %138, i64 200
+  %140 = load ptr, ptr %139, align 8
+  %141 = tail call noundef zeroext i1 %140(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef nonnull align 8 dereferenceable(1041) %1) #23
+  br i1 %141, label %142, label %_ZSt7reverseIPiEvT_S1_.exit
 
-140:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
-  %141 = load ptr, ptr %2, align 8
-  %142 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
-  %143 = getelementptr inbounds i32, ptr %141, i64 %142
-  %144 = icmp ne i64 %142, 0
-  %.012.i.i = getelementptr inbounds i8, ptr %143, i64 -4
-  %145 = icmp ult ptr %141, %.012.i.i
-  %or.cond.i.i = select i1 %144, i1 %145, i1 false
+142:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread
+  %143 = load ptr, ptr %2, align 8
+  %144 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #23
+  %145 = getelementptr inbounds i32, ptr %143, i64 %144
+  %146 = icmp ne i64 %144, 0
+  %.012.i.i = getelementptr inbounds i8, ptr %145, i64 -4
+  %147 = icmp ult ptr %143, %.012.i.i
+  %or.cond.i.i = select i1 %146, i1 %147, i1 false
   br i1 %or.cond.i.i, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit
 
-.lr.ph.i.i:                                       ; preds = %140, %.lr.ph.i.i
-  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %140 ]
-  %.0913.i.i = phi ptr [ %148, %.lr.ph.i.i ], [ %141, %140 ]
-  %146 = load i32, ptr %.0913.i.i, align 4
-  %147 = load i32, ptr %.014.i.i, align 4
-  store i32 %147, ptr %.0913.i.i, align 4
-  store i32 %146, ptr %.014.i.i, align 4
-  %148 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
+.lr.ph.i.i:                                       ; preds = %142, %.lr.ph.i.i
+  %.014.i.i = phi ptr [ %.0.i.i, %.lr.ph.i.i ], [ %.012.i.i, %142 ]
+  %.0913.i.i = phi ptr [ %150, %.lr.ph.i.i ], [ %143, %142 ]
+  %148 = load i32, ptr %.0913.i.i, align 4
+  %149 = load i32, ptr %.014.i.i, align 4
+  store i32 %149, ptr %.0913.i.i, align 4
+  store i32 %148, ptr %.014.i.i, align 4
+  %150 = getelementptr inbounds nuw i8, ptr %.0913.i.i, i64 4
   %.0.i.i = getelementptr inbounds i8, ptr %.014.i.i, i64 -4
-  %149 = icmp ult ptr %148, %.0.i.i
-  br i1 %149, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit, !llvm.loop !1156
+  %151 = icmp ult ptr %150, %.0.i.i
+  br i1 %151, label %.lr.ph.i.i, label %_ZSt7reverseIPiEvT_S1_.exit, !llvm.loop !1156
 
-_ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %140, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
+_ZSt7reverseIPiEvT_S1_.exit:                      ; preds = %.lr.ph.i.i, %142, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit.thread, %_ZNK4llvm18TargetRegisterInfo19hasStackRealignmentERKNS_15MachineFunctionE.exit
   %.not.i.i.i73 = icmp eq ptr %.sroa.083.0, null
-  br i1 %.not.i.i.i73, label %_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EED2Ev.exit, label %150
+  br i1 %.not.i.i.i73, label %_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EED2Ev.exit, label %152
 
-150:                                              ; preds = %_ZSt7reverseIPiEvT_S1_.exit
-  %151 = ptrtoint ptr %.sroa.083.0 to i64
-  %152 = sub i64 %.sink.i, %151
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.083.0, i64 noundef %152) #26
+152:                                              ; preds = %_ZSt7reverseIPiEvT_S1_.exit
+  %153 = ptrtoint ptr %.sroa.083.0 to i64
+  %154 = sub i64 %.sink.i, %153
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.083.0, i64 noundef %154) #26
   br label %_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EED2Ev.exit: ; preds = %150, %_ZSt7reverseIPiEvT_S1_.exit, %3
+_ZNSt6vectorIN12_GLOBAL__N_121X86FrameSortingObjectESaIS1_EED2Ev.exit: ; preds = %152, %_ZSt7reverseIPiEvT_S1_.exit, %3
   ret void
 }
 

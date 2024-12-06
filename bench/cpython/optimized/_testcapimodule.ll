@@ -1287,7 +1287,7 @@ entry:
   br label %for.body
 
 for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
+  %i.024 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %pos.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %k.i)
@@ -1297,8 +1297,12 @@ for.body:                                         ; preds = %entry, %for.inc
   br i1 %cmp.i, label %test_dict_inner.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %for.body
-  %cmp132.i.not = icmp eq i64 %indvars.iv, 0
-  br i1 %cmp132.i.not, label %while.cond.preheader.i, label %for.body.i
+  %cmp132.i.not = icmp eq i32 %i.024, 0
+  br i1 %cmp132.i.not, label %while.cond.preheader.i, label %for.body.preheader.i
+
+for.body.preheader.i:                             ; preds = %for.cond.preheader.i
+  %wide.trip.count.i = zext nneg i32 %i.024 to i64
+  br label %for.body.i
 
 while.cond.preheader.i:                           ; preds = %for.inc.i, %for.cond.preheader.i
   store ptr @uninitialized, ptr %v.i, align 8
@@ -1307,8 +1311,8 @@ while.cond.preheader.i:                           ; preds = %for.inc.i, %for.con
   %tobool.not35.i = icmp eq i32 %call1234.i, 0
   br i1 %tobool.not35.i, label %while.end.i, label %while.body.i
 
-for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+for.body.i:                                       ; preds = %for.inc.i, %for.body.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %call2.i = call ptr @PyLong_FromLong(i64 noundef %indvars.iv.i) #15
   store ptr %call2.i, ptr %v.i, align 8
   %cmp3.i = icmp eq ptr %call2.i, null
@@ -1346,7 +1350,7 @@ if.then1.i81.i:                                   ; preds = %if.end.i78.i
 
 for.inc.i:                                        ; preds = %if.then1.i81.i, %if.end.i78.i, %if.end11.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %while.cond.preheader.i, label %for.body.i, !llvm.loop !7
 
 while.body.i:                                     ; preds = %while.cond.preheader.i, %Py_DECREF.exit65.i
@@ -1452,7 +1456,8 @@ if.then1.i54.i:                                   ; preds = %if.end.i51.i
   br label %Py_DECREF.exit56.i
 
 Py_DECREF.exit56.i:                               ; preds = %if.then1.i54.i, %if.end.i51.i, %cond.end43.i
-  %cmp45.not.i = icmp eq i64 %iterations.0.lcssa.i, %indvars.iv
+  %conv44.i = zext nneg i32 %i.024 to i64
+  %cmp45.not.i = icmp eq i64 %iterations.0.lcssa.i, %conv44.i
   br i1 %cmp45.not.i, label %for.inc, label %if.then47.i
 
 if.then47.i:                                      ; preds = %Py_DECREF.exit56.i
@@ -1461,8 +1466,8 @@ if.then47.i:                                      ; preds = %Py_DECREF.exit56.i
   br label %test_dict_inner.exit.thread
 
 error.i.sink.split:                               ; preds = %if.end.i69.i, %if.end.i87.i
-  %call24.i.lcssa53.sink = phi ptr [ %call2.i, %if.end.i87.i ], [ %call24.i, %if.end.i69.i ]
-  call void @_Py_Dealloc(ptr noundef nonnull %call24.i.lcssa53.sink) #15
+  %call24.i.lcssa52.sink = phi ptr [ %call2.i, %if.end.i87.i ], [ %call24.i, %if.end.i69.i ]
+  call void @_Py_Dealloc(ptr noundef nonnull %call24.i.lcssa52.sink) #15
   br label %error.i
 
 error.i:                                          ; preds = %for.body.i, %cond.end20.i, %error.i.sink.split, %if.end.i69.i, %if.then32.i, %if.end.i87.i, %if.then10.i
@@ -1491,8 +1496,8 @@ for.inc:                                          ; preds = %Py_DECREF.exit56.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %pos.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %v.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %k.i)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 200
+  %inc = add nuw nsw i32 %i.024, 1
+  %exitcond.not = icmp eq i32 %inc, 200
   br i1 %exitcond.not, label %return, label %for.body, !llvm.loop !9
 
 return:                                           ; preds = %for.inc, %test_dict_inner.exit.thread

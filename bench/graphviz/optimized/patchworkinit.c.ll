@@ -91,55 +91,56 @@ gv_calloc.exit25.i.i:                             ; preds = %25
   br i1 %.not28.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i
 
 .lr.ph31.i.i:                                     ; preds = %gv_calloc.exit25.i.i, %._crit_edge.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.i.i ], [ 0, %gv_calloc.exit25.i.i ]
-  %.030.i.i = phi ptr [ %49, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
+  %.030.i.i = phi ptr [ %51, %._crit_edge.i.i ], [ %35, %gv_calloc.exit25.i.i ]
+  %.02029.i.i = phi i32 [ %45, %._crit_edge.i.i ], [ 0, %gv_calloc.exit25.i.i ]
   %36 = tail call ptr @agbindrec(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str.7, i32 noundef 472, i32 noundef 1) #12
-  %37 = getelementptr inbounds nuw %struct.rdata, ptr %13, i64 %indvars.iv.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 152
-  store ptr %37, ptr %40, align 8
-  %41 = load ptr, ptr %3, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 184
-  %43 = load ptr, ptr %42, align 8
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i.i
-  store ptr %.030.i.i, ptr %44, align 8
-  %45 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
-  %46 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
-  %.not2226.i.i = icmp eq ptr %46, null
+  %37 = zext nneg i32 %.02029.i.i to i64
+  %38 = getelementptr inbounds nuw %struct.rdata, ptr %13, i64 %37
+  %39 = getelementptr inbounds nuw i8, ptr %.030.i.i, i64 16
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 152
+  store ptr %38, ptr %41, align 8
+  %42 = load ptr, ptr %3, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 184
+  %44 = load ptr, ptr %43, align 8
+  %45 = add nuw nsw i32 %.02029.i.i, 1
+  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %37
+  store ptr %.030.i.i, ptr %46, align 8
+  %47 = tail call i32 @agset(ptr noundef nonnull %.030.i.i, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1) #12
+  %48 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
+  %.not2226.i.i = icmp eq ptr %48, null
   br i1 %.not2226.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph31.i.i, %.lr.ph.i.i
-  %.02127.i.i = phi ptr [ %48, %.lr.ph.i.i ], [ %46, %.lr.ph31.i.i ]
-  %47 = tail call ptr @agbindrec(ptr noundef nonnull %.02127.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #12
-  %48 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i.i) #12
-  %.not22.i.i = icmp eq ptr %48, null
+  %.02127.i.i = phi ptr [ %50, %.lr.ph.i.i ], [ %48, %.lr.ph31.i.i ]
+  %49 = tail call ptr @agbindrec(ptr noundef nonnull %.02127.i.i, ptr noundef nonnull @.str.8, i32 noundef 472, i32 noundef 1) #12
+  %50 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.02127.i.i) #12
+  %.not22.i.i = icmp eq ptr %50, null
   br i1 %.not22.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
-  %49 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
-  %.not.i.i = icmp eq ptr %49, null
+  %51 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.030.i.i) #12
+  %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %patchwork_init_graph.exit, label %.lr.ph31.i.i
 
 patchwork_init_graph.exit:                        ; preds = %._crit_edge.i.i, %gv_calloc.exit25.i.i
-  %50 = tail call i32 @agnnodes(ptr noundef %0) #12
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %57
+  %52 = tail call i32 @agnnodes(ptr noundef %0) #12
+  %53 = icmp eq i32 %52, 0
+  br i1 %53, label %54, label %59
 
-52:                                               ; preds = %patchwork_init_graph.exit
-  %53 = load ptr, ptr %3, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 236
-  %55 = load i32, ptr %54, align 4
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %58, label %57
+54:                                               ; preds = %patchwork_init_graph.exit
+  %55 = load ptr, ptr %3, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 236
+  %57 = load i32, ptr %56, align 4
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %60, label %59
 
-57:                                               ; preds = %52, %patchwork_init_graph.exit
+59:                                               ; preds = %54, %patchwork_init_graph.exit
   tail call void @patchworkLayout(ptr noundef %0) #12
   tail call void @dotneato_postprocess(ptr noundef %0) #12
-  br label %58
+  br label %60
 
-58:                                               ; preds = %52, %57
+60:                                               ; preds = %54, %59
   ret void
 }
 

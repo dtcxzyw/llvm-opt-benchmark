@@ -3845,7 +3845,7 @@ sw.bb21:                                          ; preds = %entry
           to label %for.cond unwind label %lpad22.loopexit.split-lp
 
 for.cond:                                         ; preds = %sw.bb21, %invoke.cont50
-  %indvars.iv = phi i64 [ %indvars.iv.next, %invoke.cont50 ], [ 0, %sw.bb21 ]
+  %i.0 = phi i32 [ %inc, %invoke.cont50 ], [ 0, %sw.bb21 ]
   %13 = load ptr, ptr %type, align 8
   %vtable26 = load ptr, ptr %13, align 8
   %vfn27 = getelementptr inbounds nuw i8, ptr %vtable26, i64 16
@@ -3854,12 +3854,11 @@ for.cond:                                         ; preds = %sw.bb21, %invoke.co
           to label %invoke.cont28 unwind label %lpad22.loopexit
 
 invoke.cont28:                                    ; preds = %for.cond
-  %15 = zext i32 %call29 to i64
-  %cmp = icmp samesign ult i64 %indvars.iv, %15
+  %cmp = icmp ult i32 %i.0, %call29
   br i1 %cmp, label %for.body, label %for.end
 
 for.body:                                         ; preds = %invoke.cont28
-  %cmp30.not = icmp eq i64 %indvars.iv, 0
+  %cmp30.not = icmp eq i32 %i.0, 0
   br i1 %cmp30.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body
@@ -3877,10 +3876,10 @@ lpad22.loopexit.split-lp:                         ; preds = %sw.bb21, %for.end, 
   br label %ehcleanup56
 
 if.end:                                           ; preds = %if.then, %for.body
-  %16 = load ptr, ptr %type, align 8
-  %17 = call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(17) %16, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #26
-  %18 = icmp eq ptr %17, null
-  br i1 %18, label %dynamic_cast.bad_cast.i.i, label %invoke.cont34
+  %15 = load ptr, ptr %type, align 8
+  %16 = call ptr @__dynamic_cast(ptr nonnull align 8 dereferenceable(17) %15, ptr nonnull @_ZTIN8facebook5velox4TypeE, ptr nonnull @_ZTIN8facebook5velox7RowTypeE, i64 0) #26
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %dynamic_cast.bad_cast.i.i, label %invoke.cont34
 
 dynamic_cast.bad_cast.i.i:                        ; preds = %if.end
   invoke void @__cxa_bad_cast() #27
@@ -3890,26 +3889,27 @@ dynamic_cast.bad_cast.i.i:                        ; preds = %if.end
   unreachable
 
 invoke.cont34:                                    ; preds = %if.end
-  %names_.i = getelementptr inbounds nuw i8, ptr %17, i64 24
-  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %19 = load ptr, ptr %_M_finish.i.i.i.i, align 8
-  %20 = load ptr, ptr %names_.i, align 8
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %20 to i64
+  %names_.i = getelementptr inbounds nuw i8, ptr %16, i64 24
+  %conv.i = zext nneg i32 %i.0 to i64
+  %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %18 = load ptr, ptr %_M_finish.i.i.i.i, align 8
+  %19 = load ptr, ptr %names_.i, align 8
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %sub.ptr.div.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i, 5
-  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %indvars.iv
+  %cmp.not.i.i.i = icmp ugt i64 %sub.ptr.div.i.i.i.i, %conv.i
   br i1 %cmp.not.i.i.i, label %invoke.cont36, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %invoke.cont34
-  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %indvars.iv, i64 noundef %sub.ptr.div.i.i.i.i) #27
+  invoke void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.22, i64 noundef %conv.i, i64 noundef %sub.ptr.div.i.i.i.i) #27
           to label %.noexc26 unwind label %lpad22.loopexit.split-lp
 
 .noexc26:                                         ; preds = %if.then.i.i.i
   unreachable
 
 invoke.cont36:                                    ; preds = %invoke.cont34
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %indvars.iv
+  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %conv.i
   %call39 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i)
           to label %invoke.cont38 unwind label %lpad22.loopexit
 
@@ -3918,12 +3918,11 @@ invoke.cont38:                                    ; preds = %invoke.cont36
           to label %invoke.cont40 unwind label %lpad22.loopexit
 
 invoke.cont40:                                    ; preds = %invoke.cont38
-  %21 = load ptr, ptr %type, align 8
-  %vtable44 = load ptr, ptr %21, align 8
+  %20 = load ptr, ptr %type, align 8
+  %vtable44 = load ptr, ptr %20, align 8
   %vfn45 = getelementptr inbounds nuw i8, ptr %vtable44, i64 24
-  %22 = load ptr, ptr %vfn45, align 8
-  %23 = trunc nuw nsw i64 %indvars.iv to i32
-  %call47 = invoke noundef nonnull align 8 dereferenceable(16) ptr %22(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef %23)
+  %21 = load ptr, ptr %vfn45, align 8
+  %call47 = invoke noundef nonnull align 8 dereferenceable(16) ptr %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i32 noundef %i.0)
           to label %invoke.cont46 unwind label %lpad22.loopexit
 
 invoke.cont46:                                    ; preds = %invoke.cont40
@@ -3936,11 +3935,11 @@ invoke.cont48:                                    ; preds = %invoke.cont46
 
 invoke.cont50:                                    ; preds = %invoke.cont48
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #26
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %i.0, 1
   br label %for.cond, !llvm.loop !57
 
 lpad49:                                           ; preds = %invoke.cont48
-  %24 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp42) #26
   br label %ehcleanup56
@@ -3958,15 +3957,15 @@ invoke.cont55:                                    ; preds = %invoke.cont53
   br label %return
 
 ehcleanup56:                                      ; preds = %lpad22.loopexit, %lpad22.loopexit.split-lp, %lpad49
-  %.pn = phi { ptr, i32 } [ %24, %lpad49 ], [ %lpad.loopexit, %lpad22.loopexit ], [ %lpad.loopexit.split-lp, %lpad22.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %22, %lpad49 ], [ %lpad.loopexit, %lpad22.loopexit ], [ %lpad.loopexit.split-lp, %lpad22.loopexit.split-lp ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %out) #26
   br label %eh.resume
 
 sw.default:                                       ; preds = %entry
   %vtable58 = load ptr, ptr %0, align 8
   %vfn59 = getelementptr inbounds nuw i8, ptr %vtable58, i64 80
-  %25 = load ptr, ptr %vfn59, align 8
-  tail call void %25(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %0)
+  %23 = load ptr, ptr %vfn59, align 8
+  tail call void %23(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(17) %0)
   br label %return
 
 return:                                           ; preds = %sw.default, %invoke.cont55, %invoke.cont20, %invoke.cont

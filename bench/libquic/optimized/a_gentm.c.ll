@@ -114,7 +114,7 @@ if.then19:                                        ; preds = %land.lhs.true.us, %
   br label %for.end
 
 if.then20:                                        ; preds = %land.lhs.true, %land.lhs.true, %land.lhs.true
-  %.us-phi169 = trunc i64 %indvars.iv to i32
+  %.us-phi165 = trunc i64 %indvars.iv to i32
   store i32 0, ptr %tm, align 8
   br label %for.end
 
@@ -210,7 +210,7 @@ for.inc:                                          ; preds = %sw.bb89, %sw.bb88, 
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %if.end76.us, %if.then19, %if.then20
-  %o.0121 = phi i32 [ %.us-phi, %if.then19 ], [ %.us-phi169, %if.then20 ], [ 14, %if.end76.us ], [ 14, %for.inc ]
+  %o.0121 = phi i32 [ %.us-phi, %if.then19 ], [ %.us-phi165, %if.then20 ], [ 14, %if.end76.us ], [ 14, %for.inc ]
   %idxprom93 = zext nneg i32 %o.0121 to i64
   %arrayidx94 = getelementptr inbounds nuw i8, ptr %2, i64 %idxprom93
   %22 = load i8, ptr %arrayidx94, align 1
@@ -271,10 +271,10 @@ for.cond153.preheader:                            ; preds = %if.then141
   br label %for.body156
 
 for.body156:                                      ; preds = %for.cond153.preheader, %if.end219
-  %indvars.iv161 = phi i64 [ 7, %for.cond153.preheader ], [ %indvars.iv.next162, %if.end219 ]
   %indvars.iv158 = phi i64 [ %28, %for.cond153.preheader ], [ %indvars.iv.next159, %if.end219 ]
   %o.4129 = phi i32 [ %o.4125, %for.cond153.preheader ], [ %39, %if.end219 ]
   %offset.0128 = phi i32 [ 0, %for.cond153.preheader ], [ %offset.1, %if.end219 ]
+  %i.1126 = phi i32 [ 7, %for.cond153.preheader ], [ %inc222, %if.end219 ]
   %idxprom157 = sext i32 %o.4129 to i64
   %arrayidx158 = getelementptr inbounds i8, ptr %2, i64 %idxprom157
   %30 = load i8, ptr %arrayidx158, align 1
@@ -296,13 +296,14 @@ if.end187:                                        ; preds = %if.end169
   %35 = sext i8 %34 to i32
   %add192 = add nsw i32 %35, -16
   %sub193 = add nsw i32 %add192, %conv177
-  %arrayidx195 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.min, i64 0, i64 %indvars.iv161
+  %idxprom194 = zext nneg i32 %i.1126 to i64
+  %arrayidx195 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.min, i64 0, i64 %idxprom194
   %36 = load i32, ptr %arrayidx195, align 4
   %cmp196 = icmp slt i32 %sub193, %36
   br i1 %cmp196, label %return, label %lor.lhs.false198
 
 lor.lhs.false198:                                 ; preds = %if.end187
-  %arrayidx200 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.max, i64 0, i64 %indvars.iv161
+  %arrayidx200 = getelementptr inbounds nuw [9 x i32], ptr @asn1_generalizedtime_to_tm.max, i64 0, i64 %idxprom194
   %37 = load i32, ptr %arrayidx200, align 4
   %cmp201 = icmp sgt i32 %sub193, %37
   br i1 %cmp201, label %return, label %if.end204
@@ -311,7 +312,7 @@ if.end204:                                        ; preds = %lor.lhs.false198
   br i1 %tobool77.not, label %if.end219, label %if.then206
 
 if.then206:                                       ; preds = %if.end204
-  %cmp207 = icmp eq i64 %indvars.iv161, 7
+  %cmp207 = icmp eq i32 %i.1126, 7
   br i1 %cmp207, label %if.then209, label %if.then214
 
 if.then209:                                       ; preds = %if.then206
@@ -325,11 +326,11 @@ if.then214:                                       ; preds = %if.then206
 
 if.end219:                                        ; preds = %if.then209, %if.then214, %if.end204
   %offset.1 = phi i32 [ %mul210, %if.then209 ], [ %add216, %if.then214 ], [ %offset.0128, %if.end204 ]
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+  %inc222 = add nuw nsw i32 %i.1126, 1
   %38 = trunc i64 %indvars.iv158 to i32
   %39 = add i32 %38, 3
-  %exitcond166.not = icmp eq i64 %indvars.iv.next162, 9
-  br i1 %exitcond166.not, label %for.end223, label %for.body156, !llvm.loop !10
+  %exitcond162.not = icmp eq i32 %inc222, 9
+  br i1 %exitcond162.not, label %for.end223, label %for.body156, !llvm.loop !10
 
 for.end223:                                       ; preds = %if.end219
   %tobool224.not = icmp eq i32 %offset.1, 0

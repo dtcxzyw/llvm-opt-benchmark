@@ -2327,9 +2327,9 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1
   store i8 1, ptr %5, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %11 = load i32, ptr %10, align 8
-  switch i32 %11, label %27 [
+  switch i32 %11, label %29 [
     i32 0, label %_ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit
-    i32 1, label %31
+    i32 1, label %33
   ]
 
 _ZN4absl7debian28optionalISt6vectorIlSaIlEEEptEv.exit: ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
@@ -2363,98 +2363,99 @@ _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit: ; preds = %_ZN4absl7debi
   br i1 %.not5.i.i, label %_ZN4absl7debian26c_iotaISt6vectorIlSaIlEEiEEvRT_OT0_.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit ]
-  %.sroa.02.06.i.i = phi ptr [ %26, %.lr.ph.i.i ], [ %24, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit ]
-  store i64 %indvars.iv.i.i, ptr %.sroa.02.06.i.i, align 8
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
-  %.not.i.i6 = icmp eq ptr %26, %25
+  %.07.i.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit ]
+  %.sroa.02.06.i.i = phi ptr [ %28, %.lr.ph.i.i ], [ %24, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit ]
+  %26 = zext nneg i32 %.07.i.i to i64
+  store i64 %26, ptr %.sroa.02.06.i.i, align 8
+  %27 = add nuw nsw i32 %.07.i.i, 1
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i.i, i64 8
+  %.not.i.i6 = icmp eq ptr %28, %25
   br i1 %.not.i.i6, label %_ZN4absl7debian26c_iotaISt6vectorIlSaIlEEiEEvRT_OT0_.exit, label %.lr.ph.i.i, !llvm.loop !24
 
-27:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
+29:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
   store i32 435, ptr %3, align 4
   call void @_ZN10open_spiel8internal11SpielStrCatIJRA126_KcRA2_S2_iRA13_S2_RA29_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 1 dereferenceable(126) @.str.12, ptr noundef nonnull align 1 dereferenceable(2) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 1 dereferenceable(13) @.str.14, ptr noundef nonnull align 1 dereferenceable(29) @.str.17, ptr noundef nonnull align 1 dereferenceable(2) @.str.16)
   invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %2) #27
-          to label %28 unwind label %29
+          to label %30 unwind label %31
 
-28:                                               ; preds = %27
+30:                                               ; preds = %29
   unreachable
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+31:                                               ; preds = %29
+  %32 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   br label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12
 
-31:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %33 = ptrtoint ptr %0 to i64
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 0, ptr %36, align 8
-  store i64 %33, ptr %4, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %35, align 8
-  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %34, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 390
-  %38 = load i8, ptr %37, align 2
-  invoke void @_ZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsE(ptr noundef nonnull align 8 dereferenceable(168) %32, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %38, i32 noundef 1)
-          to label %39 unwind label %51
+33:                                               ; preds = %_ZNSt6vectorIlSaIlEED2Ev.exit
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %35 = ptrtoint ptr %0 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 0, ptr %38, align 8
+  store i64 %35, ptr %4, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0E9_M_invokeERKSt9_Any_dataS4_", ptr %37, align 8
+  store ptr @"_ZNSt17_Function_handlerIFbRKN10open_spiel5chess4MoveEEZNKS0_3rbc8RbcState25MaybeGenerateLegalActionsEvE3$_0E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation", ptr %36, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 390
+  %40 = load i8, ptr %39, align 2
+  invoke void @_ZNK10open_spiel5chess10ChessBoard24GeneratePseudoLegalMovesERKSt8functionIFbRKNS0_4MoveEEENS0_5ColorENS0_23PseudoLegalMoveSettingsE(ptr noundef nonnull align 8 dereferenceable(168) %34, ptr noundef nonnull align 8 dereferenceable(32) %4, i8 noundef signext %40, i32 noundef 1)
+          to label %41 unwind label %53
 
-39:                                               ; preds = %31
-  %40 = load ptr, ptr %34, align 8
-  %.not.i.i9 = icmp eq ptr %40, null
-  br i1 %.not.i.i9, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %41
-
-41:                                               ; preds = %39
-  %42 = invoke noundef zeroext i1 %40(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit unwind label %43
+41:                                               ; preds = %33
+  %42 = load ptr, ptr %36, align 8
+  %.not.i.i9 = icmp eq ptr %42, null
+  br i1 %.not.i.i9, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit, label %43
 
 43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+  %44 = invoke noundef zeroext i1 %42(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit unwind label %45
+
+45:                                               ; preds = %43
+  %46 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  call void @__clang_call_terminate(ptr %45) #28
+  %47 = extractvalue { ptr, i32 } %46, 0
+  call void @__clang_call_terminate(ptr %47) #28
   unreachable
 
-_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %39, %41
-  %46 = load i8, ptr %5, align 8
-  %47 = trunc i8 %46 to i1
-  br i1 %47, label %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit10, label %48
+_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit: ; preds = %41, %43
+  %48 = load i8, ptr %5, align 8
+  %49 = trunc i8 %48 to i1
+  br i1 %49, label %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit10, label %50
 
-48:                                               ; preds = %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit
+50:                                               ; preds = %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit
   call void @llvm.trap()
   unreachable
 
 _ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit10: ; preds = %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit
-  %49 = load ptr, ptr %8, align 8
-  %50 = load ptr, ptr %9, align 8
-  call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %49, ptr %50)
+  %51 = load ptr, ptr %8, align 8
+  %52 = load ptr, ptr %9, align 8
+  call void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPlSt6vectorIlSaIlEEEENS0_5__ops15_Iter_less_iterEEvT_S9_T0_(ptr %51, ptr %52)
   br label %_ZN4absl7debian26c_iotaISt6vectorIlSaIlEEiEEvRT_OT0_.exit
 
-51:                                               ; preds = %31
-  %52 = landingpad { ptr, i32 }
+53:                                               ; preds = %33
+  %54 = landingpad { ptr, i32 }
           cleanup
-  %53 = load ptr, ptr %34, align 8
-  %.not.i.i11 = icmp eq ptr %53, null
-  br i1 %.not.i.i11, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12, label %54
+  %55 = load ptr, ptr %36, align 8
+  %.not.i.i11 = icmp eq ptr %55, null
+  br i1 %.not.i.i11, label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12, label %56
 
-54:                                               ; preds = %51
-  %55 = invoke noundef zeroext i1 %53(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
-          to label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12 unwind label %56
+56:                                               ; preds = %53
+  %57 = invoke noundef zeroext i1 %55(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 3)
+          to label %_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12 unwind label %58
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+58:                                               ; preds = %56
+  %59 = landingpad { ptr, i32 }
           catch ptr null
-  %58 = extractvalue { ptr, i32 } %57, 0
-  call void @__clang_call_terminate(ptr %58) #28
+  %60 = extractvalue { ptr, i32 } %59, 0
+  call void @__clang_call_terminate(ptr %60) #28
   unreachable
 
 _ZN4absl7debian26c_iotaISt6vectorIlSaIlEEiEEvRT_OT0_.exit: ; preds = %.lr.ph.i.i, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit, %_ZNR4absl7debian28optionalISt6vectorIlSaIlEEEdeEv.exit10, %1
   ret void
 
-_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12: ; preds = %54, %51, %29
-  %.pn = phi { ptr, i32 } [ %30, %29 ], [ %52, %51 ], [ %52, %54 ]
+_ZNSt8functionIFbRKN10open_spiel5chess4MoveEEED2Ev.exit12: ; preds = %56, %53, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %54, %53 ], [ %54, %56 ]
   resume { ptr, i32 } %.pn
 }
 

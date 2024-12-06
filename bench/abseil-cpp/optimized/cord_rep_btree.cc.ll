@@ -6414,16 +6414,17 @@ entry:
   br i1 %cmp.not77, label %while.end, label %while.body
 
 while.body:                                       ; preds = %entry, %if.end
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end ], [ 0, %entry ]
   %tree.addr.079 = phi ptr [ %3, %if.end ], [ %tree, %entry ]
+  %depth.078 = phi i32 [ %inc, %if.end ], [ 0, %entry ]
   %refcount = getelementptr inbounds nuw i8, ptr %tree.addr.079, i64 8
   %1 = load atomic i32, ptr %refcount acquire, align 4
   %cmp.i = icmp eq i32 %1, 2
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %while.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %indvars.iv
+  %inc = add nuw nsw i32 %depth.078, 1
+  %idxprom = zext nneg i32 %depth.078 to i64
+  %arrayidx = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %idxprom
   store ptr %tree.addr.079, ptr %arrayidx, align 8
   %arrayidx.i1.i = getelementptr inbounds nuw i8, ptr %tree.addr.079, i64 15
   %2 = load i8, ptr %arrayidx.i1.i, align 1
@@ -6435,154 +6436,150 @@ if.end:                                           ; preds = %while.body
   %storage.i = getelementptr inbounds nuw i8, ptr %3, i64 13
   %4 = load i8, ptr %storage.i, align 1
   %cmp.not = icmp eq i8 %4, 0
-  br i1 %cmp.not, label %while.end.loopexit, label %while.body, !llvm.loop !50
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !50
 
-while.end.loopexit:                               ; preds = %if.end
-  %5 = trunc nuw i64 %indvars.iv.next to i32
-  br label %while.end
-
-while.end:                                        ; preds = %while.end.loopexit, %entry
-  %depth.0.lcssa = phi i32 [ 0, %entry ], [ %5, %while.end.loopexit ]
-  %tree.addr.0.lcssa = phi ptr [ %tree, %entry ], [ %3, %while.end.loopexit ]
+while.end:                                        ; preds = %if.end, %entry
+  %depth.0.lcssa = phi i32 [ 0, %entry ], [ %inc, %if.end ]
+  %tree.addr.0.lcssa = phi ptr [ %tree, %entry ], [ %3, %if.end ]
   %refcount5 = getelementptr inbounds nuw i8, ptr %tree.addr.0.lcssa, i64 8
-  %6 = load atomic i32, ptr %refcount5 acquire, align 4
-  %cmp.i31 = icmp eq i32 %6, 2
+  %5 = load atomic i32, ptr %refcount5 acquire, align 4
+  %cmp.i31 = icmp eq i32 %5, 2
   br i1 %cmp.i31, label %if.end8, label %return
 
 if.end8:                                          ; preds = %while.end
   %arrayidx.i1.i34 = getelementptr inbounds nuw i8, ptr %tree.addr.0.lcssa, i64 15
-  %7 = load i8, ptr %arrayidx.i1.i34, align 1
-  %conv.i2.i35 = zext i8 %7 to i64
+  %6 = load i8, ptr %arrayidx.i1.i34, align 1
+  %conv.i2.i35 = zext i8 %6 to i64
   %sub.i.i36 = add nsw i64 %conv.i2.i35, -1
   %edges_.i37 = getelementptr inbounds nuw i8, ptr %tree.addr.0.lcssa, i64 16
   %arrayidx.i38 = getelementptr inbounds [6 x ptr], ptr %edges_.i37, i64 0, i64 %sub.i.i36
-  %8 = load ptr, ptr %arrayidx.i38, align 8
-  %tag.i = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %9 = load i8, ptr %tag.i, align 4
-  %cmp.i39 = icmp ugt i8 %9, 5
+  %7 = load ptr, ptr %arrayidx.i38, align 8
+  %tag.i = getelementptr inbounds nuw i8, ptr %7, i64 12
+  %8 = load i8, ptr %tag.i, align 4
+  %cmp.i39 = icmp ugt i8 %8, 5
   br i1 %cmp.i39, label %land.lhs.true, label %return
 
 land.lhs.true:                                    ; preds = %if.end8
-  %refcount11 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %10 = load atomic i32, ptr %refcount11 acquire, align 4
-  %cmp.i40 = icmp eq i32 %10, 2
+  %refcount11 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %9 = load atomic i32, ptr %refcount11 acquire, align 4
+  %cmp.i40 = icmp eq i32 %9, 2
   br i1 %cmp.i40, label %if.end14, label %return
 
 if.end14:                                         ; preds = %land.lhs.true
-  %11 = load i64, ptr %8, align 8
-  %12 = load i8, ptr %tag.i, align 4
-  %conv.i.i.i = zext i8 %12 to i32
-  %cmp.i.i.i = icmp ult i8 %12, 67
-  %cmp3.i.i.i = icmp ult i8 %12, -69
+  %10 = load i64, ptr %7, align 8
+  %11 = load i8, ptr %tag.i, align 4
+  %conv.i.i.i = zext i8 %11 to i32
+  %cmp.i.i.i = icmp ult i8 %11, 67
+  %cmp3.i.i.i = icmp ult i8 %11, -69
   %..i.i.i = select i1 %cmp3.i.i.i, i32 6, i32 12
   %.sink5.i.i.i = select i1 %cmp.i.i.i, i32 3, i32 %..i.i.i
   %mul6.i.i.i = shl nuw nsw i32 %conv.i.i.i, %.sink5.i.i.i
-  %13 = select i1 %cmp3.i.i.i, i32 -3725, i32 -753677
-  %sub8.i.i.i = select i1 %cmp.i.i.i, i32 -29, i32 %13
+  %12 = select i1 %cmp3.i.i.i, i32 -3725, i32 -753677
+  %sub8.i.i.i = select i1 %cmp.i.i.i, i32 -29, i32 %12
   %narrow.i.i = add nsw i32 %mul6.i.i.i, %sub8.i.i.i
   %sub.i.i42 = sext i32 %narrow.i.i to i64
-  %sub = sub i64 %sub.i.i42, %11
+  %sub = sub i64 %sub.i.i42, %10
   %cmp19 = icmp ugt i64 %extra_capacity, %sub
   br i1 %cmp19, label %return, label %while.cond23.preheader
 
 while.cond23.preheader:                           ; preds = %if.end14
-  %14 = load i8, ptr %arrayidx.i1.i34, align 1
-  %conv.i.i4483 = zext i8 %14 to i64
+  %13 = load i8, ptr %arrayidx.i1.i34, align 1
+  %conv.i.i4483 = zext i8 %13 to i64
   %arrayidx.i1.i4584 = getelementptr inbounds nuw i8, ptr %tree.addr.0.lcssa, i64 14
-  %15 = load i8, ptr %arrayidx.i1.i4584, align 1
-  %conv.i2.i4685 = zext i8 %15 to i64
+  %14 = load i8, ptr %arrayidx.i1.i4584, align 1
+  %conv.i2.i4685 = zext i8 %14 to i64
   %sub.i86 = sub nsw i64 %conv.i.i4483, %conv.i2.i4685
   %cmp2587 = icmp eq i64 %sub.i86, 1
   br i1 %cmp2587, label %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader, label %while.end33
 
 _ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader: ; preds = %while.cond23.preheader
-  %16 = zext i32 %depth.0.lcssa to i64
+  %15 = zext i32 %depth.0.lcssa to i64
   br label %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit
 
 _ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit: ; preds = %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader, %if.end30
-  %indvars.iv104 = phi i64 [ %16, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader ], [ %18, %if.end30 ]
-  %tree.addr.189 = phi ptr [ %tree.addr.0.lcssa, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader ], [ %19, %if.end30 ]
+  %indvars.iv = phi i64 [ %15, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader ], [ %17, %if.end30 ]
+  %tree.addr.189 = phi ptr [ %tree.addr.0.lcssa, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit.preheader ], [ %18, %if.end30 ]
   tail call void @_ZdlPv(ptr noundef nonnull %tree.addr.189) #25
-  %17 = trunc nuw i64 %indvars.iv104 to i32
-  %cmp27 = icmp slt i32 %17, 1
+  %16 = trunc nuw i64 %indvars.iv to i32
+  %cmp27 = icmp slt i32 %16, 1
   br i1 %cmp27, label %return, label %if.end30
 
 if.end30:                                         ; preds = %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit
-  %18 = add nsw i64 %indvars.iv104, -1
-  %arrayidx32 = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %18
-  %19 = load ptr, ptr %arrayidx32, align 8
-  %arrayidx.i.i43 = getelementptr inbounds nuw i8, ptr %19, i64 15
-  %20 = load i8, ptr %arrayidx.i.i43, align 1
-  %conv.i.i44 = zext i8 %20 to i64
-  %arrayidx.i1.i45 = getelementptr inbounds nuw i8, ptr %19, i64 14
-  %21 = load i8, ptr %arrayidx.i1.i45, align 1
-  %conv.i2.i46 = zext i8 %21 to i64
+  %17 = add nsw i64 %indvars.iv, -1
+  %arrayidx32 = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %17
+  %18 = load ptr, ptr %arrayidx32, align 8
+  %arrayidx.i.i43 = getelementptr inbounds nuw i8, ptr %18, i64 15
+  %19 = load i8, ptr %arrayidx.i.i43, align 1
+  %conv.i.i44 = zext i8 %19 to i64
+  %arrayidx.i1.i45 = getelementptr inbounds nuw i8, ptr %18, i64 14
+  %20 = load i8, ptr %arrayidx.i1.i45, align 1
+  %conv.i2.i46 = zext i8 %20 to i64
   %sub.i = sub nsw i64 %conv.i.i44, %conv.i2.i46
   %cmp25 = icmp eq i64 %sub.i, 1
   br i1 %cmp25, label %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit, label %while.end33.loopexit, !llvm.loop !51
 
 while.end33.loopexit:                             ; preds = %if.end30
-  %22 = trunc i64 %18 to i32
+  %21 = trunc i64 %17 to i32
   br label %while.end33
 
 while.end33:                                      ; preds = %while.end33.loopexit, %while.cond23.preheader
-  %tree.addr.1.lcssa81 = phi ptr [ %tree.addr.0.lcssa, %while.cond23.preheader ], [ %19, %while.end33.loopexit ]
-  %depth.1.lcssa = phi i32 [ %depth.0.lcssa, %while.cond23.preheader ], [ %22, %while.end33.loopexit ]
-  %.lcssa = phi i8 [ %14, %while.cond23.preheader ], [ %20, %while.end33.loopexit ]
+  %tree.addr.1.lcssa81 = phi ptr [ %tree.addr.0.lcssa, %while.cond23.preheader ], [ %18, %while.end33.loopexit ]
+  %depth.1.lcssa = phi i32 [ %depth.0.lcssa, %while.cond23.preheader ], [ %21, %while.end33.loopexit ]
+  %.lcssa = phi i8 [ %13, %while.cond23.preheader ], [ %19, %while.end33.loopexit ]
   %arrayidx.i.i43.le = getelementptr inbounds nuw i8, ptr %tree.addr.1.lcssa81, i64 15
   %sub35 = add i8 %.lcssa, -1
   store i8 %sub35, ptr %arrayidx.i.i43.le, align 1
-  %23 = load i64, ptr %tree.addr.1.lcssa81, align 8
-  %sub37 = sub i64 %23, %11
+  %22 = load i64, ptr %tree.addr.1.lcssa81, align 8
+  %sub37 = sub i64 %22, %10
   store i64 %sub37, ptr %tree.addr.1.lcssa81, align 8
   %cmp3994 = icmp sgt i32 %depth.1.lcssa, 0
   br i1 %cmp3994, label %while.body40.preheader, label %while.cond47.preheader
 
 while.body40.preheader:                           ; preds = %while.end33
-  %24 = zext nneg i32 %depth.1.lcssa to i64
+  %23 = zext nneg i32 %depth.1.lcssa to i64
   br label %while.body40
 
 while.body40:                                     ; preds = %while.body40.preheader, %while.body40
-  %indvars.iv108 = phi i64 [ %24, %while.body40.preheader ], [ %indvars.iv.next109, %while.body40 ]
-  %indvars.iv.next109 = add nsw i64 %indvars.iv108, -1
-  %arrayidx43 = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %indvars.iv.next109
-  %25 = load ptr, ptr %arrayidx43, align 8
-  %26 = load i64, ptr %25, align 8
-  %sub45 = sub i64 %26, %11
-  store i64 %sub45, ptr %25, align 8
-  %cmp39 = icmp samesign ugt i64 %indvars.iv108, 1
+  %indvars.iv105 = phi i64 [ %23, %while.body40.preheader ], [ %indvars.iv.next106, %while.body40 ]
+  %indvars.iv.next106 = add nsw i64 %indvars.iv105, -1
+  %arrayidx43 = getelementptr inbounds nuw [12 x ptr], ptr %stack, i64 0, i64 %indvars.iv.next106
+  %24 = load ptr, ptr %arrayidx43, align 8
+  %25 = load i64, ptr %24, align 8
+  %sub45 = sub i64 %25, %10
+  store i64 %sub45, ptr %24, align 8
+  %cmp39 = icmp samesign ugt i64 %indvars.iv105, 1
   br i1 %cmp39, label %while.body40, label %while.cond47.preheader, !llvm.loop !52
 
 while.cond47.preheader:                           ; preds = %while.body40, %while.end33
-  %tree.addr.3.ph = phi ptr [ %tree.addr.1.lcssa81, %while.end33 ], [ %25, %while.body40 ]
+  %tree.addr.3.ph = phi ptr [ %tree.addr.1.lcssa81, %while.end33 ], [ %24, %while.body40 ]
   br label %while.cond47
 
 while.cond47:                                     ; preds = %while.cond47.preheader, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67
-  %tree.addr.3 = phi ptr [ %30, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ %tree.addr.3.ph, %while.cond47.preheader ]
+  %tree.addr.3 = phi ptr [ %29, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ %tree.addr.3.ph, %while.cond47.preheader ]
   %arrayidx.i.i51 = getelementptr inbounds nuw i8, ptr %tree.addr.3, i64 15
-  %27 = load i8, ptr %arrayidx.i.i51, align 1
-  %conv.i.i52 = zext i8 %27 to i64
+  %26 = load i8, ptr %arrayidx.i.i51, align 1
+  %conv.i.i52 = zext i8 %26 to i64
   %arrayidx.i1.i53 = getelementptr inbounds nuw i8, ptr %tree.addr.3, i64 14
-  %28 = load i8, ptr %arrayidx.i1.i53, align 1
-  %conv.i2.i54 = zext i8 %28 to i64
+  %27 = load i8, ptr %arrayidx.i1.i53, align 1
+  %conv.i2.i54 = zext i8 %27 to i64
   %sub.i55 = sub nsw i64 %conv.i.i52, %conv.i2.i54
   %cmp49 = icmp eq i64 %sub.i55, 1
   br i1 %cmp49, label %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67, label %return
 
 _ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67: ; preds = %while.cond47
   %storage.i56 = getelementptr inbounds nuw i8, ptr %tree.addr.3, i64 13
-  %29 = load i8, ptr %storage.i56, align 1
+  %28 = load i8, ptr %storage.i56, align 1
   %sub.i.i62 = add nsw i64 %conv.i.i52, -1
   %edges_.i63 = getelementptr inbounds nuw i8, ptr %tree.addr.3, i64 16
   %arrayidx.i64 = getelementptr inbounds [6 x ptr], ptr %edges_.i63, i64 0, i64 %sub.i.i62
-  %30 = load ptr, ptr %arrayidx.i64, align 8
+  %29 = load ptr, ptr %arrayidx.i64, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %tree.addr.3) #25
-  %cmp53 = icmp eq i8 %29, 0
+  %cmp53 = icmp eq i8 %28, 0
   br i1 %cmp53, label %return, label %while.cond47, !llvm.loop !53
 
 return:                                           ; preds = %while.body, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit, %while.cond47, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67, %if.end14, %if.end8, %land.lhs.true, %while.end
-  %retval.sroa.0.0 = phi ptr [ %tree, %if.end14 ], [ %tree, %land.lhs.true ], [ %tree, %if.end8 ], [ %tree, %while.end ], [ %tree.addr.3, %while.cond47 ], [ %30, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ null, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ %tree, %while.body ]
-  %retval.sroa.5.0 = phi ptr [ null, %if.end14 ], [ null, %land.lhs.true ], [ null, %if.end8 ], [ null, %while.end ], [ %8, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ %8, %while.cond47 ], [ %8, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ null, %while.body ]
+  %retval.sroa.0.0 = phi ptr [ %tree, %if.end14 ], [ %tree, %land.lhs.true ], [ %tree, %if.end8 ], [ %tree, %while.end ], [ %tree.addr.3, %while.cond47 ], [ %29, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ null, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ %tree, %while.body ]
+  %retval.sroa.5.0 = phi ptr [ null, %if.end14 ], [ null, %land.lhs.true ], [ null, %if.end8 ], [ null, %while.end ], [ %7, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit67 ], [ %7, %while.cond47 ], [ %7, %_ZN4absl13cord_internal12CordRepBtree6DeleteEPS1_.exit ], [ null, %while.body ]
   %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.5.0, 1
   ret { ptr, ptr } %.fca.1.insert

@@ -861,7 +861,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br label %.preheader443
 
 .preheader443:                                    ; preds = %.preheader443.lr.ph, %379
-  %indvars.iv612 = phi i64 [ 97, %.preheader443.lr.ph ], [ %indvars.iv.next613, %379 ]
+  %indvars.iv589 = phi i32 [ 97, %.preheader443.lr.ph ], [ %indvars.iv.next590, %379 ]
   %.0370505 = phi i32 [ 96, %.preheader443.lr.ph ], [ %380, %379 ]
   %.0371504 = phi i32 [ %2, %.preheader443.lr.ph ], [ %.1372, %379 ]
   %.0379503 = phi ptr [ null, %.preheader443.lr.ph ], [ %.7, %379 ]
@@ -949,6 +949,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not412, label %.thread434, label %.preheader441
 
 .preheader441:                                    ; preds = %201
+  %wide.trip.count606 = zext i32 %indvars.iv589 to i64
   br i1 %18, label %.preheader441.split.us, label %.preheader441.split
 
 .preheader441.split.us:                           ; preds = %.preheader441
@@ -965,7 +966,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 .split.us.us.split.us.us.thread:                  ; preds = %231, %.preheader441.split.us.split.us
   %.6.us.us = phi i32 [ %.2373496.us.us, %.preheader441.split.us.split.us ], [ %.5.us.us.us.us, %231 ]
   %indvars.iv.next604 = add nuw nsw i64 %indvars.iv603, 1
-  %exitcond607.not = icmp eq i64 %indvars.iv.next604, %indvars.iv612
+  %exitcond607.not = icmp eq i64 %indvars.iv.next604, %wide.trip.count606
   br i1 %exitcond607.not, label %.thread434, label %.preheader441.split.us.split.us, !llvm.loop !45
 
 .preheader440.us.us:                              ; preds = %.preheader441.split.us.split.us, %231
@@ -1035,11 +1036,11 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   store i8 %243, ptr %235, align 1
   %.pre = load ptr, ptr %158, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 %indvars.iv598
-  %.pre632 = load i8, ptr %.phi.trans.insert, align 1
+  %.pre629 = load i8, ptr %.phi.trans.insert, align 1
   br label %244
 
 244:                                              ; preds = %241, %233
-  %245 = phi i8 [ %.pre632, %241 ], [ %236, %233 ]
+  %245 = phi i8 [ %.pre629, %241 ], [ %236, %233 ]
   %246 = phi ptr [ %.pre, %241 ], [ %234, %233 ]
   %247 = zext i8 %245 to i32
   %248 = icmp eq i32 %221, %247
@@ -1097,7 +1098,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 .split.us.us.split.thread:                        ; preds = %323, %.preheader441.split.us.split
   %.6.us = phi i32 [ %.2373496.us, %.preheader441.split.us.split ], [ %.5.us.us, %323 ]
   %indvars.iv.next594 = add nuw nsw i64 %indvars.iv593, 1
-  %exitcond597.not = icmp eq i64 %indvars.iv.next594, %indvars.iv612
+  %exitcond597.not = icmp eq i64 %indvars.iv.next594, %wide.trip.count606
   br i1 %exitcond597.not, label %.thread434, label %.preheader441.split.us.split, !llvm.loop !45
 
 .preheader440.us:                                 ; preds = %.preheader441.split.us.split, %323
@@ -1253,7 +1254,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 .split.thread:                                    ; preds = %373, %.preheader441.split
   %.6 = phi i32 [ %.2373496, %.preheader441.split ], [ %.5, %373 ]
   %indvars.iv.next587 = add nuw nsw i64 %indvars.iv586, 1
-  %exitcond592.not = icmp eq i64 %indvars.iv.next587, %indvars.iv612
+  %exitcond592.not = icmp eq i64 %indvars.iv.next587, %wide.trip.count606
   br i1 %exitcond592.not, label %.thread434, label %.preheader441.split, !llvm.loop !45
 
 .thread434:                                       ; preds = %._crit_edge490, %.split.thread, %.split.us.us.split.thread, %.split.us.us.split.us.us.thread, %189, %372, %322, %230, %201
@@ -1286,7 +1287,7 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
 379:                                              ; preds = %.loopexit439
   %380 = add nuw nsw i32 %.0370505, 96
   %381 = icmp sgt i32 %.1372, %3
-  %indvars.iv.next613 = add nuw i64 %indvars.iv612, 96
+  %indvars.iv.next590 = add i32 %indvars.iv589, 96
   br i1 %381, label %.preheader443, label %._crit_edge509, !llvm.loop !50
 
 ._crit_edge509:                                   ; preds = %379
@@ -1325,12 +1326,12 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br i1 %396, label %.lr.ph515.preheader, label %._crit_edge516
 
 .lr.ph515.preheader:                              ; preds = %392
-  %wide.trip.count630 = zext nneg i32 %.0 to i64
+  %wide.trip.count627 = zext nneg i32 %.0 to i64
   br label %.lr.ph515
 
 .lr.ph515:                                        ; preds = %.lr.ph515.preheader, %451
-  %indvars.iv627 = phi i64 [ 0, %.lr.ph515.preheader ], [ %indvars.iv.next628, %451 ]
-  %397 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv627
+  %indvars.iv624 = phi i64 [ 0, %.lr.ph515.preheader ], [ %indvars.iv.next625, %451 ]
+  %397 = getelementptr inbounds nuw %struct.png_color_struct, ptr %1, i64 %indvars.iv624
   %398 = load i8, ptr %397, align 1
   %399 = lshr i8 %398, 3
   %400 = zext nneg i8 %399 to i32
@@ -1342,44 +1343,44 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   %406 = load i8, ptr %405, align 1
   %407 = lshr i8 %406, 3
   %408 = zext nneg i8 %407 to i32
-  %409 = trunc i64 %indvars.iv627 to i8
+  %409 = trunc i64 %indvars.iv624 to i8
   %410 = zext nneg i8 %407 to i64
   %411 = zext nneg i8 %403 to i64
   %412 = zext nneg i8 %399 to i64
   br label %413
 
 413:                                              ; preds = %.lr.ph515, %450
-  %indvars.iv623 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next624, %450 ]
-  %indvars625 = trunc i64 %indvars.iv623 to i32
-  %414 = icmp samesign ugt i64 %indvars.iv623, %412
-  %415 = sub nuw nsw i32 %indvars625, %400
-  %416 = sub nuw nsw i64 %412, %indvars.iv623
+  %indvars.iv620 = phi i64 [ 0, %.lr.ph515 ], [ %indvars.iv.next621, %450 ]
+  %indvars622 = trunc i64 %indvars.iv620 to i32
+  %414 = icmp samesign ugt i64 %indvars.iv620, %412
+  %415 = sub nuw nsw i32 %indvars622, %400
+  %416 = sub nuw nsw i64 %412, %indvars.iv620
   %417 = trunc nuw nsw i64 %416 to i32
   %418 = select i1 %414, i32 %415, i32 %417
-  %419 = shl nuw nsw i64 %indvars.iv623, 10
+  %419 = shl nuw nsw i64 %indvars.iv620, 10
   br label %420
 
 420:                                              ; preds = %413, %449
-  %indvars.iv619 = phi i64 [ 0, %413 ], [ %indvars.iv.next620, %449 ]
-  %indvars621 = trunc i64 %indvars.iv619 to i32
-  %421 = icmp samesign ugt i64 %indvars.iv619, %411
-  %422 = sub nuw nsw i32 %indvars621, %404
-  %423 = sub nuw nsw i64 %411, %indvars.iv619
+  %indvars.iv616 = phi i64 [ 0, %413 ], [ %indvars.iv.next617, %449 ]
+  %indvars618 = trunc i64 %indvars.iv616 to i32
+  %421 = icmp samesign ugt i64 %indvars.iv616, %411
+  %422 = sub nuw nsw i32 %indvars618, %404
+  %423 = sub nuw nsw i64 %411, %indvars.iv616
   %424 = trunc nuw nsw i64 %423 to i32
   %425 = select i1 %421, i32 %422, i32 %424
   %426 = add nuw nsw i32 %425, %418
   %427 = tail call i32 @llvm.smax.i32(i32 %418, i32 %425)
-  %428 = shl nuw nsw i64 %indvars.iv619, 5
+  %428 = shl nuw nsw i64 %indvars.iv616, 5
   %429 = add nuw nsw i64 %428, %419
   br label %430
 
 430:                                              ; preds = %420, %448
-  %indvars.iv615 = phi i64 [ 0, %420 ], [ %indvars.iv.next616, %448 ]
-  %indvars617 = trunc i64 %indvars.iv615 to i32
-  %431 = add nuw nsw i64 %indvars.iv615, %429
-  %432 = icmp samesign ugt i64 %indvars.iv615, %410
-  %433 = sub nuw nsw i32 %indvars617, %408
-  %434 = sub nuw nsw i64 %410, %indvars.iv615
+  %indvars.iv612 = phi i64 [ 0, %420 ], [ %indvars.iv.next613, %448 ]
+  %indvars614 = trunc i64 %indvars.iv612 to i32
+  %431 = add nuw nsw i64 %indvars.iv612, %429
+  %432 = icmp samesign ugt i64 %indvars.iv612, %410
+  %433 = sub nuw nsw i32 %indvars614, %408
+  %434 = sub nuw nsw i64 %410, %indvars.iv612
   %435 = trunc nuw nsw i64 %434 to i32
   %436 = select i1 %432, i32 %433, i32 %435
   %437 = tail call i32 @llvm.smax.i32(i32 %427, i32 %436)
@@ -1400,24 +1401,24 @@ define void @png_set_quantize(ptr noalias noundef %0, ptr noundef %1, i32 nounde
   br label %448
 
 448:                                              ; preds = %430, %444
-  %indvars.iv.next616 = add nuw nsw i64 %indvars.iv615, 1
-  %exitcond618.not = icmp eq i64 %indvars.iv.next616, 32
-  br i1 %exitcond618.not, label %449, label %430, !llvm.loop !51
+  %indvars.iv.next613 = add nuw nsw i64 %indvars.iv612, 1
+  %exitcond615.not = icmp eq i64 %indvars.iv.next613, 32
+  br i1 %exitcond615.not, label %449, label %430, !llvm.loop !51
 
 449:                                              ; preds = %448
-  %indvars.iv.next620 = add nuw nsw i64 %indvars.iv619, 1
-  %exitcond622.not = icmp eq i64 %indvars.iv.next620, 32
-  br i1 %exitcond622.not, label %450, label %420, !llvm.loop !52
+  %indvars.iv.next617 = add nuw nsw i64 %indvars.iv616, 1
+  %exitcond619.not = icmp eq i64 %indvars.iv.next617, 32
+  br i1 %exitcond619.not, label %450, label %420, !llvm.loop !52
 
 450:                                              ; preds = %449
-  %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
-  %exitcond626.not = icmp eq i64 %indvars.iv.next624, 32
-  br i1 %exitcond626.not, label %451, label %413, !llvm.loop !53
+  %indvars.iv.next621 = add nuw nsw i64 %indvars.iv620, 1
+  %exitcond623.not = icmp eq i64 %indvars.iv.next621, 32
+  br i1 %exitcond623.not, label %451, label %413, !llvm.loop !53
 
 451:                                              ; preds = %450
-  %indvars.iv.next628 = add nuw nsw i64 %indvars.iv627, 1
-  %exitcond631.not = icmp eq i64 %indvars.iv.next628, %wide.trip.count630
-  br i1 %exitcond631.not, label %._crit_edge516, label %.lr.ph515, !llvm.loop !54
+  %indvars.iv.next625 = add nuw nsw i64 %indvars.iv624, 1
+  %exitcond628.not = icmp eq i64 %indvars.iv.next625, %wide.trip.count627
+  br i1 %exitcond628.not, label %._crit_edge516, label %.lr.ph515, !llvm.loop !54
 
 ._crit_edge516:                                   ; preds = %451, %392
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef nonnull %395) #11

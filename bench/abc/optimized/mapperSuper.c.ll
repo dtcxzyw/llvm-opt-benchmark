@@ -423,61 +423,54 @@ define noundef ptr @Map_LibraryReadFormulaStep(ptr noundef %0, ptr nocapture nou
   br i1 %.not606977, label %.critedge4.thread, label %.lr.ph73
 
 .lr.ph73:                                         ; preds = %._crit_edge, %.critedge4
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge4 ], [ 1, %._crit_edge ]
-  %26 = phi i8 [ %38, %.critedge4 ], [ %25, %._crit_edge ]
-  %.04778 = phi ptr [ %36, %.critedge4 ], [ %11, %._crit_edge ]
-  br label %27
+  %26 = phi i8 [ %41, %.critedge4 ], [ %25, %._crit_edge ]
+  %27 = phi i32 [ %38, %.critedge4 ], [ 1, %._crit_edge ]
+  %.04778 = phi ptr [ %37, %.critedge4 ], [ %11, %._crit_edge ]
+  br label %28
 
-27:                                               ; preds = %.lr.ph73, %33
-  %28 = phi i8 [ %26, %.lr.ph73 ], [ %35, %33 ]
-  %.271 = phi i32 [ 0, %.lr.ph73 ], [ %.3, %33 ]
-  %.14870 = phi ptr [ %.04778, %.lr.ph73 ], [ %34, %33 ]
+28:                                               ; preds = %.lr.ph73, %34
+  %29 = phi i8 [ %26, %.lr.ph73 ], [ %36, %34 ]
+  %.271 = phi i32 [ 0, %.lr.ph73 ], [ %.3, %34 ]
+  %.14870 = phi ptr [ %.04778, %.lr.ph73 ], [ %35, %34 ]
   %.not61 = icmp eq i32 %.271, 0
-  %.not62 = icmp eq i8 %28, 44
+  %.not62 = icmp eq i8 %29, 44
   %or.cond = and i1 %.not61, %.not62
   br i1 %or.cond, label %.critedge4, label %.critedge6
 
-.critedge6:                                       ; preds = %27
-  switch i8 %28, label %33 [
-    i8 40, label %29
-    i8 41, label %31
+.critedge6:                                       ; preds = %28
+  switch i8 %29, label %34 [
+    i8 40, label %30
+    i8 41, label %32
   ]
 
-29:                                               ; preds = %.critedge6
-  %30 = add nsw i32 %.271, 1
-  br label %33
+30:                                               ; preds = %.critedge6
+  %31 = add nsw i32 %.271, 1
+  br label %34
 
-31:                                               ; preds = %.critedge6
-  %32 = add nsw i32 %.271, -1
-  br label %33
+32:                                               ; preds = %.critedge6
+  %33 = add nsw i32 %.271, -1
+  br label %34
 
-33:                                               ; preds = %.critedge6, %29, %31
-  %.3 = phi i32 [ %30, %29 ], [ %32, %31 ], [ %.271, %.critedge6 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
-  %35 = load i8, ptr %34, align 1
-  %.not60 = icmp eq i8 %35, 0
-  br i1 %.not60, label %.critedge4.thread.loopexit, label %27, !llvm.loop !13
+34:                                               ; preds = %.critedge6, %30, %32
+  %.3 = phi i32 [ %31, %30 ], [ %33, %32 ], [ %.271, %.critedge6 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
+  %36 = load i8, ptr %35, align 1
+  %.not60 = icmp eq i8 %36, 0
+  br i1 %.not60, label %.critedge4.thread, label %28, !llvm.loop !13
 
-.critedge4:                                       ; preds = %27
+.critedge4:                                       ; preds = %28
   store i8 0, ptr %.14870, align 1
-  %36 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  store ptr %36, ptr %37, align 8
-  %38 = load i8, ptr %36, align 1
-  %.not6069 = icmp eq i8 %38, 0
-  br i1 %.not6069, label %.critedge4.thread.loopexit80, label %.lr.ph73
+  %37 = getelementptr inbounds nuw i8, ptr %.14870, i64 1
+  %38 = add nuw nsw i32 %27, 1
+  %39 = zext nneg i32 %27 to i64
+  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %39
+  store ptr %37, ptr %40, align 8
+  %41 = load i8, ptr %37, align 1
+  %.not6069 = icmp eq i8 %41, 0
+  br i1 %.not6069, label %.critedge4.thread, label %.lr.ph73
 
-.critedge4.thread.loopexit:                       ; preds = %33
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.critedge4.thread
-
-.critedge4.thread.loopexit80:                     ; preds = %.critedge4
-  %40 = trunc nuw i64 %indvars.iv.next to i32
-  br label %.critedge4.thread
-
-.critedge4.thread:                                ; preds = %.critedge, %.critedge4.thread.loopexit80, %.critedge4.thread.loopexit, %._crit_edge
-  %storemerge = phi i32 [ 1, %._crit_edge ], [ %39, %.critedge4.thread.loopexit ], [ %40, %.critedge4.thread.loopexit80 ], [ 0, %.critedge ]
+.critedge4.thread:                                ; preds = %.critedge, %.critedge4, %34, %._crit_edge
+  %storemerge = phi i32 [ 1, %._crit_edge ], [ %27, %34 ], [ %38, %.critedge4 ], [ 0, %.critedge ]
   store i32 %storemerge, ptr %2, align 4
   ret ptr %.051
 }

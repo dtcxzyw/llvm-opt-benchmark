@@ -11724,77 +11724,73 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
   %19 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %18
   %20 = load i8, ptr %19, align 1
   %21 = trunc i8 %20 to i1
-  br i1 %21, label %.preheader.preheader, label %.lr.ph.preheader
+  br i1 %21, label %.preheader.preheader, label %.lr.ph
 
 .preheader.preheader:                             ; preds = %17
   %smin = tail call i32 @llvm.smin.i32(i32 %.055, i32 0)
   %22 = add i32 %smin, -1
   br label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %17
-  %23 = sext i32 %.04154 to i64
-  br label %.lr.ph
+.preheader:                                       ; preds = %.preheader.preheader, %25
+  %indvars.iv58 = phi i64 [ %18, %.preheader.preheader ], [ %indvars.iv.next59, %25 ]
+  %23 = trunc nuw i64 %indvars.iv58 to i32
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %.critedge
 
-.preheader:                                       ; preds = %.preheader.preheader, %26
-  %indvars.iv62 = phi i64 [ %18, %.preheader.preheader ], [ %indvars.iv.next63, %26 ]
-  %24 = trunc nuw i64 %indvars.iv62 to i32
-  %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %26, label %.critedge
+25:                                               ; preds = %.preheader
+  %indvars.iv.next59 = add nsw i64 %indvars.iv58, -1
+  %26 = and i64 %indvars.iv.next59, 4294967295
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %26
+  %28 = load i8, ptr %27, align 1
+  %29 = trunc i8 %28 to i1
+  br i1 %29, label %.preheader, label %.critedge.split.loop.exit67
 
-26:                                               ; preds = %.preheader
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
-  %27 = and i64 %indvars.iv.next63, 4294967295
-  %28 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %27
-  %29 = load i8, ptr %28, align 1
-  %30 = trunc i8 %29 to i1
-  br i1 %30, label %.preheader, label %.critedge.split.loop.exit72
-
-.critedge.split.loop.exit72:                      ; preds = %26
-  %indvars.le = trunc i64 %indvars.iv.next63 to i32
+.critedge.split.loop.exit67:                      ; preds = %25
+  %indvars.le = trunc i64 %indvars.iv.next59 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit72
-  %.lcssa = phi i32 [ %indvars.le, %.critedge.split.loop.exit72 ], [ %22, %.preheader ]
+.critedge:                                        ; preds = %.preheader, %.critedge.split.loop.exit67
+  %.lcssa = phi i32 [ %indvars.le, %.critedge.split.loop.exit67 ], [ %22, %.preheader ]
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %.lcssa, i32 0)
-  %31 = sext i32 %.04154 to i64
-  %32 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %31
-  %33 = load i64, ptr %32, align 8
-  %34 = add i32 %.055, 1
-  %35 = sub i32 %34, %spec.store.select
-  %36 = zext nneg i32 %spec.store.select to i64
-  %37 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %36
-  %38 = getelementptr inbounds nuw i64, ptr %1, i64 %36
-  %39 = tail call i32 @H5VM_array_calc(i64 noundef %33, i32 noundef %35, ptr noundef nonnull %37, ptr noundef %38) #15
-  %40 = add nsw i32 %spec.store.select, -1
-  %41 = add nsw i32 %.04154, -1
+  %30 = sext i32 %.04154 to i64
+  %31 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %30
+  %32 = load i64, ptr %31, align 8
+  %33 = add i32 %.055, 1
+  %34 = sub i32 %33, %spec.store.select
+  %35 = zext nneg i32 %spec.store.select to i64
+  %36 = getelementptr inbounds nuw [32 x i64], ptr %16, i64 0, i64 %35
+  %37 = getelementptr inbounds nuw i64, ptr %1, i64 %35
+  %38 = tail call i32 @H5VM_array_calc(i64 noundef %32, i32 noundef %34, ptr noundef nonnull %36, ptr noundef %37) #15
+  %39 = add nsw i32 %spec.store.select, -1
+  %40 = add nsw i32 %.04154, -1
   br label %.critedge2
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
-  %indvars.iv57 = phi i64 [ %23, %.lr.ph.preheader ], [ %indvars.iv.next58, %45 ]
-  %indvars.iv = phi i64 [ %18, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
-  %42 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv
-  %43 = load i8, ptr %42, align 1
-  %44 = trunc i8 %43 to i1
-  br i1 %44, label %.critedge2.loopexit, label %45
+.lr.ph:                                           ; preds = %17, %44
+  %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ %18, %17 ]
+  %.24348 = phi i32 [ %49, %44 ], [ %.04154, %17 ]
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 0, i64 %indvars.iv
+  %42 = load i8, ptr %41, align 1
+  %43 = trunc i8 %42 to i1
+  br i1 %43, label %.critedge2.loopexit, label %44
 
-45:                                               ; preds = %.lr.ph
-  %46 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %indvars.iv57
+44:                                               ; preds = %.lr.ph
+  %45 = sext i32 %.24348 to i64
+  %46 = getelementptr inbounds [32 x i64], ptr %3, i64 0, i64 %45
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   store i64 %47, ptr %48, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %indvars.iv.next58 = add nsw i64 %indvars.iv57, -1
-  %49 = icmp sgt i64 %indvars.iv, 0
-  br i1 %49, label %.lr.ph, label %.loopexit
+  %49 = add nsw i32 %.24348, -1
+  %50 = icmp sgt i64 %indvars.iv, 0
+  br i1 %50, label %.lr.ph, label %.loopexit
 
 .critedge2.loopexit:                              ; preds = %.lr.ph
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
-  %51 = trunc nsw i64 %indvars.iv57 to i32
+  %51 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.loopexit, %.critedge
-  %.142 = phi i32 [ %41, %.critedge ], [ %51, %.critedge2.loopexit ]
-  %.2 = phi i32 [ %40, %.critedge ], [ %50, %.critedge2.loopexit ]
+  %.142 = phi i32 [ %40, %.critedge ], [ %.24348, %.critedge2.loopexit ]
+  %.2 = phi i32 [ %39, %.critedge ], [ %51, %.critedge2.loopexit ]
   %52 = icmp sgt i32 %.2, -1
   br i1 %52, label %17, label %.loopexit
 
@@ -11810,7 +11806,7 @@ define internal noundef i32 @H5S__hyper_iter_coords(ptr noundef %0, ptr noundef 
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %1, ptr nonnull align 8 %3, i64 %57, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge2, %45, %.loopexit.sink.split, %11
+.loopexit:                                        ; preds = %.critedge2, %44, %.loopexit.sink.split, %11
   ret i32 0
 }
 

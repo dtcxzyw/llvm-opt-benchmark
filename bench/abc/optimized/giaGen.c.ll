@@ -2607,7 +2607,7 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr nocapture noundef writeonly 
 
 13:                                               ; preds = %6
   %14 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.34, ptr noundef %0)
-  br label %98
+  br label %97
 
 15:                                               ; preds = %.lr.ph, %17
   %16 = load i8, ptr %7, align 16
@@ -2682,7 +2682,7 @@ define void @Gia_ManReadSimFile(ptr noundef %0, ptr nocapture noundef writeonly 
 .outer87._crit_edge.thread:                       ; preds = %.preheader86, %.outer87._crit_edge
   %puts80 = call i32 @puts(ptr nonnull dereferenceable(1) @str.2)
   %37 = call i32 @fclose(ptr noundef nonnull %8)
-  br label %98
+  br label %97
 
 38:                                               ; preds = %.outer87._crit_edge
   %39 = add nsw i32 %.066.ph.lcssa, 63
@@ -2740,36 +2740,33 @@ Vec_WrdStart.exit85:                              ; preds = %Vec_WrdStart.exit, 
   call void @rewind(ptr noundef nonnull %8)
   %65 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
   %.not76105110 = icmp eq ptr %65, null
-  br i1 %.not76105110, label %.outer._crit_edge, label %.lr.ph106.preheader
+  br i1 %.not76105110, label %.outer._crit_edge, label %.lr.ph106
 
-.lr.ph106.preheader:                              ; preds = %Vec_WrdStart.exit85
-  %66 = sext i32 %40 to i64
-  %67 = sext i32 %42 to i64
-  br label %.lr.ph106
+.lr.ph106:                                        ; preds = %Vec_WrdStart.exit85, %.outer
+  %.2.ph112 = phi ptr [ %.3, %.outer ], [ %7, %Vec_WrdStart.exit85 ]
+  %.068.ph111 = phi i32 [ %92, %.outer ], [ 0, %Vec_WrdStart.exit85 ]
+  br label %66
 
-.lr.ph106:                                        ; preds = %.lr.ph106.preheader, %.outer
-  %indvars.iv = phi i64 [ 0, %.lr.ph106.preheader ], [ %indvars.iv.next, %.outer ]
-  %.2.ph112 = phi ptr [ %7, %.lr.ph106.preheader ], [ %.3, %.outer ]
-  br label %68
-
-68:                                               ; preds = %.lr.ph106, %74
-  %69 = load i8, ptr %.2.ph112, align 1
-  switch i8 %69, label %.preheader [
+66:                                               ; preds = %.lr.ph106, %74
+  %67 = load i8, ptr %.2.ph112, align 1
+  switch i8 %67, label %.preheader [
     i8 0, label %74
     i8 46, label %74
   ]
 
-.preheader:                                       ; preds = %68
-  %70 = mul nsw i64 %indvars.iv, %67
-  %71 = mul nsw i64 %indvars.iv, %66
-  %72 = getelementptr inbounds i64, ptr %.val, i64 %70
+.preheader:                                       ; preds = %66
+  %68 = mul nsw i32 %.068.ph111, %42
+  %69 = sext i32 %68 to i64
+  %70 = mul nsw i32 %.068.ph111, %40
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i64, ptr %.val, i64 %69
   %73 = getelementptr inbounds i64, ptr %.val81, i64 %71
   br label %76
 
-74:                                               ; preds = %68, %68
+74:                                               ; preds = %66, %66
   %75 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
   %.not76 = icmp eq ptr %75, null
-  br i1 %.not76, label %.outer._crit_edge.loopexit, label %68, !llvm.loop !39
+  br i1 %.not76, label %.outer._crit_edge, label %66, !llvm.loop !39
 
 76:                                               ; preds = %.preheader, %90
   %.069 = phi i32 [ %.170, %90 ], [ 0, %.preheader ]
@@ -2807,38 +2804,30 @@ Vec_WrdStart.exit85:                              ; preds = %Vec_WrdStart.exit, 
   br label %76, !llvm.loop !40
 
 .outer:                                           ; preds = %76
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %92 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
-  %.not76105 = icmp eq ptr %92, null
-  br i1 %.not76105, label %.outer._crit_edge.loopexit114, label %.lr.ph106, !llvm.loop !39
+  %92 = add nuw nsw i32 %.068.ph111, 1
+  %93 = call ptr @fgets(ptr noundef nonnull %7, i32 noundef 1000, ptr noundef nonnull %8)
+  %.not76105 = icmp eq ptr %93, null
+  br i1 %.not76105, label %.outer._crit_edge, label %.lr.ph106, !llvm.loop !39
 
-.outer._crit_edge.loopexit:                       ; preds = %74
-  %93 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.outer._crit_edge
-
-.outer._crit_edge.loopexit114:                    ; preds = %.outer
-  %94 = trunc nsw i64 %indvars.iv.next to i32
-  br label %.outer._crit_edge
-
-.outer._crit_edge:                                ; preds = %.outer._crit_edge.loopexit114, %.outer._crit_edge.loopexit, %Vec_WrdStart.exit85
-  %.068.ph.lcssa = phi i32 [ 0, %Vec_WrdStart.exit85 ], [ %93, %.outer._crit_edge.loopexit ], [ %94, %.outer._crit_edge.loopexit114 ]
+.outer._crit_edge:                                ; preds = %.outer, %74, %Vec_WrdStart.exit85
+  %.068.ph.lcssa = phi i32 [ 0, %Vec_WrdStart.exit85 ], [ %.068.ph111, %74 ], [ %92, %.outer ]
   %.not77 = icmp eq i32 %.068.ph.lcssa, %.062.ph.lcssa
-  br i1 %.not77, label %96, label %95
+  br i1 %.not77, label %95, label %94
 
-95:                                               ; preds = %.outer._crit_edge
+94:                                               ; preds = %.outer._crit_edge
   %puts78 = call i32 @puts(ptr nonnull dereferenceable(1) @str.1)
-  br label %96
+  br label %95
 
-96:                                               ; preds = %95, %.outer._crit_edge
-  %97 = call i32 @fclose(ptr noundef nonnull %8)
+95:                                               ; preds = %94, %.outer._crit_edge
+  %96 = call i32 @fclose(ptr noundef nonnull %8)
   store i32 %.066.ph.lcssa, ptr %1, align 4
   store i32 %.064.ph.lcssa, ptr %2, align 4
   store i32 %.062.ph.lcssa, ptr %3, align 4
   store ptr %44, ptr %4, align 8
   store ptr %55, ptr %5, align 8
-  br label %98
+  br label %97
 
-98:                                               ; preds = %96, %.outer87._crit_edge.thread, %13
+97:                                               ; preds = %95, %.outer87._crit_edge.thread, %13
   ret void
 }
 

@@ -3354,10 +3354,11 @@ for.body.i.preheader:                             ; preds = %invoke.cont.thread1
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i.preheader, %for.body.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %for.body.i.preheader ]
+  %__value.addr.06.i = phi i32 [ %inc.i, %for.body.i ], [ 0, %for.body.i.preheader ]
   %__first.sroa.0.05.i = phi ptr [ %incdec.ptr.i.i, %for.body.i ], [ %call5.i.i.i.i2.i.i3, %for.body.i.preheader ]
-  store i64 %indvars.iv.i, ptr %__first.sroa.0.05.i, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %conv.i = zext nneg i32 %__value.addr.06.i to i64
+  store i64 %conv.i, ptr %__first.sroa.0.05.i, align 8
+  %inc.i = add nuw nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.0.05.i, i64 8
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i16
   br i1 %cmp.i.not.i, label %if.then.i.i6, label %for.body.i, !llvm.loop !121

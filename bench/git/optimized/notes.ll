@@ -1034,20 +1034,21 @@ st_mult.exit:                                     ; preds = %entry
 land.rhs.preheader:                               ; preds = %st_mult.exit
   %2 = load ptr, ptr %refs, align 8
   %3 = load i64, ptr %nr, align 8
-  %add.ptr16 = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %3
-  %cmp17 = icmp ult ptr %1, %add.ptr16
-  br i1 %cmp17, label %for.body, label %for.end
+  %add.ptr15 = getelementptr inbounds %struct.string_list_item, ptr %2, i64 %3
+  %cmp16 = icmp ult ptr %1, %add.ptr15
+  br i1 %cmp16, label %for.body, label %for.end
 
 for.body:                                         ; preds = %land.rhs.preheader, %for.body
-  %item.01319 = phi ptr [ %incdec.ptr, %for.body ], [ %1, %land.rhs.preheader ]
-  %indvars.iv18 = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %land.rhs.preheader ]
+  %counter.01218 = phi i32 [ %inc, %for.body ], [ 0, %land.rhs.preheader ]
+  %item.01317 = phi ptr [ %incdec.ptr, %for.body ], [ %1, %land.rhs.preheader ]
   %call4 = tail call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #16
-  %4 = load ptr, ptr %item.01319, align 8
+  %4 = load ptr, ptr %item.01317, align 8
   tail call void @init_notes(ptr noundef %call4, ptr noundef %4, ptr noundef nonnull @combine_notes_ignore, i32 noundef %flags)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv18, 1
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %call1, i64 %indvars.iv18
+  %inc = add nuw nsw i32 %counter.01218, 1
+  %idxprom = zext nneg i32 %counter.01218 to i64
+  %arrayidx = getelementptr inbounds nuw ptr, ptr %call1, i64 %idxprom
   store ptr %call4, ptr %arrayidx, align 8
-  %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.01319, i64 16
+  %incdec.ptr = getelementptr inbounds nuw i8, ptr %item.01317, i64 16
   %5 = load ptr, ptr %refs, align 8
   %6 = load i64, ptr %nr, align 8
   %add.ptr = getelementptr inbounds %struct.string_list_item, ptr %5, i64 %6
@@ -1055,7 +1056,7 @@ for.body:                                         ; preds = %land.rhs.preheader,
   br i1 %cmp, label %for.body, label %land.rhs.for.end.loopexit_crit_edge
 
 land.rhs.for.end.loopexit_crit_edge:              ; preds = %for.body
-  %7 = and i64 %indvars.iv.next, 4294967295
+  %7 = zext nneg i32 %inc to i64
   br label %for.end
 
 for.end:                                          ; preds = %land.rhs.preheader, %land.rhs.for.end.loopexit_crit_edge, %st_mult.exit
@@ -1260,15 +1261,16 @@ st_mult.exit.i:                                   ; preds = %if.end19
   br i1 %or.cond, label %for.body.i, label %load_notes_trees.exit
 
 for.body.i:                                       ; preds = %st_mult.exit.i, %for.body.i
-  %item.013.i17 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %10, %st_mult.exit.i ]
-  %indvars.iv.i16 = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %st_mult.exit.i ]
+  %counter.012.i17 = phi i32 [ %inc.i, %for.body.i ], [ 0, %st_mult.exit.i ]
+  %item.013.i16 = phi ptr [ %incdec.ptr.i, %for.body.i ], [ %10, %st_mult.exit.i ]
   %call4.i = call ptr @xcalloc(i64 noundef 1, i64 noundef 56) #16
-  %12 = load ptr, ptr %item.013.i17, align 8
+  %12 = load ptr, ptr %item.013.i16, align 8
   call void @init_notes(ptr noundef %call4.i, ptr noundef %12, ptr noundef nonnull @combine_notes_ignore, i32 noundef 0)
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i16, 1
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call1.i, i64 %indvars.iv.i16
+  %inc.i = add nuw nsw i32 %counter.012.i17, 1
+  %idxprom.i = zext nneg i32 %counter.012.i17 to i64
+  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %call1.i, i64 %idxprom.i
   store ptr %call4.i, ptr %arrayidx.i, align 8
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %item.013.i17, i64 16
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %item.013.i16, i64 16
   %13 = load ptr, ptr @display_notes_refs, align 8
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @display_notes_refs, i64 8), align 8
   %add.ptr.i = getelementptr inbounds %struct.string_list_item, ptr %13, i64 %14
@@ -1276,7 +1278,7 @@ for.body.i:                                       ; preds = %st_mult.exit.i, %fo
   br i1 %cmp.i, label %for.body.i, label %for.end.loopexit.i.loopexit
 
 for.end.loopexit.i.loopexit:                      ; preds = %for.body.i
-  %15 = and i64 %indvars.iv.next.i, 4294967295
+  %15 = zext nneg i32 %inc.i to i64
   br label %load_notes_trees.exit
 
 load_notes_trees.exit:                            ; preds = %for.end.loopexit.i.loopexit, %st_mult.exit.i

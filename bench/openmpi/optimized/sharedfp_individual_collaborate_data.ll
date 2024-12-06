@@ -624,7 +624,7 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 46:                                               ; preds = %43, %41
   %47 = load i32, ptr %10, align 4
   %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %.lr.ph, label %77
+  br i1 %48, label %.lr.ph, label %76
 
 .lr.ph:                                           ; preds = %46
   %49 = getelementptr inbounds nuw i8, ptr %8, i64 56
@@ -677,45 +677,44 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
 ._crit_edge:                                      ; preds = %73
   store i32 0, ptr %10, align 4
   store i64 %68, ptr %49, align 8
-  %76 = and i64 %indvars.iv.next, 4294967295
-  br label %77
+  br label %76
 
-77:                                               ; preds = %._crit_edge, %46
-  %.062 = phi i64 [ %76, %._crit_edge ], [ 0, %46 ]
+76:                                               ; preds = %._crit_edge, %46
+  %.062 = phi i32 [ %indvars93, %._crit_edge ], [ 0, %46 ]
   %.06082 = load ptr, ptr %13, align 8
   %.not7083 = icmp eq ptr %.06082, null
   br i1 %.not7083, label %._crit_edge88, label %.lr.ph87
 
-.lr.ph87:                                         ; preds = %77, %100
-  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %100 ], [ %.062, %77 ]
-  %.06085 = phi ptr [ %.060, %100 ], [ %.06082, %77 ]
-  %78 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
-  %.not71 = icmp eq i32 %78, 0
-  br i1 %.not71, label %82, label %79
+.lr.ph87:                                         ; preds = %76, %100
+  %.06085 = phi ptr [ %.060, %100 ], [ %.06082, %76 ]
+  %.26484 = phi i32 [ %94, %100 ], [ %.062, %76 ]
+  %77 = load i32, ptr @mca_sharedfp_individual_verbose, align 4
+  %.not71 = icmp eq i32 %77, 0
+  br i1 %.not71, label %80, label %78
 
-79:                                               ; preds = %.lr.ph87
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
-  %81 = trunc nuw nsw i64 %indvars.iv95 to i32
-  call void (i32, ptr, ...) @opal_output(i32 noundef %80, ptr noundef nonnull @.str.8, i32 noundef %81) #8
-  br label %82
+78:                                               ; preds = %.lr.ph87
+  %79 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
+  call void (i32, ptr, ...) @opal_output(i32 noundef %79, ptr noundef nonnull @.str.8, i32 noundef %.26484) #8
+  br label %80
 
-82:                                               ; preds = %79, %.lr.ph87
-  %83 = getelementptr inbounds nuw i8, ptr %.06085, i64 24
-  %84 = load i64, ptr %83, align 8
-  %85 = load ptr, ptr %1, align 8
-  %86 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv95
-  store i64 %84, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.06085, i64 8
-  %88 = load double, ptr %87, align 8
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv95
-  store double %88, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %.06085, i64 16
-  %92 = load i64, ptr %91, align 8
-  %93 = load ptr, ptr %2, align 8
-  %94 = getelementptr inbounds nuw i64, ptr %93, i64 %indvars.iv95
-  store i64 %92, ptr %94, align 8
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+80:                                               ; preds = %78, %.lr.ph87
+  %81 = getelementptr inbounds nuw i8, ptr %.06085, i64 24
+  %82 = load i64, ptr %81, align 8
+  %83 = load ptr, ptr %1, align 8
+  %84 = zext nneg i32 %.26484 to i64
+  %85 = getelementptr inbounds nuw i64, ptr %83, i64 %84
+  store i64 %82, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.06085, i64 8
+  %87 = load double, ptr %86, align 8
+  %88 = load ptr, ptr %0, align 8
+  %89 = getelementptr inbounds nuw double, ptr %88, i64 %84
+  store double %87, ptr %89, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %.06085, i64 16
+  %91 = load i64, ptr %90, align 8
+  %92 = load ptr, ptr %2, align 8
+  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %84
+  store i64 %91, ptr %93, align 8
+  %94 = add nuw nsw i32 %.26484, 1
   %95 = getelementptr inbounds nuw i8, ptr %.06085, i64 32
   %96 = load ptr, ptr %95, align 8
   store ptr %96, ptr %13, align 8
@@ -723,18 +722,18 @@ define i32 @mca_sharedfp_individual_get_timestamps_and_reclengths(ptr nocapture 
   %.not72 = icmp eq i32 %97, 0
   br i1 %.not72, label %100, label %98
 
-98:                                               ; preds = %82
+98:                                               ; preds = %80
   %99 = load i32, ptr getelementptr inbounds (i8, ptr @ompi_sharedfp_base_framework, i64 76), align 4
   call void (i32, ptr, ...) @opal_output(i32 noundef %99, ptr noundef nonnull @.str.9) #8
   br label %100
 
-100:                                              ; preds = %98, %82
+100:                                              ; preds = %98, %80
   call void @free(ptr noundef nonnull %.06085) #8
   %.060 = load ptr, ptr %13, align 8
   %.not70 = icmp eq ptr %.060, null
   br i1 %.not70, label %._crit_edge88, label %.lr.ph87, !llvm.loop !14
 
-._crit_edge88:                                    ; preds = %100, %77
+._crit_edge88:                                    ; preds = %100, %76
   store i32 0, ptr %8, align 8
   br label %.loopexit
 

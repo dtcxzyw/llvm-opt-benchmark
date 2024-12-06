@@ -309,11 +309,7 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %114, %_ZN2cv3RNG7un
 149:                                              ; preds = %147
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %21, i8 0, i64 32, i1 false)
   %150 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKNS_7Scalar_IdEE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr noundef nonnull align 8 dereferenceable(32) %21)
-          to label %.preheader82.preheader unwind label %.loopexit.split-lp
-
-.preheader82.preheader:                           ; preds = %149
-  %wide.trip.count = zext nneg i32 %92 to i64
-  br label %.preheader82
+          to label %.preheader82 unwind label %.loopexit.split-lp
 
 .preheader:                                       ; preds = %234
   %151 = load ptr, ptr %74, align 8
@@ -326,8 +322,8 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %114, %_ZN2cv3RNG7un
   %158 = icmp sgt i32 %157, 0
   br i1 %158, label %.lr.ph, label %._crit_edge
 
-.preheader82:                                     ; preds = %.preheader82.preheader, %234
-  %indvars.iv = phi i64 [ 0, %.preheader82.preheader ], [ %indvars.iv.next, %234 ]
+.preheader82:                                     ; preds = %149, %234
+  %indvars.iv = phi i64 [ %indvars.iv.next, %234 ], [ 0, %149 ]
   %159 = load i32, ptr %9, align 8
   %160 = and i32 %159, 16384
   %.not.i = icmp eq i32 %160, 0
@@ -360,7 +356,7 @@ _ZN2cv3RNG7uniformEii.exit68:                     ; preds = %114, %_ZN2cv3RNG7un
 
 178:                                              ; preds = %168
   %179 = load i32, ptr %67, align 4
-  %180 = trunc nuw nsw i64 %indvars.iv to i32
+  %180 = trunc nuw i64 %indvars.iv to i32
   %181 = sdiv i32 %180, %179
   %182 = mul nsw i32 %181, %179
   %.recomposed = srem i32 %180, %179
@@ -409,7 +405,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %178, %172, %165
 
 211:                                              ; preds = %201
   %212 = load i32, ptr %71, align 4
-  %213 = trunc nuw nsw i64 %indvars.iv to i32
+  %213 = trunc nuw i64 %indvars.iv to i32
   %214 = sdiv i32 %213, %212
   %215 = mul nsw i32 %214, %212
   %.recomposed91 = srem i32 %213, %212
@@ -446,7 +442,8 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %178, %172, %165
 
 234:                                              ; preds = %224
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond87.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
+  %exitcond87.not = icmp eq i32 %92, %lftr.wideiv
   br i1 %exitcond87.not, label %.preheader, label %.preheader82, !llvm.loop !10
 
 235:                                              ; preds = %146

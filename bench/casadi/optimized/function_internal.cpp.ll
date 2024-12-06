@@ -25641,7 +25641,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit394:       ; preds = %_ZNSt6vectorIxSaIxE
   br i1 %exitcond.not.i, label %_ZN6casadi11bvec_toggleEPyxxx.exit, label %671, !llvm.loop !150
 
 _ZN6casadi11bvec_toggleEPyxxx.exit:               ; preds = %671, %662
-  %676 = add nuw i64 %.0185990, 1
+  %676 = add i64 %.0185990, 1
   %677 = add nsw i64 %.0184991, 1
   %exitcond1108.not = icmp eq i64 %676, %579
   br i1 %exitcond1108.not, label %._crit_edge994, label %.lr.ph993, !llvm.loop !180
@@ -30084,7 +30084,7 @@ _ZNSt6vectorIxSaIxEE9push_backERKx.exit519:       ; preds = %_ZNSt6vectorIxSaIxE
   br i1 %exitcond.not.i, label %_ZN6casadi11bvec_toggleEPyxxx.exit, label %939, !llvm.loop !150
 
 _ZN6casadi11bvec_toggleEPyxxx.exit:               ; preds = %939, %930
-  %944 = add nuw i64 %.0205998, 1
+  %944 = add i64 %.0205998, 1
   %945 = add nsw i64 %.0204999, 1
   %exitcond1032.not = icmp eq i64 %944, %847
   br i1 %exitcond1032.not, label %._crit_edge1002, label %.lr.ph1001, !llvm.loop !234

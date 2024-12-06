@@ -999,10 +999,10 @@ if.end14:                                         ; preds = %_ZNSt8optionalIN6he
   br i1 %cmp.i.not45, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end14, %for.inc
-  %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ -1, %if.end14 ]
   %__begin2.sroa.0.048 = phi ptr [ %__begin2.sroa.0.0, %for.inc ], [ %__begin2.sroa.0.044, %if.end14 ]
   %defaultBlock.047 = phi ptr [ %defaultBlock.1, %for.inc ], [ %call6, %if.end14 ]
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %caseIndex.046 = phi i32 [ %inc, %for.inc ], [ -1, %if.end14 ]
+  %inc = add nsw i32 %caseIndex.046, 1
   %call24 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %2) #8
   %12 = load i32, ptr %Size.i.i.i.i.i23, align 8
   %13 = load i32, ptr %Capacity2.i.i.i.i.i24, align 4
@@ -1044,8 +1044,9 @@ if.end28:                                         ; preds = %_ZN4llvh23SmallVect
   %21 = icmp eq ptr %call33, null
   %add.ptr38 = getelementptr inbounds nuw i8, ptr %call33, i64 16
   %spec.select1 = select i1 %21, ptr null, ptr %add.ptr38
+  %conv = sext i32 %inc to i64
   %22 = load ptr, ptr %caseBlocks, align 8
-  %arrayidx.i91 = getelementptr inbounds ptr, ptr %22, i64 %indvars.iv.next
+  %arrayidx.i91 = getelementptr inbounds ptr, ptr %22, i64 %conv
   %23 = load ptr, ptr %arrayidx.i91, align 8
   %call42 = call noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %spec.select1, ptr noundef %23, ptr noundef %call35) #8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %call35) #8
@@ -1066,22 +1067,22 @@ for.end:                                          ; preds = %for.inc, %if.end14
   br i1 %cmp.i32.not53, label %if.end80, label %for.body57
 
 for.body57:                                       ; preds = %for.end, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ -1, %for.end ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ -1, %for.end ]
   %__begin249.sroa.0.056 = phi ptr [ %__begin249.sroa.0.0, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ %__begin249.sroa.0.052, %for.end ]
   %isFirstCase.054 = phi i1 [ false, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ true, %for.end ]
-  %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %isFirstCase.054, label %if.end69, label %if.then64
 
 if.then64:                                        ; preds = %for.body57
   %24 = load ptr, ptr %caseBlocks, align 8
-  %arrayidx.i86 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next60
+  %arrayidx.i86 = getelementptr inbounds ptr, ptr %24, i64 %indvars.iv.next
   %25 = load ptr, ptr %arrayidx.i86, align 8
   %call68 = call noundef ptr @_ZN6hermes9IRBuilder16createBranchInstEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %25) #8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then64, %for.body57
   %26 = load ptr, ptr %caseBlocks, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.next60
+  %arrayidx.i = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv.next
   %27 = load ptr, ptr %arrayidx.i, align 8
   call void @_ZN6hermes9IRBuilder17setInsertionBlockEPNS_10BasicBlockE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %27) #8
   %_consequent = getelementptr inbounds nuw i8, ptr %__begin249.sroa.0.056, i64 56
@@ -2340,20 +2341,21 @@ if.end:                                           ; preds = %_ZNSt8optionalIN6he
   br i1 %cmp.i.not46, label %if.end41, label %for.body
 
 for.body:                                         ; preds = %if.end, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ -1, %if.end ]
   %__begin2.sroa.0.050 = phi ptr [ %__begin2.sroa.0.0, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ %__begin2.sroa.0.045, %if.end ]
   %defaultBlock.049 = phi ptr [ %defaultBlock.1, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ %call4, %if.end ]
+  %caseIndex.048 = phi i32 [ %inc, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ -1, %if.end ]
   %isFirstCase.047 = phi i1 [ false, %_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE.exit ], [ true, %if.end ]
   %call21 = call noundef ptr @_ZN6hermes9IRBuilder16createBasicBlockEPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(40) %Builder, ptr noundef %0) #8
-  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %inc = add nsw i32 %caseIndex.048, 1
   %10 = getelementptr i8, ptr %__begin2.sroa.0.050, i64 48
   %call19.val = load ptr, ptr %10, align 8
   %tobool.not.i = icmp eq ptr %call19.val, null
   br i1 %tobool.not.i, label %if.end29, label %if.else
 
 if.else:                                          ; preds = %for.body
+  %conv = sext i32 %inc to i64
   %11 = load ptr, ptr %caseLiterals, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv.next
+  %arrayidx.i = getelementptr inbounds ptr, ptr %11, i64 %conv
   %12 = load ptr, ptr %arrayidx.i, align 8
   %13 = load ptr, ptr %CurArray.i.i.i, align 8, !noalias !6
   %14 = load ptr, ptr %valueSet, align 8, !noalias !6

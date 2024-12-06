@@ -1131,7 +1131,7 @@ if.then.i17:                                      ; preds = %if.then6
   br label %return
 
 while.cond:                                       ; preds = %while.cond.preheader, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34
-  %indvars.iv47 = phi i64 [ 0, %while.cond.preheader ], [ %indvars.iv.next48, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34 ]
+  %indvars.iv47 = phi i32 [ 0, %while.cond.preheader ], [ %indvars.iv.next48, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34 ]
   %number.addr.0 = phi i32 [ %number, %while.cond.preheader ], [ %div, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34 ]
   %numLen.0 = phi i32 [ 0, %while.cond.preheader ], [ %inc, %_ZN6icu_7510CharString6appendEcR10UErrorCode.exit34 ]
   %cmp9.not = icmp eq i32 %number.addr.0, 0
@@ -1168,7 +1168,7 @@ _ZN6icu_7510CharString6appendEcR10UErrorCode.exit34: ; preds = %while.body, %if.
   %inc = add nuw nsw i32 %numLen.0, 1
   %18 = load i32, ptr %status, align 4
   %cmp.i35 = icmp slt i32 %18, 1
-  %indvars.iv.next48 = add i64 %indvars.iv47, -1
+  %indvars.iv.next48 = add i32 %indvars.iv47, -1
   br i1 %cmp.i35, label %while.cond, label %return, !llvm.loop !7
 
 while.end:                                        ; preds = %while.cond
@@ -1181,20 +1181,21 @@ while.end:                                        ; preds = %while.cond
 while.body20.preheader:                           ; preds = %while.end
   %20 = sext i32 %19 to i64
   %21 = add nsw i64 %20, -1
-  %22 = add nsw i64 %indvars.iv47, %20
+  %22 = add i32 %19, %indvars.iv47
+  %23 = sext i32 %22 to i64
   br label %while.body20
 
 while.body20:                                     ; preds = %while.body20.preheader, %while.body20
-  %indvars.iv50 = phi i64 [ %22, %while.body20.preheader ], [ %indvars.iv.next51, %while.body20 ]
+  %indvars.iv50 = phi i64 [ %23, %while.body20.preheader ], [ %indvars.iv.next51, %while.body20 ]
   %indvars.iv = phi i64 [ %21, %while.body20.preheader ], [ %indvars.iv.next, %while.body20 ]
-  %23 = load ptr, ptr %this, align 8
+  %24 = load ptr, ptr %this, align 8
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
-  %arrayidx = getelementptr inbounds i8, ptr %23, i64 %indvars.iv50
-  %arrayidx25 = getelementptr inbounds i8, ptr %23, i64 %indvars.iv
-  %24 = load i8, ptr %arrayidx, align 1
-  %25 = load i8, ptr %arrayidx25, align 1
-  store i8 %25, ptr %arrayidx, align 1
-  store i8 %24, ptr %arrayidx25, align 1
+  %arrayidx = getelementptr inbounds i8, ptr %24, i64 %indvars.iv50
+  %arrayidx25 = getelementptr inbounds i8, ptr %24, i64 %indvars.iv
+  %25 = load i8, ptr %arrayidx, align 1
+  %26 = load i8, ptr %arrayidx25, align 1
+  store i8 %26, ptr %arrayidx, align 1
+  store i8 %25, ptr %arrayidx25, align 1
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %cmp19 = icmp slt i64 %indvars.iv.next51, %indvars.iv.next
   br i1 %cmp19, label %while.body20, label %return, !llvm.loop !8

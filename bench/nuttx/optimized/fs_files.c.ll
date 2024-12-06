@@ -119,84 +119,80 @@ define i32 @file_allocate_from_tcb(ptr noundef %0, ptr noundef %1, i32 noundef %
 21:                                               ; preds = %16, %7
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %23 = sext i32 %11 to i64
-  %24 = sext i32 %12 to i64
+  br label %24
+
+24:                                               ; preds = %39, %21
+  %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %23, %21 ]
+  %.0 = phi i32 [ 0, %39 ], [ %12, %21 ]
   br label %25
 
-25:                                               ; preds = %38, %21
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %38 ], [ %23, %21 ]
-  %.0 = phi i64 [ 0, %38 ], [ %24, %21 ]
-  br label %26
-
-26:                                               ; preds = %37, %25
-  %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ %.0, %25 ]
+25:                                               ; preds = %37, %24
+  %.1 = phi i32 [ %.0, %24 ], [ %38, %37 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %9) #10, !srcloc !9
-  %27 = load i64, ptr %9, align 8
+  %26 = load i64, ptr %9, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv56
-  %30 = load ptr, ptr %29, align 8
-  %31 = and i64 %27, 512
-  %.not.i.i = icmp eq i64 %31, 0
-  br i1 %.not.i.i, label %files_fget_by_index.exit, label %32
+  %27 = load ptr, ptr %22, align 8
+  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8
+  %30 = and i64 %26, 512
+  %.not.i.i = icmp eq i64 %30, 0
+  br i1 %.not.i.i, label %files_fget_by_index.exit, label %31
 
-32:                                               ; preds = %26
+31:                                               ; preds = %25
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %files_fget_by_index.exit
 
-files_fget_by_index.exit:                         ; preds = %26, %32
-  %33 = getelementptr inbounds %struct.file, ptr %30, i64 %indvars.iv
+files_fget_by_index.exit:                         ; preds = %25, %31
+  %32 = sext i32 %.1 to i64
+  %33 = getelementptr inbounds %struct.file, ptr %29, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %files_fget_by_index.exit45.loopexit, label %37
+  br i1 %36, label %files_fget_by_index.exit45, label %37
 
 37:                                               ; preds = %files_fget_by_index.exit
+  %38 = add nsw i32 %.1, 1
+  %exitcond.not = icmp eq i32 %38, 8
+  br i1 %exitcond.not, label %39, label %25, !llvm.loop !12
+
+39:                                               ; preds = %37
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %38, label %26, !llvm.loop !12
+  %40 = load i8, ptr %13, align 1
+  %41 = zext i8 %40 to i64
+  %42 = icmp slt i64 %indvars.iv.next, %41
+  br i1 %42, label %24, label %43, !llvm.loop !13
 
-38:                                               ; preds = %37
-  %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
-  %39 = load i8, ptr %13, align 1
-  %40 = zext i8 %39 to i64
-  %41 = icmp slt i64 %indvars.iv.next57, %40
-  br i1 %41, label %25, label %42, !llvm.loop !13
+43:                                               ; preds = %39
+  %44 = add i64 %indvars.iv, 2
+  %45 = and i64 %44, 4294967295
+  %46 = call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %45)
+  %47 = icmp slt i32 %46, 0
+  br i1 %47, label %64, label %48
 
-42:                                               ; preds = %38
-  %43 = add i64 %indvars.iv56, 2
-  %44 = and i64 %43, 4294967295
-  %45 = call fastcc i32 @files_extend(ptr noundef nonnull %10, i64 noundef %44)
-  %46 = icmp slt i32 %45, 0
-  br i1 %46, label %64, label %47
-
-47:                                               ; preds = %42
+48:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %8) #10, !srcloc !9
-  %48 = load i64, ptr %8, align 8
+  %49 = load i64, ptr %8, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void asm sideeffect "cli", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !10
-  %49 = load ptr, ptr %22, align 8
-  %50 = and i64 %indvars.iv.next57, 4294967295
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
-  %52 = load ptr, ptr %51, align 8
-  %53 = and i64 %48, 512
-  %.not.i.i44 = icmp eq i64 %53, 0
-  br i1 %.not.i.i44, label %files_fget_by_index.exit45, label %54
+  %50 = load ptr, ptr %22, align 8
+  %51 = and i64 %indvars.iv.next, 4294967295
+  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %51
+  %53 = load ptr, ptr %52, align 8
+  %54 = and i64 %49, 512
+  %.not.i.i44 = icmp eq i64 %54, 0
+  br i1 %.not.i.i44, label %files_fget_by_index.exit45, label %55
 
-54:                                               ; preds = %47
+55:                                               ; preds = %48
   call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !11
   br label %files_fget_by_index.exit45
 
-files_fget_by_index.exit45.loopexit:              ; preds = %files_fget_by_index.exit
-  %55 = trunc nsw i64 %indvars.iv to i32
-  br label %files_fget_by_index.exit45
-
-files_fget_by_index.exit45:                       ; preds = %files_fget_by_index.exit45.loopexit, %54, %47
-  %.036 = phi ptr [ %52, %47 ], [ %52, %54 ], [ %33, %files_fget_by_index.exit45.loopexit ]
-  %.135.in = phi i64 [ %indvars.iv.next57, %47 ], [ %indvars.iv.next57, %54 ], [ %indvars.iv56, %files_fget_by_index.exit45.loopexit ]
-  %.2 = phi i32 [ 0, %47 ], [ 0, %54 ], [ %55, %files_fget_by_index.exit45.loopexit ]
+files_fget_by_index.exit45:                       ; preds = %files_fget_by_index.exit, %55, %48
+  %.036 = phi ptr [ %53, %48 ], [ %53, %55 ], [ %33, %files_fget_by_index.exit ]
+  %.135.in = phi i64 [ %indvars.iv.next, %48 ], [ %indvars.iv.next, %55 ], [ %indvars.iv, %files_fget_by_index.exit ]
+  %.2 = phi i32 [ 0, %48 ], [ 0, %55 ], [ %.1, %files_fget_by_index.exit ]
   %.135 = trunc i64 %.135.in to i32
   store i32 %2, ptr %.036, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.036, i64 4
@@ -216,8 +212,8 @@ files_fget_by_index.exit45:                       ; preds = %files_fget_by_index
   %63 = add nsw i32 %62, %.2
   br label %64
 
-64:                                               ; preds = %42, %16, %61
-  %.037 = phi i32 [ %63, %61 ], [ %19, %16 ], [ %45, %42 ]
+64:                                               ; preds = %43, %16, %61
+  %.037 = phi i32 [ %63, %61 ], [ %19, %16 ], [ %46, %43 ]
   ret i32 %.037
 }
 

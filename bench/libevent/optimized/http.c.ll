@@ -5629,10 +5629,10 @@ for.body.lr.ph:                                   ; preds = %entry
   br i1 %cmp6, label %for.body.us, label %for.body
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %if.end47.us
-  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %if.end47.us ], [ 0, %for.body.lr.ph ]
   %conv26.us = phi i64 [ %conv.us, %if.end47.us ], [ 0, %for.body.lr.ph ]
   %i.025.us = phi i32 [ %inc50.us, %if.end47.us ], [ 0, %for.body.lr.ph ]
   %decode_plus.024.us = phi i32 [ %decode_plus.1.us, %if.end47.us ], [ %cond, %for.body.lr.ph ]
+  %j.023.us = phi i32 [ %inc.us, %if.end47.us ], [ 0, %for.body.lr.ph ]
   %arrayidx.us = getelementptr inbounds nuw i8, ptr %uri, i64 %conv26.us
   %0 = load i8, ptr %arrayidx.us, align 1
   %cmp4.us = icmp eq i8 %0, 63
@@ -5682,19 +5682,20 @@ if.end47.us:                                      ; preds = %for.body.us, %if.th
   %c.0.us = phi i8 [ %conv43.us, %if.then32.us ], [ 37, %land.lhs.true26.us ], [ 37, %land.lhs.true21.us ], [ %0, %if.else13.us ], [ 32, %if.else.us ], [ 63, %for.body.us ]
   %decode_plus.1.us = phi i32 [ %decode_plus.024.us, %if.then32.us ], [ %decode_plus.024.us, %land.lhs.true26.us ], [ %decode_plus.024.us, %land.lhs.true21.us ], [ %decode_plus.024.us, %if.else13.us ], [ 1, %if.else.us ], [ 1, %for.body.us ]
   %i.1.us = phi i32 [ %add.us, %if.then32.us ], [ %i.025.us, %land.lhs.true26.us ], [ %i.025.us, %land.lhs.true21.us ], [ %i.025.us, %if.else13.us ], [ %i.025.us, %if.else.us ], [ %i.025.us, %for.body.us ]
-  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
-  %arrayidx49.us = getelementptr inbounds nuw i8, ptr %ret, i64 %indvars.iv29
+  %inc.us = add nuw nsw i32 %j.023.us, 1
+  %idxprom48.us = zext nneg i32 %j.023.us to i64
+  %arrayidx49.us = getelementptr inbounds nuw i8, ptr %ret, i64 %idxprom48.us
   store i8 %c.0.us, ptr %arrayidx49.us, align 1
   %inc50.us = add i32 %i.1.us, 1
   %conv.us = zext i32 %inc50.us to i64
   %cmp1.us = icmp ugt i64 %length, %conv.us
-  br i1 %cmp1.us, label %for.body.us, label %for.end.loopexit, !llvm.loop !21
+  br i1 %cmp1.us, label %for.body.us, label %for.end, !llvm.loop !21
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end47
-  %indvars.iv = phi i64 [ %indvars.iv.next, %if.end47 ], [ 0, %for.body.lr.ph ]
   %conv26 = phi i64 [ %conv, %if.end47 ], [ 0, %for.body.lr.ph ]
   %i.025 = phi i32 [ %inc50, %if.end47 ], [ 0, %for.body.lr.ph ]
   %decode_plus.024 = phi i32 [ %decode_plus.1, %if.end47 ], [ %cond, %for.body.lr.ph ]
+  %j.023 = phi i32 [ %inc, %if.end47 ], [ 0, %for.body.lr.ph ]
   %arrayidx = getelementptr inbounds nuw i8, ptr %uri, i64 %conv26
   %5 = load i8, ptr %arrayidx, align 1
   %cmp4 = icmp eq i8 %5, 63
@@ -5744,24 +5745,17 @@ if.end47:                                         ; preds = %for.body, %if.else,
   %c.0 = phi i8 [ %conv43, %if.then32 ], [ 37, %land.lhs.true26 ], [ 37, %land.lhs.true21 ], [ %5, %if.else13 ], [ 32, %if.else ], [ 63, %for.body ]
   %decode_plus.1 = phi i32 [ %decode_plus.024, %if.then32 ], [ %decode_plus.024, %land.lhs.true26 ], [ %decode_plus.024, %land.lhs.true21 ], [ %decode_plus.024, %if.else13 ], [ 1, %if.else ], [ %decode_plus.024, %for.body ]
   %i.1 = phi i32 [ %add, %if.then32 ], [ %i.025, %land.lhs.true26 ], [ %i.025, %land.lhs.true21 ], [ %i.025, %if.else13 ], [ %i.025, %if.else ], [ %i.025, %for.body ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx49 = getelementptr inbounds nuw i8, ptr %ret, i64 %indvars.iv
+  %inc = add nuw nsw i32 %j.023, 1
+  %idxprom48 = zext nneg i32 %j.023 to i64
+  %arrayidx49 = getelementptr inbounds nuw i8, ptr %ret, i64 %idxprom48
   store i8 %c.0, ptr %arrayidx49, align 1
   %inc50 = add i32 %i.1, 1
   %conv = zext i32 %inc50 to i64
   %cmp1 = icmp ugt i64 %length, %conv
-  br i1 %cmp1, label %for.body, label %for.end.loopexit27, !llvm.loop !21
+  br i1 %cmp1, label %for.body, label %for.end, !llvm.loop !21
 
-for.end.loopexit:                                 ; preds = %if.end47.us
-  %10 = trunc nuw i64 %indvars.iv.next30 to i32
-  br label %for.end
-
-for.end.loopexit27:                               ; preds = %if.end47
-  %11 = trunc nuw i64 %indvars.iv.next to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.end.loopexit27, %for.end.loopexit, %entry
-  %j.0.lcssa = phi i32 [ 0, %entry ], [ %10, %for.end.loopexit ], [ %11, %for.end.loopexit27 ]
+for.end:                                          ; preds = %if.end47, %if.end47.us, %entry
+  %j.0.lcssa = phi i32 [ 0, %entry ], [ %inc.us, %if.end47.us ], [ %inc, %if.end47 ]
   %idxprom51 = zext nneg i32 %j.0.lcssa to i64
   %arrayidx52 = getelementptr inbounds nuw i8, ptr %ret, i64 %idxprom51
   store i8 0, ptr %arrayidx52, align 1
@@ -5800,10 +5794,10 @@ for.body.lr.ph.i:                                 ; preds = %if.end
   br label %for.body.us.i
 
 for.body.us.i:                                    ; preds = %if.end47.us.i, %for.body.lr.ph.i
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %if.end47.us.i ], [ 0, %for.body.lr.ph.i ]
   %conv26.us.i = phi i64 [ %conv.us.i, %if.end47.us.i ], [ 0, %for.body.lr.ph.i ]
   %i.025.us.i = phi i32 [ %inc50.us.i, %if.end47.us.i ], [ 0, %for.body.lr.ph.i ]
   %decode_plus.024.us.i = phi i32 [ %decode_plus.1.us.i, %if.end47.us.i ], [ 0, %for.body.lr.ph.i ]
+  %j.023.us.i = phi i32 [ %inc.us.i, %if.end47.us.i ], [ 0, %for.body.lr.ph.i ]
   %arrayidx.us.i = getelementptr inbounds nuw i8, ptr %uri, i64 %conv26.us.i
   %0 = load i8, ptr %arrayidx.us.i, align 1
   %cmp4.us.i = icmp eq i8 %0, 63
@@ -5853,20 +5847,21 @@ if.end47.us.i:                                    ; preds = %if.then32.us.i, %la
   %c.0.us.i = phi i8 [ %conv43.us.i, %if.then32.us.i ], [ 37, %land.lhs.true26.us.i ], [ 37, %land.lhs.true21.us.i ], [ %0, %if.else13.us.i ], [ 32, %if.else.us.i ], [ 63, %for.body.us.i ]
   %decode_plus.1.us.i = phi i32 [ %decode_plus.024.us.i, %if.then32.us.i ], [ %decode_plus.024.us.i, %land.lhs.true26.us.i ], [ %decode_plus.024.us.i, %land.lhs.true21.us.i ], [ %decode_plus.024.us.i, %if.else13.us.i ], [ 1, %if.else.us.i ], [ 1, %for.body.us.i ]
   %i.1.us.i = phi i32 [ %add.us.i, %if.then32.us.i ], [ %i.025.us.i, %land.lhs.true26.us.i ], [ %i.025.us.i, %land.lhs.true21.us.i ], [ %i.025.us.i, %if.else13.us.i ], [ %i.025.us.i, %if.else.us.i ], [ %i.025.us.i, %for.body.us.i ]
-  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %arrayidx49.us.i = getelementptr inbounds nuw i8, ptr %call1, i64 %indvars.iv29.i
+  %inc.us.i = add nuw nsw i32 %j.023.us.i, 1
+  %idxprom48.us.i = zext nneg i32 %j.023.us.i to i64
+  %arrayidx49.us.i = getelementptr inbounds nuw i8, ptr %call1, i64 %idxprom48.us.i
   store i8 %c.0.us.i, ptr %arrayidx49.us.i, align 1
   %inc50.us.i = add i32 %i.1.us.i, 1
   %conv.us.i = zext i32 %inc50.us.i to i64
   %cmp1.us.i = icmp ugt i64 %call2, %conv.us.i
-  br i1 %cmp1.us.i, label %for.body.us.i, label %for.end.loopexit.i, !llvm.loop !21
+  br i1 %cmp1.us.i, label %for.body.us.i, label %evhttp_decode_uri_internal.exit.loopexit, !llvm.loop !21
 
-for.end.loopexit.i:                               ; preds = %if.end47.us.i
-  %5 = and i64 %indvars.iv.next30.i, 4294967295
+evhttp_decode_uri_internal.exit.loopexit:         ; preds = %if.end47.us.i
+  %5 = zext nneg i32 %inc.us.i to i64
   br label %evhttp_decode_uri_internal.exit
 
-evhttp_decode_uri_internal.exit:                  ; preds = %if.end, %for.end.loopexit.i
-  %j.0.lcssa.i = phi i64 [ 0, %if.end ], [ %5, %for.end.loopexit.i ]
+evhttp_decode_uri_internal.exit:                  ; preds = %evhttp_decode_uri_internal.exit.loopexit, %if.end
+  %j.0.lcssa.i = phi i64 [ 0, %if.end ], [ %5, %evhttp_decode_uri_internal.exit.loopexit ]
   %arrayidx52.i = getelementptr inbounds nuw i8, ptr %call1, i64 %j.0.lcssa.i
   store i8 0, ptr %arrayidx52.i, align 1
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %tmp.i)
@@ -6026,9 +6021,9 @@ if.end45:                                         ; preds = %if.end39
   br i1 %cmp122.not.i, label %evhttp_decode_uri_internal.exit, label %for.body.i
 
 for.body.i:                                       ; preds = %if.end45, %if.end47.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %if.end47.i ], [ 0, %if.end45 ]
   %conv26.i = phi i64 [ %conv.i, %if.end47.i ], [ 0, %if.end45 ]
   %i.025.i = phi i32 [ %inc50.i, %if.end47.i ], [ 0, %if.end45 ]
+  %j.023.i = phi i32 [ %inc.i, %if.end47.i ], [ 0, %if.end45 ]
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %8, i64 %conv26.i
   %9 = load i8, ptr %arrayidx.i, align 1
   switch i8 %9, label %if.else13.i [
@@ -6041,7 +6036,7 @@ if.else13.i:                                      ; preds = %for.body.i
   %conv14.i = zext i32 %add.i to i64
   %cmp15.i = icmp ugt i64 %call46, %conv14.i
   %cmp19.i = icmp eq i8 %9, 37
-  %or.cond1.i = and i1 %cmp19.i, %cmp15.i
+  %or.cond1.i = and i1 %cmp15.i, %cmp19.i
   br i1 %or.cond1.i, label %land.lhs.true21.i, label %if.end47.i
 
 land.lhs.true21.i:                                ; preds = %if.else13.i
@@ -6076,20 +6071,21 @@ if.end47.i.fold.split:                            ; preds = %for.body.i
 if.end47.i:                                       ; preds = %for.body.i, %if.end47.i.fold.split, %if.then32.i, %land.lhs.true26.i, %land.lhs.true21.i, %if.else13.i
   %c.0.i = phi i8 [ %conv43.i, %if.then32.i ], [ 37, %land.lhs.true26.i ], [ 37, %land.lhs.true21.i ], [ %9, %if.else13.i ], [ %9, %for.body.i ], [ 32, %if.end47.i.fold.split ]
   %i.1.i = phi i32 [ %add.i, %if.then32.i ], [ %i.025.i, %land.lhs.true26.i ], [ %i.025.i, %land.lhs.true21.i ], [ %i.025.i, %if.else13.i ], [ %i.025.i, %for.body.i ], [ %i.025.i, %if.end47.i.fold.split ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %call41, i64 %indvars.iv.i
+  %inc.i = add nuw nsw i32 %j.023.i, 1
+  %idxprom48.i = zext nneg i32 %j.023.i to i64
+  %arrayidx49.i = getelementptr inbounds nuw i8, ptr %call41, i64 %idxprom48.i
   store i8 %c.0.i, ptr %arrayidx49.i, align 1
   %inc50.i = add i32 %i.1.i, 1
   %conv.i = zext i32 %inc50.i to i64
   %cmp1.i = icmp ugt i64 %call46, %conv.i
-  br i1 %cmp1.i, label %for.body.i, label %for.end.loopexit27.i, !llvm.loop !21
+  br i1 %cmp1.i, label %for.body.i, label %evhttp_decode_uri_internal.exit.loopexit, !llvm.loop !21
 
-for.end.loopexit27.i:                             ; preds = %if.end47.i
-  %14 = and i64 %indvars.iv.next.i, 4294967295
+evhttp_decode_uri_internal.exit.loopexit:         ; preds = %if.end47.i
+  %14 = zext nneg i32 %inc.i to i64
   br label %evhttp_decode_uri_internal.exit
 
-evhttp_decode_uri_internal.exit:                  ; preds = %if.end45, %for.end.loopexit27.i
-  %j.0.lcssa.i = phi i64 [ 0, %if.end45 ], [ %14, %for.end.loopexit27.i ]
+evhttp_decode_uri_internal.exit:                  ; preds = %evhttp_decode_uri_internal.exit.loopexit, %if.end45
+  %j.0.lcssa.i = phi i64 [ 0, %if.end45 ], [ %14, %evhttp_decode_uri_internal.exit.loopexit ]
   %arrayidx52.i = getelementptr inbounds nuw i8, ptr %call41, i64 %j.0.lcssa.i
   store i8 0, ptr %arrayidx52.i, align 1
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %tmp.i)
@@ -11281,9 +11277,9 @@ for.body.lr.ph.i.i:                               ; preds = %if.end.i
   br label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %if.end47.i.i, %for.body.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %if.end47.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %conv26.i.i = phi i64 [ %conv.i.i, %if.end47.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %i.025.i.i = phi i32 [ %inc50.i.i, %if.end47.i.i ], [ 0, %for.body.lr.ph.i.i ]
+  %j.023.i.i = phi i32 [ %inc.i.i, %if.end47.i.i ], [ 0, %for.body.lr.ph.i.i ]
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %req.val.val, i64 %conv26.i.i
   %11 = load i8, ptr %arrayidx.i.i, align 1
   %cmp4.i.i = icmp eq i8 %11, 63
@@ -11294,7 +11290,7 @@ if.else13.i.i:                                    ; preds = %for.body.i.i
   %conv14.i.i = zext i32 %add.i.i to i64
   %cmp15.i.i = icmp ugt i64 %call1.i15, %conv14.i.i
   %cmp19.i.i = icmp eq i8 %11, 37
-  %or.cond1.i.i = and i1 %cmp19.i.i, %cmp15.i.i
+  %or.cond1.i.i = and i1 %cmp15.i.i, %cmp19.i.i
   br i1 %or.cond1.i.i, label %land.lhs.true21.i.i, label %if.end47.i.i
 
 land.lhs.true21.i.i:                              ; preds = %if.else13.i.i
@@ -11326,20 +11322,21 @@ if.then32.i.i:                                    ; preds = %land.lhs.true26.i.i
 if.end47.i.i:                                     ; preds = %if.then32.i.i, %land.lhs.true26.i.i, %land.lhs.true21.i.i, %if.else13.i.i, %for.body.i.i
   %c.0.i.i = phi i8 [ %conv43.i.i, %if.then32.i.i ], [ 37, %land.lhs.true26.i.i ], [ 37, %land.lhs.true21.i.i ], [ %11, %if.else13.i.i ], [ 63, %for.body.i.i ]
   %i.1.i.i = phi i32 [ %add.i.i, %if.then32.i.i ], [ %i.025.i.i, %land.lhs.true26.i.i ], [ %i.025.i.i, %land.lhs.true21.i.i ], [ %i.025.i.i, %if.else13.i.i ], [ %i.025.i.i, %for.body.i.i ]
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %arrayidx49.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 %indvars.iv.i.i
+  %inc.i.i = add nuw nsw i32 %j.023.i.i, 1
+  %idxprom48.i.i = zext nneg i32 %j.023.i.i to i64
+  %arrayidx49.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 %idxprom48.i.i
   store i8 %c.0.i.i, ptr %arrayidx49.i.i, align 1
   %inc50.i.i = add i32 %i.1.i.i, 1
   %conv.i.i = zext i32 %inc50.i.i to i64
   %cmp1.i.i = icmp ugt i64 %call1.i15, %conv.i.i
-  br i1 %cmp1.i.i, label %for.body.i.i, label %for.end.loopexit27.i.i, !llvm.loop !21
+  br i1 %cmp1.i.i, label %for.body.i.i, label %evhttp_decode_uri_internal.exit.loopexit.i, !llvm.loop !21
 
-for.end.loopexit27.i.i:                           ; preds = %if.end47.i.i
-  %16 = and i64 %indvars.iv.next.i.i, 4294967295
+evhttp_decode_uri_internal.exit.loopexit.i:       ; preds = %if.end47.i.i
+  %16 = zext nneg i32 %inc.i.i to i64
   br label %evhttp_decode_uri_internal.exit.i
 
-evhttp_decode_uri_internal.exit.i:                ; preds = %for.end.loopexit27.i.i, %if.end.i
-  %j.0.lcssa.i.i = phi i64 [ 0, %if.end.i ], [ %16, %for.end.loopexit27.i.i ]
+evhttp_decode_uri_internal.exit.i:                ; preds = %evhttp_decode_uri_internal.exit.loopexit.i, %if.end.i
+  %j.0.lcssa.i.i = phi i64 [ 0, %if.end.i ], [ %16, %evhttp_decode_uri_internal.exit.loopexit.i ]
   %arrayidx52.i.i = getelementptr inbounds nuw i8, ptr %call2.i, i64 %j.0.lcssa.i.i
   store i8 0, ptr %arrayidx52.i.i, align 1
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %tmp.i.i)

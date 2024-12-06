@@ -2007,6 +2007,7 @@ entry:
 for.cond:                                         ; preds = %for.inc41, %entry
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc41 ], [ 0, %entry ]
   %j.0 = phi i32 [ %j.2, %for.inc41 ], [ 0, %entry ]
+  %indvars36 = trunc i64 %indvars.iv to i32
   %arrayidx = getelementptr inbounds nuw i8, ptr %s, i64 %indvars.iv
   %0 = load i8, ptr %arrayidx, align 1
   switch i8 %0, label %sw.default [
@@ -2040,33 +2041,28 @@ sw.bb16:                                          ; preds = %for.cond, %for.cond
   br i1 %cmp29.not, label %for.end, label %land.rhs.preheader
 
 land.rhs.preheader:                               ; preds = %sw.bb16
-  %1 = sext i32 %j.0 to i64
-  %2 = trunc nuw nsw i64 %indvars.iv to i32
-  %3 = add i32 %j.0, %2
+  %1 = add i32 %j.0, %indvars36
   br label %land.rhs
 
 land.rhs:                                         ; preds = %land.rhs.preheader, %for.body24
-  %indvars.iv35 = phi i64 [ %1, %land.rhs.preheader ], [ %indvars.iv.next36, %for.body24 ]
   %indvars.iv33 = phi i64 [ %indvars.iv, %land.rhs.preheader ], [ %indvars.iv.next34, %for.body24 ]
+  %j.130 = phi i32 [ %j.0, %land.rhs.preheader ], [ %inc25, %for.body24 ]
   %indvars.iv.next34 = add nsw i64 %indvars.iv33, -1
   %arrayidx20 = getelementptr inbounds nuw i8, ptr %s, i64 %indvars.iv.next34
-  %4 = load i8, ptr %arrayidx20, align 1
-  %cmp22 = icmp eq i8 %4, 92
-  br i1 %cmp22, label %for.body24, label %for.end.loopexit.split.loop.exit41
+  %2 = load i8, ptr %arrayidx20, align 1
+  %cmp22 = icmp eq i8 %2, 92
+  br i1 %cmp22, label %for.body24, label %for.end
 
 for.body24:                                       ; preds = %land.rhs
-  %indvars.iv.next36 = add nsw i64 %indvars.iv35, 1
-  %arrayidx27 = getelementptr inbounds i8, ptr %call1, i64 %indvars.iv35
+  %inc25 = add i32 %j.130, 1
+  %idxprom26 = sext i32 %j.130 to i64
+  %arrayidx27 = getelementptr inbounds i8, ptr %call1, i64 %idxprom26
   store i8 92, ptr %arrayidx27, align 1
-  %cmp = icmp sgt i64 %indvars.iv33, 1
-  br i1 %cmp, label %land.rhs, label %for.end, !llvm.loop !25
+  %exitcond.not = icmp eq i32 %inc25, %1
+  br i1 %exitcond.not, label %for.end, label %land.rhs, !llvm.loop !25
 
-for.end.loopexit.split.loop.exit41:               ; preds = %land.rhs
-  %5 = trunc nsw i64 %indvars.iv35 to i32
-  br label %for.end
-
-for.end:                                          ; preds = %for.body24, %for.end.loopexit.split.loop.exit41, %sw.bb16
-  %j.1.lcssa = phi i32 [ %j.0, %sw.bb16 ], [ %5, %for.end.loopexit.split.loop.exit41 ], [ %3, %for.body24 ]
+for.end:                                          ; preds = %land.rhs, %for.body24, %sw.bb16
+  %j.1.lcssa = phi i32 [ %j.0, %sw.bb16 ], [ %1, %for.body24 ], [ %j.130, %land.rhs ]
   %idxprom29 = sext i32 %j.1.lcssa to i64
   %arrayidx30 = getelementptr inbounds i8, ptr %call1, i64 %idxprom29
   store i8 92, ptr %arrayidx30, align 1

@@ -710,12 +710,12 @@ VP8LFastSLog2.exit94:                             ; preds = %80, %84
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr nocapture noundef readonly %1, i32 noundef %2) #3 {
   %4 = icmp sgt i32 %2, 11
-  br i1 %4, label %.preheader, label %27
+  br i1 %4, label %.preheader, label %31
 
-.preheader:                                       ; preds = %3, %23
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %3 ]
-  %.in61 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %.in = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+.preheader:                                       ; preds = %3, %24
+  %.in = phi ptr [ %27, %24 ], [ %1, %3 ]
+  %.in61 = phi ptr [ %28, %24 ], [ %0, %3 ]
+  %.0 = phi i32 [ %25, %24 ], [ 0, %3 ]
   %5 = load <4 x i32>, ptr %.in61, align 1
   %6 = load <4 x i32>, ptr %.in, align 1
   %7 = icmp eq <4 x i32> %5, %6
@@ -724,105 +724,95 @@ define internal i32 @VectorMismatch_SSE2(ptr nocapture noundef readonly %0, ptr 
   %10 = icmp sgt <16 x i8> %9, splat (i8 -1)
   %11 = bitcast <16 x i1> %10 to i16
   %.not = icmp eq i16 %11, 0
-  br i1 %.not, label %12, label %.loopexit.loopexit.split.loop.exit70
+  br i1 %.not, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = or disjoint i64 %indvars.iv, 4
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %13
-  %15 = load <4 x i32>, ptr %14, align 1
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %13
-  %17 = load <4 x i32>, ptr %16, align 1
-  %18 = icmp eq <4 x i32> %17, %15
-  %19 = sext <4 x i1> %18 to <4 x i32>
-  %20 = bitcast <4 x i32> %19 to <16 x i8>
-  %21 = icmp sgt <16 x i8> %20, splat (i8 -1)
-  %22 = bitcast <16 x i1> %21 to i16
-  %.not60 = icmp eq i16 %22, 0
-  br i1 %.not60, label %23, label %.loopexit.loopexit.split.loop.exit
+  %13 = or disjoint i32 %.0, 4
+  %14 = zext nneg i32 %13 to i64
+  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %14
+  %16 = load <4 x i32>, ptr %15, align 1
+  %17 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %18 = load <4 x i32>, ptr %17, align 1
+  %19 = icmp eq <4 x i32> %18, %16
+  %20 = sext <4 x i1> %19 to <4 x i32>
+  %21 = bitcast <4 x i32> %20 to <16 x i8>
+  %22 = icmp sgt <16 x i8> %21, splat (i8 -1)
+  %23 = bitcast <16 x i1> %22 to i16
+  %.not60 = icmp eq i16 %23, 0
+  br i1 %.not60, label %24, label %.loopexit
 
-23:                                               ; preds = %12
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
-  %24 = trunc i64 %indvars.iv to i32
-  %25 = add i32 %24, 20
-  %26 = icmp slt i32 %25, %2
-  br i1 %26, label %.preheader, label %.loopexit.loopexit.split.loop.exit72, !llvm.loop !19
+24:                                               ; preds = %12
+  %25 = add nuw nsw i32 %.0, 8
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %26
+  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %26
+  %29 = add nuw nsw i32 %.0, 20
+  %30 = icmp slt i32 %29, %2
+  br i1 %30, label %.preheader, label %.loopexit, !llvm.loop !19
 
-27:                                               ; preds = %3
-  %28 = icmp sgt i32 %2, 3
-  br i1 %28, label %29, label %.loopexit
+31:                                               ; preds = %3
+  %32 = icmp sgt i32 %2, 3
+  br i1 %32, label %33, label %.loopexit
 
-29:                                               ; preds = %27
-  %30 = load <4 x i32>, ptr %0, align 1
-  %31 = load <4 x i32>, ptr %1, align 1
-  %32 = icmp eq <4 x i32> %30, %31
-  %33 = sext <4 x i1> %32 to <4 x i32>
-  %34 = bitcast <4 x i32> %33 to <16 x i8>
-  %35 = icmp sgt <16 x i8> %34, splat (i8 -1)
-  %36 = bitcast <16 x i1> %35 to i16
-  %37 = icmp eq i16 %36, 0
-  br i1 %37, label %38, label %.loopexit
+33:                                               ; preds = %31
+  %34 = load <4 x i32>, ptr %0, align 1
+  %35 = load <4 x i32>, ptr %1, align 1
+  %36 = icmp eq <4 x i32> %34, %35
+  %37 = sext <4 x i1> %36 to <4 x i32>
+  %38 = bitcast <4 x i32> %37 to <16 x i8>
+  %39 = icmp sgt <16 x i8> %38, splat (i8 -1)
+  %40 = bitcast <16 x i1> %39 to i16
+  %41 = icmp eq i16 %40, 0
+  br i1 %41, label %42, label %.loopexit
 
-38:                                               ; preds = %29
-  %39 = icmp samesign ugt i32 %2, 7
-  br i1 %39, label %40, label %.loopexit
+42:                                               ; preds = %33
+  %43 = icmp samesign ugt i32 %2, 7
+  br i1 %43, label %44, label %.loopexit
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %42 = load <4 x i32>, ptr %41, align 1
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %44 = load <4 x i32>, ptr %43, align 1
-  %45 = icmp eq <4 x i32> %42, %44
-  %46 = sext <4 x i1> %45 to <4 x i32>
-  %47 = bitcast <4 x i32> %46 to <16 x i8>
-  %48 = icmp sgt <16 x i8> %47, splat (i8 -1)
-  %49 = bitcast <16 x i1> %48 to i16
-  %50 = icmp eq i16 %49, 0
-  %spec.select = select i1 %50, i32 8, i32 4
+44:                                               ; preds = %42
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load <4 x i32>, ptr %45, align 1
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %48 = load <4 x i32>, ptr %47, align 1
+  %49 = icmp eq <4 x i32> %46, %48
+  %50 = sext <4 x i1> %49 to <4 x i32>
+  %51 = bitcast <4 x i32> %50 to <16 x i8>
+  %52 = icmp sgt <16 x i8> %51, splat (i8 -1)
+  %53 = bitcast <16 x i1> %52 to i16
+  %54 = icmp eq i16 %53, 0
+  %spec.select = select i1 %54, i32 8, i32 4
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit:               ; preds = %12
-  %indvars65.le = trunc i64 %indvars.iv to i32
-  %51 = or disjoint i32 %indvars65.le, 4
-  br label %.loopexit
-
-.loopexit.loopexit.split.loop.exit70:             ; preds = %.preheader
-  %indvars65.le74 = trunc i64 %indvars.iv to i32
-  br label %.loopexit
-
-.loopexit.loopexit.split.loop.exit72:             ; preds = %23
-  %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit70, %.loopexit.loopexit.split.loop.exit72, %40, %27, %29, %38
-  %.1 = phi i32 [ 4, %38 ], [ 0, %29 ], [ 0, %27 ], [ %spec.select, %40 ], [ %51, %.loopexit.loopexit.split.loop.exit ], [ %indvars65.le74, %.loopexit.loopexit.split.loop.exit70 ], [ %indvars.le, %.loopexit.loopexit.split.loop.exit72 ]
-  %52 = icmp slt i32 %.1, %2
-  br i1 %52, label %.lr.ph.preheader, label %.critedge
+.loopexit:                                        ; preds = %24, %.preheader, %12, %44, %31, %33, %42
+  %.1 = phi i32 [ 4, %42 ], [ 0, %33 ], [ 0, %31 ], [ %spec.select, %44 ], [ %25, %24 ], [ %13, %12 ], [ %.0, %.preheader ]
+  %55 = icmp slt i32 %.1, %2
+  br i1 %55, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.loopexit
-  %53 = sext i32 %.1 to i64
+  %56 = sext i32 %.1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %59
-  %indvars.iv66 = phi i64 [ %53, %.lr.ph.preheader ], [ %indvars.iv.next67, %59 ]
-  %54 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv66
-  %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv66
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %55, %57
-  br i1 %58, label %59, label %.critedge.loopexit.split.loop.exit76
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
+  %indvars.iv = phi i64 [ %56, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+  %57 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv
+  %58 = load i32, ptr %57, align 4
+  %59 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %60 = load i32, ptr %59, align 4
+  %61 = icmp eq i32 %58, %60
+  br i1 %61, label %62, label %.critedge.loopexit.split.loop.exit66
 
-59:                                               ; preds = %.lr.ph
-  %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next67 to i32
+62:                                               ; preds = %.lr.ph
+  %indvars.iv.next = add nsw i64 %indvars.iv, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %2, %lftr.wideiv
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
-.critedge.loopexit.split.loop.exit76:             ; preds = %.lr.ph
-  %60 = trunc nsw i64 %indvars.iv66 to i32
+.critedge.loopexit.split.loop.exit66:             ; preds = %.lr.ph
+  %63 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %59, %.critedge.loopexit.split.loop.exit76, %.loopexit
-  %.2.lcssa = phi i32 [ %.1, %.loopexit ], [ %60, %.critedge.loopexit.split.loop.exit76 ], [ %2, %59 ]
+.critedge:                                        ; preds = %62, %.critedge.loopexit.split.loop.exit66, %.loopexit
+  %.2.lcssa = phi i32 [ %.1, %.loopexit ], [ %63, %.critedge.loopexit.split.loop.exit66 ], [ %2, %62 ]
   ret i32 %.2.lcssa
 }
 

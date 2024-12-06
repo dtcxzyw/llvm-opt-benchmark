@@ -85,49 +85,50 @@ Check_Type.exit:                                  ; preds = %6
   tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %13, ptr noundef null) #18
   unreachable
 
-14:                                               ; preds = %.preheader, %29
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %29 ]
-  %15 = load i64, ptr %7, align 8
-  %16 = and i64 %15, 8192
-  %.not.i15 = icmp eq i64 %16, 0
-  br i1 %.not.i15, label %20, label %17
+14:                                               ; preds = %.preheader, %30
+  %.0 = phi i32 [ %33, %30 ], [ 0, %.preheader ]
+  %15 = zext nneg i32 %.0 to i64
+  %16 = load i64, ptr %7, align 8
+  %17 = and i64 %16, 8192
+  %.not.i15 = icmp eq i64 %17, 0
+  br i1 %.not.i15, label %21, label %18
 
-17:                                               ; preds = %14
-  %18 = lshr i64 %15, 15
-  %19 = and i64 %18, 127
+18:                                               ; preds = %14
+  %19 = lshr i64 %16, 15
+  %20 = and i64 %19, 127
   br label %rb_array_len.exit
 
-20:                                               ; preds = %14
-  %21 = load i64, ptr %11, align 8
+21:                                               ; preds = %14
+  %22 = load i64, ptr %11, align 8
   br label %rb_array_len.exit
 
-rb_array_len.exit:                                ; preds = %17, %20
-  %.0.i = phi i64 [ %19, %17 ], [ %21, %20 ]
-  %22 = icmp sgt i64 %.0.i, %indvars.iv
-  br i1 %22, label %23, label %32
+rb_array_len.exit:                                ; preds = %18, %21
+  %.0.i = phi i64 [ %20, %18 ], [ %22, %21 ]
+  %23 = icmp sgt i64 %.0.i, %15
+  br i1 %23, label %24, label %34
 
-23:                                               ; preds = %rb_array_len.exit
-  %24 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %indvars.iv) #19
-  %25 = load i64, ptr @cX509Cert, align 8
-  %26 = tail call i64 @rb_obj_is_kind_of(i64 noundef %24, i64 noundef %25) #17
-  %.not14 = icmp eq i64 %26, 0
-  br i1 %.not14, label %27, label %29
+24:                                               ; preds = %rb_array_len.exit
+  %25 = tail call i64 @rb_ary_entry(i64 noundef %0, i64 noundef %15) #19
+  %26 = load i64, ptr @cX509Cert, align 8
+  %27 = tail call i64 @rb_obj_is_kind_of(i64 noundef %25, i64 noundef %26) #17
+  %.not14 = icmp eq i64 %27, 0
+  br i1 %.not14, label %28, label %30
 
-27:                                               ; preds = %23
+28:                                               ; preds = %24
   tail call void @OPENSSL_sk_pop_free(ptr noundef nonnull %10, ptr noundef nonnull @X509_free) #17
-  %28 = load i64, ptr @eOSSLError, align 8
-  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %28, ptr noundef nonnull @.str) #18
+  %29 = load i64, ptr @eOSSLError, align 8
+  tail call void (i64, ptr, ...) @ossl_raise(i64 noundef %29, ptr noundef nonnull @.str) #18
   unreachable
 
-29:                                               ; preds = %23
-  %30 = tail call ptr @DupX509CertPtr(i64 noundef %24) #17
-  %31 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %10, ptr noundef %30) #17
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+30:                                               ; preds = %24
+  %31 = tail call ptr @DupX509CertPtr(i64 noundef %25) #17
+  %32 = tail call i32 @OPENSSL_sk_push(ptr noundef nonnull %10, ptr noundef %31) #17
+  %33 = add nuw nsw i32 %.0, 1
   br label %14, !llvm.loop !6
 
-32:                                               ; preds = %rb_array_len.exit
-  %33 = ptrtoint ptr %10 to i64
-  ret i64 %33
+34:                                               ; preds = %rb_array_len.exit
+  %35 = ptrtoint ptr %10 to i64
+  ret i64 %35
 }
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1

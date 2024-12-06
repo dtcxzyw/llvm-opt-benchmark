@@ -3812,8 +3812,8 @@ _ZN16JfrVersionSystem7inc_tipEv.exit.i:           ; preds = %124
   br i1 %.not10.i9.i.i, label %_ZN16JfrVersionSystem4Node6commitEv.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN16JfrVersionSystem7inc_tipEv.exit.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ 1, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
   %.011.i.i = phi ptr [ %.0711.i.i.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ %131, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
+  %.0410.i.i = phi i32 [ %138, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ 1, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
   br label %.lr.ph.i.i.i40
 
 .lr.ph.i.i.i40:                                   ; preds = %135, %.lr.ph.i.preheader.i.i
@@ -3833,26 +3833,27 @@ _ZN16JfrVersionSystem7inc_tipEv.exit.i:           ; preds = %124
   br i1 %.not.i.i.i41, label %_ZN16JfrVersionSystem4Node6commitEv.exit, label %.lr.ph.i.i.i40, !llvm.loop !54
 
 _ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i: ; preds = %.lr.ph.i.i.i40
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %138 = mul nuw nsw i64 %indvars.iv.i.i, 10
-  tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef %138) #16
+  %138 = add nuw nsw i32 %.0410.i.i, 1
+  %139 = mul nuw nsw i32 %.0410.i.i, 10
+  %140 = zext nneg i32 %139 to i64
+  tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef %140) #16
   br label %.lr.ph.i.preheader.i.i
 
 _ZN16JfrVersionSystem4Node6commitEv.exit:         ; preds = %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit, %135, %_ZN16JfrVersionSystem7inc_tipEv.exit.i
   %.0 = phi ptr [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ %40, %135 ], [ null, %_Z13find_adjacentI9JfrBuffer14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_S7_PKS6_PS7_RT0_RT1_IS6_E.exit ]
-  %139 = load i64, ptr %27, align 8
-  %140 = add nsw i64 %139, -1
-  store i64 %140, ptr %27, align 8
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
+  %141 = load i64, ptr %27, align 8
+  %142 = add nsw i64 %141, -1
+  store i64 %142, ptr %27, align 8
+  %143 = icmp eq i64 %142, 0
+  br i1 %143, label %144, label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
 
-142:                                              ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit
-  %143 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #16, !srcloc !46
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store i8 0, ptr %144, align 8
+144:                                              ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit
+  %145 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #16, !srcloc !46
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  store i8 0, ptr %146, align 8
   br label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
 
-_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit: ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit, %142
+_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit: ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit, %144
   ret ptr %.0
 }
 
@@ -4146,8 +4147,8 @@ _ZN16JfrVersionSystem7inc_tipEv.exit.i:           ; preds = %124
   br i1 %.not10.i9.i.i, label %_ZN16JfrVersionSystem4Node6commitEv.exit, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %_ZN16JfrVersionSystem7inc_tipEv.exit.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ 1, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
   %.011.i.i = phi ptr [ %.0711.i.i.i, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ %131, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
+  %.0410.i.i = phi i32 [ %138, %_ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i ], [ 1, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ]
   br label %.lr.ph.i.i.i40
 
 .lr.ph.i.i.i40:                                   ; preds = %135, %.lr.ph.i.preheader.i.i
@@ -4167,26 +4168,27 @@ _ZN16JfrVersionSystem7inc_tipEv.exit.i:           ; preds = %124
   br i1 %.not.i.i.i41, label %_ZN16JfrVersionSystem4Node6commitEv.exit, label %.lr.ph.i.i.i40, !llvm.loop !54
 
 _ZNK16JfrVersionSystem16synchronize_withEmPNS_4NodeE.exit.i.i: ; preds = %.lr.ph.i.i.i40
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %138 = mul nuw nsw i64 %indvars.iv.i.i, 10
-  tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef %138) #16
+  %138 = add nuw nsw i32 %.0410.i.i, 1
+  %139 = mul nuw nsw i32 %.0410.i.i, 10
+  %140 = zext nneg i32 %139 to i64
+  tail call void @_ZN2os21naked_short_nanosleepEl(i64 noundef %140) #16
   br label %.lr.ph.i.preheader.i.i
 
 _ZN16JfrVersionSystem4Node6commitEv.exit:         ; preds = %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit, %135, %_ZN16JfrVersionSystem7inc_tipEv.exit.i
   %.0 = phi ptr [ %40, %_ZN16JfrVersionSystem7inc_tipEv.exit.i ], [ %40, %135 ], [ null, %_Z13find_adjacentI12JfrValueNodeIP9JfrBufferE14RefCountHandleIN16JfrVersionSystem4NodeEE8HeadNodeEPT_SA_PKS9_PSA_RT0_RT1_IS9_E.exit ]
-  %139 = load i64, ptr %27, align 8
-  %140 = add nsw i64 %139, -1
-  store i64 %140, ptr %27, align 8
-  %141 = icmp eq i64 %140, 0
-  br i1 %141, label %142, label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
+  %141 = load i64, ptr %27, align 8
+  %142 = add nsw i64 %141, -1
+  store i64 %142, ptr %27, align 8
+  %143 = icmp eq i64 %142, 0
+  br i1 %143, label %144, label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
 
-142:                                              ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit
-  %143 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #16, !srcloc !46
-  %144 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  store i8 0, ptr %144, align 8
+144:                                              ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit
+  %145 = tail call i64 asm sideeffect "xchgq ($2), $0", "=r,0,r,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 0, ptr nonnull %30) #16, !srcloc !46
+  %146 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  store i8 0, ptr %146, align 8
   br label %_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit
 
-_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit: ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit, %142
+_ZN14RefCountHandleIN16JfrVersionSystem4NodeEED2Ev.exit: ; preds = %_ZN16JfrVersionSystem4Node6commitEv.exit, %144
   ret ptr %.0
 }
 

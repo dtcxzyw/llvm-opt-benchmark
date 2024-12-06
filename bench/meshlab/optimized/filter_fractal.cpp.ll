@@ -9931,85 +9931,83 @@ _ZNSt6vectorIP8CVertexOSaIS1_EEC2EmRKS2_.exit:    ; preds = %_ZSt6fill_nIPP8CVer
 
 .preheader.us:                                    ; preds = %._crit_edge97.us, %.preheader.lr.ph
   %.sroa.0.0111.us = phi i64 [ 1, %.preheader.lr.ph ], [ %91, %._crit_edge97.us ]
-  %.sroa.5.0110.us.in = phi i32 [ %6, %.preheader.lr.ph ], [ %87, %._crit_edge97.us ]
+  %.sroa.5.0110.us.in = phi i32 [ %6, %.preheader.lr.ph ], [ %.sroa.5.194.us, %._crit_edge97.us ]
   %.sroa.10.0109.us = phi i32 [ %7, %.preheader.lr.ph ], [ %92, %._crit_edge97.us ]
   %.sroa.04.0108.us = phi i64 [ 0, %.preheader.lr.ph ], [ %88, %._crit_edge97.us ]
   %.sroa.56.0107.us = phi i32 [ 1, %.preheader.lr.ph ], [ %89, %._crit_edge97.us ]
   %.sroa.108.0106.us = phi i32 [ %7, %.preheader.lr.ph ], [ %90, %._crit_edge97.us ]
   %.1105.us = phi i32 [ 0, %.preheader.lr.ph ], [ %93, %._crit_edge97.us ]
   %.sroa.057.0104.us = phi ptr [ %53, %.preheader.lr.ph ], [ %spec.select.us, %._crit_edge97.us ]
-  %.sroa.5.0110.us = add i32 %.sroa.5.0110.us.in, 2
+  %.sroa.5.0110.us = add nsw i32 %.sroa.5.0110.us.in, 2
   %sext = shl i64 %.sroa.0.0111.us, 32
   %55 = ashr exact i64 %sext, 32
-  %56 = sext i32 %.sroa.5.0110.us to i64
-  %57 = sext i32 %.sroa.10.0109.us to i64
-  %sext138 = shl i64 %.sroa.04.0108.us, 32
-  %58 = ashr exact i64 %sext138, 32
-  %59 = sext i32 %.sroa.56.0107.us to i64
-  %60 = sext i32 %.sroa.108.0106.us to i64
-  %61 = add i32 %.sroa.56.0107.us, %6
-  br label %62
+  %sext130 = shl i64 %.sroa.04.0108.us, 32
+  %56 = ashr exact i64 %sext130, 32
+  %57 = sext i32 %.sroa.56.0107.us to i64
+  %58 = sext i32 %.sroa.108.0106.us to i64
+  %59 = add i32 %.sroa.56.0107.us, %6
+  br label %60
 
-62:                                               ; preds = %.preheader.us, %62
-  %indvars.iv124 = phi i64 [ %60, %.preheader.us ], [ %indvars.iv.next125, %62 ]
-  %indvars.iv122 = phi i64 [ %59, %.preheader.us ], [ %indvars.iv.next123, %62 ]
-  %indvars.iv120 = phi i64 [ %58, %.preheader.us ], [ %indvars.iv.next121, %62 ]
-  %indvars.iv118 = phi i64 [ %57, %.preheader.us ], [ %indvars.iv.next119, %62 ]
-  %indvars.iv116 = phi i64 [ %56, %.preheader.us ], [ %indvars.iv.next117, %62 ]
-  %indvars.iv114 = phi i64 [ %55, %.preheader.us ], [ %indvars.iv.next115, %62 ]
-  %.sroa.057.188.us = phi ptr [ %.sroa.057.0104.us, %.preheader.us ], [ %spec.select.us, %62 ]
-  %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
-  %63 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv120
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 8
-  store ptr %64, ptr %65, align 8
-  %indvars.iv.next123 = add nsw i64 %indvars.iv122, 1
-  %66 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv122
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 16
-  store ptr %67, ptr %68, align 8
-  %indvars.iv.next125 = add nsw i64 %indvars.iv124, 1
-  %69 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv124
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 24
-  store ptr %70, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 48
-  %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
-  %73 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv114
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 56
-  store ptr %74, ptr %75, align 8
+60:                                               ; preds = %.preheader.us, %60
+  %indvars.iv120 = phi i64 [ %58, %.preheader.us ], [ %indvars.iv.next121, %60 ]
+  %indvars.iv118 = phi i64 [ %57, %.preheader.us ], [ %indvars.iv.next119, %60 ]
+  %indvars.iv116 = phi i64 [ %56, %.preheader.us ], [ %indvars.iv.next117, %60 ]
+  %indvars.iv114 = phi i64 [ %55, %.preheader.us ], [ %indvars.iv.next115, %60 ]
+  %.sroa.5.194.us = phi i32 [ %.sroa.5.0110.us, %.preheader.us ], [ %74, %60 ]
+  %.sroa.10.193.us = phi i32 [ %.sroa.10.0109.us, %.preheader.us ], [ %79, %60 ]
+  %.sroa.057.188.us = phi ptr [ %.sroa.057.0104.us, %.preheader.us ], [ %spec.select.us, %60 ]
   %indvars.iv.next117 = add nsw i64 %indvars.iv116, 1
-  %76 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv116
+  %61 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv116
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 8
+  store ptr %62, ptr %63, align 8
+  %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
+  %64 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv118
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 16
+  store ptr %65, ptr %66, align 8
+  %indvars.iv.next121 = add nsw i64 %indvars.iv120, 1
+  %67 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv120
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 24
+  store ptr %68, ptr %69, align 8
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 48
+  %indvars.iv.next115 = add nsw i64 %indvars.iv114, 1
+  %71 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv114
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 56
+  store ptr %72, ptr %73, align 8
+  %74 = add nsw i32 %.sroa.5.194.us, 1
+  %75 = sext i32 %.sroa.5.194.us to i64
+  %76 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 64
   store ptr %77, ptr %78, align 8
-  %indvars.iv.next119 = add nsw i64 %indvars.iv118, 1
-  %79 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %indvars.iv118
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 72
-  store ptr %80, ptr %81, align 8
-  %82 = load ptr, ptr %54, align 8
-  %.not84.us = icmp eq ptr %72, %82
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 96
-  %spec.select.us = select i1 %.not84.us, ptr %72, ptr %83
-  %lftr.wideiv = trunc i64 %indvars.iv.next123 to i32
-  %exitcond.not = icmp eq i32 %61, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge97.us, label %62, !llvm.loop !30
+  %79 = add nsw i32 %.sroa.10.193.us, 1
+  %80 = sext i32 %.sroa.10.193.us to i64
+  %81 = getelementptr inbounds ptr, ptr %.sroa.068.0, i64 %80
+  %82 = load ptr, ptr %81, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 72
+  store ptr %82, ptr %83, align 8
+  %84 = load ptr, ptr %54, align 8
+  %.not84.us = icmp eq ptr %70, %84
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.057.188.us, i64 96
+  %spec.select.us = select i1 %.not84.us, ptr %70, ptr %85
+  %lftr.wideiv = trunc i64 %indvars.iv.next119 to i32
+  %exitcond.not = icmp eq i32 %59, %lftr.wideiv
+  br i1 %exitcond.not, label %._crit_edge97.us, label %60, !llvm.loop !30
 
-._crit_edge97.us:                                 ; preds = %62
-  %84 = trunc nsw i64 %indvars.iv124 to i32
-  %85 = trunc nsw i64 %indvars.iv122 to i32
-  %86 = trunc nsw i64 %indvars.iv118 to i32
-  %87 = trunc nsw i64 %indvars.iv116 to i32
-  %88 = add i64 %indvars.iv120, 2
-  %89 = add nsw i32 %85, 2
-  %90 = add nsw i32 %84, 2
+._crit_edge97.us:                                 ; preds = %60
+  %86 = trunc nsw i64 %indvars.iv120 to i32
+  %87 = trunc nsw i64 %indvars.iv118 to i32
+  %88 = add i64 %indvars.iv116, 2
+  %89 = add nsw i32 %87, 2
+  %90 = add nsw i32 %86, 2
   %91 = add i64 %indvars.iv114, 2
-  %92 = add nsw i32 %86, 2
+  %92 = add nsw i32 %.sroa.10.193.us, 2
   %93 = add nuw nsw i32 %.1105.us, 1
-  %exitcond137.not = icmp eq i32 %93, %6
-  br i1 %exitcond137.not, label %._crit_edge112.loopexit, label %.preheader.us, !llvm.loop !31
+  %exitcond129.not = icmp eq i32 %93, %6
+  br i1 %exitcond129.not, label %._crit_edge112.loopexit, label %.preheader.us, !llvm.loop !31
 
 ._crit_edge112.loopexit:                          ; preds = %._crit_edge97.us
   %.pre = load ptr, ptr %39, align 8

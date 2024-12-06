@@ -11932,47 +11932,40 @@ _ZN5QHashIP11RasterModel7QVectorI5PatchEE3endEv.exit: ; preds = %70, %_ZN5QHashI
   %96 = icmp sgt i32 %95, 0
   br i1 %96, label %.preheader92, label %._crit_edge
 
-.loopexit93.loopexit:                             ; preds = %.lr.ph
-  %97 = trunc nsw i64 %indvars.iv.next to i32
-  br label %.loopexit93
-
-.loopexit93:                                      ; preds = %.loopexit93.loopexit, %.preheader92
-  %.1.lcssa = phi i32 [ %.049100, %.preheader92 ], [ %97, %.loopexit93.loopexit ]
-  %98 = icmp sgt i32 %.047101.in, 1
-  br i1 %98, label %.preheader92, label %._crit_edge, !llvm.loop !82
+.loopexit93:                                      ; preds = %.lr.ph, %.preheader92
+  %.1.lcssa = phi i32 [ %.049100, %.preheader92 ], [ %111, %.lr.ph ]
+  %97 = icmp sgt i32 %.047101.in, 1
+  br i1 %97, label %.preheader92, label %._crit_edge, !llvm.loop !82
 
 .preheader92:                                     ; preds = %83, %.loopexit93
   %.047101.in = phi i32 [ %.047101, %.loopexit93 ], [ %95, %83 ]
   %.049100 = phi i32 [ %.1.lcssa, %.loopexit93 ], [ 0, %83 ]
   %.047101 = add nsw i32 %.047101.in, -1
-  %99 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %88)
-  %100 = icmp sgt i32 %99, 0
-  br i1 %100, label %.lr.ph.preheader, label %.loopexit93
+  %98 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %88)
+  %99 = icmp sgt i32 %98, 0
+  br i1 %99, label %.lr.ph, label %.loopexit93
 
-.lr.ph.preheader:                                 ; preds = %.preheader92
-  %101 = sext i32 %.049100 to i64
-  br label %.lr.ph
-
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %101, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04898 = phi i32 [ 0, %.lr.ph.preheader ], [ %111, %.lr.ph ]
-  %102 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef %.04898, i32 noundef %.047101)
-  %103 = lshr i32 %102, 16
-  %104 = trunc i32 %103 to i8
-  %105 = getelementptr inbounds i8, ptr %94, i64 %indvars.iv
-  store i8 %104, ptr %105, align 1
-  %106 = lshr i32 %102, 8
-  %107 = trunc i32 %106 to i8
-  %108 = getelementptr i8, ptr %105, i64 1
-  store i8 %107, ptr %108, align 1
-  %109 = trunc i32 %102 to i8
-  %110 = getelementptr i8, ptr %105, i64 2
-  store i8 %109, ptr %110, align 1
-  %111 = add nuw nsw i32 %.04898, 1
-  %indvars.iv.next = add nsw i64 %indvars.iv, 3
+.lr.ph:                                           ; preds = %.preheader92, %.lr.ph
+  %.04898 = phi i32 [ %110, %.lr.ph ], [ 0, %.preheader92 ]
+  %.197 = phi i32 [ %111, %.lr.ph ], [ %.049100, %.preheader92 ]
+  %100 = call noundef i32 @_ZNK6QImage5pixelEii(ptr noundef nonnull align 8 dereferenceable(32) %88, i32 noundef %.04898, i32 noundef %.047101)
+  %101 = lshr i32 %100, 16
+  %102 = trunc i32 %101 to i8
+  %103 = sext i32 %.197 to i64
+  %104 = getelementptr inbounds i8, ptr %94, i64 %103
+  store i8 %102, ptr %104, align 1
+  %105 = lshr i32 %100, 8
+  %106 = trunc i32 %105 to i8
+  %107 = getelementptr i8, ptr %104, i64 1
+  store i8 %106, ptr %107, align 1
+  %108 = trunc i32 %100 to i8
+  %109 = getelementptr i8, ptr %104, i64 2
+  store i8 %108, ptr %109, align 1
+  %110 = add nuw nsw i32 %.04898, 1
+  %111 = add nsw i32 %.197, 3
   %112 = call noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %88)
-  %113 = icmp slt i32 %111, %112
-  br i1 %113, label %.lr.ph, label %.loopexit93.loopexit, !llvm.loop !83
+  %113 = icmp slt i32 %110, %112
+  br i1 %113, label %.lr.ph, label %.loopexit93, !llvm.loop !83
 
 ._crit_edge:                                      ; preds = %.loopexit93, %83
   %114 = load ptr, ptr %14, align 8
@@ -12104,7 +12097,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %143, %152, %.noexc6
   br label %159
 
 159:                                              ; preds = %_ZN7QVectorI5PatchE5beginEv.exit, %221
-  %160 = phi ptr [ %.pre107, %221 ], [ %155, %_ZN7QVectorI5PatchE5beginEv.exit ]
+  %160 = phi ptr [ %.pre104, %221 ], [ %155, %_ZN7QVectorI5PatchE5beginEv.exit ]
   %.044 = phi ptr [ %222, %221 ], [ %158, %_ZN7QVectorI5PatchE5beginEv.exit ]
   %161 = load atomic i32, ptr %160 monotonic, align 4
   %162 = icmp ult i32 %161, 2
@@ -12202,8 +12195,8 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %190
   br label %202
 
 202:                                              ; preds = %.preheader.preheader, %205
-  %indvars.iv104 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next105, %205 ]
-  %203 = getelementptr inbounds nuw [4 x %"class.vcg::Point2.202"], ptr %9, i64 0, i64 %indvars.iv104
+  %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %205 ]
+  %203 = getelementptr inbounds nuw [4 x %"class.vcg::Point2.202"], ptr %9, i64 0, i64 %indvars.iv
   invoke void @glTexCoord2fv(ptr noundef nonnull %203)
           to label %204 unwind label %.loopexit
 
@@ -12212,8 +12205,8 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %190
           to label %205 unwind label %.loopexit
 
 205:                                              ; preds = %204
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next105, 4
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %220, label %202, !llvm.loop !98
 
 206:                                              ; preds = %_ZN3glw15createTexture2DERNS_7ContextEjiijjPKvRKNS_17TextureSampleModeE.exit
@@ -12276,7 +12269,7 @@ _ZN3glw6detail16RefCountedObjectINS_11BoundObjectENS0_14DefaultDeleterIS2_EENS0_
 
 221:                                              ; preds = %220
   %222 = getelementptr inbounds nuw i8, ptr %.044, i64 168
-  %.pre107 = load ptr, ptr %144, align 8
+  %.pre104 = load ptr, ptr %144, align 8
   br label %159, !llvm.loop !99
 
 223:                                              ; preds = %170

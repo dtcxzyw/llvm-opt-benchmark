@@ -15589,49 +15589,45 @@ for.body11.preheader.i60:                         ; preds = %for.body.i54
   %sext.i61 = shl i64 %47, 32
   %48 = ashr exact i64 %sext.i61, 28
   %invariant.gep = getelementptr i8, ptr %40, i64 %48
-  %49 = sext i32 %j.9 to i64
   br label %for.body11.i62
 
 for.body11.i62:                                   ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i", %for.body11.preheader.i60
-  %indvars.iv145 = phi i64 [ %indvars.iv.next146, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i" ], [ %49, %for.body11.preheader.i60 ]
-  %indvars.iv28.i = phi i64 [ %indvars.iv.next29.i, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i" ], [ 0, %for.body11.preheader.i60 ]
+  %j.11 = phi i32 [ %j.9, %for.body11.preheader.i60 ], [ %inc.i.i64, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i" ]
+  %indvars.iv28.i = phi i64 [ 0, %for.body11.preheader.i60 ], [ %indvars.iv.next29.i, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i" ]
   %gep = getelementptr %"struct.facebook::velox::Timestamp", ptr %invariant.gep, i64 %indvars.iv28.i
-  %50 = load i64, ptr %gep, align 8
-  %51 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %50, i64 1000000000)
-  %52 = extractvalue { i64, i1 } %51, 1
-  br i1 %52, label %if.then.i.i.i.i, label %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i.i
+  %49 = load i64, ptr %gep, align 8
+  %50 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %49, i64 1000000000)
+  %51 = extractvalue { i64, i1 } %50, 1
+  br i1 %51, label %if.then.i.i.i.i, label %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %for.body11.i62
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i.i: ; preds = %for.body11.i62
-  %53 = extractvalue { i64, i1 } %51, 0
+  %52 = extractvalue { i64, i1 } %50, 0
   %nanos_.i.i.i = getelementptr inbounds nuw i8, ptr %gep, i64 8
-  %54 = load i64, ptr %nanos_.i.i.i, align 8
-  %55 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %53, i64 %54)
-  %56 = extractvalue { i64, i1 } %55, 1
-  br i1 %56, label %if.then.i1.i.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i"
+  %53 = load i64, ptr %nanos_.i.i.i, align 8
+  %54 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %52, i64 %53)
+  %55 = extractvalue { i64, i1 } %54, 1
+  br i1 %55, label %if.then.i1.i.i.i, label %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i"
 
 if.then.i1.i.i.i:                                 ; preds = %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i.i
   tail call void @llvm.trap()
   unreachable
 
 "_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i": ; preds = %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i.i
-  %57 = extractvalue { i64, i1 } %55, 0
-  %indvars.iv.next146 = add nsw i64 %indvars.iv145, 1
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %42, i64 %indvars.iv145
-  store i64 %57, ptr %arrayidx3.i.i, align 8
+  %56 = extractvalue { i64, i1 } %54, 0
+  %inc.i.i64 = add nsw i32 %j.11, 1
+  %idxprom2.i.i = sext i32 %j.11 to i64
+  %arrayidx3.i.i = getelementptr inbounds i64, ptr %42, i64 %idxprom2.i.i
+  store i64 %56, ptr %arrayidx3.i.i, align 8
   %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
   %exitcond.not.i65 = icmp eq i64 %indvars.iv.next29.i, %.sroa.2.0.extract.shift.i55
-  br i1 %exitcond.not.i65, label %for.inc12.i57.loopexit, label %for.body11.i62, !llvm.loop !184
+  br i1 %exitcond.not.i65, label %for.inc12.i57, label %for.body11.i62, !llvm.loop !184
 
-for.inc12.i57.loopexit:                           ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i"
-  %58 = trunc nsw i64 %indvars.iv.next146 to i32
-  br label %for.inc12.i57
-
-for.inc12.i57:                                    ; preds = %for.inc12.i57.loopexit, %for.body.i54
-  %j.10 = phi i32 [ %j.9, %for.body.i54 ], [ %58, %for.inc12.i57.loopexit ]
+for.inc12.i57:                                    ; preds = %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i", %for.body.i54
+  %j.10 = phi i32 [ %j.9, %for.body.i54 ], [ %inc.i.i64, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit.i" ]
   %incdec.ptr.i.i58 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.025.i, i64 8
   %cmp.i.not.i59 = icmp eq ptr %incdec.ptr.i.i58, %46
   br i1 %cmp.i.not.i59, label %if.end16, label %for.body.i54
@@ -15639,97 +15635,93 @@ for.inc12.i57:                                    ; preds = %for.inc12.i57.loope
 for.body18.i46:                                   ; preds = %for.cond16.preheader.i43, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i"
   %indvars.iv.i47 = phi i64 [ %indvars.iv.next.i49, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i" ], [ 0, %for.cond16.preheader.i43 ]
   %arrayidx.i8.i = getelementptr inbounds nuw %"struct.facebook::velox::Timestamp", ptr %40, i64 %indvars.iv.i47
-  %59 = load i64, ptr %arrayidx.i8.i, align 8
-  %60 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %59, i64 1000000000)
-  %61 = extractvalue { i64, i1 } %60, 1
-  br i1 %61, label %if.then.i.i.i15.i, label %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i9.i
+  %57 = load i64, ptr %arrayidx.i8.i, align 8
+  %58 = tail call { i64, i1 } @llvm.smul.with.overflow.i64(i64 %57, i64 1000000000)
+  %59 = extractvalue { i64, i1 } %58, 1
+  br i1 %59, label %if.then.i.i.i15.i, label %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i9.i
 
 if.then.i.i.i15.i:                                ; preds = %for.body18.i46
   tail call void @llvm.trap()
   unreachable
 
 _ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i9.i: ; preds = %for.body18.i46
-  %62 = extractvalue { i64, i1 } %60, 0
+  %60 = extractvalue { i64, i1 } %58, 0
   %nanos_.i.i10.i = getelementptr inbounds nuw i8, ptr %arrayidx.i8.i, i64 8
-  %63 = load i64, ptr %nanos_.i.i10.i, align 8
-  %64 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %62, i64 %63)
-  %65 = extractvalue { i64, i1 } %64, 1
-  br i1 %65, label %if.then.i1.i.i14.i, label %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i"
+  %61 = load i64, ptr %nanos_.i.i10.i, align 8
+  %62 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %60, i64 %61)
+  %63 = extractvalue { i64, i1 } %62, 1
+  br i1 %63, label %if.then.i1.i.i14.i, label %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i"
 
 if.then.i1.i.i14.i:                               ; preds = %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i9.i
   tail call void @llvm.trap()
   unreachable
 
 "_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i": ; preds = %_ZN8facebook5velox15checkedMultiplyIlEET_RKS2_S4_PKc.exit.i.i9.i
-  %66 = extractvalue { i64, i1 } %64, 0
+  %64 = extractvalue { i64, i1 } %62, 0
   %indvars.iv.next.i49 = add nuw nsw i64 %indvars.iv.i47, 1
   %arrayidx3.i13.i = getelementptr inbounds nuw i64, ptr %42, i64 %indvars.iv.i47
-  store i64 %66, ptr %arrayidx3.i13.i, align 8
-  %67 = load i32, ptr %total_.i44, align 8
-  %68 = sext i32 %67 to i64
-  %cmp17.i50 = icmp slt i64 %indvars.iv.next.i49, %68
+  store i64 %64, ptr %arrayidx3.i13.i, align 8
+  %65 = load i32, ptr %total_.i44, align 8
+  %66 = sext i32 %65 to i64
+  %cmp17.i50 = icmp slt i64 %indvars.iv.next.i49, %66
   br i1 %cmp17.i50, label %for.body18.i46, label %if.end16, !llvm.loop !185
 
 if.else12:                                        ; preds = %if.else6
   %vtable = load ptr, ptr %type, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 104
-  %69 = load ptr, ptr %vfn, align 8
-  %call13 = tail call noundef i64 %69(ptr noundef nonnull align 8 dereferenceable(17) %type)
-  %70 = getelementptr inbounds nuw i8, ptr %rows, i64 24
-  %this.val.i66 = load i8, ptr %70, align 8
+  %67 = load ptr, ptr %vfn, align 8
+  %call13 = tail call noundef i64 %67(ptr noundef nonnull align 8 dereferenceable(17) %type)
+  %68 = getelementptr inbounds nuw i8, ptr %rows, i64 24
+  %this.val.i66 = load i8, ptr %68, align 8
   %tobool.i.i.i.i67 = trunc i8 %this.val.i66 to i1
   br i1 %tobool.i.i.i.i67, label %if.then.i76, label %for.cond16.preheader.i68
 
 for.cond16.preheader.i68:                         ; preds = %if.else12
   %total_.i69 = getelementptr inbounds nuw i8, ptr %rows, i64 32
-  %71 = load i32, ptr %total_.i69, align 8
-  %cmp1717.i = icmp sgt i32 %71, 0
+  %69 = load i32, ptr %total_.i69, align 8
+  %cmp1717.i = icmp sgt i32 %69, 0
   br i1 %cmp1717.i, label %for.body18.i71, label %if.end16
 
 if.then.i76:                                      ; preds = %if.else12
-  %72 = load ptr, ptr %rows, align 8
+  %70 = load ptr, ptr %rows, align 8
   %_M_finish.i.i77 = getelementptr inbounds nuw i8, ptr %rows, i64 8
-  %73 = load ptr, ptr %_M_finish.i.i77, align 8
-  %cmp.i.not21.i = icmp eq ptr %72, %73
+  %71 = load ptr, ptr %_M_finish.i.i77, align 8
+  %cmp.i.not21.i = icmp eq ptr %70, %71
   br i1 %cmp.i.not21.i, label %if.end16, label %for.body.i79
 
 for.body.i79:                                     ; preds = %if.then.i76, %for.inc12.i82
   %j.13 = phi i32 [ %j.14, %for.inc12.i82 ], [ 0, %if.then.i76 ]
-  %__begin4.sroa.0.022.i = phi ptr [ %incdec.ptr.i.i83, %for.inc12.i82 ], [ %72, %if.then.i76 ]
-  %74 = load i64, ptr %__begin4.sroa.0.022.i, align 4
-  %.sroa.2.0.extract.shift.i80 = lshr i64 %74, 32
+  %__begin4.sroa.0.022.i = phi ptr [ %incdec.ptr.i.i83, %for.inc12.i82 ], [ %70, %if.then.i76 ]
+  %72 = load i64, ptr %__begin4.sroa.0.022.i, align 4
+  %.sroa.2.0.extract.shift.i80 = lshr i64 %72, 32
   %.sroa.2.0.extract.trunc.i81 = trunc nuw i64 %.sroa.2.0.extract.shift.i80 to i32
   %cmp19.i = icmp sgt i32 %.sroa.2.0.extract.trunc.i81, 0
   br i1 %cmp19.i, label %for.body11.preheader.i85, label %for.inc12.i82
 
 for.body11.preheader.i85:                         ; preds = %for.body.i79
-  %sext.i86 = shl i64 %74, 32
-  %75 = ashr exact i64 %sext.i86, 32
-  %76 = sext i32 %j.13 to i64
+  %sext.i86 = shl i64 %72, 32
+  %73 = ashr exact i64 %sext.i86, 32
   br label %for.body11.i87
 
 for.body11.i87:                                   ; preds = %for.body11.i87, %for.body11.preheader.i85
-  %indvars.iv141 = phi i64 [ %indvars.iv.next142, %for.body11.i87 ], [ %76, %for.body11.preheader.i85 ]
-  %indvars.iv25.i = phi i64 [ %indvars.iv.next26.i, %for.body11.i87 ], [ 0, %for.body11.preheader.i85 ]
-  %77 = add nsw i64 %indvars.iv25.i, %75
-  %indvars.iv.next142 = add nsw i64 %indvars.iv141, 1
-  %mul.i.i90 = mul i64 %call13, %indvars.iv141
+  %j.15 = phi i32 [ %j.13, %for.body11.preheader.i85 ], [ %inc.i.i88, %for.body11.i87 ]
+  %indvars.iv25.i = phi i64 [ 0, %for.body11.preheader.i85 ], [ %indvars.iv.next26.i, %for.body11.i87 ]
+  %74 = add nsw i64 %indvars.iv25.i, %73
+  %inc.i.i88 = add nsw i32 %j.15, 1
+  %conv.i.i89 = sext i32 %j.15 to i64
+  %mul.i.i90 = mul i64 %call13, %conv.i.i89
   %add.ptr.i.i91 = getelementptr inbounds i8, ptr %2, i64 %mul.i.i90
-  %mul3.i.i = mul i64 %77, %call13
+  %mul3.i.i = mul i64 %74, %call13
   %add.ptr4.i.i = getelementptr inbounds i8, ptr %0, i64 %mul3.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i.i91, ptr align 1 %add.ptr4.i.i, i64 %call13, i1 false)
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond.not.i92 = icmp eq i64 %indvars.iv.next26.i, %.sroa.2.0.extract.shift.i80
-  br i1 %exitcond.not.i92, label %for.inc12.i82.loopexit, label %for.body11.i87, !llvm.loop !186
+  br i1 %exitcond.not.i92, label %for.inc12.i82, label %for.body11.i87, !llvm.loop !186
 
-for.inc12.i82.loopexit:                           ; preds = %for.body11.i87
-  %78 = trunc nsw i64 %indvars.iv.next142 to i32
-  br label %for.inc12.i82
-
-for.inc12.i82:                                    ; preds = %for.inc12.i82.loopexit, %for.body.i79
-  %j.14 = phi i32 [ %j.13, %for.body.i79 ], [ %78, %for.inc12.i82.loopexit ]
+for.inc12.i82:                                    ; preds = %for.body11.i87, %for.body.i79
+  %j.14 = phi i32 [ %j.13, %for.body.i79 ], [ %inc.i.i88, %for.body11.i87 ]
   %incdec.ptr.i.i83 = getelementptr inbounds nuw i8, ptr %__begin4.sroa.0.022.i, i64 8
-  %cmp.i.not.i84 = icmp eq ptr %incdec.ptr.i.i83, %73
+  %cmp.i.not.i84 = icmp eq ptr %incdec.ptr.i.i83, %71
   br i1 %cmp.i.not.i84, label %if.end16, label %for.body.i79
 
 for.body18.i71:                                   ; preds = %for.cond16.preheader.i68, %for.body18.i71
@@ -15739,9 +15731,9 @@ for.body18.i71:                                   ; preds = %for.cond16.preheade
   %add.ptr.i10.i = getelementptr inbounds i8, ptr %2, i64 %mul.i9.i
   %add.ptr4.i13.i = getelementptr inbounds i8, ptr %0, i64 %mul.i9.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr.i10.i, ptr align 1 %add.ptr4.i13.i, i64 %call13, i1 false)
-  %79 = load i32, ptr %total_.i69, align 8
-  %80 = sext i32 %79 to i64
-  %cmp17.i75 = icmp slt i64 %indvars.iv.next.i74, %80
+  %75 = load i32, ptr %total_.i69, align 8
+  %76 = sext i32 %75 to i64
+  %cmp17.i75 = icmp slt i64 %indvars.iv.next.i74, %76
   br i1 %cmp17.i75, label %for.body18.i71, label %if.end16, !llvm.loop !187
 
 if.end16:                                         ; preds = %for.body18.i17, %for.inc12.i27, %for.body18.i71, %for.inc12.i82, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_2clEi.exit16.i", %for.inc12.i57, %"_ZZN8facebook5velox12_GLOBAL__N_116gatherFromBufferERKNS0_4TypeERKNS0_6BufferERKNS1_9SelectionERS5_ENK3$_0clEi.exit30.i", %for.inc12.i, %if.then.i76, %for.cond16.preheader.i68, %if.then.i51, %for.cond16.preheader.i43, %if.then.i21, %for.cond16.preheader.i14, %if.then.i11, %for.cond16.preheader.i

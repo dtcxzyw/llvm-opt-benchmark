@@ -5079,7 +5079,7 @@ for.body.lr.ph.i:                                 ; preds = %entry
   br label %for.body.i
 
 for.body.i:                                       ; preds = %if.end16.i, %for.body.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %if.end16.i ]
+  %i.045.i = phi i32 [ 0, %for.body.lr.ph.i ], [ %inc.i, %if.end16.i ]
   %__begin3.sroa.0.044.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i.i, %if.end16.i ]
   %3 = load ptr, ptr %__begin3.sroa.0.044.i, align 8, !noalias !92
   %cmp.i.i.not.i = icmp eq ptr %3, null
@@ -5090,7 +5090,8 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.body.i
   %add.i.i.i = add nsw i32 %4, 1
   %retval.sroa.4.8.insert.ext.i.i = zext i32 %add.i.i.i to i64
   %retval.sroa.4.8.insert.shift.i.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i.i, 32
-  %retval.sroa.2.8.insert.insert.i.i = add nuw nsw i64 %retval.sroa.4.8.insert.shift.i.i, %indvars.iv.i
+  %retval.sroa.2.8.insert.ext.i.i = zext nneg i32 %i.045.i to i64
+  %retval.sroa.2.8.insert.insert.i.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i.i, %retval.sroa.2.8.insert.ext.i.i
   call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias align 8 %ref.tmp.i, ptr noundef nonnull readonly align 8 dereferenceable(16) %resolver, ptr nonnull %parent_pos.i, i64 %retval.sroa.2.8.insert.insert.i.i, ptr noundef nonnull %3) #25, !noalias !92
   call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %5 = load ptr, ptr %ref.tmp.i, align 8, !noalias !98
@@ -5100,7 +5101,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %for.body.i
   br i1 %cmp.i4.i, label %if.end16.i, label %_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver13VisitChildrenERKSt6vectorISt10shared_ptrINS_9ArrayDataEESaIS6_EENS0_8internal13FieldPositionE.exit
 
 if.end16.i:                                       ; preds = %_ZN5arrow6StatusD2Ev.exit.i, %for.body.i
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %inc.i = add nuw nsw i32 %i.045.i, 1
   %incdec.ptr.i.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.044.i, i64 16
   %cmp.i.not.i = icmp eq ptr %incdec.ptr.i.i, %2
   br i1 %cmp.i.not.i, label %for.end.i, label %for.body.i
@@ -5134,7 +5135,7 @@ for.body.lr.ph:                                   ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %if.end16
-  %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end16 ]
+  %i.045 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %if.end16 ]
   %__begin3.sroa.0.044 = phi ptr [ %1, %for.body.lr.ph ], [ %incdec.ptr.i, %if.end16 ]
   %3 = load ptr, ptr %__begin3.sroa.0.044, align 8
   %cmp.i.i.not = icmp eq ptr %3, null
@@ -5145,7 +5146,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.body
   %add.i.i = add nsw i32 %4, 1
   %retval.sroa.4.8.insert.ext.i = zext i32 %add.i.i to i64
   %retval.sroa.4.8.insert.shift.i = shl nuw i64 %retval.sroa.4.8.insert.ext.i, 32
-  %retval.sroa.2.8.insert.insert.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i, %indvars.iv
+  %retval.sroa.2.8.insert.ext.i = zext nneg i32 %i.045 to i64
+  %retval.sroa.2.8.insert.insert.i = or disjoint i64 %retval.sroa.4.8.insert.shift.i, %retval.sroa.2.8.insert.ext.i
   call fastcc void @_ZN5arrow3ipc12_GLOBAL__N_118DictionaryResolver10VisitFieldENS0_8internal13FieldPositionEPNS_9ArrayDataE(ptr noalias align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nonnull %parent_pos, i64 %retval.sroa.2.8.insert.insert.i, ptr noundef nonnull %3)
   call void @llvm.experimental.noalias.scope.decl(metadata !102)
   %5 = load ptr, ptr %ref.tmp, align 8, !noalias !102
@@ -5155,7 +5157,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %for.body
   br i1 %cmp.i4, label %if.end16, label %return
 
 if.end16:                                         ; preds = %_ZN5arrow6StatusD2Ev.exit, %for.body
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %inc = add nuw nsw i32 %i.045, 1
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.044, i64 16
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %2
   br i1 %cmp.i.not, label %for.end, label %for.body
