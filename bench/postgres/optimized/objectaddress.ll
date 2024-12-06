@@ -3153,16 +3153,16 @@ get_object_property_data.exit:                    ; preds = %4, %14
 
 21:                                               ; preds = %get_object_property_data.exit
   %22 = tail call signext i8 @get_rel_relkind(i32 noundef %1) #9
-  switch i8 %22, label %get_relkind_objtype.exit [
-    i8 102, label %27
-    i8 109, label %26
-    i8 105, label %23
-    i8 73, label %23
-    i8 83, label %24
-    i8 118, label %25
+  switch i8 %22, label %27 [
+    i8 102, label %26
+    i8 109, label %25
+    i8 105, label %get_relkind_objtype.exit
+    i8 73, label %get_relkind_objtype.exit
+    i8 83, label %23
+    i8 118, label %24
   ]
 
-23:                                               ; preds = %21, %21
+23:                                               ; preds = %21
   br label %get_relkind_objtype.exit
 
 24:                                               ; preds = %21
@@ -3177,23 +3177,23 @@ get_object_property_data.exit:                    ; preds = %4, %14
 27:                                               ; preds = %21
   br label %get_relkind_objtype.exit
 
-get_relkind_objtype.exit:                         ; preds = %27, %26, %25, %24, %23, %21, %get_object_property_data.exit
-  %.0 = phi i32 [ %19, %get_object_property_data.exit ], [ 18, %27 ], [ 23, %26 ], [ 51, %25 ], [ 37, %24 ], [ 20, %23 ], [ 41, %21 ]
+get_relkind_objtype.exit:                         ; preds = %27, %26, %25, %24, %23, %21, %21, %get_object_property_data.exit
+  %.0 = phi i32 [ %19, %get_object_property_data.exit ], [ 41, %27 ], [ 18, %26 ], [ 23, %25 ], [ 51, %24 ], [ 37, %23 ], [ 20, %21 ], [ 20, %21 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local range(i32 18, 52) i32 @get_relkind_objtype(i8 noundef signext %0) local_unnamed_addr #4 {
-  switch i8 %0, label %7 [
-    i8 102, label %6
-    i8 109, label %5
-    i8 105, label %2
-    i8 73, label %2
-    i8 83, label %3
-    i8 118, label %4
+  switch i8 %0, label %6 [
+    i8 102, label %5
+    i8 109, label %4
+    i8 105, label %7
+    i8 73, label %7
+    i8 83, label %2
+    i8 118, label %3
   ]
 
-2:                                                ; preds = %1, %1
+2:                                                ; preds = %1
   br label %7
 
 3:                                                ; preds = %1
@@ -3208,8 +3208,8 @@ define dso_local range(i32 18, 52) i32 @get_relkind_objtype(i8 noundef signext %
 6:                                                ; preds = %1
   br label %7
 
-7:                                                ; preds = %1, %6, %5, %4, %3, %2
-  %.0 = phi i32 [ 18, %6 ], [ 23, %5 ], [ 51, %4 ], [ 37, %3 ], [ 20, %2 ], [ 41, %1 ]
+7:                                                ; preds = %1, %1, %6, %5, %4, %3, %2
+  %.0 = phi i32 [ 41, %6 ], [ 18, %5 ], [ 23, %4 ], [ 51, %3 ], [ 37, %2 ], [ 20, %1 ], [ 20, %1 ]
   ret i32 %.0
 }
 

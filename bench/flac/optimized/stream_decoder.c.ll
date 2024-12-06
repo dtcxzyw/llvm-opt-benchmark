@@ -5283,9 +5283,9 @@ entry:
 while.body:                                       ; preds = %while.body.backedge, %entry
   %0 = load ptr, ptr %decoder, align 8
   %1 = load i32, ptr %0, align 8
-  switch i32 %1, label %return.loopexit [
-    i32 7, label %return
-    i32 4, label %return
+  switch i32 %1, label %return [
+    i32 7, label %return.loopexit
+    i32 4, label %return.loopexit
     i32 2, label %sw.bb1
     i32 3, label %sw.bb2
   ]
@@ -5293,27 +5293,26 @@ while.body:                                       ; preds = %while.body.backedge
 sw.bb1:                                           ; preds = %while.body
   %call = tail call fastcc i32 @frame_sync_(ptr noundef nonnull %decoder)
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %return.loopexit, label %while.body.backedge
+  br i1 %tobool.not, label %return, label %while.body.backedge
 
 sw.bb2:                                           ; preds = %while.body
   %call3 = call fastcc i32 @read_frame_(ptr noundef nonnull %decoder, ptr noundef %got_a_frame, i32 noundef 0)
   %tobool4.not = icmp eq i32 %call3, 0
-  br i1 %tobool4.not, label %return.loopexit, label %if.end6
+  br i1 %tobool4.not, label %return, label %if.end6
 
 if.end6:                                          ; preds = %sw.bb2
   %2 = load i32, ptr %got_a_frame, align 4
   %tobool7.not = icmp eq i32 %2, 0
-  br i1 %tobool7.not, label %while.body.backedge, label %return.loopexit
+  br i1 %tobool7.not, label %while.body.backedge, label %return
 
 while.body.backedge:                              ; preds = %if.end6, %sw.bb1
   br label %while.body
 
-return.loopexit:                                  ; preds = %sw.bb1, %sw.bb2, %if.end6, %while.body
-  %retval.0.ph = phi i32 [ 0, %while.body ], [ 1, %if.end6 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ]
+return.loopexit:                                  ; preds = %while.body, %while.body
   br label %return
 
-return:                                           ; preds = %while.body, %while.body, %return.loopexit
-  %retval.0 = phi i32 [ %retval.0.ph, %return.loopexit ], [ 1, %while.body ], [ 1, %while.body ]
+return:                                           ; preds = %if.end6, %sw.bb2, %sw.bb1, %while.body, %return.loopexit
+  %retval.0 = phi i32 [ 1, %return.loopexit ], [ 0, %while.body ], [ 1, %if.end6 ], [ 0, %sw.bb2 ], [ 1, %sw.bb1 ]
   ret i32 %retval.0
 }
 

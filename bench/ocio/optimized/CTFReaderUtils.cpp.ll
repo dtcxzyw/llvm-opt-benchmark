@@ -308,23 +308,16 @@ entry:
     i32 2, label %return
     i32 3, label %sw.bb1
     i32 255, label %sw.bb1
-    i32 254, label %sw.bb2
-    i32 1, label %sw.bb2
-    i32 4, label %sw.bb2
-    i32 0, label %sw.bb2
   ]
 
 sw.bb1:                                           ; preds = %entry, %entry
   br label %return
 
-sw.bb2:                                           ; preds = %entry, %entry, %entry, %entry
-  br label %return
-
 sw.epilog:                                        ; preds = %entry
   br label %return
 
-return:                                           ; preds = %entry, %sw.epilog, %sw.bb2, %sw.bb1
-  %retval.0 = phi ptr [ null, %sw.epilog ], [ null, %sw.bb2 ], [ @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %sw.bb1 ], [ @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %entry ]
+return:                                           ; preds = %entry, %sw.epilog, %sw.bb1
+  %retval.0 = phi ptr [ null, %sw.epilog ], [ @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_128INTERPOLATION_3D_TETRAHEDRALE, %sw.bb1 ], [ @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_123INTERPOLATION_3D_LINEARE, %entry ]
   ret ptr %retval.0
 }
 

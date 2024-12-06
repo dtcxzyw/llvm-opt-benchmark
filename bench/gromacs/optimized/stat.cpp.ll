@@ -127,8 +127,8 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
 41:                                               ; preds = %.sink.split.i, %35, %34, %.split.us.i, %.split.us.i
   %.223.us.i = phi i32 [ %.02126.us.i, %35 ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %.split.us.i ], [ %.02126.us.i, %34 ], [ %38, %.sink.split.i ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond85.not.i = icmp eq i64 %indvars.iv.next, 94
-  br i1 %exitcond85.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.us.i, !llvm.loop !5
+  %exitcond86.not.i = icmp eq i64 %indvars.iv.next, 94
+  br i1 %exitcond86.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.us.i, !llvm.loop !5
 
 .split.i:                                         ; preds = %26
   br i1 %.not336, label %.split.split.i, label %.split.split.us.i
@@ -140,14 +140,14 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   %indvars.iv363 = phi i64 [ %indvars.iv.next364, %48 ], [ 0, %.split.split.us.i ]
   %.02126.us31.us.i = phi i32 [ %.223.us35.us.i, %48 ], [ 0, %.split.split.us.i ]
   %42 = trunc nuw nsw i64 %indvars.iv363 to i32
-  switch i32 %42, label %.sink.split94.i [
+  switch i32 %42, label %.sink.split95.i [
     i32 81, label %48
     i32 80, label %48
     i32 84, label %48
     i32 85, label %48
   ]
 
-.sink.split94.i:                                  ; preds = %.split.split.us.split.us.i
+.sink.split95.i:                                  ; preds = %.split.split.us.split.us.i
   %43 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv363
   %44 = load float, ptr %43, align 4
   %45 = add nsw i32 %.02126.us31.us.i, 1
@@ -156,16 +156,16 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   store float %44, ptr %47, align 4
   br label %48
 
-48:                                               ; preds = %.sink.split94.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
-  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %45, %.sink.split94.i ]
+48:                                               ; preds = %.sink.split95.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i, %.split.split.us.split.us.i
+  %.223.us35.us.i = phi i32 [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %.02126.us31.us.i, %.split.split.us.split.us.i ], [ %45, %.sink.split95.i ]
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363, 1
-  %exitcond84.not.i = icmp eq i64 %indvars.iv.next364, 94
-  br i1 %exitcond84.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.us.i, !llvm.loop !5
+  %exitcond85.not.i = icmp eq i64 %indvars.iv.next364, 94
+  br i1 %exitcond85.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.us.i, !llvm.loop !5
 
 .split.split.us.split.split.us.i:                 ; preds = %.split.split.us.i, %56
-  %indvars.iv80.i = phi i64 [ %indvars.iv.next81.i, %56 ], [ 0, %.split.split.us.i ]
+  %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %56 ], [ 0, %.split.split.us.i ]
   %.02126.us31.us57.i = phi i32 [ %.223.us35.us59.i, %56 ], [ 0, %.split.split.us.i ]
-  %49 = trunc nuw nsw i64 %indvars.iv80.i to i32
+  %49 = trunc nuw nsw i64 %indvars.iv81.i to i32
   switch i32 %49, label %56 [
     i32 79, label %50
     i32 82, label %50
@@ -173,7 +173,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 50:                                               ; preds = %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i, %.split.split.us.split.split.us.i
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv80.i
+  %51 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv81.i
   %52 = load float, ptr %51, align 4
   %53 = add nsw i32 %.02126.us31.us57.i, 1
   %54 = sext i32 %.02126.us31.us57.i to i64
@@ -183,17 +183,17 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
 
 56:                                               ; preds = %50, %.split.split.us.split.split.us.i
   %.223.us35.us59.i = phi i32 [ %53, %50 ], [ %.02126.us31.us57.i, %.split.split.us.split.split.us.i ]
-  %indvars.iv.next81.i = add nuw nsw i64 %indvars.iv80.i, 1
-  %exitcond83.not.i = icmp eq i64 %indvars.iv.next81.i, 94
-  br i1 %exitcond83.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.split.us.i, !llvm.loop !5
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
+  %exitcond84.not.i = icmp eq i64 %indvars.iv.next82.i, 94
+  br i1 %exitcond84.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.us.split.split.us.i, !llvm.loop !5
 
 .split.split.i:                                   ; preds = %.split.i
   br i1 %.not337, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i
 
 .split.split.split.us.split.us.i:                 ; preds = %.split.split.i, %64
-  %indvars.iv72.i = phi i64 [ %indvars.iv.next73.i, %64 ], [ 0, %.split.split.i ]
+  %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %64 ], [ 0, %.split.split.i ]
   %.02126.us40.us.i = phi i32 [ %.223.us44.us.i, %64 ], [ 0, %.split.split.i ]
-  %57 = trunc nuw nsw i64 %indvars.iv72.i to i32
+  %57 = trunc nuw nsw i64 %indvars.iv73.i to i32
   switch i32 %57, label %58 [
     i32 79, label %64
     i32 82, label %64
@@ -205,7 +205,7 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
   ]
 
 58:                                               ; preds = %.split.split.split.us.split.us.i
-  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv72.i
+  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv73.i
   %60 = load float, ptr %59, align 4
   %61 = add nsw i32 %.02126.us40.us.i, 1
   %62 = sext i32 %.02126.us40.us.i to i64
@@ -215,9 +215,9 @@ define void @_Z11global_statRK15gmx_global_statPK9t_commrecP14gmx_enerdata_tPA3_
 
 64:                                               ; preds = %58, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i, %.split.split.split.us.split.us.i
   %.223.us44.us.i = phi i32 [ %61, %58 ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ], [ %.02126.us40.us.i, %.split.split.split.us.split.us.i ]
-  %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
-  %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 94
-  br i1 %exitcond75.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i, !llvm.loop !5
+  %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
+  %exitcond76.not.i = icmp eq i64 %indvars.iv.next74.i, 94
+  br i1 %exitcond76.not.i, label %_ZL16filter_enerdtermPKfbPfbbb.exit, label %.split.split.split.us.split.us.i, !llvm.loop !5
 
 _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, %.split.split.i
   %.us-phi.i = phi i32 [ 0, %.split.split.i ], [ %.223.us44.us.i, %64 ], [ %.223.us35.us59.i, %56 ], [ %.223.us35.us.i, %48 ], [ %.223.us.i, %41 ]
@@ -709,8 +709,8 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
 304:                                              ; preds = %.split.us.i294, %.split.us.i294, %.sink.split.i301, %298
   %.2.us.i299 = phi i32 [ %.027.us.i295, %.split.us.i294 ], [ %.027.us.i295, %.split.us.i294 ], [ %.027.us.i295, %298 ], [ %299, %.sink.split.i301 ]
   %indvars.iv.next379 = add nuw nsw i64 %indvars.iv378, 1
-  %exitcond85.not.i300 = icmp eq i64 %indvars.iv.next379, 94
-  br i1 %exitcond85.not.i300, label %_ZL16filter_enerdtermPKfbPfbbb.exit302, label %.split.us.i294, !llvm.loop !5
+  %exitcond86.not.i300 = icmp eq i64 %indvars.iv.next379, 94
+  br i1 %exitcond86.not.i300, label %_ZL16filter_enerdtermPKfbPfbbb.exit302, label %.split.us.i294, !llvm.loop !5
 
 .split.i281:                                      ; preds = %296
   br i1 %.not336, label %.split.split.split.us.split.i, label %.split.split.us.split.us.i286
@@ -719,14 +719,14 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   %indvars.iv381 = phi i64 [ %indvars.iv.next382, %311 ], [ 0, %.split.i281 ]
   %.027.us30.us.i287 = phi i32 [ %.2.us36.us.i291, %311 ], [ 0, %.split.i281 ]
   %305 = trunc nuw nsw i64 %indvars.iv381 to i32
-  switch i32 %305, label %.sink.split94.i293 [
+  switch i32 %305, label %.sink.split95.i293 [
     i32 81, label %311
     i32 80, label %311
     i32 84, label %311
     i32 85, label %311
   ]
 
-.sink.split94.i293:                               ; preds = %.split.split.us.split.us.i286
+.sink.split95.i293:                               ; preds = %.split.split.us.split.us.i286
   %306 = add nsw i32 %.027.us30.us.i287, 1
   %307 = sext i32 %.027.us30.us.i287 to i64
   %308 = getelementptr inbounds float, ptr %14, i64 %307
@@ -735,17 +735,17 @@ _ZL16filter_enerdtermPKfbPfbbb.exit:              ; preds = %41, %48, %56, %64, 
   store float %309, ptr %310, align 4
   br label %311
 
-311:                                              ; preds = %.sink.split94.i293, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286
-  %.2.us36.us.i291 = phi i32 [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %306, %.sink.split94.i293 ]
+311:                                              ; preds = %.sink.split95.i293, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286, %.split.split.us.split.us.i286
+  %.2.us36.us.i291 = phi i32 [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %.027.us30.us.i287, %.split.split.us.split.us.i286 ], [ %306, %.sink.split95.i293 ]
   %indvars.iv.next382 = add nuw nsw i64 %indvars.iv381, 1
-  %exitcond84.not.i292 = icmp eq i64 %indvars.iv.next382, 94
-  br i1 %exitcond84.not.i292, label %_ZL16filter_enerdtermPKfbPfbbb.exit302, label %.split.split.us.split.us.i286, !llvm.loop !5
+  %exitcond85.not.i292 = icmp eq i64 %indvars.iv.next382, 94
+  br i1 %exitcond85.not.i292, label %_ZL16filter_enerdtermPKfbPfbbb.exit302, label %.split.split.us.split.us.i286, !llvm.loop !5
 
 .split.split.split.us.split.i:                    ; preds = %.split.i281, %318
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %318 ], [ 0, %.split.i281 ]
   %.027.us39.i = phi i32 [ %.2.us45.i, %318 ], [ 0, %.split.i281 ]
-  %indvars71.i = trunc i64 %indvars.iv.i to i32
-  switch i32 %indvars71.i, label %312 [
+  %indvars72.i = trunc i64 %indvars.iv.i to i32
+  switch i32 %indvars72.i, label %312 [
     i32 79, label %318
     i32 82, label %318
     i32 88, label %318

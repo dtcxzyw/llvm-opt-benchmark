@@ -2796,18 +2796,18 @@ if.end41:                                         ; preds = %entry
     i32 263, label %return
     i32 256, label %return
     i32 257, label %return
-    i32 261, label %sw.bb53
+    i32 261, label %sw.bb42
     i32 265, label %sw.bb43
     i32 264, label %sw.bb44
     i32 266, label %sw.bb47
     i32 267, label %sw.bb42
     i32 258, label %sw.bb51
     i32 259, label %sw.bb51
-    i32 260, label %sw.bb53
-    i32 262, label %sw.bb53
+    i32 260, label %sw.bb42
+    i32 262, label %sw.bb42
   ]
 
-sw.bb42:                                          ; preds = %if.end41
+sw.bb42:                                          ; preds = %if.end41, %if.end41, %if.end41, %if.end41
   br label %return
 
 sw.bb43:                                          ; preds = %if.end41
@@ -2828,14 +2828,11 @@ sw.bb47:                                          ; preds = %if.end41
 sw.bb51:                                          ; preds = %if.end41, %if.end41
   br label %return
 
-sw.bb53:                                          ; preds = %if.end41, %if.end41, %if.end41
-  br label %return
-
 sw.default:                                       ; preds = %if.end41
   br label %return
 
-return:                                           ; preds = %if.end41, %if.end41, %if.end41, %if.end33, %if.then24, %if.end, %if.then, %sw.default, %sw.bb53, %sw.bb51, %sw.bb47, %sw.bb44, %sw.bb43, %sw.bb42, %if.then20
-  %retval.0 = phi i32 [ %sub, %if.then20 ], [ 2147483647, %sw.default ], [ -1, %sw.bb53 ], [ 1, %sw.bb51 ], [ %cond49, %sw.bb47 ], [ %cond46, %sw.bb44 ], [ %cond, %sw.bb43 ], [ -1, %sw.bb42 ], [ 2147483647, %if.then ], [ 2147483647, %if.end ], [ 2147483647, %if.then24 ], [ %sub35.sub34, %if.end33 ], [ 0, %if.end41 ], [ 0, %if.end41 ], [ 0, %if.end41 ]
+return:                                           ; preds = %if.end41, %if.end41, %if.end41, %if.end33, %if.then24, %if.end, %if.then, %sw.default, %sw.bb51, %sw.bb47, %sw.bb44, %sw.bb43, %sw.bb42, %if.then20
+  %retval.0 = phi i32 [ %sub, %if.then20 ], [ 2147483647, %sw.default ], [ 1, %sw.bb51 ], [ %cond49, %sw.bb47 ], [ %cond46, %sw.bb44 ], [ %cond, %sw.bb43 ], [ -1, %sw.bb42 ], [ 2147483647, %if.then ], [ 2147483647, %if.end ], [ 2147483647, %if.then24 ], [ %sub35.sub34, %if.end33 ], [ 0, %if.end41 ], [ 0, %if.end41 ], [ 0, %if.end41 ]
   ret i32 %retval.0
 }
 

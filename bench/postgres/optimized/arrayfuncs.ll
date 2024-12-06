@@ -9115,63 +9115,60 @@ define dso_local noundef ptr @construct_array(ptr nocapture noundef %0, i32 noun
 define dso_local noundef ptr @construct_array_builtin(ptr nocapture noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [1 x i32], align 4
   %5 = alloca [1 x i32], align 4
-  switch i32 %2, label %14 [
-    i32 18, label %17
+  switch i32 %2, label %13 [
+    i32 18, label %16
     i32 2275, label %6
     i32 700, label %7
     i32 21, label %8
     i32 23, label %7
     i32 20, label %9
     i32 19, label %10
-    i32 26, label %11
-    i32 2206, label %11
-    i32 25, label %12
-    i32 27, label %13
+    i32 26, label %7
+    i32 2206, label %7
+    i32 25, label %11
+    i32 27, label %12
   ]
 
 6:                                                ; preds = %3
-  br label %17
+  br label %16
 
-7:                                                ; preds = %3, %3
-  br label %17
+7:                                                ; preds = %3, %3, %3, %3
+  br label %16
 
 8:                                                ; preds = %3
-  br label %17
+  br label %16
 
 9:                                                ; preds = %3
-  br label %17
+  br label %16
 
 10:                                               ; preds = %3
-  br label %17
+  br label %16
 
-11:                                               ; preds = %3, %3
-  br label %17
+11:                                               ; preds = %3
+  br label %16
 
 12:                                               ; preds = %3
-  br label %17
+  br label %16
 
 13:                                               ; preds = %3
-  br label %17
-
-14:                                               ; preds = %3
-  %15 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
-  tail call void @llvm.assume(i1 %15)
-  %16 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %2) #17
+  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #19
+  tail call void @llvm.assume(i1 %14)
+  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.27, i32 noundef %2) #17
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 3445, ptr noundef nonnull @__func__.construct_array_builtin) #17
   unreachable
 
-17:                                               ; preds = %3, %13, %12, %11, %10, %9, %8, %7, %6
-  %.08 = phi i32 [ 6, %13 ], [ -1, %12 ], [ 4, %11 ], [ 64, %10 ], [ 8, %9 ], [ 2, %8 ], [ 4, %7 ], [ -2, %6 ], [ 1, %3 ]
-  %.07 = phi i1 [ false, %13 ], [ false, %12 ], [ true, %11 ], [ false, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %3 ]
-  %.0 = phi i8 [ 115, %13 ], [ 105, %12 ], [ 105, %11 ], [ 99, %10 ], [ 100, %9 ], [ 115, %8 ], [ 105, %7 ], [ 99, %6 ], [ 99, %3 ]
+16:                                               ; preds = %3, %12, %11, %10, %9, %8, %7, %6
+  %.08 = phi i32 [ 6, %12 ], [ -1, %11 ], [ 64, %10 ], [ 8, %9 ], [ 2, %8 ], [ 4, %7 ], [ -2, %6 ], [ 1, %3 ]
+  %.07 = phi i1 [ false, %12 ], [ false, %11 ], [ false, %10 ], [ true, %9 ], [ true, %8 ], [ true, %7 ], [ false, %6 ], [ true, %3 ]
+  %.0 = phi i8 [ 115, %12 ], [ 105, %11 ], [ 99, %10 ], [ 100, %9 ], [ 115, %8 ], [ 105, %7 ], [ 99, %6 ], [ 99, %3 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 %1, ptr %4, align 4
   store i32 1, ptr %5, align 4
-  %18 = call noundef ptr @construct_md_array(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %2, i32 noundef %.08, i1 noundef zeroext %.07, i8 noundef signext %.0)
+  %17 = call noundef ptr @construct_md_array(ptr noundef %0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4, ptr noundef nonnull %5, i32 noundef %2, i32 noundef %.08, i1 noundef zeroext %.07, i8 noundef signext %.0)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  ret ptr %18
+  ret ptr %17
 }
 
 ; Function Attrs: nounwind uwtable

@@ -3978,10 +3978,10 @@ invoke.cont:                                      ; preds = %if.then
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
-common.resume:                                    ; preds = %lpad.i135, %lpad.i89, %lpad.i75, %lpad.i, %lpad
-  %exception.i134.sink = phi ptr [ %exception.i134, %lpad.i135 ], [ %exception.i88, %lpad.i89 ], [ %exception.i74, %lpad.i75 ], [ %exception.i, %lpad.i ], [ %exception, %lpad ]
-  %common.resume.op = phi { ptr, i32 } [ %65, %lpad.i135 ], [ %38, %lpad.i89 ], [ %30, %lpad.i75 ], [ %22, %lpad.i ], [ %1, %lpad ]
-  tail call void @__cxa_free_exception(ptr %exception.i134.sink) #17
+common.resume:                                    ; preds = %lpad.i134, %lpad.i89, %lpad.i75, %lpad.i, %lpad
+  %exception.i133.sink = phi ptr [ %exception.i133, %lpad.i134 ], [ %exception.i88, %lpad.i89 ], [ %exception.i74, %lpad.i75 ], [ %exception.i, %lpad.i ], [ %exception, %lpad ]
+  %common.resume.op = phi { ptr, i32 } [ %65, %lpad.i134 ], [ %38, %lpad.i89 ], [ %30, %lpad.i75 ], [ %22, %lpad.i ], [ %1, %lpad ]
+  tail call void @__cxa_free_exception(ptr %exception.i133.sink) #17
   resume { ptr, i32 } %common.resume.op
 
 lpad:                                             ; preds = %if.then
@@ -4001,18 +4001,18 @@ if.then3:                                         ; preds = %if.end
   %3 = load ptr, ptr %pcElement, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %pcElement, i64 8
   %4 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not196 = icmp eq ptr %3, %4
-  br i1 %cmp.i.not196, label %if.end307, label %for.body
+  %cmp.i.not194 = icmp eq ptr %3, %4
+  br i1 %cmp.i.not194, label %if.end307, label %for.body
 
 for.body:                                         ; preds = %if.then3, %for.inc
-  %bOne.0203 = phi i1 [ %bOne.1, %for.inc ], [ false, %if.then3 ]
-  %iProperty.0202 = phi i32 [ %iProperty.1, %for.inc ], [ -1, %if.then3 ]
-  %eType.0201 = phi i32 [ %eType.1, %for.inc ], [ 0, %if.then3 ]
-  %iTextureCoord.0200 = phi i32 [ %iTextureCoord.1, %for.inc ], [ -1, %if.then3 ]
-  %eType3.0199 = phi i32 [ %eType3.1, %for.inc ], [ 0, %if.then3 ]
-  %_a.0198 = phi i32 [ %inc, %for.inc ], [ 0, %if.then3 ]
-  %a.sroa.0.0197 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %3, %if.then3 ]
-  %Semantic = getelementptr inbounds nuw i8, ptr %a.sroa.0.0197, i64 4
+  %bOne.0201 = phi i1 [ %bOne.1, %for.inc ], [ false, %if.then3 ]
+  %iProperty.0200 = phi i32 [ %iProperty.1, %for.inc ], [ -1, %if.then3 ]
+  %eType.0199 = phi i32 [ %eType.1, %for.inc ], [ 0, %if.then3 ]
+  %iTextureCoord.0198 = phi i32 [ %iTextureCoord.1, %for.inc ], [ -1, %if.then3 ]
+  %eType3.0197 = phi i32 [ %eType3.1, %for.inc ], [ 0, %if.then3 ]
+  %_a.0196 = phi i32 [ %inc, %for.inc ], [ 0, %if.then3 ]
+  %a.sroa.0.0195 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %3, %if.then3 ]
+  %Semantic = getelementptr inbounds nuw i8, ptr %a.sroa.0.0195, i64 4
   %5 = load i32, ptr %Semantic, align 4
   switch i32 %5, label %for.inc [
     i32 12, label %if.then10
@@ -4020,33 +4020,33 @@ for.body:                                         ; preds = %if.then3, %for.inc
   ]
 
 if.then10:                                        ; preds = %for.body
-  %bIsList = getelementptr inbounds nuw i8, ptr %a.sroa.0.0197, i64 40
+  %bIsList = getelementptr inbounds nuw i8, ptr %a.sroa.0.0195, i64 40
   %6 = load i8, ptr %bIsList, align 8
   %tobool = trunc i8 %6 to i1
   br i1 %tobool, label %if.end13, label %for.inc
 
 if.end13:                                         ; preds = %if.then10
-  %7 = load i32, ptr %a.sroa.0.0197, align 8
+  %7 = load i32, ptr %a.sroa.0.0195, align 8
   br label %for.inc
 
 if.then19:                                        ; preds = %for.body
-  %bIsList21 = getelementptr inbounds nuw i8, ptr %a.sroa.0.0197, i64 40
+  %bIsList21 = getelementptr inbounds nuw i8, ptr %a.sroa.0.0195, i64 40
   %8 = load i8, ptr %bIsList21, align 8
   %tobool22 = trunc i8 %8 to i1
   br i1 %tobool22, label %if.end24, label %for.inc
 
 if.end24:                                         ; preds = %if.then19
-  %9 = load i32, ptr %a.sroa.0.0197, align 8
+  %9 = load i32, ptr %a.sroa.0.0195, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end13, %if.end24, %if.then19, %if.then10
-  %eType3.1 = phi i32 [ %eType3.0199, %if.end13 ], [ %eType3.0199, %if.then10 ], [ %9, %if.end24 ], [ %eType3.0199, %if.then19 ], [ %eType3.0199, %for.body ]
-  %iTextureCoord.1 = phi i32 [ %iTextureCoord.0200, %if.end13 ], [ %iTextureCoord.0200, %if.then10 ], [ %_a.0198, %if.end24 ], [ %iTextureCoord.0200, %if.then19 ], [ %iTextureCoord.0200, %for.body ]
-  %eType.1 = phi i32 [ %7, %if.end13 ], [ %eType.0201, %if.then10 ], [ %eType.0201, %if.end24 ], [ %eType.0201, %if.then19 ], [ %eType.0201, %for.body ]
-  %iProperty.1 = phi i32 [ %_a.0198, %if.end13 ], [ %iProperty.0202, %if.then10 ], [ %iProperty.0202, %if.end24 ], [ %iProperty.0202, %if.then19 ], [ %iProperty.0202, %for.body ]
-  %bOne.1 = phi i1 [ true, %if.end13 ], [ %bOne.0203, %if.then10 ], [ true, %if.end24 ], [ %bOne.0203, %if.then19 ], [ %bOne.0203, %for.body ]
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %a.sroa.0.0197, i64 48
-  %inc = add i32 %_a.0198, 1
+  %eType3.1 = phi i32 [ %eType3.0197, %if.end13 ], [ %eType3.0197, %if.then10 ], [ %9, %if.end24 ], [ %eType3.0197, %if.then19 ], [ %eType3.0197, %for.body ]
+  %iTextureCoord.1 = phi i32 [ %iTextureCoord.0198, %if.end13 ], [ %iTextureCoord.0198, %if.then10 ], [ %_a.0196, %if.end24 ], [ %iTextureCoord.0198, %if.then19 ], [ %iTextureCoord.0198, %for.body ]
+  %eType.1 = phi i32 [ %7, %if.end13 ], [ %eType.0199, %if.then10 ], [ %eType.0199, %if.end24 ], [ %eType.0199, %if.then19 ], [ %eType.0199, %for.body ]
+  %iProperty.1 = phi i32 [ %_a.0196, %if.end13 ], [ %iProperty.0200, %if.then10 ], [ %iProperty.0200, %if.end24 ], [ %iProperty.0200, %if.then19 ], [ %iProperty.0200, %for.body ]
+  %bOne.1 = phi i1 [ true, %if.end13 ], [ %bOne.0201, %if.then10 ], [ true, %if.end24 ], [ %bOne.0201, %if.then19 ], [ %bOne.0201, %for.body ]
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %a.sroa.0.0195, i64 48
+  %inc = add i32 %_a.0196, 1
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %4
   br i1 %cmp.i.not, label %if.end58, label %for.body, !llvm.loop !26
 
@@ -4054,36 +4054,36 @@ if.then33:                                        ; preds = %if.end
   %10 = load ptr, ptr %pcElement, align 8
   %_M_finish.i63 = getelementptr inbounds nuw i8, ptr %pcElement, i64 8
   %11 = load ptr, ptr %_M_finish.i63, align 8
-  %cmp.i64.not193 = icmp eq ptr %10, %11
-  br i1 %cmp.i64.not193, label %if.end307, label %for.body45
+  %cmp.i64.not191 = icmp eq ptr %10, %11
+  br i1 %cmp.i64.not191, label %if.end307, label %for.body45
 
 for.body45:                                       ; preds = %if.then33, %for.inc53
-  %_a34.0195 = phi i32 [ %inc55, %for.inc53 ], [ 0, %if.then33 ]
-  %a35.sroa.0.0194 = phi ptr [ %incdec.ptr.i65, %for.inc53 ], [ %10, %if.then33 ]
-  %bIsList47 = getelementptr inbounds nuw i8, ptr %a35.sroa.0.0194, i64 40
+  %_a34.0193 = phi i32 [ %inc55, %for.inc53 ], [ 0, %if.then33 ]
+  %a35.sroa.0.0192 = phi ptr [ %incdec.ptr.i65, %for.inc53 ], [ %10, %if.then33 ]
+  %bIsList47 = getelementptr inbounds nuw i8, ptr %a35.sroa.0.0192, i64 40
   %12 = load i8, ptr %bIsList47, align 8
   %tobool48 = trunc i8 %12 to i1
-  br i1 %tobool48, label %if.end58.thread173, label %for.inc53
+  br i1 %tobool48, label %if.end58.thread171, label %for.inc53
 
-if.end58.thread173:                               ; preds = %for.body45
-  %13 = load i32, ptr %a35.sroa.0.0194, align 8
+if.end58.thread171:                               ; preds = %for.body45
+  %13 = load i32, ptr %a35.sroa.0.0192, align 8
   br label %if.then60
 
 for.inc53:                                        ; preds = %for.body45
-  %incdec.ptr.i65 = getelementptr inbounds nuw i8, ptr %a35.sroa.0.0194, i64 48
-  %inc55 = add i32 %_a34.0195, 1
+  %incdec.ptr.i65 = getelementptr inbounds nuw i8, ptr %a35.sroa.0.0192, i64 48
+  %inc55 = add i32 %_a34.0193, 1
   %cmp.i64.not = icmp eq ptr %incdec.ptr.i65, %11
   br i1 %cmp.i64.not, label %if.end307, label %for.body45, !llvm.loop !27
 
 if.end58:                                         ; preds = %for.inc
   br i1 %bOne.1, label %if.then60, label %if.end307
 
-if.then60:                                        ; preds = %if.end58.thread173, %if.end58
-  %iProperty.2185 = phi i32 [ %_a34.0195, %if.end58.thread173 ], [ %iProperty.1, %if.end58 ]
-  %eType.2184 = phi i32 [ %13, %if.end58.thread173 ], [ %eType.1, %if.end58 ]
-  %bIsTriStrip.0183 = phi i1 [ true, %if.end58.thread173 ], [ false, %if.end58 ]
-  %iTextureCoord.2182 = phi i32 [ -1, %if.end58.thread173 ], [ %iTextureCoord.1, %if.end58 ]
-  %eType3.2181 = phi i32 [ 0, %if.end58.thread173 ], [ %eType3.1, %if.end58 ]
+if.then60:                                        ; preds = %if.end58.thread171, %if.end58
+  %iProperty.2183 = phi i32 [ %_a34.0193, %if.end58.thread171 ], [ %iProperty.1, %if.end58 ]
+  %eType.2182 = phi i32 [ %13, %if.end58.thread171 ], [ %eType.1, %if.end58 ]
+  %bIsTriStrip.0181 = phi i1 [ true, %if.end58.thread171 ], [ false, %if.end58 ]
+  %iTextureCoord.2180 = phi i32 [ -1, %if.end58.thread171 ], [ %iTextureCoord.1, %if.end58 ]
+  %eType3.2179 = phi i32 [ 0, %if.end58.thread171 ], [ %eType3.1, %if.end58 ]
   %mFaces = getelementptr inbounds nuw i8, ptr %0, i64 208
   %14 = load ptr, ptr %mFaces, align 8
   %cmp62 = icmp eq ptr %14, null
@@ -4125,17 +4125,17 @@ arrayctor.cont:                                   ; preds = %arrayctor.loop, %if
   br label %if.end70
 
 if.end70:                                         ; preds = %arrayctor.cont, %if.then60
-  br i1 %bIsTriStrip.0183, label %if.else198, label %if.then72
+  br i1 %bIsTriStrip.0181, label %if.else198, label %if.then72
 
 if.then72:                                        ; preds = %if.end70
-  %cmp73.not = icmp eq i32 %iProperty.2185, -1
+  %cmp73.not = icmp eq i32 %iProperty.2183, -1
   br i1 %cmp73.not, label %if.end110, label %if.then74
 
 if.then74:                                        ; preds = %if.then72
   %instElement.val61 = load ptr, ptr %instElement, align 8
   %21 = getelementptr i8, ptr %instElement, i64 8
   %instElement.val62 = load ptr, ptr %21, align 8
-  %conv.i = sext i32 %iProperty.2185 to i64
+  %conv.i = sext i32 %iProperty.2183 to i64
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %instElement.val62 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %instElement.val61 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -4205,8 +4205,8 @@ lpad.i75:                                         ; preds = %if.then.i73
   br label %common.resume
 
 _ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78: ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit
-  %cmp94208.not = icmp eq i32 %conv78, 0
-  br i1 %cmp94208.not, label %if.end110, label %for.body95.preheader
+  %cmp94206.not = icmp eq i32 %conv78, 0
+  br i1 %cmp94206.not, label %if.end110, label %for.body95.preheader
 
 for.body95.preheader:                             ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78
   %add.ptr.i.i77 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val59, i64 %conv.i
@@ -4216,18 +4216,18 @@ for.body95.preheader:                             ; preds = %_ZN6Assimp12_GLOBAL
 
 for.body95:                                       ; preds = %for.body95.preheader, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
   %indvars.iv = phi i64 [ 0, %for.body95.preheader ], [ %indvars.iv.next, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ]
-  %p.sroa.0.0209 = phi ptr [ %31, %for.body95.preheader ], [ %incdec.ptr.i80, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ]
-  %agg.tmp.sroa.0.0.copyload = load i64, ptr %p.sroa.0.0209, align 8
+  %p.sroa.0.0207 = phi ptr [ %31, %for.body95.preheader ], [ %incdec.ptr.i80, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ]
+  %agg.tmp.sroa.0.0.copyload = load i64, ptr %p.sroa.0.0207, align 8
   %v.sroa.0.sroa.0.0.extract.trunc.i = trunc i64 %agg.tmp.sroa.0.0.copyload to i32
-  switch i32 %eType.2184, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
+  switch i32 %eType.2182, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
     i32 6, label %sw.bb.i
     i32 7, label %sw.bb1.i
     i32 5, label %sw.bb3.i
     i32 3, label %sw.bb3.i
     i32 1, label %sw.bb3.i
-    i32 4, label %sw.bb4.i
-    i32 2, label %sw.bb4.i
-    i32 0, label %sw.bb4.i
+    i32 4, label %sw.bb3.i
+    i32 2, label %sw.bb3.i
+    i32 0, label %sw.bb3.i
   ]
 
 sw.bb.i:                                          ; preds = %for.body95
@@ -4240,14 +4240,11 @@ sw.bb1.i:                                         ; preds = %for.body95
   %conv2.i = fptoui double %33 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb3.i:                                         ; preds = %for.body95, %for.body95, %for.body95
+sw.bb3.i:                                         ; preds = %for.body95, %for.body95, %for.body95, %for.body95, %for.body95, %for.body95
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb4.i:                                         ; preds = %for.body95, %for.body95, %for.body95
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %for.body95, %sw.bb.i, %sw.bb1.i, %sw.bb3.i, %sw.bb4.i
-  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb4.i ], [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i79, %sw.bb.i ], [ 0, %for.body95 ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %for.body95, %sw.bb.i, %sw.bb1.i, %sw.bb3.i
+  %retval.0.i = phi i32 [ %v.sroa.0.sroa.0.0.extract.trunc.i, %sw.bb3.i ], [ %conv2.i, %sw.bb1.i ], [ %conv.i79, %sw.bb.i ], [ 0, %for.body95 ]
   %34 = load ptr, ptr %mGeneratedMesh, align 8
   %mFaces100 = getelementptr inbounds nuw i8, ptr %34, i64 208
   %35 = load ptr, ptr %mFaces100, align 8
@@ -4256,19 +4253,19 @@ _ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE
   %arrayidx105 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
   store i32 %retval.0.i, ptr %arrayidx105, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %p.sroa.0.0209, i64 8
+  %incdec.ptr.i80 = getelementptr inbounds nuw i8, ptr %p.sroa.0.0207, i64 8
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %if.end110, label %for.body95, !llvm.loop !28
 
 if.end110:                                        ; preds = %_ZN6Assimp3PLY16PropertyInstance9ConvertToIjEET_NS1_10ValueUnionENS0_9EDataTypeE.exit, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit78, %if.then72
-  %cmp111.not = icmp eq i32 %iTextureCoord.2182, -1
+  %cmp111.not = icmp eq i32 %iTextureCoord.2180, -1
   br i1 %cmp111.not, label %if.end307, label %if.then112
 
 if.then112:                                       ; preds = %if.end110
   %instElement.val57 = load ptr, ptr %instElement, align 8
   %37 = getelementptr i8, ptr %instElement, i64 8
   %instElement.val58 = load ptr, ptr %37, align 8
-  %conv.i81 = sext i32 %iTextureCoord.2182 to i64
+  %conv.i81 = sext i32 %iTextureCoord.2180 to i64
   %sub.ptr.lhs.cast.i.i82 = ptrtoint ptr %instElement.val58 to i64
   %sub.ptr.rhs.cast.i.i83 = ptrtoint ptr %instElement.val57 to i64
   %sub.ptr.sub.i.i84 = sub i64 %sub.ptr.lhs.cast.i.i82, %sub.ptr.rhs.cast.i.i83
@@ -4309,14 +4306,14 @@ for.body130.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL
   br label %for.body130
 
 for.body130:                                      ; preds = %for.body130.lr.ph, %for.inc192
-  %a127.0214 = phi i32 [ 0, %for.body130.lr.ph ], [ %inc193, %for.inc192 ]
-  %p119.sroa.0.0212 = phi ptr [ %40, %for.body130.lr.ph ], [ %incdec.ptr.i126, %for.inc192 ]
+  %a127.0212 = phi i32 [ 0, %for.body130.lr.ph ], [ %inc193, %for.inc192 ]
+  %p119.sroa.0.0210 = phi ptr [ %40, %for.body130.lr.ph ], [ %incdec.ptr.i125, %for.inc192 ]
   %41 = load ptr, ptr %mGeneratedMesh, align 8
   %mFaces132 = getelementptr inbounds nuw i8, ptr %41, i64 208
   %42 = load ptr, ptr %mFaces132, align 8
   %mIndices135 = getelementptr inbounds nuw %struct.aiFace, ptr %42, i64 %idxprom133, i32 1
   %43 = load ptr, ptr %mIndices135, align 8
-  %div13653 = lshr i32 %a127.0214, 1
+  %div13653 = lshr i32 %a127.0212, 1
   %idxprom137 = zext nneg i32 %div13653 to i64
   %arrayidx138 = getelementptr inbounds nuw i32, ptr %43, i64 %idxprom137
   %44 = load i32, ptr %arrayidx138, align 4
@@ -4357,92 +4354,92 @@ arrayctor.cont159:                                ; preds = %new.ctorloop153, %i
   br label %if.end163
 
 if.end163:                                        ; preds = %arrayctor.cont159, %if.then141
-  %rem = and i32 %a127.0214, 1
+  %rem = and i32 %a127.0212, 1
   %cmp164 = icmp eq i32 %rem, 0
-  %agg.tmp166.sroa.0.0.copyload = load i64, ptr %p119.sroa.0.0212, align 8
+  %agg.tmp166.sroa.0.0.copyload = load i64, ptr %p119.sroa.0.0210, align 8
   %v.sroa.0.sroa.0.0.extract.trunc.i110 = trunc i64 %agg.tmp166.sroa.0.0.copyload to i32
   br i1 %cmp164, label %if.then165, label %if.else175
 
 if.then165:                                       ; preds = %if.end163
-  switch i32 %eType3.2181, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
-    i32 6, label %sw.bb.i115
-    i32 7, label %sw.bb1.i113
+  switch i32 %eType3.2179, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit [
+    i32 6, label %sw.bb.i114
+    i32 7, label %sw.bb1.i112
     i32 5, label %sw.bb2.i
     i32 3, label %sw.bb2.i
     i32 1, label %sw.bb2.i
-    i32 4, label %sw.bb4.i111
-    i32 2, label %sw.bb4.i111
-    i32 0, label %sw.bb4.i111
+    i32 4, label %sw.bb4.i
+    i32 2, label %sw.bb4.i
+    i32 0, label %sw.bb4.i
   ]
 
-sw.bb.i115:                                       ; preds = %if.then165
+sw.bb.i114:                                       ; preds = %if.then165
   %54 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb1.i113:                                      ; preds = %if.then165
+sw.bb1.i112:                                      ; preds = %if.then165
   %55 = bitcast i64 %agg.tmp166.sroa.0.0.copyload to double
-  %conv.i114 = fptrunc double %55 to float
+  %conv.i113 = fptrunc double %55 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
 sw.bb2.i:                                         ; preds = %if.then165, %if.then165, %if.then165
   %conv3.i = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb4.i111:                                      ; preds = %if.then165, %if.then165, %if.then165
+sw.bb4.i:                                         ; preds = %if.then165, %if.then165, %if.then165
   %conv5.i = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then165, %sw.bb.i115, %sw.bb1.i113, %sw.bb2.i, %sw.bb4.i111
-  %retval.0.i112 = phi float [ %conv5.i, %sw.bb4.i111 ], [ %conv3.i, %sw.bb2.i ], [ %conv.i114, %sw.bb1.i113 ], [ %54, %sw.bb.i115 ], [ 0.000000e+00, %if.then165 ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %if.then165, %sw.bb.i114, %sw.bb1.i112, %sw.bb2.i, %sw.bb4.i
+  %retval.0.i111 = phi float [ %conv5.i, %sw.bb4.i ], [ %conv3.i, %sw.bb2.i ], [ %conv.i113, %sw.bb1.i112 ], [ %54, %sw.bb.i114 ], [ 0.000000e+00, %if.then165 ]
   %56 = load ptr, ptr %mGeneratedMesh, align 8
   %mTextureCoords171 = getelementptr inbounds nuw i8, ptr %56, i64 112
   %57 = load ptr, ptr %mTextureCoords171, align 8
   %idxprom173 = zext i32 %44 to i64
   %arrayidx174 = getelementptr inbounds nuw %class.aiVector3t, ptr %57, i64 %idxprom173
-  store float %retval.0.i112, ptr %arrayidx174, align 4
+  store float %retval.0.i111, ptr %arrayidx174, align 4
   br label %if.end185
 
 if.else175:                                       ; preds = %if.end163
-  switch i32 %eType3.2181, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125 [
-    i32 6, label %sw.bb.i124
-    i32 7, label %sw.bb1.i122
-    i32 5, label %sw.bb2.i120
-    i32 3, label %sw.bb2.i120
-    i32 1, label %sw.bb2.i120
-    i32 4, label %sw.bb4.i117
-    i32 2, label %sw.bb4.i117
-    i32 0, label %sw.bb4.i117
+  switch i32 %eType3.2179, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124 [
+    i32 6, label %sw.bb.i123
+    i32 7, label %sw.bb1.i121
+    i32 5, label %sw.bb2.i119
+    i32 3, label %sw.bb2.i119
+    i32 1, label %sw.bb2.i119
+    i32 4, label %sw.bb4.i116
+    i32 2, label %sw.bb4.i116
+    i32 0, label %sw.bb4.i116
   ]
 
-sw.bb.i124:                                       ; preds = %if.else175
+sw.bb.i123:                                       ; preds = %if.else175
   %58 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125
+  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124
 
-sw.bb1.i122:                                      ; preds = %if.else175
+sw.bb1.i121:                                      ; preds = %if.else175
   %59 = bitcast i64 %agg.tmp166.sroa.0.0.copyload to double
-  %conv.i123 = fptrunc double %59 to float
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125
+  %conv.i122 = fptrunc double %59 to float
+  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124
 
-sw.bb2.i120:                                      ; preds = %if.else175, %if.else175, %if.else175
-  %conv3.i121 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125
+sw.bb2.i119:                                      ; preds = %if.else175, %if.else175, %if.else175
+  %conv3.i120 = uitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
+  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124
 
-sw.bb4.i117:                                      ; preds = %if.else175, %if.else175, %if.else175
-  %conv5.i118 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
-  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125
+sw.bb4.i116:                                      ; preds = %if.else175, %if.else175, %if.else175
+  %conv5.i117 = sitofp i32 %v.sroa.0.sroa.0.0.extract.trunc.i110 to float
+  br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124
 
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125: ; preds = %if.else175, %sw.bb.i124, %sw.bb1.i122, %sw.bb2.i120, %sw.bb4.i117
-  %retval.0.i119 = phi float [ %conv5.i118, %sw.bb4.i117 ], [ %conv3.i121, %sw.bb2.i120 ], [ %conv.i123, %sw.bb1.i122 ], [ %58, %sw.bb.i124 ], [ 0.000000e+00, %if.else175 ]
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124: ; preds = %if.else175, %sw.bb.i123, %sw.bb1.i121, %sw.bb2.i119, %sw.bb4.i116
+  %retval.0.i118 = phi float [ %conv5.i117, %sw.bb4.i116 ], [ %conv3.i120, %sw.bb2.i119 ], [ %conv.i122, %sw.bb1.i121 ], [ %58, %sw.bb.i123 ], [ 0.000000e+00, %if.else175 ]
   %60 = load ptr, ptr %mGeneratedMesh, align 8
   %mTextureCoords181 = getelementptr inbounds nuw i8, ptr %60, i64 112
   %61 = load ptr, ptr %mTextureCoords181, align 8
   %idxprom183 = zext i32 %44 to i64
   %y = getelementptr inbounds nuw %class.aiVector3t, ptr %61, i64 %idxprom183, i32 1
-  store float %retval.0.i119, ptr %y, align 4
+  store float %retval.0.i118, ptr %y, align 4
   br label %if.end185
 
-if.end185:                                        ; preds = %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-  %idxprom189.pre-phi = phi i64 [ %idxprom183, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit125 ], [ %idxprom173, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ]
+if.end185:                                        ; preds = %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
+  %idxprom189.pre-phi = phi i64 [ %idxprom183, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit124 ], [ %idxprom173, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIfEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ]
   %62 = load ptr, ptr %mGeneratedMesh, align 8
   %mTextureCoords187 = getelementptr inbounds nuw i8, ptr %62, i64 112
   %63 = load ptr, ptr %mTextureCoords187, align 8
@@ -4451,60 +4448,60 @@ if.end185:                                        ; preds = %_ZN6Assimp3PLY16Pro
   br label %for.inc192
 
 for.inc192:                                       ; preds = %for.body130, %if.end185
-  %inc193 = add nuw i32 %a127.0214, 1
-  %incdec.ptr.i126 = getelementptr inbounds nuw i8, ptr %p119.sroa.0.0212, i64 8
-  %exitcond225.not = icmp eq i32 %inc193, %conv118
-  br i1 %exitcond225.not, label %if.end307, label %for.body130, !llvm.loop !29
+  %inc193 = add nuw i32 %a127.0212, 1
+  %incdec.ptr.i125 = getelementptr inbounds nuw i8, ptr %p119.sroa.0.0210, i64 8
+  %exitcond223.not = icmp eq i32 %inc193, %conv118
+  br i1 %exitcond223.not, label %if.end307, label %for.body130, !llvm.loop !29
 
 if.else198:                                       ; preds = %if.end70
   %instElement.val = load ptr, ptr %instElement, align 8
   %64 = getelementptr i8, ptr %instElement, i64 8
   %instElement.val54 = load ptr, ptr %64, align 8
-  %conv.i127 = sext i32 %iProperty.2185 to i64
-  %sub.ptr.lhs.cast.i.i128 = ptrtoint ptr %instElement.val54 to i64
-  %sub.ptr.rhs.cast.i.i129 = ptrtoint ptr %instElement.val to i64
-  %sub.ptr.sub.i.i130 = sub i64 %sub.ptr.lhs.cast.i.i128, %sub.ptr.rhs.cast.i.i129
-  %sub.ptr.div.i.i131 = sdiv exact i64 %sub.ptr.sub.i.i130, 24
-  %cmp.not.i132 = icmp ugt i64 %sub.ptr.div.i.i131, %conv.i127
-  br i1 %cmp.not.i132, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138, label %if.then.i133
+  %conv.i126 = sext i32 %iProperty.2183 to i64
+  %sub.ptr.lhs.cast.i.i127 = ptrtoint ptr %instElement.val54 to i64
+  %sub.ptr.rhs.cast.i.i128 = ptrtoint ptr %instElement.val to i64
+  %sub.ptr.sub.i.i129 = sub i64 %sub.ptr.lhs.cast.i.i127, %sub.ptr.rhs.cast.i.i128
+  %sub.ptr.div.i.i130 = sdiv exact i64 %sub.ptr.sub.i.i129, 24
+  %cmp.not.i131 = icmp ugt i64 %sub.ptr.div.i.i130, %conv.i126
+  br i1 %cmp.not.i131, label %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit137, label %if.then.i132
 
-if.then.i133:                                     ; preds = %if.else198
-  %exception.i134 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i134, ptr noundef nonnull @.str.30)
-          to label %invoke.cont.i136 unwind label %lpad.i135
+if.then.i132:                                     ; preds = %if.else198
+  %exception.i133 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  invoke void @_ZN17DeadlyImportErrorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception.i133, ptr noundef nonnull @.str.30)
+          to label %invoke.cont.i135 unwind label %lpad.i134
 
-invoke.cont.i136:                                 ; preds = %if.then.i133
-  tail call void @__cxa_throw(ptr nonnull %exception.i134, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #18
+invoke.cont.i135:                                 ; preds = %if.then.i132
+  tail call void @__cxa_throw(ptr nonnull %exception.i133, ptr nonnull @_ZTI17DeadlyImportError, ptr nonnull @_ZN17DeadlyImportErrorD2Ev) #18
   unreachable
 
-lpad.i135:                                        ; preds = %if.then.i133
+lpad.i134:                                        ; preds = %if.then.i132
   %65 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
-_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138: ; preds = %if.else198
-  %add.ptr.i.i137 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val, i64 %conv.i127
-  %66 = load ptr, ptr %add.ptr.i.i137, align 8
-  %_M_finish.i139 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i137, i64 8
-  %67 = load ptr, ptr %_M_finish.i139, align 8
-  %cmp.i140.not215 = icmp eq ptr %66, %67
-  br i1 %cmp.i140.not215, label %if.end307, label %for.body210.lr.ph
+_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit137: ; preds = %if.else198
+  %add.ptr.i.i136 = getelementptr inbounds %"class.Assimp::PLY::PropertyInstance", ptr %instElement.val, i64 %conv.i126
+  %66 = load ptr, ptr %add.ptr.i.i136, align 8
+  %_M_finish.i138 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i136, i64 8
+  %67 = load ptr, ptr %_M_finish.i138, align 8
+  %cmp.i139.not213 = icmp eq ptr %66, %67
+  br i1 %cmp.i139.not213, label %if.end307, label %for.body210.lr.ph
 
-for.body210.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138
+for.body210.lr.ph:                                ; preds = %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit137
   %NumOccur235 = getelementptr inbounds nuw i8, ptr %pcElement, i64 64
   %idxprom255 = zext i32 %pos to i64
   br label %for.body210
 
 for.body210:                                      ; preds = %for.body210.lr.ph, %for.inc303
-  %aiTable.sroa.0.0219 = phi i32 [ -1, %for.body210.lr.ph ], [ %aiTable.sroa.0.1, %for.inc303 ]
-  %aiTable.sroa.6.0218 = phi i32 [ -1, %for.body210.lr.ph ], [ %aiTable.sroa.6.1, %for.inc303 ]
-  %flip.0217 = phi i1 [ false, %for.body210.lr.ph ], [ %flip.1, %for.inc303 ]
-  %a202.sroa.0.0216 = phi ptr [ %66, %for.body210.lr.ph ], [ %incdec.ptr.i150, %for.inc303 ]
-  %agg.tmp212.sroa.0.0.copyload = load i64, ptr %a202.sroa.0.0216, align 8
-  %v.sroa.0.sroa.0.0.extract.trunc.i141 = trunc i64 %agg.tmp212.sroa.0.0.copyload to i32
-  switch i32 %eType.2184, label %if.end220 [
-    i32 6, label %sw.bb.i147
-    i32 7, label %sw.bb1.i145
+  %aiTable.sroa.0.0217 = phi i32 [ -1, %for.body210.lr.ph ], [ %aiTable.sroa.0.1, %for.inc303 ]
+  %aiTable.sroa.6.0216 = phi i32 [ -1, %for.body210.lr.ph ], [ %aiTable.sroa.6.1, %for.inc303 ]
+  %flip.0215 = phi i1 [ false, %for.body210.lr.ph ], [ %flip.1, %for.inc303 ]
+  %a202.sroa.0.0214 = phi ptr [ %66, %for.body210.lr.ph ], [ %incdec.ptr.i148, %for.inc303 ]
+  %agg.tmp212.sroa.0.0.copyload = load i64, ptr %a202.sroa.0.0214, align 8
+  %v.sroa.0.sroa.0.0.extract.trunc.i140 = trunc i64 %agg.tmp212.sroa.0.0.copyload to i32
+  switch i32 %eType.2182, label %if.end220 [
+    i32 6, label %sw.bb.i145
+    i32 7, label %sw.bb1.i143
     i32 5, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
     i32 3, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
     i32 1, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
@@ -4513,28 +4510,28 @@ for.body210:                                      ; preds = %for.body210.lr.ph, 
     i32 0, label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
   ]
 
-sw.bb.i147:                                       ; preds = %for.body210
-  %68 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i141 to float
-  %conv.i148 = fptosi float %68 to i32
+sw.bb.i145:                                       ; preds = %for.body210
+  %68 = bitcast i32 %v.sroa.0.sroa.0.0.extract.trunc.i140 to float
+  %conv.i146 = fptosi float %68 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-sw.bb1.i145:                                      ; preds = %for.body210
+sw.bb1.i143:                                      ; preds = %for.body210
   %69 = bitcast i64 %agg.tmp212.sroa.0.0.copyload to double
-  %conv2.i146 = fptosi double %69 to i32
+  %conv2.i144 = fptosi double %69 to i32
   br label %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
 
-_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %for.body210, %for.body210, %for.body210, %for.body210, %for.body210, %for.body210, %sw.bb.i147, %sw.bb1.i145
-  %retval.0.i143 = phi i32 [ %conv2.i146, %sw.bb1.i145 ], [ %conv.i148, %sw.bb.i147 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i141, %for.body210 ]
-  %cmp216 = icmp eq i32 %retval.0.i143, -1
+_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit: ; preds = %for.body210, %for.body210, %for.body210, %for.body210, %for.body210, %for.body210, %sw.bb.i145, %sw.bb1.i143
+  %retval.0.i142 = phi i32 [ %conv2.i144, %sw.bb1.i143 ], [ %conv.i146, %sw.bb.i145 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ], [ %v.sroa.0.sroa.0.0.extract.trunc.i140, %for.body210 ]
+  %cmp216 = icmp eq i32 %retval.0.i142, -1
   br i1 %cmp216, label %for.inc303, label %if.end220
 
 if.end220:                                        ; preds = %for.body210, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-  %retval.0.i143188 = phi i32 [ %retval.0.i143, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ 0, %for.body210 ]
-  %cmp222 = icmp eq i32 %aiTable.sroa.0.0219, -1
+  %retval.0.i142186 = phi i32 [ %retval.0.i142, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ 0, %for.body210 ]
+  %cmp222 = icmp eq i32 %aiTable.sroa.0.0217, -1
   br i1 %cmp222, label %for.inc303, label %if.end225
 
 if.end225:                                        ; preds = %if.end220
-  %cmp227 = icmp eq i32 %aiTable.sroa.6.0218, -1
+  %cmp227 = icmp eq i32 %aiTable.sroa.6.0216, -1
   br i1 %cmp227, label %for.inc303, label %if.end230
 
 if.end230:                                        ; preds = %if.end225
@@ -4567,8 +4564,8 @@ new.ctorloop243:                                  ; preds = %if.then234
 arrayctor.loop245:                                ; preds = %arrayctor.loop245, %new.ctorloop243
   %arrayctor.cur246 = phi ptr [ %77, %new.ctorloop243 ], [ %arrayctor.next247, %arrayctor.loop245 ]
   store i32 0, ptr %arrayctor.cur246, align 8
-  %mIndices.i149 = getelementptr inbounds nuw i8, ptr %arrayctor.cur246, i64 8
-  store ptr null, ptr %mIndices.i149, align 8
+  %mIndices.i147 = getelementptr inbounds nuw i8, ptr %arrayctor.cur246, i64 8
+  store ptr null, ptr %mIndices.i147, align 8
   %arrayctor.next247 = getelementptr inbounds nuw i8, ptr %arrayctor.cur246, i64 16
   %arrayctor.done248 = icmp eq ptr %arrayctor.next247, %arrayctor.end244
   br i1 %arrayctor.done248, label %arrayctor.cont249, label %arrayctor.loop245
@@ -4578,11 +4575,11 @@ arrayctor.cont249:                                ; preds = %arrayctor.loop245, 
   store ptr %77, ptr %mFaces251, align 8
   %.pre = load ptr, ptr %mGeneratedMesh, align 8
   %mFaces254.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 208
-  %.pre226 = load ptr, ptr %mFaces254.phi.trans.insert, align 8
+  %.pre224 = load ptr, ptr %mFaces254.phi.trans.insert, align 8
   br label %if.end252
 
 if.end252:                                        ; preds = %arrayctor.cont249, %if.end230
-  %78 = phi ptr [ %.pre226, %arrayctor.cont249 ], [ %71, %if.end230 ]
+  %78 = phi ptr [ %.pre224, %arrayctor.cont249 ], [ %71, %if.end230 ]
   %arrayidx256 = getelementptr inbounds nuw %struct.aiFace, ptr %78, i64 %idxprom255
   store i32 3, ptr %arrayidx256, align 8
   %call258 = tail call noalias noundef nonnull dereferenceable(12) ptr @_Znam(i64 noundef 12) #19
@@ -4596,22 +4593,22 @@ if.end252:                                        ; preds = %arrayctor.cont249, 
   %82 = load ptr, ptr %mFaces266, align 8
   %mIndices269 = getelementptr inbounds nuw %struct.aiFace, ptr %82, i64 %idxprom255, i32 1
   %83 = load ptr, ptr %mIndices269, align 8
-  store i32 %aiTable.sroa.0.0219, ptr %83, align 4
+  store i32 %aiTable.sroa.0.0217, ptr %83, align 4
   %84 = load ptr, ptr %mGeneratedMesh, align 8
   %mFaces273 = getelementptr inbounds nuw i8, ptr %84, i64 208
   %85 = load ptr, ptr %mFaces273, align 8
   %mIndices276 = getelementptr inbounds nuw %struct.aiFace, ptr %85, i64 %idxprom255, i32 1
   %86 = load ptr, ptr %mIndices276, align 8
   %arrayidx277 = getelementptr inbounds nuw i8, ptr %86, i64 4
-  store i32 %aiTable.sroa.6.0218, ptr %arrayidx277, align 4
+  store i32 %aiTable.sroa.6.0216, ptr %arrayidx277, align 4
   %87 = load ptr, ptr %mGeneratedMesh, align 8
   %mFaces279 = getelementptr inbounds nuw i8, ptr %87, i64 208
   %88 = load ptr, ptr %mFaces279, align 8
   %mIndices282 = getelementptr inbounds nuw %struct.aiFace, ptr %88, i64 %idxprom255, i32 1
   %89 = load ptr, ptr %mIndices282, align 8
   %arrayidx283 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store i32 %retval.0.i143188, ptr %arrayidx283, align 4
-  br i1 %flip.0217, label %for.inc303, label %if.then286
+  store i32 %retval.0.i142186, ptr %arrayidx283, align 4
+  br i1 %flip.0215, label %for.inc303, label %if.then286
 
 if.then286:                                       ; preds = %if.end252
   %90 = load ptr, ptr %mGeneratedMesh, align 8
@@ -4627,15 +4624,15 @@ if.then286:                                       ; preds = %if.end252
   br label %for.inc303
 
 for.inc303:                                       ; preds = %if.end252, %if.then286, %if.end225, %if.end220, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit
-  %flip.1 = phi i1 [ false, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %flip.0217, %if.end220 ], [ %flip.0217, %if.end225 ], [ true, %if.then286 ], [ false, %if.end252 ]
-  %aiTable.sroa.6.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %aiTable.sroa.6.0218, %if.end220 ], [ %retval.0.i143188, %if.end225 ], [ %retval.0.i143188, %if.then286 ], [ %retval.0.i143188, %if.end252 ]
-  %aiTable.sroa.0.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %retval.0.i143188, %if.end220 ], [ %aiTable.sroa.0.0219, %if.end225 ], [ %aiTable.sroa.6.0218, %if.then286 ], [ %aiTable.sroa.6.0218, %if.end252 ]
-  %incdec.ptr.i150 = getelementptr inbounds nuw i8, ptr %a202.sroa.0.0216, i64 8
-  %95 = load ptr, ptr %_M_finish.i139, align 8
-  %cmp.i140.not = icmp eq ptr %incdec.ptr.i150, %95
-  br i1 %cmp.i140.not, label %if.end307, label %for.body210, !llvm.loop !30
+  %flip.1 = phi i1 [ false, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %flip.0215, %if.end220 ], [ %flip.0215, %if.end225 ], [ true, %if.then286 ], [ false, %if.end252 ]
+  %aiTable.sroa.6.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %aiTable.sroa.6.0216, %if.end220 ], [ %retval.0.i142186, %if.end225 ], [ %retval.0.i142186, %if.then286 ], [ %retval.0.i142186, %if.end252 ]
+  %aiTable.sroa.0.1 = phi i32 [ -1, %_ZN6Assimp3PLY16PropertyInstance9ConvertToIiEET_NS1_10ValueUnionENS0_9EDataTypeE.exit ], [ %retval.0.i142186, %if.end220 ], [ %aiTable.sroa.0.0217, %if.end225 ], [ %aiTable.sroa.6.0216, %if.then286 ], [ %aiTable.sroa.6.0216, %if.end252 ]
+  %incdec.ptr.i148 = getelementptr inbounds nuw i8, ptr %a202.sroa.0.0214, i64 8
+  %95 = load ptr, ptr %_M_finish.i138, align 8
+  %cmp.i139.not = icmp eq ptr %incdec.ptr.i148, %95
+  br i1 %cmp.i139.not, label %if.end307, label %for.body210, !llvm.loop !30
 
-if.end307:                                        ; preds = %for.inc53, %for.inc192, %for.inc303, %if.then3, %if.then33, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit138, %if.end, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109, %if.end110, %if.end58
+if.end307:                                        ; preds = %for.inc53, %for.inc192, %for.inc303, %if.then3, %if.then33, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit137, %if.end, %_ZN6Assimp12_GLOBAL__N_111GetPropertyINS_3PLY16PropertyInstanceEEERKT_RKSt6vectorIS4_SaIS4_EEi.exit109, %if.end110, %if.end58
   ret void
 }
 

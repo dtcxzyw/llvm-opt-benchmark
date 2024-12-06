@@ -1346,25 +1346,23 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %5, %8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm11Instruction20setHasNoUnsignedWrapEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_11InstructionEEEDcPT0_.exit:
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3 = load i8, ptr %2, align 1
-  %4 = select i1 %1, i8 2, i8 0
-  %5 = and i8 %3, -3
-  %6 = or disjoint i8 %5, %4
-  store i8 %6, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = select i1 %1, i8 2, i8 0
+  %6 = and i8 %4, -3
+  %7 = or disjoint i8 %6, %5
+  store i8 %7, ptr %3, align 1
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4llvm11Instruction18setHasNoSignedWrapEb(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0, i1 noundef zeroext %1) local_unnamed_addr #6 align 2 {
-_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorENS_11InstructionEEEDcPT0_.exit:
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %3 = load i8, ptr %2, align 1
-  %4 = select i1 %1, i8 4, i8 0
-  %5 = and i8 %3, -5
-  %6 = or disjoint i8 %5, %4
-  store i8 %6, ptr %2, align 1
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1
+  %5 = select i1 %1, i8 4, i8 0
+  %6 = and i8 %4, -5
+  %7 = or disjoint i8 %6, %5
+  store i8 %7, ptr %3, align 1
   ret void
 }
 
@@ -1392,7 +1390,6 @@ define dso_local void @_ZN4llvm11Instruction9setNonNegEb(ptr nocapture noundef n
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm11Instruction17hasNoUnsignedWrapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #7 align 2 {
-_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_11InstructionEEEDcPT0_.exit:
   %.0.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.0.in.in = load i8, ptr %.0.in.in.in, align 1
   %.0.in = and i8 %.0.in.in, 2
@@ -1402,7 +1399,6 @@ _ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_11InstructionEEEDcPT0_.exit
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef zeroext i1 @_ZNK4llvm11Instruction15hasNoSignedWrapEv(ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %0) local_unnamed_addr #7 align 2 {
-_ZN4llvm8dyn_castINS_25OverflowingBinaryOperatorEKNS_11InstructionEEEDcPT0_.exit:
   %.0.in.in.in = getelementptr inbounds nuw i8, ptr %0, i64 1
   %.0.in.in = load i8, ptr %.0.in.in.in, align 1
   %.0.in = and i8 %.0.in.in, 4
@@ -1441,12 +1437,12 @@ define dso_local void @_ZN4llvm11Instruction25dropPoisonGeneratingFlagsEv(ptr no
     i8 55, label %3
     i8 58, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
     i8 63, label %4
-    i8 72, label %5
-    i8 68, label %5
-    i8 67, label %6
+    i8 72, label %3
+    i8 68, label %3
+    i8 67, label %5
   ]
 
-3:                                                ; preds = %1, %1, %1, %1
+3:                                                ; preds = %1, %1, %1, %1, %1, %1
   br label %thread-pre-split.thread.sink.split
 
 4:                                                ; preds = %1
@@ -1454,28 +1450,25 @@ define dso_local void @_ZN4llvm11Instruction25dropPoisonGeneratingFlagsEv(ptr no
   %.pr.pre = load i8, ptr %0, align 8
   br label %thread-pre-split
 
-5:                                                ; preds = %1, %1
-  br label %thread-pre-split.thread.sink.split
-
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   br label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
 
 thread-pre-split:                                 ; preds = %4, %1
-  %7 = phi i8 [ %2, %1 ], [ %.pr.pre, %4 ]
-  %8 = icmp ult i8 %7, 29
-  br i1 %8, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3, label %thread-pre-split.thread
+  %6 = phi i8 [ %2, %1 ], [ %.pr.pre, %4 ]
+  %7 = icmp ult i8 %6, 29
+  br i1 %7, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3, label %thread-pre-split.thread
 
-thread-pre-split.thread.sink.split:               ; preds = %1, %1, %1, %1, %3, %5
-  %.sink11 = phi i8 [ -3, %5 ], [ -3, %3 ], [ -7, %1 ], [ -7, %1 ], [ -7, %1 ], [ -7, %1 ]
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %10 = load i8, ptr %9, align 1
-  %11 = and i8 %10, %.sink11
-  store i8 %11, ptr %9, align 1
+thread-pre-split.thread.sink.split:               ; preds = %1, %1, %1, %1, %3
+  %.sink11 = phi i8 [ -3, %3 ], [ -7, %1 ], [ -7, %1 ], [ -7, %1 ], [ -7, %1 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %9 = load i8, ptr %8, align 1
+  %10 = and i8 %9, %.sink11
+  store i8 %10, ptr %8, align 1
   br label %thread-pre-split.thread
 
 thread-pre-split.thread:                          ; preds = %thread-pre-split.thread.sink.split, %thread-pre-split
-  %12 = phi i8 [ %7, %thread-pre-split ], [ %2, %thread-pre-split.thread.sink.split ]
-  switch i8 %12, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3 [
+  %11 = phi i8 [ %6, %thread-pre-split ], [ %2, %thread-pre-split.thread.sink.split ]
+  switch i8 %11, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3 [
     i8 41, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
     i8 43, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
     i8 45, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
@@ -1483,65 +1476,65 @@ thread-pre-split.thread:                          ; preds = %thread-pre-split.th
     i8 50, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
     i8 53, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
     i8 83, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split
-    i8 84, label %13
-    i8 86, label %13
-    i8 85, label %13
+    i8 84, label %12
+    i8 86, label %12
+    i8 85, label %12
   ]
 
-13:                                               ; preds = %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %15
+12:                                               ; preds = %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %14
 
-15:                                               ; preds = %15, %13
-  %.09.in.i.i.i.i.i.i.i.i = phi ptr [ %14, %13 ], [ %20, %15 ]
+14:                                               ; preds = %14, %12
+  %.09.in.i.i.i.i.i.i.i.i = phi ptr [ %13, %12 ], [ %19, %14 ]
   %.09.i.i.i.i.i.i.i.i = load ptr, ptr %.09.in.i.i.i.i.i.i.i.i, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 8
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 255
-  %19 = icmp ne i32 %18, 16
+  %15 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = and i32 %16, 255
+  %18 = icmp ne i32 %17, 16
   %.not1216.i.i.i.i.i.i.i.i = icmp eq ptr %.09.i.i.i.i.i.i.i.i, null
-  %.not12.i.i.i.i.i.i.i.i = or i1 %.not1216.i.i.i.i.i.i.i.i, %19
-  %20 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 24
-  br i1 %.not12.i.i.i.i.i.i.i.i, label %21, label %15, !llvm.loop !6
+  %.not12.i.i.i.i.i.i.i.i = or i1 %.not1216.i.i.i.i.i.i.i.i, %18
+  %19 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 24
+  br i1 %.not12.i.i.i.i.i.i.i.i, label %20, label %14, !llvm.loop !6
 
-21:                                               ; preds = %15
-  %22 = add nsw i32 %18, -17
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %22, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %23, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
+20:                                               ; preds = %14
+  %21 = add nsw i32 %17, -17
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %21, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %22, label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
+22:                                               ; preds = %20
+  %23 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 16
+  %24 = load ptr, ptr %23, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %25, align 8
-  %.phi.trans.insert.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %.phi.trans.insert.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.pre.i.i.i.i.i.i.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i.i.i.i.i.i.i, align 8
   br label %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
 
-_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %23, %21
-  %27 = phi i32 [ %.pre.i.i.i.i.i.i.i.i.i, %23 ], [ %17, %21 ]
-  %trunc.i.i.i.i.i.i.i.i.i.i.i = trunc i32 %27 to i8
-  %28 = icmp ult i8 %trunc.i.i.i.i.i.i.i.i.i.i.i, 6
-  br i1 %28, label %switch.hole_check, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit
+_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %22, %20
+  %26 = phi i32 [ %.pre.i.i.i.i.i.i.i.i.i, %22 ], [ %16, %20 ]
+  %trunc.i.i.i.i.i.i.i.i.i.i.i = trunc i32 %26 to i8
+  %27 = icmp ult i8 %trunc.i.i.i.i.i.i.i.i.i.i.i, 6
+  br i1 %27, label %switch.hole_check, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit
 
 _ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit: ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
-  %.old = and i32 %27, 253
+  %.old = and i32 %26, 253
   %spec.select.i.i14.i.i.i.i.i.i.i.i.old = icmp eq i32 %.old, 4
   br i1 %spec.select.i.i14.i.i.i.i.i.i.i.i.old, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3
 
 switch.hole_check:                                ; preds = %_ZNK4llvm4Type13getScalarTypeEv.exit.i.i.i.i.i.i.i.i.i
   %switch.shifted = lshr i8 47, %trunc.i.i.i.i.i.i.i.i.i.i.i
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %29 = and i32 %27, 5
-  %spec.select.i.i14.i.i.i.i.i.i.i.i = icmp eq i32 %29, 4
+  %28 = and i32 %26, 5
+  %spec.select.i.i14.i.i.i.i.i.i.i.i = icmp eq i32 %28, 4
   %or.cond = or i1 %spec.select.i.i14.i.i.i.i.i.i.i.i, %switch.lobit
   br i1 %or.cond, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split, label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3
 
-_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split: ; preds = %switch.hole_check, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %1, %6
-  %.sink14 = phi i8 [ -7, %6 ], [ -3, %1 ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ -13, %switch.hole_check ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %31 = load i8, ptr %30, align 1
-  %32 = and i8 %31, %.sink14
-  store i8 %32, ptr %30, align 1
+_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split: ; preds = %switch.hole_check, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %thread-pre-split.thread, %1, %5
+  %.sink14 = phi i8 [ -7, %5 ], [ -3, %1 ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %thread-pre-split.thread ], [ -13, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit ], [ -13, %switch.hole_check ]
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %30 = load i8, ptr %29, align 1
+  %31 = and i8 %30, %.sink14
+  store i8 %31, ptr %29, align 1
   br label %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3
 
 _ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3: ; preds = %switch.hole_check, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit.thread3.sink.split, %thread-pre-split.thread, %thread-pre-split, %_ZN4llvm3isaINS_14FPMathOperatorEPNS_11InstructionEEEbRKT0_.exit

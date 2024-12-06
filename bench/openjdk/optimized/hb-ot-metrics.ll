@@ -3261,7 +3261,7 @@ define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %3
-  switch i32 %1, label %86 [
+  switch i32 %1, label %83 [
     i32 1970168947, label %10
     i32 1937011315, label %10
   ]
@@ -3269,10 +3269,10 @@ define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32
 10:                                               ; preds = %9, %9
   %11 = load i32, ptr %2, align 4
   %.not46 = icmp eq i32 %11, 0
-  br i1 %.not46, label %12, label %86
+  br i1 %.not46, label %12, label %83
 
 12:                                               ; preds = %10, %3
-  switch i32 %1, label %85 [
+  switch i32 %1, label %82 [
     i32 1751216995, label %13
     i32 1751346273, label %13
     i32 1986098019, label %15
@@ -3283,24 +3283,18 @@ define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32
     i32 1986815856, label %25
     i32 1751347827, label %.sink.split
     i32 1986228851, label %.sink.split
-    i32 1751347822, label %28
-    i32 1986228846, label %28
-    i32 1751347046, label %29
-    i32 1986228070, label %29
-    i32 2020108148, label %30
-    i32 1668311156, label %42
-    i32 1937011315, label %59
-    i32 1970168947, label %59
-    i32 1937011311, label %63
-    i32 1970168943, label %66
-    i32 1935833203, label %70
-    i32 1936750707, label %70
-    i32 1935833459, label %75
-    i32 1936750963, label %75
-    i32 1935833199, label %80
-    i32 1936750703, label %80
-    i32 1935833455, label %81
-    i32 1936750959, label %81
+    i32 1936750959, label %78
+    i32 1935833455, label %78
+    i32 1936750963, label %73
+    i32 1935833459, label %73
+    i32 2020108148, label %28
+    i32 1668311156, label %40
+    i32 1937011315, label %57
+    i32 1970168947, label %57
+    i32 1937011311, label %61
+    i32 1970168943, label %64
+    i32 1935833203, label %68
+    i32 1936750707, label %68
   ]
 
 13:                                               ; preds = %12, %12
@@ -3336,111 +3330,102 @@ define hidden void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32
   %27 = load i32, ptr %26, align 4
   br label %.sink.split
 
-28:                                               ; preds = %12, %12
+28:                                               ; preds = %12
+  %29 = call i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef 120, ptr noundef nonnull %5)
+  %.not49 = icmp eq i32 %29, 0
+  br i1 %.not49, label %36, label %30
+
+30:                                               ; preds = %28
+  %31 = load i32, ptr %5, align 4
+  %32 = call i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %31, ptr noundef nonnull %6)
+  %.not50 = icmp eq i32 %32, 0
+  br i1 %.not50, label %36, label %33
+
+33:                                               ; preds = %30
+  %34 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %35 = load i32, ptr %34, align 4
   br label %.sink.split
 
-29:                                               ; preds = %12, %12
+36:                                               ; preds = %30, %28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %38 = load i32, ptr %37, align 4
+  %39 = sdiv i32 %38, 2
   br label %.sink.split
 
-30:                                               ; preds = %12
-  %31 = call i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef 120, ptr noundef nonnull %5)
-  %.not49 = icmp eq i32 %31, 0
-  br i1 %.not49, label %38, label %32
+40:                                               ; preds = %12
+  %41 = call i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef 79, ptr noundef nonnull %5)
+  %.not47 = icmp eq i32 %41, 0
+  br i1 %.not47, label %52, label %42
 
-32:                                               ; preds = %30
-  %33 = load i32, ptr %5, align 4
-  %34 = call i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %33, ptr noundef nonnull %6)
-  %.not50 = icmp eq i32 %34, 0
-  br i1 %.not50, label %38, label %35
+42:                                               ; preds = %40
+  %43 = load i32, ptr %5, align 4
+  %44 = call i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %43, ptr noundef nonnull %6)
+  %.not48 = icmp eq i32 %44, 0
+  br i1 %.not48, label %52, label %45
 
-35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %37 = load i32, ptr %36, align 4
-  br label %.sink.split
-
-38:                                               ; preds = %32, %30
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %40 = load i32, ptr %39, align 4
-  %41 = sdiv i32 %40, 2
-  br label %.sink.split
-
-42:                                               ; preds = %12
-  %43 = call i32 @hb_font_get_nominal_glyph(ptr noundef %0, i32 noundef 79, ptr noundef nonnull %5)
-  %.not47 = icmp eq i32 %43, 0
-  br i1 %.not47, label %54, label %44
-
-44:                                               ; preds = %42
-  %45 = load i32, ptr %5, align 4
-  %46 = call i32 @hb_font_get_glyph_extents(ptr noundef %0, i32 noundef %45, ptr noundef nonnull %6)
-  %.not48 = icmp eq i32 %46, 0
-  br i1 %.not48, label %54, label %47
-
-47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 12
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  %47 = load i32, ptr %46, align 4
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %49 = load i32, ptr %48, align 4
-  %50 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = shl nsw i32 %51, 1
-  %53 = add nsw i32 %52, %49
+  %50 = shl nsw i32 %49, 1
+  %51 = add nsw i32 %50, %47
   br label %.sink.split
 
-54:                                               ; preds = %44, %42
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %56 = load i32, ptr %55, align 4
-  %57 = shl nsw i32 %56, 1
-  %58 = sdiv i32 %57, 3
+52:                                               ; preds = %42, %40
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %54 = load i32, ptr %53, align 4
+  %55 = shl nsw i32 %54, 1
+  %56 = sdiv i32 %55, 3
   br label %.sink.split
 
-59:                                               ; preds = %12, %12
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %61 = load i32, ptr %60, align 4
-  %62 = sdiv i32 %61, 18
+57:                                               ; preds = %12, %12
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %59 = load i32, ptr %58, align 4
+  %60 = sdiv i32 %59, 18
   br label %.sink.split
 
-63:                                               ; preds = %12
+61:                                               ; preds = %12
   call void @hb_ot_metrics_get_position_with_fallback(ptr noundef %0, i32 noundef 1751216995, ptr noundef nonnull %7)
-  %64 = load i32, ptr %7, align 4
-  %65 = sdiv i32 %64, 2
+  %62 = load i32, ptr %7, align 4
+  %63 = sdiv i32 %62, 2
   br label %.sink.split
 
-66:                                               ; preds = %12
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %68 = load i32, ptr %67, align 4
-  %69 = sdiv i32 %68, -18
+64:                                               ; preds = %12
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %66 = load i32, ptr %65, align 4
+  %67 = sdiv i32 %66, -18
   br label %.sink.split
 
-70:                                               ; preds = %12, %12
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %72 = load i32, ptr %71, align 8
-  %73 = mul nsw i32 %72, 10
-  %74 = sdiv i32 %73, 12
+68:                                               ; preds = %12, %12
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load i32, ptr %69, align 8
+  %71 = mul nsw i32 %70, 10
+  %72 = sdiv i32 %71, 12
   br label %.sink.split
 
-75:                                               ; preds = %12, %12
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %77 = load i32, ptr %76, align 4
-  %78 = mul nsw i32 %77, 10
-  %79 = sdiv i32 %78, 12
+73:                                               ; preds = %12, %12
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %75 = load i32, ptr %74, align 4
+  %76 = mul nsw i32 %75, 10
+  %77 = sdiv i32 %76, 12
   br label %.sink.split
 
-80:                                               ; preds = %12, %12
+78:                                               ; preds = %12, %12
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %80 = load i32, ptr %79, align 4
+  %81 = sdiv i32 %80, 5
   br label %.sink.split
 
-81:                                               ; preds = %12, %12
-  %82 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %83 = load i32, ptr %82, align 4
-  %84 = sdiv i32 %83, 5
+82:                                               ; preds = %12
   br label %.sink.split
 
-85:                                               ; preds = %12
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %12, %12, %13, %15, %17, %20, %22, %25, %28, %29, %59, %63, %66, %70, %75, %80, %81, %85, %38, %35, %54, %47
-  %.sink = phi i32 [ %53, %47 ], [ %58, %54 ], [ %37, %35 ], [ %41, %38 ], [ 0, %85 ], [ %84, %81 ], [ 0, %80 ], [ %79, %75 ], [ %74, %70 ], [ %69, %66 ], [ %65, %63 ], [ %62, %59 ], [ 0, %29 ], [ 0, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ], [ 1, %12 ], [ 1, %12 ]
+.sink.split:                                      ; preds = %12, %12, %13, %15, %17, %20, %22, %25, %57, %61, %64, %68, %73, %78, %82, %36, %33, %52, %45
+  %.sink = phi i32 [ %51, %45 ], [ %56, %52 ], [ %35, %33 ], [ %39, %36 ], [ 0, %82 ], [ %81, %78 ], [ %77, %73 ], [ %72, %68 ], [ %67, %64 ], [ %63, %61 ], [ %60, %57 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %17 ], [ %16, %15 ], [ %14, %13 ], [ 1, %12 ], [ 1, %12 ]
   store i32 %.sink, ptr %2, align 4
-  br label %86
+  br label %83
 
-86:                                               ; preds = %.sink.split, %9, %10
+83:                                               ; preds = %.sink.split, %9, %10
   ret void
 }
 

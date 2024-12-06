@@ -737,33 +737,27 @@ define dso_local zeroext i1 @to_json_is_immutable(i32 noundef %0) local_unnamed_
   %3 = alloca i32, align 4
   call void @json_categorize_type(i32 noundef %0, i1 noundef zeroext false, ptr noundef nonnull %2, ptr noundef nonnull %3) #9
   %4 = load i32, ptr %2, align 4
-  switch i32 %4, label %10 [
-    i32 1, label %11
-    i32 6, label %11
-    i32 7, label %11
-    i32 0, label %11
-    i32 3, label %5
-    i32 4, label %5
-    i32 5, label %5
-    i32 11, label %6
-    i32 10, label %6
-    i32 2, label %6
+  switch i32 %4, label %9 [
+    i32 1, label %10
+    i32 6, label %10
+    i32 7, label %10
+    i32 0, label %10
+    i32 11, label %5
+    i32 10, label %5
+    i32 2, label %5
   ]
 
 5:                                                ; preds = %1, %1, %1
-  br label %11
+  %6 = load i32, ptr %3, align 4
+  %7 = call signext i8 @func_volatile(i32 noundef %6) #9
+  %8 = icmp eq i8 %7, 105
+  br label %10
 
-6:                                                ; preds = %1, %1, %1
-  %7 = load i32, ptr %3, align 4
-  %8 = call signext i8 @func_volatile(i32 noundef %7) #9
-  %9 = icmp eq i8 %8, 105
-  br label %11
+9:                                                ; preds = %1
+  br label %10
 
-10:                                               ; preds = %1
-  br label %11
-
-11:                                               ; preds = %1, %1, %1, %1, %10, %6, %5
-  %.0 = phi i1 [ false, %10 ], [ %9, %6 ], [ false, %5 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
+10:                                               ; preds = %1, %1, %1, %1, %9, %5
+  %.0 = phi i1 [ false, %9 ], [ %8, %5 ], [ true, %1 ], [ true, %1 ], [ true, %1 ], [ true, %1 ]
   ret i1 %.0
 }
 

@@ -2743,8 +2743,8 @@ switch.lookup:                                    ; preds = %entry
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
-return:                                           ; preds = %switch.lookup, %entry
-  %retval.0 = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ]
+return:                                           ; preds = %entry, %switch.lookup
+  %retval.0 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   ret i32 %retval.0
 }
 
@@ -2763,23 +2763,23 @@ switch.lookup:                                    ; preds = %entry
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv.exit
 
-_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv.exit: ; preds = %switch.lookup, %entry
-  %retval.0.i = phi i32 [ 0, %entry ], [ %switch.load, %switch.lookup ]
+_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv.exit: ; preds = %entry, %switch.lookup
+  %retval.0.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %entry ]
   %cmp.not = icmp eq i32 %retval.0.i, %dir
   br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %_ZNK19OpenColorIO_v2_4dev22ExposureContrastOpData12getDirectionEv.exit
   %3 = icmp ult i32 %0, 6
-  br i1 %3, label %switch.lookup1, label %_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData6invertEv.exit
+  br i1 %3, label %switch.lookup2, label %_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData6invertEv.exit
 
-switch.lookup1:                                   ; preds = %if.then
+switch.lookup2:                                   ; preds = %if.then
   %4 = zext nneg i32 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 0, i64 %4
-  %switch.load3 = load i32, ptr %switch.gep2, align 4
+  %switch.gep3 = getelementptr inbounds nuw [6 x i32], ptr @switch.table._ZN19OpenColorIO_v2_4dev22ExposureContrastOpData12setDirectionENS_18TransformDirectionE.1, i64 0, i64 %4
+  %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData6invertEv.exit
 
-_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData6invertEv.exit: ; preds = %switch.lookup1, %if.then
-  %invStyle.0.i = phi i32 [ 0, %if.then ], [ %switch.load3, %switch.lookup1 ]
+_ZN19OpenColorIO_v2_4dev22ExposureContrastOpData6invertEv.exit: ; preds = %switch.lookup2, %if.then
+  %invStyle.0.i = phi i32 [ 0, %if.then ], [ %switch.load4, %switch.lookup2 ]
   store i32 %invStyle.0.i, ptr %m_style.i, align 8
   br label %if.end
 

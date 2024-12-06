@@ -161,7 +161,7 @@ $_ZNSt6vectorIiN3gmx9AllocatorIiNS0_20HostAllocationPolicyEEEE17_M_default_appen
 @__PRETTY_FUNCTION__._ZZN3gmx5RangeIiEC1EiiENKUlvE_clEv = private unnamed_addr constant [89 x i8] c"auto gmx::Range<int>::Range(const int, const int)::(anonymous class)::operator()() const\00", align 1
 @.str.27 = private unnamed_addr constant [136 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/api/legacy/include/gromacs/utility/range.h\00", align 1
 @.str.28 = private unnamed_addr constant [51 x i8] c"add_f_to_f called with nout>1 and locality!=eatAll\00", align 1
-@switch.table._ZN16nbnxn_atomdata_tC2EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii = private unnamed_addr constant [7 x i32] [i32 0, i32 4, i32 4, i32 4, i32 8, i32 8, i32 0], align 4
+@switch.table._ZN16nbnxn_atomdata_tC2EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii = private unnamed_addr constant [5 x i32] [i32 4, i32 4, i32 4, i32 8, i32 8], align 4
 
 @_ZN23nbnxn_atomdata_output_tC1EN5Nbnxm10KernelTypeEiN3gmx13PinningPolicyE = unnamed_addr alias void (ptr, i32, i32, i32), ptr @_ZN23nbnxn_atomdata_output_tC2EN5Nbnxm10KernelTypeEiN3gmx13PinningPolicyE
 @_ZN23nbnxn_atomdata_output_tC1EOS_ = unnamed_addr alias void (ptr, ptr), ptr @_ZN23nbnxn_atomdata_output_tC2EOS_
@@ -1641,7 +1641,7 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %14, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, !llvm.loop !27
 
-11:                                               ; preds = %57, %23, %2
+11:                                               ; preds = %56, %23, %2
   %12 = landingpad { ptr, i32 }
           cleanup
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1706,59 +1706,54 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit26
   br i1 %exitcond43.not, label %43, label %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit26, !llvm.loop !28
 
 43:                                               ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit26
-  switch i32 %1, label %46 [
+  switch i32 %1, label %45 [
     i32 1, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
     i32 2, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
     i32 3, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
     i32 4, label %44
     i32 5, label %44
-    i32 0, label %45
-    i32 6, label %45
   ]
 
 44:                                               ; preds = %43, %43
   br label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
 
-45:                                               ; preds = %43, %43
+45:                                               ; preds = %43
   br label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
 
-46:                                               ; preds = %43
-  br label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
-
-_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28: ; preds = %43, %43, %43, %44, %45, %46
-  %47 = phi i1 [ false, %46 ], [ false, %45 ], [ true, %44 ], [ true, %43 ], [ true, %43 ], [ true, %43 ]
-  %.0.i27 = phi i32 [ 0, %46 ], [ 0, %45 ], [ 64, %44 ], [ 32, %43 ], [ 32, %43 ], [ 32, %43 ]
-  %48 = zext nneg i32 %.0.i27 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %50 = load ptr, ptr %49, align 8
-  %51 = load ptr, ptr %4, align 8
+_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28: ; preds = %43, %43, %43, %44, %45
+  %46 = phi i1 [ false, %45 ], [ true, %44 ], [ true, %43 ], [ true, %43 ], [ true, %43 ]
+  %.0.i27 = phi i32 [ 0, %45 ], [ 64, %44 ], [ 32, %43 ], [ 32, %43 ], [ 32, %43 ]
+  %47 = zext nneg i32 %.0.i27 to i64
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %4, align 8
+  %51 = ptrtoint ptr %49 to i64
   %52 = ptrtoint ptr %50 to i64
-  %53 = ptrtoint ptr %51 to i64
-  %54 = sub i64 %52, %53
-  %55 = ashr exact i64 %54, 2
-  %56 = icmp ult i64 %55, %48
-  br i1 %56, label %57, label %59
+  %53 = sub i64 %51, %52
+  %54 = ashr exact i64 %53, 2
+  %55 = icmp ult i64 %54, %47
+  br i1 %55, label %56, label %58
 
-57:                                               ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
-  %58 = sub nuw nsw i64 %48, %55
-  invoke void @_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %58)
+56:                                               ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
+  %57 = sub nuw nsw i64 %47, %54
+  invoke void @_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %57)
           to label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit unwind label %11
 
-59:                                               ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
-  %60 = icmp ugt i64 %55, %48
-  br i1 %60, label %61, label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
+58:                                               ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit28
+  %59 = icmp ugt i64 %54, %47
+  br i1 %59, label %60, label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i32, ptr %51, i64 %48
-  %.not.i.i29 = icmp eq ptr %50, %62
-  br i1 %.not.i.i29, label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %63
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i32, ptr %50, i64 %47
+  %.not.i.i29 = icmp eq ptr %49, %61
+  br i1 %.not.i.i29, label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit, label %62
 
-63:                                               ; preds = %61
-  store ptr %62, ptr %49, align 8
+62:                                               ; preds = %60
+  store ptr %61, ptr %48, align 8
   br label %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
 
-_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %57, %59, %61, %63
-  br i1 %47, label %.lr.ph.preheader, label %._crit_edge
+_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: ; preds = %56, %58, %60, %62
+  br i1 %46, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %_ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit
   %umax = tail call i32 @llvm.umax.i32(i32 %.0.i27, i32 1)
@@ -1767,11 +1762,11 @@ _ZNSt6vectorIjN3gmx9AllocatorIjNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit: 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv44 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next45, %.lr.ph ]
-  %64 = trunc nuw nsw i64 %indvars.iv44 to i32
-  %65 = shl nuw i32 1, %64
-  %66 = load ptr, ptr %4, align 8
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv44
-  store i32 %65, ptr %67, align 4
+  %63 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %64 = shl nuw i32 1, %63
+  %65 = load ptr, ptr %4, align 8
+  %66 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv44
+  store i32 %64, ptr %66, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond47.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count
   br i1 %exitcond47.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
@@ -3149,12 +3144,13 @@ _ZL21set_lj_parameter_dataPN16nbnxn_atomdata_t6ParamsEb.exit.i: ; preds = %461, 
   br i1 %489, label %490, label %505
 
 490:                                              ; preds = %488
-  %491 = icmp ult i32 %3, 7
+  %switch.tableidx = add i32 %3, -1
+  %491 = icmp ult i32 %switch.tableidx, 5
   br i1 %491, label %switch.lookup, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i
 
 switch.lookup:                                    ; preds = %490
-  %492 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i32], ptr @switch.table._ZN16nbnxn_atomdata_tC2EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii, i64 0, i64 %492
+  %492 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i32], ptr @switch.table._ZN16nbnxn_atomdata_tC2EN3gmx13PinningPolicyERKNS0_8MDLoggerEN5Nbnxm10KernelTypeERKSt8optionalI17LJCombinationRuleES8_iNS0_8ArrayRefIKfEEii, i64 0, i64 %492
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i
 

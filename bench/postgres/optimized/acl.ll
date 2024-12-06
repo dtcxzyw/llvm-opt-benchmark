@@ -1909,8 +1909,8 @@ define dso_local i64 @hash_aclitem_extended(ptr nocapture noundef readonly %0) l
 
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  switch i32 %0, label %13 [
-    i32 6, label %16
+  switch i32 %0, label %12 [
+    i32 6, label %15
     i32 41, label %.thread44
     i32 37, label %3
     i32 9, label %4
@@ -1921,9 +1921,9 @@ define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_u
     i32 42, label %9
     i32 16, label %10
     i32 17, label %10
-    i32 12, label %11
-    i32 49, label %11
-    i32 27, label %12
+    i32 12, label %6
+    i32 49, label %6
+    i32 27, label %11
   ]
 
 3:                                                ; preds = %2
@@ -1935,7 +1935,7 @@ define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_u
 5:                                                ; preds = %2
   br label %.thread44
 
-6:                                                ; preds = %2
+6:                                                ; preds = %2, %2, %2
   br label %.thread44
 
 7:                                                ; preds = %2
@@ -1950,70 +1950,67 @@ define dso_local noundef ptr @acldefault(i32 noundef %0, i32 noundef %1) local_u
 10:                                               ; preds = %2, %2
   br label %.thread44
 
-11:                                               ; preds = %2, %2
+11:                                               ; preds = %2
   br label %.thread44
 
 12:                                               ; preds = %2
-  br label %.thread44
-
-13:                                               ; preds = %2
-  %14 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
-  tail call void @llvm.assume(i1 %14)
-  %15 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0) #14
+  %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
+  tail call void @llvm.assume(i1 %13)
+  %14 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %0) #14
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 845, ptr noundef nonnull @__func__.acldefault) #14
   unreachable
 
-16:                                               ; preds = %2
+15:                                               ; preds = %2
   br label %.thread44
 
-.thread44:                                        ; preds = %2, %12, %10, %9, %8, %7, %3, %4, %5, %6, %11, %16
-  %.not293552 = phi i1 [ true, %16 ], [ false, %11 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ false, %3 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %12 ], [ false, %2 ]
-  %.0273751 = phi i64 [ 0, %16 ], [ 256, %11 ], [ 256, %6 ], [ 128, %5 ], [ 3584, %4 ], [ 262, %3 ], [ 6, %7 ], [ 768, %8 ], [ 512, %9 ], [ 256, %10 ], [ 12288, %12 ], [ 127, %2 ]
-  %.not3950 = phi i1 [ true, %16 ], [ false, %11 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ true, %3 ], [ true, %7 ], [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %12 ], [ true, %2 ]
-  %.0254149 = phi i64 [ 0, %16 ], [ 256, %11 ], [ 256, %6 ], [ 128, %5 ], [ 3072, %4 ], [ 0, %3 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %12 ], [ 0, %2 ]
-  %17 = phi i32 [ 0, %16 ], [ 2, %11 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 1, %3 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 1, %12 ], [ 1, %2 ]
-  %18 = shl nuw nsw i32 %17, 4
-  %narrow = add nuw nsw i32 %18, 24
-  %19 = zext nneg i32 %narrow to i64
-  %20 = tail call ptr @palloc0(i64 noundef %19) #14
-  %21 = shl nuw nsw i32 %narrow, 2
-  store i32 %21, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 1, ptr %22, align 4
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 0, ptr %23, align 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 1033, ptr %24, align 4
-  %25 = getelementptr i8, ptr %20, i64 16
-  %26 = getelementptr i8, ptr %20, i64 20
-  store i32 1, ptr %26, align 4
-  store i32 %17, ptr %25, align 4
-  %27 = getelementptr i8, ptr %20, i64 24
-  br i1 %.not3950, label %32, label %28
+.thread44:                                        ; preds = %2, %11, %10, %9, %8, %7, %3, %4, %5, %6, %15
+  %.not293552 = phi i1 [ true, %15 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ false, %3 ], [ false, %7 ], [ false, %8 ], [ false, %9 ], [ false, %10 ], [ false, %11 ], [ false, %2 ]
+  %.0273751 = phi i64 [ 0, %15 ], [ 256, %6 ], [ 128, %5 ], [ 3584, %4 ], [ 262, %3 ], [ 6, %7 ], [ 768, %8 ], [ 512, %9 ], [ 256, %10 ], [ 12288, %11 ], [ 127, %2 ]
+  %.not3950 = phi i1 [ true, %15 ], [ false, %6 ], [ false, %5 ], [ false, %4 ], [ true, %3 ], [ true, %7 ], [ true, %8 ], [ true, %9 ], [ true, %10 ], [ true, %11 ], [ true, %2 ]
+  %.0254149 = phi i64 [ 0, %15 ], [ 256, %6 ], [ 128, %5 ], [ 3072, %4 ], [ 0, %3 ], [ 0, %7 ], [ 0, %8 ], [ 0, %9 ], [ 0, %10 ], [ 0, %11 ], [ 0, %2 ]
+  %16 = phi i32 [ 0, %15 ], [ 2, %6 ], [ 2, %5 ], [ 2, %4 ], [ 1, %3 ], [ 1, %7 ], [ 1, %8 ], [ 1, %9 ], [ 1, %10 ], [ 1, %11 ], [ 1, %2 ]
+  %17 = shl nuw nsw i32 %16, 4
+  %narrow = add nuw nsw i32 %17, 24
+  %18 = zext nneg i32 %narrow to i64
+  %19 = tail call ptr @palloc0(i64 noundef %18) #14
+  %20 = shl nuw nsw i32 %narrow, 2
+  store i32 %20, ptr %19, align 4
+  %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 1, ptr %21, align 4
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i32 0, ptr %22, align 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i32 1033, ptr %23, align 4
+  %24 = getelementptr i8, ptr %19, i64 16
+  %25 = getelementptr i8, ptr %19, i64 20
+  store i32 1, ptr %25, align 4
+  store i32 %16, ptr %24, align 4
+  %26 = getelementptr i8, ptr %19, i64 24
+  br i1 %.not3950, label %31, label %27
 
-28:                                               ; preds = %.thread44
-  store i32 0, ptr %27, align 8
-  %29 = getelementptr i8, ptr %20, i64 28
-  store i32 %1, ptr %29, align 4
-  %30 = getelementptr i8, ptr %20, i64 32
-  store i64 %.0254149, ptr %30, align 8
-  %31 = getelementptr i8, ptr %20, i64 40
-  br label %32
+27:                                               ; preds = %.thread44
+  store i32 0, ptr %26, align 8
+  %28 = getelementptr i8, ptr %19, i64 28
+  store i32 %1, ptr %28, align 4
+  %29 = getelementptr i8, ptr %19, i64 32
+  store i64 %.0254149, ptr %29, align 8
+  %30 = getelementptr i8, ptr %19, i64 40
+  br label %31
 
-32:                                               ; preds = %28, %.thread44
-  %.0 = phi ptr [ %31, %28 ], [ %27, %.thread44 ]
-  br i1 %.not293552, label %36, label %33
+31:                                               ; preds = %27, %.thread44
+  %.0 = phi ptr [ %30, %27 ], [ %26, %.thread44 ]
+  br i1 %.not293552, label %35, label %32
 
-33:                                               ; preds = %32
+32:                                               ; preds = %31
   store i32 %1, ptr %.0, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 4
-  store i32 %1, ptr %34, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %.0273751, ptr %35, align 8
-  br label %36
+  %33 = getelementptr inbounds nuw i8, ptr %.0, i64 4
+  store i32 %1, ptr %33, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i64 %.0273751, ptr %34, align 8
+  br label %35
 
-36:                                               ; preds = %33, %32
-  ret ptr %20
+35:                                               ; preds = %32, %31
+  ret ptr %19
 }
 
 ; Function Attrs: cold

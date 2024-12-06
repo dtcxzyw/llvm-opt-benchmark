@@ -686,8 +686,8 @@ default.unreachable:                              ; preds = %1
 
 6:                                                ; preds = %1
   %.mask = and i64 %3, -4294967296
-  %cond = icmp eq i64 %.mask, 8589934592
-  %spec.select1 = select i1 %cond, i8 0, i8 13
+  %switch.selectcmp = icmp eq i64 %.mask, 8589934592
+  %switch.select = select i1 %switch.selectcmp, i8 0, i8 13
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
 7:                                                ; preds = %1
@@ -703,8 +703,8 @@ default.unreachable:                              ; preds = %1
   %14 = load i8, ptr %13, align 8, !range !174, !noundef !4
   br label %_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit
 
-_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %6, %5, %7, %10
-  %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %5 ], [ %spec.select1, %6 ]
+_ZN3std2io5error5Error4kind17h2040909452a97b57E.exit: ; preds = %5, %6, %7, %10
+  %.0.i = phi i8 [ %14, %10 ], [ %9, %7 ], [ %spec.select, %5 ], [ %switch.select, %6 ]
   %15 = icmp eq i8 %.0.i, 0
   ret i1 %15
 }

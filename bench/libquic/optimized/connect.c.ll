@@ -210,10 +210,8 @@ entry:
     i32 105, label %sw.bb35
     i32 8, label %sw.bb47
     i32 9, label %sw.bb49
-    i32 10, label %sw.bb52
-    i32 13, label %sw.bb52
-    i32 11, label %sw.epilog
     i32 15, label %sw.bb55
+    i32 11, label %sw.epilog
   ]
 
 sw.bb:                                            ; preds = %entry
@@ -325,9 +323,6 @@ sw.bb49:                                          ; preds = %entry
   store i32 %conv50, ptr %shutdown51, align 4
   br label %sw.epilog
 
-sw.bb52:                                          ; preds = %entry, %entry
-  br label %sw.epilog
-
 sw.bb55:                                          ; preds = %entry
   %info_callback = getelementptr inbounds nuw i8, ptr %0, i64 168
   %10 = load ptr, ptr %info_callback, align 8
@@ -337,8 +332,8 @@ sw.bb55:                                          ; preds = %entry
 sw.default:                                       ; preds = %entry
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %if.then21, %if.then10, %sw.bb35, %if.then7, %sw.bb2, %entry, %if.end42, %sw.bb4, %if.then, %sw.default, %sw.bb55, %sw.bb52, %sw.bb49, %sw.bb47, %sw.bb33, %conn_close_socket.exit
-  %ret.0 = phi i64 [ 0, %sw.default ], [ 1, %sw.bb55 ], [ 1, %entry ], [ 0, %sw.bb52 ], [ 1, %sw.bb49 ], [ %conv48, %sw.bb47 ], [ %conv44, %if.end42 ], [ 1, %sw.bb33 ], [ 1, %sw.bb4 ], [ %conv, %if.then ], [ 0, %conn_close_socket.exit ], [ 1, %sw.bb2 ], [ %spec.select, %if.then10 ], [ %spec.select28, %if.then21 ], [ 0, %if.then7 ], [ -1, %sw.bb35 ]
+sw.epilog:                                        ; preds = %if.then21, %if.then10, %sw.bb35, %if.then7, %sw.bb2, %entry, %if.end42, %sw.bb4, %if.then, %sw.default, %sw.bb55, %sw.bb49, %sw.bb47, %sw.bb33, %conn_close_socket.exit
+  %ret.0 = phi i64 [ 0, %sw.default ], [ 1, %sw.bb55 ], [ 1, %entry ], [ 1, %sw.bb49 ], [ %conv48, %sw.bb47 ], [ %conv44, %if.end42 ], [ 1, %sw.bb33 ], [ 1, %sw.bb4 ], [ %conv, %if.then ], [ 0, %conn_close_socket.exit ], [ 1, %sw.bb2 ], [ %spec.select, %if.then10 ], [ %spec.select28, %if.then21 ], [ 0, %if.then7 ], [ -1, %sw.bb35 ]
   ret i64 %ret.0
 }
 

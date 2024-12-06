@@ -69956,12 +69956,12 @@ lpad.body:                                        ; preds = %ehcleanup.i, %lpad5
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow7compute10Comparison25StripOrderPreservingCastsERKNS0_10ExpressionE(ptr noundef nonnull align 8 dereferenceable(16) %expr) local_unnamed_addr #0 comdat align 2 {
 entry:
   %0 = load ptr, ptr %expr, align 8
-  %cmp.i.not.i.i64 = icmp eq ptr %0, null
-  br i1 %cmp.i.not.i.i64, label %return, label %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
+  %cmp.i.not.i.i62 = icmp eq ptr %0, null
+  br i1 %cmp.i.not.i.i62, label %return, label %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
 
 _ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i: ; preds = %entry, %tailrecurse.backedge
   %1 = phi ptr [ %10, %tailrecurse.backedge ], [ %0, %entry ]
-  %expr.tr65 = phi ptr [ %3, %tailrecurse.backedge ], [ %expr, %entry ]
+  %expr.tr63 = phi ptr [ %3, %tailrecurse.backedge ], [ %expr, %entry ]
   %_M_index.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %2 = load i8, ptr %_M_index.i.i.i.i, align 8
   %cmp.i.i.i = icmp eq i8 %2, 2
@@ -70002,7 +70002,7 @@ _ZNK5arrow7compute10Expression4typeEv.exit:       ; preds = %if.then3.i, %if.the
   %retval.0.i23 = load ptr, ptr %retval.0.i23.in, align 8
   %id_.i = getelementptr inbounds nuw i8, ptr %retval.0.i23, i64 40
   %6 = load i32, ptr %id_.i, align 8
-  %7 = load ptr, ptr %expr.tr65, align 8, !nonnull !4, !noundef !4
+  %7 = load ptr, ptr %expr.tr63, align 8, !nonnull !4, !noundef !4
   %_M_index.i.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %7, i64 144
   %8 = load i8, ptr %_M_index.i.i.i.i.i26, align 8
   switch i8 %8, label %_ZN5arrow7compute11CallNotNullERKNS0_10ExpressionE.exit.i32 [
@@ -70038,7 +70038,7 @@ if.then11:                                        ; preds = %_ZNK5arrow7compute1
   %switch = icmp ult i32 %.off, 11
   br i1 %switch, label %tailrecurse.backedge, label %return
 
-tailrecurse.backedge:                             ; preds = %if.then11, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit56, %land.lhs.true30
+tailrecurse.backedge:                             ; preds = %if.then11, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit54, %land.lhs.true30
   %10 = load ptr, ptr %3, align 8
   %cmp.i.not.i.i = icmp eq ptr %10, null
   br i1 %cmp.i.not.i.i, label %return, label %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i
@@ -70068,29 +70068,29 @@ switch.lookup:                                    ; preds = %land.lhs.true
 
 _ZN5arrowL9bit_widthENS_4Type4typeE.exit:         ; preds = %land.lhs.true, %switch.lookup
   %retval.0.i44 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %land.lhs.true ]
-  %switch.tableidx74 = add i32 %6, -1
-  %15 = icmp ult i32 %switch.tableidx74, 37
-  br i1 %15, label %switch.lookup73, label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit56
+  %switch.tableidx72 = add i32 %6, -1
+  %15 = icmp ult i32 %switch.tableidx72, 37
+  br i1 %15, label %switch.lookup71, label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit54
 
-switch.lookup73:                                  ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
-  %16 = zext nneg i32 %switch.tableidx74 to i64
-  %switch.gep75 = getelementptr inbounds nuw [37 x i32], ptr @switch.table._ZN5arrowL9bit_widthENS_4Type4typeE, i64 0, i64 %16
-  %switch.load76 = load i32, ptr %switch.gep75, align 4
-  br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit56
+switch.lookup71:                                  ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
+  %16 = zext nneg i32 %switch.tableidx72 to i64
+  %switch.gep73 = getelementptr inbounds nuw [37 x i32], ptr @switch.table._ZN5arrowL9bit_widthENS_4Type4typeE, i64 0, i64 %16
+  %switch.load74 = load i32, ptr %switch.gep73, align 4
+  br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit54
 
-_ZN5arrowL9bit_widthENS_4Type4typeE.exit56:       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %switch.lookup73
-  %retval.0.i46 = phi i32 [ %switch.load76, %switch.lookup73 ], [ 0, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ]
+_ZN5arrowL9bit_widthENS_4Type4typeE.exit54:       ; preds = %_ZN5arrowL9bit_widthENS_4Type4typeE.exit, %switch.lookup71
+  %retval.0.i46 = phi i32 [ %switch.load74, %switch.lookup71 ], [ 0, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ]
   %cmp.not = icmp samesign ult i32 %retval.0.i44, %retval.0.i46
   br i1 %cmp.not, label %return, label %tailrecurse.backedge
 
 if.end26:                                         ; preds = %if.end17
   %17 = add i32 %9, -3
-  %switch.and.i57 = and i32 %17, -7
-  %switch.selectcmp.i58 = icmp eq i32 %switch.and.i57, 0
-  %type_id.off.i59 = add i32 %6, -2
-  %switch.i60 = icmp ult i32 %type_id.off.i59, 8
-  %or.cond63 = select i1 %switch.selectcmp.i58, i1 %switch.i60, i1 false
-  br i1 %or.cond63, label %land.lhs.true30, label %return
+  %switch.and.i55 = and i32 %17, -7
+  %switch.selectcmp.i56 = icmp eq i32 %switch.and.i55, 0
+  %type_id.off.i57 = add i32 %6, -2
+  %switch.i58 = icmp ult i32 %type_id.off.i57, 8
+  %or.cond61 = select i1 %switch.selectcmp.i56, i1 %switch.i58, i1 false
+  br i1 %or.cond61, label %land.lhs.true30, label %return
 
 land.lhs.true30:                                  ; preds = %if.end26
   %call31 = tail call fastcc noundef i32 @_ZN5arrowL9bit_widthENS_4Type4typeE(i32 noundef %9)
@@ -70098,8 +70098,8 @@ land.lhs.true30:                                  ; preds = %if.end26
   %cmp33.not = icmp samesign ult i32 %call31, %call32
   br i1 %cmp33.not, label %return, label %tailrecurse.backedge
 
-return:                                           ; preds = %if.end, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit56, %if.then19, %land.lhs.true30, %if.end26, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i, %tailrecurse.backedge, %if.then11, %entry
-  %expr.tr.lcssa = phi ptr [ %expr, %entry ], [ %expr.tr65, %if.then11 ], [ %3, %tailrecurse.backedge ], [ %expr.tr65, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i ], [ %expr.tr65, %if.end26 ], [ %expr.tr65, %land.lhs.true30 ], [ %expr.tr65, %if.then19 ], [ %expr.tr65, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit56 ], [ %expr.tr65, %if.end ]
+return:                                           ; preds = %if.end, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit54, %if.then19, %land.lhs.true30, %if.end26, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i, %tailrecurse.backedge, %if.then11, %entry
+  %expr.tr.lcssa = phi ptr [ %expr, %entry ], [ %expr.tr63, %if.then11 ], [ %3, %tailrecurse.backedge ], [ %expr.tr63, %_ZSt6get_ifIN5arrow7compute10Expression4CallEJNS0_5DatumENS2_9ParameterES3_EENSt11add_pointerIT_E4typeEPSt7variantIJDpT0_EE.exit.i ], [ %expr.tr63, %if.end26 ], [ %expr.tr63, %land.lhs.true30 ], [ %expr.tr63, %if.then19 ], [ %expr.tr63, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit54 ], [ %expr.tr63, %if.end ]
   ret ptr %expr.tr.lcssa
 }
 

@@ -1457,7 +1457,7 @@ $_ZZN5Eigen6numext4log2EiE5table = comdat any
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_filter_unsharp.cpp, ptr null }]
 @switch.table._ZThn16_NK13FilterUnsharp8getClassEPK7QAction = private unnamed_addr constant [22 x i32] [i32 2052, i32 128, i32 128, i32 128, i32 128, i32 128, i32 128, i32 128, i32 128, i32 2048, i32 2048, i32 128, i32 128, i32 128, i32 128, i32 144, i32 0, i32 2048, i32 2048, i32 2048, i32 128, i32 4], align 4
 @switch.table._ZThn16_NK13FilterUnsharp16getPreConditionsEPK7QAction = private unnamed_addr constant [22 x i32] [i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288, i32 0, i32 524304, i32 524288, i32 524288, i32 524304, i32 524296, i32 0, i32 524288, i32 524288, i32 524288, i32 524288, i32 524288], align 4
-@switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction = private unnamed_addr constant [22 x i32] [i32 -1, i32 8195, i32 -1, i32 8195, i32 8195, i32 8195, i32 8195, i32 8195, i32 8192, i32 8192, i32 2, i32 -1, i32 8195, i32 8195, i32 -1, i32 8, i32 -1, i32 2, i32 8192, i32 8192, i32 8195, i32 16], align 4
+@switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction = private unnamed_addr constant [21 x i32] [i32 8195, i32 -1, i32 8195, i32 8195, i32 8195, i32 8195, i32 8195, i32 8192, i32 8192, i32 2, i32 -1, i32 8195, i32 8195, i32 -1, i32 8, i32 -1, i32 2, i32 8192, i32 8192, i32 8195, i32 16], align 4
 @switch.table._ZThn16_N13FilterUnsharp15getRequirementsEPK7QAction = private unnamed_addr constant [22 x i32] [i32 262144, i32 0, i32 0, i32 0, i32 0, i32 0, i32 64, i32 0, i32 262144, i32 0, i32 0, i32 0, i32 262144, i32 0, i32 0, i32 0, i32 0, i32 0, i32 0, i32 262144, i32 0, i32 0], align 4
 @switch.table._ZThn16_NK13FilterUnsharp11filterArityEPK7QAction = private unnamed_addr constant [22 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 1, i32 0, i32 1, i32 1, i32 1, i32 2, i32 1], align 4
 
@@ -3212,12 +3212,13 @@ define noundef range(i32 -1, 8196) i32 @_ZNK13FilterUnsharp13postConditionEPK7QA
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %1)
-  %8 = icmp ult i32 %7, 22
+  %switch.tableidx = add i32 %7, -1
+  %8 = icmp ult i32 %switch.tableidx, 21
   br i1 %8, label %switch.lookup, label %10
 
 switch.lookup:                                    ; preds = %2
-  %9 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw [22 x i32], ptr @switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction, i64 0, i64 %9
+  %9 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction, i64 0, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %10
 
@@ -3232,12 +3233,13 @@ define noundef range(i32 -1, 8196) i32 @_ZThn16_NK13FilterUnsharp13postCondition
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %5 = load ptr, ptr %4, align 8
   %6 = tail call noundef i32 %5(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  %7 = icmp ult i32 %6, 22
+  %switch.tableidx = add i32 %6, -1
+  %7 = icmp ult i32 %switch.tableidx, 21
   br i1 %7, label %switch.lookup, label %_ZNK13FilterUnsharp13postConditionEPK7QAction.exit
 
 switch.lookup:                                    ; preds = %2
-  %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [22 x i32], ptr @switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction, i64 0, i64 %8
+  %8 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [21 x i32], ptr @switch.table._ZThn16_NK13FilterUnsharp13postConditionEPK7QAction, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK13FilterUnsharp13postConditionEPK7QAction.exit
 

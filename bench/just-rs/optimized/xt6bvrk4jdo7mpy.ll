@@ -28518,15 +28518,15 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %.sroa.0831)
   call void @llvm.lifetime.start.p0(i64 7, ptr nonnull %.sroa.11842)
   switch i8 %247, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit.thread [
-    i8 0, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
-    i8 2, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
-    i8 11, label %1149
-    i8 21, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
-    i8 28, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
-    i8 29, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
+    i8 0, label %1149
+    i8 2, label %1149
+    i8 11, label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
+    i8 21, label %1149
+    i8 28, label %1149
+    i8 29, label %1149
   ]
 
-1149:                                             ; preds = %1148
+1149:                                             ; preds = %1148, %1148, %1148, %1148, %1148
   br label %_ZN4just5error5Error7context17hbad5eb4341891789E.exit
 
 1150:                                             ; preds = %1141
@@ -28666,10 +28666,10 @@ _ZN4just5color5Color6active17hcd18acd676d3d894E.llvm.11107275065492906757.exit.t
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %17)
   br label %.loopexit865
 
-_ZN4just5error5Error7context17hbad5eb4341891789E.exit: ; preds = %1148, %1148, %1148, %1148, %1148, %1149
-  %.sink864 = phi i64 [ 16, %1149 ], [ 8, %1148 ], [ 8, %1148 ], [ 8, %1148 ], [ 8, %1148 ], [ 8, %1148 ]
-  %.sink863 = phi i64 [ 80, %1149 ], [ 72, %1148 ], [ 72, %1148 ], [ 72, %1148 ], [ 72, %1148 ], [ 72, %1148 ]
-  %.sink = phi i64 [ 81, %1149 ], [ 73, %1148 ], [ 73, %1148 ], [ 73, %1148 ], [ 73, %1148 ], [ 73, %1148 ]
+_ZN4just5error5Error7context17hbad5eb4341891789E.exit: ; preds = %1148, %1149
+  %.sink864 = phi i64 [ 8, %1149 ], [ 16, %1148 ]
+  %.sink863 = phi i64 [ 72, %1149 ], [ 80, %1148 ]
+  %.sink = phi i64 [ 73, %1149 ], [ 81, %1148 ]
   %.0.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink864
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0831, ptr noundef nonnull align 8 dereferenceable(64) %.0.i, i64 64, i1 false), !alias.scope !3949
   %.sroa.9832.0..0.i.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 %.sink863

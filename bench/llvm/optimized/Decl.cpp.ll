@@ -7581,13 +7581,9 @@ define internal fastcc noundef zeroext i1 @_ZL14isRedeclarableN5clang4Decl4KindE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang9NamedDecl10hasLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #2 align 2 {
-switch.lookup:
-  %1 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-  %switch.tableidx = add nuw nsw i8 %1, 63
-  %switch.cast = trunc i8 %switch.tableidx to i6
-  %switch.downshift = lshr i6 -2, %switch.cast
-  %switch.masked = trunc i6 %switch.downshift to i1
-  ret i1 %switch.masked
+  %2 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl16getFormalLinkageEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
+  %switch = icmp ne i8 %2, 1
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

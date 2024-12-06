@@ -346,10 +346,10 @@ define noundef range(i64 0, 33) i64 @_ZN32pxrInternal_v0_24__pxrReserved__22HioG
   br label %9
 
 9:                                                ; preds = %8, %7
-  switch i32 %0, label %34 [
-    i32 0, label %39
-    i32 4, label %39
-    i32 36, label %39
+  switch i32 %0, label %28 [
+    i32 0, label %33
+    i32 4, label %33
+    i32 36, label %33
     i32 1, label %10
     i32 5, label %10
     i32 37, label %10
@@ -359,131 +359,113 @@ define noundef range(i64 0, 33) i64 @_ZN32pxrInternal_v0_24__pxrReserved__22HioG
     i32 3, label %12
     i32 7, label %12
     i32 39, label %12
-    i32 8, label %13
-    i32 20, label %13
-    i32 24, label %13
-    i32 9, label %14
-    i32 21, label %14
-    i32 25, label %14
-    i32 10, label %15
-    i32 22, label %15
-    i32 26, label %15
-    i32 11, label %16
-    i32 23, label %16
-    i32 27, label %16
-    i32 12, label %17
-    i32 28, label %17
-    i32 32, label %17
-    i32 13, label %18
-    i32 29, label %18
-    i32 33, label %18
-    i32 14, label %19
-    i32 30, label %19
-    i32 34, label %19
-    i32 15, label %20
-    i32 31, label %20
-    i32 35, label %20
-    i32 16, label %21
-    i32 17, label %22
-    i32 18, label %23
-    i32 19, label %24
-    i32 40, label %25
-    i32 41, label %25
-    i32 42, label %25
-    i32 43, label %25
-    i32 44, label %25
-    i32 45, label %25
-    i32 -1, label %29
-    i32 46, label %29
+    i32 8, label %10
+    i32 20, label %10
+    i32 24, label %10
+    i32 9, label %12
+    i32 21, label %12
+    i32 25, label %12
+    i32 10, label %13
+    i32 22, label %13
+    i32 26, label %13
+    i32 11, label %14
+    i32 23, label %14
+    i32 27, label %14
+    i32 12, label %12
+    i32 28, label %12
+    i32 32, label %12
+    i32 13, label %14
+    i32 29, label %14
+    i32 33, label %14
+    i32 14, label %15
+    i32 30, label %15
+    i32 34, label %15
+    i32 15, label %16
+    i32 31, label %16
+    i32 35, label %16
+    i32 16, label %14
+    i32 17, label %16
+    i32 18, label %17
+    i32 19, label %18
+    i32 40, label %19
+    i32 41, label %19
+    i32 42, label %19
+    i32 43, label %19
+    i32 44, label %19
+    i32 45, label %19
+    i32 -1, label %23
+    i32 46, label %23
   ]
 
-10:                                               ; preds = %9, %9, %9
-  br label %39
+10:                                               ; preds = %9, %9, %9, %9, %9, %9
+  br label %33
 
 11:                                               ; preds = %9, %9, %9
-  br label %39
+  br label %33
 
-12:                                               ; preds = %9, %9, %9
-  br label %39
+12:                                               ; preds = %9, %9, %9, %9, %9, %9, %9, %9, %9
+  br label %33
 
 13:                                               ; preds = %9, %9, %9
-  br label %39
+  br label %33
 
-14:                                               ; preds = %9, %9, %9
-  br label %39
+14:                                               ; preds = %9, %9, %9, %9, %9, %9, %9
+  br label %33
 
 15:                                               ; preds = %9, %9, %9
-  br label %39
+  br label %33
 
-16:                                               ; preds = %9, %9, %9
-  br label %39
+16:                                               ; preds = %9, %9, %9, %9
+  br label %33
 
-17:                                               ; preds = %9, %9, %9
-  br label %39
+17:                                               ; preds = %9
+  br label %33
 
-18:                                               ; preds = %9, %9, %9
-  br label %39
+18:                                               ; preds = %9
+  br label %33
 
-19:                                               ; preds = %9, %9, %9
-  br label %39
+19:                                               ; preds = %9, %9, %9, %9, %9, %9
+  br i1 %.not, label %21, label %20
 
-20:                                               ; preds = %9, %9, %9
-  br label %39
-
-21:                                               ; preds = %9
-  br label %39
-
-22:                                               ; preds = %9
-  br label %39
-
-23:                                               ; preds = %9
-  br label %39
-
-24:                                               ; preds = %9
-  br label %39
-
-25:                                               ; preds = %9, %9, %9, %9, %9, %9
-  br i1 %.not, label %27, label %26
-
-26:                                               ; preds = %25
+20:                                               ; preds = %19
   store i64 4, ptr %1, align 8
-  br label %27
+  br label %21
 
-27:                                               ; preds = %26, %25
-  br i1 %.not12, label %39, label %28
+21:                                               ; preds = %20, %19
+  br i1 %.not12, label %33, label %22
 
-28:                                               ; preds = %27
+22:                                               ; preds = %21
   store i64 4, ptr %2, align 8
-  br label %39
+  br label %33
 
-29:                                               ; preds = %9, %9
+23:                                               ; preds = %9, %9
   store ptr @.str, ptr %4, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %30, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 344, ptr %31, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store i8 0, ptr %33, align 8
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i64 344, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store i8 0, ptr %27, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %4, i32 noundef 1, ptr noundef nonnull @.str.5)
-  br label %39
+  br label %33
 
-34:                                               ; preds = %9
+28:                                               ; preds = %9
   store ptr @.str, ptr %5, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 347, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i8 0, ptr %38, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr @__func__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %29, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 347, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  store ptr @__PRETTY_FUNCTION__._ZN32pxrInternal_v0_24__pxrReserved__22HioGetDataSizeOfFormatENS_9HioFormatEPmS1_, ptr %31, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i8 0, ptr %32, align 8
   call void (ptr, i32, ptr, ...) @_ZN32pxrInternal_v0_24__pxrReserved__18Tf_PostErrorHelperERKNS_13TfCallContextENS_16TfDiagnosticTypeEPKcz(ptr noundef nonnull align 8 dereferenceable(33) %5, i32 noundef 1, ptr noundef nonnull @.str.4)
-  br label %39
+  br label %33
 
-39:                                               ; preds = %27, %28, %9, %9, %9, %34, %29, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10
-  %.0 = phi i64 [ 0, %34 ], [ 0, %29 ], [ 32, %24 ], [ 24, %23 ], [ 16, %22 ], [ 8, %21 ], [ 16, %20 ], [ 12, %19 ], [ 8, %18 ], [ 4, %17 ], [ 8, %16 ], [ 6, %15 ], [ 4, %14 ], [ 2, %13 ], [ 4, %12 ], [ 3, %11 ], [ 2, %10 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 16, %28 ], [ 16, %27 ]
+33:                                               ; preds = %21, %22, %9, %9, %9, %28, %23, %18, %17, %16, %15, %14, %13, %12, %11, %10
+  %.0 = phi i64 [ 0, %28 ], [ 0, %23 ], [ 32, %18 ], [ 24, %17 ], [ 16, %16 ], [ 12, %15 ], [ 8, %14 ], [ 6, %13 ], [ 4, %12 ], [ 3, %11 ], [ 2, %10 ], [ 1, %9 ], [ 1, %9 ], [ 1, %9 ], [ 16, %22 ], [ 16, %21 ]
   ret i64 %.0
 }
 

@@ -48,9 +48,9 @@ define void @_ZN10OpenSubdiv6v3_6_03Far8PatchMapC2ERKNS1_10PatchTableE(ptr nound
 
 _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; preds = %2
   %9 = load i32, ptr %3, align 4
-  %cond = icmp eq i32 %9, 4
-  %spec.select = zext i1 %cond to i8
-  store i8 %spec.select, ptr %0, align 8
+  %switch.selectcmp7 = icmp eq i32 %9, 4
+  %switch.select8 = zext i1 %switch.selectcmp7 to i8
+  store i8 %switch.select8, ptr %0, align 8
   %10 = invoke noundef i32 @_ZNK10OpenSubdiv6v3_6_03Far10PatchTable18GetNumPatchesTotalEv(ptr noundef nonnull align 8 dereferenceable(273) %1)
           to label %11 unwind label %15
 

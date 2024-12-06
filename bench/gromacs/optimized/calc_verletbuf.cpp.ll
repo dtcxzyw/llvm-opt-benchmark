@@ -149,8 +149,8 @@ $_ZNSt10_HashtableI33AtomNonbondedAndKineticPropertiesSt4pairIKS0_iESaIS3_ENSt8_
 @.str.56 = private unnamed_addr constant [52 x i8] c"There should be at least one settle in this moltype\00", align 1
 @"__PRETTY_FUNCTION__._ZZL31chanceOfUpdateGroupCrossingCellRK13gmx_moltype_tRK14gmx_ffparams_tRKN3gmx17RangePartitioningEffENK3$_0clEv" = private unnamed_addr constant [167 x i8] c"auto chanceOfUpdateGroupCrossingCell(const gmx_moltype_t &, const gmx_ffparams_t &, const gmx::RangePartitioning &, real, real)::(anonymous class)::operator()() const\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_calc_verletbuf.cpp, ptr null }]
-@switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE = private unnamed_addr constant [7 x i64] [i64 0, i64 4, i64 4, i64 4, i64 8, i64 8, i64 0], align 8
-@switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE.15 = private unnamed_addr constant [7 x i64] [i64 0, i64 17179869184, i64 34359738368, i64 17179869184, i64 17179869184, i64 17179869184, i64 0], align 8
+@switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE = private unnamed_addr constant [5 x i64] [i64 4, i64 4, i64 4, i64 8, i64 8], align 8
+@switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE.15 = private unnamed_addr constant [5 x i64] [i64 17179869184, i64 34359738368, i64 17179869184, i64 17179869184, i64 17179869184], align 8
 
 ; Function Attrs: nounwind
 declare void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
@@ -326,28 +326,30 @@ declare void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define range(i64 0, 68719476736) i64 @_Z21verletbufGetListSetupN5Nbnxm10KernelTypeE(i32 noundef %0) local_unnamed_addr #9 {
-  %2 = icmp ult i32 %0, 7
+  %switch.tableidx = add i32 %0, -1
+  %2 = icmp ult i32 %switch.tableidx, 5
   br i1 %2, label %switch.lookup, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
 
 switch.lookup:                                    ; preds = %1
-  %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE, i64 0, i64 %3
+  %3 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE, i64 0, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
 
 _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %1, %switch.lookup
   %.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %1 ]
-  %4 = icmp ult i32 %0, 7
+  %switch.tableidx4 = add i32 %0, -1
+  %4 = icmp ult i32 %switch.tableidx4, 5
   br i1 %4, label %switch.lookup3, label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit
 
 switch.lookup3:                                   ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
-  %5 = zext nneg i32 %0 to i64
-  %switch.gep4 = getelementptr inbounds nuw [7 x i64], ptr @switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE.15, i64 0, i64 %5
-  %switch.load5 = load i64, ptr %switch.gep4, align 8
+  %5 = zext nneg i32 %switch.tableidx4 to i64
+  %switch.gep5 = getelementptr inbounds nuw [5 x i64], ptr @switch.table._Z21verletbufGetListSetupN5Nbnxm10KernelTypeE.15, i64 0, i64 %5
+  %switch.load6 = load i64, ptr %switch.gep5, align 8
   br label %_ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit
 
 _ZN5NbnxmL15sc_jClusterSizeENS_10KernelTypeE.exit: ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit, %switch.lookup3
-  %.0.i2 = phi i64 [ %switch.load5, %switch.lookup3 ], [ 0, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit ]
+  %.0.i2 = phi i64 [ %switch.load6, %switch.lookup3 ], [ 0, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.0.i2, %.0.i
   ret i64 %.sroa.0.0.insert.insert
 }

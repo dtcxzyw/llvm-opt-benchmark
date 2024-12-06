@@ -378,7 +378,7 @@ declare void @_ZN4llvm8codeview19discoverTypeIndicesERKNS0_8CVRecordINS0_12TypeL
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE(i32 %0) local_unnamed_addr #2 {
   %2 = icmp ult i32 %0, 4096
-  br i1 %2, label %3, label %27
+  br i1 %2, label %3, label %20
 
 3:                                                ; preds = %1
   %4 = and i32 %0, 1792
@@ -392,108 +392,87 @@ define dso_local noundef range(i64 0, 33) i64 @_ZN4llvm8codeview26getSizeInBytes
 
 8:                                                ; preds = %5, %3
   %trunc = trunc i32 %0 to i8
-  switch i8 %trunc, label %27 [
-    i8 83, label %24
-    i8 82, label %23
-    i8 8, label %9
-    i8 104, label %10
-    i8 105, label %10
-    i8 17, label %11
-    i8 33, label %11
-    i8 114, label %11
-    i8 115, label %11
-    i8 18, label %12
-    i8 34, label %12
-    i8 116, label %12
-    i8 117, label %12
-    i8 19, label %13
-    i8 35, label %13
-    i8 118, label %13
-    i8 119, label %13
-    i8 20, label %14
-    i8 36, label %14
-    i8 120, label %14
-    i8 121, label %14
-    i8 124, label %15
-    i8 16, label %15
-    i8 32, label %15
-    i8 112, label %15
-    i8 113, label %16
-    i8 122, label %16
-    i8 123, label %9
-    i8 70, label %17
-    i8 64, label %9
-    i8 68, label %18
-    i8 65, label %19
-    i8 66, label %20
-    i8 67, label %21
-    i8 48, label %22
-    i8 49, label %17
-    i8 50, label %9
-    i8 51, label %19
-    i8 52, label %21
-    i8 86, label %9
-    i8 80, label %19
-    i8 81, label %21
+  switch i8 %trunc, label %17 [
+    i8 83, label %16
+    i8 82, label %15
+    i8 8, label %20
+    i8 104, label %9
+    i8 105, label %9
+    i8 17, label %10
+    i8 33, label %10
+    i8 114, label %10
+    i8 115, label %10
+    i8 18, label %20
+    i8 34, label %20
+    i8 116, label %20
+    i8 117, label %20
+    i8 19, label %11
+    i8 35, label %11
+    i8 118, label %11
+    i8 119, label %11
+    i8 20, label %12
+    i8 36, label %12
+    i8 120, label %12
+    i8 121, label %12
+    i8 124, label %9
+    i8 16, label %9
+    i8 32, label %9
+    i8 112, label %9
+    i8 113, label %10
+    i8 122, label %10
+    i8 123, label %20
+    i8 70, label %10
+    i8 64, label %20
+    i8 68, label %13
+    i8 65, label %11
+    i8 66, label %14
+    i8 67, label %12
+    i8 48, label %9
+    i8 49, label %10
+    i8 50, label %20
+    i8 51, label %11
+    i8 52, label %12
+    i8 86, label %20
+    i8 80, label %11
+    i8 81, label %12
   ]
 
-9:                                                ; preds = %8, %8, %8, %8, %8
-  br label %27
+9:                                                ; preds = %8, %8, %8, %8, %8, %8, %8
+  br label %20
 
-10:                                               ; preds = %8, %8
-  br label %27
+10:                                               ; preds = %8, %8, %8, %8, %8, %8, %8, %8
+  br label %20
 
-11:                                               ; preds = %8, %8, %8, %8
-  br label %27
+11:                                               ; preds = %8, %8, %8, %8, %8, %8, %8
+  br label %20
 
-12:                                               ; preds = %8, %8, %8, %8
-  br label %27
+12:                                               ; preds = %8, %8, %8, %8, %8, %8, %8
+  br label %20
 
-13:                                               ; preds = %8, %8, %8, %8
-  br label %27
+13:                                               ; preds = %8
+  br label %20
 
-14:                                               ; preds = %8, %8, %8, %8
-  br label %27
+14:                                               ; preds = %8
+  br label %20
 
-15:                                               ; preds = %8, %8, %8, %8
-  br label %27
+15:                                               ; preds = %8
+  br label %20
 
-16:                                               ; preds = %8, %8
-  br label %27
+16:                                               ; preds = %8
+  br label %20
 
-17:                                               ; preds = %8, %8
-  br label %27
-
-18:                                               ; preds = %8
-  br label %27
-
-19:                                               ; preds = %8, %8, %8
-  br label %27
-
-20:                                               ; preds = %8
-  br label %27
-
-21:                                               ; preds = %8, %8, %8
-  br label %27
-
-22:                                               ; preds = %8
-  br label %27
-
-23:                                               ; preds = %8
-  br label %27
-
-24:                                               ; preds = %8
-  br label %27
+17:                                               ; preds = %8
+  br label %20
 
 switch.lookup:                                    ; preds = %5
-  %25 = lshr exact i32 %6, 8
-  %26 = zext nneg i32 %25 to i64
-  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 0, i64 %26
+  %18 = lshr exact i32 %6, 8
+  %19 = zext nneg i32 %18 to i64
+  %switch.gep = getelementptr inbounds nuw [7 x i64], ptr @switch.table._ZN4llvm8codeview26getSizeInBytesForTypeIndexENS0_9TypeIndexE, i64 0, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
-  br label %27
+  br label %20
 
-27:                                               ; preds = %switch.lookup, %8, %1, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %9
-  %.0 = phi i64 [ 32, %24 ], [ 20, %23 ], [ 1, %22 ], [ 16, %21 ], [ 10, %20 ], [ 8, %19 ], [ 6, %18 ], [ 2, %17 ], [ 2, %16 ], [ 1, %15 ], [ 16, %14 ], [ 8, %13 ], [ 4, %12 ], [ 2, %11 ], [ 1, %10 ], [ 4, %9 ], [ 0, %1 ], [ 0, %8 ], [ %switch.load, %switch.lookup ]
+20:                                               ; preds = %switch.lookup, %8, %8, %8, %8, %8, %8, %8, %8, %8, %1, %17, %16, %15, %14, %13, %12, %11, %10, %9
+  %.0 = phi i64 [ 0, %17 ], [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 6, %13 ], [ 16, %12 ], [ 8, %11 ], [ 2, %10 ], [ 1, %9 ], [ 0, %1 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ 4, %8 ], [ %switch.load, %switch.lookup ]
   ret i64 %.0
 }
 
