@@ -383,7 +383,8 @@ def update_pr():
     lines.append("patch: {}".format(get_env("COMMIT_URL")))
     lines.append("sha256: {}".format(get_env("PATCH_SHA256")))
     lines.append("commit: {}".format(run_cmd("git rev-parse HEAD")))
-    lines.append(diff_stat)
+    if not NO_DIFF:
+        lines.append(diff_stat)
     if STATS_OUT is not None:
         lines.append(
             run_cmd("python3 scripts/stats_diff.py stats.baseline {}".format(
