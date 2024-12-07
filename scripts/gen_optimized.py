@@ -106,7 +106,7 @@ if __name__ == '__main__':
         'capture-tracking.NumCaptured', 'aa.NumMustAlias',
         'memory-builtins.ObjectVisitorArgument', 'aa.NumNoAlias',
         'assume-queries.NumAssumeQueries', 'capture-tracking.NumNotCaptured',
-        'ipt.NumInstScanned'
+        'ipt.NumInstScanned', 'simplifycfg.NumSimpl',
     }
 
     with open('test.log', 'w') as log:

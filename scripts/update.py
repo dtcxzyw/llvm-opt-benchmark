@@ -292,7 +292,7 @@ def regen_optimized():
         "capture-tracking.NumCaptured", "aa.NumMustAlias",
         "memory-builtins.ObjectVisitorArgument", "aa.NumNoAlias",
         "assume-queries.NumAssumeQueries", "capture-tracking.NumNotCaptured",
-        "ipt.NumInstScanned"
+        "ipt.NumInstScanned", "simplifycfg.NumSimpl",
     }
 
     comptime_res = []
