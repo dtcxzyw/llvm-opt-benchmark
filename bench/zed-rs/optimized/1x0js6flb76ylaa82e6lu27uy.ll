@@ -27169,8 +27169,8 @@ thread-pre-split.i.i:                             ; preds = %.noexc20.i.i
   br i1 %95, label %.noexc20._crit_edge.i.i, label %thread-pre-split.i.i
 
 .noexc20._crit_edge.i.i:                          ; preds = %.noexc20.i.i, %90, %.noexc19.i.i, %thread-pre-split.i.i, %69
-  %switch8.i.i = phi i1 [ false, %69 ], [ true, %.noexc20.i.i ], [ true, %90 ], [ false, %thread-pre-split.i.i ], [ false, %.noexc19.i.i ]
-  %96 = phi i64 [ undef, %69 ], [ %.val6.i.i.i, %.noexc20.i.i ], [ %.val6.i.i.i, %90 ], [ undef, %thread-pre-split.i.i ], [ undef, %.noexc19.i.i ]
+  %switch8.i.i = phi i1 [ false, %69 ], [ true, %.noexc20.i.i ], [ true, %90 ], [ false, %.noexc19.i.i ], [ false, %thread-pre-split.i.i ]
+  %96 = phi i64 [ undef, %69 ], [ %.val6.i.i.i, %.noexc20.i.i ], [ %.val6.i.i.i, %90 ], [ undef, %.noexc19.i.i ], [ undef, %thread-pre-split.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7), !noalias !4387
   %97 = load i64, ptr %19, align 8, !range !528, !alias.scope !4439, !noalias !4440, !noundef !13
   %trunc.i.i = trunc nuw i64 %97 to i1

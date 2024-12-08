@@ -5612,9 +5612,9 @@ default.unreachable38:                            ; preds = %31, %3
   invoke fastcc void @"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$ockam_vault..types..secrets..X25519SecretKeyHandle$C$ockam_core..error..Error$GT$$GT$$GT$17h1d325e7a8f78e32dE"(ptr noalias noundef align 8 dereferenceable(32) %9)
           to label %15 unwind label %13
 
-common.ret:                                       ; preds = %125, %129
-  %storemerge10 = phi i64 [ 0, %129 ], [ 1, %125 ]
-  %storemerge = phi i8 [ 1, %129 ], [ 3, %125 ]
+common.ret:                                       ; preds = %125, %128
+  %storemerge10 = phi i64 [ 0, %128 ], [ 1, %125 ]
+  %storemerge = phi i8 [ 1, %128 ], [ 3, %125 ]
   store i64 %storemerge10, ptr %0, align 8
   store i8 %storemerge, ptr %10, align 8
   ret void
@@ -5665,8 +5665,8 @@ common.ret:                                       ; preds = %125, %129
   invoke void @"_ZN76_$LT$x25519_dalek..x25519..StaticSecret$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf4039142127d73beE"(ptr noalias noundef nonnull align 1 dereferenceable(32) %8)
           to label %.thread39 unwind label %24
 
-.body:                                            ; preds = %127, %.body18, %24, %18, %13
-  %.pn11.pn = phi { ptr, i32 } [ %14, %13 ], [ %25, %24 ], [ %19, %18 ], [ %128, %127 ], [ %.pn, %.body18 ]
+.body:                                            ; preds = %126, %.body18, %24, %18, %13
+  %.pn11.pn = phi { ptr, i32 } [ %14, %13 ], [ %25, %24 ], [ %19, %18 ], [ %127, %126 ], [ %.pn, %.body18 ]
   store i8 2, ptr %10, align 8
   resume { ptr, i32 } %.pn11.pn
 
@@ -5881,7 +5881,8 @@ common.ret:                                       ; preds = %125, %129
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 152
   store i8 0, ptr %105, align 8, !noalias !900
   store i8 1, ptr %80, align 1, !noalias !900
-  br label %126
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels..import_static_x25519_secret..$u7b$$u7b$closure$u7d$$u7d$$GT$17h534026c7a29d31d7E"(ptr noundef nonnull align 8 %81)
+          to label %128 unwind label %126
 
 106:                                              ; preds = %101
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4), !noalias !922
@@ -5937,38 +5938,30 @@ common.ret:                                       ; preds = %125, %129
 
 125:                                              ; preds = %"_ZN72_$LT$core..pin..Pin$LT$P$GT$$u20$as$u20$core..future..future..Future$GT$4poll17hf1ebb26df81678baE.exit.i"
   store i8 3, ptr %80, align 1, !noalias !900
-  %trunc = trunc nuw i64 %.fca.0.extract.i to i1
-  br i1 %trunc, label %common.ret, label %126
+  br label %common.ret
 
-126:                                              ; preds = %.thread, %125
-  %.sroa.927.037 = phi i64 [ %.sroa.4.0.i, %.thread ], [ undef, %125 ]
-  %.sroa.826.036 = phi ptr [ %.sroa.3.0.i, %.thread ], [ undef, %125 ]
-  %.sroa.625.035 = phi ptr [ %.sroa.0.0.i, %.thread ], [ undef, %125 ]
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels..import_static_x25519_secret..$u7b$$u7b$closure$u7d$$u7d$$GT$17h534026c7a29d31d7E"(ptr noundef nonnull align 8 %81)
-          to label %129 unwind label %127
-
-127:                                              ; preds = %126
-  %128 = landingpad { ptr, i32 }
+126:                                              ; preds = %.thread
+  %127 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-129:                                              ; preds = %126
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.625.035, ptr %130, align 8
+128:                                              ; preds = %.thread
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.i, ptr %129, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.826.036, ptr %.sroa.2.0..sroa_idx, align 8
+  store ptr %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.927.037, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %.sroa.4.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   br label %common.ret
 
 .body18:                                          ; preds = %123, %120
-  %131 = phi ptr [ %32, %123 ], [ %72, %120 ]
+  %130 = phi ptr [ %32, %123 ], [ %72, %120 ]
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %.pn36.i, %120 ]
-  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels..import_static_x25519_secret..$u7b$$u7b$closure$u7d$$u7d$$GT$17h534026c7a29d31d7E"(ptr noundef nonnull align 8 %131) #18
-          to label %.body unwind label %132
+  invoke fastcc void @"_ZN4core3ptr186drop_in_place$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels..import_static_x25519_secret..$u7b$$u7b$closure$u7d$$u7d$$GT$17h534026c7a29d31d7E"(ptr noundef nonnull align 8 %130) #18
+          to label %.body unwind label %131
 
-132:                                              ; preds = %.body18
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %.body18
+  %132 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #20
   unreachable

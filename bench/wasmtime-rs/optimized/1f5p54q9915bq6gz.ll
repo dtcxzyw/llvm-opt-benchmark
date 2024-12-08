@@ -4926,8 +4926,6 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN4core6option1
   ret ptr %.0610
 
 4:                                                ; preds = %2
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
   %5 = load ptr, ptr %1, align 8, !alias.scope !779, !noundef !4
   %.not.i = icmp eq ptr %5, null
@@ -4980,8 +4978,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option1
   ret ptr %.0610
 
 4:                                                ; preds = %2
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
   %5 = load ptr, ptr %1, align 8, !alias.scope !799, !noundef !4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %"_ZN4core3ptr184drop_in_place$LT$core..result..Result$LT$addr2line..function..Functions$LT$gimli..read..endian_slice..EndianSlice$LT$gimli..endianity..LittleEndian$GT$$GT$$C$gimli..read..Error$GT$$GT$17h033e13ae7af47e13E.llvm.5281577753466666573.exit", label %6
@@ -5087,8 +5083,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN4core6option1
   ret ptr %.0610
 
 4:                                                ; preds = %2
-  %trunc = trunc nuw i64 %3 to i1
-  tail call void @llvm.assume(i1 %trunc)
   %5 = load ptr, ptr %1, align 8, !alias.scope !830, !noundef !4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %"_ZN4core3ptr86drop_in_place$LT$core..result..Result$LT$addr2line..Lines$C$gimli..read..Error$GT$$GT$17h745544080936d9f8E.llvm.5281577753466666573.exit", label %6
@@ -23719,8 +23713,6 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN9addr2line4la
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h1206b8bed40624e2E.llvm.5281577753466666573.exit"
 
 12:                                               ; preds = %5
-  %trunc.i = trunc nuw i64 %11 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5277)
   %13 = load ptr, ptr %3, align 8, !alias.scope !5280, !noalias !5271, !noundef !4
   %.not.i.i = icmp eq ptr %13, null
@@ -23786,8 +23778,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9addr2line4la
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h86a776a3b899bea1E.llvm.5281577753466666573.exit"
 
 10:                                               ; preds = %6
-  %trunc.i = trunc nuw i64 %9 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
   %11 = load ptr, ptr %4, align 8, !alias.scope !5315, !noalias !5309, !noundef !4
   %.not.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h86a776a3b899bea1E.llvm.5281577753466666573.exit", label %12
@@ -23871,8 +23861,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9addr2line4la
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hddda54a6aaedd509E.llvm.5281577753466666573.exit"
 
 11:                                               ; preds = %6
-  %trunc.i = trunc nuw i64 %10 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
   %12 = load ptr, ptr %4, align 8, !alias.scope !5347, !noalias !5341, !noundef !4
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hddda54a6aaedd509E.llvm.5281577753466666573.exit", label %13
@@ -23922,8 +23910,6 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN9addr2line4la
   br label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hddda54a6aaedd509E.llvm.5281577753466666573.exit"
 
 12:                                               ; preds = %6
-  %trunc.i = trunc nuw i64 %11 to i1
-  tail call void @llvm.assume(i1 %trunc.i)
   %13 = load ptr, ptr %4, align 8, !alias.scope !5361, !noalias !5355, !noundef !4
   %.not.i.i = icmp eq ptr %13, null
   br i1 %.not.i.i, label %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hddda54a6aaedd509E.llvm.5281577753466666573.exit", label %14

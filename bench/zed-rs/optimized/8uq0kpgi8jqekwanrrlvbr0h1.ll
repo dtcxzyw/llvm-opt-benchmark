@@ -18367,10 +18367,8 @@ _ZN5sqlez9statement9Statement3map17hb2dcdb6c631ae435E.exit: ; preds = %10
   br label %18
 
 16:                                               ; preds = %3
-  %trunc.i = trunc nuw i32 %7 to i1
-  %.sroa.3.0.i = select i1 %trunc.i, ptr %9, ptr %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.3.0.i, ptr %17, align 8
+  store ptr %9, ptr %17, align 8
   store i64 -9223372036854775808, ptr %0, align 8
   br label %18
 
@@ -52579,6 +52577,10 @@ define hidden void @_ZN9workspace11persistence11WorkspaceDb14get_pane_group17hc1
   %switch.not.not.i = icmp eq i32 %27, 0
   br i1 %switch.not.not.i, label %30, label %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$12select_bound28_$u7b$$u7b$closure$u7d$$u7d$17he3500bc032bf5241E.exit.thread"
 
+"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$12select_bound28_$u7b$$u7b$closure$u7d$$u7d$17he3500bc032bf5241E.exit.thread": ; preds = %.noexc
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
+  br label %41
+
 30:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11), !noalias !10299
   invoke void @_ZN5sqlez9statement9Statement3map5logic17hda7062157bfc932eE.llvm.4784060810856971783(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %11, ptr noalias noundef nonnull align 8 dereferenceable(40) %15)
@@ -52599,10 +52601,6 @@ define hidden void @_ZN9workspace11persistence11WorkspaceDb14get_pane_group17hc1
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #52, !noalias !10303
   unreachable
-
-"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$12select_bound28_$u7b$$u7b$closure$u7d$$u7d$17he3500bc032bf5241E.exit.thread": ; preds = %.noexc
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %14)
-  br label %41
 
 35:                                               ; preds = %5
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13), !noalias !10286
@@ -53078,9 +53076,9 @@ common.resume:                                    ; preds = %421, %.body, %360, 
   %133 = icmp eq i64 %132, -9223372036854775808
   %134 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %135 = load ptr, ptr %134, align 8, !noalias !10405
-  br i1 %133, label %.thread103.i, label %137
+  br i1 %133, label %.thread101.i, label %137
 
-.thread103.i:                                     ; preds = %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit.i"
+.thread101.i:                                     ; preds = %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %37), !noalias !10405
   %136 = icmp ne ptr %135, null
   call void @llvm.assume(i1 %136)
@@ -53109,9 +53107,9 @@ common.resume:                                    ; preds = %421, %.body, %360, 
   store i64 %.sroa.366.0.i, ptr %.sroa.733.0..sroa_idx.i, align 8, !noalias !10353
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36), !noalias !10410
   invoke void @"_ZN62_$LT$$LP$T1$C$T2$C$T3$RP$$u20$as$u20$sqlez..bindable..Bind$GT$4bind17h882b5d2dc48ca8b8E"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %36, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %47, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %48, i32 noundef 1)
-          to label %.noexc89.i unwind label %143, !noalias !10353
+          to label %.noexc87.i unwind label %143, !noalias !10353
 
-.noexc89.i:                                       ; preds = %137
+.noexc87.i:                                       ; preds = %137
   %138 = load i32, ptr %36, align 8, !range !3368, !noalias !10410, !noundef !25
   %139 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %140 = load ptr, ptr %139, align 8, !noalias !10410, !nonnull !25
@@ -53119,11 +53117,11 @@ common.resume:                                    ; preds = %421, %.body, %360, 
   %switch.not.not.i.i = icmp eq i32 %138, 0
   br i1 %switch.not.not.i.i, label %141, label %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i"
 
-"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i": ; preds = %.noexc89.i
+"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i": ; preds = %.noexc87.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %47), !noalias !10353
   br label %220
 
-141:                                              ; preds = %.noexc89.i
+141:                                              ; preds = %.noexc87.i
   %142 = invoke noundef ptr @_ZN5sqlez9statement9Statement4exec17h0690f07a8ad76ad0E(ptr noalias noundef nonnull align 8 dereferenceable(40) %48)
           to label %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.i" unwind label %143, !noalias !10353
 
@@ -53199,7 +53197,7 @@ common.resume:                                    ; preds = %421, %.body, %360, 
   store ptr %168, ptr %.sroa.421.0..sroa_idx.i.i, align 8, !noalias !10428
   %170 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, i8, i8, [6 x i8] }, ptr %162, i64 %164
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
-  %.sroa.5.0..sroa_idx.i91.i = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %.sroa.5.0..sroa_idx.i89.i = getelementptr inbounds nuw i8, ptr %33, i64 16
   %.sroa.615.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 24
   %171 = getelementptr inbounds nuw i8, ptr %28, i64 8
   br label %177
@@ -53274,7 +53272,7 @@ common.resume:                                    ; preds = %421, %.body, %360, 
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %33), !noalias !10428
   store i64 %1, ptr %33, align 8, !noalias !10428
   store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !noalias !10428
-  store i64 %.sroa.839.0.i.i, ptr %.sroa.5.0..sroa_idx.i91.i, align 8, !noalias !10428
+  store i64 %.sroa.839.0.i.i, ptr %.sroa.5.0..sroa_idx.i89.i, align 8, !noalias !10428
   store ptr %.sroa.037.0.i.i, ptr %.sroa.615.0..sroa_idx.i.i, align 8, !noalias !10428
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28), !noalias !10458
   invoke void @"_ZN67_$LT$$LP$T1$C$T2$C$T3$C$T4$RP$$u20$as$u20$sqlez..bindable..Bind$GT$4bind17haba43a209fb1f5bcE"(ptr noalias nocapture noundef nonnull sret([16 x i8]) align 8 dereferenceable(16) %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %34, i32 noundef 1)
@@ -53352,7 +53350,7 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   br label %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread
 
 220:                                              ; preds = %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.i", %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i"
-  %.sroa.0.0.i106.i = phi ptr [ %140, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i" ], [ %142, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.i" ]
+  %.sroa.0.0.i104.i = phi ptr [ %140, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.thread.i" ], [ %142, %"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..connection..Connection$GT$10exec_bound28_$u7b$$u7b$closure$u7d$$u7d$17hef6b4fd0352903c4E.exit.i" ]
   invoke void @"_ZN69_$LT$sqlez..statement..Statement$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc237b8f5b3e083cdE"(ptr noalias noundef nonnull align 8 dereferenceable(40) %48)
           to label %223 unwind label %221, !noalias !10353
 
@@ -53368,18 +53366,18 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   %224 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %225 = load i64, ptr %224, align 8, !range !719, !noalias !10476, !noundef !25
   %226 = icmp eq i64 %225, 0
-  br i1 %226, label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i", label %227
+  br i1 %226, label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i", label %227
 
 227:                                              ; preds = %223
   %228 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %229 = load i64, ptr %228, align 8, !noalias !10476, !noundef !25
   %230 = icmp eq i64 %229, 0
-  br i1 %230, label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i", label %231
+  br i1 %230, label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i", label %231
 
 231:                                              ; preds = %227
   %232 = load ptr, ptr %24, align 8, !noalias !10476, !nonnull !25, !noundef !25
   call void @__rust_dealloc(ptr noundef nonnull %232, i64 noundef %229, i64 noundef %225) #53, !noalias !10353
-  br label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i"
+  br label %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i"
 
 233:                                              ; preds = %221
   %234 = landingpad { ptr, i32 }
@@ -53387,12 +53385,12 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #52, !noalias !10353
   unreachable
 
-"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i": ; preds = %231, %227, %223
+"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i": ; preds = %231, %227, %223
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %24), !noalias !10476
   br label %235
 
-235:                                              ; preds = %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i", %.thread103.i
-  %.sroa.8.2.in.i = phi ptr [ %.sroa.0.0.i106.i, %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit92.i" ], [ %135, %.thread103.i ]
+235:                                              ; preds = %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i", %.thread101.i
+  %.sroa.8.2.in.i = phi ptr [ %.sroa.0.0.i104.i, %"_ZN4core3ptr222drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..exec_bound$LT$$LP$i64$C$core..option..Option$LT$i64$GT$$C$core..option..Option$LT$usize$GT$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17haa9929bc7ee05371E.exit90.i" ], [ %135, %.thread101.i ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %48), !noalias !10353
   br label %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread
 
@@ -53419,18 +53417,18 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   %242 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %243 = load i64, ptr %242, align 8, !range !719, !noalias !10487, !noundef !25
   %244 = icmp eq i64 %243, 0
-  br i1 %244, label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i", label %245
+  br i1 %244, label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i", label %245
 
 245:                                              ; preds = %241
   %246 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %247 = load i64, ptr %246, align 8, !noalias !10487, !noundef !25
   %248 = icmp eq i64 %247, 0
-  br i1 %248, label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i", label %249
+  br i1 %248, label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i", label %249
 
 249:                                              ; preds = %245
   %250 = load ptr, ptr %23, align 8, !noalias !10487, !nonnull !25, !noundef !25
   call void @__rust_dealloc(ptr noundef nonnull %250, i64 noundef %247, i64 noundef %243) #53, !noalias !10353
-  br label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i"
+  br label %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i"
 
 251:                                              ; preds = %239
   %252 = landingpad { ptr, i32 }
@@ -53438,12 +53436,12 @@ _ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.threa
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #52, !noalias !10353
   unreachable
 
-"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i": ; preds = %249, %245, %241
+"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i": ; preds = %249, %245, %241
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23), !noalias !10487
   br label %253
 
-253:                                              ; preds = %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i", %99
-  %.sroa.8.0.in.i = phi ptr [ %72, %99 ], [ %.sroa.8.1.in.i, %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit93.i" ]
+253:                                              ; preds = %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i", %99
+  %.sroa.8.0.in.i = phi ptr [ %72, %99 ], [ %.sroa.8.1.in.i, %"_ZN4core3ptr198drop_in_place$LT$sqlez..typed_statements..$LT$impl$u20$sqlez..connection..Connection$GT$..select_row_bound$LT$$LP$workspace..WorkspaceId$C$bool$C$usize$RP$$C$i64$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h69837eb8aa00f8ccE.exit91.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %50), !noalias !10353
   br label %_ZN9workspace11persistence11WorkspaceDb9save_pane17hc2eb349a3406361aE.exit.thread
 

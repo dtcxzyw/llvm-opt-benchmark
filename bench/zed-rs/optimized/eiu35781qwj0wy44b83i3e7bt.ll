@@ -47520,10 +47520,8 @@ common.ret:                                       ; preds = %208, %"_ZN153_$LT$c
   br label %99
 
 113:                                              ; preds = %108
-  %trunc.i82 = trunc nuw i16 %109 to i1
   %114 = extractvalue { i16, i16 } %105, 1
-  %.3.i = select i1 %trunc.i82, i16 %114, i16 undef
-  %115 = invoke noundef nonnull ptr @"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17h208ef40f5f1d93d2E"(i16 noundef %.3.i)
+  %115 = invoke noundef nonnull ptr @"_ZN13wasmtime_wasi7network203_$LT$impl$u20$core..convert..From$LT$rustix..backend..io..errno..Errno$GT$$u20$for$u20$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$4from17h208ef40f5f1d93d2E"(i16 noundef %114)
           to label %"_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h968be22cf5a02bd9E.exit" unwind label %116
 
 116:                                              ; preds = %113

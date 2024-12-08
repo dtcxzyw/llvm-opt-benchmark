@@ -44127,15 +44127,13 @@ define internal fastcc void @"_ZN5sqlez16typed_statements47_$LT$impl$u20$sqlez..
   br i1 %switch.i, label %20, label %16
 
 16:                                               ; preds = %12
-  %trunc.i = trunc nuw i32 %13 to i1
-  %.sroa.3.0.i = select i1 %trunc.i, ptr %15, ptr %1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7), !noalias !9476
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8), !noalias !9476
   store ptr @anon.243382fb32a45965794a388f62b56225.90, ptr %8, align 8, !noalias !9481
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 15, ptr %17, align 8, !noalias !9481
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %.sroa.3.0.i, ptr %18, align 8, !noalias !9481
+  store ptr %15, ptr %18, align 8, !noalias !9481
   store i64 3, ptr %7, align 8, !noalias !9481
   %19 = invoke noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$9construct17h1bf7aee395752d86E.llvm.11720741875364829747"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) @anon.790f4c68c0a80773cc28aa20d10c1e03.157.llvm.11720741875364829747, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %7)
           to label %25 unwind label %10

@@ -2067,9 +2067,9 @@ define hidden noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$6fini
   %.promoted.i.pre = load i64, ptr %3, align 8, !alias.scope !227
   br label %10
 
-10:                                               ; preds = %43, %1
-  %.promoted.i = phi i64 [ 0, %43 ], [ %.promoted.i.pre, %1 ]
-  %11 = phi i64 [ %41, %43 ], [ %.pre, %1 ]
+10:                                               ; preds = %41, %1
+  %.promoted.i = phi i64 [ 0, %41 ], [ %.promoted.i.pre, %1 ]
+  %11 = phi i64 [ %38, %41 ], [ %.pre, %1 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !227)
   %12 = icmp ult i64 %.promoted.i, %11
   br i1 %12, label %.lr.ph.split.i, label %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit"
@@ -2126,35 +2126,30 @@ define hidden noundef ptr @"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$6fini
 "_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit.thread": ; preds = %33
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !253
   store i64 0, ptr %3, align 8
-  br label %38
+  %37 = icmp ne i64 %36, 0
+  %38 = load i64, ptr %4, align 8
+  %39 = icmp eq i64 %38, 0
+  %or.cond = select i1 %37, i1 %39, i1 false
+  br i1 %or.cond, label %44, label %41
 
 "_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit": ; preds = %33
-  %37 = call noundef nonnull ptr @_ZN4zstd14map_error_code17h1822e5a5804cc4ebE(i64 noundef %36), !noalias !259
+  %40 = call noundef nonnull ptr @_ZN4zstd14map_error_code17h1822e5a5804cc4ebE(i64 noundef %36), !noalias !259
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !253
   store i64 0, ptr %3, align 8
-  %trunc = trunc nuw i64 %35 to i1
-  br i1 %trunc, label %.loopexit, label %38
-
-38:                                               ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit.thread", %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit"
-  %39 = phi i64 [ %36, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit.thread" ], [ 1, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit" ]
-  %40 = icmp ne i64 %39, 0
-  %41 = load i64, ptr %4, align 8
-  %42 = icmp eq i64 %41, 0
-  %or.cond = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond, label %46, label %43
-
-43:                                               ; preds = %38
-  %44 = icmp eq i64 %39, 0
-  %45 = zext i1 %44 to i8
-  store i8 %45, ptr %7, align 8
-  br label %10
-
-46:                                               ; preds = %38
-  %47 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc2501dfb4899ad77E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6859812ae8af509fc674db13d99e9201.66, i64 noundef 16)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit", %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit", %46
-  %.0 = phi ptr [ %47, %46 ], [ %37, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit" ], [ null, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit" ]
+41:                                               ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit.thread"
+  %42 = icmp eq i64 %36, 0
+  %43 = zext i1 %42 to i8
+  store i8 %43, ptr %7, align 8
+  br label %10
+
+44:                                               ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit.thread"
+  %45 = call noundef nonnull ptr @_ZN3std2io5error5Error3new17hc2501dfb4899ad77E(i8 noundef 37, ptr noalias noundef nonnull readonly align 1 @anon.6859812ae8af509fc674db13d99e9201.66, i64 noundef 16)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit", %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit", %44
+  %.0 = phi ptr [ %45, %44 ], [ %40, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4318c3144c205e37E.exit" ], [ null, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit" ]
   ret ptr %.0
 }
 
@@ -2267,8 +2262,8 @@ define hidden void @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D$GT$$u2
   %.promoted.i.pre = load i64, ptr %7, align 8, !alias.scope !272
   br label %17
 
-17:                                               ; preds = %62, %4
-  %.promoted.i = phi i64 [ 0, %62 ], [ %.promoted.i.pre, %4 ]
+17:                                               ; preds = %59, %4
+  %.promoted.i = phi i64 [ 0, %59 ], [ %.promoted.i.pre, %4 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !272)
   %18 = load i64, ptr %8, align 8, !alias.scope !272, !noundef !4
   %19 = icmp ult i64 %.promoted.i, %18
@@ -2330,10 +2325,10 @@ define hidden void @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D$GT$$u2
 "_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit": ; preds = %40
   %44 = call noundef nonnull ptr @_ZN4zstd14map_error_code17h1822e5a5804cc4ebE(i64 noundef %43), !noalias !305
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !299
-  %45 = load i64, ptr %14, align 8, !noundef !4
   store i64 0, ptr %7, align 8
-  %trunc = trunc nuw i64 %42 to i1
-  br i1 %trunc, label %55, label %.thread
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %44, ptr %45, align 8
+  br label %60
 
 46:                                               ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$17write_from_offset17h7917d66ace78135fE.exit"
   %47 = call noundef ptr @"_ZN75_$LT$zstd..stream..raw..Encoder$u20$as$u20$zstd..stream..raw..Operation$GT$6reinit17h501aeddcefbb3b76E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %12)
@@ -2348,46 +2343,40 @@ define hidden void @"_ZN81_$LT$zstd..stream..zio..writer..Writer$LT$W$C$D$GT$$u2
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %47, ptr %51, align 8
   store i64 1, ptr %0, align 8
-  br label %64
+  br label %61
 
 52:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !299
   %53 = load i64, ptr %14, align 8, !noundef !4
   store i64 0, ptr %7, align 8
   %54 = icmp eq i64 %43, 0
-  br i1 %54, label %57, label %.thread
+  br i1 %54, label %55, label %.thread
 
-55:                                               ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit"
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %44, ptr %56, align 8
-  br label %63
-
-57:                                               ; preds = %52
+55:                                               ; preds = %52
   store i8 1, ptr %11, align 1
   br label %.thread
 
-.thread:                                          ; preds = %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit", %57, %52
-  %58 = phi i64 [ %53, %57 ], [ %53, %52 ], [ %45, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit" ]
-  %59 = icmp ne i64 %58, 0
-  %or.cond = or i1 %16, %59
-  br i1 %or.cond, label %60, label %62
+.thread:                                          ; preds = %55, %52
+  %56 = icmp ne i64 %53, 0
+  %or.cond = or i1 %16, %56
+  br i1 %or.cond, label %57, label %59
 
-60:                                               ; preds = %.thread
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %58, ptr %61, align 8
-  br label %63
+57:                                               ; preds = %.thread
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %53, ptr %58, align 8
+  br label %60
 
-62:                                               ; preds = %.thread
+59:                                               ; preds = %.thread
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   br label %17
 
-63:                                               ; preds = %60, %55
-  %storemerge = phi i64 [ 1, %55 ], [ 0, %60 ]
+60:                                               ; preds = %57, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit"
+  %storemerge = phi i64 [ 1, %"_ZN4zstd6stream3zio6writer19Writer$LT$W$C$D$GT$11with_buffer17h4773ced245f784b3E.exit" ], [ 0, %57 ]
   store i64 %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  br label %64
+  br label %61
 
-64:                                               ; preds = %63, %50
+61:                                               ; preds = %60, %50
   ret void
 }
 

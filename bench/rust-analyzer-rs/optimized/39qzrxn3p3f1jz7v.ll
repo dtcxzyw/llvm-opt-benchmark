@@ -13801,13 +13801,11 @@ common.resume:                                    ; preds = %40, %"_ZN4core3ptr6
   br i1 %58, label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit", label %12
 
 59:                                               ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha50a3f3f1c991c2dE.exit"
-  %trunc.i = trunc nuw i32 %56 to i1
   %60 = extractvalue { i32, i32 } %55, 1
-  %.2.i = select i1 %trunc.i, i32 %60, i32 undef
   br label %"_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit"
 
 "_ZN4core3ptr74drop_in_place$LT$core..option..Option$LT$rowan..cursor..SyntaxNode$GT$$GT$17h623242364afb6dabE.llvm.836043833466553463.exit": ; preds = %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha50a3f3f1c991c2dE.exit.thread", %2, %59
-  %.sroa.3.0 = phi i32 [ %.2.i, %59 ], [ undef, %2 ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha50a3f3f1c991c2dE.exit.thread" ]
+  %.sroa.3.0 = phi i32 [ %60, %59 ], [ undef, %2 ], [ undef, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha50a3f3f1c991c2dE.exit.thread" ]
   %.sroa.0.0 = phi i32 [ 1, %59 ], [ 0, %2 ], [ 0, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha50a3f3f1c991c2dE.exit.thread" ]
   %61 = insertvalue { i32, i32 } poison, i32 %.sroa.0.0, 0
   %62 = insertvalue { i32, i32 } %61, i32 %.sroa.3.0, 1
