@@ -33950,8 +33950,6 @@ define hidden void @"_ZN9addr2line16ResUnit$LT$R$GT$25find_function_or_location2
   br label %"_ZN9addr2line4lazy17LazyCell$LT$T$GT$11borrow_with17h78bec2899422a831E.exit.i"
 
 24:                                               ; preds = %22
-  %trunc.i.i.i = trunc nuw i64 %23 to i1
-  tail call void @llvm.assume(i1 %trunc.i.i.i)
   %25 = load ptr, ptr %10, align 8, !alias.scope !6430, !noalias !6433, !noundef !4
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %"_ZN9addr2line4lazy17LazyCell$LT$T$GT$11borrow_with17h78bec2899422a831E.exit.i", label %26

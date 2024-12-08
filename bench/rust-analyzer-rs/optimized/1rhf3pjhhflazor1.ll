@@ -3224,15 +3224,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %48
 
 21:                                               ; preds = %13
-  %trunc.i.i.i.i.i = trunc nuw i32 %17 to i1
   %22 = extractvalue { i32, i32 } %15, 1
-  %.2.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i32 %22, i32 undef
   %23 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h320ad52a1747cebbE"(i64 noundef 4, i1 noundef zeroext false)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
-  store i32 %.2.i.i.i.i.i, ptr %25, align 4
+  store i32 %22, ptr %25, align 4
   store i64 %24, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %25, ptr %.sroa.4.0..sroa_idx, align 8
@@ -3277,9 +3275,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %switch.i.i.i.i.i.i, label %32, label %40
 
 40:                                               ; preds = %.noexc
-  %trunc.i.i.i.i.i.i.i = trunc nuw i32 %39 to i1
   %41 = extractvalue { i32, i32 } %37, 1
-  %.2.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i32 %41, i32 undef
   %42 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1113, !noalias !1114, !noundef !15
   %43 = load i64, ptr %4, align 8, !alias.scope !1113, !noalias !1114, !noundef !15
   %44 = icmp eq i64 %42, %43
@@ -3292,7 +3288,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 .noexc5:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hedff0e5851a3bbf3E.llvm.14212318151792154407.exit.i.i", %40
   %45 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1113, !noalias !1114, !nonnull !15, !noundef !15
   %46 = getelementptr inbounds i32, ptr %45, i64 %42
-  store i32 %.2.i.i.i.i.i.i.i, ptr %46, align 4
+  store i32 %41, ptr %46, align 4
   %47 = add i64 %42, 1
   store i64 %47, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !1113, !noalias !1114
   br label %30
@@ -6169,14 +6165,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %32 unwind label %28
 
 32:                                               ; preds = %30
-  %trunc.i.i.i.i = trunc nuw i32 %14 to i1
   %33 = extractvalue { i32, i32 } %13, 1
-  %.2.i.i.i.i = select i1 %trunc.i.i.i.i, i32 %33, i32 undef
   %34 = extractvalue { i64, ptr } %31, 0
   %35 = extractvalue { i64, ptr } %31, 1
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
-  store i32 %.2.i.i.i.i, ptr %35, align 4
+  store i32 %33, ptr %35, align 4
   store i64 %34, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %35, ptr %.sroa.4.0..sroa_idx, align 8
@@ -6244,9 +6238,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %48
 
 59:                                               ; preds = %.noexc4.i.i
-  %trunc.i.i.i.i.i.i = trunc nuw i32 %47 to i1
   %60 = extractvalue { i32, i32 } %46, 1
-  %.2.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i32 %60, i32 undef
   %61 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2199, !noalias !2200, !noundef !15
   %62 = load i64, ptr %5, align 8, !alias.scope !2199, !noalias !2200, !noundef !15
   %63 = icmp eq i64 %61, %62
@@ -6255,7 +6247,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hedff0e5851a3bbf3E.llvm.14212318151792154407.exit.i.i": ; preds = %69, %59
   %64 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2199, !noalias !2200, !nonnull !15, !noundef !15
   %65 = getelementptr inbounds i32, ptr %64, i64 %61
-  store i32 %.2.i.i.i.i.i.i, ptr %65, align 4
+  store i32 %60, ptr %65, align 4
   %66 = add i64 %61, 1
   store i64 %66, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2199, !noalias !2200
   %.val.i.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !2201, !noalias !2206
@@ -11981,14 +11973,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %32 unwind label %28
 
 32:                                               ; preds = %30
-  %trunc.i.i.i.i = trunc nuw i32 %14 to i1
   %33 = extractvalue { i32, i32 } %13, 1
-  %.2.i.i.i.i = select i1 %trunc.i.i.i.i, i32 %33, i32 undef
   %34 = extractvalue { i64, ptr } %31, 0
   %35 = extractvalue { i64, ptr } %31, 1
   %36 = icmp ne ptr %35, null
   call void @llvm.assume(i1 %36)
-  store i32 %.2.i.i.i.i, ptr %35, align 4
+  store i32 %33, ptr %35, align 4
   store i64 %34, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %35, ptr %.sroa.4.0..sroa_idx, align 8
@@ -12056,9 +12046,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %48
 
 59:                                               ; preds = %.noexc4.i.i
-  %trunc.i.i.i.i.i.i = trunc nuw i32 %47 to i1
   %60 = extractvalue { i32, i32 } %46, 1
-  %.2.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i32 %60, i32 undef
   %61 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4315, !noalias !4316, !noundef !15
   %62 = load i64, ptr %5, align 8, !alias.scope !4315, !noalias !4316, !noundef !15
   %63 = icmp eq i64 %61, %62
@@ -12067,7 +12055,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hedff0e5851a3bbf3E.llvm.14212318151792154407.exit.i.i": ; preds = %69, %59
   %64 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !4315, !noalias !4316, !nonnull !15, !noundef !15
   %65 = getelementptr inbounds i32, ptr %64, i64 %61
-  store i32 %.2.i.i.i.i.i.i, ptr %65, align 4
+  store i32 %60, ptr %65, align 4
   %66 = add i64 %61, 1
   store i64 %66, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !4315, !noalias !4316
   %.val.i.pre.i.i = load ptr, ptr %4, align 8, !alias.scope !4317, !noalias !4322

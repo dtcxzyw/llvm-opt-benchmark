@@ -1303,15 +1303,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %27 unwind label %20
 
 27:                                               ; preds = %22
-  %trunc.i.i.i.i.i = trunc nuw i64 %.sroa.6.0.copyload5.i.i.i.i to i1
-  %.2.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 %.sroa.8.0.copyload7.i.i.i.i, i64 undef
   %28 = extractvalue { i64, ptr } %26, 0
   %29 = extractvalue { i64, ptr } %26, 1
   %30 = icmp ne ptr %29, null
   tail call void @llvm.assume(i1 %30)
   store ptr %25, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 %.2.i.i.i.i.i, ptr %31, align 8
+  store i64 %.sroa.8.0.copyload7.i.i.i.i, ptr %31, align 8
   store i64 %28, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %29, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1367,10 +1365,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %43
 
 46:                                               ; preds = %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h363ced04da24fd27E.exit.i.i.i.i.i.i"
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.6.0.copyload5.i.i.i.i.i.i to i1
   %.sroa.8.0..sroa_idx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %39, i64 -8
   %.sroa.8.0.copyload7.i.i.i.i.i.i = load i64, ptr %.sroa.8.0..sroa_idx6.i.i.i.i.i.i, align 8
-  %.2.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 %.sroa.8.0.copyload7.i.i.i.i.i.i, i64 undef
   call void @llvm.experimental.noalias.scope.decl(metadata !266)
   call void @llvm.experimental.noalias.scope.decl(metadata !269)
   %47 = load ptr, ptr %34, align 8, !alias.scope !272, !noalias !273, !nonnull !16, !align !126, !noundef !16
@@ -1385,7 +1381,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %53 = getelementptr inbounds { ptr, i64 }, ptr %52, i64 %49
   store ptr %48, ptr %53, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i64 %.2.i.i.i.i.i.i.i, ptr %54, align 8
+  store i64 %.sroa.8.0.copyload7.i.i.i.i.i.i, ptr %54, align 8
   %55 = add i64 %49, 1
   store i64 %55, ptr %.sroa.63.0..sroa_idx, align 8, !alias.scope !273, !noalias !275
   br label %35
@@ -4479,8 +4475,6 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
           to label %29 unwind label %20
 
 29:                                               ; preds = %22
-  %trunc.i.i.i.i.i = trunc nuw i64 %.sroa.6.0.copyload5.i.i.i.i to i1
-  %.2.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 %.sroa.8.0.copyload7.i.i.i.i, i64 undef
   %30 = extractvalue { i64, ptr } %28, 0
   %31 = extractvalue { i64, ptr } %28, 1
   %32 = icmp ne ptr %31, null
@@ -4489,7 +4483,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %27, ptr %.sroa.413.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 %.2.i.i.i.i.i, ptr %.sroa.514.0..sroa_idx, align 8
+  store i64 %.sroa.8.0.copyload7.i.i.i.i, ptr %.sroa.514.0..sroa_idx, align 8
   store i64 %30, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %31, ptr %.sroa.4.0..sroa_idx, align 8
@@ -4545,10 +4539,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %44
 
 47:                                               ; preds = %"_ZN109_$LT$std..collections..hash..map..IntoIter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hce86298b47b80309E.exit.i.i.i.i.i.i"
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %.sroa.6.0.copyload5.i.i.i.i.i.i to i1
   %.sroa.8.0..sroa_idx6.i.i.i.i.i.i = getelementptr inbounds i8, ptr %40, i64 -8
   %.sroa.8.0.copyload7.i.i.i.i.i.i = load i64, ptr %.sroa.8.0..sroa_idx6.i.i.i.i.i.i, align 8, !noalias !981
-  %.2.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 %.sroa.8.0.copyload7.i.i.i.i.i.i, i64 undef
   call void @llvm.experimental.noalias.scope.decl(metadata !982)
   call void @llvm.experimental.noalias.scope.decl(metadata !985)
   %48 = load ptr, ptr %35, align 8, !alias.scope !988, !noalias !989, !nonnull !16, !align !126, !noundef !16
@@ -4567,7 +4559,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.410.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i64 %51, ptr %.sroa.410.0..sroa_idx.i.i, align 8
   %.sroa.511.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i64 %.2.i.i.i.i.i.i.i, ptr %.sroa.511.0..sroa_idx.i.i, align 8
+  store i64 %.sroa.8.0.copyload7.i.i.i.i.i.i, ptr %.sroa.511.0..sroa_idx.i.i, align 8
   %57 = add i64 %52, 1
   store i64 %57, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !993, !noalias !994
   br label %36

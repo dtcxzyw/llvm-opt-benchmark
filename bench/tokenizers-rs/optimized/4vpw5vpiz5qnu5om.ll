@@ -8012,15 +8012,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 _ZN5alloc7raw_vec14handle_reserve17hb34c9fd5df13d306E.exit: ; preds = %56
-  %trunc.i.i.i.i = trunc nuw i64 %52 to i1
   %66 = extractvalue { i64, i64 } %51, 1
-  %.2.i.i.i.i = select i1 %trunc.i.i.i.i, i64 %66, i64 undef
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %68 = load ptr, ptr %67, align 8, !alias.scope !2158, !nonnull !13, !noundef !13
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load i64, ptr %69, align 8, !range !148, !alias.scope !2158, !noundef !13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
-  store i64 %.2.i.i.i.i, ptr %68, align 8
+  store i64 %66, ptr %68, align 8
   store i64 %70, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %68, ptr %.sroa.4.0..sroa_idx, align 8
@@ -8119,9 +8117,7 @@ _ZN5alloc7raw_vec14handle_reserve17hb34c9fd5df13d306E.exit: ; preds = %56
   br i1 %switch.i.i.i.i.i, label %75, label %119
 
 119:                                              ; preds = %.noexc
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %118 to i1
   %120 = extractvalue { i64, i64 } %117, 1
-  %.2.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 %120, i64 undef
   %121 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2202, !noalias !2203, !noundef !13
   %122 = load i64, ptr %5, align 8, !alias.scope !2202, !noalias !2203, !noundef !13
   %123 = icmp eq i64 %121, %122
@@ -8134,7 +8130,7 @@ _ZN5alloc7raw_vec14handle_reserve17hb34c9fd5df13d306E.exit: ; preds = %56
 .noexc5:                                          ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92e49a89e82e5bb2E.llvm.4432219087322099438.exit.i.i", %119
   %124 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !2202, !noalias !2203, !nonnull !13, !noundef !13
   %125 = getelementptr inbounds i64, ptr %124, i64 %121
-  store i64 %.2.i.i.i.i.i.i, ptr %125, align 8
+  store i64 %120, ptr %125, align 8
   %126 = add i64 %121, 1
   store i64 %126, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !2202, !noalias !2203
   br label %73
