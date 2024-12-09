@@ -495,10 +495,8 @@ invoke.cont27.i.i:                                ; preds = %invoke.cont21.i.i
 
 invoke.cont39.i.i:                                ; preds = %invoke.cont27.i.i
   %enable_srv_queries_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 537
-  %13 = and i16 %call40.i.i, 256
-  %tobool.i.i7.not.i.i = icmp ne i16 %13, 0
-  %14 = trunc i16 %call40.i.i to i1
-  %retval.0.i11.i.i = and i1 %tobool.i.i7.not.i.i, %14
+  %13 = and i16 %call40.i.i, 257
+  %retval.0.i11.i.i = icmp eq i16 %13, 257
   %frombool47.i.i = zext i1 %retval.0.i11.i.i to i8
   store i8 %frombool47.i.i, ptr %enable_srv_queries_.i.i, align 1, !noalias !4
   %call56.i.i = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_.i.i.i, i64 27, ptr nonnull @.str.9)
@@ -507,12 +505,12 @@ invoke.cont39.i.i:                                ; preds = %invoke.cont27.i.i
 invoke.cont65.i.i:                                ; preds = %invoke.cont39.i.i
   %query_timeout_ms_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 544
   %ref.tmp51.sroa.0.0.extract.trunc.i.i = trunc i64 %call56.i.i to i32
-  %15 = and i64 %call56.i.i, 4294967296
-  %tobool.i.i16.not.i.i = icmp eq i64 %15, 0
-  %16 = call i32 @llvm.smax.i32(i32 %ref.tmp51.sroa.0.0.extract.trunc.i.i, i32 0)
-  %17 = zext nneg i32 %16 to i64
-  %18 = mul nuw nsw i64 %17, 1000000
-  %mul.i.i.i.i.i = select i1 %tobool.i.i16.not.i.i, i64 120000000000, i64 %18
+  %14 = and i64 %call56.i.i, 4294967296
+  %tobool.i.i16.not.i.i = icmp eq i64 %14, 0
+  %15 = call i32 @llvm.smax.i32(i32 %ref.tmp51.sroa.0.0.extract.trunc.i.i, i32 0)
+  %16 = zext nneg i32 %15 to i64
+  %17 = mul nuw nsw i64 %16, 1000000
+  %mul.i.i.i.i.i = select i1 %tobool.i.i16.not.i.i, i64 120000000000, i64 %17
   store i64 %mul.i.i.i.i.i, ptr %query_timeout_ms_.i.i, align 8, !noalias !4
   %event_engine_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 552
   call void @llvm.experimental.noalias.scope.decl(metadata !7)
@@ -529,45 +527,45 @@ if.then.i.i.i.i:                                  ; preds = %call.i.i21.noexc.i.
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit
 
 if.end.i.i.i.i:                                   ; preds = %call.i.i21.noexc.i.i
-  %19 = load ptr, ptr %call.i.i2122.i.i, align 8, !noalias !14
-  store ptr %19, ptr %event_engine_.i.i, align 8, !alias.scope !13, !noalias !4
+  %18 = load ptr, ptr %call.i.i2122.i.i, align 8, !noalias !14
+  store ptr %18, ptr %event_engine_.i.i, align 8, !alias.scope !13, !noalias !4
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 560
   %_M_refcount3.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i2122.i.i, i64 8
-  %20 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !14
-  store ptr %20, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !4
-  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %20, null
+  %19 = load ptr, ptr %_M_refcount3.i.i.i.i.i.i, align 8, !noalias !14
+  store ptr %19, ptr %_M_refcount.i.i.i.i.i.i, align 8, !alias.scope !13, !noalias !4
+  %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %19, null
   br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit, label %if.then.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %if.end.i.i.i.i
-  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %21 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
-  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %21, 0
+  %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %20 = load i8, ptr @__libc_single_threaded, align 1, !noalias !14
+  %tobool.i.not.i.i.i.i.i.i.i.i = icmp eq i8 %20, 0
   br i1 %tobool.i.not.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
-  %22 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !14
-  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %22, 1
+  %21 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !14
+  %add.i.i.i.i.i.i.i.i.i = add nsw i32 %21, 1
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !14
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit
 
 if.else.i.i.i.i.i.i.i.i.i:                        ; preds = %if.then.i.i.i.i.i.i.i
-  %23 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !14
+  %22 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !14
   br label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_135EventEngineClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit
 
 lpad.i.i:                                         ; preds = %entry
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp.i.i) #22, !noalias !4
   br label %lpad.body.i
 
 lpad23.i.i:                                       ; preds = %invoke.cont65.i.i, %invoke.cont39.i.i, %invoke.cont27.i.i, %invoke.cont21.i.i
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %call.i) #22, !noalias !4
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad23.i.i, %lpad.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %25, %lpad23.i.i ], [ %24, %lpad.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %24, %lpad23.i.i ], [ %23, %lpad.i.i ]
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp.i) #22, !noalias !4
   call void @_ZdlPv(ptr noundef nonnull %call.i) #24, !noalias !4
   resume { ptr, i32 } %eh.lpad-body.i

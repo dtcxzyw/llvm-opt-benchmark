@@ -2266,10 +2266,8 @@ define linkonce_odr noundef zeroext i1 @_ZNK9grpc_core15JsonChannelArgs9IsEnable
 entry:
   %args_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %call = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args_, i64 %key.coerce0, ptr %key.coerce1)
-  %0 = and i16 %call, 256
-  %tobool.i.i.not = icmp ne i16 %0, 0
-  %1 = trunc i16 %call to i1
-  %retval.0.i = and i1 %tobool.i.i.not, %1
+  %0 = and i16 %call, 257
+  %retval.0.i = icmp eq i16 %0, 257
   ret i1 %retval.0.i
 }
 

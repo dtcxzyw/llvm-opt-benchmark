@@ -1190,29 +1190,27 @@ invoke.cont27.i.i:                                ; preds = %invoke.cont21.i.i
 
 invoke.cont39.i.i:                                ; preds = %invoke.cont27.i.i
   %enable_srv_queries_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 537
-  %13 = and i16 %call40.i.i, 256
-  %tobool.i.i7.not.i.i = icmp ne i16 %13, 0
-  %14 = trunc i16 %call40.i.i to i1
-  %retval.0.i11.i.i = and i1 %tobool.i.i7.not.i.i, %14
+  %13 = and i16 %call40.i.i, 257
+  %retval.0.i11.i.i = icmp eq i16 %13, 257
   %frombool47.i.i = zext i1 %retval.0.i11.i.i to i8
   store i8 %frombool47.i.i, ptr %enable_srv_queries_.i.i, align 1, !noalias !10
   %call55.i.i = invoke i64 @_ZNK9grpc_core11ChannelArgs6GetIntESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %channel_args_.i.i.i, i64 27, ptr nonnull @.str.9)
           to label %_ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit unwind label %lpad23.i.i, !noalias !10
 
 lpad.i.i:                                         ; preds = %entry
-  %15 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp.i.i) #24, !noalias !10
   br label %lpad.body.i
 
 lpad23.i.i:                                       ; preds = %invoke.cont39.i.i, %invoke.cont27.i.i, %invoke.cont21.i.i
-  %16 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN9grpc_core15PollingResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %call.i) #24, !noalias !10
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad23.i.i, %lpad.i.i
-  %eh.lpad-body.i = phi { ptr, i32 } [ %16, %lpad23.i.i ], [ %15, %lpad.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %15, %lpad23.i.i ], [ %14, %lpad.i.i ]
   call void @_ZN9grpc_core12ResolverArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %agg.tmp.i) #24, !noalias !10
   call void @_ZdlPv(ptr noundef nonnull %call.i) #27, !noalias !10
   resume { ptr, i32 } %eh.lpad-body.i
@@ -1220,10 +1218,10 @@ lpad.body.i:                                      ; preds = %lpad23.i.i, %lpad.i
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_128AresClientChannelDNSResolverENS0_16OrphanableDeleteEED2Ev.exit: ; preds = %invoke.cont39.i.i
   %query_timeout_ms_.i.i = getelementptr inbounds nuw i8, ptr %call.i, i64 540
   %ref.tmp50.sroa.0.0.extract.trunc.i.i = trunc i64 %call55.i.i to i32
-  %17 = and i64 %call55.i.i, 4294967296
-  %tobool.i.i16.not.i.i = icmp eq i64 %17, 0
-  %18 = call i32 @llvm.smax.i32(i32 %ref.tmp50.sroa.0.0.extract.trunc.i.i, i32 0)
-  %.sroa.speculated.i.i = select i1 %tobool.i.i16.not.i.i, i32 120000, i32 %18
+  %16 = and i64 %call55.i.i, 4294967296
+  %tobool.i.i16.not.i.i = icmp eq i64 %16, 0
+  %17 = call i32 @llvm.smax.i32(i32 %ref.tmp50.sroa.0.0.extract.trunc.i.i, i32 0)
+  %.sroa.speculated.i.i = select i1 %tobool.i.i16.not.i.i, i32 120000, i32 %17
   store i32 %.sroa.speculated.i.i, ptr %query_timeout_ms_.i.i, align 4, !noalias !10
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %agg.tmp.i.i), !noalias !10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %agg.tmp3.i.i), !noalias !10

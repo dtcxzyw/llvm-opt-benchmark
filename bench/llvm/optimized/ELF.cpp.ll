@@ -7424,7 +7424,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   store ptr @.str.1579, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %16, align 8
-  br label %54
+  br label %49
 
 17:                                               ; preds = %6
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
@@ -7437,7 +7437,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %36, label %_ZN4llvm5ErrorD2Ev.exit
+  br i1 %24, label %.critedge, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   store ptr @.str.1580, ptr %9, align 8, !alias.scope !416
@@ -7462,50 +7462,40 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   store ptr %31, ptr %0, align 8, !alias.scope !433
-  br label %54
+  br label %49
 
-36:                                               ; preds = %19
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %.critedge
-
-40:                                               ; preds = %36
-  %41 = and i16 %5, 256
-  %.not28 = icmp ne i16 %41, 0
-  %42 = trunc i16 %5 to i1
-  %.0.i = and i1 %.not28, %42
-  br i1 %.0.i, label %.critedge, label %43
-
-43:                                               ; preds = %40
-  %44 = and i32 %2, 32768
-  %.not10 = icmp eq i32 %44, 0
-  %45 = zext i1 %.not10 to i8
-  br label %.critedge
-
-.critedge:                                        ; preds = %40, %36, %43
-  %storemerge = phi i8 [ %45, %43 ], [ 0, %36 ], [ 0, %40 ]
+.critedge:                                        ; preds = %19
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  %39 = and i16 %5, 257
+  %.0.i = icmp ne i16 %39, 257
+  %or.cond30.not = select i1 %38, i1 %.0.i, i1 false
+  %40 = and i32 %2, 32768
+  %.not10 = icmp eq i32 %40, 0
+  %narrow = and i1 %or.cond30.not, %.not10
+  %storemerge = zext i1 %narrow to i8
   store i8 %storemerge, ptr %3, align 1
-  %46 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, -2
-  store i8 %49, ptr %47, align 8
-  store ptr %46, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %50
+  %41 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i8, ptr %42, align 8
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %45
 
-50:                                               ; preds = %.critedge
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #19
+45:                                               ; preds = %.critedge
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
   br label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %50
-  %52 = phi i64 [ %51, %50 ], [ 0, %.critedge ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %53, align 8
-  br label %54
+_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %45
+  %47 = phi i64 [ %46, %45 ], [ 0, %.critedge ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-54:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
+49:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
   ret void
 }
 
@@ -21500,7 +21490,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   store ptr @.str.1579, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %16, align 8
-  br label %54
+  br label %49
 
 17:                                               ; preds = %6
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
@@ -21513,7 +21503,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %36, label %_ZN4llvm5ErrorD2Ev.exit
+  br i1 %24, label %.critedge, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   store ptr @.str.1580, ptr %9, align 8, !alias.scope !3095
@@ -21538,50 +21528,40 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   store ptr %31, ptr %0, align 8, !alias.scope !3112
-  br label %54
+  br label %49
 
-36:                                               ; preds = %19
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %.critedge
-
-40:                                               ; preds = %36
-  %41 = and i16 %5, 256
-  %.not28 = icmp ne i16 %41, 0
-  %42 = trunc i16 %5 to i1
-  %.0.i = and i1 %.not28, %42
-  br i1 %.0.i, label %.critedge, label %43
-
-43:                                               ; preds = %40
-  %44 = and i32 %2, 32768
-  %.not10 = icmp eq i32 %44, 0
-  %45 = zext i1 %.not10 to i8
-  br label %.critedge
-
-.critedge:                                        ; preds = %40, %36, %43
-  %storemerge = phi i8 [ %45, %43 ], [ 0, %36 ], [ 0, %40 ]
+.critedge:                                        ; preds = %19
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  %39 = and i16 %5, 257
+  %.0.i = icmp ne i16 %39, 257
+  %or.cond30.not = select i1 %38, i1 %.0.i, i1 false
+  %40 = and i32 %2, 32768
+  %.not10 = icmp eq i32 %40, 0
+  %narrow = and i1 %or.cond30.not, %.not10
+  %storemerge = zext i1 %narrow to i8
   store i8 %storemerge, ptr %3, align 1
-  %46 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, -2
-  store i8 %49, ptr %47, align 8
-  store ptr %46, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %50
+  %41 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i8, ptr %42, align 8
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %45
 
-50:                                               ; preds = %.critedge
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #19
+45:                                               ; preds = %.critedge
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
   br label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %50
-  %52 = phi i64 [ %51, %50 ], [ 0, %.critedge ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %53, align 8
-  br label %54
+_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %45
+  %47 = phi i64 [ %46, %45 ], [ 0, %.critedge ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-54:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
+49:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
   ret void
 }
 
@@ -35241,7 +35221,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   store ptr @.str.1579, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %16, align 8
-  br label %54
+  br label %49
 
 17:                                               ; preds = %6
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
@@ -35254,7 +35234,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE1EL
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %36, label %_ZN4llvm5ErrorD2Ev.exit
+  br i1 %24, label %.critedge, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   store ptr @.str.1580, ptr %9, align 8, !alias.scope !5751
@@ -35279,50 +35259,40 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   store ptr %31, ptr %0, align 8, !alias.scope !5768
-  br label %54
+  br label %49
 
-36:                                               ; preds = %19
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %.critedge
-
-40:                                               ; preds = %36
-  %41 = and i16 %5, 256
-  %.not28 = icmp ne i16 %41, 0
-  %42 = trunc i16 %5 to i1
-  %.0.i = and i1 %.not28, %42
-  br i1 %.0.i, label %.critedge, label %43
-
-43:                                               ; preds = %40
-  %44 = and i32 %2, 32768
-  %.not10 = icmp eq i32 %44, 0
-  %45 = zext i1 %.not10 to i8
-  br label %.critedge
-
-.critedge:                                        ; preds = %40, %36, %43
-  %storemerge = phi i8 [ %45, %43 ], [ 0, %36 ], [ 0, %40 ]
+.critedge:                                        ; preds = %19
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  %39 = and i16 %5, 257
+  %.0.i = icmp ne i16 %39, 257
+  %or.cond30.not = select i1 %38, i1 %.0.i, i1 false
+  %40 = and i32 %2, 32768
+  %.not10 = icmp eq i32 %40, 0
+  %narrow = and i1 %or.cond30.not, %.not10
+  %storemerge = zext i1 %narrow to i8
   store i8 %storemerge, ptr %3, align 1
-  %46 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, -2
-  store i8 %49, ptr %47, align 8
-  store ptr %46, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %50
+  %41 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i8, ptr %42, align 8
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %45
 
-50:                                               ; preds = %.critedge
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #19
+45:                                               ; preds = %.critedge
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
   br label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %50
-  %52 = phi i64 [ %51, %50 ], [ 0, %.critedge ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %53, align 8
-  br label %54
+_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %45
+  %47 = phi i64 [ %46, %45 ], [ 0, %.critedge ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-54:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
+49:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
   ret void
 }
 
@@ -49322,7 +49292,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   store ptr @.str.1579, ptr %0, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %16, align 8
-  br label %54
+  br label %49
 
 17:                                               ; preds = %6
   %18 = tail call noundef i64 @_ZNK4llvm15SmallVectorBaseIjE4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #19
@@ -49335,7 +49305,7 @@ define weak_odr void @_ZNK4llvm6object7ELFFileINS0_7ELFTypeILNS_10endiannessE0EL
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %23 = load i8, ptr %22, align 8
   %24 = trunc i8 %23 to i1
-  br i1 %24, label %36, label %_ZN4llvm5ErrorD2Ev.exit
+  br i1 %24, label %.critedge, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   store ptr @.str.1580, ptr %9, align 8, !alias.scope !8597
@@ -49360,50 +49330,40 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %17, %19
   %35 = or i8 %34, 1
   store i8 %35, ptr %33, align 8
   store ptr %31, ptr %0, align 8, !alias.scope !8614
-  br label %54
+  br label %49
 
-36:                                               ; preds = %19
-  %37 = getelementptr inbounds nuw i8, ptr %21, i64 32
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %.critedge
-
-40:                                               ; preds = %36
-  %41 = and i16 %5, 256
-  %.not28 = icmp ne i16 %41, 0
-  %42 = trunc i16 %5 to i1
-  %.0.i = and i1 %.not28, %42
-  br i1 %.0.i, label %.critedge, label %43
-
-43:                                               ; preds = %40
-  %44 = and i32 %2, 32768
-  %.not10 = icmp eq i32 %44, 0
-  %45 = zext i1 %.not10 to i8
-  br label %.critedge
-
-.critedge:                                        ; preds = %40, %36, %43
-  %storemerge = phi i8 [ %45, %43 ], [ 0, %36 ], [ 0, %40 ]
+.critedge:                                        ; preds = %19
+  %36 = getelementptr inbounds nuw i8, ptr %21, i64 32
+  %37 = load i8, ptr %36, align 8
+  %38 = trunc i8 %37 to i1
+  %39 = and i16 %5, 257
+  %.0.i = icmp ne i16 %39, 257
+  %or.cond30.not = select i1 %38, i1 %.0.i, i1 false
+  %40 = and i32 %2, 32768
+  %.not10 = icmp eq i32 %40, 0
+  %narrow = and i1 %or.cond30.not, %.not10
+  %storemerge = zext i1 %narrow to i8
   store i8 %storemerge, ptr %3, align 1
-  %46 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %48 = load i8, ptr %47, align 8
-  %49 = and i8 %48, -2
-  store i8 %49, ptr %47, align 8
-  store ptr %46, ptr %0, align 8
-  %.not.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %50
+  %41 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %21) #19
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %43 = load i8, ptr %42, align 8
+  %44 = and i8 %43, -2
+  store i8 %44, ptr %42, align 8
+  store ptr %41, ptr %0, align 8
+  %.not.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i, label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, label %45
 
-50:                                               ; preds = %.critedge
-  %51 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #19
+45:                                               ; preds = %.critedge
+  %46 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %41) #19
   br label %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit
 
-_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %50
-  %52 = phi i64 [ %51, %50 ], [ 0, %.critedge ]
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %52, ptr %53, align 8
-  br label %54
+_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit: ; preds = %.critedge, %45
+  %47 = phi i64 [ %46, %45 ], [ 0, %.critedge ]
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %47, ptr %48, align 8
+  br label %49
 
-54:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
+49:                                               ; preds = %_ZN4llvm8ExpectedINS_9StringRefEEC2IPKcEEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S1_EEvE4typeE.exit, %_ZN4llvm5ErrorD2Ev.exit, %12
   ret void
 }
 

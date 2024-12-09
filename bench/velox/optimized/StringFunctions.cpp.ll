@@ -4490,10 +4490,8 @@ if.end.i:                                         ; preds = %invoke.cont
   unreachable
 
 invoke.cont12:                                    ; preds = %if.then.i
-  %8 = and i16 %call1.i21, 256
-  %tobool.i.i.i = icmp ne i16 %8, 0
-  %tobool6.i = trunc i16 %call1.i21 to i1
-  %9 = and i1 %tobool.i.i.i, %tobool6.i
+  %8 = and i16 %call1.i21, 257
+  %9 = icmp eq i16 %8, 257
   br i1 %9, label %land.rhs, label %if.end28
 
 land.rhs:                                         ; preds = %invoke.cont12
@@ -7939,10 +7937,8 @@ if.end.i:                                         ; preds = %invoke.cont
   unreachable
 
 invoke.cont12:                                    ; preds = %if.then.i
-  %8 = and i16 %call1.i21, 256
-  %tobool.i.i.i = icmp ne i16 %8, 0
-  %tobool6.i = trunc i16 %call1.i21 to i1
-  %9 = and i1 %tobool.i.i.i, %tobool6.i
+  %8 = and i16 %call1.i21, 257
+  %9 = icmp eq i16 %8, 257
   br i1 %9, label %land.rhs, label %if.end26
 
 land.rhs:                                         ; preds = %invoke.cont12

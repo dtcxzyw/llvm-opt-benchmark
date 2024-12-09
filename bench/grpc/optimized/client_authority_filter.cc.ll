@@ -922,12 +922,9 @@ declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11Channel
 define internal noundef zeroext i1 @_ZN9grpc_core12_GLOBAL__N_126NeedsClientAuthorityFilterERKNS_11ChannelArgsE(ptr noundef nonnull align 8 dereferenceable(8) %args) #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 36, ptr nonnull @.str.7)
-  %0 = and i16 %call, 256
-  %tobool.i.i.not = icmp ne i16 %0, 0
-  %1 = trunc i16 %call to i1
-  %retval.0.i = and i1 %tobool.i.i.not, %1
-  %lnot = xor i1 %retval.0.i, true
-  ret i1 %lnot
+  %0 = and i16 %call, 257
+  %retval.0.i = icmp ne i16 %0, 257
+  ret i1 %retval.0.i
 }
 
 declare noundef nonnull align 8 dereferenceable(104) ptr @_ZN9grpc_core11ChannelInit18FilterRegistration6BeforeESt16initializer_listIPK19grpc_channel_filterE(ptr noundef nonnull align 8 dereferenceable(104), ptr, i64) local_unnamed_addr #0

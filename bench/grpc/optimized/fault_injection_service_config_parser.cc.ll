@@ -836,10 +836,8 @@ entry:
   %ref.tmp6 = alloca %"class.std::unique_ptr.60", align 8
   %ref.tmp7 = alloca %"class.grpc_core::JsonArgs", align 8
   %call = tail call i16 @_ZNK9grpc_core11ChannelArgs7GetBoolESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %args, i64 49, ptr nonnull @.str.18)
-  %0 = and i16 %call, 256
-  %tobool.i.i.not = icmp ne i16 %0, 0
-  %1 = trunc i16 %call to i1
-  %retval.0.i = and i1 %tobool.i.i.not, %1
+  %0 = and i16 %call, 257
+  %retval.0.i = icmp eq i16 %0, 257
   br i1 %retval.0.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
@@ -847,33 +845,33 @@ if.end:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5)
   store ptr null, ptr %ref.tmp6, align 8, !alias.scope !5
   %vtable.i = load ptr, ptr @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, align 8, !noalias !5
-  %2 = load ptr, ptr %vtable.i, align 8, !noalias !5
-  invoke void %2(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 %ref.tmp6, ptr noundef %errors)
+  %1 = load ptr, ptr %vtable.i, align 8, !noalias !5
+  invoke void %1(ptr noundef nonnull align 8 dereferenceable(8) @_ZN9grpc_core19NoDestructSingletonINS_11json_detail10AutoLoaderISt10unique_ptrINS_32FaultInjectionMethodParsedConfigESt14default_deleteIS4_EEEEE6value_E, ptr noundef nonnull align 8 dereferenceable(56) %json, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp7, ptr noundef nonnull align 8 %ref.tmp6, ptr noundef %errors)
           to label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i
 
 lpad.i:                                           ; preds = %if.end
-  %3 = landingpad { ptr, i32 }
+  %2 = landingpad { ptr, i32 }
           cleanup
-  %4 = load ptr, ptr %ref.tmp6, align 8, !alias.scope !5
-  %cmp.not.i.i = icmp eq ptr %4, null
+  %3 = load ptr, ptr %ref.tmp6, align 8, !alias.scope !5
+  %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i, label %_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i
 
 _ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i: ; preds = %lpad.i
-  %vtable.i.i.i = load ptr, ptr %4, align 8
+  %vtable.i.i.i = load ptr, ptr %3, align 8
   %vfn.i.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i.i, i64 8
-  %5 = load ptr, ptr %vfn.i.i.i, align 8
-  call void %5(ptr noundef nonnull align 8 dereferenceable(32) %4) #19
+  %4 = load ptr, ptr %vfn.i.i.i, align 8
+  call void %4(ptr noundef nonnull align 8 dereferenceable(32) %3) #19
   br label %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i
 
 _ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN9grpc_core32FaultInjectionMethodParsedConfigEEclEPS1_.exit.i.i, %lpad.i
-  resume { ptr, i32 } %3
+  resume { ptr, i32 } %2
 
 _ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end
-  %6 = load ptr, ptr %ref.tmp6, align 8
+  %5 = load ptr, ptr %ref.tmp6, align 8
   br label %return
 
 return:                                           ; preds = %entry, %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit
-  %.sink = phi ptr [ %6, %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit ], [ null, %entry ]
+  %.sink = phi ptr [ %5, %_ZNSt10unique_ptrIN9grpc_core32FaultInjectionMethodParsedConfigESt14default_deleteIS1_EED2Ev.exit ], [ null, %entry ]
   store ptr %.sink, ptr %agg.result, align 8
   ret void
 }

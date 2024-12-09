@@ -7086,12 +7086,10 @@ if.end14:                                         ; preds = %lor.lhs.false
 invoke.cont17:                                    ; preds = %if.end14
   %m_left_assoc.i.i = getelementptr inbounds nuw i8, ptr %9, i64 17
   %bf.load.i.i = load i16, ptr %m_left_assoc.i.i, align 1
-  %bf.cast.i.i = trunc i16 %bf.load.i.i to i1
-  %10 = and i16 %bf.load.i.i, 2
-  %bf.cast4.i.i = icmp ne i16 %10, 0
-  %11 = and i1 %bf.cast4.i.i, %bf.cast.i.i
-  %cond.fr = freeze i1 %11
-  %spec.select = select i1 %cond.fr, i32 0, i32 %i
+  %bf.load.i.i.fr = freeze i16 %bf.load.i.i
+  %10 = and i16 %bf.load.i.i.fr, 3
+  %11 = icmp eq i16 %10, 3
+  %spec.select = select i1 %11, i32 0, i32 %i
   br label %invoke.cont17.thread
 
 invoke.cont17.thread:                             ; preds = %invoke.cont17, %if.end14

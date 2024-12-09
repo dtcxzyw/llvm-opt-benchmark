@@ -4205,10 +4205,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  %0 = and i16 %call, 256
-  %tobool.i.i.not = icmp ne i16 %0, 0
-  %1 = trunc i16 %call to i1
-  %retval.0.i = and i1 %tobool.i.i.not, %1
+  %0 = and i16 %call, 257
+  %retval.0.i = icmp eq i16 %0, 257
   br i1 %retval.0.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %invoke.cont
@@ -4216,11 +4214,11 @@ if.then:                                          ; preds = %invoke.cont
           to label %invoke.cont8 unwind label %lpad
 
 invoke.cont8:                                     ; preds = %if.then
-  %2 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %tobool.i.i.i.i.i = trunc i8 %2 to i1
+  %1 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
+  %tobool.i.i.i.i.i = trunc i8 %1 to i1
   %_M_engaged2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp6, i64 32
-  %3 = load i8, ptr %_M_engaged2.i.i.i.i.i, align 8
-  %tobool3.i.i.i.i.i = trunc i8 %3 to i1
+  %2 = load i8, ptr %_M_engaged2.i.i.i.i.i, align 8
+  %tobool3.i.i.i.i.i = trunc i8 %2 to i1
   br i1 %tobool.i.i.i.i.i, label %land.lhs.true.i.i.i.i.i, label %if.else.thread.i.i.i.i.i
 
 land.lhs.true.i.i.i.i.i:                          ; preds = %invoke.cont8
@@ -4244,8 +4242,8 @@ if.then.i.i.i.i.i.i:                              ; preds = %land.lhs.true.i.i.i
   br label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit
 
 _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit: ; preds = %if.then.i.i.i.i.i, %if.else.thread.i.i.i.i.i, %if.then8.i.i.i.i.i, %if.then.i.i.i.i.i.i
-  %4 = load i8, ptr %_M_engaged2.i.i.i.i.i, align 8
-  %tobool.i.i.i.i = trunc i8 %4 to i1
+  %3 = load i8, ptr %_M_engaged2.i.i.i.i.i, align 8
+  %tobool.i.i.i.i = trunc i8 %3 to i1
   br i1 %tobool.i.i.i.i, label %if.then.i.i.i.i, label %if.end
 
 if.then.i.i.i.i:                                  ; preds = %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit
@@ -4254,13 +4252,13 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt8optionalINSt7
   br label %if.end
 
 lpad:                                             ; preds = %if.end18, %if.then12, %if.then, %entry
-  %5 = landingpad { ptr, i32 }
+  %4 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then.i.i.i.i, %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit, %invoke.cont
-  %6 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core30grpc_health_check_client_traceE, i64 16) monotonic, align 8
-  %tobool.i.i.i = trunc i8 %6 to i1
+  %5 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core30grpc_health_check_client_traceE, i64 16) monotonic, align 8
+  %tobool.i.i.i = trunc i8 %5 to i1
   br i1 %tobool.i.i.i, label %if.then12, label %if.end18
 
 if.then12:                                        ; preds = %if.end
@@ -4277,7 +4275,7 @@ invoke.cont17:                                    ; preds = %invoke.cont14
   br label %if.end18
 
 lpad16:                                           ; preds = %invoke.cont14
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13) #22
   br label %ehcleanup
@@ -4287,11 +4285,11 @@ if.end18:                                         ; preds = %invoke.cont17, %if.
           to label %_ZNSt10unique_ptrIN9grpc_core13HealthWatcherESt14default_deleteIS1_EED2Ev.exit unwind label %lpad
 
 _ZNSt10unique_ptrIN9grpc_core13HealthWatcherESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.end18
-  %8 = load ptr, ptr %ref.tmp19, align 8
-  store ptr %8, ptr %agg.result, align 8
+  %7 = load ptr, ptr %ref.tmp19, align 8
+  store ptr %7, ptr %agg.result, align 8
   store ptr null, ptr %ref.tmp19, align 8
-  %9 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %tobool.i.i.i.i7 = trunc i8 %9 to i1
+  %8 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
+  %tobool.i.i.i.i7 = trunc i8 %8 to i1
   br i1 %tobool.i.i.i.i7, label %if.then.i.i.i.i8, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit9
 
 if.then.i.i.i.i8:                                 ; preds = %_ZNSt10unique_ptrIN9grpc_core13HealthWatcherESt14default_deleteIS1_EED2Ev.exit
@@ -4303,9 +4301,9 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit9: 
   ret void
 
 ehcleanup:                                        ; preds = %lpad16, %lpad
-  %.pn = phi { ptr, i32 } [ %5, %lpad ], [ %7, %lpad16 ]
-  %10 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
-  %tobool.i.i.i.i11 = trunc i8 %10 to i1
+  %.pn = phi { ptr, i32 } [ %4, %lpad ], [ %6, %lpad16 ]
+  %9 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
+  %tobool.i.i.i.i11 = trunc i8 %9 to i1
   br i1 %tobool.i.i.i.i11, label %if.then.i.i.i.i12, label %_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit13
 
 if.then.i.i.i.i12:                                ; preds = %ehcleanup

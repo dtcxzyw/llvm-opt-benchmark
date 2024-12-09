@@ -3197,62 +3197,58 @@ _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %520, %_ZNK5clang4Ty
   %.fca.1.extract = extractvalue { ptr, i8 } %534, 1
   %535 = load ptr, ptr %0, align 8
   %536 = call i16 @_ZNK5clang4ento12ProgramState6isNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %535, ptr %.fca.0.extract, i8 %.fca.1.extract) #18
-  %537 = and i16 %536, 256
-  %538 = icmp ne i16 %537, 0
-  %539 = trunc i16 %536 to i1
-  %540 = and i1 %538, %539
-  br i1 %540, label %541, label %553
+  %537 = and i16 %536, 257
+  %538 = icmp eq i16 %537, 257
+  br i1 %538, label %539, label %551
 
-541:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %542 = load ptr, ptr %485, align 8
-  %543 = load ptr, ptr %487, align 8
-  %544 = ptrtoint ptr %542 to i64
-  %545 = ptrtoint ptr %543 to i64
-  %546 = sub i64 %544, %545
-  %547 = icmp ult i64 %546, 33
-  br i1 %547, label %548, label %550
+539:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  %540 = load ptr, ptr %485, align 8
+  %541 = load ptr, ptr %487, align 8
+  %542 = ptrtoint ptr %540 to i64
+  %543 = ptrtoint ptr %541 to i64
+  %544 = sub i64 %542, %543
+  %545 = icmp ult i64 %544, 33
+  br i1 %545, label %546, label %548
 
-548:                                              ; preds = %541
-  %549 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.66, i64 noundef 33) #18
+546:                                              ; preds = %539
+  %547 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.66, i64 noundef 33) #18
   br label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
 
-550:                                              ; preds = %541
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %543, ptr noundef nonnull align 1 dereferenceable(33) @.str.66, i64 33, i1 false)
-  %551 = load ptr, ptr %487, align 8
-  %552 = getelementptr inbounds nuw i8, ptr %551, i64 33
-  store ptr %552, ptr %487, align 8
+548:                                              ; preds = %539
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(33) %541, ptr noundef nonnull align 1 dereferenceable(33) @.str.66, i64 33, i1 false)
+  %549 = load ptr, ptr %487, align 8
+  %550 = getelementptr inbounds nuw i8, ptr %549, i64 33
+  store ptr %550, ptr %487, align 8
   br label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
 
-553:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %554 = load ptr, ptr %0, align 8
-  %555 = call i16 @_ZNK5clang4ento12ProgramState9isNonNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %554, ptr %.fca.0.extract, i8 %.fca.1.extract) #18
-  %556 = and i16 %555, 256
-  %557 = icmp ne i16 %556, 0
-  %558 = trunc i16 %555 to i1
-  %559 = and i1 %557, %558
-  br i1 %559, label %560, label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
+551:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  %552 = load ptr, ptr %0, align 8
+  %553 = call i16 @_ZNK5clang4ento12ProgramState9isNonNullENS0_4SValE(ptr noundef nonnull align 8 dereferenceable(48) %552, ptr %.fca.0.extract, i8 %.fca.1.extract) #18
+  %554 = and i16 %553, 257
+  %555 = icmp eq i16 %554, 257
+  br i1 %555, label %556, label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
 
-560:                                              ; preds = %553
-  %561 = load ptr, ptr %485, align 8
-  %562 = load ptr, ptr %487, align 8
-  %563 = ptrtoint ptr %561 to i64
-  %564 = ptrtoint ptr %562 to i64
-  %565 = sub i64 %563, %564
-  %566 = icmp ult i64 %565, 37
-  br i1 %566, label %567, label %569
+556:                                              ; preds = %551
+  %557 = load ptr, ptr %485, align 8
+  %558 = load ptr, ptr %487, align 8
+  %559 = ptrtoint ptr %557 to i64
+  %560 = ptrtoint ptr %558 to i64
+  %561 = sub i64 %559, %560
+  %562 = icmp ult i64 %561, 37
+  br i1 %562, label %563, label %565
 
-567:                                              ; preds = %560
-  %568 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.67, i64 noundef 37) #18
+563:                                              ; preds = %556
+  %564 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull @.str.67, i64 noundef 37) #18
   br label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
 
-569:                                              ; preds = %560
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %562, ptr noundef nonnull align 1 dereferenceable(37) @.str.67, i64 37, i1 false)
-  %570 = load ptr, ptr %487, align 8
-  %571 = getelementptr inbounds nuw i8, ptr %570, i64 37
-  store ptr %571, ptr %487, align 8
+565:                                              ; preds = %556
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %558, ptr noundef nonnull align 1 dereferenceable(37) @.str.67, i64 37, i1 false)
+  %566 = load ptr, ptr %487, align 8
+  %567 = getelementptr inbounds nuw i8, ptr %566, i64 37
+  store ptr %567, ptr %487, align 8
   br label %_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160
 
-_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit140, %553, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit149, %548, %550, %567, %569
+_ZNSt8optionalIN5clang4ento12CallEventRefINS1_9CallEventEEEED2Ev.exit160: ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit140, %551, %_ZNK5clang4Type10isVoidTypeEv.exit, %_ZN4llvm11raw_ostreamlsEPKc.exit149, %546, %548, %563, %565
   call void @_ZNK5clang4ento9CallEvent7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(72) %185)
   ret void
 }

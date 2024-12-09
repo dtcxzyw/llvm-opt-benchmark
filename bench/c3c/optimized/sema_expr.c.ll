@@ -6715,31 +6715,29 @@ define internal fastcc i32 @range_const_len(ptr nocapture noundef readonly %0) u
   %43 = tail call i64 @int_to_i64(ptr noundef nonnull byval(%struct.Int) align 8 %40) #12
   %44 = trunc i64 %43 to i32
   %45 = load i8, ptr %0, align 4
-  %46 = trunc i8 %45 to i1
-  %47 = and i8 %45, 2
-  %.not27 = icmp ne i8 %47, 0
-  %or.cond.not = and i1 %.not27, %46
-  br i1 %or.cond.not, label %48, label %50
+  %46 = and i8 %45, 3
+  %or.cond.not = icmp eq i8 %46, 3
+  br i1 %or.cond.not, label %47, label %49
 
-48:                                               ; preds = %42
+47:                                               ; preds = %42
   %reass.sub = sub i32 %44, %26
-  %49 = add i32 %reass.sub, 1
+  %48 = add i32 %reass.sub, 1
   br label %.critedge
 
-50:                                               ; preds = %42
-  %51 = lshr i8 %45, 1
-  %52 = xor i8 %51, %45
-  %53 = and i8 %52, 1
-  %.not28 = icmp eq i8 %53, 0
-  br i1 %.not28, label %54, label %.critedge
+49:                                               ; preds = %42
+  %50 = lshr i8 %45, 1
+  %51 = xor i8 %50, %45
+  %52 = and i8 %51, 1
+  %.not28 = icmp eq i8 %52, 0
+  br i1 %.not28, label %53, label %.critedge
 
-54:                                               ; preds = %50
-  %55 = add i32 %26, 1
-  %56 = sub i32 %55, %44
+53:                                               ; preds = %49
+  %54 = add i32 %26, 1
+  %55 = sub i32 %54, %44
   br label %.critedge
 
-.critedge:                                        ; preds = %50, %39, %34, %29, %24, %21, %1, %16, %11, %54, %48
-  %.0 = phi i32 [ %49, %48 ], [ %56, %54 ], [ -1, %11 ], [ -1, %16 ], [ -1, %1 ], [ -1, %21 ], [ %26, %24 ], [ -1, %29 ], [ -1, %34 ], [ -1, %39 ], [ -1, %50 ]
+.critedge:                                        ; preds = %49, %39, %34, %29, %24, %21, %1, %16, %11, %53, %47
+  %.0 = phi i32 [ %48, %47 ], [ %55, %53 ], [ -1, %11 ], [ -1, %16 ], [ -1, %1 ], [ -1, %21 ], [ %26, %24 ], [ -1, %29 ], [ -1, %34 ], [ -1, %39 ], [ -1, %49 ]
   ret i32 %.0
 }
 

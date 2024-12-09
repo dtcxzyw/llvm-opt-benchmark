@@ -50940,11 +50940,9 @@ define noundef zeroext i1 @_ZN13rust_analyzer6config6Config43did_save_text_docum
   %.sroa.0.0.insert.insert.i = phi i32 [ %24, %9 ], [ 3, %1 ], [ 3, %5 ]
   %25 = and i32 %.sroa.0.0.insert.insert.i, 255
   %26 = icmp ne i32 %25, 3
-  %27 = and i32 %.sroa.0.0.insert.insert.i, 16777216
-  %28 = icmp ne i32 %27, 0
-  %29 = trunc i32 %.sroa.0.0.insert.insert.i to i1
-  %30 = and i1 %26, %29
-  %spec.select = and i1 %28, %30
+  %27 = and i32 %.sroa.0.0.insert.insert.i, 16777217
+  %28 = icmp eq i32 %27, 16777217
+  %spec.select = and i1 %26, %28
   ret i1 %spec.select
 }
 

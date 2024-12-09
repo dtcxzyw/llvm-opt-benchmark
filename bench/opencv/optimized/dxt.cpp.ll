@@ -513,10 +513,9 @@ define linkonce_odr hidden void @_ZN2cv15OcvDftBasicImpl4initEiiiiPb(ptr noundef
   br label %87
 
 85:                                               ; preds = %.thread
-  %86 = trunc i32 %4 to i1
-  %.not51 = xor i1 %86, true
-  %brmerge = or i1 %.not46, %.not51
-  br i1 %brmerge, label %140, label %87
+  %86 = and i32 %4, 33
+  %brmerge.not = icmp eq i32 %86, 33
+  br i1 %brmerge.not, label %87, label %140
 
 87:                                               ; preds = %.loopexit, %.thread64, %85
   %88 = phi i1 [ false, %85 ], [ %84, %.loopexit ], [ true, %.thread64 ]
