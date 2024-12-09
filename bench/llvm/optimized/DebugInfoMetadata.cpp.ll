@@ -7735,7 +7735,7 @@ define dso_local void @_ZN4llvm12DISubprogramC2ERNS_11LLVMContextENS_8Metadata11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 512) i32 @_ZN4llvm12DISubprogram9toSPFlagsEbbbjb(i1 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
+define dso_local noundef range(i32 0, 288) i32 @_ZN4llvm12DISubprogram9toSPFlagsEbbbjb(i1 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #5 align 2 {
   %6 = and i32 %3, 3
   %7 = select i1 %0, i32 4, i32 0
   %8 = select i1 %1, i32 8, i32 0

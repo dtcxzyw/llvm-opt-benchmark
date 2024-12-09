@@ -4854,50 +4854,50 @@ invoke.cont.i834:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #26
   %add.i.i.i = add i64 %call2.i.i.i, 2
-  %ref.tmp.i524.sink886.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
-  %ref.tmp.i524.sink886.sroa.gep904 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
-  %ref.tmp.i524.sink886.sroa.gep905 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
-  %ref.tmp.i524.sink886.sroa.gep906 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
-  %ref.tmp.i524.sink886.sroa.gep907 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
-  %ref.tmp.i524.sink886.sroa.gep908 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
-  %ref.tmp.i524.sink886.sroa.gep909 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
-  %ref.tmp.i524.sink886.sroa.gep910 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
-  %ref.tmp.i524.sink886.sroa.gep912 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
-  %ref.tmp.i524.sink886.sroa.gep913 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
-  %ref.tmp.i524.sink886.sroa.gep914 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
-  %ref.tmp.i524.sink886.sroa.gep915 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
-  %ref.tmp.i524.sink886.sroa.gep916 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
-  %ref.tmp.i524.sink886.sroa.gep917 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
-  %ref.tmp.i524.sink886.sroa.gep918 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
-  %ref.tmp.i524.sink886.sroa.gep919 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
-  %ref.tmp.i524.sink886.sroa.gep921 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
-  %ref.tmp.i524.sink886.sroa.gep922 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
-  %ref.tmp.i524.sink886.sroa.gep923 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
-  %ref.tmp.i524.sink886.sroa.gep924 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
-  %ref.tmp.i524.sink886.sroa.gep925 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
-  %ref.tmp.i524.sink886.sroa.gep926 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
-  %ref.tmp.i524.sink886.sroa.gep927 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
-  %ref.tmp.i524.sink886.sroa.gep928 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
-  %ref.tmp.i614.sink889.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 8
-  %ref.tmp.i614.sink889.sroa.gep929 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 8
-  %ref.tmp.i614.sink889.sroa.gep931 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 16
-  %ref.tmp.i614.sink889.sroa.gep932 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 16
-  %ref.tmp.i614.sink889.sroa.gep934 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 24
-  %ref.tmp.i614.sink889.sroa.gep935 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 24
-  %ref.tmp.i614.sink889.sroa.gep937 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 32
-  %ref.tmp.i614.sink889.sroa.gep938 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 32
-  %ref.tmp.i701.sink891.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 8
-  %ref.tmp.i701.sink891.sroa.gep939 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 8
-  %ref.tmp.i701.sink891.sroa.gep941 = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 16
-  %ref.tmp.i701.sink891.sroa.gep942 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 16
-  %ref.tmp.i701.sink891.sroa.gep944 = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 24
-  %ref.tmp.i701.sink891.sroa.gep945 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 24
-  %ref.tmp.i788.sink893.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 8
-  %ref.tmp.i788.sink893.sroa.gep946 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 8
-  %ref.tmp.i788.sink893.sroa.gep948 = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 16
-  %ref.tmp.i788.sink893.sroa.gep949 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 16
-  %ref.tmp.i788.sink893.sroa.gep951 = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 24
-  %ref.tmp.i788.sink893.sroa.gep952 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 24
+  %ref.tmp.i524.sink888.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
+  %ref.tmp.i524.sink888.sroa.gep906 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
+  %ref.tmp.i524.sink888.sroa.gep907 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
+  %ref.tmp.i524.sink888.sroa.gep908 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 8
+  %ref.tmp.i524.sink888.sroa.gep909 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
+  %ref.tmp.i524.sink888.sroa.gep910 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
+  %ref.tmp.i524.sink888.sroa.gep911 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
+  %ref.tmp.i524.sink888.sroa.gep912 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 8
+  %ref.tmp.i524.sink888.sroa.gep914 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
+  %ref.tmp.i524.sink888.sroa.gep915 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
+  %ref.tmp.i524.sink888.sroa.gep916 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
+  %ref.tmp.i524.sink888.sroa.gep917 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 16
+  %ref.tmp.i524.sink888.sroa.gep918 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
+  %ref.tmp.i524.sink888.sroa.gep919 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
+  %ref.tmp.i524.sink888.sroa.gep920 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
+  %ref.tmp.i524.sink888.sroa.gep921 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 16
+  %ref.tmp.i524.sink888.sroa.gep923 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
+  %ref.tmp.i524.sink888.sroa.gep924 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
+  %ref.tmp.i524.sink888.sroa.gep925 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
+  %ref.tmp.i524.sink888.sroa.gep926 = getelementptr inbounds nuw i8, ptr %ref.tmp.i524, i64 24
+  %ref.tmp.i524.sink888.sroa.gep927 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
+  %ref.tmp.i524.sink888.sroa.gep928 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
+  %ref.tmp.i524.sink888.sroa.gep929 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
+  %ref.tmp.i524.sink888.sroa.gep930 = getelementptr inbounds nuw i8, ptr %ref.tmp.i495, i64 24
+  %ref.tmp.i614.sink891.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 8
+  %ref.tmp.i614.sink891.sroa.gep931 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 8
+  %ref.tmp.i614.sink891.sroa.gep933 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 16
+  %ref.tmp.i614.sink891.sroa.gep934 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 16
+  %ref.tmp.i614.sink891.sroa.gep936 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 24
+  %ref.tmp.i614.sink891.sroa.gep937 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 24
+  %ref.tmp.i614.sink891.sroa.gep939 = getelementptr inbounds nuw i8, ptr %ref.tmp.i614, i64 32
+  %ref.tmp.i614.sink891.sroa.gep940 = getelementptr inbounds nuw i8, ptr %ref.tmp.i570, i64 32
+  %ref.tmp.i701.sink893.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 8
+  %ref.tmp.i701.sink893.sroa.gep941 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 8
+  %ref.tmp.i701.sink893.sroa.gep943 = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 16
+  %ref.tmp.i701.sink893.sroa.gep944 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 16
+  %ref.tmp.i701.sink893.sroa.gep946 = getelementptr inbounds nuw i8, ptr %ref.tmp.i701, i64 24
+  %ref.tmp.i701.sink893.sroa.gep947 = getelementptr inbounds nuw i8, ptr %ref.tmp.i658, i64 24
+  %ref.tmp.i788.sink895.sroa.gep = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 8
+  %ref.tmp.i788.sink895.sroa.gep948 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 8
+  %ref.tmp.i788.sink895.sroa.gep950 = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 16
+  %ref.tmp.i788.sink895.sroa.gep951 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 16
+  %ref.tmp.i788.sink895.sroa.gep953 = getelementptr inbounds nuw i8, ptr %ref.tmp.i788, i64 24
+  %ref.tmp.i788.sink895.sroa.gep954 = getelementptr inbounds nuw i8, ptr %ref.tmp.i745, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, i64 noundef %add.i.i.i)
           to label %.noexc unwind label %lpad.i829
 
@@ -5138,13 +5138,13 @@ sw.bb8.i:                                         ; preds = %.noexc328, %.noexc3
   %23 = and i16 %bf.load.i356, 128
   %bf.cast.i386.not = icmp eq i16 %23, 0
   %add4.i = select i1 %cmp.i382, i32 56111149, i32 58208301
-  %spec.select = select i1 %bf.cast.i386.not, i32 16777261, i32 %add4.i
+  %spec.select853 = select i1 %bf.cast.i386.not, i32 16777261, i32 %add4.i
   %24 = load i32, ptr %specs.i, align 8
   %25 = load i32, ptr %precision.i, align 4
   %add.i616 = add nsw i32 %25, 1
   %or.i617 = or i32 %add.i616, %24
   %cmp.i618 = icmp eq i32 %or.i617, 0
-  %shr.i623 = lshr i32 %spec.select, 24
+  %shr.i623 = lshr i32 %spec.select853, 24
   %add1.i624 = add nuw nsw i32 %shr.i623, 2
   %conv.i625 = zext nneg i32 %add1.i624 to i64
   br i1 %cmp.i618, label %call.i622.noexc, label %if.end15.i619
@@ -5161,21 +5161,21 @@ call.i622.noexc:                                  ; preds = %sw.bb8.i
 
 if.then5.i631:                                    ; preds = %.noexc231
   %add.ptr.i230 = getelementptr inbounds i8, ptr %call.i.i232, i64 %call2.i228
-  %and.i632 = and i32 %spec.select, 7876653
+  %and.i632 = and i32 %spec.select853, 7876653
   br label %for.body.i636
 
 for.body.i636:                                    ; preds = %if.then5.i631, %for.body.i636
-  %it.i608.1863 = phi ptr [ %add.ptr.i230, %if.then5.i631 ], [ %incdec.ptr.i639, %for.body.i636 ]
-  %p.i610.0862 = phi i32 [ %and.i632, %if.then5.i631 ], [ %shr9.i640, %for.body.i636 ]
-  %conv8.i638 = trunc i32 %p.i610.0862 to i8
-  %incdec.ptr.i639 = getelementptr inbounds nuw i8, ptr %it.i608.1863, i64 1
-  store i8 %conv8.i638, ptr %it.i608.1863, align 1
-  %shr9.i640 = lshr i32 %p.i610.0862, 8
-  %cmp6.i634.not = icmp samesign ult i32 %p.i610.0862, 256
+  %it.i608.1865 = phi ptr [ %add.ptr.i230, %if.then5.i631 ], [ %incdec.ptr.i639, %for.body.i636 ]
+  %p.i610.0864 = phi i32 [ %and.i632, %if.then5.i631 ], [ %shr9.i640, %for.body.i636 ]
+  %conv8.i638 = trunc i32 %p.i610.0864 to i8
+  %incdec.ptr.i639 = getelementptr inbounds nuw i8, ptr %it.i608.1865, i64 1
+  store i8 %conv8.i638, ptr %it.i608.1865, align 1
+  %shr9.i640 = lshr i32 %p.i610.0864, 8
+  %cmp6.i634.not = icmp samesign ult i32 %p.i610.0864, 256
   br i1 %cmp6.i634.not, label %if.end.i628, label %for.body.i636, !llvm.loop !131
 
 if.end.i628:                                      ; preds = %for.body.i636
-  %add.ptr.i.i236 = getelementptr inbounds nuw i8, ptr %it.i608.1863, i64 3
+  %add.ptr.i.i236 = getelementptr inbounds nuw i8, ptr %it.i608.1865, i64 3
   %.str.176..str.177.i.i = select i1 %cmp.i382, ptr @.str.176, ptr @.str.177
   br label %do.body.i.i
 
@@ -5220,7 +5220,7 @@ if.then15.i252:                                   ; preds = %if.else.i249
 .noexc643:                                        ; preds = %if.then15.i252, %if.else.i249, %if.then8.i259, %if.then.i257
   %data.i612.sroa.0.0 = phi i64 [ %conv5.i260, %if.then8.i259 ], [ %conv.i625, %if.then.i257 ], [ %conv20.i254, %if.then15.i252 ], [ %conv.i625, %if.else.i249 ]
   %data.i612.sroa.5.0 = phi i64 [ %sub.i261, %if.then8.i259 ], [ 0, %if.then.i257 ], [ %conv25.i256, %if.then15.i252 ], [ 0, %if.else.i249 ]
-  store i32 %spec.select, ptr %ref.tmp.i614, align 8
+  store i32 %spec.select853, ptr %ref.tmp.i614, align 8
   br label %.noexc599.invoke
 
 sw.bb19.i:                                        ; preds = %.noexc328, %.noexc328
@@ -5255,17 +5255,17 @@ if.then5.i718:                                    ; preds = %.noexc276
   br label %for.body.i723
 
 for.body.i723:                                    ; preds = %if.then5.i718, %for.body.i723
-  %it.i695.1861 = phi ptr [ %add.ptr.i275, %if.then5.i718 ], [ %incdec.ptr.i726, %for.body.i723 ]
-  %p.i697.0860 = phi i32 [ %and.i719, %if.then5.i718 ], [ %shr9.i727, %for.body.i723 ]
-  %conv8.i725 = trunc i32 %p.i697.0860 to i8
-  %incdec.ptr.i726 = getelementptr inbounds nuw i8, ptr %it.i695.1861, i64 1
-  store i8 %conv8.i725, ptr %it.i695.1861, align 1
-  %shr9.i727 = lshr i32 %p.i697.0860, 8
-  %cmp6.i721.not = icmp samesign ult i32 %p.i697.0860, 256
+  %it.i695.1863 = phi ptr [ %add.ptr.i275, %if.then5.i718 ], [ %incdec.ptr.i726, %for.body.i723 ]
+  %p.i697.0862 = phi i32 [ %and.i719, %if.then5.i718 ], [ %shr9.i727, %for.body.i723 ]
+  %conv8.i725 = trunc i32 %p.i697.0862 to i8
+  %incdec.ptr.i726 = getelementptr inbounds nuw i8, ptr %it.i695.1863, i64 1
+  store i8 %conv8.i725, ptr %it.i695.1863, align 1
+  %shr9.i727 = lshr i32 %p.i697.0862, 8
+  %cmp6.i721.not = icmp samesign ult i32 %p.i697.0862, 256
   br i1 %cmp6.i721.not, label %if.end.i715, label %for.body.i723, !llvm.loop !132
 
 if.end.i715:                                      ; preds = %for.body.i723
-  %add.ptr.i.i280 = getelementptr inbounds nuw i8, ptr %it.i695.1861, i64 7
+  %add.ptr.i.i280 = getelementptr inbounds nuw i8, ptr %it.i695.1863, i64 7
   br label %do.body.i.i281
 
 do.body.i.i281:                                   ; preds = %do.body.i.i281, %if.end.i715
@@ -5317,12 +5317,12 @@ sw.bb43.i:                                        ; preds = %.noexc328
   %35 = load i32, ptr %precision.i, align 4
   %cmp51.i = icmp slt i32 %35, 3
   %or.cond = and i1 %bf.cast50.i.not, %cmp51.i
-  %prefix.i.2 = select i1 %or.cond, i32 33566765, i32 16777261
+  %spec.select = select i1 %or.cond, i32 33566765, i32 16777261
   %36 = load i32, ptr %specs.i, align 8
   %add.i790 = add nsw i32 %35, 1
   %or.i791 = or i32 %36, %add.i790
   %cmp.i792 = icmp eq i32 %or.i791, 0
-  %shr.i797 = lshr i32 %prefix.i.2, 24
+  %shr.i797 = lshr i32 %spec.select, 24
   %add1.i798 = add nuw nsw i32 %shr.i797, 2
   %conv.i799 = zext nneg i32 %add1.i798 to i64
   br i1 %cmp.i792, label %call.i796.noexc, label %if.end15.i793
@@ -5332,21 +5332,21 @@ call.i796.noexc:                                  ; preds = %sw.bb43.i
           to label %if.then5.i805 unwind label %lpad.i303
 
 if.then5.i805:                                    ; preds = %call.i796.noexc
-  %and.i806 = and i32 %prefix.i.2, 12333
+  %and.i806 = and i32 %spec.select, 12333
   br label %for.body.i810
 
 for.body.i810:                                    ; preds = %if.then5.i805, %for.body.i810
-  %it.i782.1859 = phi ptr [ %call3.i800816, %if.then5.i805 ], [ %incdec.ptr.i813, %for.body.i810 ]
-  %p.i784.0858 = phi i32 [ %and.i806, %if.then5.i805 ], [ %shr9.i814, %for.body.i810 ]
-  %conv8.i812 = trunc i32 %p.i784.0858 to i8
-  %incdec.ptr.i813 = getelementptr inbounds nuw i8, ptr %it.i782.1859, i64 1
-  store i8 %conv8.i812, ptr %it.i782.1859, align 1
-  %shr9.i814 = lshr i32 %p.i784.0858, 8
-  %cmp6.i808.not = icmp samesign ult i32 %p.i784.0858, 256
+  %it.i782.1861 = phi ptr [ %call3.i800816, %if.then5.i805 ], [ %incdec.ptr.i813, %for.body.i810 ]
+  %p.i784.0860 = phi i32 [ %and.i806, %if.then5.i805 ], [ %shr9.i814, %for.body.i810 ]
+  %conv8.i812 = trunc i32 %p.i784.0860 to i8
+  %incdec.ptr.i813 = getelementptr inbounds nuw i8, ptr %it.i782.1861, i64 1
+  store i8 %conv8.i812, ptr %it.i782.1861, align 1
+  %shr9.i814 = lshr i32 %p.i784.0860, 8
+  %cmp6.i808.not = icmp samesign ult i32 %p.i784.0860, 256
   br i1 %cmp6.i808.not, label %if.end.i802, label %for.body.i810, !llvm.loop !134
 
 if.end.i802:                                      ; preds = %for.body.i810
-  %add.ptr.i.i318 = getelementptr inbounds nuw i8, ptr %it.i782.1859, i64 3
+  %add.ptr.i.i318 = getelementptr inbounds nuw i8, ptr %it.i782.1861, i64 3
   br label %do.body.i.i319
 
 do.body.i.i319:                                   ; preds = %do.body.i.i319, %if.end.i802
@@ -5389,7 +5389,7 @@ if.then15.i336:                                   ; preds = %if.else.i333
 .noexc817:                                        ; preds = %if.then15.i336, %if.else.i333, %if.then8.i343, %if.then.i341
   %data.i786.sroa.0.0 = phi i64 [ %conv5.i344, %if.then8.i343 ], [ %conv.i799, %if.then.i341 ], [ %conv20.i338, %if.then15.i336 ], [ %conv.i799, %if.else.i333 ]
   %data.i786.sroa.5.0 = phi i64 [ %sub.i345, %if.then8.i343 ], [ 0, %if.then.i341 ], [ %conv25.i340, %if.then15.i336 ], [ 0, %if.else.i333 ]
-  store i32 %prefix.i.2, ptr %ref.tmp.i788, align 8
+  store i32 %spec.select, ptr %ref.tmp.i788, align 8
   br label %.noexc774.invoke
 
 sw.bb61.i:                                        ; preds = %.noexc328
@@ -5470,19 +5470,19 @@ if.then15.i420:                                   ; preds = %if.else.i417
   br label %.noexc510.invoke
 
 .noexc510.invoke:                                 ; preds = %if.then.i425, %if.then8.i427, %if.else.i417, %if.then15.i420, %if.then.i220, %if.then8.i, %if.else.i218, %if.then15.i
-  %ref.tmp.i524.sink886.sroa.phi = phi ptr [ %ref.tmp.i524.sink886.sroa.gep, %if.then15.i ], [ %ref.tmp.i524.sink886.sroa.gep904, %if.else.i218 ], [ %ref.tmp.i524.sink886.sroa.gep905, %if.then8.i ], [ %ref.tmp.i524.sink886.sroa.gep906, %if.then.i220 ], [ %ref.tmp.i524.sink886.sroa.gep907, %if.then15.i420 ], [ %ref.tmp.i524.sink886.sroa.gep908, %if.else.i417 ], [ %ref.tmp.i524.sink886.sroa.gep909, %if.then8.i427 ], [ %ref.tmp.i524.sink886.sroa.gep910, %if.then.i425 ]
-  %ref.tmp.i524.sink886.sroa.phi911 = phi ptr [ %ref.tmp.i524.sink886.sroa.gep912, %if.then15.i ], [ %ref.tmp.i524.sink886.sroa.gep913, %if.else.i218 ], [ %ref.tmp.i524.sink886.sroa.gep914, %if.then8.i ], [ %ref.tmp.i524.sink886.sroa.gep915, %if.then.i220 ], [ %ref.tmp.i524.sink886.sroa.gep916, %if.then15.i420 ], [ %ref.tmp.i524.sink886.sroa.gep917, %if.else.i417 ], [ %ref.tmp.i524.sink886.sroa.gep918, %if.then8.i427 ], [ %ref.tmp.i524.sink886.sroa.gep919, %if.then.i425 ]
-  %ref.tmp.i524.sink886.sroa.phi920 = phi ptr [ %ref.tmp.i524.sink886.sroa.gep921, %if.then15.i ], [ %ref.tmp.i524.sink886.sroa.gep922, %if.else.i218 ], [ %ref.tmp.i524.sink886.sroa.gep923, %if.then8.i ], [ %ref.tmp.i524.sink886.sroa.gep924, %if.then.i220 ], [ %ref.tmp.i524.sink886.sroa.gep925, %if.then15.i420 ], [ %ref.tmp.i524.sink886.sroa.gep926, %if.else.i417 ], [ %ref.tmp.i524.sink886.sroa.gep927, %if.then8.i427 ], [ %ref.tmp.i524.sink886.sroa.gep928, %if.then.i425 ]
-  %ref.tmp.i524.sink886 = phi ptr [ %ref.tmp.i524, %if.then15.i ], [ %ref.tmp.i524, %if.else.i218 ], [ %ref.tmp.i524, %if.then8.i ], [ %ref.tmp.i524, %if.then.i220 ], [ %ref.tmp.i495, %if.then15.i420 ], [ %ref.tmp.i495, %if.else.i417 ], [ %ref.tmp.i495, %if.then8.i427 ], [ %ref.tmp.i495, %if.then.i425 ]
+  %ref.tmp.i524.sink888.sroa.phi = phi ptr [ %ref.tmp.i524.sink888.sroa.gep, %if.then15.i ], [ %ref.tmp.i524.sink888.sroa.gep906, %if.else.i218 ], [ %ref.tmp.i524.sink888.sroa.gep907, %if.then8.i ], [ %ref.tmp.i524.sink888.sroa.gep908, %if.then.i220 ], [ %ref.tmp.i524.sink888.sroa.gep909, %if.then15.i420 ], [ %ref.tmp.i524.sink888.sroa.gep910, %if.else.i417 ], [ %ref.tmp.i524.sink888.sroa.gep911, %if.then8.i427 ], [ %ref.tmp.i524.sink888.sroa.gep912, %if.then.i425 ]
+  %ref.tmp.i524.sink888.sroa.phi913 = phi ptr [ %ref.tmp.i524.sink888.sroa.gep914, %if.then15.i ], [ %ref.tmp.i524.sink888.sroa.gep915, %if.else.i218 ], [ %ref.tmp.i524.sink888.sroa.gep916, %if.then8.i ], [ %ref.tmp.i524.sink888.sroa.gep917, %if.then.i220 ], [ %ref.tmp.i524.sink888.sroa.gep918, %if.then15.i420 ], [ %ref.tmp.i524.sink888.sroa.gep919, %if.else.i417 ], [ %ref.tmp.i524.sink888.sroa.gep920, %if.then8.i427 ], [ %ref.tmp.i524.sink888.sroa.gep921, %if.then.i425 ]
+  %ref.tmp.i524.sink888.sroa.phi922 = phi ptr [ %ref.tmp.i524.sink888.sroa.gep923, %if.then15.i ], [ %ref.tmp.i524.sink888.sroa.gep924, %if.else.i218 ], [ %ref.tmp.i524.sink888.sroa.gep925, %if.then8.i ], [ %ref.tmp.i524.sink888.sroa.gep926, %if.then.i220 ], [ %ref.tmp.i524.sink888.sroa.gep927, %if.then15.i420 ], [ %ref.tmp.i524.sink888.sroa.gep928, %if.else.i417 ], [ %ref.tmp.i524.sink888.sroa.gep929, %if.then8.i427 ], [ %ref.tmp.i524.sink888.sroa.gep930, %if.then.i425 ]
+  %ref.tmp.i524.sink888 = phi ptr [ %ref.tmp.i524, %if.then15.i ], [ %ref.tmp.i524, %if.else.i218 ], [ %ref.tmp.i524, %if.then8.i ], [ %ref.tmp.i524, %if.then.i220 ], [ %ref.tmp.i495, %if.then15.i420 ], [ %ref.tmp.i495, %if.else.i417 ], [ %ref.tmp.i495, %if.then8.i427 ], [ %ref.tmp.i495, %if.then.i425 ]
   %data.i522.sroa.0.0.sink = phi i64 [ %conv20.i, %if.then15.i ], [ 3, %if.else.i218 ], [ %conv5.i, %if.then8.i ], [ 3, %if.then.i220 ], [ %conv20.i422, %if.then15.i420 ], [ 3, %if.else.i417 ], [ %conv5.i428, %if.then8.i427 ], [ 3, %if.then.i425 ]
   %data.i522.sroa.5.0.sink = phi i64 [ %conv25.i, %if.then15.i ], [ 0, %if.else.i218 ], [ %sub.i221, %if.then8.i ], [ 0, %if.then.i220 ], [ %conv25.i424, %if.then15.i420 ], [ 0, %if.else.i417 ], [ %sub.i429, %if.then8.i427 ], [ 0, %if.then.i425 ]
   %45 = phi ptr [ %retval.sroa.0.0.copyload.i, %if.then15.i ], [ %retval.sroa.0.0.copyload.i, %if.else.i218 ], [ %retval.sroa.0.0.copyload.i, %if.then8.i ], [ %retval.sroa.0.0.copyload.i, %if.then.i220 ], [ %ref.tmp18, %if.then15.i420 ], [ %ref.tmp18, %if.else.i417 ], [ %ref.tmp18, %if.then8.i427 ], [ %ref.tmp18, %if.then.i425 ]
   %46 = phi ptr [ %specs.i, %if.then15.i ], [ %specs.i, %if.else.i218 ], [ %specs.i, %if.then8.i ], [ %specs.i, %if.then.i220 ], [ %compiled.i250, %if.then15.i420 ], [ %compiled.i250, %if.else.i417 ], [ %compiled.i250, %if.then8.i427 ], [ %compiled.i250, %if.then.i425 ]
-  store i32 16777261, ptr %ref.tmp.i524.sink886, align 8
-  store i64 %data.i522.sroa.0.0.sink, ptr %ref.tmp.i524.sink886.sroa.phi, align 8
-  store i64 %data.i522.sroa.5.0.sink, ptr %ref.tmp.i524.sink886.sroa.phi911, align 8
-  store i64 8589934634, ptr %ref.tmp.i524.sink886.sroa.phi920, align 8
-  %47 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %45, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 noundef %data.i522.sroa.0.0.sink, i64 noundef %data.i522.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i524.sink886)
+  store i32 16777261, ptr %ref.tmp.i524.sink888, align 8
+  store i64 %data.i522.sroa.0.0.sink, ptr %ref.tmp.i524.sink888.sroa.phi, align 8
+  store i64 %data.i522.sroa.5.0.sink, ptr %ref.tmp.i524.sink888.sroa.phi913, align 8
+  store i64 8589934634, ptr %ref.tmp.i524.sink888.sroa.phi922, align 8
+  %47 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %45, ptr noundef nonnull align 4 dereferenceable(16) %46, i64 noundef %data.i522.sroa.0.0.sink, i64 noundef %data.i522.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i524.sink888)
           to label %_ZN3fmt3v106formatINS0_6detail10spec_fieldIciLi0EEEJiEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISB_ESaISB_EEERKS6_DpRKT0_.exit unwind label %lpad.i303
 
 sw.bb8.i455:                                      ; preds = %if.end.i, %if.end.i
@@ -5490,13 +5490,13 @@ sw.bb8.i455:                                      ; preds = %if.end.i, %if.end.i
   %48 = and i16 %bf.load.i, 128
   %bf.cast.i463.not = icmp eq i16 %48, 0
   %add4.i439 = select i1 %cmp.i457, i32 56111149, i32 58208301
-  %spec.select852 = select i1 %bf.cast.i463.not, i32 16777261, i32 %add4.i439
+  %spec.select854 = select i1 %bf.cast.i463.not, i32 16777261, i32 %add4.i439
   %49 = load i32, ptr %compiled.i250, align 8
   %50 = load i32, ptr %13, align 4
   %add.i572 = add nsw i32 %50, 1
   %or.i573 = or i32 %add.i572, %49
   %cmp.i574 = icmp eq i32 %or.i573, 0
-  %shr.i579 = lshr i32 %spec.select852, 24
+  %shr.i579 = lshr i32 %spec.select854, 24
   %add1.i580 = add nuw nsw i32 %shr.i579, 2
   %conv.i581 = zext nneg i32 %add1.i580 to i64
   br i1 %cmp.i574, label %call.i578.noexc, label %if.end15.i575
@@ -5513,21 +5513,21 @@ call.i578.noexc:                                  ; preds = %sw.bb8.i455
 
 if.then5.i587:                                    ; preds = %.noexc446
   %add.ptr.i445 = getelementptr inbounds i8, ptr %call.i.i447, i64 %call2.i443
-  %and.i588 = and i32 %spec.select852, 7876653
+  %and.i588 = and i32 %spec.select854, 7876653
   br label %for.body.i592
 
 for.body.i592:                                    ; preds = %if.then5.i587, %for.body.i592
-  %it.i564.1871 = phi ptr [ %add.ptr.i445, %if.then5.i587 ], [ %incdec.ptr.i595, %for.body.i592 ]
-  %p.i566.0870 = phi i32 [ %and.i588, %if.then5.i587 ], [ %shr9.i596, %for.body.i592 ]
-  %conv8.i594 = trunc i32 %p.i566.0870 to i8
-  %incdec.ptr.i595 = getelementptr inbounds nuw i8, ptr %it.i564.1871, i64 1
-  store i8 %conv8.i594, ptr %it.i564.1871, align 1
-  %shr9.i596 = lshr i32 %p.i566.0870, 8
-  %cmp6.i590.not = icmp samesign ult i32 %p.i566.0870, 256
+  %it.i564.1873 = phi ptr [ %add.ptr.i445, %if.then5.i587 ], [ %incdec.ptr.i595, %for.body.i592 ]
+  %p.i566.0872 = phi i32 [ %and.i588, %if.then5.i587 ], [ %shr9.i596, %for.body.i592 ]
+  %conv8.i594 = trunc i32 %p.i566.0872 to i8
+  %incdec.ptr.i595 = getelementptr inbounds nuw i8, ptr %it.i564.1873, i64 1
+  store i8 %conv8.i594, ptr %it.i564.1873, align 1
+  %shr9.i596 = lshr i32 %p.i566.0872, 8
+  %cmp6.i590.not = icmp samesign ult i32 %p.i566.0872, 256
   br i1 %cmp6.i590.not, label %if.end.i584, label %for.body.i592, !llvm.loop !131
 
 if.end.i584:                                      ; preds = %for.body.i592
-  %add.ptr.i.i451 = getelementptr inbounds nuw i8, ptr %it.i564.1871, i64 3
+  %add.ptr.i.i451 = getelementptr inbounds nuw i8, ptr %it.i564.1873, i64 3
   %.str.176..str.177.i.i452 = select i1 %cmp.i457, ptr @.str.176, ptr @.str.177
   br label %do.body.i.i453
 
@@ -5572,26 +5572,26 @@ if.then15.i473:                                   ; preds = %if.else.i470
 .noexc599:                                        ; preds = %if.then15.i473, %if.else.i470, %if.then8.i480, %if.then.i478
   %data.i568.sroa.0.0 = phi i64 [ %conv5.i481, %if.then8.i480 ], [ %conv.i581, %if.then.i478 ], [ %conv20.i475, %if.then15.i473 ], [ %conv.i581, %if.else.i470 ]
   %data.i568.sroa.5.0 = phi i64 [ %sub.i482, %if.then8.i480 ], [ 0, %if.then.i478 ], [ %conv25.i477, %if.then15.i473 ], [ 0, %if.else.i470 ]
-  store i32 %spec.select852, ptr %ref.tmp.i570, align 8
+  store i32 %spec.select854, ptr %ref.tmp.i570, align 8
   br label %.noexc599.invoke
 
 .noexc599.invoke:                                 ; preds = %.noexc643, %.noexc599
-  %ref.tmp.i614.sink889.sroa.phi = phi ptr [ %ref.tmp.i614.sink889.sroa.gep, %.noexc643 ], [ %ref.tmp.i614.sink889.sroa.gep929, %.noexc599 ]
-  %ref.tmp.i614.sink889.sroa.phi930 = phi ptr [ %ref.tmp.i614.sink889.sroa.gep931, %.noexc643 ], [ %ref.tmp.i614.sink889.sroa.gep932, %.noexc599 ]
-  %ref.tmp.i614.sink889.sroa.phi933 = phi ptr [ %ref.tmp.i614.sink889.sroa.gep934, %.noexc643 ], [ %ref.tmp.i614.sink889.sroa.gep935, %.noexc599 ]
-  %ref.tmp.i614.sink889.sroa.phi936 = phi ptr [ %ref.tmp.i614.sink889.sroa.gep937, %.noexc643 ], [ %ref.tmp.i614.sink889.sroa.gep938, %.noexc599 ]
-  %ref.tmp.i614.sink889 = phi ptr [ %ref.tmp.i614, %.noexc643 ], [ %ref.tmp.i570, %.noexc599 ]
+  %ref.tmp.i614.sink891.sroa.phi = phi ptr [ %ref.tmp.i614.sink891.sroa.gep, %.noexc643 ], [ %ref.tmp.i614.sink891.sroa.gep931, %.noexc599 ]
+  %ref.tmp.i614.sink891.sroa.phi932 = phi ptr [ %ref.tmp.i614.sink891.sroa.gep933, %.noexc643 ], [ %ref.tmp.i614.sink891.sroa.gep934, %.noexc599 ]
+  %ref.tmp.i614.sink891.sroa.phi935 = phi ptr [ %ref.tmp.i614.sink891.sroa.gep936, %.noexc643 ], [ %ref.tmp.i614.sink891.sroa.gep937, %.noexc599 ]
+  %ref.tmp.i614.sink891.sroa.phi938 = phi ptr [ %ref.tmp.i614.sink891.sroa.gep939, %.noexc643 ], [ %ref.tmp.i614.sink891.sroa.gep940, %.noexc599 ]
+  %ref.tmp.i614.sink891 = phi ptr [ %ref.tmp.i614, %.noexc643 ], [ %ref.tmp.i570, %.noexc599 ]
   %data.i612.sroa.0.0.sink = phi i64 [ %data.i612.sroa.0.0, %.noexc643 ], [ %data.i568.sroa.0.0, %.noexc599 ]
   %data.i612.sroa.5.0.sink = phi i64 [ %data.i612.sroa.5.0, %.noexc643 ], [ %data.i568.sroa.5.0, %.noexc599 ]
   %frombool.i.sink.in = phi i1 [ %cmp.i382, %.noexc643 ], [ %cmp.i457, %.noexc599 ]
   %53 = phi ptr [ %retval.sroa.0.0.copyload.i, %.noexc643 ], [ %ref.tmp18, %.noexc599 ]
   %54 = phi ptr [ %specs.i, %.noexc643 ], [ %compiled.i250, %.noexc599 ]
   %frombool.i.sink = zext i1 %frombool.i.sink.in to i8
-  store i64 %data.i612.sroa.0.0.sink, ptr %ref.tmp.i614.sink889.sroa.phi, align 8
-  store i64 %data.i612.sroa.5.0.sink, ptr %ref.tmp.i614.sink889.sroa.phi930, align 8
-  store i64 8589934634, ptr %ref.tmp.i614.sink889.sroa.phi933, align 8
-  store i8 %frombool.i.sink, ptr %ref.tmp.i614.sink889.sroa.phi936, align 8
-  %55 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE0_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %53, ptr noundef nonnull align 4 dereferenceable(16) %54, i64 noundef %data.i612.sroa.0.0.sink, i64 noundef %data.i612.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i614.sink889)
+  store i64 %data.i612.sroa.0.0.sink, ptr %ref.tmp.i614.sink891.sroa.phi, align 8
+  store i64 %data.i612.sroa.5.0.sink, ptr %ref.tmp.i614.sink891.sroa.phi932, align 8
+  store i64 8589934634, ptr %ref.tmp.i614.sink891.sroa.phi935, align 8
+  store i8 %frombool.i.sink, ptr %ref.tmp.i614.sink891.sroa.phi938, align 8
+  %55 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE0_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %53, ptr noundef nonnull align 4 dereferenceable(16) %54, i64 noundef %data.i612.sroa.0.0.sink, i64 noundef %data.i612.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp.i614.sink891)
           to label %_ZN3fmt3v106formatINS0_6detail10spec_fieldIciLi0EEEJiEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISB_ESaISB_EEERKS6_DpRKT0_.exit unwind label %lpad.i303
 
 sw.bb19.i438:                                     ; preds = %if.end.i, %if.end.i
@@ -5626,17 +5626,17 @@ if.then5.i675:                                    ; preds = %.noexc498
   br label %for.body.i680
 
 for.body.i680:                                    ; preds = %if.then5.i675, %for.body.i680
-  %it.i652.1869 = phi ptr [ %add.ptr.i497, %if.then5.i675 ], [ %incdec.ptr.i683, %for.body.i680 ]
-  %p.i654.0868 = phi i32 [ %and.i676, %if.then5.i675 ], [ %shr9.i684, %for.body.i680 ]
-  %conv8.i682 = trunc i32 %p.i654.0868 to i8
-  %incdec.ptr.i683 = getelementptr inbounds nuw i8, ptr %it.i652.1869, i64 1
-  store i8 %conv8.i682, ptr %it.i652.1869, align 1
-  %shr9.i684 = lshr i32 %p.i654.0868, 8
-  %cmp6.i678.not = icmp samesign ult i32 %p.i654.0868, 256
+  %it.i652.1871 = phi ptr [ %add.ptr.i497, %if.then5.i675 ], [ %incdec.ptr.i683, %for.body.i680 ]
+  %p.i654.0870 = phi i32 [ %and.i676, %if.then5.i675 ], [ %shr9.i684, %for.body.i680 ]
+  %conv8.i682 = trunc i32 %p.i654.0870 to i8
+  %incdec.ptr.i683 = getelementptr inbounds nuw i8, ptr %it.i652.1871, i64 1
+  store i8 %conv8.i682, ptr %it.i652.1871, align 1
+  %shr9.i684 = lshr i32 %p.i654.0870, 8
+  %cmp6.i678.not = icmp samesign ult i32 %p.i654.0870, 256
   br i1 %cmp6.i678.not, label %if.end.i672, label %for.body.i680, !llvm.loop !132
 
 if.end.i672:                                      ; preds = %for.body.i680
-  %add.ptr.i.i502 = getelementptr inbounds nuw i8, ptr %it.i652.1869, i64 7
+  %add.ptr.i.i502 = getelementptr inbounds nuw i8, ptr %it.i652.1871, i64 7
   br label %do.body.i.i503
 
 do.body.i.i503:                                   ; preds = %do.body.i.i503, %if.end.i672
@@ -5683,18 +5683,18 @@ if.then15.i521:                                   ; preds = %if.else.i518
   br label %.noexc687.invoke
 
 .noexc687.invoke:                                 ; preds = %.noexc730, %.noexc687
-  %ref.tmp.i701.sink891.sroa.phi = phi ptr [ %ref.tmp.i701.sink891.sroa.gep, %.noexc730 ], [ %ref.tmp.i701.sink891.sroa.gep939, %.noexc687 ]
-  %ref.tmp.i701.sink891.sroa.phi940 = phi ptr [ %ref.tmp.i701.sink891.sroa.gep941, %.noexc730 ], [ %ref.tmp.i701.sink891.sroa.gep942, %.noexc687 ]
-  %ref.tmp.i701.sink891.sroa.phi943 = phi ptr [ %ref.tmp.i701.sink891.sroa.gep944, %.noexc730 ], [ %ref.tmp.i701.sink891.sroa.gep945, %.noexc687 ]
-  %ref.tmp.i701.sink891 = phi ptr [ %ref.tmp.i701, %.noexc730 ], [ %ref.tmp.i658, %.noexc687 ]
+  %ref.tmp.i701.sink893.sroa.phi = phi ptr [ %ref.tmp.i701.sink893.sroa.gep, %.noexc730 ], [ %ref.tmp.i701.sink893.sroa.gep941, %.noexc687 ]
+  %ref.tmp.i701.sink893.sroa.phi942 = phi ptr [ %ref.tmp.i701.sink893.sroa.gep943, %.noexc730 ], [ %ref.tmp.i701.sink893.sroa.gep944, %.noexc687 ]
+  %ref.tmp.i701.sink893.sroa.phi945 = phi ptr [ %ref.tmp.i701.sink893.sroa.gep946, %.noexc730 ], [ %ref.tmp.i701.sink893.sroa.gep947, %.noexc687 ]
+  %ref.tmp.i701.sink893 = phi ptr [ %ref.tmp.i701, %.noexc730 ], [ %ref.tmp.i658, %.noexc687 ]
   %data.i699.sroa.0.0.sink = phi i64 [ %data.i699.sroa.0.0, %.noexc730 ], [ %data.i656.sroa.0.0, %.noexc687 ]
   %data.i699.sroa.5.0.sink = phi i64 [ %data.i699.sroa.5.0, %.noexc730 ], [ %data.i656.sroa.5.0, %.noexc687 ]
   %62 = phi ptr [ %retval.sroa.0.0.copyload.i, %.noexc730 ], [ %ref.tmp18, %.noexc687 ]
   %63 = phi ptr [ %specs.i, %.noexc730 ], [ %compiled.i250, %.noexc687 ]
-  store i64 %data.i699.sroa.0.0.sink, ptr %ref.tmp.i701.sink891.sroa.phi, align 8
-  store i64 %data.i699.sroa.5.0.sink, ptr %ref.tmp.i701.sink891.sroa.phi940, align 8
-  store i64 25769803818, ptr %ref.tmp.i701.sink891.sroa.phi943, align 8
-  %64 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE1_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %62, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 noundef %data.i699.sroa.0.0.sink, i64 noundef %data.i699.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i701.sink891)
+  store i64 %data.i699.sroa.0.0.sink, ptr %ref.tmp.i701.sink893.sroa.phi, align 8
+  store i64 %data.i699.sroa.5.0.sink, ptr %ref.tmp.i701.sink893.sroa.phi942, align 8
+  store i64 25769803818, ptr %ref.tmp.i701.sink893.sroa.phi945, align 8
+  %64 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE1_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %62, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 noundef %data.i699.sroa.0.0.sink, i64 noundef %data.i699.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i701.sink893)
           to label %_ZN3fmt3v106formatINS0_6detail10spec_fieldIciLi0EEEJiEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISB_ESaISB_EEERKS6_DpRKT0_.exit unwind label %lpad.i303
 
 sw.bb43.i424:                                     ; preds = %if.end.i
@@ -5703,12 +5703,12 @@ sw.bb43.i424:                                     ; preds = %if.end.i
   %66 = load i32, ptr %13, align 4
   %cmp51.i434 = icmp slt i32 %66, 3
   %or.cond851 = and i1 %bf.cast50.i430.not, %cmp51.i434
-  %prefix.i403.2 = select i1 %or.cond851, i32 33566765, i32 16777261
+  %spec.select852 = select i1 %or.cond851, i32 33566765, i32 16777261
   %67 = load i32, ptr %compiled.i250, align 8
   %add.i747 = add nsw i32 %66, 1
   %or.i748 = or i32 %67, %add.i747
   %cmp.i749 = icmp eq i32 %or.i748, 0
-  %shr.i754 = lshr i32 %prefix.i403.2, 24
+  %shr.i754 = lshr i32 %spec.select852, 24
   %add1.i755 = add nuw nsw i32 %shr.i754, 2
   %conv.i756 = zext nneg i32 %add1.i755 to i64
   br i1 %cmp.i749, label %call.i753.noexc, label %if.end15.i750
@@ -5718,21 +5718,21 @@ call.i753.noexc:                                  ; preds = %sw.bb43.i424
           to label %if.then5.i762 unwind label %lpad.i303
 
 if.then5.i762:                                    ; preds = %call.i753.noexc
-  %and.i763 = and i32 %prefix.i403.2, 12333
+  %and.i763 = and i32 %spec.select852, 12333
   br label %for.body.i767
 
 for.body.i767:                                    ; preds = %if.then5.i762, %for.body.i767
-  %it.i739.1867 = phi ptr [ %call3.i757773, %if.then5.i762 ], [ %incdec.ptr.i770, %for.body.i767 ]
-  %p.i741.0866 = phi i32 [ %and.i763, %if.then5.i762 ], [ %shr9.i771, %for.body.i767 ]
-  %conv8.i769 = trunc i32 %p.i741.0866 to i8
-  %incdec.ptr.i770 = getelementptr inbounds nuw i8, ptr %it.i739.1867, i64 1
-  store i8 %conv8.i769, ptr %it.i739.1867, align 1
-  %shr9.i771 = lshr i32 %p.i741.0866, 8
-  %cmp6.i765.not = icmp samesign ult i32 %p.i741.0866, 256
+  %it.i739.1869 = phi ptr [ %call3.i757773, %if.then5.i762 ], [ %incdec.ptr.i770, %for.body.i767 ]
+  %p.i741.0868 = phi i32 [ %and.i763, %if.then5.i762 ], [ %shr9.i771, %for.body.i767 ]
+  %conv8.i769 = trunc i32 %p.i741.0868 to i8
+  %incdec.ptr.i770 = getelementptr inbounds nuw i8, ptr %it.i739.1869, i64 1
+  store i8 %conv8.i769, ptr %it.i739.1869, align 1
+  %shr9.i771 = lshr i32 %p.i741.0868, 8
+  %cmp6.i765.not = icmp samesign ult i32 %p.i741.0868, 256
   br i1 %cmp6.i765.not, label %if.end.i759, label %for.body.i767, !llvm.loop !134
 
 if.end.i759:                                      ; preds = %for.body.i767
-  %add.ptr.i.i546 = getelementptr inbounds nuw i8, ptr %it.i739.1867, i64 3
+  %add.ptr.i.i546 = getelementptr inbounds nuw i8, ptr %it.i739.1869, i64 3
   br label %do.body.i.i547
 
 do.body.i.i547:                                   ; preds = %do.body.i.i547, %if.end.i759
@@ -5775,22 +5775,22 @@ if.then15.i565:                                   ; preds = %if.else.i562
 .noexc774:                                        ; preds = %if.then15.i565, %if.else.i562, %if.then8.i572, %if.then.i570
   %data.i743.sroa.0.0 = phi i64 [ %conv5.i573, %if.then8.i572 ], [ %conv.i756, %if.then.i570 ], [ %conv20.i567, %if.then15.i565 ], [ %conv.i756, %if.else.i562 ]
   %data.i743.sroa.5.0 = phi i64 [ %sub.i574, %if.then8.i572 ], [ 0, %if.then.i570 ], [ %conv25.i569, %if.then15.i565 ], [ 0, %if.else.i562 ]
-  store i32 %prefix.i403.2, ptr %ref.tmp.i745, align 8
+  store i32 %spec.select852, ptr %ref.tmp.i745, align 8
   br label %.noexc774.invoke
 
 .noexc774.invoke:                                 ; preds = %.noexc817, %.noexc774
-  %ref.tmp.i788.sink893.sroa.phi = phi ptr [ %ref.tmp.i788.sink893.sroa.gep, %.noexc817 ], [ %ref.tmp.i788.sink893.sroa.gep946, %.noexc774 ]
-  %ref.tmp.i788.sink893.sroa.phi947 = phi ptr [ %ref.tmp.i788.sink893.sroa.gep948, %.noexc817 ], [ %ref.tmp.i788.sink893.sroa.gep949, %.noexc774 ]
-  %ref.tmp.i788.sink893.sroa.phi950 = phi ptr [ %ref.tmp.i788.sink893.sroa.gep951, %.noexc817 ], [ %ref.tmp.i788.sink893.sroa.gep952, %.noexc774 ]
-  %ref.tmp.i788.sink893 = phi ptr [ %ref.tmp.i788, %.noexc817 ], [ %ref.tmp.i745, %.noexc774 ]
+  %ref.tmp.i788.sink895.sroa.phi = phi ptr [ %ref.tmp.i788.sink895.sroa.gep, %.noexc817 ], [ %ref.tmp.i788.sink895.sroa.gep948, %.noexc774 ]
+  %ref.tmp.i788.sink895.sroa.phi949 = phi ptr [ %ref.tmp.i788.sink895.sroa.gep950, %.noexc817 ], [ %ref.tmp.i788.sink895.sroa.gep951, %.noexc774 ]
+  %ref.tmp.i788.sink895.sroa.phi952 = phi ptr [ %ref.tmp.i788.sink895.sroa.gep953, %.noexc817 ], [ %ref.tmp.i788.sink895.sroa.gep954, %.noexc774 ]
+  %ref.tmp.i788.sink895 = phi ptr [ %ref.tmp.i788, %.noexc817 ], [ %ref.tmp.i745, %.noexc774 ]
   %data.i786.sroa.0.0.sink = phi i64 [ %data.i786.sroa.0.0, %.noexc817 ], [ %data.i743.sroa.0.0, %.noexc774 ]
   %data.i786.sroa.5.0.sink = phi i64 [ %data.i786.sroa.5.0, %.noexc817 ], [ %data.i743.sroa.5.0, %.noexc774 ]
   %71 = phi ptr [ %retval.sroa.0.0.copyload.i, %.noexc817 ], [ %ref.tmp18, %.noexc774 ]
   %72 = phi ptr [ %specs.i, %.noexc817 ], [ %compiled.i250, %.noexc774 ]
-  store i64 %data.i786.sroa.0.0.sink, ptr %ref.tmp.i788.sink893.sroa.phi, align 8
-  store i64 %data.i786.sroa.5.0.sink, ptr %ref.tmp.i788.sink893.sroa.phi947, align 8
-  store i64 8589934634, ptr %ref.tmp.i788.sink893.sroa.phi950, align 8
-  %73 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE2_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %71, ptr noundef nonnull align 4 dereferenceable(16) %72, i64 noundef %data.i786.sroa.0.0.sink, i64 noundef %data.i786.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i788.sink893)
+  store i64 %data.i786.sroa.0.0.sink, ptr %ref.tmp.i788.sink895.sroa.phi, align 8
+  store i64 %data.i786.sroa.5.0.sink, ptr %ref.tmp.i788.sink895.sroa.phi949, align 8
+  store i64 8589934634, ptr %ref.tmp.i788.sink895.sroa.phi952, align 8
+  %73 = invoke ptr @_ZN3fmt3v106detail12write_paddedILNS0_5align4typeE2ESt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcRZNS1_9write_intISC_cZNS1_9write_intIcSC_jEET0_SF_NS1_13write_int_argIT1_EERKNS0_12format_specsIT_EENS1_10locale_refEEUlPcE2_EESK_SK_ijRKNSJ_ISF_EESH_EUlSP_E_EESF_SF_RKNSJ_ISH_EEmmOT2_(ptr %71, ptr noundef nonnull align 4 dereferenceable(16) %72, i64 noundef %data.i786.sroa.0.0.sink, i64 noundef %data.i786.sroa.0.0.sink, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i788.sink895)
           to label %_ZN3fmt3v106formatINS0_6detail10spec_fieldIciLi0EEEJiEcTnNSt9enable_ifIXsr6detail18is_compiled_formatIT_EE5valueEiE4typeELi0EEENSt7__cxx1112basic_stringIT1_St11char_traitsISB_ESaISB_EEERKS6_DpRKT0_.exit unwind label %lpad.i303
 
 sw.bb61.i422:                                     ; preds = %if.end.i

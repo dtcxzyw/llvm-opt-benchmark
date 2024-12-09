@@ -1007,7 +1007,7 @@ define internal fastcc void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Has
   %26 = zext i8 %25 to i64
   %27 = shl nuw nsw i64 %.1.i.i.i.i, 3
   %28 = and i64 %27, 56
-  %29 = shl nuw i64 %26, %28
+  %29 = shl nuw nsw i64 %26, %28
   %30 = or i64 %29, %.117.i.i.i.i
   br label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i.i.i
 

@@ -438,13 +438,13 @@ define dso_local void @_ZN15Sample_TileMesh14handleSettingsEv(ptr noundef nonnul
   %59 = icmp ugt i32 %58, 65535
   %60 = select i1 %59, i32 16, i32 0
   %61 = lshr i32 %58, %60
-  %62 = icmp ugt i32 %61, 255
+  %62 = icmp samesign ugt i32 %61, 255
   %63 = select i1 %62, i32 8, i32 0
   %64 = lshr i32 %61, %63
-  %65 = icmp ugt i32 %64, 15
+  %65 = icmp samesign ugt i32 %64, 15
   %66 = select i1 %65, i32 4, i32 0
   %67 = lshr i32 %64, %66
-  %68 = icmp ugt i32 %67, 3
+  %68 = icmp samesign ugt i32 %67, 3
   %69 = select i1 %68, i32 2, i32 0
   %70 = lshr i32 %67, %69
   %71 = lshr i32 %70, 1

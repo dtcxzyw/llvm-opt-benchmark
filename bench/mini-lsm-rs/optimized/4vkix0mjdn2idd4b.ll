@@ -6344,7 +6344,7 @@ _ZN4moka3cht3map6bucket4hash17h12f95d64d018f8fdE.exit: ; preds = %.noexc56
   %159 = zext i8 %158 to i64
   %160 = shl nuw nsw i64 %.1.i.i, 3
   %161 = and i64 %160, 56
-  %162 = shl nuw i64 %159, %161
+  %162 = shl nuw nsw i64 %159, %161
   %163 = or i64 %162, %.117.i.i
   br label %_ZN4core4hash3sip9u8to64_le17ha75b6e91f974688fE.exit.i
 

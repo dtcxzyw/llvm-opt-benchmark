@@ -100083,7 +100083,7 @@ define hidden void @"_ZN5typst6layout5sides14Sides$LT$T$GT$5splat17h41eb164cc8a1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden range(i32 0, 33554432) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$5splat17h489b679d0d8ca74eE"(i1 noundef zeroext %0) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden range(i32 0, 16843010) i32 @"_ZN5typst6layout5sides14Sides$LT$T$GT$5splat17h489b679d0d8ca74eE"(i1 noundef zeroext %0) unnamed_addr #2 personality ptr @rust_eh_personality {
   %.sroa.2.0.insert.insert = select i1 %0, i32 16843008, i32 0
   %.sroa.0.0.insert.ext = zext i1 %0 to i32
   %.sroa.0.0.insert.insert = or disjoint i32 %.sroa.2.0.insert.insert, %.sroa.0.0.insert.ext

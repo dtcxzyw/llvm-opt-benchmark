@@ -24401,7 +24401,7 @@ return:                                           ; preds = %if.end.i16, %if.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 -1, 33) i32 @stbi__high_bit(i32 noundef %z) local_unnamed_addr #0 {
+define range(i32 -1, 32) i32 @stbi__high_bit(i32 noundef %z) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq i32 %z, 0
   br i1 %cmp, label %return, label %if.end

@@ -215,7 +215,7 @@ define dso_local void @intel_pmu_pebs_data_source_cmt() local_unnamed_addr #0 se
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1099511627776, 0) i64 @adl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 1100585369600, 0) i64 @adl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312
@@ -264,7 +264,7 @@ define dso_local range(i64 1099511627776, 0) i64 @adl_latency_data_small(ptr noc
 declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 1099511627776, 0) i64 @mtl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 1100585369600, 0) i64 @mtl_latency_data_small(ptr nocapture noundef readonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 312

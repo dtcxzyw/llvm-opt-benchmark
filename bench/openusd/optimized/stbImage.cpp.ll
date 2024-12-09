@@ -59456,7 +59456,7 @@ _ZL10stbi__get8P13stbi__context.exit289:          ; preds = %491, %494, %_ZL19st
 declare i32 @llvm.abs.i32(i32, i1 immarg) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 -1, 33) i32 @_ZL14stbi__high_bitj(i32 noundef %0) unnamed_addr #9 {
+define internal fastcc noundef range(i32 -1, 32) i32 @_ZL14stbi__high_bitj(i32 noundef %0) unnamed_addr #9 {
   %2 = icmp eq i32 %0, 0
   br i1 %2, label %17, label %3
 

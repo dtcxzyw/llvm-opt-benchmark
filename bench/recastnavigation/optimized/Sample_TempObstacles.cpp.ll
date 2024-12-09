@@ -1974,13 +1974,13 @@ define dso_local void @_ZN20Sample_TempObstacles14handleSettingsEv(ptr noundef n
   %51 = icmp ugt i32 %50, 65535
   %52 = select i1 %51, i32 16, i32 0
   %53 = lshr i32 %50, %52
-  %54 = icmp ugt i32 %53, 255
+  %54 = icmp samesign ugt i32 %53, 255
   %55 = select i1 %54, i32 8, i32 0
   %56 = lshr i32 %53, %55
-  %57 = icmp ugt i32 %56, 15
+  %57 = icmp samesign ugt i32 %56, 15
   %58 = select i1 %57, i32 4, i32 0
   %59 = lshr i32 %56, %58
-  %60 = icmp ugt i32 %59, 3
+  %60 = icmp samesign ugt i32 %59, 3
   %61 = select i1 %60, i32 2, i32 0
   %62 = lshr i32 %59, %61
   %63 = lshr i32 %62, 1

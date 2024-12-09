@@ -528,7 +528,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
   %25 = shl nuw nsw i64 %24, 2
   %scevgep = getelementptr i8, ptr %5, i64 %25
   %26 = add nsw i32 %8, -2
-  %27 = sub i32 %26, %.0.lcssa44
+  %27 = sub nsw i32 %26, %.0.lcssa44
   %28 = zext i32 %27 to i64
   %29 = shl nuw nsw i64 %28, 2
   %30 = add nuw nsw i64 %29, 4

@@ -224,8 +224,8 @@ define range(i32 0, 17) i32 @firstShiftWithOneBit(i64 noundef %0, i32 noundef %1
   %25 = icmp samesign ugt i64 %.224, 15
   %26 = or disjoint i32 %.2, 4
   %spec.select29 = select i1 %25, i32 %26, i32 %.2
-  %.lhs.trunc31 = sub nuw nsw i32 64, %spec.select29
-  %27 = lshr i32 %.lhs.trunc31, 2
+  %.lhs.trunc32 = sub nuw nsw i32 64, %spec.select29
+  %27 = lshr i32 %.lhs.trunc32, 2
   br label %28
 
 28:                                               ; preds = %2, %23, %21, %15, %7
@@ -386,8 +386,8 @@ define range(i32 0, 4) i32 @minTemp0_fast(ptr nocapture noundef readonly %0, i32
   %52 = icmp samesign ugt i64 %.224.i, 15
   %53 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %52, i32 %53, i32 %.2.i
-  %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
-  %54 = lshr i32 %.lhs.trunc31.i, 2
+  %.lhs.trunc32.i = sub nuw nsw i32 64, %spec.select29.i
+  %54 = lshr i32 %.lhs.trunc32.i, 2
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %24, %34, %42, %48, %50
@@ -497,8 +497,8 @@ define range(i32 1, 3) i32 @minTemp1_fast(ptr nocapture noundef readonly %0, i32
   %56 = icmp samesign ugt i64 %.224.i, 15
   %57 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %56, i32 %57, i32 %.2.i
-  %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
-  %58 = lshr i32 %.lhs.trunc31.i, 2
+  %.lhs.trunc32.i = sub nuw nsw i32 64, %spec.select29.i
+  %58 = lshr i32 %.lhs.trunc32.i, 2
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %28, %38, %46, %52, %54
@@ -610,8 +610,8 @@ define range(i32 0, 2) i32 @minTemp2_fast(ptr nocapture noundef readonly %0, i32
   %59 = icmp samesign ugt i64 %.224.i, 15
   %60 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %59, i32 %60, i32 %.2.i
-  %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
-  %61 = lshr i32 %.lhs.trunc31.i, 2
+  %.lhs.trunc32.i = sub nuw nsw i32 64, %spec.select29.i
+  %61 = lshr i32 %.lhs.trunc32.i, 2
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %31, %41, %49, %55, %57
@@ -722,8 +722,8 @@ define range(i32 0, 2) i32 @minTemp3_fast(ptr nocapture noundef readonly %0, i32
   %57 = icmp samesign ugt i64 %.224.i, 15
   %58 = or disjoint i32 %.2.i, 4
   %spec.select29.i = select i1 %57, i32 %58, i32 %.2.i
-  %.lhs.trunc31.i = sub nuw nsw i32 64, %spec.select29.i
-  %59 = lshr i32 %.lhs.trunc31.i, 2
+  %.lhs.trunc32.i = sub nuw nsw i32 64, %spec.select29.i
+  %59 = lshr i32 %.lhs.trunc32.i, 2
   br label %firstShiftWithOneBit.exit
 
 firstShiftWithOneBit.exit:                        ; preds = %29, %39, %47, %53, %55
@@ -839,8 +839,8 @@ define void @minimalSwapAndFlipIVar_superFast_lessThen5(ptr nocapture noundef %0
   %56 = icmp samesign ugt i64 %.224.i.i, 15
   %57 = or disjoint i32 %.2.i.i, 4
   %spec.select29.i.i = select i1 %56, i32 %57, i32 %.2.i.i
-  %.lhs.trunc31.i.i = sub nuw nsw i32 64, %spec.select29.i.i
-  %58 = lshr i32 %.lhs.trunc31.i.i, 2
+  %.lhs.trunc32.i.i = sub nuw nsw i32 64, %spec.select29.i.i
+  %58 = lshr i32 %.lhs.trunc32.i.i, 2
   br label %firstShiftWithOneBit.exit.i
 
 firstShiftWithOneBit.exit.i:                      ; preds = %54, %52, %46, %38, %29

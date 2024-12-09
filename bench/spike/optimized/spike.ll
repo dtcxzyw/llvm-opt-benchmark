@@ -5466,7 +5466,7 @@ _ZNSt6vectorI9mem_cfg_tSaIS0_EED2Ev.exit.thread.i.i.i.i: ; preds = %_ZNKSt6vecto
 
 51:                                               ; preds = %45
   %52 = call fastcc noundef i32 @_ZL3clzm(i64 noundef %49)
-  %53 = sub nsw i32 64, %52
+  %53 = sub nuw nsw i32 64, %52
   %54 = load ptr, ptr @stderr, align 8, !noalias !20
   %55 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.113, i64 noundef %46, i64 noundef %47, i32 noundef %53, i64 noundef 72057594037927935, i32 noundef 56) #40, !noalias !20
   call void @exit(i32 noundef 1) #38, !noalias !20
@@ -6143,7 +6143,7 @@ declare void @_ZN9mem_cfg_tC1Emm(ptr noundef nonnull align 8 dereferenceable(16)
 declare noundef zeroext i1 @_ZN9mem_cfg_t18check_if_supportedEmm(i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 67) i32 @_ZL3clzm(i64 noundef %0) unnamed_addr #25 {
+define internal fastcc noundef range(i32 0, 64) i32 @_ZL3clzm(i64 noundef %0) unnamed_addr #25 {
   %.not = icmp eq i64 %0, 0
   br i1 %.not, label %19, label %2
 

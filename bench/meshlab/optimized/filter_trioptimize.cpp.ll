@@ -17517,8 +17517,8 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO10MeanCEFlipE10Update
   %.cmp = icmp slt i32 %14, 1
   %.v = select i1 %.cmp, i32 2, i32 -1
   %36 = add nsw i32 %.v, %14
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %37
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %23, i64 %22, i32 1, i64 %25
   %41 = load i8, ptr %40, align 1
@@ -21177,8 +21177,8 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO9NSMCEFlipE10UpdateHe
   %.cmp = icmp slt i32 %14, 1
   %.v = select i1 %.cmp, i32 2, i32 -1
   %36 = add nsw i32 %.v, %14
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %37
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %23, i64 %22, i32 1, i64 %25
   %41 = load i8, ptr %40, align 1
@@ -24108,8 +24108,8 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO9AbsCEFlipE10UpdateHe
   %.cmp = icmp slt i32 %14, 1
   %.v = select i1 %.cmp, i32 2, i32 -1
   %36 = add nsw i32 %.v, %14
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %37
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %23, i64 %22, i32 1, i64 %25
   %41 = load i8, ptr %40, align 1
@@ -32883,8 +32883,8 @@ define linkonce_odr void @_ZN3vcg3tri12TopoEdgeFlipI6CMeshO11MyTopoEFlipE10Updat
   %.cmp = icmp slt i32 %14, 1
   %.v = select i1 %.cmp, i32 2, i32 -1
   %36 = add nsw i32 %.v, %14
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds [3 x ptr], ptr %28, i64 0, i64 %37
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds nuw [3 x ptr], ptr %28, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds %"struct.vcg::face::vector_ocf<CFaceO>::AdjTypePack", ptr %23, i64 %22, i32 1, i64 %25
   %41 = load i8, ptr %40, align 1

@@ -454,22 +454,10 @@ if.then:                                          ; preds = %entry
   %storage.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 13
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %storage.i.i, ptr noundef nonnull align 1 dereferenceable(15) %add.ptr.i.i.i, i64 15, i1 false)
-  %or.cond.i.i = icmp ugt i8 %conv.i.i.i.i.i, 4
-  br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i.i
+  %or.cond.i.i = icmp samesign ugt i8 %conv.i.i.i.i.i, 4
+  br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.then
-  %cmp6.i.i = icmp eq i8 %conv.i.i.i.i.i, 1
-  br i1 %cmp6.i.i, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, label %if.end.i
-
-_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %if.end.i.i
-  %child.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 24
-  %2 = load ptr, ptr %child.i.i, align 8
-  %tag9.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.pre.i.i = load i8, ptr %tag9.phi.trans.insert.i.i, align 4
-  %3 = icmp ugt i8 %.pre.i.i, 4
-  br i1 %3, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i
-
-_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %if.then
+_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %if.then
   %call.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
@@ -486,28 +474,28 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4
   store ptr %call4.i.i.i, ptr %edges_.i.i, align 8
   br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
 
-if.end.i:                                         ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %if.end.i.i
+if.end.i:                                         ; preds = %if.then
   %call2.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS0_7CordRepE(ptr noundef nonnull %call4.i.i.i)
   br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %call2.i, %if.end.i ]
   %tag.i.i2 = getelementptr inbounds nuw i8, ptr %tree, i64 12
-  %4 = load i8, ptr %tag.i.i2, align 4
-  %or.cond.i.i3 = icmp ugt i8 %4, 4
+  %2 = load i8, ptr %tag.i.i2, align 4
+  %or.cond.i.i3 = icmp ugt i8 %2, 4
   br i1 %or.cond.i.i3, label %if.then.i, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
-  %cmp6.i.i5 = icmp eq i8 %4, 1
+  %cmp6.i.i5 = icmp eq i8 %2, 1
   br i1 %cmp6.i.i5, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9, label %if.end.i6
 
 _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9: ; preds = %if.end.i.i4
   %child.i.i10 = getelementptr inbounds nuw i8, ptr %tree, i64 24
-  %5 = load ptr, ptr %child.i.i10, align 8
-  %tag9.phi.trans.insert.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %3 = load ptr, ptr %child.i.i10, align 8
+  %tag9.phi.trans.insert.i.i11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.pre.i.i12 = load i8, ptr %tag9.phi.trans.insert.i.i11, align 4
-  %6 = icmp ugt i8 %.pre.i.i12, 4
-  br i1 %6, label %if.then.i, label %if.end.i6
+  %4 = icmp ugt i8 %.pre.i.i12, 4
+  br i1 %4, label %if.then.i, label %if.end.i6
 
 if.then.i:                                        ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
   %call1.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE1EEEPS1_S4_PNS0_7CordRepE(ptr noundef %retval.0.i, ptr noundef nonnull %tree)
@@ -522,14 +510,14 @@ if.end:                                           ; preds = %if.end.i6, %if.then
   %rep.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %tree.addr.0, ptr %rep.i.i.i, align 8
   store i64 1, ptr %this, align 8
-  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %8 = load i64, ptr %7, align 8
-  %cmp.i.i = icmp sgt i64 %8, 1
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %6 = load i64, ptr %5, align 8
+  %cmp.i.i = icmp sgt i64 %6, 1
   br i1 %cmp.i.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i: ; preds = %if.end
-  %dec.i.i = add nsw i64 %8, -1
-  store i64 %dec.i.i, ptr %7, align 8
+  %dec.i.i = add nsw i64 %6, -1
+  store i64 %dec.i.i, ptr %5, align 8
   br label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i: ; preds = %if.end
@@ -762,22 +750,10 @@ if.then:                                          ; preds = %entry
   %storage.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 13
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %storage.i.i, ptr noundef nonnull align 1 dereferenceable(15) %add.ptr.i.i.i, i64 15, i1 false)
-  %or.cond.i.i = icmp ugt i8 %conv.i.i.i.i.i, 4
-  br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i.i
+  %or.cond.i.i = icmp samesign ugt i8 %conv.i.i.i.i.i, 4
+  br i1 %or.cond.i.i, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i
 
-if.end.i.i:                                       ; preds = %if.then
-  %cmp6.i.i = icmp eq i8 %conv.i.i.i.i.i, 1
-  br i1 %cmp6.i.i, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, label %if.end.i
-
-_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i: ; preds = %if.end.i.i
-  %child.i.i = getelementptr inbounds nuw i8, ptr %call4.i.i.i, i64 24
-  %2 = load ptr, ptr %child.i.i, align 8
-  %tag9.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.pre.i.i = load i8, ptr %tag9.phi.trans.insert.i.i, align 4
-  %3 = icmp ugt i8 %.pre.i.i, 4
-  br i1 %3, label %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, label %if.end.i
-
-_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %if.then
+_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %if.then
   %call.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
   %refcount.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i, i64 8
   store i32 2, ptr %refcount.i.i.i.i, align 4
@@ -794,28 +770,28 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i: ; preds = %_ZN4
   store ptr %call4.i.i.i, ptr %edges_.i.i, align 8
   br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
 
-if.end.i:                                         ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i, %if.end.i.i
+if.end.i:                                         ; preds = %if.then
   %call2.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10CreateSlowEPNS0_7CordRepE(ptr noundef nonnull %call4.i.i.i)
   br label %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
 
 _ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit: ; preds = %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i, %if.end.i
   %retval.0.i = phi ptr [ %call.i.i, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit.i ], [ %call2.i, %if.end.i ]
   %tag.i.i2 = getelementptr inbounds nuw i8, ptr %tree, i64 12
-  %4 = load i8, ptr %tag.i.i2, align 4
-  %or.cond.i.i3 = icmp ugt i8 %4, 4
+  %2 = load i8, ptr %tag.i.i2, align 4
+  %or.cond.i.i3 = icmp ugt i8 %2, 4
   br i1 %or.cond.i.i3, label %if.then.i, label %if.end.i.i4
 
 if.end.i.i4:                                      ; preds = %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
-  %cmp6.i.i5 = icmp eq i8 %4, 1
+  %cmp6.i.i5 = icmp eq i8 %2, 1
   br i1 %cmp6.i.i5, label %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9, label %if.end.i6
 
 _ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9: ; preds = %if.end.i.i4
   %child.i.i10 = getelementptr inbounds nuw i8, ptr %tree, i64 24
-  %5 = load ptr, ptr %child.i.i10, align 8
-  %tag9.phi.trans.insert.i.i11 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  %3 = load ptr, ptr %child.i.i10, align 8
+  %tag9.phi.trans.insert.i.i11 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.pre.i.i12 = load i8, ptr %tag9.phi.trans.insert.i.i11, align 4
-  %6 = icmp ugt i8 %.pre.i.i12, 4
-  br i1 %6, label %if.then.i, label %if.end.i6
+  %4 = icmp ugt i8 %.pre.i.i12, 4
+  br i1 %4, label %if.then.i, label %if.end.i6
 
 if.then.i:                                        ; preds = %_ZN4absl13cord_internal10IsDataEdgeEPKNS0_7CordRepE.exit.i9, %_ZN4absl13cord_internal12CordRepBtree6CreateEPNS0_7CordRepE.exit
   %call1.i = tail call noundef ptr @_ZN4absl13cord_internal12CordRepBtree10AddCordRepILNS1_8EdgeTypeE0EEEPS1_S4_PNS0_7CordRepE(ptr noundef %retval.0.i, ptr noundef nonnull %tree)
@@ -830,14 +806,14 @@ if.end:                                           ; preds = %if.end.i6, %if.then
   %rep.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr %tree.addr.0, ptr %rep.i.i.i, align 8
   store i64 1, ptr %this, align 8
-  %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %8 = load i64, ptr %7, align 8
-  %cmp.i.i = icmp sgt i64 %8, 1
+  %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %6 = load i64, ptr %5, align 8
+  %cmp.i.i = icmp sgt i64 %6, 1
   br i1 %cmp.i.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i: ; preds = %if.end
-  %dec.i.i = add nsw i64 %8, -1
-  store i64 %dec.i.i, ptr %7, align 8
+  %dec.i.i = add nsw i64 %6, -1
+  store i64 %dec.i.i, ptr %5, align 8
   br label %_ZN4absl4Cord9InlineRep11EmplaceTreeEPNS_13cord_internal7CordRepENS2_18CordzUpdateTracker16MethodIdentifierE.exit
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i: ; preds = %if.end
@@ -1893,14 +1869,10 @@ if.end51.thread:                                  ; preds = %if.end23
   %tag.i.i47 = getelementptr inbounds nuw i8, ptr %call4.i.i48, i64 12
   store i8 %conv.i.i.i.i46, ptr %tag.i.i47, align 4
   %29 = trunc nuw nsw i64 %sub.i.i5.i.i to i32
-  %conv.i.i.i49 = and i32 %29, 255
-  %cmp.i.i.i50 = icmp ult i8 %conv.i.i.i.i46, 67
-  %cmp3.i.i.i = icmp ult i8 %conv.i.i.i.i46, -69
-  %..i.i.i = select i1 %cmp3.i.i.i, i32 6, i32 12
-  %.sink5.i.i.i = select i1 %cmp.i.i.i50, i32 3, i32 %..i.i.i
-  %mul6.i.i.i = shl nuw nsw i32 %conv.i.i.i49, %.sink5.i.i.i
-  %30 = select i1 %cmp3.i.i.i, i32 -3725, i32 -753677
-  %sub8.i.i.i = select i1 %cmp.i.i.i50, i32 -29, i32 %30
+  %cmp.i.i.i50 = icmp samesign ult i8 %conv.i.i.i.i46, 67
+  %.sink5.i.i.i = select i1 %cmp.i.i.i50, i32 3, i32 6
+  %mul6.i.i.i = shl nuw nsw i32 %29, %.sink5.i.i.i
+  %sub8.i.i.i = select i1 %cmp.i.i.i50, i32 -29, i32 -3725
   %narrow.i.i = add nsw i32 %mul6.i.i.i, %sub8.i.i.i
   %sub.i.i51 = sext i32 %narrow.i.i to i64
   %sub34 = sub i64 %sub.i.i51, %shr.i.i.i
@@ -1919,20 +1891,20 @@ if.end51.thread:                                  ; preds = %if.end23
 if.then53.thread:                                 ; preds = %if.end51.thread
   store ptr %call4.i.i48, ptr %rep.i.i.i.i.i, align 8
   store i64 1, ptr %this, align 8
-  %31 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %32 = load i64, ptr %31, align 8
-  %cmp.i.i.i64 = icmp sgt i64 %32, 1
+  %30 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %31 = load i64, ptr %30, align 8
+  %cmp.i.i.i64 = icmp sgt i64 %31, 1
   br i1 %cmp.i.i.i64, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i
 
 if.then53:                                        ; preds = %if.end51
   store ptr %retval.0.i26, ptr %rep.i.i.i.i.i, align 8
-  %33 = load ptr, ptr %scope, align 8
-  %tobool.not.i.i.i = icmp eq ptr %33, null
+  %32 = load ptr, ptr %scope, align 8
+  %tobool.not.i.i.i = icmp eq ptr %32, null
   br i1 %tobool.not.i.i.i, label %cleanup.cont, label %if.then.i87.sink.split
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i: ; preds = %if.then53.thread
-  %dec.i.i.i = add nsw i64 %32, -1
-  store i64 %dec.i.i.i, ptr %31, align 8
+  %dec.i.i.i = add nsw i64 %31, -1
+  store i64 %dec.i.i.i, ptr %30, align 8
   br label %cleanup
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i: ; preds = %if.then53.thread
@@ -1951,8 +1923,8 @@ if.end55:                                         ; preds = %if.end51.thread, %i
 
 invoke.cont56:                                    ; preds = %if.end55
   %add.ptr.i57121 = getelementptr inbounds i8, ptr %src.coerce1, i64 %.sroa.speculated91.pn
-  %34 = load i64, ptr %call57, align 8
-  %div = udiv i64 %34, 10
+  %33 = load i64, ptr %call57, align 8
+  %div = udiv i64 %33, 10
   %sub67 = tail call i64 @llvm.usub.sat.i64(i64 %div, i64 %sub.i58122)
   %call69 = invoke noundef ptr @_ZN4absl13cord_internal12CordRepBtree6AppendEPS1_St17basic_string_viewIcSt11char_traitsIcEEm(ptr noundef nonnull %call57, i64 %sub.i58122, ptr %add.ptr.i57121, i64 noundef %sub67)
           to label %invoke.cont68 unwind label %lpad
@@ -1962,20 +1934,20 @@ invoke.cont68:                                    ; preds = %invoke.cont56
   br i1 %tobool.not, label %if.else.i76, label %if.then.i71
 
 if.then.i71:                                      ; preds = %invoke.cont68
-  %35 = load ptr, ptr %scope, align 8
-  %tobool.not.i.i.i72 = icmp eq ptr %35, null
+  %34 = load ptr, ptr %scope, align 8
+  %tobool.not.i.i.i72 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i.i72, label %cleanup.cont, label %if.then.i87.sink.split
 
 if.else.i76:                                      ; preds = %invoke.cont68
   store i64 1, ptr %this, align 8
-  %36 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
-  %37 = load i64, ptr %36, align 8
-  %cmp.i.i.i77 = icmp sgt i64 %37, 1
+  %35 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4absl13cord_internal17cordz_next_sampleE)
+  %36 = load i64, ptr %35, align 8
+  %cmp.i.i.i77 = icmp sgt i64 %36, 1
   br i1 %cmp.i.i.i77, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i80, label %_ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i78
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.thread.i.i80: ; preds = %if.else.i76
-  %dec.i.i.i81 = add nsw i64 %37, -1
-  store i64 %dec.i.i.i81, ptr %36, align 8
+  %dec.i.i.i81 = add nsw i64 %36, -1
+  store i64 %dec.i.i.i81, ptr %35, align 8
   br label %cleanup
 
 _ZN4absl13cord_internal20cordz_should_profileEv.exit.i.i78: ; preds = %if.else.i76
@@ -1995,22 +1967,22 @@ cleanup:                                          ; preds = %if.then.i.i3.i79.in
   br i1 %tobool.not.i86, label %cleanup.cont, label %if.then.i87
 
 if.then.i87.sink.split:                           ; preds = %if.then.i71, %if.then53
-  %.sink = phi ptr [ %33, %if.then53 ], [ %35, %if.then.i71 ]
+  %.sink = phi ptr [ %32, %if.then53 ], [ %34, %if.then.i71 ]
   %retval.0.i26.sink = phi ptr [ %retval.0.i26, %if.then53 ], [ %call69, %if.then.i71 ]
   %rep_.i.i.i.i = getelementptr inbounds nuw i8, ptr %.sink, i64 64
   store ptr %retval.0.i26.sink, ptr %rep_.i.i.i.i, align 8
   br label %if.then.i87
 
 if.then.i87:                                      ; preds = %if.then.i87.sink.split, %cleanup
-  %38 = phi ptr [ %.pr, %cleanup ], [ %.sink, %if.then.i87.sink.split ]
-  invoke void @_ZN4absl13cord_internal9CordzInfo6UnlockEv(ptr noundef nonnull align 8 dereferenceable(1332) %38)
+  %37 = phi ptr [ %.pr, %cleanup ], [ %.sink, %if.then.i87.sink.split ]
+  invoke void @_ZN4absl13cord_internal9CordzInfo6UnlockEv(ptr noundef nonnull align 8 dereferenceable(1332) %37)
           to label %cleanup.cont unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i87
-  %39 = landingpad { ptr, i32 }
+  %38 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #26
+  %39 = extractvalue { ptr, i32 } %38, 0
+  tail call void @__clang_call_terminate(ptr %39) #26
   unreachable
 
 cleanup.cont:                                     ; preds = %if.then53, %if.then.i71, %if.then.i87, %cleanup, %_ZN4absl4Cord9InlineRep23MaybeRemoveEmptyCrcNodeEv.exit
@@ -8552,7 +8524,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i8 @_ZN4absl16strings_internal14CordTestAccess11LengthToTagEm(i64 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext range(i8 3, 123) i8 @_ZN4absl16strings_internal14CordTestAccess11LengthToTagEm(i64 noundef %s) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %death_message = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator", align 1

@@ -89828,7 +89828,7 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
 
 9:                                                ; preds = %3
   store i32 0, ptr %0, align 4
-  br label %24
+  br label %23
 
 10:                                               ; preds = %3
   %11 = trunc i64 %.0.i to i32
@@ -89839,31 +89839,29 @@ define internal fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..u
 
 15:                                               ; preds = %10
   %16 = trunc nsw i64 %spec.select.i to i32
-  %17 = icmp ugt i64 %spec.select.i, 86399
-  %18 = icmp ugt i32 %2, 1999999999
-  %or.cond1 = or i1 %18, %17
-  br i1 %or.cond1, label %.thread, label %19
+  %17 = icmp ugt i32 %2, 1999999999
+  br i1 %17, label %.thread, label %18
 
-.thread:                                          ; preds = %15, %19, %10
+.thread:                                          ; preds = %15, %18, %10
   store i32 0, ptr %0, align 4
-  br label %24
+  br label %23
 
-19:                                               ; preds = %15
-  %20 = icmp samesign ugt i32 %2, 999999999
-  %21 = urem i32 %16, 60
-  %22 = icmp ne i32 %21, 59
-  %or.cond3.not = and i1 %20, %22
-  br i1 %or.cond3.not, label %.thread, label %23
+18:                                               ; preds = %15
+  %19 = icmp samesign ugt i32 %2, 999999999
+  %20 = urem i32 %16, 60
+  %21 = icmp ne i32 %20, 59
+  %or.cond3.not = and i1 %19, %21
+  br i1 %or.cond3.not, label %.thread, label %22
 
-23:                                               ; preds = %19
+22:                                               ; preds = %18
   store i32 %13, ptr %0, align 4
   %.sroa.06.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %16, ptr %.sroa.06.sroa.4.0..sroa_idx, align 4
   %.sroa.06.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %.sroa.06.sroa.5.0..sroa_idx, align 4
-  br label %24
+  br label %23
 
-24:                                               ; preds = %23, %.thread, %9
+23:                                               ; preds = %22, %.thread, %9
   ret void
 }
 
@@ -101473,7 +101471,7 @@ default.unreachable394:                           ; preds = %848, %284, %248, %9
   %129 = select i1 %128, i64 1000, i64 0
   %spec.select.i.i.i = add nsw i64 %129, %127
   %130 = trunc nsw i64 %spec.select.i.i.i to i32
-  %131 = mul nsw i32 %130, 1000000
+  %131 = mul nuw nsw i32 %130, 1000000
   store i64 %.0.i.i.i, ptr %102, align 8, !noalias !24886
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 736
   store i32 %131, ptr %132, align 8, !noalias !24886
@@ -101700,7 +101698,7 @@ _ZN4core3cmp10PartialOrd2lt17hab4e0ae9fcebd596E.exit.thread.i: ; preds = %_ZN4co
   %.0.i.i = add nsw i64 %.sroa.0.0.i.i, %239
   %240 = sdiv i64 %.0.i.i, 3600
   %241 = icmp slt i64 %.0.i.i.i, 0
-  %242 = icmp sgt i64 %spec.select.i.i.i, 0
+  %242 = icmp ne i64 %spec.select.i.i.i, 0
   %or.cond.i79.i = select i1 %241, i1 %242, i1 false
   %243 = zext i1 %or.cond.i79.i to i64
   %.0.i80.i = add nsw i64 %.0.i.i.i, %243
@@ -127584,84 +127582,80 @@ define void @_ZN14deltalake_core16delta_datafusion28partitioned_file_from_action
   %21 = srem i64 %16, 86400
   %.lobit.i.i = ashr i64 %21, 63
   %.0.i.i = add nsw i64 %.lobit.i.i, %20
-  %22 = icmp slt i64 %21, 0
-  %23 = select i1 %22, i64 86400, i64 0
-  %spec.select.i.i = add nsw i64 %23, %21
-  %24 = add nsw i64 %.0.i.i, -2146764485
-  %or.cond.i = icmp ult i64 %24, -4294967296
-  br i1 %or.cond.i, label %35, label %25
+  %22 = add nsw i64 %.0.i.i, -2146764485
+  %or.cond.i = icmp ult i64 %22, -4294967296
+  br i1 %or.cond.i, label %31, label %23
 
-25:                                               ; preds = %5
-  %26 = trunc i64 %.0.i.i to i32
-  %27 = add i32 %26, 719163
-  %28 = invoke noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h4f444561cf244fbbE(i32 noundef %27)
-          to label %.noexc unwind label %33
+23:                                               ; preds = %5
+  %24 = trunc i64 %.0.i.i to i32
+  %25 = add i32 %24, 719163
+  %26 = invoke noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17h4f444561cf244fbbE(i32 noundef %25)
+          to label %.noexc unwind label %29
 
-.noexc:                                           ; preds = %25
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %35, label %30
+.noexc:                                           ; preds = %23
+  %27 = icmp eq i32 %26, 0
+  %28 = icmp ugt i32 %19, 1999999999
+  %or.cond = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond, label %31, label %32
 
-30:                                               ; preds = %.noexc
-  %31 = icmp ugt i64 %spec.select.i.i, 86399
-  %32 = icmp ugt i32 %19, 1999999999
-  %or.cond1.i = or i1 %32, %31
-  br i1 %or.cond1.i, label %35, label %36
-
-33:                                               ; preds = %25, %36, %35
-  %34 = landingpad { ptr, i32 }
+29:                                               ; preds = %23, %32, %31
+  %30 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %43, %33
-  %eh.lpad-body = phi { ptr, i32 } [ %34, %33 ], [ %44, %43 ]
+.body:                                            ; preds = %39, %29
+  %eh.lpad-body = phi { ptr, i32 } [ %30, %29 ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$datafusion_common..scalar..ScalarValue$GT$$GT$17hc3c1bf2832f17d75E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #67
-          to label %55 unwind label %53
+          to label %53 unwind label %51
 
-35:                                               ; preds = %5, %30, %.noexc
+31:                                               ; preds = %5, %.noexc
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af2c6469e34a74e5b434b49a924e5785.606) #66
-          to label %37 unwind label %33
+          to label %33 unwind label %29
 
-36:                                               ; preds = %30
+32:                                               ; preds = %.noexc
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.05)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.013)
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %7)
   invoke void @"_ZN14deltalake_core7storage5utils133_$LT$impl$u20$core..convert..TryFrom$LT$$RF$deltalake_core..kernel..models..actions..Add$GT$$u20$for$u20$object_store..ObjectMeta$GT$8try_from17h6ca994662e226d69E"(ptr noalias nocapture noundef nonnull sret({ i64, [11 x i64] }) align 8 dereferenceable(96) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(296) %1)
-          to label %38 unwind label %33
+          to label %34 unwind label %29
 
-37:                                               ; preds = %35
+33:                                               ; preds = %31
   unreachable
 
-38:                                               ; preds = %36
+34:                                               ; preds = %32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28948)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28951)
-  %39 = load i64, ptr %7, align 8, !range !2183, !alias.scope !28951, !noalias !28948, !noundef !4
-  %40 = icmp eq i64 %39, -9223372036854775808
-  br i1 %40, label %41, label %48
+  %35 = load i64, ptr %7, align 8, !range !2183, !alias.scope !28951, !noalias !28948, !noundef !4
+  %36 = icmp eq i64 %35, -9223372036854775808
+  br i1 %36, label %37, label %44
 
-41:                                               ; preds = %38
+37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6), !noalias !28953
-  %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %42, i64 88, i1 false), !noalias !28948
+  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %6, ptr noundef nonnull align 8 dereferenceable(88) %38, i64 88, i1 false), !noalias !28948
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.af2c6469e34a74e5b434b49a924e5785.121.llvm.8022584466853825857, i64 noundef 43, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af2c6469e34a74e5b434b49a924e5785.124, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.af2c6469e34a74e5b434b49a924e5785.607) #66
-          to label %45 unwind label %43, !noalias !28953
+          to label %41 unwind label %39, !noalias !28953
 
-43:                                               ; preds = %41
-  %44 = landingpad { ptr, i32 }
+39:                                               ; preds = %37
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr60drop_in_place$LT$deltalake_core..errors..DeltaTableError$GT$17hb6fa9b72dafb274dE.llvm.8022584466853825857"(ptr noalias noundef nonnull align 8 dereferenceable(88) %6) #67
-          to label %.body unwind label %46, !noalias !28953
+          to label %.body unwind label %42, !noalias !28953
 
-45:                                               ; preds = %41
+41:                                               ; preds = %37
   unreachable
 
-46:                                               ; preds = %43
-  %47 = landingpad { ptr, i32 }
+42:                                               ; preds = %39
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #68, !noalias !28953
   unreachable
 
-48:                                               ; preds = %38
-  %49 = trunc nuw nsw i64 %spec.select.i.i to i32
+44:                                               ; preds = %34
+  %45 = icmp slt i64 %21, 0
+  %46 = select i1 %45, i64 86400, i64 0
+  %spec.select.i.i = add nsw i64 %46, %21
+  %47 = trunc nsw i64 %spec.select.i.i to i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %.sroa.013, ptr noundef nonnull align 8 dereferenceable(72) %7, i64 72, i1 false), !alias.scope !28953
   %.sroa.6.0..sroa_idx14 = getelementptr inbounds nuw i8, ptr %7, i64 72
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx14, align 8, !alias.scope !28953
@@ -127673,33 +127667,33 @@ define void @_ZN14deltalake_core16delta_datafusion28partitioned_file_from_action
   %.sroa.05.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.05, i64 48
   %.sroa.013.48..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.013, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.05.48..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.013.48..sroa_idx, i64 24, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %50, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.05, i64 72, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %48, ptr noundef nonnull align 8 dereferenceable(72) %.sroa.05, i64 72, i1 false)
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %28, ptr %.sroa.7.0..sroa_idx, align 8
+  store i32 %26, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %49, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 4
+  store i32 %47, ptr %.sroa.7.sroa.4.0..sroa.7.0..sroa_idx.sroa_idx, align 4
   %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i32 %19, ptr %.sroa.7.sroa.5.0..sroa.7.0..sroa_idx.sroa_idx, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   store i64 0, ptr %0, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr null, ptr %52, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr null, ptr %50, align 8
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.05)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %.sroa.013)
   ret void
 
-53:                                               ; preds = %.body
-  %54 = landingpad { ptr, i32 }
+51:                                               ; preds = %.body
+  %52 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #68
   unreachable
 
-55:                                               ; preds = %.body
+53:                                               ; preds = %.body
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -133280,7 +133274,7 @@ _ZN6chrono6expect17h1a46f33ff1df836bE.exit:       ; preds = %81, %77
   %136 = select i1 %135, i64 1000, i64 0
   %spec.select.i = add nsw i64 %136, %134
   %137 = trunc nsw i64 %spec.select.i to i32
-  %138 = mul nsw i32 %137, 1000000
+  %138 = mul nuw nsw i32 %137, 1000000
   call fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias nocapture noundef align 4 dereferenceable(12) %28, i64 noundef %.0.i, i32 noundef %138)
   br label %150
 
@@ -133293,7 +133287,7 @@ _ZN6chrono6expect17h1a46f33ff1df836bE.exit:       ; preds = %81, %77
   %143 = select i1 %142, i64 1000000, i64 0
   %spec.select.i211 = add nsw i64 %143, %141
   %144 = trunc nsw i64 %spec.select.i211 to i32
-  %145 = mul nsw i32 %144, 1000
+  %145 = mul nuw nsw i32 %144, 1000
   call fastcc void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h2cc97507110fd0f1E"(ptr noalias nocapture noundef align 4 dereferenceable(12) %28, i64 noundef %.0.i210, i32 noundef %145)
   br label %150
 

@@ -28751,7 +28751,7 @@ define noundef i24 @"_ZN92_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i24 0, 131072) i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel3new17h839931222972eefdE(i1 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #14 {
+define range(i24 0, 66048) i24 @_ZN10tokenizers14pre_tokenizers10byte_level9ByteLevel3new17h839931222972eefdE(i1 noundef zeroext %0, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #14 {
   %.sroa.3.0.insert.shift = select i1 %2, i24 65536, i24 0
   %.sroa.2.0.insert.shift = select i1 %1, i24 256, i24 0
   %.sroa.0.0.insert.ext = zext i1 %0 to i24

@@ -5494,16 +5494,16 @@ if.end7:                                          ; preds = %if.end
 
 for.body:                                         ; preds = %if.end7, %for.body
   %indvars.iv = phi i64 [ 0, %if.end7 ], [ %indvars.iv.next, %for.body ]
-  %mask.022 = phi i32 [ 8912999, %if.end7 ], [ %shr, %for.body ]
-  %and = and i32 %mask.022, 1
+  %mask.021 = phi i32 [ 8912999, %if.end7 ], [ %shr, %for.body ]
+  %and = and i32 %mask.021, 1
   %arrayidx = getelementptr inbounds nuw [24 x i32], ptr %fStamp13, i64 0, i64 %indvars.iv
   %arrayidx12 = getelementptr inbounds nuw [24 x i8], ptr %fIsSet16, i64 0, i64 %indvars.iv
   %. = xor i32 %and, 1
   %7 = trunc nuw nsw i32 %and to i8
-  %.26 = xor i8 %7, 1
+  %.25 = xor i8 %7, 1
   store i32 %., ptr %arrayidx, align 4
-  store i8 %.26, ptr %arrayidx12, align 1
-  %shr = lshr i32 %mask.022, 1
+  store i8 %.25, ptr %arrayidx12, align 1
+  %shr = lshr i32 %mask.021, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
@@ -5544,18 +5544,17 @@ if.end.i:                                         ; preds = %_ZN6icu_758Calendar
   %cmp.i7.i = icmp slt i32 %rem.i.i, 0
   %cond.i.i = select i1 %cmp.i7.i, i32 8, i32 1
   %add3.i.i = add nsw i32 %cond.i.i, %rem.i.i
-  %conv.i17 = and i32 %add3.i.i, 255
   %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 %conv.i17, ptr %arrayidx.i.i, align 8
+  store i32 %add3.i.i, ptr %arrayidx.i.i, align 8
   %arrayidx3.i.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 1, ptr %arrayidx3.i.i, align 8
   %arrayidx5.i.i = getelementptr inbounds nuw i8, ptr %this, i64 115
   store i8 1, ptr %arrayidx5.i.i, align 1
   %fFirstDayOfWeek.i.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %10 = load i32, ptr %fFirstDayOfWeek.i.i, align 8
-  %sub.i = sub nsw i32 %conv.i17, %10
-  %cmp.i18 = icmp slt i32 %sub.i, 0
-  %spec.select.v.i = select i1 %cmp.i18, i32 8, i32 1
+  %sub.i = sub nsw i32 %add3.i.i, %10
+  %cmp.i17 = icmp slt i32 %sub.i, 0
+  %spec.select.v.i = select i1 %cmp.i17, i32 8, i32 1
   %spec.select.i = add nsw i32 %spec.select.v.i, %sub.i
   %arrayidx.i9.i = getelementptr inbounds nuw i8, ptr %this, i64 84
   %arrayidx3.i11.i = getelementptr inbounds nuw i8, ptr %this, i64 204
@@ -5573,8 +5572,8 @@ _ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit: ; preds =
   call void %12(ptr noundef nonnull align 8 dereferenceable(618) %this, i32 noundef %11, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   call void @_ZN6icu_758Calendar17computeWeekFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 4 dereferenceable(4) %ec)
   %13 = load i32, ptr %ec, align 4
-  %cmp.i19 = icmp slt i32 %13, 1
-  br i1 %cmp.i19, label %if.end30, label %return
+  %cmp.i18 = icmp slt i32 %13, 1
+  br i1 %cmp.i18, label %if.end30, label %return
 
 if.end30:                                         ; preds = %_ZN6icu_758Calendar28computeGregorianAndDOWFieldsEiR10UErrorCode.exit
   %14 = load i32, ptr %millisInDay, align 4
@@ -5598,8 +5597,8 @@ if.end30:                                         ; preds = %_ZN6icu_758Calendar
   %arrayidx47 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store i32 %div45, ptr %arrayidx47, align 8
   %rem48.lhs.trunc = trunc nsw i32 %div42 to i16
-  %rem4821 = srem i16 %rem48.lhs.trunc, 12
-  %rem48.sext = sext i16 %rem4821 to i32
+  %rem4820 = srem i16 %rem48.lhs.trunc, 12
+  %rem48.sext = sext i16 %rem4820 to i32
   %arrayidx50 = getelementptr inbounds nuw i8, ptr %this, i64 52
   store i32 %rem48.sext, ptr %arrayidx50, align 4
   %15 = load i32, ptr %rawOffset, align 4
@@ -5655,16 +5654,15 @@ if.end:                                           ; preds = %_ZN6icu_758Calendar
   %cmp.i7 = icmp slt i32 %rem.i, 0
   %cond.i = select i1 %cmp.i7, i32 8, i32 1
   %add3.i = add nsw i32 %cond.i, %rem.i
-  %conv = and i32 %add3.i, 255
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 40
-  store i32 %conv, ptr %arrayidx.i, align 8
+  store i32 %add3.i, ptr %arrayidx.i, align 8
   %arrayidx3.i = getelementptr inbounds nuw i8, ptr %this, i64 160
   store i32 1, ptr %arrayidx3.i, align 8
   %arrayidx5.i = getelementptr inbounds nuw i8, ptr %this, i64 115
   store i8 1, ptr %arrayidx5.i, align 1
   %fFirstDayOfWeek.i = getelementptr inbounds nuw i8, ptr %this, i64 264
   %2 = load i32, ptr %fFirstDayOfWeek.i, align 8
-  %sub = sub nsw i32 %conv, %2
+  %sub = sub nsw i32 %add3.i, %2
   %cmp = icmp slt i32 %sub, 0
   %spec.select.v = select i1 %cmp, i32 8, i32 1
   %spec.select = add nsw i32 %spec.select.v, %sub
@@ -5815,7 +5813,7 @@ return:                                           ; preds = %entry, %if.end48
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext range(i8 -5, 15) i8 @_ZN6icu_758Calendar20julianDayToDayOfWeekEi(i32 noundef %julian) local_unnamed_addr #18 align 2 {
+define noundef zeroext range(i8 1, 8) i8 @_ZN6icu_758Calendar20julianDayToDayOfWeekEi(i32 noundef %julian) local_unnamed_addr #18 align 2 {
 entry:
   %add = add nsw i32 %julian, 1
   %rem = srem i32 %add, 7
@@ -10276,8 +10274,7 @@ if.end48:                                         ; preds = %if.end27
   %cmp.i101 = icmp slt i32 %rem.i, 0
   %cond.i102 = select i1 %cmp.i101, i32 8, i32 1
   %add3.i = add nsw i32 %cond.i102, %rem.i
-  %conv52 = and i32 %add3.i, 255
-  %sub = sub nsw i32 %conv52, %17
+  %sub = sub nsw i32 %add3.i, %17
   %cmp53 = icmp slt i32 %sub, 0
   %add55 = add nsw i32 %sub, 7
   %spec.select63 = select i1 %cmp53, i32 %add55, i32 %sub
@@ -10380,8 +10377,7 @@ if.then94:                                        ; preds = %if.then86, %lor.lhs
   %cmp.i127 = icmp slt i32 %rem.i126, 0
   %cond.i128 = select i1 %cmp.i127, i32 8, i32 1
   %add3.i129 = add nsw i32 %cond.i128, %rem.i126
-  %conv102 = and i32 %add3.i129, 255
-  %sub103 = sub nsw i32 %conv102, %17
+  %sub103 = sub nsw i32 %add3.i129, %17
   %cmp104 = icmp slt i32 %sub103, 0
   %add106 = add nsw i32 %sub103, 7
   %spec.select66 = select i1 %cmp104, i32 %add106, i32 %sub103
@@ -10439,8 +10435,7 @@ if.then146:                                       ; preds = %if.then133
   %cmp.i140 = icmp slt i32 %rem.i139, 0
   %cond.i141 = select i1 %cmp.i140, i32 8, i32 1
   %add3.i142 = add nsw i32 %cond.i141, %rem.i139
-  %conv153 = and i32 %add3.i142, 255
-  %sub154 = sub nsw i32 %conv153, %17
+  %sub154 = sub nsw i32 %add3.i142, %17
   %cmp155 = icmp slt i32 %sub154, 0
   %add157 = add nsw i32 %sub154, 7
   %spec.select69 = select i1 %cmp155, i32 %add157, i32 %sub154
@@ -10568,8 +10563,7 @@ _ZN6icu_758Calendar11getLocalDOWEv.exit:          ; preds = %entry, %sw.bb.i, %s
   %cmp.i34 = icmp slt i32 %rem.i33, 0
   %cond.i = select i1 %cmp.i34, i32 8, i32 1
   %add3.i = add nsw i32 %cond.i, %rem.i33
-  %conv = and i32 %add3.i, 255
-  %sub = sub nsw i32 %conv, %3
+  %sub = sub nsw i32 %add3.i, %3
   %cmp = icmp slt i32 %sub, 0
   %add10 = add nsw i32 %sub, 7
   %spec.select = select i1 %cmp, i32 %add10, i32 %sub

@@ -50598,7 +50598,7 @@ _ZN4llvm5APIntD2Ev.exit48:                        ; preds = %.critedge, %140, %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 0, 8) i32 @_ZN4llvm15ScalarEvolution20getNoWrapFlagsFromUBEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef range(i32 0, 7) i32 @_ZN4llvm15ScalarEvolution20getNoWrapFlagsFromUBEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1392) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %1, align 8
   %4 = icmp eq i8 %3, 5
   br i1 %4, label %13, label %5

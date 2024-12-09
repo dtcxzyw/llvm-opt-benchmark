@@ -2663,7 +2663,7 @@ define internal void @lpt_enable_backlight(ptr nocapture readnone %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal range(i32 0, -2012483648) i32 @lpt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
+define internal range(i32 0, -2012483655) i32 @lpt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #6 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2043
   %5 = load i8, ptr %4, align 1, !range !28, !noundef !29
@@ -2693,7 +2693,7 @@ define internal range(i32 0, 65536) i32 @pch_get_backlight(ptr nocapture noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, -2123483648) i32 @spt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
+define internal range(i32 0, -2123483655) i32 @spt_hz_to_pwm(ptr nocapture noundef readonly %0, i32 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2043
   %4 = load i8, ptr %3, align 1, !range !28, !noundef !29
   %5 = icmp eq i8 %4, 0

@@ -12707,7 +12707,7 @@ return:                                           ; preds = %entry, %if.end13, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 -1, 33) i32 @_ZL14stbi__high_bitj(i32 noundef %z) unnamed_addr #12 {
+define internal fastcc noundef range(i32 -1, 32) i32 @_ZL14stbi__high_bitj(i32 noundef %z) unnamed_addr #12 {
 entry:
   %cmp = icmp eq i32 %z, 0
   br i1 %cmp, label %return, label %if.end

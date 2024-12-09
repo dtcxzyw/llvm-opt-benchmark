@@ -29422,7 +29422,7 @@ define hidden void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$G
 
 8:                                                ; preds = %"_ZN4core3num21_$LT$impl$u20$i64$GT$10div_euclid17h350de8203fbe9f6fE.llvm.3533412349758872646.exit"
   store i32 0, ptr %0, align 4
-  br label %19
+  br label %18
 
 9:                                                ; preds = %"_ZN4core3num21_$LT$impl$u20$i64$GT$10div_euclid17h350de8203fbe9f6fE.llvm.3533412349758872646.exit"
   %10 = trunc i64 %spec.select to i32
@@ -29433,36 +29433,34 @@ define hidden void @"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$G
 
 14:                                               ; preds = %9
   store i32 0, ptr %0, align 4
-  br label %19
+  br label %18
 
 15:                                               ; preds = %9
   %16 = trunc nsw i64 %.sroa.0.0.i12 to i32
-  %17 = icmp ugt i64 %.sroa.0.0.i12, 86399
-  %18 = icmp ugt i32 %2, 1999999999
-  %or.cond1 = or i1 %18, %17
-  br i1 %or.cond1, label %20, label %21
+  %17 = icmp ugt i32 %2, 1999999999
+  br i1 %17, label %19, label %20
 
-19:                                               ; preds = %25, %20, %14, %8
+18:                                               ; preds = %24, %19, %14, %8
   ret void
 
-20:                                               ; preds = %21, %15
+19:                                               ; preds = %20, %15
   store i32 0, ptr %0, align 4
-  br label %19
+  br label %18
 
-21:                                               ; preds = %15
-  %22 = icmp samesign ult i32 %2, 1000000000
-  %23 = urem i32 %16, 60
-  %24 = icmp eq i32 %23, 59
-  %or.cond3 = or i1 %22, %24
-  br i1 %or.cond3, label %25, label %20
+20:                                               ; preds = %15
+  %21 = icmp samesign ult i32 %2, 1000000000
+  %22 = urem i32 %16, 60
+  %23 = icmp eq i32 %22, 59
+  %or.cond3 = or i1 %21, %23
+  br i1 %or.cond3, label %24, label %19
 
-25:                                               ; preds = %21
+24:                                               ; preds = %20
   store i32 %12, ptr %0, align 4
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %16, ptr %.sroa.48.0..sroa_idx, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %2, ptr %.sroa.5.0..sroa_idx, align 4
-  br label %19
+  br label %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -43953,38 +43951,33 @@ define hidden void @_ZN6client4user9UserStore32set_current_user_accepted_tos_at1
 4:                                                ; preds = %3
   %5 = sdiv i64 %2, 86400
   %6 = srem i64 %2, 86400
-  %7 = icmp slt i64 %6, 0
   %.lobit.i = ashr i64 %6, 63
   %spec.select.i = add nsw i64 %.lobit.i, %5
-  %8 = select i1 %7, i64 86400, i64 0
-  %.sroa.0.0.i12.i = add nsw i64 %8, %6
-  %9 = add nsw i64 %spec.select.i, -2146764485
-  %or.cond.i = icmp ult i64 %9, -4294967296
-  br i1 %or.cond.i, label %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit", label %10
+  %7 = add nsw i64 %spec.select.i, -2146764485
+  %or.cond.i = icmp ult i64 %7, -4294967296
+  br i1 %or.cond.i, label %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit", label %8
 
-10:                                               ; preds = %4
+8:                                                ; preds = %4
+  %9 = icmp slt i64 %6, 0
+  %10 = select i1 %9, i64 86400, i64 0
+  %.sroa.0.0.i12.i = add nsw i64 %10, %6
   %11 = trunc i64 %spec.select.i to i32
   %12 = add i32 %11, 719163
   %13 = tail call noundef i32 @_ZN6chrono5naive4date9NaiveDate25from_num_days_from_ce_opt17hd47f360da452322cE(i32 noundef %12), !noalias !8290
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit", label %15
-
-15:                                               ; preds = %10
-  %16 = trunc nsw i64 %.sroa.0.0.i12.i to i32
-  %17 = icmp ugt i64 %.sroa.0.0.i12.i, 86399
-  %spec.select = select i1 %17, i32 undef, i32 %16
-  %spec.select2 = select i1 %17, i32 0, i32 %13
+  %15 = trunc nsw i64 %.sroa.0.0.i12.i to i32
+  %spec.select = select i1 %14, i32 undef, i32 %15
   br label %"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit"
 
-"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit": ; preds = %15, %4, %10, %3
-  %.sroa.8.0 = phi i32 [ undef, %3 ], [ undef, %4 ], [ undef, %10 ], [ %spec.select, %15 ]
-  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %4 ], [ 0, %10 ], [ %spec.select2, %15 ]
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 1, ptr %18, align 8
+"_ZN6chrono8datetime40DateTime$LT$chrono..offset..utc..Utc$GT$14from_timestamp17h47a1604e397cc3f1E.llvm.3533412349758872646.exit": ; preds = %8, %4, %3
+  %.sroa.7.0 = phi i32 [ undef, %3 ], [ undef, %4 ], [ %spec.select, %8 ]
+  %.sroa.0.0 = phi i32 [ 0, %3 ], [ 0, %4 ], [ %13, %8 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 1, ptr %16, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 %.sroa.0.0, ptr %.sroa.4.0..sroa_idx, align 4
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i32 %.sroa.8.0, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
+  store i32 %.sroa.7.0, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx, align 8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 100
   store i32 0, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx, align 4
   ret void

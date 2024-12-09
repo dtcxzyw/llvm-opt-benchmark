@@ -174767,7 +174767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i: ; pr
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef range(i32 0, 67) i32 @_ZL3ctzm(i64 noundef range(i64 2, 0) %0) unnamed_addr #16 {
+define internal fastcc noundef range(i32 0, 64) i32 @_ZL3ctzm(i64 noundef range(i64 2, 0) %0) unnamed_addr #16 {
   %.mask = and i64 %0, 4294967295
   %2 = icmp eq i64 %.mask, 0
   %3 = lshr exact i64 %0, 32

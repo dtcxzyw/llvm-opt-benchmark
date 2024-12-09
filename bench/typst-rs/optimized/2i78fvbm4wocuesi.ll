@@ -61483,7 +61483,7 @@ define hidden i40 @"_ZN77_$LT$citationberg..Choose$u20$as$u20$hayagriva..csl..re
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i40 256, 131072) i40 @"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h9a8a6456af70fd05E.llvm.16978709814855407318"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
+define hidden range(i40 256, 65794) i40 @"_ZN77_$LT$citationberg..Number$u20$as$u20$hayagriva..csl..rendering..RenderCsl$GT$14will_have_info17h9a8a6456af70fd05E.llvm.16978709814855407318"(ptr noalias nocapture noundef readonly align 8 dereferenceable(64) %0, ptr noalias noundef align 8 dereferenceable(664) %1) unnamed_addr #7 personality ptr @rust_eh_personality {
   %3 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56

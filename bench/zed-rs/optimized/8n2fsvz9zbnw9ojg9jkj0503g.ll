@@ -151294,7 +151294,7 @@ define void @"_ZN4gpui8platform5linux8platform54_$LT$impl$u20$gpui..platform..ke
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden range(i40 0, 33554432) i40 @"_ZN4gpui8platform5linux8platform54_$LT$impl$u20$gpui..platform..keystroke..Modifiers$GT$8from_xkb17h4681395db3aab7dcE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
+define hidden range(i40 0, 16908288) i40 @"_ZN4gpui8platform5linux8platform54_$LT$impl$u20$gpui..platform..keystroke..Modifiers$GT$8from_xkb17h4681395db3aab7dcE"(ptr noalias noundef readonly align 8 dereferenceable(8) %0) unnamed_addr #4 {
   %2 = tail call noundef zeroext i1 @_ZN9xkbcommon3xkb5State18mod_name_is_active17h48acfc72a49914a5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.2f13f7ae31c46e97a8e87533050cbefc.1124.llvm.9792776892897051010, i64 noundef 5, i32 noundef 8)
   %3 = tail call noundef zeroext i1 @_ZN9xkbcommon3xkb5State18mod_name_is_active17h48acfc72a49914a5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.2f13f7ae31c46e97a8e87533050cbefc.1125.llvm.9792776892897051010, i64 noundef 4, i32 noundef 8)
   %4 = tail call noundef zeroext i1 @_ZN9xkbcommon3xkb5State18mod_name_is_active17h48acfc72a49914a5E(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %0, ptr noalias noundef nonnull readonly align 1 @anon.2f13f7ae31c46e97a8e87533050cbefc.1126.llvm.9792776892897051010, i64 noundef 7, i32 noundef 8)

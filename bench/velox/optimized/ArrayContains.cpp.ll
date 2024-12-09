@@ -17274,7 +17274,7 @@ if.then4:                                         ; preds = %if.then
   %sh_prom.i.i25.i = zext nneg i32 %sub12.i to i64
   %notmask.i.i26.i = shl nsw i64 -1, %sh_prom.i.i25.i
   %sub.i.i27.i = xor i64 %notmask.i.i26.i, -1
-  %sub.i28.i = sub nsw i32 64, %sub12.i
+  %sub.i28.i = sub nuw nsw i32 64, %sub12.i
   %sh_prom.i29.i = zext nneg i32 %sub.i28.i to i64
   %shl.i30.i = shl i64 %sub.i.i27.i, %sh_prom.i29.i
   br i1 %value, label %if.then.i37.i, label %if.else.i32.i

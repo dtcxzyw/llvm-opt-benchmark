@@ -102958,7 +102958,7 @@ define hidden void @_ZN9Assembler11emit_data64ElRK16RelocationHolderi(ptr nocapt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 32) i32 @_ZN9Assembler20get_base_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 18) i32 @_ZN9Assembler20get_base_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = and i32 %1, 16
   %4 = lshr i32 %1, 3
   %5 = and i32 %4, 1
@@ -102967,7 +102967,7 @@ define hidden noundef range(i32 0, 32) i32 @_ZN9Assembler20get_base_prefix_bitsE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21get_index_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 35) i32 @_ZN9Assembler21get_index_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = shl i32 %1, 1
   %spec.select = and i32 %3, 32
   %4 = lshr i32 %1, 2
@@ -103016,7 +103016,7 @@ define hidden noundef range(i32 0, 64) i32 @_ZN9Assembler21get_index_prefix_bits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, 128) i32 @_ZN9Assembler19get_reg_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
+define hidden noundef range(i32 0, 69) i32 @_ZN9Assembler19get_reg_prefix_bitsEi(ptr nocapture noundef nonnull readnone align 8 dereferenceable(40) %0, i32 noundef %1) local_unnamed_addr #5 align 2 {
   %3 = shl i32 %1, 2
   %spec.select = and i32 %3, 64
   %4 = lshr i32 %1, 1

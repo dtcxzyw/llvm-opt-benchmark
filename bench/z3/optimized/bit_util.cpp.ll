@@ -18,18 +18,18 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef range(i32 0, -2147483648) i32 @_Z7msb_posj(i32 noundef %v) local_unnamed_addr #3 {
+define hidden noundef range(i32 0, 128) i32 @_Z7msb_posj(i32 noundef %v) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ugt i32 %v, 65535
   %shl = select i1 %cmp, i32 16, i32 0
   %shr = lshr i32 %v, %shl
-  %cmp1 = icmp ugt i32 %shr, 255
+  %cmp1 = icmp samesign ugt i32 %shr, 255
   %shl3 = select i1 %cmp1, i32 8, i32 0
   %shr4 = lshr i32 %shr, %shl3
-  %cmp5 = icmp ugt i32 %shr4, 15
+  %cmp5 = icmp samesign ugt i32 %shr4, 15
   %shl7 = select i1 %cmp5, i32 4, i32 0
   %shr8 = lshr i32 %shr4, %shl7
-  %cmp10 = icmp ugt i32 %shr8, 3
+  %cmp10 = icmp samesign ugt i32 %shr8, 3
   %shl12 = select i1 %cmp10, i32 2, i32 0
   %shr13 = lshr i32 %shr8, %shl12
   %shr15 = lshr i32 %shr13, 1

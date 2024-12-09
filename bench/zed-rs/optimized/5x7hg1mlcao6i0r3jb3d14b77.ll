@@ -52830,7 +52830,7 @@ define hidden void @"_ZN5taffy8geometry13Rect$LT$T$GT$3map17h52e71a930ecfd8dcE"(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden range(i32 0, 33554432) i32 @"_ZN5taffy8geometry13Rect$LT$T$GT$3map17h7f4a9fd74b10585eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden range(i32 0, 16908288) i32 @"_ZN5taffy8geometry13Rect$LT$T$GT$3map17h7f4a9fd74b10585eE"(ptr noalias nocapture noundef readonly align 4 dereferenceable(32) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i32, ptr %0, align 4, !range !3477, !noundef !9
   %3 = icmp eq i32 %2, 2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
