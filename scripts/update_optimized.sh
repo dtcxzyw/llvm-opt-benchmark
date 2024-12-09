@@ -19,6 +19,7 @@ then
     git -C llvm/llvm-project apply --exclude=*/test/* ../../patch.diff
     python3 scripts/update.py --comptime --no-diff --bench bench --out scripts/pr-comment.md
     python3 scripts/comptime_diff.py comptime_baseline.log comptime.log >> scripts/pr-comment.md
+    exit 0
 else
     git -C llvm/llvm-project apply --exclude=*/test/* ../../patch.diff
     python3 scripts/update.py --bench bench --stats --out scripts/pr-comment.md
